@@ -3,6 +3,10 @@
 /Pasimo/.classpath
 /Pasimo/.project
 /Pasimo/.settings
+<<<<<<< HEAD
 /bin/
 /.classpath
 /.project
+=======
+/Pasimo/.metadata
+>>>>>>> 38b1ca0cf2bc09e8934e1737406dc1f2f0d8f6de
