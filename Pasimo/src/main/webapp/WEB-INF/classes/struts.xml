@@ -6,9 +6,13 @@
 <struts>
     <constant name="struts.devMode" value="true" />
     <package name="alles" extends="struts-default">
-        <action name="index" class="nl.scalda.pasimo.controller.moetnoggemaaktworden"
+        <action name="pag1" class="nl.scalda.pasimo.controller.MainController"
                 method="execute">
             <result name="success">/index.jsp</result>
+        </action>
+        <action name="pag2" class="nl.scalda.pasimo.controller.MainController"
+                method="execute">
+            <result name="success">/index2.jsp</result>
         </action>
     </package>
 </struts>
