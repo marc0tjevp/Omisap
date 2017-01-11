@@ -1,9 +1,9 @@
-/Pasimo/target/
-/Pasimo/bin
-/Pasimo/.classpath
-/Pasimo/.project
-/Pasimo/.settings
+/target/
+/bin
+/.classpath
+/.project
+/.settings
 /bin/
 /.classpath
 /.project
-/Pasimo/.metadata
+/.metadata
