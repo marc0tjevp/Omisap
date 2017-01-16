@@ -1,5 +1,9 @@
-/.metadata
-/.idea
+# Eclipse
+.metadata/
+RemoteSystemsTempFiles/*
+Server/*
 
-/Server
-/RemoteSystemsTempFiles
+# IntelliJ
+.idea/
+*.iws
+*.iml
