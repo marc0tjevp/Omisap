@@ -14,4 +14,8 @@ public class Service {
         return instance;
     }
 
+    public CoachGroupService getCategoryService() {
+        return CoachGroupService.getInstance();
+    }
+
 }
