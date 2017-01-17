@@ -5,11 +5,21 @@
  */
 package nl.scalda.pasimo.main;
 
+import java.util.TreeSet;
+import nl.scalda.pasimo.datalayer.TestDAOCoachGroup;
+import nl.scalda.pasimo.model.EmployeeManagement.CoachGroup;
+import nl.scalda.pasimo.model.EmployeeManagement.Student;
+import nl.scalda.pasimo.model.EmployeeManagement.Teacher;
+import nl.scalda.pasimo.service.Service;
+
 /**
  *
  * @author jeroe
  */
 public class Main {
-    
-    
+
+    public static void main(String args[]) {
+        
+    }
+
 }

@@ -6,7 +6,7 @@
 package nl.scalda.pasimo.interfaces;
 
 import java.util.TreeSet;
-import nl.scalda.pasimo.models.EmployeeManagement.CoachGroup;
+import nl.scalda.pasimo.model.EmployeeManagement.CoachGroup;
 
 /**
  *
@@ -14,7 +14,7 @@ import nl.scalda.pasimo.models.EmployeeManagement.CoachGroup;
  */
 public interface IDAOCoachGroup {
 
-    public void save(CoachGroup CoachGroup);
+    public void create(CoachGroup CoachGroup);
 
     public CoachGroup read(CoachGroup CoachGroup);
 

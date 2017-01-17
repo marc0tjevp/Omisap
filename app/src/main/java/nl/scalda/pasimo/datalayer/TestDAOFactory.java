@@ -11,7 +11,7 @@ public class TestDAOFactory extends DAOFactory {
 
     @Override
     public IDAOCoachGroup getDAOCoachGroup() {
-        return DAOFactory.getTheFactory().getDAOCoachGroup();
+        return TestDAOCoachGroup.getInstance();
     }
 
     public static TestDAOFactory getInstance() {

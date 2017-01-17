@@ -4,7 +4,7 @@ import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import nl.scalda.pasimo.interfaces.IDAOCoachGroup;
-import nl.scalda.pasimo.models.EmployeeManagement.CoachGroup;
+import nl.scalda.pasimo.model.EmployeeManagement.CoachGroup;
 
 /**
  *
@@ -19,7 +19,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
     }
 
     @Override
-    public void save(CoachGroup cg) {
+    public void create(CoachGroup cg) {
         try {
             coachGroups.add(cg);
         } catch (Exception ex) {
@@ -47,6 +47,8 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
             try {
                 if (oldCoachGroup.getId() == ccg.getId()) {
                     ccg.setName(newCoachGroup.getName());
+                    ccg.setTeacher(newCoachGroup.getTeacher());
+                    ccg.setStudents(newCoachGroup.getStudents());
                 }
             } catch (Exception ex) {
                 System.out.println("Could not update, ended with Exception: " + ex.getMessage());
@@ -56,14 +58,10 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 
     @Override
     public void delete(CoachGroup coachGroup) {
-        for (CoachGroup ccg : coachGroups) {
-            try {
-                if (coachGroup.getId() == ccg.getId()) {
-                    coachGroups.remove(ccg);
-                }
-            } catch (Exception ex) {
-                System.out.println("Could not remove. ended with Exception: " + ex.getMessage());
-            }
+        try {
+            coachGroups.remove(coachGroup);
+        } catch (Exception ex) {
+            System.out.println("Could not remove. ended with Exception: " + ex.getMessage());
         }
     }
 

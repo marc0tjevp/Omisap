@@ -4,8 +4,8 @@ import nl.scalda.pasimo.interfaces.IDAOCoachGroup;
 
 public abstract class DAOFactory {
 
-//    protected static DAOFactory theFactory = TestDAOFactory.getInstance();
-    protected static DAOFactory theFactory = MySQLDAOFactory.getInstance();
+    protected static DAOFactory theFactory = TestDAOFactory.getInstance();
+//    protected static DAOFactory theFactory = MySQLDAOFactory.getInstance();
 
     public static DAOFactory getTheFactory() {
         return theFactory;

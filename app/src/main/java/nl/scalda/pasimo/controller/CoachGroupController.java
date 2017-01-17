@@ -1,7 +1,7 @@
 package nl.scalda.pasimo.controller;
 
 import com.opensymphony.xwork2.ActionSupport;
-import nl.scalda.pasimo.models.EmployeeManagement.CoachGroup;
+import nl.scalda.pasimo.model.EmployeeManagement.CoachGroup;
 import nl.scalda.pasimo.service.Service;
 
 /**
