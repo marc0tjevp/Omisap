@@ -6,7 +6,7 @@ public class EducationTeam {
 
 	private int id;
 	private String name;
-	private TreeSet<LessonGroup> lessonGroups;
+	private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
 
 	public EducationTeam() {
 

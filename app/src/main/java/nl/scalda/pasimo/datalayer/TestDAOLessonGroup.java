@@ -1,11 +1,14 @@
 package nl.scalda.pasimo.datalayer;
 
+import java.util.TreeSet;
+
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.model.EmployeeManagement.LessonGroup;
 
 public class TestDAOLessonGroup implements IDAOLessonGroup{
 	
 	private static TestDAOLessonGroup instance = null;
+	private TreeSet<LessonGroup> lessongroups = new TreeSet<>();
 	
 	private TestDAOLessonGroup() {
 		
