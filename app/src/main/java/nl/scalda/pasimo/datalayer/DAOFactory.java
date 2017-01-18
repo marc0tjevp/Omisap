@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.datalayer;
 
 import nl.scalda.pasimo.interfaces.IDAOCoachGroup;
+import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
 
 public abstract class DAOFactory {
 
@@ -15,6 +16,9 @@ public abstract class DAOFactory {
         theFactory = factory;
     }
 //methods
+
     public abstract IDAOCoachGroup getDAOCoachGroup();
+
+    public abstract IDAOLessonGroup getDAOLessonGroup();
 
 }

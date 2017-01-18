@@ -6,12 +6,12 @@ import java.util.TreeSet;
  *
  * @author jeroe
  */
-public class CoachGroup implements Comparable<CoachGroup>{
+public class CoachGroup implements Comparable<CoachGroup> {
 
     private int id;
     private String name;
     private Teacher teacher;
-    private TreeSet<Student> students;
+    private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
 
     public CoachGroup() {
     }
@@ -21,39 +21,34 @@ public class CoachGroup implements Comparable<CoachGroup>{
         this.name = name;
     }
 
-    public CoachGroup(String name, Teacher teacher){
+    public CoachGroup(String name, Teacher teacher) {
         this.name = name;
         this.teacher = teacher;
     }
-    public CoachGroup(String name, Teacher teacher, TreeSet<Student> students){
+
+    public CoachGroup(String name, Teacher teacher, TreeSet<LessonGroup> lessonGroups) {
         this.name = name;
         this.teacher = teacher;
-        this.students = students;
+        this.lessonGroups = lessonGroups;
     }
-    
-    public void addStudent(Student s){
-        this.students.add(s);
+
+    public void addLessonGroup(LessonGroup lg) {
+        this.lessonGroups.add(lg);
     }
-    
-    public void updateStudent(Student s){
-        for(Student cs : this.students){
-            if(cs.getCardID() == s.getCardID()){
-                cs.setName(s.getName());
-                cs.setLastname(s.getLastname());
-                cs.setEmail(s.getEmail());
+
+    public void updateLessonGroup(LessonGroup lg) {
+        for (LessonGroup clg : this.lessonGroups) {
+            if (clg.getId() == lg.getId()) {
+                clg.setName(lg.getName());
+                clg.setStudents(lg.getStudents());
             }
         }
     }
-    
-    public void deleteStudent(Student s){
-        students.remove(s);
+
+    public void deleteLessonGroup(LessonGroup lg) {
+        lessonGroups.remove(lg);
     }
-    
-    public void updateTeacher(){
-        
-    }
-    
-    
+
 //<editor-fold defaultstate="collapsed" desc="getters and setters">    
     public int getId() {
         return id;
@@ -78,21 +73,21 @@ public class CoachGroup implements Comparable<CoachGroup>{
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
-    public TreeSet<Student> getStudents() {
-        return students;
+
+    public TreeSet<LessonGroup> getLessonGroups() {
+        return lessonGroups;
     }
 
-    public void setStudents(TreeSet<Student> students) {
-        this.students = students;
+    public void setLessonGroups(TreeSet<LessonGroup> lessonGroups) {
+        this.lessonGroups = lessonGroups;
     }
 //</editor-fold>
 
     @Override
     public String toString() {
-        return "CoachGroup{" + "id=" + id + ", name=" + name + ", teacher=" + teacher + ", students=" + students + '}';
+        return "CoachGroup: id= " + id + ", name= " + name + ", teacher= " + teacher + ", lessongroup= " + lessonGroups;
     }
 
-    
     @Override
     public int compareTo(CoachGroup o) {
         return name.compareTo(o.getName());

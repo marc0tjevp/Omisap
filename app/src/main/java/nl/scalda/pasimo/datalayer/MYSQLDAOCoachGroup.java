@@ -19,7 +19,7 @@ public class MYSQLDAOCoachGroup extends MySQLDAOConnection implements IDAOCoachG
 
     @Override
     public void create(CoachGroup CoachGroup) {
-        
+
     }
 
     @Override
@@ -29,12 +29,12 @@ public class MYSQLDAOCoachGroup extends MySQLDAOConnection implements IDAOCoachG
 
     @Override
     public void update(CoachGroup oldCoachGroup, CoachGroup newCoachGroup) {
-        
+
     }
 
     @Override
     public void delete(CoachGroup CoachGroup) {
-        
+
     }
 
     public static MYSQLDAOCoachGroup getInstance() {

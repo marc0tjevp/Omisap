@@ -48,7 +48,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
                 if (oldCoachGroup.getId() == ccg.getId()) {
                     ccg.setName(newCoachGroup.getName());
                     ccg.setTeacher(newCoachGroup.getTeacher());
-                    ccg.setStudents(newCoachGroup.getStudents());
+                    ccg.setLessonGroups(newCoachGroup.getLessonGroups());
                 }
             } catch (Exception ex) {
                 System.out.println("Could not update, ended with Exception: " + ex.getMessage());

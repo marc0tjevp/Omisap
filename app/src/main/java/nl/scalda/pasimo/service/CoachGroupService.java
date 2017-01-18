@@ -44,7 +44,6 @@ public class CoachGroupService {
 //        //you will only use this when testing
 //        return TestDAOFactory.getTheFactory().getDAOCoachGroup().getCoachGroups();
 //    }
-
     public static CoachGroupService getInstance() {
         if (instance == null) {
             instance = new CoachGroupService();
