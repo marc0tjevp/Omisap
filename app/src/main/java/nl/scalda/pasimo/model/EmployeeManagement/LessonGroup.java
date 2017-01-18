@@ -4,9 +4,9 @@ import java.util.TreeSet;
 
 public class LessonGroup {
 
-	int id;
-	String name;
-	TreeSet<Student> students;
+	private int id;
+	private String name;
+	private TreeSet<Student> students;
 
 	public LessonGroup() {
 
