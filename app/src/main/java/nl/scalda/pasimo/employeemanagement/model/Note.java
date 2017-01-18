@@ -1,8 +1,8 @@
-package nl.scalda.pasimo.model.employeemanagement;
+package nl.scalda.pasimo.employeemanagement.model;
 
 import java.util.Date;
 
-public class Note {
+public class Note implements Comparable<Note>{
 	
 	private int id;
 	private String title;
@@ -79,6 +79,15 @@ public class Note {
 
 	public void setLastEdit(Date lastEdit) {
 		this.lastEdit = lastEdit;
+	}
+
+	@Override
+	public int compareTo(Note o) {
+		if(this.id == o.getId())
+		{
+			return 0;
+		}
+		return 1;
 	}
 
 }

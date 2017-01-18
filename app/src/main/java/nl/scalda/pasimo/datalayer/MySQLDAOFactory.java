@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.datalayer;
 
+import nl.scalda.pasimo.employeemanagement.interfaces.IDAONote;
+
 public class MySQLDAOFactory extends DAOFactory {
 
     private static MySQLDAOFactory instance = null;
@@ -14,5 +16,11 @@ public class MySQLDAOFactory extends DAOFactory {
         return instance;
     }
 
-//methodes
+  //methodes
+    
+	@Override
+	public IDAONote getDAONote() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
