@@ -1,0 +1,44 @@
+package nl.scalda.pasimo.model.EmployeeManagement;
+
+public class Person implements Comparable<Student> {
+
+	private String name;
+	private String lastname;
+
+	public Person() {
+	}
+
+	public Person(String name, String lastname) {
+		this.name = name;
+		this.lastname = lastname;
+	}
+
+	// <editor-fold defaultstate="collapsed" desc="getters and setters">
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	// </editor-fold>
+	@Override
+	public int compareTo(Student o) {
+		return name.compareTo(o.getName());
+	}
+
+	@Override
+	public String toString() {
+		return "name= " + name + ", lastname= " + lastname;
+	}
+
+}
