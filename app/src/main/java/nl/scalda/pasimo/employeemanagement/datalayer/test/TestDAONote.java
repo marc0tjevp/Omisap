@@ -20,8 +20,12 @@ public class TestDAONote implements IDAONote {
 	public Note create(Note note) {
 		int id = this.noteList.size();
 		note.setId(id);
-		this.noteList.add(note);
-		return note;
+		if(this.noteList.add(note)){
+			return note;
+		}else{
+			return this.update(note);
+		}
+		
 	}
 
 	@Override
@@ -38,7 +42,9 @@ public class TestDAONote implements IDAONote {
 	public Note update(Note note) {
 		for (Note n : noteList) {
 			if(note.compareTo(n) == 0){
-				n.editNote(note.getTitle(), note.getMessage());
+				n.setTitle(note.getTitle());
+				n.setMessage(note.getMessage());
+				n.setLastEdit(note.getLastEdit());
 				return n;
 			}
 		}

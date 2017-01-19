@@ -8,31 +8,28 @@ public class NoteService implements IDAONote{
 
 	private static NoteService instance = null;
 	
-	private IDAONote noteDAO;
-	
-	
 	private NoteService() {
-		this.noteDAO = DAOFactory.getTheFactory().getDAONote();
+
 	}
 
 	@Override
 	public Note create(Note note) {
-		return noteDAO.create(note);
+		return DAOFactory.getTheFactory().getDAONote().create(note);
 	}
 
 	@Override
 	public Note read(int id) {
-		return noteDAO.read(id);
+		return DAOFactory.getTheFactory().getDAONote().read(id);
 	}
 
 	@Override
 	public Note update(Note note) {
-		return noteDAO.update(note);
+		return DAOFactory.getTheFactory().getDAONote().update(note);
 	}
 
 	@Override
 	public void delete(Note note) {
-		noteDAO.delete(note);
+		DAOFactory.getTheFactory().getDAONote().delete(note);
 		
 	}
 	
