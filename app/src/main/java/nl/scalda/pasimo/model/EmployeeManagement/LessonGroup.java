@@ -2,44 +2,123 @@ package nl.scalda.pasimo.model.EmployeeManagement;
 
 import java.util.TreeSet;
 
-public class LessonGroup {
+public class LessonGroup implements Comparable<LessonGroup> {
 
-	private int id;
-	private String name;
-	private TreeSet<Student> students = new TreeSet<>();
+    /**
+     * The index of this lesson group
+     */
+    private int id;
 
-	public LessonGroup() {
+    /**
+     * The name of this lesson group
+     * <p>
+     * e.g. ICO41A, ICO42B
+     */
+    private String name;
 
-	}
+    /**
+     * The {@link Student}'s who are in this lesson group
+     */
+    private TreeSet<Student> students;
 
-	public LessonGroup(int id, String name, TreeSet<Student> students) {
-		this.id = id;
-		this.name = name;
-		this.students = students;
-	}
+    /**
+     * @param id   The index of this lesson group
+     * @param name The name of this lesson group
+     */
+    public LessonGroup(int id, String name) {
+        this.id = id;
+        this.name = name;
+        this.students = new TreeSet<>();
+    }
 
-	public int getID() {
-		return this.id;
-	}
+    /**
+     * @param id       The index of this lesson group
+     * @param name     The name of this lesson group
+     * @param students The {@link Student}'s who are in this lesson group
+     */
+    public LessonGroup(int id, String name, TreeSet<Student> students) {
+        this(id, name);
+        this.students = students;
+    }
 
-	public void setID(int id) {
-		this.id = id;
-	}
+    /**
+     * Retrieves the index of this lesson group
+     *
+     * @return The index of this lesson group
+     */
+    public int getID() {
+        return this.id;
+    }
 
-	public String getName() {
-		return this.name;
-	}
+    /**
+     * Sets the index of this lesson group
+     *
+     * @param id The index of this lesson group to set
+     */
+    public void setID(int id) {
+        this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    /**
+     * Retrieves the index of this lesson group
+     *
+     * @return The index of this lesson group
+     */
+    public String getName() {
+        return this.name;
+    }
 
-	public TreeSet<Student> getStudents() {
-		return this.students;
-	}
+    /**
+     * Sets the index of this lesson group
+     *
+     * @param name The index of this lesson group to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setStudents(TreeSet<Student> students) {
-		this.students = students;
-	}
+    /**
+     * Retrieves the {@link Student}'s who are in this lesson group
+     *
+     * @return The {@link Student}'s who are in this lesson group
+     */
+    public TreeSet<Student> getStudents() {
+        return this.students;
+    }
 
+    /**
+     * Adds an {@link Student} to the lesson group
+     *
+     * @param student The student to add to the lesson group
+     */
+    public void addStudent(Student student) {
+        if (student == null || this.students.contains(student)) {
+            return;
+        }
+        this.students.add(student);
+    }
+
+    /**
+     * Removes an {@link Student} from the lesson group
+     *
+     * @param student The student to remove from the lesson group
+     */
+    public void deleteStudent(Student student) {
+        if (student == null || this.students.contains(student)) {
+            return;
+        }
+        this.students.remove(student);
+    }
+
+    /**
+     * Sorts the lesson groups on alphabetic order when adding a lesson group to a TreeSet
+     *
+     * @param lessonGroup The {@link LessonGroup} to sort
+     *
+     * @return ..
+     */
+    @Override
+    public int compareTo(LessonGroup lessonGroup) {
+        return this.name.compareTo(lessonGroup.getName());
+    }
 }
