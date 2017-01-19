@@ -9,12 +9,12 @@ package nl.scalda.pasimo.model.EmployeeManagement;
  *
  * @author jeroe
  */
-public class Student extends Person {
+public class Student extends Person { //deze class word vervangen met die van jos/elroy als die van hun klaar zijn
 
     private String email;
     private int cardID;
-    
-    public Student(){
+
+    public Student() {
     }
 
     public Student(String name, String lastname, String email, int cardID) {
@@ -45,6 +45,5 @@ public class Student extends Person {
     public String toString() {
         return "name= " + super.getName() + " ,lastname= " + super.getLastname() + " ,email=" + email + ", cardID=" + cardID;
     }
-
 
 }

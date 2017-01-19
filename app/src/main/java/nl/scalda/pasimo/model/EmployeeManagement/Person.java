@@ -9,7 +9,7 @@ package nl.scalda.pasimo.model.EmployeeManagement;
  *
  * @author jeroe
  */
-public class Person implements Comparable<Student>{
+public class Person implements Comparable<Student>{ //deze class word vervangen met die van jos/elroy als die van hun klaar zijn
 
     private String name;
     private String lastname;

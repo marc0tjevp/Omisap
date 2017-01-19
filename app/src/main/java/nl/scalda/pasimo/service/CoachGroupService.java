@@ -5,10 +5,7 @@
  */
 package nl.scalda.pasimo.service;
 
-import java.util.TreeSet;
 import nl.scalda.pasimo.datalayer.DAOFactory;
-import nl.scalda.pasimo.datalayer.TestDAOCoachGroup;
-import nl.scalda.pasimo.datalayer.TestDAOFactory;
 import nl.scalda.pasimo.model.EmployeeManagement.CoachGroup;
 
 /**
@@ -18,10 +15,6 @@ import nl.scalda.pasimo.model.EmployeeManagement.CoachGroup;
 public class CoachGroupService {
 
     private static CoachGroupService instance = null;
-
-    protected CoachGroupService() {
-        // Exists only to defeat instantiation.
-    }
 
     public void create(CoachGroup coachGroup) {//teacher
         DAOFactory.getTheFactory().getDAOCoachGroup().create(coachGroup);

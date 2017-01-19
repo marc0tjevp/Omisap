@@ -18,4 +18,8 @@ public class Service {
         return CoachGroupService.getInstance();
     }
 
+    public LessonGroupService getLessonGroupService() {
+        return LessonGroupService.getInstance();
+    }
+
 }

@@ -9,13 +9,13 @@ package nl.scalda.pasimo.model.EmployeeManagement;
  *
  * @author jeroe
  */
-public class Teacher extends Person{
+public class Teacher extends Person { //deze class word vervangen met die van jos/elroy als die van hun klaar zijn
 
     private String email;
     private int cardID;
     private String abbrevation;
-    
-    public Teacher(){
+
+    public Teacher() {
     }
 
     public Teacher(String name, String lastname, String email, int cardID, String abbrevation) {
@@ -24,7 +24,6 @@ public class Teacher extends Person{
         this.cardID = cardID;
         this.abbrevation = abbrevation;
     }
-    
 
 //<editor-fold defaultstate="collapsed" desc="getters and setters">
     public String getEmail() {
@@ -56,5 +55,5 @@ public class Teacher extends Person{
     public String toString() {
         return "name= " + super.getName() + " ,lastname= " + super.getLastname() + " ,email=" + email + ", cardID=" + cardID + ", abbrevation=" + abbrevation;
     }
-    
+
 }

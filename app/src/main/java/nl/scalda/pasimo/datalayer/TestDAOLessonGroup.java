@@ -18,6 +18,13 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
     private static TestDAOLessonGroup instance = null;
     private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
 
+    public TestDAOLessonGroup() {
+        lessonGroups.add(new LessonGroup("ICO41"));
+        lessonGroups.add(new LessonGroup("ICO42"));
+        lessonGroups.add(new LessonGroup("ICO43"));
+        lessonGroups.add(new LessonGroup("ICO44"));
+    }
+
     @Override
     public void create(LessonGroup lessonGroup) {
         try {
