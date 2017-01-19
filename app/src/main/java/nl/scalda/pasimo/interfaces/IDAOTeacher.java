@@ -7,7 +7,7 @@ import nl.scalda.pasimo.model.Teacher;
 
 public interface IDAOTeacher {
 	
-    public void add(Teacher teacher, EducationTeam team);
+    public void create(Teacher teacher, EducationTeam team);
 
     public void edit(Teacher t, EducationTeam team, String oldAbbr);
 

@@ -6,6 +6,8 @@ public class Teacher extends Person {
 
 	private String abbreviation;
 	private int employeeNumber;
+	
+	public Teacher() {}
 
 	public Teacher(String abbreviation){
 		this.abbreviation = abbreviation;
@@ -21,7 +23,7 @@ public class Teacher extends Person {
 		this.abbreviation = abbreviation;
 		this.employeeNumber = employeeNumber;
 	}
-
+	
 	public String getAbbreviation() {
 		return abbreviation;
 	}

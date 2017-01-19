@@ -4,7 +4,10 @@ public class Service {
 
     private static Service instance = null;
 
-    private Service() {
+    private Service() {}
+    
+    public TeacherService getTeacherService() {
+        return TeacherService.getInstance();
     }
 
     public static Service getInstance() {

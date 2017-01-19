@@ -13,7 +13,7 @@ public class TestDAOTeacher implements IDAOTeacher {
 	private TestDAOTeacher() {}
 
 	@Override
-	public void add(Teacher t, EducationTeam team) {
+	public void create(Teacher t, EducationTeam team) {
 		teachers.add(t);
 	}
 
