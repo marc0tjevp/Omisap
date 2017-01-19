@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.datalayer;
 
+import nl.scalda.pasimo.interfaces.IDAOTeacher;
+
 public abstract class DAOFactory {
 
 //    protected static DAOFactory theFactory = TestDAOFactory.getInstance();
@@ -13,5 +15,7 @@ public abstract class DAOFactory {
         theFactory = factory;
     }
 //methods
+
+    public abstract IDAOTeacher getDAOTeacher();
 
 }
