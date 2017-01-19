@@ -15,21 +15,16 @@ public class testClass {
 		et.addTeacher(t);
 		et.addTeacher(t2);
 		
-		/*add teacher*/
-		TestDAOTeacher.getInstance().add(t, et);
-		System.out.println(TestDAOTeacher.getInstance().readAll());
-		
 		/*edit teacher*/
-		t.setFirstName("Jos");
-		TestDAOTeacher.getInstance().edit(t, et, t.getAbbreviation());
-		System.out.println(TestDAOTeacher.getInstance().readAll().toString());
+//		t.setFirstName("Jos");
+//		TestDAOTeacher.getInstance().edit(t, et, t.getAbbreviation());
+		
 		
 		/*delete teacher*/
-		et.deleteTeacher(t);
-		TestDAOTeacher.getInstance().delete(t, et);
+		et.deleteTeacher(t); 
 		
-		System.out.println(TestDAOTeacher.getInstance().readAll().toString());
-		System.out.println(et.getTeachers());
+		System.out.println("TestDAO: " + TestDAOTeacher.getInstance().readAll().toString());
+		System.out.println("EducationTeam: " + et.getTeachers());
 		
 		
 	}

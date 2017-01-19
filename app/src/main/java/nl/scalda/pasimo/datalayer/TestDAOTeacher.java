@@ -35,7 +35,10 @@ public class TestDAOTeacher implements IDAOTeacher {
 
 	@Override
 	public void delete(Teacher t, EducationTeam team) {
-		teachers.remove(t);
+		if(teachers.remove(t)){
+			DAOFactory.getTheFactory().getDAOTeacher().delete(t, team);
+		}
+		
 	}
 
 	@Override

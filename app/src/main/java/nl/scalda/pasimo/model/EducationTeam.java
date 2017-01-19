@@ -2,6 +2,8 @@ package nl.scalda.pasimo.model;
 
 import java.util.TreeSet;
 
+import nl.scalda.pasimo.datalayer.DAOFactory;
+
 public class EducationTeam {
 	
 	private TreeSet<Teacher> teachers = new TreeSet<>();
@@ -9,11 +11,17 @@ public class EducationTeam {
 	public EducationTeam(){}
 
 	public void addTeacher(Teacher t){
-		teachers.add(t);
+		if (teachers.add(t)) {
+			DAOFactory.getTheFactory().getDAOTeacher().add(t, this);
+		}
+		
 	}
 	
 	public void deleteTeacher(Teacher t){
-		teachers.remove(t);
+		if (teachers.remove(t)) {
+			DAOFactory.getTheFactory().getDAOTeacher().delete(t, this);
+		}		
+		
 	}
 	
 	public TreeSet<Teacher> getTeachers() {
