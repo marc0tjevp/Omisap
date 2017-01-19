@@ -9,7 +9,7 @@ package nl.scalda.pasimo.model.EmployeeManagement;
  *
  * @author jeroe
  */
-public class Person implements Comparable<Student>{ //deze class word vervangen met die van jos/elroy als die van hun klaar zijn
+public class Person implements Comparable<Person>{ //deze class word vervangen met die van jos/elroy als die van hun klaar zijn
 
     private String name;
     private String lastname;
@@ -41,7 +41,7 @@ public class Person implements Comparable<Student>{ //deze class word vervangen 
 //</editor-fold>
 
     @Override
-    public int compareTo(Student o) {
+    public int compareTo(Person o) {
         return name.compareTo(o.getName());
     }
 
