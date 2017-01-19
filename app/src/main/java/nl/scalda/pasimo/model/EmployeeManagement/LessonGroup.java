@@ -104,7 +104,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
      * @param student The student to remove from the lesson group
      */
     public void deleteStudent(Student student) {
-        if (student == null || this.students.contains(student)) {
+        if (student == null || !this.students.contains(student)) {
             return;
         }
         this.students.remove(student);
