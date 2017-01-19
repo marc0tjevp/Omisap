@@ -40,10 +40,8 @@ public class Teacher extends Person {
 
 	@Override
 	public String toString() {
-		return "Teacher [abbreviation=" + abbreviation + ", employeeNumber=" + employeeNumber + ", email="
-				+ getEmail() + ", cardID=" + getCardID() + ", firstName=" + getFirstName()
-				+ ", insertion=" + getInsertion() + ", lastName=" + getLastName() + ", dateOfBirth="
-				+ getDateOfBirth() + "]";
+		return "Teacher [abbreviation=" + abbreviation + ", employeeNumber=" + employeeNumber
+				+ ", cardID=" + getCardID() + ", name=" + getFullName() + "]";
 	}
 
 }
