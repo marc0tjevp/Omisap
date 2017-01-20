@@ -45,5 +45,12 @@ public class Main {
 
         TreeSet<LessonGroup> createdLessonGroups = ((TestDAOLessonGroup) daoFactory).getLessongroups();
 
+
+        //Testing delete
+        daoFactory.delete(lessonGroup2);
+
+        TreeSet<LessonGroup> createdLessonGroups2 = ((TestDAOLessonGroup) daoFactory).getLessongroups();
+
+
     }
 }
