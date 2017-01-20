@@ -18,19 +18,19 @@ public class TestDAOTeacher implements IDAOTeacher {
 	}
 
 	@Override
-	public void edit(Teacher t, EducationTeam team, String oldAbbr) {
+	public void update(Teacher t, EducationTeam team) {
 		for(Teacher ca : teachers){
-			if(ca.getAbbreviation().equals(oldAbbr)){
-				ca.setAbbreviation(t.getAbbreviation());
+			if(ca.getEmployeeNumber() == t.getEmployeeNumber()){
 				ca.setCardID(t.getCardID());
-				ca.setEmployeeNumber(t.getEmployeeNumber());
 				ca.setFirstName(t.getFirstName());
 				ca.setInsertion(t.getInsertion());
 				ca.setLastName(t.getLastName());
 				ca.setEmail(t.getEmail());
 				ca.setDateOfBirth(t.getDateOfBirth());
+				ca.setAbbreviation();
 			}
 		}
+		
 	}
 
 	@Override
@@ -40,9 +40,9 @@ public class TestDAOTeacher implements IDAOTeacher {
 	}
 
 	@Override
-	public Teacher readByAbbr(String id) {
+	public Teacher readByEmployeeNumber(int id) {
 		for (Teacher ca : teachers) {
-			if (ca.getAbbreviation().equals(id)) {
+			if (ca.getEmployeeNumber() == id) {
 				return ca;
 			}
 		}

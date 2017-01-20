@@ -8,28 +8,19 @@ public class Teacher extends Person {
 	private int employeeNumber;
 	
 	public Teacher() {}
-
-	public Teacher(String abbreviation){
-		this.abbreviation = abbreviation;
-	}
-
-	public Teacher(String abbreviation, int employeeNumber) {
-		this.abbreviation = abbreviation;
-		this.employeeNumber = employeeNumber;
-	}
 	
-	public Teacher(String abbreviation, int employeeNumber, String email, int cardID, String firstName, String insertion, String lastName, Date dateOfBirth){
+	public Teacher(int employeeNumber, String email, int cardID, String firstName, String insertion, String lastName, Date dateOfBirth){
 		super(email, cardID, firstName, insertion, lastName, dateOfBirth);
-		this.abbreviation = abbreviation;
 		this.employeeNumber = employeeNumber;
+		setAbbreviation();
 	}
 	
 	public String getAbbreviation() {
 		return abbreviation;
 	}
-
-	public void setAbbreviation(String abbreviation) {
-		this.abbreviation = abbreviation;
+	
+	public void setAbbreviation() {
+		this.abbreviation = getLastName().substring(0, 4).toUpperCase() + getFirstName().substring(0, 2).toUpperCase();
 	}
 
 	public int getEmployeeNumber() {

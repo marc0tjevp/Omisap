@@ -26,23 +26,34 @@ public class TeacherService {
 //		team.addTeacher(t);
 //	}
 
-	public Teacher readByAbbr(String abbr) {
+	public Teacher readByID(int id) {
+		for (EducationTeam ct : Cluster.getInstance().getEducationTeams()) {
+			for(Teacher cte : ct.getTeachers()){
+				if(cte.getEmployeeNumber() == id){
+					return cte;
+				}
+			}
+		}
 		return null;
 	}
 
-	public void update(Teacher t, String oldAbbr) {
+	public void update(Teacher t) {
+		EducationTeam tmpTeam = getTeamForTeacher(t);
+		DAOFactory.getTheFactory().getDAOTeacher().update(t, tmpTeam);
+	}
+	
+	public EducationTeam getTeamForTeacher(Teacher t){
 		for (EducationTeam ct : Cluster.getInstance().getEducationTeams()) {
 			for(Teacher cte : ct.getTeachers()){
-				System.out.println("Is dit het goede team van de teacher: " + ct);
+				if(cte.getAbbreviation().equals(t.getAbbreviation())){
+					return ct;
+				}
 			}
 		}
+		return null;
 	}
 
 	public void delete(Teacher t, EducationTeam team) {
-
-	}
-
-	public void readAll() {
 
 	}
 

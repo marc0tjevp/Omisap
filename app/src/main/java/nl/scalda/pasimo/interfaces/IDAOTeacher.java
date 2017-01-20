@@ -9,13 +9,13 @@ public interface IDAOTeacher {
 	
     public void create(Teacher teacher, EducationTeam team);
 
-    public void edit(Teacher t, EducationTeam team, String oldAbbr);
+    public void update(Teacher t, EducationTeam team);
 
     public void delete(Teacher t, EducationTeam team);
 
     public TreeSet<Teacher> readAll();
 
-    public Teacher readByAbbr(String id);
+    public Teacher readByEmployeeNumber(int id);
 
     public TreeSet<Teacher> readAllForEducationTeam(EducationTeam t);
 
