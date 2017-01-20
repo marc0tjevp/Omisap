@@ -85,11 +85,13 @@ public class CoachGroup implements Comparable<CoachGroup> {
 
     @Override
     public String toString() {
-        return "CoachGroup: id= " + id + ", name= " + name + ", teacher= " + teacher + ", lessongroup= " + lessonGroups;
+        return "\n CoachGroup: id= " + id + ", name= " + name + ", teacher= " + teacher + ", lessongroup= " + lessonGroups;
     }
 
     @Override
     public int compareTo(CoachGroup o) {
+//        int i = this.getTeacher().getAbbrevation().compareTo(o.getTeacher().getAbbrevation());
+//        if(i == 0) return i;
         return name.compareTo(o.getName());
     }
 }
