@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.model.EmployeeManagement;
 
+import nl.scalda.pasimo.datalayer.DAOFactory;
+
 import java.util.TreeSet;
 
 public class LessonGroup implements Comparable<LessonGroup> {
@@ -120,5 +122,10 @@ public class LessonGroup implements Comparable<LessonGroup> {
     @Override
     public int compareTo(LessonGroup lessonGroup) {
         return this.name.compareTo(lessonGroup.getName());
+    }
+
+
+    public void save(){
+        DAOFactory.getTheFactory().getDAOLessonGroup().create(this);
     }
 }

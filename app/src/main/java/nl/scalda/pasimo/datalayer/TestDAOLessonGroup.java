@@ -47,7 +47,10 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 
     @Override
     public void delete(LessonGroup lessonGroup) {
-        // TODO Auto-generated method stub
+        if (lessonGroup == null || !this.lessongroups.contains(lessonGroup)) {
+            return;
+        }
+        this.lessongroups.remove(lessonGroup);
 
     }
 
