@@ -17,9 +17,9 @@ public class Main {
         //Lesson group adding students later
         LessonGroup lessonGroup1 = new LessonGroup(1, "ICO41D");
         Student students[] = {
-                new Student("Bas", "vanDriel", "basvandriel94@gmail.com", 1),
-                new Student("Max", "vanDriel", "basvandriel94@gmail.com", 1),
-                new Student("Martin", "vanDriel", "basvandriel94@gmail.com", 1)
+                new Student("Voornaam1", "Achternaam1", "student-email-1@student.scalda.nl", 1),
+                new Student("Voornaam2", "Achternaam2", "student-email-2@student.scalda.nl", 2),
+                new Student("Voornaam3", "Achternaam3", "student-email-3@student.scalda.nl", 3)
         };
 
         for (Student student : students) {
@@ -32,9 +32,9 @@ public class Main {
         //Lesson group with students already added
 
         TreeSet<Student> studentjesVoorLessonGroup3 = new TreeSet<>();
-        studentjesVoorLessonGroup3.add(new Student("Hendriiiik", "vanDriel", "basvandriel94@gmail.com", 1));
-        studentjesVoorLessonGroup3.add(new Student("HendriiiikJuuuuh", "vanDriel", "basvandriel94@gmail.com", 2));
-        studentjesVoorLessonGroup3.add(new Student("Koen", "vanDriel", "basvandriel94@gmail.com", 2));
+        studentjesVoorLessonGroup3.add(new Student("Voornaam4", "Achternaam4", "student-email-4@student.scalda.nl", 4));
+        studentjesVoorLessonGroup3.add(new Student("Voornaam5", "Achternaam5", "student-email-5@student.scalda.nl", 5));
+        studentjesVoorLessonGroup3.add(new Student("Voornaam6", "Achternaam6", "student-email-6@student.scalda.nl", 6));
 
         LessonGroup lessonGroup3 = new LessonGroup(1, "ICO41B", studentjesVoorLessonGroup3);
 
