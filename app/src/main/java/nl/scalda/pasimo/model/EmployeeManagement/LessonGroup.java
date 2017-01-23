@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.model.EmployeeManagement;
 
 import nl.scalda.pasimo.datalayer.DAOFactory;
+import sun.reflect.generics.tree.Tree;
 
 import java.util.TreeSet;
 
@@ -89,6 +90,13 @@ public class LessonGroup implements Comparable<LessonGroup> {
     }
 
     /**
+     *
+     */
+    public void setStudents(TreeSet<Student> students) {
+        this.students = students;
+    }
+
+    /**
      * Adds an {@link Student} to the lesson group
      *
      * @param student The student to add to the lesson group
@@ -116,7 +124,6 @@ public class LessonGroup implements Comparable<LessonGroup> {
      * Sorts the lesson groups on alphabetic order when adding a lesson group to a TreeSet
      *
      * @param lessonGroup The {@link LessonGroup} to sort
-     *
      * @return ..
      */
     @Override
@@ -125,7 +132,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
     }
 
 
-    public void save(){
+    public void save() {
         DAOFactory.getTheFactory().getDAOLessonGroup().create(this);
     }
 }

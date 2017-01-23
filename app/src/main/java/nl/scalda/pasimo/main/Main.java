@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         //Call up DAO factory
-        IDAOLessonGroup daoFactory = TestDAOFactory.getTheFactory().getDAOLessonGroup();
+        IDAOLessonGroup lessonGroupDAO = TestDAOFactory.getTheFactory().getDAOLessonGroup();
 
         //Lesson group adding students later
         LessonGroup lessonGroup1 = new LessonGroup(1, "ICO41D");
@@ -39,18 +39,24 @@ public class Main {
         LessonGroup lessonGroup3 = new LessonGroup(1, "ICO41B", studentjesVoorLessonGroup3);
 
 
-        daoFactory.create(lessonGroup1);
-        daoFactory.create(lessonGroup2);
-        daoFactory.create(lessonGroup3);
+        lessonGroupDAO.create(lessonGroup1);
+        lessonGroupDAO.create(lessonGroup2);
+        lessonGroupDAO.create(lessonGroup3);
 
-        TreeSet<LessonGroup> createdLessonGroups = ((TestDAOLessonGroup) daoFactory).getLessongroups();
+        TreeSet<LessonGroup> createdLessonGroups = ((TestDAOLessonGroup) lessonGroupDAO).getLessongroups();
 
 
         //Testing delete
-        daoFactory.delete(lessonGroup2);
+//        lessonGroupDAO.delete(lessonGroup1);
 
-        TreeSet<LessonGroup> createdLessonGroups2 = ((TestDAOLessonGroup) daoFactory).getLessongroups();
+        TreeSet<LessonGroup> createdLessonGroups2 = ((TestDAOLessonGroup) lessonGroupDAO).getLessongroups();
 
+        //Updating lessongroup
+        lessonGroup2.setName("Een geupdatete les groep");
+
+        lessonGroupDAO.update(lessonGroup2);
+
+        lessonGroupDAO.read(lessonGroup2);
 
     }
 }

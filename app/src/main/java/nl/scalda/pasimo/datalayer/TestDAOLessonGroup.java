@@ -35,13 +35,34 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 
     @Override
     public LessonGroup read(LessonGroup lessonGroup) {
-        // TODO Auto-generated method stub
+        if (lessonGroup == null || !this.lessongroups.contains(lessonGroup)) {
+            return null;
+        }
+
+        for (LessonGroup eachLessonGroup : this.lessongroups) {
+            if (lessonGroup != eachLessonGroup) {
+                continue;
+            }
+            return eachLessonGroup;
+        }
+
         return null;
     }
 
     @Override
-    public void update(LessonGroup oldLessonGroup, LessonGroup newLessonGroup) {
-        // TODO Auto-generated method stub
+    public void update(LessonGroup newLessonGroup) {
+        if (newLessonGroup == null || !this.lessongroups.contains(newLessonGroup)) {
+            return;
+        }
+
+        for (LessonGroup lessonGroup : this.lessongroups) {
+            if (lessonGroup != newLessonGroup) {
+                continue;
+            }
+            lessonGroup.setName(newLessonGroup.getName());
+            lessonGroup.setID(newLessonGroup.getID());
+            lessonGroup.setStudents(newLessonGroup.getStudents());
+        }
 
     }
 
