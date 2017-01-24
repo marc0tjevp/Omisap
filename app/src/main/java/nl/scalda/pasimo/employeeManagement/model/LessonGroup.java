@@ -1,12 +1,12 @@
 package nl.scalda.pasimo.employeeManagement.model;
 
-public class CoachGroup implements Comparable<CoachGroup> {
+public class LessonGroup implements Comparable<LessonGroup> {
 
     private String name;
 
     //<editor-fold defaultstate="collapsed" desc="constructor">
 
-    public CoachGroup(String name) {
+    public LessonGroup(String name) {
         this.name = name;
     }
 
@@ -25,13 +25,15 @@ public class CoachGroup implements Comparable<CoachGroup> {
     //</editor-fold>
 
     @Override
-    public int compareTo(CoachGroup o) {
+    public int compareTo(LessonGroup o) {
         return this.name.compareTo(o.getName());
     }
 
     @Override
     public String toString() {
-        return "CoachGroup{" + "name='" + name + '\'' + '}';
+        return "LessonGroup{" +
+                "name='" + name + '\'' +
+                '}';
     }
 
 }
