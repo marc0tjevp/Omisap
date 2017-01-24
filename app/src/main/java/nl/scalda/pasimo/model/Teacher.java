@@ -1,6 +1,6 @@
 package nl.scalda.pasimo.model;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Teacher extends Person {
 
@@ -9,8 +9,8 @@ public class Teacher extends Person {
 	
 	public Teacher() {}
 	
-	public Teacher(int employeeNumber, String email, int cardID, String firstName, String insertion, String lastName, Date dateOfBirth){
-		super(email, cardID, firstName, insertion, lastName, dateOfBirth);
+	public Teacher(int employeeNumber, String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
+		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.employeeNumber = employeeNumber;
 		setAbbreviation();
 	}
@@ -34,7 +34,7 @@ public class Teacher extends Person {
 	@Override
 	public String toString() {
 		return "Teacher [abbreviation=" + abbreviation + ", employeeNumber=" + employeeNumber
-				+ ", cardID=" + getCardID() + ", name=" + getFullName() + "]";
+				+ ", cardID=" + getCardID() + ", name=" + getFullName() + ", dateOfBirth=" + new SimpleDateFormat("dd\\MM \\yyyy").format(getDateOfBirth().getTime()).toString() + "]";
 	}
 
 }

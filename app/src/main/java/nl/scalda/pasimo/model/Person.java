@@ -1,6 +1,8 @@
 package nl.scalda.pasimo.model;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Person implements Comparable<Person> {
 
@@ -9,17 +11,21 @@ public class Person implements Comparable<Person> {
 	private String firstName;
 	private String insertion;
 	private String lastName;
-	private Date dateOfBirth;
+	private GregorianCalendar dateOfBirth;
+	
 	
 	public Person() {}
 	
-	public Person(String email, int cardID, String firstName, String insertion, String lastName, Date dateOfBirth){
+	public Person(String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
+		GregorianCalendar gc = new GregorianCalendar();
 		this.setEmail(email);
 		this.setCardID(cardID);
 		this.setFirstName(firstName);
 		this.setInsertion(insertion);
 		this.setLastName(lastName);
-		this.setDateOfBirth(dateOfBirth);
+		
+		gc.set(yearOfBirth, monthOfBirth - 1, dayOfBirth);
+		this.dateOfBirth = gc;
 	}
 
 	public String getEmail() {
@@ -61,20 +67,20 @@ public class Person implements Comparable<Person> {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
-
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
 	
 	public String getFullName(){
 		if(this.insertion != "" && this.insertion != null){
 		return this.getFirstName()+" "+this.getInsertion()+" "+this.getLastName();
 		}
 		return this.getFirstName()+" "+this.getLastName();
+	}
+
+	public Calendar getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(GregorianCalendar dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	@Override

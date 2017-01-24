@@ -14,5 +14,9 @@
                 method="execute">
             <result name="success">/index2.jsp</result>
         </action>
+        <action name="teacherOverview" class="nl.scalda.pasimo.controller.TeacherController"
+                method="readTeacher">
+            <result name="success">/Teacher/teacherOverview.jsp</result>
+        </action>
     </package>
 </struts>

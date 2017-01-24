@@ -20,6 +20,7 @@ public class TeacherService {
 
 	public void create(Teacher t, EducationTeam team) {
 		team.addTeacher(t);
+		
 	}
 
 //	public void addTeacherToEducationTeam(Teacher t, EducationTeam team) {

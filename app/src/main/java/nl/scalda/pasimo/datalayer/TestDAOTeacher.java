@@ -26,7 +26,6 @@ public class TestDAOTeacher implements IDAOTeacher {
 				ca.setInsertion(t.getInsertion());
 				ca.setLastName(t.getLastName());
 				ca.setEmail(t.getEmail());
-				ca.setDateOfBirth(t.getDateOfBirth());
 				ca.setAbbreviation();
 			}
 		}
