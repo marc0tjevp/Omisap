@@ -6,11 +6,11 @@ public interface IDAOLessonGroup {
 
     public void create(LessonGroup lessonGroup);
 
-    public LessonGroup read(LessonGroup lessonGroup);
+    public LessonGroup read(LessonGroup lessonGroup) throws Exception;
 
-    public void update(LessonGroup newLessonGroup);
+    public void update(LessonGroup newLessonGroup) throws Exception;
 
     // TODO: fill delete parameters
-    public void delete(LessonGroup lessonGroup);
+    public void delete(LessonGroup lessonGroup) throws Exception;
 
 }

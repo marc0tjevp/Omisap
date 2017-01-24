@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.main;
 
+import nl.scalda.pasimo.datalayer.DAOFactory;
 import nl.scalda.pasimo.datalayer.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.TestDAOLessonGroup;
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
@@ -12,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         //Call up DAO factory
-        IDAOLessonGroup lessonGroupDAO = TestDAOFactory.getTheFactory().getDAOLessonGroup();
+        DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 
         //Lesson group adding students later
         LessonGroup lessonGroup1 = new LessonGroup(1, "ICO41D");
@@ -31,32 +32,32 @@ public class Main {
 
         //Lesson group with students already added
 
-        TreeSet<Student> studentjesVoorLessonGroup3 = new TreeSet<>();
-        studentjesVoorLessonGroup3.add(new Student("Voornaam4", "Achternaam4", "student-email-4@student.scalda.nl", 4));
-        studentjesVoorLessonGroup3.add(new Student("Voornaam5", "Achternaam5", "student-email-5@student.scalda.nl", 5));
-        studentjesVoorLessonGroup3.add(new Student("Voornaam6", "Achternaam6", "student-email-6@student.scalda.nl", 6));
+        TreeSet<Student> studentsForLessonGroup = new TreeSet<>();
+        studentsForLessonGroup.add(new Student("Voornaam4", "Achternaam4", "student-email-4@student.scalda.nl", 4));
+        studentsForLessonGroup.add(new Student("Voornaam5", "Achternaam5", "student-email-5@student.scalda.nl", 5));
+        studentsForLessonGroup.add(new Student("Voornaam6", "Achternaam6", "student-email-6@student.scalda.nl", 6));
 
-        LessonGroup lessonGroup3 = new LessonGroup(1, "ICO41B", studentjesVoorLessonGroup3);
-
-
-        lessonGroupDAO.create(lessonGroup1);
-        lessonGroupDAO.create(lessonGroup2);
-        lessonGroupDAO.create(lessonGroup3);
-
-        TreeSet<LessonGroup> createdLessonGroups = ((TestDAOLessonGroup) lessonGroupDAO).getLessongroups();
+        LessonGroup lessonGroup3 = new LessonGroup(1, "ICO41B", studentsForLessonGroup);
 
 
-        //Testing delete
-//        lessonGroupDAO.delete(lessonGroup1);
+        try {
+            DAOFactory.getTheFactory().getDAOLessonGroup().create(lessonGroup1);
+            DAOFactory.getTheFactory().getDAOLessonGroup().create(lessonGroup2);
+            DAOFactory.getTheFactory().getDAOLessonGroup().create(lessonGroup3);
 
-        TreeSet<LessonGroup> createdLessonGroups2 = ((TestDAOLessonGroup) lessonGroupDAO).getLessongroups();
+            // Delete specific LessonGroup
+//            DAOFactory.getTheFactory().getDAOLessonGroup().delete(lessonGroup1);
 
-        //Updating lessongroup
-        lessonGroup2.setName("Een geupdatete les groep");
+            // Updating LessonGroup
+            lessonGroup2.setName("Een geupdatete les groep");
 
-        lessonGroupDAO.update(lessonGroup2);
+            DAOFactory.getTheFactory().getDAOLessonGroup().update(lessonGroup2);
 
-        lessonGroupDAO.read(lessonGroup2);
+            // Reading specific LessonGroup
+            DAOFactory.getTheFactory().getDAOLessonGroup().read(lessonGroup2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }

@@ -1,9 +1,11 @@
 package nl.scalda.pasimo.datalayer;
 
+import com.sun.rmi.rmid.ExecPermission;
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.model.EmployeeManagement.LessonGroup;
 
 import java.util.TreeSet;
+import java.util.concurrent.ExecutionException;
 
 public class TestDAOLessonGroup implements IDAOLessonGroup {
 
@@ -27,16 +29,13 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 
     @Override
     public void create(LessonGroup lessonGroup) {
-        if (lessonGroup == null) {
-            return;
-        }
         this.lessongroups.add(lessonGroup);
     }
 
     @Override
-    public LessonGroup read(LessonGroup lessonGroup) {
-        if (lessonGroup == null || !this.lessongroups.contains(lessonGroup)) {
-            return null;
+    public LessonGroup read(LessonGroup lessonGroup) throws Exception {
+        if (!this.lessongroups.contains(lessonGroup)) {
+            throw new Exception("LessonGroup does not exist");
         }
 
         for (LessonGroup eachLessonGroup : this.lessongroups) {
@@ -50,9 +49,9 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
     }
 
     @Override
-    public void update(LessonGroup newLessonGroup) {
-        if (newLessonGroup == null || !this.lessongroups.contains(newLessonGroup)) {
-            return;
+    public void update(LessonGroup newLessonGroup) throws Exception {
+        if (!this.lessongroups.contains(newLessonGroup)) {
+            throw new Exception("LessonGroup does nog exist");
         }
 
         for (LessonGroup lessonGroup : this.lessongroups) {
@@ -67,9 +66,9 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
     }
 
     @Override
-    public void delete(LessonGroup lessonGroup) {
-        if (lessonGroup == null || !this.lessongroups.contains(lessonGroup)) {
-            return;
+    public void delete(LessonGroup lessonGroup) throws Exception {
+        if (!this.lessongroups.contains(lessonGroup)) {
+            throw new Exception("LessonGroup does not exist");
         }
         this.lessongroups.remove(lessonGroup);
 
