@@ -3,6 +3,8 @@ package nl.scalda.pasimo.datalayer;
 import nl.scalda.pasimo.employeemanagement.datalayer.test.TestDAONote;
 import nl.scalda.pasimo.employeemanagement.interfaces.IDAONote;
 
+import nl.scalda.pasimo.interfaces.IDAOTeacher;
+
 public class TestDAOFactory extends DAOFactory {
 
     private static TestDAOFactory instance = null;
@@ -15,6 +17,11 @@ public class TestDAOFactory extends DAOFactory {
             instance = new TestDAOFactory();
         }
         return instance;
+    }
+    
+    @Override
+    public IDAOTeacher getDAOTeacher() {
+        return TestDAOTeacher.getInstance();
     }
 
 	@Override
