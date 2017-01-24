@@ -18,8 +18,6 @@ public class EducationTeam implements Comparable<EducationTeam> {
 
 	public void addTeacher(Teacher t){
 		if (teachers.add(t)) {
-			System.out.println("Is teacher null: " + t);
-			System.out.println("en this: " + this);
 			DAOFactory.getTheFactory().getDAOTeacher().create(t, this);
 		}
 		
