@@ -1,6 +1,7 @@
-package nl.scalda.pasimo.model;
+package nl.scalda.pasimo.employeemanagement.model;
 
 import java.util.Date;
+import java.util.TreeSet;
 
 public class Person implements Comparable<Person> {
 
@@ -10,6 +11,7 @@ public class Person implements Comparable<Person> {
 	private String insertion;
 	private String lastName;
 	private Date dateOfBirth;
+	private TreeSet<Note> noteList;
 	
 	public Person() {}
 	
@@ -20,8 +22,30 @@ public class Person implements Comparable<Person> {
 		this.setInsertion(insertion);
 		this.setLastName(lastName);
 		this.setDateOfBirth(dateOfBirth);
+		this.noteList = new TreeSet<Note>();
 	}
 
+	/**
+	 * Adds a note to the teacher.
+	 * 
+	 * @param Note note
+	 * @see Note
+	 */
+	public void addNote(Note note){
+		this.noteList.add(note);
+	}
+	
+	/**
+	 * Removes a note from the person
+	 * 
+	 * @param Note note
+	 * @see Note
+	 */
+	public void removeNote(Note note){
+		this.noteList.remove(note);
+	}
+	
+	//getters and setters
 	public String getEmail() {
 		return email;
 	}
@@ -75,6 +99,14 @@ public class Person implements Comparable<Person> {
 		return this.getFirstName()+" "+this.getInsertion()+" "+this.getLastName();
 		}
 		return this.getFirstName()+" "+this.getLastName();
+	}
+
+	public TreeSet<Note> getNoteList() {
+		return noteList;
+	}
+
+	public void setNoteList(TreeSet<Note> noteList) {
+		this.noteList = noteList;
 	}
 
 	@Override

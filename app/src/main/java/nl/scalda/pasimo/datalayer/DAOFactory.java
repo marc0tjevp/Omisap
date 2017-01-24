@@ -1,8 +1,7 @@
 package nl.scalda.pasimo.datalayer;
 
 import nl.scalda.pasimo.employeemanagement.interfaces.IDAONote;
-
-import nl.scalda.pasimo.interfaces.IDAOTeacher;
+import nl.scalda.pasimo.employeemanagement.interfaces.IDAOTeacher;
 
 public abstract class DAOFactory {
 
@@ -15,6 +14,7 @@ public abstract class DAOFactory {
     public static void setTheFactory(DAOFactory factory) {
         theFactory = factory;
     }
+    
 //methods
 
     public abstract IDAONote getDAONote();

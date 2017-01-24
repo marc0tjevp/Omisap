@@ -1,9 +1,10 @@
-package nl.scalda.pasimo.datalayer;
+package nl.scalda.pasimo.employeemanagement.datalayer.test;
 
 import java.util.TreeSet;
-import nl.scalda.pasimo.interfaces.IDAOTeacher;
-import nl.scalda.pasimo.model.EducationTeam;
-import nl.scalda.pasimo.model.Teacher;
+
+import nl.scalda.pasimo.employeemanagement.interfaces.IDAOTeacher;
+import nl.scalda.pasimo.employeemanagement.model.EducationTeam;
+import nl.scalda.pasimo.employeemanagement.model.Teacher;
 
 public class TestDAOTeacher implements IDAOTeacher {
 

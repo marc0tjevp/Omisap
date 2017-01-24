@@ -25,6 +25,15 @@ public class Note implements Comparable<Note>{
 		this.id = cNote.getId();
 	}
 	
+	
+	/**
+	 * Edits the note, and updates the lastEdit timestamp
+	 * 
+	 * @param String title title of the note
+	 * @param String message message of the note
+	 * @return Note note returns a updated note
+	 * 
+	 */
 	public Note editNote(String title, String message){
 		
 		this.title = title;
