@@ -20,9 +20,26 @@ public class EducationTeam implements Comparable<EducationTeam> {
         this.name = name;
         this.coachGroups = coachGroups;
         this.lessonGroup = lessonGroup;
+
+        // TODO: save
+
     }
 
     //</editor-fold>
+
+    public void addCoachGroup(CoachGroup coachGroup) {
+        this.coachGroups.add(coachGroup);
+
+        // TODO: Add CoachGroup via DAO..
+
+    }
+
+    public void addLessonGroup(LessonGroup lessonGroup) {
+        this.lessonGroup.add(lessonGroup);
+
+        // TODO: Add LessonGroup via DAO..
+
+    }
 
     //<editor-fold defaultstate="collapsed" desc="getters and setters">
 

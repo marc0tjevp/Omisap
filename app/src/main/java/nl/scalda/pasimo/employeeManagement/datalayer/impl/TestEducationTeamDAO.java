@@ -74,4 +74,13 @@ public class TestEducationTeamDAO implements IEducationTeamDAO {
         return this.educationTeams;
     }
 
+    private static TestEducationTeamDAO instance;
+
+    public static TestEducationTeamDAO getInstance()
+    {
+        if (instance == null)
+            instance = new TestEducationTeamDAO();
+        return instance;
+    }
+
 }

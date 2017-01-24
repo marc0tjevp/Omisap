@@ -1,5 +1,8 @@
 package nl.scalda.pasimo.employeeManagement.exception;
 
+/**
+ * TODO: Move to generic package
+ */
 public class AlreadyExistException extends RuntimeException {
 
     public AlreadyExistException() {
