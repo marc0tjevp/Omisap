@@ -25,8 +25,8 @@ public class ModelDAOTest01 {
         CoachGroup s1 = new CoachGroup("A1");
         CoachGroup s2 = new CoachGroup("A2");
 
-        ao.addCoachGroup(s1);
-        ao.addCoachGroup(s2);
+        ssc.addCoachGroup(s1);
+        ssc.addCoachGroup(s2);
 
         System.out.println(DAOFactoryService.getInstance().getFactory().getEducationTeamDAO().readAll());
 
