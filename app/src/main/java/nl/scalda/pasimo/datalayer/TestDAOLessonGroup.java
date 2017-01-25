@@ -33,10 +33,7 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
     }
 
     @Override
-    public LessonGroup read(LessonGroup lessonGroup) throws Exception {
-        if (!this.lessongroups.contains(lessonGroup)) {
-            throw new Exception("LessonGroup does not exist");
-        }
+    public LessonGroup read(LessonGroup lessonGroup) {
 
         for (LessonGroup eachLessonGroup : this.lessongroups) {
             if (lessonGroup != eachLessonGroup) {
@@ -49,10 +46,7 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
     }
 
     @Override
-    public void update(LessonGroup newLessonGroup) throws Exception {
-        if (!this.lessongroups.contains(newLessonGroup)) {
-            throw new Exception("LessonGroup does nog exist");
-        }
+    public void update(LessonGroup newLessonGroup) {
 
         for (LessonGroup lessonGroup : this.lessongroups) {
             if (lessonGroup != newLessonGroup) {
@@ -66,12 +60,8 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
     }
 
     @Override
-    public void delete(LessonGroup lessonGroup) throws Exception {
-        if (!this.lessongroups.contains(lessonGroup)) {
-            throw new Exception("LessonGroup does not exist");
-        }
+    public void delete(LessonGroup lessonGroup) {
         this.lessongroups.remove(lessonGroup);
-
     }
 
 }
