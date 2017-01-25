@@ -33,7 +33,7 @@ public class LessonGroupService implements ILessonGroupService {
     }
 
     @Override
-    public void update(LessonGroup newLessonGroup){
+    public void update(LessonGroup newLessonGroup) {
         DAOFactory.getTheFactory().getDAOLessonGroup().update(newLessonGroup);
     }
 

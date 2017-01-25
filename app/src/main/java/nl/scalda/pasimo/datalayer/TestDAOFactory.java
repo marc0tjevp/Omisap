@@ -16,9 +16,9 @@ public class TestDAOFactory extends DAOFactory {
         return instance;
     }
 
-	@Override
-	public IDAOLessonGroup getDAOLessonGroup() {
-		return TestDAOLessonGroup.getInstance();
-	}
+    @Override
+    public IDAOLessonGroup getDAOLessonGroup() {
+        return TestDAOLessonGroup.getInstance();
+    }
 
 }

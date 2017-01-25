@@ -13,7 +13,6 @@ public interface ILessonGroupService {
 
     void update(LessonGroup newLessonGroup);
 
-    // TODO: fill delete parameters
     void delete(LessonGroup lessonGroup);
 
 }

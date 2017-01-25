@@ -15,7 +15,7 @@ public abstract class DAOFactory {
         theFactory = factory;
     }
 //methods
-    
+
     public abstract IDAOLessonGroup getDAOLessonGroup();
-    
+
 }
