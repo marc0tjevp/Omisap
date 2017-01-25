@@ -1,9 +1,8 @@
 package nl.scalda.pasimo.employeeManagement.datalayer.impl;
 
 import nl.scalda.pasimo.employeeManagement.datalayer.IEducationTeamDAO;
-import nl.scalda.pasimo.employeeManagement.exception.AlreadyExistException;
-import nl.scalda.pasimo.employeeManagement.exception.DoesNotExistException;
 import nl.scalda.pasimo.employeeManagement.model.EducationTeam;
+import nl.scalda.pasimo.foundation.service.DAOFactoryService;
 
 import java.util.TreeSet;
 
@@ -16,46 +15,34 @@ public class TestEducationTeamDAO implements IEducationTeamDAO {
     }
 
     @Override
-    public EducationTeam create(EducationTeam educationTeam) throws AlreadyExistException {
-
-        if (!this.educationTeams.add(educationTeam))
-            throw new AlreadyExistException("EducationTeam(" + educationTeam.getAbbreviation() + ") already exists!");
-
-        return educationTeam;
+    public void create(EducationTeam educationTeam) {
+        this.educationTeams.add(educationTeam);
     }
 
     @Override
-    public EducationTeam update(EducationTeam educationTeam) throws DoesNotExistException {
+    public void update(EducationTeam educationTeam) {
 
         EducationTeam target = this.read(educationTeam.getAbbreviation());
 
-        if (target == null)
-            throw new DoesNotExistException("EducationTeam(" + educationTeam.getAbbreviation() + ") does not exist!");
-
         target.setName(educationTeam.getName());
         target.setCoachGroups(educationTeam.getCoachGroups());
-        target.setLessonGroup(educationTeam.getLessonGroup());
 
-        return target;
     }
 
     @Override
-    public EducationTeam save(EducationTeam educationTeam) {
+    public void save(EducationTeam educationTeam) {
 
-        try {
-            return this.create(educationTeam);
-        } catch (AlreadyExistException e) {
-            return this.update(educationTeam);
+        if (this.exist(educationTeam)) {
+            this.update(educationTeam);
+        } else {
+            this.create(educationTeam);
         }
 
     }
 
     @Override
-    public void delete(EducationTeam educationTeam) throws DoesNotExistException {
-
-        if (!this.educationTeams.remove(educationTeam))
-            throw new DoesNotExistException("EducationTeam(" + educationTeam.getAbbreviation() + ") does not exist!");
-
+    public void delete(EducationTeam educationTeam) {
+        this.educationTeams.remove(educationTeam);
     }
 
     @Override
@@ -72,6 +59,22 @@ public class TestEducationTeamDAO implements IEducationTeamDAO {
     @Override
     public TreeSet<EducationTeam> readAll() {
         return this.educationTeams;
+    }
+
+    @Override
+    public boolean exist(EducationTeam educationTeam) {
+        return this.educationTeams.contains(educationTeam);
+    }
+
+    @Override
+    public boolean exist(String abbreviation) {
+
+        for (EducationTeam educationTeam : this.educationTeams) {
+            if (educationTeam.getAbbreviation().equals(abbreviation))
+                return true;
+        }
+
+        return false;
     }
 
     private static TestEducationTeamDAO instance;

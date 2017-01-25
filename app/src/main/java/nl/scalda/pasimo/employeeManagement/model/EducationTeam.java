@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.employeeManagement.model;
 
+import nl.scalda.pasimo.employeeManagement.service.EducationTeamDAOService;
+
 import java.util.TreeSet;
 
 public class EducationTeam implements Comparable<EducationTeam> {
@@ -7,21 +9,20 @@ public class EducationTeam implements Comparable<EducationTeam> {
     private String abbreviation;
     private String name;
     private TreeSet<CoachGroup> coachGroups;
-    private TreeSet<LessonGroup> lessonGroup;
 
     //<editor-fold defaultstate="collapsed" desc="constructor">
 
-    public EducationTeam(String abbreviation) {
-        // TODO: load..
+    public EducationTeam(String abbreviation, String name) {
+        this(abbreviation, name, new TreeSet<CoachGroup>());
     }
 
-    public EducationTeam(String abbreviation, String name, TreeSet<CoachGroup> coachGroups, TreeSet<LessonGroup> lessonGroup) {
+    public EducationTeam(String abbreviation, String name, TreeSet<CoachGroup> coachGroups) {
         this.abbreviation = abbreviation;
         this.name = name;
         this.coachGroups = coachGroups;
-        this.lessonGroup = lessonGroup;
 
-        // TODO: save
+        // Save the new EducationTeam
+        EducationTeamDAOService.getInstance().create(this);
 
     }
 
@@ -30,14 +31,7 @@ public class EducationTeam implements Comparable<EducationTeam> {
     public void addCoachGroup(CoachGroup coachGroup) {
         this.coachGroups.add(coachGroup);
 
-        // TODO: Add CoachGroup via DAO..
-
-    }
-
-    public void addLessonGroup(LessonGroup lessonGroup) {
-        this.lessonGroup.add(lessonGroup);
-
-        // TODO: Add LessonGroup via DAO..
+//        EducationTeamDAOService.getInstance().update(this);
 
     }
 
@@ -67,14 +61,6 @@ public class EducationTeam implements Comparable<EducationTeam> {
         this.coachGroups = coachGroups;
     }
 
-    public TreeSet<LessonGroup> getLessonGroup() {
-        return lessonGroup;
-    }
-
-    public void setLessonGroup(TreeSet<LessonGroup> lessonGroup) {
-        this.lessonGroup = lessonGroup;
-    }
-
     //</editor-fold>
 
     @Override
@@ -88,7 +74,6 @@ public class EducationTeam implements Comparable<EducationTeam> {
                 "abbreviation='" + abbreviation + '\'' +
                 ", name='" + name + '\'' +
                 ", coachGroups=" + coachGroups +
-                ", lessonGroup=" + lessonGroup +
                 '}';
     }
 

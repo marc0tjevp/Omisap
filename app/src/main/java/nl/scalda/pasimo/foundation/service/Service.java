@@ -1,13 +1,10 @@
-package nl.scalda.pasimo.service;
-
-import nl.scalda.pasimo.foundation.service.DAOFactoryService;
+package nl.scalda.pasimo.foundation.service;
 
 public class Service {
 
     private static Service instance = null;
 
-    private Service() {
-    }
+    private Service() {}
 
     public static DAOFactoryService getDAOFactoryService()
     {
@@ -15,9 +12,8 @@ public class Service {
     }
 
     public static Service getInstance() {
-        if (instance == null) {
+        if (instance == null)
             instance = new Service();
-        }
         return instance;
     }
 
