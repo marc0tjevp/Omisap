@@ -2,7 +2,7 @@ package nl.scalda.pasimo.employeemanagement.model;
 
 import java.util.TreeSet;
 
-public class Student {
+public class Student extends Person{
 
 	private String name;
 	private TreeSet<Note> noteList;
