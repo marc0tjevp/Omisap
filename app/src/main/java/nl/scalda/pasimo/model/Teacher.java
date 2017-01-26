@@ -34,7 +34,6 @@ public class Teacher extends Person {
 	@Override
 	public String toString() {
 		return "Teacher [abbreviation=" + abbreviation + ", employeeNumber=" + employeeNumber
-				+ ", cardID=" + getCardID() + ", name=" + getFullName() + ", dateOfBirth=" + new SimpleDateFormat("dd\\MM \\yyyy").format(getDateOfBirth().getTime()).toString() + "]";
+				+ ", cardID=" + getCardID() + ", name=" + getFullName() + "]";
 	}
-
 }

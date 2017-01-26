@@ -2,21 +2,29 @@
 <!DOCTYPE struts PUBLIC
    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
    "http://struts.apache.org/dtds/struts-2.0.dtd">
-   
 <struts>
-    <constant name="struts.devMode" value="true" />
-    <package name="alles" extends="struts-default">
-        <action name="pag1" class="nl.scalda.pasimo.controller.MainController"
-                method="execute">
-            <result name="success">/index.jsp</result>
-        </action>
-        <action name="pag2" class="nl.scalda.pasimo.controller.MainController"
-                method="execute">
-            <result name="success">/index2.jsp</result>
-        </action>
-        <action name="teacherOverview" class="nl.scalda.pasimo.controller.TeacherController"
-                method="readTeacher">
-            <result name="success">/Teacher/teacherOverview.jsp</result>
-        </action>
-    </package>
+	<constant name="struts.devMode" value="true" />
+	<package name="alles" extends="struts-default">
+		<action name="pag1" class="nl.scalda.pasimo.controller.MainController"
+			method="execute">
+			<result name="success">/index.jsp</result>
+		</action>
+		<action name="pag2" class="nl.scalda.pasimo.controller.MainController"
+			method="execute">
+			<result name="success">/index2.jsp</result>
+		</action>
+		<action name="teacherOverview" class="nl.scalda.pasimo.controller.TeacherController"
+			method="readTeacher">
+			<result name="success">/Teacher/teacherOverview.jsp</result>
+		</action>
+		<action name="addTeacherPage" class="nl.scalda.pasimo.controller.TeacherController"
+			method="execute">
+			<result name="success">/Teacher/addTeacher.jsp</result>
+		</action>
+		<action name="addTeacher" class="nl.scalda.pasimo.controller.TeacherController"
+			method="addTeacher">
+			<result name="success" type="redirect">teacherOverview</result>
+			<result name="input">teacherOverview</result>
+		</action>
+	</package>
 </struts>

@@ -69,7 +69,7 @@ public class Person implements Comparable<Person> {
 	}
 	
 	public String getFullName(){
-		if(this.insertion != "" && this.insertion != null){
+		if(this.insertion != "" || this.insertion != null){
 		return this.getFirstName()+" "+this.getInsertion()+" "+this.getLastName();
 		}
 		return this.getFirstName()+" "+this.getLastName();
