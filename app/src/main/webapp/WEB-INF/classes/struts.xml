@@ -23,8 +23,18 @@
 		</action>
 		<action name="addTeacher" class="nl.scalda.pasimo.controller.TeacherController"
 			method="addTeacher">
-			<result name="success" type="redirect">teacherOverview</result>
-			<result name="input">teacherOverview</result>
+			<result name="success">/Teacher/teacherOverview.jsp</result>
+			<result name="input">/Teacher/teacherOverview.jsp</result>
+		</action>
+		<action name="editTeacherPage" class="nl.scalda.pasimo.controller.TeacherController"
+			method="loadEditTeacherPage">
+			<param name="abbreviation">{teacher.abbreviation}</param>
+			<result name="success">/Teacher/editTeacher.jsp</result>
+		</action>
+		<action name="editTeacher" class="nl.scalda.pasimo.controller.TeacherController"
+			method="updateTeacher">
+			<result name="success">/Teacher/editTeacher.jsp</result>
+			<result name="input">/Teacher/editTeacher.jsp</result>
 		</action>
 	</package>
 </struts>

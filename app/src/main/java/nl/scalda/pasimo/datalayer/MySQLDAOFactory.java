@@ -17,9 +17,9 @@ public class MySQLDAOFactory extends DAOFactory {
     }
 
 	@Override
-	public IDAOTeacher getDAOTeacher() {
+	public TestDAOTeacher getDAOTeacher() {
 		// TODO Auto-generated method stub
-		return null;
+		return TestDAOTeacher.getInstance();
 	}
 
 //methodes

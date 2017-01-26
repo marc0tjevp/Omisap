@@ -27,8 +27,13 @@
       <td><s:property value="insertion"></s:property></td>
       <td><s:property value="lastName"></s:property></td>
       <td><s:property value="employeeNumber"></s:property></td>
-      <td>edit</td>
-      <td>delete</td>
+      <td>2
+        <s:form action="editTeacherPage">
+          <s:property display="hidden" value="abbreviation"></s:textfield>
+          <a type="submit"><span class="fa fa-pencil"></span></a>
+        </s:form>
+      </td>
+      <td><a><span class="fa fa-trash"></span></a></td>
     </tr>
   </s:iterator>
     

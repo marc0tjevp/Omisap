@@ -20,7 +20,7 @@ public class testClass {
 		
 		System.out.println(t);
 		
-		EducationTeam et = new EducationTeam("henk");
+		EducationTeam et = new EducationTeam("","henk");
 		et.addTeacher(t);
 		et.addTeacher(t2);
 		

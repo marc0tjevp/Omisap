@@ -8,6 +8,8 @@ import org.apache.commons.io.FileUtils;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import nl.scalda.pasimo.datalayer.DAOFactory;
+import nl.scalda.pasimo.datalayer.TestDAOFactory;
 import nl.scalda.pasimo.model.Cluster;
 import nl.scalda.pasimo.model.EducationTeam;
 import nl.scalda.pasimo.model.Teacher;
@@ -18,6 +20,7 @@ public class TeacherController extends ActionSupport{
 	public Teacher teacher = new Teacher();
 	public String teamAbbreviation;
 	public TreeSet<Teacher> teachers = new TreeSet<>();
+	public TreeSet<EducationTeam> educationTeams = new TreeSet<>();
 	private File fileUpload;
 	private String fileUploadContentType;
 	private String fileUploadFileName;
@@ -27,21 +30,24 @@ public class TeacherController extends ActionSupport{
 	}
 	
 	public String addTeacher() {
-		EducationTeam team = getEducationTeamByID(teamAbbreviation);
+		EducationTeam team = getEducationTeamByTeamAbbreviation(teamAbbreviation);
 		teacher.setAbbreviation();
-		System.out.println(teacher);
-		
 		team.addTeacher(teacher);
-		
-//		teachers.add(teacher);
+
 		return SUCCESS;
 	}
+	
 
 	public String readTeacher() {
 		Teacher t = new Teacher(123456, "email@myemaildomain.com", 654321789, "henk", "de", "alien", 1965, 7, 23);
 		Teacher t1 = new Teacher(876543, "anotherEmail@myemaildomain.com", 635685473, "klaas", "de", "boer", 1932, 11, 1);
 		teachers.add(t);
 		teachers.add(t1);
+		return SUCCESS;
+	}
+	
+	public String loadEditTeacherPage() {
+		System.out.println(abbreviation);
 		return SUCCESS;
 	}
 
@@ -74,12 +80,21 @@ public class TeacherController extends ActionSupport{
 		return teachers;
 	}
 	
-	public EducationTeam getEducationTeamByID(String abbreviation){
-		for (EducationTeam ct : Cluster.getInstance().getEducationTeams()) {
-			for(Teacher cte : ct.getTeachers()){
-				if(cte.getAbbreviation().equals(abbreviation)){
-					return ct;
-				}
+//	public EducationTeam getEducationTeamByID(String abbreviation){
+//		for (EducationTeam ct : Cluster.getInstance().getEducationTeams()) {
+//			for(Teacher cte : ct.getTeachers()){
+//				if(cte.getAbbreviation().equals(abbreviation)){
+//					return ct;
+//				}
+//			}
+//		}
+//		return null;
+//	}
+	
+	public EducationTeam getEducationTeamByTeamAbbreviation(String abbreviation){
+		for(EducationTeam e : Cluster.getInstance().getEducationTeams()){
+			if(e.getAbbreviation().equals(abbreviation)){
+				return e;
 			}
 		}
 		return null;
@@ -95,6 +110,21 @@ public class TeacherController extends ActionSupport{
 
 	public void setTeamAbbreviation(String teamAbbreviation) {
 		this.teamAbbreviation = teamAbbreviation;
+	}
+
+	public TreeSet<EducationTeam> getEducationTeams() {
+		//ONLY FOR TESTING
+		EducationTeam et = new EducationTeam("TET","Test Team");
+		
+		educationTeams.add(et);
+		
+		Cluster.getInstance().addEducationTeamToCollection(et);
+		//ONLY FOR TESTING
+		return educationTeams;
+	}
+
+	public void setEducationTeams(TreeSet<EducationTeam> educationTeams) {
+		this.educationTeams = educationTeams;
 	}
 
 	public String getFileUploadContentType() {

@@ -1,10 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="sx" uri="/struts-dojo-tags" %>
 <%@include file="../includes/layout.jsp"%>
-<sx:head />
-<h1>Docent toevoegen</h1><br>
-   
+<h1>Docent wijzigen</h1><br>
  <form action="addTeacher" class="" enctype="multipart/form-data" method="post">
  <s:bean name="nl.scalda.pasimo.model.Teacher" var="teacher">
 <div class="form-group row">
@@ -32,12 +29,6 @@
   </div>
 </div>
 <div class="form-group row">
-  <label class="col-2 col-form-label">Geboortedatum</label>
-  <div class="col-10">
-		<sx:datetimepicker name="teacher.dateOfBirth" displayFormat="dd-MMM-yyyy" value=""/>
-  </div>
-</div>
-<div class="form-group row">
   <label class="col-2 col-form-label">Kaartnummer</label>
   <div class="col-10">
         <s:textfield id="teacherCardID" style="width: 50%;" class="form-control" name="teacher.cardID" type="text"/>
@@ -52,9 +43,7 @@
 <div class="form-group row">
   <label class="col-2 col-form-label">Educatieteam</label>
   <div class="col-10">
-    <s:bean name="nl.scalda.pasimo.model.EducationTeam" var="team">
-  	  <s:select class="form-control" style="width: 50%;" name="teamAbbreviation" list="educationTeams" listKey="abbreviation" listValue="abbreviation + ' - ' + name"></s:select>
-	</s:bean>	
+  Hier komt een s:select met de educatieteams
 	<br><br>
   	    <input type="submit" value="Toevoegen" class="btn btn-primary" id="submitId"/>
   </div>
@@ -68,4 +57,4 @@
 </s:bean>
 </form>
 
-<%@include file="../includes/footer.jsp"%>
+<%@include file="../includes/footer.jsp"%></html>
