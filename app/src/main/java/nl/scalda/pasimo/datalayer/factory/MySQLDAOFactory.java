@@ -1,5 +1,7 @@
-package nl.scalda.pasimo.datalayer;
+package nl.scalda.pasimo.datalayer.factory;
 
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
 import nl.scalda.pasimo.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
 

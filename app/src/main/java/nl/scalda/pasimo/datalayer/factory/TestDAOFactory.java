@@ -1,5 +1,7 @@
-package nl.scalda.pasimo.datalayer;
+package nl.scalda.pasimo.datalayer.factory;
 
+import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.interfaces.*;
 
 public class TestDAOFactory extends DAOFactory {

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nl.scalda.pasimo.model.EmployeeManagement;
+package nl.scalda.pasimo.model.employeemanagement;
 
 /**
  *
@@ -15,6 +15,7 @@ public class Student extends Person { //deze class word vervangen met die van jo
     private int cardID;
 
     public Student() {
+
     }
 
     public Student(String name, String lastname, String email, int cardID) {

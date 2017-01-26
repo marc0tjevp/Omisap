@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nl.scalda.pasimo.datalayer;
+package nl.scalda.pasimo.datalayer.testdao;
 
 import java.util.TreeSet;
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
-import nl.scalda.pasimo.model.EmployeeManagement.LessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
 /**
  *

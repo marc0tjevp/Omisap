@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.datalayer;
+package nl.scalda.pasimo.datalayer.factory;
 
 import nl.scalda.pasimo.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;

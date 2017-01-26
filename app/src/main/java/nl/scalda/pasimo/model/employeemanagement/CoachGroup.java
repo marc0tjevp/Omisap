@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.model.EmployeeManagement;
+package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
 
@@ -14,6 +14,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
     private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
 
     public CoachGroup() {
+        
     }
 
     public CoachGroup(int id, String name) {

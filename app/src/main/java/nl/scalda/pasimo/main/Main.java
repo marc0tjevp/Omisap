@@ -6,13 +6,13 @@
 package nl.scalda.pasimo.main;
 
 import java.util.TreeSet;
-import nl.scalda.pasimo.datalayer.DAOFactory;
-import nl.scalda.pasimo.datalayer.TestDAOFactory;
-import nl.scalda.pasimo.model.EmployeeManagement.CoachGroup;
-import nl.scalda.pasimo.model.EmployeeManagement.EducationTeam;
-import nl.scalda.pasimo.model.EmployeeManagement.LessonGroup;
-import nl.scalda.pasimo.model.EmployeeManagement.Student;
-import nl.scalda.pasimo.model.EmployeeManagement.Teacher;
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.Student;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 /**
  *

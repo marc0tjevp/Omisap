@@ -9,7 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.TreeSet;
-import nl.scalda.pasimo.model.EmployeeManagement.Student;
+import nl.scalda.pasimo.model.employeemanagement.Student;
 
 /**
  *

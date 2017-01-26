@@ -1,11 +1,11 @@
-package nl.scalda.pasimo.datalayer;
+package nl.scalda.pasimo.datalayer.testdao;
 
 import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import nl.scalda.pasimo.interfaces.IDAOCoachGroup;
-import nl.scalda.pasimo.model.EmployeeManagement.CoachGroup;
-import nl.scalda.pasimo.model.EmployeeManagement.Teacher;
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 /**
  *
