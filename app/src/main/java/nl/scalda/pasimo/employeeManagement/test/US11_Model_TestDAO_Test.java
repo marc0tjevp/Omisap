@@ -6,7 +6,7 @@ import nl.scalda.pasimo.foundation.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.foundation.service.DAOFactoryService;
 import nl.scalda.pasimo.foundation.service.Service;
 
-public class ModelDAOTest01 {
+public class US11_Model_TestDAO_Test {
 
     public static void main(String[] args) {
 

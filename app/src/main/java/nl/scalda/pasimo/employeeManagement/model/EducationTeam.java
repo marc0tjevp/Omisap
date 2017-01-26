@@ -6,8 +6,19 @@ import java.util.TreeSet;
 
 public class EducationTeam implements Comparable<EducationTeam> {
 
+    /**
+     * Abbreviation of the EducationTeam; e.g. AO
+     */
     private String abbreviation;
+
+    /**
+     * Name of the EducationTeam; e.g. Applicatie Ontwikkelaar
+     */
     private String name;
+
+    /**
+     *
+     */
     private TreeSet<CoachGroup> coachGroups;
 
     //<editor-fold defaultstate="collapsed" desc="constructor">
