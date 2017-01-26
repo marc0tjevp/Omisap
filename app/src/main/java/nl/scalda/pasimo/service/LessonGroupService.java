@@ -25,8 +25,8 @@ public class LessonGroupService {
         return DAOFactory.getTheFactory().getDAOLessonGroup().read(lessonGroup);
     }
 
-    public void update(LessonGroup oldCoachGroup, LessonGroup newCoachGroup) {
-        DAOFactory.getTheFactory().getDAOLessonGroup().update(oldCoachGroup, newCoachGroup);
+    public void update(LessonGroup lessonGroup) {
+        DAOFactory.getTheFactory().getDAOLessonGroup().update(lessonGroup);
     }
 
     public void delete(LessonGroup lessonGroup) {

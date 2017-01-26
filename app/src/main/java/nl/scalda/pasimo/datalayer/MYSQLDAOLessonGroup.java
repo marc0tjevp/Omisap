@@ -27,7 +27,7 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
     }
 
     @Override
-    public void update(LessonGroup oldLessonGroup, LessonGroup newLessonGroup) {
+    public void update(LessonGroup lessonGroup) {
 
     }
 

@@ -10,7 +10,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 
     private int id;
     private String name;
-    private Teacher teacher;
+    private Teacher coach;
     private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
 
     public CoachGroup() {
@@ -21,14 +21,14 @@ public class CoachGroup implements Comparable<CoachGroup> {
         this.name = name;
     }
 
-    public CoachGroup(String name, Teacher teacher) {
+    public CoachGroup(String name, Teacher coach) {
         this.name = name;
-        this.teacher = teacher;
+        this.coach = coach;
     }
 
     public CoachGroup(String name, Teacher teacher, TreeSet<LessonGroup> lessonGroups) {
         this.name = name;
-        this.teacher = teacher;
+        this.coach = teacher;
         this.lessonGroups = lessonGroups;
     }
 
@@ -66,12 +66,12 @@ public class CoachGroup implements Comparable<CoachGroup> {
         this.name = name;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
+    public Teacher getCoach() {
+        return coach;
     }
 
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
+    public void setCoach(Teacher coach) {
+        this.coach = coach;
     }
 
     public TreeSet<LessonGroup> getLessonGroups() {
@@ -85,7 +85,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 
     @Override
     public String toString() {
-        return "\n CoachGroup: id= " + id + ", name= " + name + ", teacher= " + teacher + ", lessongroup= " + lessonGroups;
+        return "\n CoachGroup: id= " + id + ", name= " + name + ", coach= " + coach + ", lessongroup= " + lessonGroups;
     }
 
     @Override

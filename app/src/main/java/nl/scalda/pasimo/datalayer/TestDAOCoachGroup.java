@@ -46,13 +46,14 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
     }
 
     @Override
-    public void update(CoachGroup oldCoachGroup, CoachGroup newCoachGroup) {
+    public void update(CoachGroup coachGroup) {
         for (CoachGroup ccg : coachGroups) {
             try {
-                if (oldCoachGroup.getId() == ccg.getId()) {
-                    ccg.setName(newCoachGroup.getName());
-                    ccg.setTeacher(newCoachGroup.getTeacher());
-                    ccg.setLessonGroups(newCoachGroup.getLessonGroups());
+                if (coachGroup.getId() == ccg.getId()) {
+                    ccg = coachGroup;
+//                    ccg.setName(coachGroup.getName());
+//                    ccg.setTeacher(coachGroup.getTeacher());
+//                    ccg.setLessonGroups(coachGroup.getLessonGroups());
                 }
             } catch (Exception ex) {
                 System.out.println("Could not update, ended with Exception: " + ex.getMessage());

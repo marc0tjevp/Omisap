@@ -17,7 +17,7 @@ public interface IDAOLessonGroup {
 
     public LessonGroup read(LessonGroup LessonGroup);
 
-    public void update(LessonGroup oldLessonGroup, LessonGroup newLessonGroup);
+    public void update(LessonGroup lessonGroup);
 
     public void delete(LessonGroup LessonGroup);
 }

@@ -28,7 +28,7 @@ public class MYSQLDAOCoachGroup extends MySQLDAOConnection implements IDAOCoachG
     }
 
     @Override
-    public void update(CoachGroup oldCoachGroup, CoachGroup newCoachGroup) {
+    public void update(CoachGroup coachGroup) {
 
     }
 

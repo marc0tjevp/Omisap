@@ -49,12 +49,11 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
     }
 
     @Override
-    public void update(LessonGroup oldLessonGroup, LessonGroup newLessonGroup) {
+    public void update(LessonGroup lessonGroup) {
         for (LessonGroup clg : lessonGroups) {
             try {
-                if (oldLessonGroup.getId() == clg.getId()) {
-                    clg.setName(newLessonGroup.getName());
-                    clg.setStudents(newLessonGroup.getStudents());
+                if (lessonGroup.getId() == clg.getId()) {
+                    clg = lessonGroup;
                 }
             } catch (Exception ex) {
                 System.out.println("Could not update, ended with Exception: " + ex.getMessage());

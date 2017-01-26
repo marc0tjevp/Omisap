@@ -18,7 +18,7 @@ public interface IDAOCoachGroup {
 
     public CoachGroup read(CoachGroup CoachGroup);
 
-    public void update(CoachGroup oldCoachGroup, CoachGroup newCoachGroup);
+    public void update(CoachGroup coachGroup);
     
     public void delete(CoachGroup CoachGroup);
 }
