@@ -1,11 +1,9 @@
 package nl.scalda.pasimo.datalayer;
 
-import com.sun.rmi.rmid.ExecPermission;
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.model.EmployeeManagement.LessonGroup;
 
 import java.util.TreeSet;
-import java.util.concurrent.ExecutionException;
 
 public class TestDAOLessonGroup implements IDAOLessonGroup {
 
