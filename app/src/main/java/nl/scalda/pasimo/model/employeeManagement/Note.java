@@ -1,49 +1,49 @@
-package nl.scalda.pasimo.employeemanagement.model;
+package nl.scalda.pasimo.model.employeeManagement;
 
 import java.util.Date;
 
 import nl.scalda.pasimo.service.Service;
 
-public class Note implements Comparable<Note>{
-	
+public class Note implements Comparable<Note> {
+
 	private int id;
 	private String title;
 	private Date creationDate;
 	private String message;
 	private Teacher madeBy;
 	private Date lastEdit;
-	
+
 	public Note(String title, String message, Teacher madeBy) {
-		
+
 		this.title = title;
 		this.message = message;
 		this.madeBy = madeBy;
-		
+
 		this.creationDate = new Date();
-		this.lastEdit = this.creationDate;		
+		this.lastEdit = this.creationDate;
 		Note cNote = Service.getInstance().getNoteService().create(this);
 		this.id = cNote.getId();
 	}
-	
-	
+
 	/**
 	 * Edits the note, and updates the lastEdit timestamp
 	 * 
-	 * @param String title title of the note
-	 * @param String message message of the note
+	 * @param String
+	 *            title title of the note
+	 * @param String
+	 *            message message of the note
 	 * @return Note note returns a updated note
 	 * 
 	 */
-	public Note editNote(String title, String message){
-		
+	public Note editNote(String title, String message) {
+
 		this.title = title;
 		this.message = message;
-		
+
 		this.lastEdit = new Date();
 		Service.getInstance().getNoteService().update(this);
 		return this;
 	}
-
 
 	public int getId() {
 		return id;
@@ -99,7 +99,7 @@ public class Note implements Comparable<Note>{
 		{
 			return 0;
 		}
-		return 1;
+		return this.getCreationDate().before(o.getCreationDate()) ? -1 : 1;
 	}
 
 }

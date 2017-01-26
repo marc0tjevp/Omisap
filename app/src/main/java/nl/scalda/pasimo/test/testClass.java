@@ -4,10 +4,10 @@ import java.text.SimpleDateFormat;
 
 import nl.scalda.pasimo.datalayer.DAOFactory;
 import nl.scalda.pasimo.datalayer.TestDAOFactory;
-import nl.scalda.pasimo.employeemanagement.datalayer.test.TestDAOTeacher;
-import nl.scalda.pasimo.employeemanagement.model.EducationTeam;
-import nl.scalda.pasimo.employeemanagement.model.Note;
-import nl.scalda.pasimo.employeemanagement.model.Teacher;
+import nl.scalda.pasimo.datalayer.TestDAOTeacher;
+import nl.scalda.pasimo.model.employeeManagement.EducationTeam;
+import nl.scalda.pasimo.model.employeeManagement.Note;
+import nl.scalda.pasimo.model.employeeManagement.Teacher;
 
 public class testClass {
 

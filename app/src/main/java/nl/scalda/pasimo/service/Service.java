@@ -1,7 +1,5 @@
 package nl.scalda.pasimo.service;
 
-import nl.scalda.pasimo.employeemanagement.service.NoteService;
-
 public class Service {
 
     private static Service instance = null;

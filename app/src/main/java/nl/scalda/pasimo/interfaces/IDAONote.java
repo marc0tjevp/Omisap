@@ -1,6 +1,6 @@
-package nl.scalda.pasimo.employeemanagement.interfaces;
+package nl.scalda.pasimo.interfaces;
 
-import nl.scalda.pasimo.employeemanagement.model.Note;
+import nl.scalda.pasimo.model.employeeManagement.Note;
 
 public interface IDAONote {
 

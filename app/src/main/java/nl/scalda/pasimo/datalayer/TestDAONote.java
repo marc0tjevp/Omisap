@@ -1,9 +1,10 @@
-package nl.scalda.pasimo.employeemanagement.datalayer.test;
+package nl.scalda.pasimo.datalayer;
 
 import java.util.TreeSet;
 
-import nl.scalda.pasimo.employeemanagement.interfaces.IDAONote;
-import nl.scalda.pasimo.employeemanagement.model.Note;
+import nl.scalda.pasimo.interfaces.IDAONote;
+import nl.scalda.pasimo.model.employeeManagement.Note;
+import nl.scalda.pasimo.model.employeeManagement.Teacher;
 
 public class TestDAONote implements IDAONote {
 
@@ -11,9 +12,16 @@ public class TestDAONote implements IDAONote {
 	
 	private TreeSet<Note> noteList;
 	
-	
 	private TestDAONote() {
+		Teacher tea1 = new Teacher("alksjbasj");
 		noteList = new TreeSet<Note>();
+		Note note1 = new Note("Vertraging bus", "Lijn 660 had vertraging van 30 minuten", tea1);
+		Note note2 = new Note("Vertraging boot", "Boot had vertraging van 30 minuten", tea1);
+		Note note3 = new Note("Vertraging vliegtuig", "Vliegtuig had vertraging van 30 minuten", tea1);
+		
+		noteList.add(note1);
+		noteList.add(note2);
+		noteList.add(note3);
 	}
 	
 	@Override

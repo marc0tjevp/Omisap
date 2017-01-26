@@ -1,9 +1,7 @@
 package nl.scalda.pasimo.datalayer;
 
-import nl.scalda.pasimo.employeemanagement.datalayer.test.TestDAONote;
-import nl.scalda.pasimo.employeemanagement.datalayer.test.TestDAOTeacher;
-import nl.scalda.pasimo.employeemanagement.interfaces.IDAONote;
-import nl.scalda.pasimo.employeemanagement.interfaces.IDAOTeacher;
+import nl.scalda.pasimo.interfaces.IDAONote;
+import nl.scalda.pasimo.interfaces.IDAOTeacher;
 
 public class TestDAOFactory extends DAOFactory {
 
