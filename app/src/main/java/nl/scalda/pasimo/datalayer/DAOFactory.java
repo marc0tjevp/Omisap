@@ -2,10 +2,11 @@ package nl.scalda.pasimo.datalayer;
 
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
 
+import nl.scalda.pasimo.interfaces.IDAOTeacher;
+
 public abstract class DAOFactory {
 
-    protected static DAOFactory theFactory = TestDAOFactory.getInstance();
-//    protected static DAOFactory theFactory = MySQLDAOFactory.getInstance();
+    protected static DAOFactory theFactory;
 
     public static DAOFactory getTheFactory() {
         return theFactory;
@@ -18,4 +19,7 @@ public abstract class DAOFactory {
     
     public abstract IDAOLessonGroup getDAOLessonGroup();
     
+
+    public abstract IDAOTeacher getDAOTeacher();
+
 }
