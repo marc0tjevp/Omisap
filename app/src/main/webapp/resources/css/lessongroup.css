@@ -1,0 +1,21 @@
+.lessonGroupButtons {
+    float: right;
+}
+
+.lessonGroupButtons button {
+    font-size: 18px;
+}
+
+table.lesson-groups-table {
+    font-size: 21px;
+}
+
+table.lesson-groups-table thead th {
+    vertical-align: middle;
+}
+
+table.lesson-groups-table input[type="checkbox"] {
+    height: 20px;
+    width:  20px;
+
+}
