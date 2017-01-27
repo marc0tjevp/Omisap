@@ -1,8 +1,10 @@
-package nl.scalda.pasimo.model;
+package nl.scalda.pasimo.model.employeeManagement;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.TreeSet;
+
 
 public class Person implements Comparable<Person> {
 
@@ -12,7 +14,7 @@ public class Person implements Comparable<Person> {
 	private String insertion;
 	private String lastName;
 	private GregorianCalendar dateOfBirth;
-	
+	private TreeSet<Note> noteList;
 	
 	public Person() {}
 	
@@ -23,11 +25,32 @@ public class Person implements Comparable<Person> {
 		this.setFirstName(firstName);
 		this.setInsertion(insertion);
 		this.setLastName(lastName);
-		
 		gc.set(yearOfBirth, monthOfBirth - 1, dayOfBirth);
 		this.dateOfBirth = gc;
+		this.noteList = new TreeSet<Note>();
 	}
 
+	/**
+	 * Adds a note to the teacher.
+	 * 
+	 * @param Note note
+	 * @see Note
+	 */
+	public void addNote(Note note){
+		this.noteList.add(note);
+	}
+	
+	/**
+	 * Removes a note from the person
+	 * 
+	 * @param Note note
+	 * @see Note
+	 */
+	public void removeNote(Note note){
+		this.noteList.remove(note);
+	}
+	
+	//getters and setters
 	public String getEmail() {
 		return email;
 	}
@@ -79,8 +102,12 @@ public class Person implements Comparable<Person> {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(GregorianCalendar dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public TreeSet<Note> getNoteList() {
+		return noteList;
+	}
+
+	public void setNoteList(TreeSet<Note> noteList) {
+		this.noteList = noteList;
 	}
 
 	@Override

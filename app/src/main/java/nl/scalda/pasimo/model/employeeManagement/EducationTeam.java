@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.model;
+package nl.scalda.pasimo.model.employeeManagement;
 
 import java.util.TreeSet;
 
@@ -16,7 +16,7 @@ public class EducationTeam implements Comparable<EducationTeam> {
 	public EducationTeam(String abbreviation, String name){
 		this.name = name;
 		this.abbreviation = abbreviation;
-		Cluster.getInstance().addEducationTeamToCollection(this);
+//		Cluster.getInstance().addEducationTeamToCollection(this);
 	}
 
 	public void addTeacher(Teacher t){

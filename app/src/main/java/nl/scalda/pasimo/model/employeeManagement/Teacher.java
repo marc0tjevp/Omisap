@@ -1,6 +1,4 @@
-package nl.scalda.pasimo.model;
-
-import java.text.SimpleDateFormat;
+package nl.scalda.pasimo.model.employeeManagement;
 
 public class Teacher extends Person {
 

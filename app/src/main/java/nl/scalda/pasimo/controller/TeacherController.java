@@ -11,8 +11,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import nl.scalda.pasimo.datalayer.DAOFactory;
 import nl.scalda.pasimo.datalayer.TestDAOFactory;
 import nl.scalda.pasimo.model.Cluster;
-import nl.scalda.pasimo.model.EducationTeam;
-import nl.scalda.pasimo.model.Teacher;
+import nl.scalda.pasimo.model.employeeManagement.EducationTeam;
+import nl.scalda.pasimo.model.employeeManagement.Teacher;
 import nl.scalda.pasimo.service.Service;
 
 public class TeacherController extends ActionSupport{
@@ -47,7 +47,7 @@ public class TeacherController extends ActionSupport{
 	}
 	
 	public String loadEditTeacherPage() {
-		System.out.println(abbreviation);
+//		System.out.println(abbreviation);
 		return SUCCESS;
 	}
 

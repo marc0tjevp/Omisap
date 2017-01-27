@@ -6,7 +6,7 @@
 <h1>Docent toevoegen</h1><br>
    
  <form action="addTeacher" class="" enctype="multipart/form-data" method="post">
- <s:bean name="nl.scalda.pasimo.model.Teacher" var="teacher">
+             <s:bean name="nl.scalda.pasimo.model.Teacher" var="teacher">
 <div class="form-group row">
   <label class="col-2 col-form-label">Voornaam</label>
   <div class="col-10">

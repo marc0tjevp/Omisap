@@ -7,9 +7,8 @@ import com.mysql.fabric.xmlrpc.base.Array;
 
 import nl.scalda.pasimo.datalayer.DAOFactory;
 import nl.scalda.pasimo.datalayer.MySQLDAOFactory;
-import nl.scalda.pasimo.model.Cluster;
-import nl.scalda.pasimo.model.EducationTeam;
-import nl.scalda.pasimo.model.Teacher;
+import nl.scalda.pasimo.model.employeeManagement.EducationTeam;
+import nl.scalda.pasimo.model.employeeManagement.Teacher;
 
 public class TeacherService {
 
@@ -27,32 +26,32 @@ public class TeacherService {
 //		team.addTeacher(t);
 //	}
 
-	public Teacher readByID(int id) {
-		for (EducationTeam ct : Cluster.getInstance().getEducationTeams()) {
-			for(Teacher cte : ct.getTeachers()){
-				if(cte.getEmployeeNumber() == id){
-					return cte;
-				}
-			}
-		}
-		return null;
-	}
+//	public Teacher readByID(int id) {
+//		for (EducationTeam ct : Cluster.getInstance().getEducationTeams()) {
+//			for(Teacher cte : ct.getTeachers()){
+//				if(cte.getEmployeeNumber() == id){
+//					return cte;
+//				}
+//			}
+//		}
+//		return null;
+//	}
 
 	public void update(Teacher t) {
 		EducationTeam tmpTeam = getTeamForTeacher(t);
 		DAOFactory.getTheFactory().getDAOTeacher().update(t, tmpTeam);
 	}
-	
-	public EducationTeam getTeamForTeacher(Teacher t){
-		for (EducationTeam ct : Cluster.getInstance().getEducationTeams()) {
-			for(Teacher cte : ct.getTeachers()){
-				if(cte.getAbbreviation().equals(t.getAbbreviation())){
-					return ct;
-				}
-			}
-		}
-		return null;
-	}
+
+//	public EducationTeam getTeamForTeacher(Teacher t){
+//		for (EducationTeam ct : Cluster.getInstance().getEducationTeams()) {
+//			for(Teacher cte : ct.getTeachers()){
+//				if(cte.getAbbreviation().equals(t.getAbbreviation())){
+//					return ct;
+//				}
+//			}
+//		}
+//		return null;
+//	}
 
 	public void delete(Teacher t, EducationTeam team) {
 

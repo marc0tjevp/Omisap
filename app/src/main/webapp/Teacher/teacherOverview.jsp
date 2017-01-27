@@ -29,7 +29,7 @@
       <td><s:property value="employeeNumber"></s:property></td>
       <td>2
         <s:form action="editTeacherPage">
-          <s:property display="hidden" value="abbreviation"></s:textfield>
+          <s:property display="hidden" value="abbreviation"></s:property>
           <a type="submit"><span class="fa fa-pencil"></span></a>
         </s:form>
       </td>
