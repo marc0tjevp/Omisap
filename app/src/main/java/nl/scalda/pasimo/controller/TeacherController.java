@@ -10,7 +10,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import nl.scalda.pasimo.datalayer.DAOFactory;
 import nl.scalda.pasimo.datalayer.TestDAOFactory;
-import nl.scalda.pasimo.model.Cluster;
 import nl.scalda.pasimo.model.employeeManagement.EducationTeam;
 import nl.scalda.pasimo.model.employeeManagement.Teacher;
 import nl.scalda.pasimo.service.Service;
