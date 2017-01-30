@@ -64,7 +64,7 @@
                             </label>
                         </td>
 
-                        <td><a href="#">ICO41A</a></td>
+                        <td><a href="details.jsp">ICO41A</a></td>
                         <td>92</td>
                     </tr>
 
@@ -75,7 +75,7 @@
                             </label>
                         </td>
 
-                        <td><a href="#">ICO41A</a></td>
+                        <td><a href="details.jsp">ICO41A</a></td>
                         <td>92</td>
                     </tr>
 
@@ -86,7 +86,7 @@
                             </label>
                         </td>
 
-                        <td><a href="#">ICO41A</a></td>
+                        <td><a href="details.jsp">ICO41A</a></td>
                         <td>92</td>
                     </tr>
 
@@ -97,7 +97,7 @@
                             </label>
                         </td>
 
-                        <td><a href="#">ICO41A</a></td>
+                        <td><a href="details.jsp">ICO41A</a></td>
                         <td>92</td>
                     </tr>
 
@@ -108,7 +108,7 @@
                             </label>
                         </td>
 
-                        <td><a href="#">ICO41A</a></td>
+                        <td><a href="details.jsp">ICO41A</a></td>
                         <td>2</td>
                     </tr>
 
@@ -120,7 +120,7 @@
                             </label>
                         </td>
 
-                        <td><a href="#">ICO41A</a></td>
+                        <td><a href="details.jsp">ICO41A</a></td>
                         <td>12</td>
                     </tr>
                 </tbody>
