@@ -1,12 +1,12 @@
-package nl.scalda.pasimo.employeeManagement.test;
+package nl.scalda.pasimo.test.employeeManagement;
 
-import nl.scalda.pasimo.employeeManagement.model.CoachGroup;
-import nl.scalda.pasimo.employeeManagement.model.EducationTeam;
-import nl.scalda.pasimo.foundation.datalayer.factory.TestDAOFactory;
-import nl.scalda.pasimo.foundation.service.DAOFactoryService;
-import nl.scalda.pasimo.foundation.service.Service;
+import nl.scalda.pasimo.model.CoachGroup;
+import nl.scalda.pasimo.model.EducationTeam;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
+import nl.scalda.pasimo.service.DAOFactoryService;
+import nl.scalda.pasimo.service.Service;
 
-public class US11_Model_TestDAO_Test {
+public class US11_Model_Test {
 
     public static void main(String[] args) {
 

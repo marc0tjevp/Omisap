@@ -2,6 +2,9 @@ package nl.scalda.pasimo.datalayer;
 
 import nl.scalda.pasimo.interfaces.IDAOTeacher;
 
+/**
+ * TODO: Move to .factory
+ */
 public class TestDAOFactory extends DAOFactory {
 
     private static TestDAOFactory instance = null;

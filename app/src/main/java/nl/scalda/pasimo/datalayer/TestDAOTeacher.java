@@ -5,6 +5,9 @@ import nl.scalda.pasimo.interfaces.IDAOTeacher;
 import nl.scalda.pasimo.model.EducationTeam;
 import nl.scalda.pasimo.model.Teacher;
 
+/**
+ * TODO: Move to .impl
+ */
 public class TestDAOTeacher implements IDAOTeacher {
 
 	private static TestDAOTeacher instance = null;

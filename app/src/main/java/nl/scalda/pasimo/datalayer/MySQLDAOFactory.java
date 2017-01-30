@@ -2,6 +2,9 @@ package nl.scalda.pasimo.datalayer;
 
 import nl.scalda.pasimo.interfaces.IDAOTeacher;
 
+/**
+ * @deprecated
+ */
 public class MySQLDAOFactory extends DAOFactory {
 
     private static MySQLDAOFactory instance = null;

@@ -1,8 +1,7 @@
-package nl.scalda.pasimo.employeeManagement.datalayer.impl;
+package nl.scalda.pasimo.datalayer.impl;
 
-import nl.scalda.pasimo.employeeManagement.datalayer.IEducationTeamDAO;
-import nl.scalda.pasimo.employeeManagement.model.EducationTeam;
-import nl.scalda.pasimo.foundation.service.DAOFactoryService;
+import nl.scalda.pasimo.datalayer.IEducationTeamDAO;
+import nl.scalda.pasimo.model.EducationTeam;
 
 import java.util.TreeSet;
 

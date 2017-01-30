@@ -1,15 +1,12 @@
-package nl.scalda.pasimo.employeeManagement.model;
+package nl.scalda.pasimo.model;
 
-import nl.scalda.pasimo.employeeManagement.datalayer.ITeamDAO;
-import nl.scalda.pasimo.foundation.service.Service;
+import nl.scalda.pasimo.service.Service;
 
 import java.util.TreeSet;
 
 public class Team {
 
     private static final String ICT = "ict";
-
-    private static Team instance;
 
     /**
      * Abbreviation of the Team; e.g. ICT
@@ -84,6 +81,8 @@ public class Team {
 //    {
 //        return Service.getDAOFactoryService().getFactory().getTeamDAO();
 //    }
+
+    private static Team instance;
 
     public static Team getInstance()
     {

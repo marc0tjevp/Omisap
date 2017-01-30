@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.employeeManagement.model;
+package nl.scalda.pasimo.model;
 
 public class CoachGroup implements Comparable<CoachGroup> {
 

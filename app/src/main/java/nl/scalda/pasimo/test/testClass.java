@@ -5,6 +5,10 @@ import java.text.SimpleDateFormat;
 import nl.scalda.pasimo.datalayer.TestDAOTeacher;
 import nl.scalda.pasimo.model.*;
 
+/**
+ * TOD: Remove t
+ * @deprecated
+ */
 public class testClass {
 
 	public static void main(String[] args) throws ParseException{

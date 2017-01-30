@@ -1,6 +1,6 @@
-package nl.scalda.pasimo.employeeManagement.datalayer;
+package nl.scalda.pasimo.datalayer;
 
-import nl.scalda.pasimo.employeeManagement.model.EducationTeam;
+import nl.scalda.pasimo.model.EducationTeam;
 
 import java.util.TreeSet;
 

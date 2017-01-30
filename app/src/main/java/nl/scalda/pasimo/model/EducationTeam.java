@@ -1,40 +1,91 @@
 package nl.scalda.pasimo.model;
 
+import nl.scalda.pasimo.service.EducationTeamDAOService;
+
 import java.util.TreeSet;
 
-import nl.scalda.pasimo.datalayer.DAOFactory;
+public class EducationTeam implements Comparable<EducationTeam> {
 
-public class EducationTeam {
-	
-	private TreeSet<Teacher> teachers = new TreeSet<>();
-	
-	public EducationTeam(){}
+    /**
+     * Abbreviation of the EducationTeam; e.g. AO
+     */
+    private String abbreviation;
 
-	public void addTeacher(Teacher t){
-		if (teachers.add(t)) {
-			DAOFactory.getTheFactory().getDAOTeacher().add(t, this);
-		}
-		
-	}
-	
-	public void deleteTeacher(Teacher t){
-		if (teachers.remove(t)) {
-			DAOFactory.getTheFactory().getDAOTeacher().delete(t, this);
-		}		
-		
-	}
-	
-	public TreeSet<Teacher> getTeachers() {
-		return teachers;
-	}
+    /**
+     * Name of the EducationTeam; e.g. Applicatie Ontwikkelaar
+     */
+    private String name;
 
-	public void setTeachers(TreeSet<Teacher> teachers) {
-		this.teachers = teachers;
-	}
+    /**
+     *
+     */
+    private TreeSet<CoachGroup> coachGroups;
 
-	@Override
-	public String toString() {
-		return "EducationTeam [teachers=" + teachers + "]";
-	}
+    //<editor-fold defaultstate="collapsed" desc="constructor">
+
+    public EducationTeam(String abbreviation, String name) {
+        this(abbreviation, name, new TreeSet<CoachGroup>());
+    }
+
+    public EducationTeam(String abbreviation, String name, TreeSet<CoachGroup> coachGroups) {
+        this.abbreviation = abbreviation;
+        this.name = name;
+        this.coachGroups = coachGroups;
+
+        // Save the new EducationTeam
+        EducationTeamDAOService.getInstance().create(this);
+
+    }
+
+    //</editor-fold>
+
+    public void addCoachGroup(CoachGroup coachGroup) {
+        this.coachGroups.add(coachGroup);
+
+//        EducationTeamDAOService.getInstance().update(this);
+
+    }
+
+    //<editor-fold defaultstate="collapsed" desc="getters and setters">
+
+    public String getAbbreviation() {
+        return abbreviation;
+    }
+
+    public void setAbbreviation(String abbreviation) {
+        this.abbreviation = abbreviation;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public TreeSet<CoachGroup> getCoachGroups() {
+        return coachGroups;
+    }
+
+    public void setCoachGroups(TreeSet<CoachGroup> coachGroups) {
+        this.coachGroups = coachGroups;
+    }
+
+    //</editor-fold>
+
+    @Override
+    public int compareTo(EducationTeam o) {
+        return this.name.compareTo(o.getName());
+    }
+
+    @Override
+    public String toString() {
+        return "EducationTeam{" +
+                "abbreviation='" + abbreviation + '\'' +
+                ", name='" + name + '\'' +
+                ", coachGroups=" + coachGroups +
+                '}';
+    }
 
 }

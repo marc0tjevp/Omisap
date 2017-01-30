@@ -11,6 +11,8 @@ import java.sql.SQLException;
  * call its inherited methods.
  *
  * @author Jos Rijborz
+ *
+ * @deprecated
  */
 public class MySQLDAOConnection {
 
