@@ -4,7 +4,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:layout2>
     <jsp:attribute name="css">
-         <link rel="stylesheet" href="<c:url value="/resources/css/lessongroup.css"/>"/>
+         <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/lessongroup.css"/>"/>
     </jsp:attribute>
 
     <jsp:attribute name="scripts">
@@ -38,8 +38,8 @@
 
             <h1>Lesson groups</h1>
             <div class="lessonGroupButtons">
-                <button class="btn btn-default" type="submit">Toevoegen</button>
-                <button class="btn btn-default" id="deleteButton" type="submit" disabled>Verwijderen</button>
+                <button class="btn btn-primary" type="submit">Toevoegen</button>
+                <button class="btn btn-danger" id="deleteButton" type="submit" disabled>Verwijderen</button>
             </div>
 
 

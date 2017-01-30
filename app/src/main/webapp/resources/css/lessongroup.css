@@ -10,16 +10,16 @@ table.lesson-groups-table {
     font-size: 21px;
 }
 
-table.lesson-groups-table td {
-    border-top: 1px solid #333333;
-}
-
 table.lesson-groups-table thead th {
     vertical-align: middle;
+    border-bottom: 2px solid #333333;
+}
+table.lesson-groups-table tbody td {
+    vertical-align: middle;
+    border-top: 1px solid #333333;
 }
 
 table.lesson-groups-table input[type="checkbox"] {
     height: 20px;
     width:  20px;
-
 }
