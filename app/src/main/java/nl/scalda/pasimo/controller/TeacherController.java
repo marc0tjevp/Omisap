@@ -10,7 +10,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import nl.scalda.pasimo.datalayer.DAOFactory;
 import nl.scalda.pasimo.datalayer.TestDAOFactory;
-import nl.scalda.pasimo.model.Cluster;
 import nl.scalda.pasimo.model.employeeManagement.EducationTeam;
 import nl.scalda.pasimo.model.employeeManagement.Teacher;
 import nl.scalda.pasimo.service.Service;
@@ -30,9 +29,9 @@ public class TeacherController extends ActionSupport{
 	}
 	
 	public String addTeacher() {
-		EducationTeam team = getEducationTeamByTeamAbbreviation(teamAbbreviation);
+//		EducationTeam team = getEducationTeamByTeamAbbreviation(teamAbbreviation);
 		teacher.setAbbreviation();
-		team.addTeacher(teacher);
+//		team.addTeacher(teacher);
 
 		return SUCCESS;
 	}
@@ -72,11 +71,11 @@ public class TeacherController extends ActionSupport{
 	}
 
 	public TreeSet<Teacher> getTeachers() {
-		for (EducationTeam ct : Cluster.getInstance().getEducationTeams()) {
-			for(Teacher cte : ct.getTeachers()){
-				teachers.add(cte); 
-			}
-		}
+//		for (EducationTeam ct : Cluster.getInstance().getEducationTeams()) {
+//			for(Teacher cte : ct.getTeachers()){
+//				teachers.add(cte); 
+//			}
+//		}
 		return teachers;
 	}
 	
@@ -91,14 +90,14 @@ public class TeacherController extends ActionSupport{
 //		return null;
 //	}
 	
-	public EducationTeam getEducationTeamByTeamAbbreviation(String abbreviation){
-		for(EducationTeam e : Cluster.getInstance().getEducationTeams()){
-			if(e.getAbbreviation().equals(abbreviation)){
-				return e;
-			}
-		}
-		return null;
-	}
+//	public EducationTeam getEducationTeamByTeamAbbreviation(String abbreviation){
+//		for(EducationTeam e : Cluster.getInstance().getEducationTeams()){
+//			if(e.getAbbreviation().equals(abbreviation)){
+//				return e;
+//			}
+//		}
+//		return null;
+//	}
 
 	public void setTeachers(TreeSet<Teacher> teachers) {
 		this.teachers = teachers;
@@ -118,7 +117,7 @@ public class TeacherController extends ActionSupport{
 		
 		educationTeams.add(et);
 		
-		Cluster.getInstance().addEducationTeamToCollection(et);
+//		Cluster.getInstance().addEducationTeamToCollection(et);
 		//ONLY FOR TESTING
 		return educationTeams;
 	}

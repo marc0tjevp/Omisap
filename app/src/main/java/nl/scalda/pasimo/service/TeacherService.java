@@ -38,8 +38,8 @@ public class TeacherService {
 //	}
 
 	public void update(Teacher t) {
-		EducationTeam tmpTeam = getTeamForTeacher(t);
-		DAOFactory.getTheFactory().getDAOTeacher().update(t, tmpTeam);
+//		EducationTeam tmpTeam = getTeamForTeacher(t);
+//		DAOFactory.getTheFactory().getDAOTeacher().update(t, tmpTeam);
 	}
 
 //	public EducationTeam getTeamForTeacher(Teacher t){

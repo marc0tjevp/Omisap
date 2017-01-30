@@ -198,3 +198,39 @@ body{
     float: bottom;
     text-align: left;
 }
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+	border-top: 1px solid #696969;
+}
+
+.table>thead>tr>th {
+	border-bottom: 0;
+}
+
+.table>thead>tr,.table>thead>tr>td{
+	widht: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+.table>tbody>tr:hover {
+	background-color: rgba(60,141,188,0.3);
+}
+
+a.noStyleAnchorTag {
+	text-decoration: none;
+	color: #333;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+.rowContainer{
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+
+
+
