@@ -213,7 +213,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap4.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
-        
+
         <jsp:invoke fragment="scripts"/>
     </body>
 </html>

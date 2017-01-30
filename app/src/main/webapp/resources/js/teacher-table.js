@@ -5,6 +5,7 @@
  */
 
 /*$(document).ready(function () {
+$(document).ready(function () {
     $('#teacherTable').DataTable({
         "ajax": {
             "url": "teacherJSON",
@@ -29,3 +30,4 @@
 //$.each($('table>tbody>tr'),function(){
 //	$(this).find('a[name=edit]').href = "http://www.google.com"//$.find('[name=emplnumb]')[0].innerHTML
 //})
+//});
