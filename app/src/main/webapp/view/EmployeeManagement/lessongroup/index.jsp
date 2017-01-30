@@ -36,7 +36,7 @@
 
         <div class="container">
 
-            <h1>Lesson groups</h1>
+            <h1>Les groepen</h1>
             <div class="lessonGroupButtons">
                 <button class="btn btn-primary" type="submit">Toevoegen</button>
                 <button class="btn btn-danger" id="deleteButton" type="submit" disabled>Verwijderen</button>
