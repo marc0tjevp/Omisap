@@ -19,11 +19,12 @@
                     }
 
 
-                    if ($(".selectedLessonGroup").length == 0) {
+                    var selectedLessonGroup = $(".selectedLessonGroup");
+                    if (selectedLessonGroup.length == 0) {
                         $("#deleteButton").attr("disabled", true);
                     }
 
-                    if ($(".selectedLessonGroup").length >= 1) {
+                    if (selectedLessonGroup.length >= 1) {
                         $("#deleteButton").removeAttr("disabled");
                     }
                 });
@@ -36,7 +37,7 @@
 
         <div class="container">
 
-            <h1>Lesson groups</h1>
+            <h1>Les groepen</h1>
             <div class="lessonGroupButtons">
                 <button class="btn btn-primary" type="submit">Toevoegen</button>
                 <button class="btn btn-danger" id="deleteButton" type="submit" disabled>Verwijderen</button>
