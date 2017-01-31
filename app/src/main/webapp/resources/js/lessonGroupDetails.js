@@ -5,14 +5,14 @@ $(document).ready(function () {
             // Iterate each checkbox
             $(':checkbox').each(function () {
                 this.checked = true;
-                $(this).addClass("selectedLessonGroup");
+                $(this).addClass("selectedLessonGroupStudent");
                 $("#deleteStudentButton").removeAttr("disabled");
             });
         }
         else {
             $(':checkbox').each(function () {
                 this.checked = false;
-                $(this).removeAttr("disabled");
+                $(this).removeClass("selectedLessonGroupStudent");
                 $("#deleteStudentButton").attr("disabled", true);
             });
         }
@@ -20,9 +20,9 @@ $(document).ready(function () {
 
     $(".lesson-groups-table tbody td input[type=\"checkbox\"]").change(function () {
         if (this.checked) {
-            $(this).addClass("selectedLessonGroup");
+            $(this).addClass("selectedLessonGroupStudent");
         } else {
-            $(this).removeClass("selectedLessonGroup");
+            $(this).removeClass("selectedLessonGroupStudent");
         }
 
 

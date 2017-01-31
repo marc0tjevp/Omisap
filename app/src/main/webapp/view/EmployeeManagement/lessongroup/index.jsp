@@ -10,7 +10,23 @@
     <jsp:attribute name="scripts">
         <script>
             $(document).ready(function () {
-
+                $("#selectAllLessonGroups").on('click', function () {
+                    if (this.checked) {
+                        // Iterate each checkbox
+                        $(':checkbox').each(function () {
+                            this.checked = true;
+                            $(this).addClass("selectedLessonGroup");
+                            $("#deleteButton").removeAttr("disabled");
+                        });
+                    }
+                    else {
+                        $(':checkbox').each(function () {
+                            this.checked = false;
+                            $(this).removeClass("selectedLessonGroup");
+                            $("#deleteButton").attr("disabled", true);
+                        });
+                    }
+                });
 
                 $(".lesson-groups-table tbody td input[type=\"checkbox\"]").change(function () {
                     if (this.checked) {
@@ -43,7 +59,9 @@
                 <button class="btn btn-primary" type="button" id="addButton" data-toggle="modal"
                         data-target="#lessonGroupAddModal">Toevoegen
                 </button>
-                <button class="btn btn-danger" id="deleteButton" type="button" data-toggle="modal" data-target="#lessonGroupDeleteModal" disabled>Verwijderen</button>
+                <button class="btn btn-danger" id="deleteButton" type="button" data-toggle="modal"
+                        data-target="#lessonGroupDeleteModal" disabled>Verwijderen
+                </button>
             </div>
 
             <!-- Modal for adding an lesson group -->
@@ -102,7 +120,7 @@
                     <tr>
                         <th>
                             <label>
-                                <input type="checkbox" disabled readonly>
+                                <input id="selectAllLessonGroups" type="checkbox">
                             </label>
                         </th>
                         <th>Naam (klik om te openen)</th>
