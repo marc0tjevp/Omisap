@@ -12,11 +12,12 @@ table.lesson-groups-table {
 
 table.lesson-groups-table thead th {
     vertical-align: middle;
-    border-bottom: 2px solid #333333;
+    border-bottom:  2px solid #333333;
 }
+
 table.lesson-groups-table tbody td {
     vertical-align: middle;
-    border-top: 1px solid #333333;
+    border-top:     1px solid #333333;
 }
 
 table.lesson-groups-table input[type="checkbox"] {

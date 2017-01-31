@@ -11,6 +11,7 @@
         <script>
             $(document).ready(function () {
 
+
                 $(".lesson-groups-table tbody td input[type=\"checkbox\"]").change(function () {
                     if (this.checked) {
                         $(this).addClass("selectedLessonGroup");
@@ -39,10 +40,62 @@
 
             <h1>Les groepen</h1>
             <div class="lessonGroupButtons">
-                <button class="btn btn-primary" type="submit">Toevoegen</button>
-                <button class="btn btn-danger" id="deleteButton" type="submit" disabled>Verwijderen</button>
+                <button class="btn btn-primary" type="button" id="addButton" data-toggle="modal"
+                        data-target="#lessonGroupAddModal">Toevoegen
+                </button>
+                <button class="btn btn-danger" id="deleteButton" type="button" data-toggle="modal" data-target="#lessonGroupDeleteModal" disabled>Verwijderen</button>
             </div>
 
+            <!-- Modal for adding an lesson group -->
+            <div class="modal fade" id="lessonGroupAddModal" tabindex="-1" role="dialog"
+                 aria-labelledby="lessonGroupAddModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="lessonGroupAddModalLabel">Les groep toevoegen</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="addLessonGroupForm" role="form">
+                                <div class="form-group">
+                                    <label for="lessonGroupName-input" class="col-2 col-form-label">Naam</label>
+                                    <div class="col-10">
+                                        <input class="form-control" type="text" value="" id="lessonGroupName-input">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluiten</button>
+                            <button type="button" class="btn btn-primary">Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for deleting an lesson group -->
+            <div class="modal fade" id="lessonGroupDeleteModal" tabindex="-1" role="dialog"
+                 aria-labelledby="lessonGroupDeleteModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="lessonGroupDeleteModalLabel">Les groep verwijderen</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Weet je zeker dat je de les groep ICO41A wilt verwijderen met 123 studenten?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluiten</button>
+                            <button type="button" class="btn btn-danger">Verwijderen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <table class="table lesson-groups-table">
                 <thead>
