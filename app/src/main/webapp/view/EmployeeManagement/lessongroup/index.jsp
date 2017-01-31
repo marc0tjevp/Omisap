@@ -19,11 +19,12 @@
                     }
 
 
-                    if ($(".selectedLessonGroup").length == 0) {
+                    var selectedLessonGroup = $(".selectedLessonGroup");
+                    if (selectedLessonGroup.length == 0) {
                         $("#deleteButton").attr("disabled", true);
                     }
 
-                    if ($(".selectedLessonGroup").length >= 1) {
+                    if (selectedLessonGroup.length >= 1) {
                         $("#deleteButton").removeAttr("disabled");
                     }
                 });
