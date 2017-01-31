@@ -7,7 +7,7 @@
   <div class="container">
     <h1>Docent wijzigen</h1>
     <br>
-    <form action="addTeacher" class="" enctype="multipart/form-data" method="post">
+    <form action="editTeacher" class="" enctype="multipart/form-data" method="post">
       <s:bean name="nl.scalda.pasimo.model.employeeManagement.Teacher" var="teacher">
         <div class="form-group row">
           <label class="col-2 col-form-label">Voornaam</label>
@@ -18,7 +18,7 @@
         <div class="form-group row">
           <label class="col-2 col-form-label">Tussenvoegsel</label>
           <div class="col-10">
-            <s:textfield id="teacherInsertion" style="width: 50%;" class="form-control" name="teacher.insertion" type="text" />
+            <s:textfield  id="teacherInsertion" style="width: 50%;" class="form-control" name="teacher.insertion" type="text" />
           </div>
         </div>
         <div class="form-group row">

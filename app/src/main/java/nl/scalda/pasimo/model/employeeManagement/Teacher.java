@@ -13,6 +13,10 @@ public class Teacher extends Person {
 		setAbbreviation();
 	}
 	
+	public Teacher(String abbreviation){
+		this.abbreviation = abbreviation;
+	}
+	
 	public String getAbbreviation() {
 		return abbreviation;
 	}

@@ -4,9 +4,9 @@
 <t:layout2>
   <jsp:attribute name="content">
   <div class="container">
-<h1>Overzicht van Docenten</h1>
+<h1>Overzicht van Docenten <input type="submit" value="Toevoegen" class="btn btn-primary pull-right"></h1>
 <br>
-<table class="table table-hover">
+<table class="table table-hover table-responsive">
   <thead>
     <tr>
       <th>Werknemersnummer</th>
@@ -24,13 +24,13 @@
   <s:iterator value="teachers">
   	<tr>
   	<div class="rowContainer">
-  	  <td name="emplnumb"><a href="#" class="noStyleAnchorTag"><s:property value="employeeNumber"></s:property></a></td>
-      <td><a href="#" class="noStyleAnchorTag"><div style="height:100%;width:100%;"><s:property value="abbreviation"></s:property></div></a></td>
-      <td><a href="#" class="noStyleAnchorTag"><s:property value="cardID"></s:property></a></td>
-      <td><a href="#" class="noStyleAnchorTag"><s:property value="email"></s:property></a></td>
-      <td><a href="#" class="noStyleAnchorTag"> <s:property value="firstName"></s:property></a></td>
-      <td><a href="#" class="noStyleAnchorTag"><s:property value="insertion"></s:property></a></td>
-      <td><a href="#" class="noStyleAnchorTag"><s:property value="lastName"></s:property></a></td>
+  	  <td name="emplnumb"><a href="teacherInfo?id=<s:property value="employeeNumber"></s:property>" class="noStyleAnchorTag"><s:property value="employeeNumber"></s:property></a></td>
+      <td><a href="teacherInfo?id=<s:property value="employeeNumber"></s:property>" class="noStyleAnchorTag"><div style="height:100%;width:100%;"><s:property value="abbreviation"></s:property></div></a></td>
+      <td><a href="teacherInfo?id=<s:property value="employeeNumber"></s:property>" class="noStyleAnchorTag"><s:property value="cardID"></s:property></a></td>
+      <td><a href="teacherInfo?id=<s:property value="employeeNumber"></s:property>" class="noStyleAnchorTag"><s:property value="email"></s:property></a></td>
+      <td><a href="teacherInfo?id=<s:property value="employeeNumber"></s:property>" class="noStyleAnchorTag"> <s:property value="firstName"></s:property></a></td>
+      <td><a href="teacherInfo?id=<s:property value="employeeNumber"></s:property>" class="noStyleAnchorTag"><s:property value="insertion"></s:property></a></td>
+      <td><a href="teacherInfo?id=<s:property value="employeeNumber"></s:property>" class="noStyleAnchorTag"><s:property value="lastName"></s:property></a></td>
       <td>
         <a name="edit" href="editTeacherPage?id=<s:property value="employeeNumber"></s:property>">
           <span class="fa fa-pencil"></span></a>

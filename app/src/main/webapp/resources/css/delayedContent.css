@@ -11,3 +11,7 @@ td a {
 tbody tr td {
 	padding: 0;
 }
+
+.present-table > thead > tr > th {
+	border: 1px solid black !important;
+} 

@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.model.employeeManagement;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -48,6 +49,14 @@ public class Person implements Comparable<Person> {
 	 */
 	public void removeNote(Note note){
 		this.noteList.remove(note);
+	}
+	
+	public String getDateOfBirthInString(){
+		return dateOfBirth.get(GregorianCalendar.DAY_OF_MONTH) + " " + getMonthName() + " " + dateOfBirth.get(GregorianCalendar.YEAR);
+	}
+	
+	public String getMonthName(){
+		return new SimpleDateFormat("MMMM").format(dateOfBirth.getTime());
 	}
 	
 	//getters and setters

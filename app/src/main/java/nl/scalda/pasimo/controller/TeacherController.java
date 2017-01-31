@@ -13,6 +13,7 @@ import nl.scalda.pasimo.datalayer.TestDAOFactory;
 import nl.scalda.pasimo.model.employeeManagement.EducationTeam;
 import nl.scalda.pasimo.model.employeeManagement.Teacher;
 import nl.scalda.pasimo.service.Service;
+import nl.scalda.pasimo.test.TeacherList;
 
 public class TeacherController extends ActionSupport{
 	
@@ -23,30 +24,38 @@ public class TeacherController extends ActionSupport{
 	private File fileUpload;
 	private String fileUploadContentType;
 	private String fileUploadFileName;
+	private int id;
 	
 	public String execute(){
 		return SUCCESS;
 	}
 	
+	public String loadTeacherInfo(){
+		teacher = getTeacherByEmployeeID(id);
+		return SUCCESS;
+	}
+
 	public String addTeacher() {
 //		EducationTeam team = getEducationTeamByTeamAbbreviation(teamAbbreviation);
 		teacher.setAbbreviation();
+		TeacherList.getInstance().addTeacher(teacher);
+//		getTeachers();
 //		team.addTeacher(teacher);
-
 		return SUCCESS;
 	}
-	
 
 	public String readTeacher() {
 		Teacher t = new Teacher(123456, "email@myemaildomain.com", 654321789, "henk", "de", "alien", 1965, 7, 23);
-		Teacher t1 = new Teacher(876543, "anotherEmail@myemaildomain.com", 635685473, "klaas", "de", "boer", 1932, 11, 1);
-		teachers.add(t);
-		teachers.add(t1);
+		Teacher t1 = new Teacher(876543, "perkamentus@zweinstein.uk", 635685473, "Hermelien", "", "Griffel", 1989, 5, 20);
+		TeacherList.getInstance().addTeacher(t);
+		TeacherList.getInstance().addTeacher(t1);
 		return SUCCESS;
 	}
 	
 	public String loadEditTeacherPage() {
-//		System.out.println(abbreviation);
+		readTeacher();
+		teacher = getTeacherByEmployeeID(id);
+		System.out.println(teacher);
 		return SUCCESS;
 	}
 
@@ -71,12 +80,18 @@ public class TeacherController extends ActionSupport{
 	}
 
 	public TreeSet<Teacher> getTeachers() {
-//		for (EducationTeam ct : Cluster.getInstance().getEducationTeams()) {
-//			for(Teacher cte : ct.getTeachers()){
-//				teachers.add(cte); 
-//			}
-//		}
+		System.out.println(TeacherList.getInstance().getTeachers());
+		teachers.addAll(TeacherList.getInstance().getTeachers());
 		return teachers;
+	}
+	
+	private Teacher getTeacherByEmployeeID(int id) {
+		for(Teacher t : getTeachers()){
+			if(t.getEmployeeNumber() == id){
+				return t;
+			}
+		}
+		return null;
 	}
 	
 //	public EducationTeam getEducationTeamByID(String abbreviation){
@@ -150,4 +165,13 @@ public class TeacherController extends ActionSupport{
 		this.fileUpload = fileUpload;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	
 }

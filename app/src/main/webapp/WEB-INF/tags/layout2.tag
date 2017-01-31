@@ -142,7 +142,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </ul>
                             </li>
                             <li class="treeview">
-                                <a href="#"><i class="fa fa-user-plus"></i> <span>Teachers</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <a href="teacherOverview"><i class="fa fa-user-plus"></i> <span>Teachers</span> <i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
                                  <%--   <li><a href="<c:url value="teacher"><c:param name="action" value="all"/></c:url>">Overview</a></li>
                                 --%></ul>
