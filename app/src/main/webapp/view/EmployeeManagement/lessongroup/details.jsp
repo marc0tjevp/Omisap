@@ -16,7 +16,7 @@
                 <div class="col-md-4"><h1>Lesgroep studenten</h1></div>
                 <div class="lessonGroupButtons">
                     <button class="btn btn-success" data-toggle="modal" data-target="#addStudentsModal">Studenten toevoegen</button>
-                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteStudentsModal">Studenten Verwijderen</button>
+                    <button id="deleteStudentButton" class="btn btn-danger" data-toggle="modal" data-target="#deleteStudentsModal" disabled>Studenten verwijderen</button>
                 </div>
             </div>
 
