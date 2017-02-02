@@ -1,8 +1,4 @@
-package nl.scalda.pasimo.model;
-
-import nl.scalda.pasimo.service.EducationTeamDAOService;
-
-import java.util.TreeSet;
+package nl.scalda.pasimo.model.employeeManagement;
 
 public class EducationTeam implements Comparable<EducationTeam> {
 
@@ -16,35 +12,14 @@ public class EducationTeam implements Comparable<EducationTeam> {
      */
     private String name;
 
-    /**
-     *
-     */
-    private TreeSet<CoachGroup> coachGroups;
-
     //<editor-fold defaultstate="collapsed" desc="constructor">
 
     public EducationTeam(String abbreviation, String name) {
-        this(abbreviation, name, new TreeSet<CoachGroup>());
-    }
-
-    public EducationTeam(String abbreviation, String name, TreeSet<CoachGroup> coachGroups) {
         this.abbreviation = abbreviation;
         this.name = name;
-        this.coachGroups = coachGroups;
-
-        // Save the new EducationTeam
-        EducationTeamDAOService.getInstance().create(this);
-
     }
 
     //</editor-fold>
-
-    public void addCoachGroup(CoachGroup coachGroup) {
-        this.coachGroups.add(coachGroup);
-
-//        EducationTeamDAOService.getInstance().update(this);
-
-    }
 
     //<editor-fold defaultstate="collapsed" desc="getters and setters">
 
@@ -64,14 +39,6 @@ public class EducationTeam implements Comparable<EducationTeam> {
         this.name = name;
     }
 
-    public TreeSet<CoachGroup> getCoachGroups() {
-        return coachGroups;
-    }
-
-    public void setCoachGroups(TreeSet<CoachGroup> coachGroups) {
-        this.coachGroups = coachGroups;
-    }
-
     //</editor-fold>
 
     @Override
@@ -84,7 +51,6 @@ public class EducationTeam implements Comparable<EducationTeam> {
         return "EducationTeam{" +
                 "abbreviation='" + abbreviation + '\'' +
                 ", name='" + name + '\'' +
-                ", coachGroups=" + coachGroups +
                 '}';
     }
 
