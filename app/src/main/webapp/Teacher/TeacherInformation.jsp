@@ -32,28 +32,45 @@
   	</thead>
   	<tbody>
   		<tr>
-  			<td>31-1-2017 11:01:31.372</td>
-  			<td>in</td>
+  			<td>31-1-2017 08:49:31.372</td>
+  			<td>In</td>
   		</tr>
   		<tr>
-  			<td>31-1-2017 13:21:54.122</td>
-  			<td>uit</td>
+  			<td>31-1-2017 12:05:54.122</td>
+  			<td>Uit</td>
   		</tr>
   		<tr>
-  			<td>31-1-2017 13:21:54.122</td>
-  			<td>uit</td>
+  			<td>31-1-2017 12:36:11.621</td>
+  			<td>In</td>
   		</tr>
   		<tr>
-  			<td>31-1-2017 13:21:54.122</td>
-  			<td>uit</td>
+  			<td>31-1-2017 14:15:24.332</td>
+  			<td>Uit</td>
   		</tr>
-  		<tr><td></td><td></td></tr>
-  		<tr><td></td><td></td></tr>
-  		<tr><td></td><td></td></tr>
-  		<tr><td></td><td></td></tr>
-  		<tr><td></td><td></td></tr>
-  		<tr><td></td><td></td></tr>
-  		<tr><td></td><td></td></tr>
+   		<tr>
+  			<td>1-2-2017 07:49:31.372</td>
+  			<td>In</td>
+  		</tr>
+  		<tr>
+  			<td>1-2-2017 12:07:54.122</td>
+  			<td>Uit</td>
+  		</tr>
+  		<tr>
+  			<td>1-2-2017 12:34:11.621</td>
+  			<td>In</td>
+  		</tr>
+  		<tr>
+  			<td>1-2-2017 14:29:24.332</td>
+  			<td>Uit</td>
+  		</tr>
+  		<tr>
+  			<td>2-2-2017 07:59:11.621</td>
+  			<td>In</td>
+  		</tr>
+  		<tr>
+  			<td>2-2-2017 12:06:24.332</td>
+  			<td>Uit</td>
+  		</tr>
   	</tbody>
   	</table>
   	<div class="chart-container">

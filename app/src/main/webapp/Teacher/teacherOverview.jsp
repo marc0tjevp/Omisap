@@ -4,7 +4,7 @@
 <t:layout2>
   <jsp:attribute name="content">
   <div class="container">
-<h1>Overzicht van Docenten <input type="submit" value="Toevoegen" class="btn btn-primary pull-right"></h1>
+<h1>Overzicht van Docenten <a href="addTeacherPage" class="btn btn-primary pull-right">Toevoegen</a></h1>
 <br>
 <table class="table table-hover table-responsive">
   <thead>

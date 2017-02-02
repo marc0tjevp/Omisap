@@ -44,7 +44,7 @@ var data = [
         value: 50,
         color: "#00B09E",
         highlight: "#74B39E",
-        label: "geoorloofd afwezig"
+        label: "Geoorloofd afwezig"
     },
     {
         value: 25,
@@ -56,19 +56,10 @@ var data = [
     
 var option = {
     responsive: true,
-    animationSteps: 1,
-    legendTemplate : '<ul>'
-        +'<% for (var i=0; i<datasets.length; i++) { %>'
-          +'<li>'
-          +'<span style=\"background-color:<%=datasets[i].lineColor%>\"></span>'
-          +'<% if (datasets[i].label) { %><%= datasets[i].label %><% } %>'
-        +'</li>'
-      +'<% } %>'
-    +'</ul>'
+    animationSteps: 1
     };
     // Get the context of the canvas element we want to select
     var ctx = document.getElementById("myChart").getContext('2d');
-    var myLineChart = new Chart(ctx).Line(data, option); //'Line' defines type of the chart.
     var myPieChart = new Chart(ctx).Pie(data,option);
-    $('#legend').append(myLineChart.generateLegend())
+    $('#legend').append(myPieChart.generateLegend());
 });

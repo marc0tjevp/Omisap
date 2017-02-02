@@ -236,7 +236,6 @@ a.noStyleAnchorTag {
 	width: 80%;
 	height: 1000px;
 	margin: auto;
-	border: 1px solid black;
 }
 
 .container-profile-picture{
@@ -295,6 +294,8 @@ a.noStyleAnchorTag {
 .chart-container {
 	display: inline-block;
 	width: 40%;
+	position: relative;
+	top: -100px;
 }
 
 .container {
@@ -307,7 +308,7 @@ a.noStyleAnchorTag {
 	display: inline-block;
 	width: 40%;
 	height: 100%;
-	margin: 1%;
+	margin: 2%;
 }
 
 .present-table > tbody > tr > td:first-child {
@@ -327,4 +328,26 @@ a.noStyleAnchorTag {
 
 .present-table > tbody > tr:last-child {
 	border-bottom: 1px solid black;
+}
+
+.pie-legend {
+	list-style: none;
+}
+
+.pie-legend > li:before {
+	content: "\25b6";
+	margin-right: 4%;
+	font-size: 16px;
+}
+
+.pie-legend > li:first-child:before {
+	color: #0084B0;
+}
+
+.pie-legend > li:nth-child(2):before {
+	color: #00B09E;
+}
+
+.pie-legend > li:last-child:before {
+	color: #0029B0;
 }

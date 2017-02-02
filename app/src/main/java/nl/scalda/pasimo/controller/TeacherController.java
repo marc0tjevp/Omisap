@@ -46,7 +46,7 @@ public class TeacherController extends ActionSupport{
 
 	public String readTeacher() {
 		Teacher t = new Teacher(123456, "email@myemaildomain.com", 654321789, "henk", "de", "alien", 1965, 7, 23);
-		Teacher t1 = new Teacher(876543, "perkamentus@zweinstein.uk", 635685473, "Hermelien", "", "Griffel", 1989, 5, 20);
+		Teacher t1 = new Teacher(876543, "perkamentus@zweinstein.uk", 635685473, "Hermelien", "", "Griffel", 1990, 5, 20);
 		TeacherList.getInstance().addTeacher(t);
 		TeacherList.getInstance().addTeacher(t1);
 		return SUCCESS;
