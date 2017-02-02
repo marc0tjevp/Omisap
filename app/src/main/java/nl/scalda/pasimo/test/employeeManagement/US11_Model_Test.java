@@ -1,7 +1,7 @@
 package nl.scalda.pasimo.test.employeeManagement;
 
-import nl.scalda.pasimo.model.CoachGroup;
-import nl.scalda.pasimo.model.EducationTeam;
+import nl.scalda.pasimo.model.employeeManagement.CoachGroup;
+import nl.scalda.pasimo.model.employeeManagement.EducationTeam;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.service.DAOFactoryService;
 import nl.scalda.pasimo.service.Service;

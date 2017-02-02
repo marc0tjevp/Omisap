@@ -2,8 +2,8 @@ package nl.scalda.pasimo.datalayer;
 
 public interface IDAOFactory {
 
-    public IEducationTeamDAO getEducationTeamDAO();
+    ITeamDAO getTeamDAO();
 
-    public ITeamDAO getTeamDAO();
+    IEducationTeamDAO getEducationTeamDAO();
 
 }

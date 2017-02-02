@@ -1,13 +1,14 @@
 package nl.scalda.pasimo.datalayer.impl;
 
 import nl.scalda.pasimo.datalayer.IEducationTeamDAO;
-import nl.scalda.pasimo.model.EducationTeam;
+import nl.scalda.pasimo.model.employeeManagement.EducationTeam;
 
+import java.util.Set;
 import java.util.TreeSet;
 
 public class TestEducationTeamDAO implements IEducationTeamDAO {
 
-    private TreeSet<EducationTeam> educationTeams;
+    private Set<EducationTeam> educationTeams;
 
     public TestEducationTeamDAO() {
         this.educationTeams = new TreeSet<EducationTeam>();
@@ -23,15 +24,15 @@ public class TestEducationTeamDAO implements IEducationTeamDAO {
 
         EducationTeam target = this.read(educationTeam.getAbbreviation());
 
+        target.setAbbreviation(educationTeam.getAbbreviation());
         target.setName(educationTeam.getName());
-        target.setCoachGroups(educationTeam.getCoachGroups());
 
     }
 
     @Override
     public void save(EducationTeam educationTeam) {
 
-        if (this.exist(educationTeam)) {
+        if (this.exist(educationTeam.getAbbreviation())) {
             this.update(educationTeam);
         } else {
             this.create(educationTeam);
@@ -56,13 +57,8 @@ public class TestEducationTeamDAO implements IEducationTeamDAO {
     }
 
     @Override
-    public TreeSet<EducationTeam> readAll() {
+    public Set<EducationTeam> readAll() {
         return this.educationTeams;
-    }
-
-    @Override
-    public boolean exist(EducationTeam educationTeam) {
-        return this.educationTeams.contains(educationTeam);
     }
 
     @Override
@@ -75,6 +71,9 @@ public class TestEducationTeamDAO implements IEducationTeamDAO {
 
         return false;
     }
+
+    // --------------------------------------------------
+    // Singleton
 
     private static TestEducationTeamDAO instance;
 

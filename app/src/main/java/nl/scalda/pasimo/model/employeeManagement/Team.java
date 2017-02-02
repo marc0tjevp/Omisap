@@ -1,12 +1,11 @@
-package nl.scalda.pasimo.model;
+package nl.scalda.pasimo.model.employeeManagement;
 
-import nl.scalda.pasimo.service.Service;
-
+import java.util.Set;
 import java.util.TreeSet;
 
 public class Team {
 
-    private static final String ICT = "ict";
+    public static final String ICT = "ict";
 
     /**
      * Abbreviation of the Team; e.g. ICT
@@ -18,21 +17,34 @@ public class Team {
      */
     private String name;
 
-    /**
-     *
-     */
-    private TreeSet<EducationTeam> educationTeams;
+    private Set<EducationTeam> educationTeams;
+
+    //<editor-fold defaultstate="collapsed" desc="constructor">
+
+    public Team(String abbreviation, String name) {
+        this(abbreviation, name, new TreeSet<EducationTeam>());
+    }
+
+    public Team(String abbreviation, String name, Set<EducationTeam> educationTeams) {
+        this.abbreviation = abbreviation;
+        this.name = name;
+        this.educationTeams = educationTeams;
+    }
+
+    //</editor-fold>
 
     /**
-     *
+     * Adds an EducationTeam to the Team.
      */
-    public void addEducationTeam(EducationTeam educationTeam)
-    {
+    public void addEducationTeam(EducationTeam educationTeam) {
         this.educationTeams.add(educationTeam);
+    }
 
-        // TODO: Save..?
-//        Service.getDAOFactoryService().getFactory().getTeamDAO();
-
+    /**
+     * Removes an EducationTeam from the Team.
+     */
+    public void removeEducationTeam(EducationTeam educationTeam) {
+        this.educationTeams.remove(educationTeam);
     }
 
     //<editor-fold defaultstate="collapsed" desc="getters and setters">
@@ -53,11 +65,11 @@ public class Team {
         this.name = name;
     }
 
-    public TreeSet<EducationTeam> getEducationTeams() {
+    public Set<EducationTeam> getEducationTeams() {
         return this.educationTeams;
     }
 
-    public void setEducationTeams(TreeSet<EducationTeam> educationTeams) {
+    public void setEducationTeams(Set<EducationTeam> educationTeams) {
         this.educationTeams = educationTeams;
     }
 
@@ -70,25 +82,6 @@ public class Team {
                 ", name='" + name + '\'' +
                 ", educationTeams=" + educationTeams +
                 '}';
-    }
-
-//    private ITeamDAO getTeamDAO()
-//    {
-//        return Service.getDAOFactoryService().getFactory().getTeamDAO();
-//    }
-//
-//    private ITeamDAO getTeamDAO()
-//    {
-//        return Service.getDAOFactoryService().getFactory().getTeamDAO();
-//    }
-
-    private static Team instance;
-
-    public static Team getInstance()
-    {
-        if (instance == null)
-            instance = Service.getDAOFactoryService().getFactory().getTeamDAO().read(ICT);
-        return instance;
     }
 
 }

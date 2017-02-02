@@ -1,13 +1,14 @@
 package nl.scalda.pasimo.datalayer.impl;
 
 import nl.scalda.pasimo.datalayer.ITeamDAO;
-import nl.scalda.pasimo.model.Team;
+import nl.scalda.pasimo.model.employeeManagement.Team;
 
+import java.util.Set;
 import java.util.TreeSet;
 
 public class TestTeamDAO implements ITeamDAO {
 
-    private TreeSet<Team> teams;
+    private Set<Team> teams;
 
     public TestTeamDAO() {
         this.teams = new TreeSet<Team>();
@@ -23,6 +24,9 @@ public class TestTeamDAO implements ITeamDAO {
 
         return null;
     }
+
+    // --------------------------------------------------
+    // Singleton
 
     private static TestTeamDAO instance;
 
