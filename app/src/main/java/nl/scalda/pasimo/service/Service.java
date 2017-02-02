@@ -10,6 +10,10 @@ public class Service {
     {
         return DAOFactoryService.getInstance();
     }
+    
+    public NoteService getNoteService(){
+    	return NoteService.getInstance();
+    };
 
     public static Service getInstance() {
         if (instance == null)
