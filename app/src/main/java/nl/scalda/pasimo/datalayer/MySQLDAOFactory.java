@@ -26,8 +26,7 @@ public class MySQLDAOFactory extends DAOFactory {
     }
 
 //methodes
-  //methodes
-    
+
 	@Override
 	public IDAONote getDAONote() {
 		// TODO Auto-generated method stub

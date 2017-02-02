@@ -1,10 +1,7 @@
 package nl.scalda.pasimo.main;
 
-import nl.scalda.pasimo.model.EmployeeManagement.LessonGroup;
-import nl.scalda.pasimo.model.EmployeeManagement.Student;
+import nl.scalda.pasimo.model.employeeManagement.LessonGroup;
 import nl.scalda.pasimo.service.LessonGroupService;
-
-import java.util.TreeSet;
 
 public class Main {
 
