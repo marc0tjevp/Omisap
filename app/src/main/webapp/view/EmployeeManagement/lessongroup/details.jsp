@@ -13,7 +13,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-4"><h1>Lesgroep studenten</h1></div>
+                <div class="col-md-6"><h1>Studenten <input name="lessonGroupName" value="{{Lesgroep}}"></h1></div>
                 <div class="lessonGroupButtons">
                     <button class="btn btn-success" data-toggle="modal" data-target="#addStudentsModal">Studenten toevoegen</button>
                     <button id="deleteStudentButton" class="btn btn-danger" data-toggle="modal" data-target="#deleteStudentsModal" disabled>Studenten verwijderen</button>
