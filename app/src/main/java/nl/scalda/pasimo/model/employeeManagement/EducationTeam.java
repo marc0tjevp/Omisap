@@ -38,7 +38,7 @@ public class EducationTeam implements Comparable<EducationTeam> {
 	}
 	
 	public TreeSet<Teacher> getTeachers() {
-		return teachers;
+		 return teachers;
 	}
 
 	public void setTeachers(TreeSet<Teacher> teachers) {
