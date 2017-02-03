@@ -12,7 +12,23 @@ public class EducationTeam implements Comparable<EducationTeam> {
      */
     private String name;
 
-    //<editor-fold defaultstate="collapsed" desc="constructor">
+	public void addTeacher(Teacher t){
+		if (teachers.add(t)) {
+			DAOFactory.getTheFactory().getDAOTeacher().add(t, this);
+		}
+		
+	}
+	
+	public void deleteTeacher(Teacher t){
+		if (teachers.remove(t)) {
+			DAOFactory.getTheFactory().getDAOTeacher().delete(t, this);
+		}		
+		
+	}
+	
+	public TreeSet<Teacher> getTeachers() {
+		 return teachers;
+	}
 
     public EducationTeam(String abbreviation, String name) {
         this.abbreviation = abbreviation;
