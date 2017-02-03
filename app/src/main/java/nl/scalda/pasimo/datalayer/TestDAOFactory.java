@@ -2,6 +2,9 @@ package nl.scalda.pasimo.datalayer;
 
 import nl.scalda.pasimo.interfaces.*;
 
+import nl.scalda.pasimo.interfaces.IDAONote;
+import nl.scalda.pasimo.interfaces.IDAOTeacher;
+
 public class TestDAOFactory extends DAOFactory {
 
     private static TestDAOFactory instance = null;
@@ -25,4 +28,15 @@ public class TestDAOFactory extends DAOFactory {
         }
         return instance;
     }
+    
+    @Override
+    public IDAOTeacher getDAOTeacher() {
+        return TestDAOTeacher.getInstance();
+    }
+
+	@Override
+	public IDAONote getDAONote() {
+		return TestDAONote.getInstance();
+	}
+
 }
