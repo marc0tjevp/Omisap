@@ -25,7 +25,7 @@ public class EducationTeam {
 	}
 	
 	public TreeSet<Teacher> getTeachers() {
-		return teachers;
+		 return teachers;
 	}
 
 	public void setTeachers(TreeSet<Teacher> teachers) {
