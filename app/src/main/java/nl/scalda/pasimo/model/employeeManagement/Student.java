@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.model.EmployeeManagement;
+package nl.scalda.pasimo.model.employeeManagement;
 
 public class Student extends Person {
 

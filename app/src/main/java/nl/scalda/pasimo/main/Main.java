@@ -3,8 +3,8 @@ package nl.scalda.pasimo.main;
 import nl.scalda.pasimo.datalayer.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.TestDAOLessonGroup;
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
-import nl.scalda.pasimo.model.EmployeeManagement.LessonGroup;
-import nl.scalda.pasimo.model.EmployeeManagement.Student;
+import nl.scalda.pasimo.model.employeeManagement.LessonGroup;
+import nl.scalda.pasimo.model.employeeManagement.Student;
 
 import java.util.TreeSet;
 
