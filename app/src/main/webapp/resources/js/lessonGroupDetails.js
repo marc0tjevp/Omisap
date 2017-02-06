@@ -26,7 +26,7 @@ $(document).ready(function () {
         }
 
 
-        var selectedLessonGroup = $(".selectedLessonGroup");
+        var selectedLessonGroup = $(".selectedLessonGroupStudent");
         if (selectedLessonGroup.length == 0) {
             $("#deleteStudentButton").attr("disabled", true);
         }
