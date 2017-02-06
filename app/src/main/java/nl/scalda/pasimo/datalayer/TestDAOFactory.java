@@ -2,6 +2,7 @@ package nl.scalda.pasimo.datalayer;
 
 import nl.scalda.pasimo.interfaces.IDAONote;
 import nl.scalda.pasimo.interfaces.IDAOTeacher;
+import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
 
 public class TestDAOFactory extends DAOFactory {
 
@@ -26,5 +27,10 @@ public class TestDAOFactory extends DAOFactory {
 	public IDAONote getDAONote() {
 		return TestDAONote.getInstance();
 	}
+
+	@Override
+    public IDAOLessonGroup getDAOLessonGroup() {
+        return TestDAOLessonGroup.getInstance();
+    }
 
 }
