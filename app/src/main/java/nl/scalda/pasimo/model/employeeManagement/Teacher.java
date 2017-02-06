@@ -2,7 +2,7 @@ package nl.scalda.pasimo.model.employeeManagement;
 
 import java.util.Date;
 
-public class Teacher extends nl.scalda.pasimo.model.Person {
+public class Teacher extends Person {
 
 	private String abbreviation;
 	private int employeeNumber;

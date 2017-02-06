@@ -1,41 +1,23 @@
 package nl.scalda.pasimo.model.employeeManagement;
 
-public class Student extends Person {
+import java.util.TreeSet;
 
-	private String email;
-	private int cardID;
+public class Student extends Person{
 
-	public Student() {
+	private String name;
+	private TreeSet<Note> noteList;
+	
+	public Student(String name) {
+		this.name = name;
+		noteList = new TreeSet<>();
 	}
-
-	public Student(String name, String lastname, String email, int cardID) {
-		super(name, lastname);
-		this.email = email;
-		this.cardID = cardID;
+	
+	public String getName(){
+		return this.name;
 	}
-
-	// <editor-fold defaultstate="collapsed" desc="getters and setters">
-	public String getEmail() {
-		return email;
+	
+	public TreeSet<Note> getNoteList(){
+		return this.noteList;
 	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getCardID() {
-		return cardID;
-	}
-
-	public void setCardID(int cardID) {
-		this.cardID = cardID;
-	}
-
-	// </editor-fold>
-	@Override
-	public String toString() {
-		return "name= " + super.getName() + " ,lastname= " + super.getLastname() + " ,email=" + email + ", cardID="
-				+ cardID;
-	}
-
+	
 }

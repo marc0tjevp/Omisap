@@ -1,6 +1,6 @@
 package nl.scalda.pasimo.interfaces;
 
-import nl.scalda.pasimo.model.employeeManagement.LessonGroup;
+import nl.scalda.pasimo.model.EmployeeManagement.LessonGroup;
 
 public interface IDAOLessonGroup {
 

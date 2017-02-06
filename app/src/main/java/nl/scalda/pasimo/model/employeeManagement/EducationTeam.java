@@ -6,29 +6,29 @@ import nl.scalda.pasimo.datalayer.DAOFactory;
 
 public class EducationTeam {
 	
-	private TreeSet<nl.scalda.pasimo.model.employeeManagement.Teacher> teachers = new TreeSet<>();
+	private TreeSet<Teacher> teachers = new TreeSet<>();
 	
 	public EducationTeam(){}
 
-	public void addTeacher(nl.scalda.pasimo.model.employeeManagement.Teacher t){
+	public void addTeacher(Teacher t){
 		if (teachers.add(t)) {
 			DAOFactory.getTheFactory().getDAOTeacher().add(t, this);
 		}
 		
 	}
 	
-	public void deleteTeacher(nl.scalda.pasimo.model.employeeManagement.Teacher t){
+	public void deleteTeacher(Teacher t){
 		if (teachers.remove(t)) {
 			DAOFactory.getTheFactory().getDAOTeacher().delete(t, this);
 		}		
 		
 	}
 	
-	public TreeSet<nl.scalda.pasimo.model.employeeManagement.Teacher> getTeachers() {
-		return teachers;
+	public TreeSet<Teacher> getTeachers() {
+		 return teachers;
 	}
 
-	public void setTeachers(TreeSet<nl.scalda.pasimo.model.employeeManagement.Teacher> teachers) {
+	public void setTeachers(TreeSet<Teacher> teachers) {
 		this.teachers = teachers;
 	}
 
