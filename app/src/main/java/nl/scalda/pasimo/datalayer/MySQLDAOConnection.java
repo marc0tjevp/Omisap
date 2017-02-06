@@ -82,8 +82,8 @@ public class MySQLDAOConnection {
     /**
      * Gets the connection to the MySQL database.
      *
-     * @return The connection to the MySQL database.
      * @author Jos Rijborz
+     * @return The connection to the MySQL database.
      */
     public Connection getConn() {
         return conn;
@@ -92,8 +92,8 @@ public class MySQLDAOConnection {
     /**
      * Sets the connection to the MySQL database.
      *
-     * @param conn A Connection with the credentials and host.
      * @author Jos Rijborz
+     * @param conn A Connection with the credentials and host.
      */
     private void setConn(Connection conn) {
         this.conn = conn;
