@@ -6,6 +6,10 @@
     font-size: 18px;
 }
 
+.lessonGroupButtons.lessonGroupNameButton {
+    float: left;
+}
+
 table.lesson-groups-table {
     font-size: 21px;
 }

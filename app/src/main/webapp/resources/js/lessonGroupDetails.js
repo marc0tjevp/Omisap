@@ -35,4 +35,10 @@ $(document).ready(function () {
             $("#deleteStudentButton").removeAttr("disabled");
         }
     });
+
+    $("#editLessonGroupName").on('show.bs.modal', function () {
+        $("#currentLessonGroup").val($("#lessonGroupName").text());
+    })
+
+
 });

@@ -13,11 +13,31 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-6"><h1>Studenten <input name="lessonGroupName" value="{{Lesgroep}}"></h1></div>
-                <div class="lessonGroupButtons">
-                    <button class="btn btn-success" data-toggle="modal" data-target="#addStudentsModal">Studenten toevoegen</button>
-                    <button id="deleteStudentButton" class="btn btn-danger" data-toggle="modal" data-target="#deleteStudentsModal" disabled>Studenten verwijderen</button>
+                <div class="col-md-12">
+                    <h1 style="float: left; margin-right: 5px;">Studenten </h1>
+                    <h1 id="lessonGroupName"> ICO43A</h1>
                 </div>
+
+            </div>
+            <div class="row">
+                <div class=" col-md-12">
+
+                    <div class="lessonGroupButtons lessonGroupNameButton">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#editLessonGroupName"><i
+                                class="fa fa-pencil"></i> Lesgroep naam wijzigen
+                        </button>
+                    </div>
+                    <div class="lessonGroupButtons">
+
+                        <button class="btn btn-success" data-toggle="modal" data-target="#addStudentsModal">Studenten
+                            toevoegen
+                        </button>
+                        <button id="deleteStudentButton" class="btn btn-danger" data-toggle="modal"
+                                data-target="#deleteStudentsModal" disabled>Studenten verwijderen
+                        </button>
+                    </div>
+                </div>
+
             </div>
 
             <table class="table lesson-groups-table">
@@ -67,6 +87,26 @@
                 </tbody>
             </table>
         </div>
+
+<!-- Edit LessonGroup name Modal -->
+<div class="modal fade" id="editLessonGroupName" tabindex="-1" role="dialog" aria-labelledby="editLessonGroupNameLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="editLessonGroupNameLabel">Wijzig lesgroep naam</h4>
+            </div>
+            <div class="modal-body">
+                <input class="form-control" id="currentLessonGroup">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Add Students Modal -->
 <div class="modal fade" id="addStudentsModal" tabindex="-1" role="dialog" aria-labelledby="addStudentLabel">
