@@ -101,10 +101,10 @@ public class Note implements Comparable<Note> {
 			return 0;
 		}
 		//if not, check if its before or after the this.getCreationDate
-		if(this.getCreationDate().compareTo(o.getCreationDate()) == -1){
-			return -1;
+		if(this.getCreationDate().compareTo(o.getCreationDate()) != 0){
+			return this.getCreationDate().compareTo(o.getCreationDate());
 		}else {
-			return 1;
+			return -1;
 		}
 
 	}
