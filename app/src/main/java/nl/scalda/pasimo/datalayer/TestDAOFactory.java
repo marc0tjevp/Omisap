@@ -23,7 +23,12 @@ public class TestDAOFactory extends DAOFactory {
         return TestDAOTeacher.getInstance();
     }
 
-	@Override
+    @Override
+    public IDAOLessonGroup getDAOLessonGroup() {
+        return TestDAOLessonGroup.getInstance();
+    }
+
+    @Override
 	public IDAONote getDAONote() {
 		return TestDAONote.getInstance();
 	}
