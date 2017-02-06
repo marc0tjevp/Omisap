@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.datalayer;
 
+import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
+
 import nl.scalda.pasimo.interfaces.IDAONote;
 import nl.scalda.pasimo.interfaces.IDAOTeacher;
 
@@ -17,8 +19,14 @@ public class MySQLDAOFactory extends DAOFactory {
         return instance;
     }
 
-  //methodes
-    
+    @Override
+    public IDAOLessonGroup getDAOLessonGroup() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+//methodes
+
 	@Override
 	public IDAONote getDAONote() {
 		// TODO Auto-generated method stub
