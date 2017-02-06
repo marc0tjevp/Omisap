@@ -35,7 +35,7 @@
         <a name="edit" href="editTeacherPage?id=<s:property value="employeeNumber"></s:property>">
           <span class="fa fa-pencil"></span></a>
       </td>
-      <td><a href="removeTeacherPage?id=<s:property value="employeeNumber"></s:property>"><span class="fa fa-trash"></span></a></td>
+      <td><a href="removeTeacher?id=<s:property value="employeeNumber"></s:property>" onclick="if(confirm('Weet u zeker dat u deze leraar wilt verwijderen?')){return true}else{return false}"><span class="fa fa-trash"></span></a></td>
     </div>
     </tr>
   </s:iterator>

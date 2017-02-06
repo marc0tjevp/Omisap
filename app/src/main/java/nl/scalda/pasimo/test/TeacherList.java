@@ -17,6 +17,10 @@ public class TeacherList extends TreeSet<Teacher> {
 		teachers.add(t);
 	}
 	
+	public void removeTeacher(Teacher t) {
+		teachers.remove(t);
+	}
+	
     public TreeSet<Teacher> getTeachers() {
 		return teachers;
 	}

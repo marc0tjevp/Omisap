@@ -27,13 +27,17 @@
 			<result name="input">/view/employeeManagement/Teacher/teacherOverview.jsp</result>
 		</action>
 		<action name="editTeacherPage" class="nl.scalda.pasimo.controller.TeacherController"
-			method="loadEditTeacherPage">
+			method="loadTeacherInfo">
 			<result name="success">/view/employeeManagement/Teacher/editTeacher.jsp</result>
 		</action>
 		<action name="editTeacher" class="nl.scalda.pasimo.controller.TeacherController"
 			method="updateTeacher">
 			<result name="success">/view/employeeManagement/Teacher/teacherOverview.jsp</result>
 			<result name="input">/view/employeeManagement/Teacher/teacherOverview.jsp</result>
+		</action>
+		<action name="removeTeacher" class="nl.scalda.pasimo.controller.TeacherController"
+			method="removeTeacher">
+			<result name="success" type="redirect">teacherOverview</result>
 		</action>
 		<action name="teacherInfo" class="nl.scalda.pasimo.controller.TeacherController"
 			method="loadTeacherInfo">

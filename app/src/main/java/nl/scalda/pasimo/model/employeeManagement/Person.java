@@ -19,6 +19,16 @@ public class Person implements Comparable<Person> {
 	
 	public Person() {}
 	
+	/**
+	 * @param email
+	 * @param cardID
+	 * @param firstName
+	 * @param insertion
+	 * @param lastName
+	 * @param yearOfBirth
+	 * @param monthOfBirth
+	 * @param dayOfBirth
+	 */
 	public Person(String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
 		GregorianCalendar gc = new GregorianCalendar();
 		this.setEmail(email);

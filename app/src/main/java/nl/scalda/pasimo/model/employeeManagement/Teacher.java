@@ -7,6 +7,17 @@ public class Teacher extends Person {
 	
 	public Teacher() {}
 	
+	/**
+	 * @param employeeNumber
+	 * @param email
+	 * @param cardID
+	 * @param firstName
+	 * @param insertion
+	 * @param lastName
+	 * @param yearOfBirth
+	 * @param monthOfBirth
+	 * @param dayOfBirth
+	 */
 	public Teacher(int employeeNumber, String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
 		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.employeeNumber = employeeNumber;
