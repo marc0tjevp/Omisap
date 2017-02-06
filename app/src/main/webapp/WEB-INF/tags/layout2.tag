@@ -1,3 +1,4 @@
+<%@tag import="java.text.SimpleDateFormat"%>
 <%@tag description="Overall Page template" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%--
@@ -187,7 +188,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 --%>
                 </div>
                 <!-- Default to the left -->
-                <strong><a href="http://www.scalda.nl">Scalda</a> 2016</strong>
+                <strong><a href="http://www.scalda.nl">Scalda</a> 
+                	<c:set var="now" value="<%= new java.util.GregorianCalendar().get(java.util.GregorianCalendar.YEAR)%>" />
+					<c:out value="${now}"></c:out>
+                </strong>
             </footer>
         </div><!-- ./wrapper -->
 
