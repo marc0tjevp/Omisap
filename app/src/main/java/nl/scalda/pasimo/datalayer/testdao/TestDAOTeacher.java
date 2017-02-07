@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.datalayer;
+package nl.scalda.pasimo.datalayer.testdao;
 
 import java.util.TreeSet;
 
@@ -21,16 +21,16 @@ public class TestDAOTeacher implements IDAOTeacher {
 	@Override
 	public void edit(Teacher t, EducationTeam team, String oldAbbr) {
 		for(Teacher ca : teachers){
-			if(ca.getAbbreviation().equals(oldAbbr)){
-				ca.setAbbreviation(t.getAbbreviation());
-				ca.setCardID(t.getCardID());
-				ca.setEmployeeNumber(t.getEmployeeNumber());
-				ca.setFirstName(t.getFirstName());
-				ca.setInsertion(t.getInsertion());
-				ca.setLastName(t.getLastName());
-				ca.setEmail(t.getEmail());
-				ca.setDateOfBirth(t.getDateOfBirth());
-			}
+//			if(ca.getAbbrevation().equals(oldAbbr)){
+//				ca.setAbbrevation(t.getAbbrevation());
+//				ca.setCardID(t.getCardID());
+//				ca.setEmployeeNumber(t.getEmployeeNumber());
+//				ca.setFirstName(t.getFirstName());
+//				ca.setInsertion(t.getInsertion());
+//				ca.setLastName(t.getLastName());
+//				ca.setEmail(t.getEmail());
+//				ca.setDateOfBirth(t.getDateOfBirth());
+//			}
 		}
 	}
 
