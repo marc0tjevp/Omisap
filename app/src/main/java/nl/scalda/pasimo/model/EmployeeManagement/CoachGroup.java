@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.model.EmployeeManagement;
+package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
 

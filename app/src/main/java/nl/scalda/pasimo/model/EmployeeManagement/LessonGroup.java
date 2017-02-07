@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nl.scalda.pasimo.model.EmployeeManagement;
+package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
 import nl.scalda.pasimo.datalayer.DAOFactory;
@@ -37,7 +37,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
     public void updateStudent(Student s) {
         for (Student cs : this.students) {
             if (cs.getName().equals(s.getName())) {
-                cs.setLastname(s.getLastname());
+                cs.setLastName(s.getLastName());
                 cs.setEmail(s.getEmail());
                 cs.setCardID(s.getCardID());
             }

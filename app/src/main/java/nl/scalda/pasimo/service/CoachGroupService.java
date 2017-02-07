@@ -6,7 +6,7 @@
 package nl.scalda.pasimo.service;
 
 import nl.scalda.pasimo.datalayer.DAOFactory;
-import nl.scalda.pasimo.model.EmployeeManagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 
 /**
  *

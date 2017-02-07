@@ -1,11 +1,8 @@
 package nl.scalda.pasimo.datalayer;
 
 import java.util.TreeSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import nl.scalda.pasimo.interfaces.IDAOCoachGroup;
-import nl.scalda.pasimo.model.EmployeeManagement.CoachGroup;
-import nl.scalda.pasimo.model.EmployeeManagement.Teacher;
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 
 /**
  *
@@ -17,9 +14,9 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
     private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
 
     public TestDAOCoachGroup() {
-        coachGroups.add(new CoachGroup("A1", new Teacher("Bram", "van Heule", "bram@scalda.nl", 1, "HUELBR")));
-        coachGroups.add(new CoachGroup("A2", new Teacher("Rens", "Brandon", "rens@scalda.nl", 2, "BRANRE")));
-        coachGroups.add(new CoachGroup("A3", new Teacher("Gino", "Paulo", "gino@scalda.nl", 3, "PAULGI")));
+//        coachGroups.add(new CoachGroup("A1", new Teacher("Bram", "van Heule", "bram@scalda.nl", 1, "HUELBR")));
+//        coachGroups.add(new CoachGroup("A2", new Teacher("Rens", "Brandon", "rens@scalda.nl", 2, "BRANRE")));
+//        coachGroups.add(new CoachGroup("A3", new Teacher("Gino", "Paulo", "gino@scalda.nl", 3, "PAULGI")));
     }
 
     @Override
@@ -51,7 +48,6 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
             try {
                 if (oldCoachGroup.getId() == ccg.getId()) {
                     ccg.setName(newCoachGroup.getName());
-                    ccg.setTeacher(newCoachGroup.getTeacher());
                     ccg.setLessonGroups(newCoachGroup.getLessonGroups());
                 }
             } catch (Exception ex) {

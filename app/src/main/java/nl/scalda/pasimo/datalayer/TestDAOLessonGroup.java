@@ -7,7 +7,7 @@ package nl.scalda.pasimo.datalayer;
 
 import java.util.TreeSet;
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
-import nl.scalda.pasimo.model.EmployeeManagement.LessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
 /**
  *

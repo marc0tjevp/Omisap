@@ -5,7 +5,7 @@
  */
 package nl.scalda.pasimo.interfaces;
 
-import nl.scalda.pasimo.model.EmployeeManagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 
 /**
  *

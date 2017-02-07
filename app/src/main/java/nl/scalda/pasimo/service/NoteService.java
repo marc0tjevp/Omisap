@@ -1,7 +1,7 @@
 package nl.scalda.pasimo.service;
 
 import nl.scalda.pasimo.datalayer.DAOFactory;
-import nl.scalda.pasimo.model.employeeManagement.Note;
+import nl.scalda.pasimo.model.employeemanagement.Note;
 
 public class NoteService{
 

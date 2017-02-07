@@ -6,7 +6,7 @@
 package nl.scalda.pasimo.datalayer;
 
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
-import nl.scalda.pasimo.model.EmployeeManagement.LessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
 /**
  *
