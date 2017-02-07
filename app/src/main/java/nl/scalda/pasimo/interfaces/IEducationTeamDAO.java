@@ -1,6 +1,6 @@
 package nl.scalda.pasimo.interfaces;
 
-import nl.scalda.pasimo.model.employeeManagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 
 import java.util.Set;
 

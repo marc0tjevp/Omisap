@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.model.employeeManagement;
+package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.DAOFactory;
 

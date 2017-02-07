@@ -1,6 +1,6 @@
 package nl.scalda.pasimo.interfaces;
 
-import nl.scalda.pasimo.model.employeeManagement.Team;
+import nl.scalda.pasimo.model.employeemanagement.Team;
 
 public interface ITeamDAO {
 

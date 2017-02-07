@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.model.employeeManagement;
+package nl.scalda.pasimo.model.employeemanagement;
 
 public class TeamFacade {
 
