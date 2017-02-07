@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.datalayer.testdao;
+package nl.scalda.pasimo.datalayer;
 
 import java.util.TreeSet;
 
@@ -13,8 +13,7 @@ public class TestDAONote implements IDAONote {
 	private TreeSet<Note> noteList;
 	
 	private TestDAONote() {
-		Teacher tea1 = new Teacher();
-                tea1.setFirstName("Bram");
+		Teacher tea1 = new Teacher("alksjbasj");
 		noteList = new TreeSet<Note>();
 		Note note1 = new Note("Vertraging bus", "Lijn 660 had vertraging van 30 minuten", tea1);
 		Note note2 = new Note("Vertraging boot", "Boot had vertraging van 30 minuten", tea1);

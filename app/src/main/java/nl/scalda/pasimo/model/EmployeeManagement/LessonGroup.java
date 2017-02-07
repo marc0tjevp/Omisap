@@ -6,6 +6,7 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
+import nl.scalda.pasimo.datalayer.DAOFactory;
 
 /**
  *
@@ -18,7 +19,6 @@ public class LessonGroup implements Comparable<LessonGroup> {
     private TreeSet<Student> students = new TreeSet<>();
 
     public LessonGroup() {
-        
     }
 
     public LessonGroup(String name) {
@@ -37,7 +37,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
     public void updateStudent(Student s) {
         for (Student cs : this.students) {
             if (cs.getName().equals(s.getName())) {
-                cs.setLastname(s.getLastname());
+                cs.setLastName(s.getLastName());
                 cs.setEmail(s.getEmail());
                 cs.setCardID(s.getCardID());
             }

@@ -36,11 +36,11 @@ public class CSVReader {
                     String[] currentstudent = line.split(cvsSplitBy);
 
                     System.out.println("Country [code= " + currentstudent[0] + " , name=" + currentstudent[1] + "]");
-                    s.setName(currentstudent[1]);
+                    s.setFirstName(currentstudent[1]);
                     if(currentstudent[2].equals("")){
-                        s.setLastname(currentstudent[3]);
+                        s.setLastName(currentstudent[3]);
                     }else{
-                        s.setLastname(currentstudent[2] + " " + currentstudent[3]);
+                        s.setLastName(currentstudent[2] + " " + currentstudent[3]);
                     }
                     s.setEmail(currentstudent[4]);
                 s.setCardID(Integer.parseInt(currentstudent[0]));

@@ -1,13 +1,9 @@
 package nl.scalda.pasimo.test;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
-import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
-import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
-//import nl.scalda.pasimo.model.employeemanagement.Note;
-import nl.scalda.pasimo.model.employeemanagement.Teacher;
+
 
 public class testClass {
 
