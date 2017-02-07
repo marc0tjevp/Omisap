@@ -22,10 +22,6 @@ public class TeacherService {
 		
 	}
 
-//	public void addTeacherToEducationTeam(Teacher t, EducationTeam team) {
-//		team.addTeacher(t);
-//	}
-
 //	public Teacher readByID(int id) {
 //		for (EducationTeam ct : Cluster.getInstance().getEducationTeams()) {
 //			for(Teacher cte : ct.getTeachers()){
@@ -54,7 +50,7 @@ public class TeacherService {
 //	}
 
 	public void delete(Teacher t, EducationTeam team) {
-
+		team.deleteTeacher(t);
 	}
 
 	public TreeSet<Teacher> readAllForTeam(EducationTeam t) {
