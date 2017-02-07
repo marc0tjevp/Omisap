@@ -9,6 +9,18 @@
 
     <jsp:attribute name="scripts">
         <script>
+            var kkeys = [], konami = "38,38,40,40,37,39,37,39,66,65";
+            $(document).keydown(function(e) {
+                console.log(e.keyCode);
+                kkeys.push( e.keyCode );
+                if ( kkeys.toString().indexOf( konami ) >= 0 ){
+                    $(document).unbind('keydown',arguments.callee);
+                    $.getScript('http://www.cornify.com/js/cornify.js',function(){
+                        cornify_add();
+                        $(document).keydown(cornify_add);
+                    });
+                }
+            });
             $(document).ready(function () {
                 $("#selectAllLessonGroups").on('click', function () {
                     if (this.checked) {
@@ -52,7 +64,7 @@
     </jsp:attribute>
     <jsp:attribute name="content">
 
-        <div class="container">
+        <div class="container" style="width: 85%;">
 
             <h1>Les groepen</h1>
             <div class="lessonGroupButtons">
@@ -115,7 +127,7 @@
                 </div>
             </div>
 
-            <table class="table lesson-groups-table">
+            <table class="table lesson-groups-table table-responsive">
                 <thead>
                     <tr>
                         <th>
