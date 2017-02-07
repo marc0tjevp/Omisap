@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.datalayer;
+package nl.scalda.pasimo.datalayer.factory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

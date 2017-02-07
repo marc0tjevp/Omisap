@@ -1,11 +1,11 @@
-package nl.scalda.pasimo.datalayer;
+package nl.scalda.pasimo.datalayer.factory;
 
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
 import nl.scalda.pasimo.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
-
 import nl.scalda.pasimo.interfaces.IDAONote;
 import nl.scalda.pasimo.interfaces.IDAOTeacher;
-import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
 
 public class MySQLDAOFactory extends DAOFactory {
 
@@ -31,22 +31,16 @@ public class MySQLDAOFactory extends DAOFactory {
     public IDAOLessonGroup getDAOLessonGroup() {
         return MYSQLDAOLessonGroup.getInstance();
     }
-  //methodes
-    
-	@Override
-	public IDAONote getDAONote() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public IDAOTeacher getDAOTeacher() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-    public IDAOLessonGroup getDAOLessonGroup() {
+    @Override
+    public IDAONote getDAONote() {
+        // TODO Auto-generated method stub
         return null;
     }
 
+    @Override
+    public IDAOTeacher getDAOTeacher() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }
