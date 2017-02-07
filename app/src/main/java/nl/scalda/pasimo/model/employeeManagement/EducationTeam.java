@@ -6,8 +6,8 @@ public class EducationTeam implements Comparable<EducationTeam> {
 
     private String name;
     private String abbreviation;
-    private TreeSet<Teacher> teachers;
-    private TreeSet<CoachGroup> coachGroups;
+    private TreeSet<Teacher> teachers = new TreeSet<>();
+    private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
 
     public EducationTeam() {
     }
