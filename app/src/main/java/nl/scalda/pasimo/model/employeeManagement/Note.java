@@ -1,6 +1,6 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
-import java.util.Date;
+import java.util.GregorianCalendar;
 
 import nl.scalda.pasimo.service.Service;
 
@@ -8,10 +8,10 @@ public class Note implements Comparable<Note>{
 
 	private int id;
 	private String title;
-	private Date creationDate;
+	private GregorianCalendar creationDate;
 	private String message;
 	private Teacher madeBy;
-	private Date lastEdit;
+	private GregorianCalendar lastEdit;
 
 	public Note(String title, String message, Teacher madeBy) {
 
@@ -19,7 +19,7 @@ public class Note implements Comparable<Note>{
 		this.message = message;
 		this.madeBy = madeBy;
 
-		this.creationDate = new Date();
+		this.creationDate = new GregorianCalendar();
 		this.lastEdit = this.creationDate;
 		Note cNote = Service.getInstance().getNoteService().create(this);
 		this.id = cNote.getId();
@@ -28,9 +28,9 @@ public class Note implements Comparable<Note>{
 	/**
 	 * Edits the note, and updates the lastEdit timestamp
 	 * 
-	 * @param String
+	 * @param title
 	 *            title title of the note
-	 * @param String
+	 * @param message
 	 *            message message of the note
 	 * @return Note note returns a updated note
 	 * 
@@ -40,7 +40,7 @@ public class Note implements Comparable<Note>{
 		this.title = title;
 		this.message = message;
 
-		this.lastEdit = new Date();
+		this.lastEdit = new GregorianCalendar();
 		Service.getInstance().getNoteService().update(this);
 		return this;
 	}
@@ -61,11 +61,11 @@ public class Note implements Comparable<Note>{
 		this.title = title;
 	}
 
-	public Date getCreationDate() {
+	public GregorianCalendar getCreationDate() {
 		return creationDate;
 	}
 
-	public void setCreationDate(Date creationDate) {
+	public void setCreationDate(GregorianCalendar creationDate) {
 		this.creationDate = creationDate;
 	}
 
@@ -85,21 +85,28 @@ public class Note implements Comparable<Note>{
 		this.madeBy = madeBy;
 	}
 
-	public Date getLastEdit() {
+	public GregorianCalendar getLastEdit() {
 		return lastEdit;
 	}
 
-	public void setLastEdit(Date lastEdit) {
+	public void setLastEdit(GregorianCalendar lastEdit) {
 		this.lastEdit = lastEdit;
 	}
 
         @Override
 	public int compareTo(Note o) {
+		//Check if the note is the same
 		if(this.id == o.getId())
 		{
 			return 0;
 		}
-		return this.getCreationDate().before(o.getCreationDate()) ? -1 : 1;
+		//if not, check if its before or after the this.getCreationDate
+		if(this.getCreationDate().compareTo(o.getCreationDate()) != 0){
+			return this.getCreationDate().compareTo(o.getCreationDate());
+		}else {
+			return -1;
+		}
+
 	}
 
 }
