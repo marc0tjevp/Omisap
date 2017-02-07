@@ -11,7 +11,7 @@
     </jsp:attribute>
     <jsp:attribute name="content">
 
-        <div class="container">
+        <div class="container" style="width: 85%;">
             <div class="row">
                 <div class="col-md-12">
                     <h1 style="float: left; margin-right: 5px;">Studenten </h1>
