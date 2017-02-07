@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.datalayer;
+package nl.scalda.pasimo.interfaces;
 
 import nl.scalda.pasimo.model.employeeManagement.Team;
 

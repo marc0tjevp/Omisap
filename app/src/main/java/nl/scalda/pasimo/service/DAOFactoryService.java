@@ -1,6 +1,6 @@
 package nl.scalda.pasimo.service;
 
-import nl.scalda.pasimo.datalayer.IDAOFactory;
+import nl.scalda.pasimo.interfaces.IDAOFactory;
 
 public class DAOFactoryService {
 

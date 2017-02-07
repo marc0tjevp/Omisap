@@ -28,7 +28,7 @@ public class testClass {
 		Note n1 = new Note("lel", "slfkjs", t);
 		t2.addNote(n1);
 		
-		EducationTeam et = new EducationTeam();
+		EducationTeam et = new EducationTeam("AO", "Applicatie Ontwikkelaar");
 		et.addTeacher(t);
 		et.addTeacher(t2);
 		

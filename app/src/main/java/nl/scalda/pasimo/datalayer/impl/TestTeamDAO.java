@@ -1,6 +1,6 @@
 package nl.scalda.pasimo.datalayer.impl;
 
-import nl.scalda.pasimo.datalayer.ITeamDAO;
+import nl.scalda.pasimo.interfaces.ITeamDAO;
 import nl.scalda.pasimo.model.employeeManagement.Team;
 
 import java.util.Set;

@@ -1,6 +1,14 @@
 package nl.scalda.pasimo.model.employeeManagement;
 
-public class EducationTeam implements Comparable<EducationTeam> {
+import nl.scalda.pasimo.datalayer.DAOFactory;
+
+import java.util.TreeSet;
+
+public class EducationTeam implements Comparable<EducationTeam>{
+
+
+
+    private TreeSet<Teacher> teachers;
 
     /**
      * Abbreviation of the EducationTeam; e.g. AO

@@ -21,6 +21,7 @@ public class Team {
 
     //<editor-fold defaultstate="collapsed" desc="constructor">
 
+
     public Team(String abbreviation, String name) {
         this(abbreviation, name, new TreeSet<EducationTeam>());
     }
