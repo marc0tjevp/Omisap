@@ -4,7 +4,7 @@ import java.util.GregorianCalendar;
 
 import nl.scalda.pasimo.service.Service;
 
-public class Note implements Comparable<Note> {
+public class Note implements Comparable<Note>{
 
 	private int id;
 	private String title;
@@ -93,7 +93,7 @@ public class Note implements Comparable<Note> {
 		this.lastEdit = lastEdit;
 	}
 
-	@Override
+        @Override
 	public int compareTo(Note o) {
 		//Check if the note is the same
 		if(this.id == o.getId())
