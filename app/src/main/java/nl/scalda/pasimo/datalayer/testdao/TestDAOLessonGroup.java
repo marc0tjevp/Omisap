@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nl.scalda.pasimo.datalayer;
+package nl.scalda.pasimo.datalayer.testdao;
 
 import java.util.TreeSet;
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
@@ -53,8 +53,7 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
         for (LessonGroup clg : lessonGroups) {
             try {
                 if (lessonGroup.getId() == clg.getId()) {
-                    clg.setName(lessonGroup.getName());
-                    clg.setStudents(lessonGroup.getStudents());
+                    clg = lessonGroup;
                 }
             } catch (Exception ex) {
                 System.out.println("Could not update, ended with Exception: " + ex.getMessage());

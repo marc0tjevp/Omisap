@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nl.scalda.pasimo.datalayer;
+package nl.scalda.pasimo.datalayer.mysqldao;
 
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOConnection;
+import java.util.TreeSet;
 import nl.scalda.pasimo.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 

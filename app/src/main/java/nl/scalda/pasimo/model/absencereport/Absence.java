@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nl.scalda.pasimo.main;
+package nl.scalda.pasimo.model.absencereport;
 
 /**
  *
- * @author jeroe
+ * @author hunteroooox
  */
-public class Main {
-
-    public static void main(String args[]) {
-        
+public class Absence {
+    
+    public String wieIsErAbsent(){
+        return "iedereen behalve Jeroen";
     }
-
+    
 }

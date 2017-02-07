@@ -5,7 +5,7 @@
  */
 package nl.scalda.pasimo.service;
 
-import nl.scalda.pasimo.datalayer.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
 /**
@@ -18,15 +18,14 @@ public class LessonGroupService {
 
     public void create(LessonGroup lessonGroup) {
         DAOFactory.getTheFactory().getDAOLessonGroup().create(lessonGroup);
-
     }
 
     public LessonGroup read(LessonGroup lessonGroup) {
         return DAOFactory.getTheFactory().getDAOLessonGroup().read(lessonGroup);
     }
 
-    public void update(LessonGroup oldCoachGroup, LessonGroup newCoachGroup) {
-        DAOFactory.getTheFactory().getDAOLessonGroup().update(oldCoachGroup, newCoachGroup);
+    public void update(LessonGroup lessonGroup) {
+        DAOFactory.getTheFactory().getDAOLessonGroup().update(lessonGroup);
     }
 
     public void delete(LessonGroup lessonGroup) {
