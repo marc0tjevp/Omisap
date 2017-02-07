@@ -43,7 +43,7 @@ public class TestDAOTeacher implements IDAOTeacher {
 	@Override
 	public Teacher readByAbbr(String id) {
 		for (Teacher ca : teachers) {
-			if (ca.getAbbrevation().equals(id)) {
+			if (ca.getAbbreviation().equals(id)) {
 				return ca;
 			}
 		}
