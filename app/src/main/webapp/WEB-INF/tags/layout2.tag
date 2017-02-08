@@ -135,17 +135,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- Optionally, you can add icons to the links -->
 
                         <li class="treeview">
-                            <a href="#"><i class="fa fa-user"></i> <span>Students</span> <i class="fa fa-angle-left pull-right"></i></a>
+                            <a href="lessongroup"><i class="fa fa-user"></i> <span>Les groepen</span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
                                 <%--<li><a href="<c:url value="student"><c:param name="action" value="all"/></c:url>">Overview</a></li>--%>
+                            </ul>
+                        </li>
+                        <%--<li class="treeview">
+                            <a href="#"><i class="fa fa-user"></i> <span>Students</span> <i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                &lt;%&ndash;<li><a href="<c:url value="student"><c:param name="action" value="all"/></c:url>">Overview</a></li>&ndash;%&gt;
                                 </ul>
                             </li>
                             <li class="treeview">
                                 <a href="#"><i class="fa fa-user-plus"></i> <span>Teachers</span> <i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
-                                 <%--   <li><a href="<c:url value="teacher"><c:param name="action" value="all"/></c:url>">Overview</a></li>
-                                --%></ul>
-                            </li>
+                                 &lt;%&ndash;   <li><a href="<c:url value="teacher"><c:param name="action" value="all"/></c:url>">Overview</a></li>
+                                &ndash;%&gt;</ul>
+                            </li>--%>
                             <%--<li class="treeview">
                                 <a href="#"><i class="fa fa-users"></i> <span>Groups</span> <i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
