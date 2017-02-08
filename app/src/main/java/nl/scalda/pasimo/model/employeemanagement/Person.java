@@ -1,34 +1,22 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TreeSet;
 
-
 public class Person implements Comparable<Person> {
 
-	private String email;
-	private int cardID;
-	private String firstName;
-	private String insertion;
-	private String lastName;
-	private GregorianCalendar dateOfBirth;
-	private TreeSet<Note> noteList;
-	
-	public Person() {}
-	
-	/**
-	 * @param email
-	 * @param cardID
-	 * @param firstName
-	 * @param insertion
-	 * @param lastName
-	 * @param yearOfBirth
-	 * @param monthOfBirth
-	 * @param dayOfBirth
-	 */
-	public Person(String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
+    private String email;
+    private int cardID;
+    private String firstName;
+    private String insertion;
+    private String lastName;
+    private TreeSet<Note> noteList;
+    private GregorianCalendar dateOfBirth;
+
+	public Person() {
+    }
+
+    public Person(String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
 		GregorianCalendar gc = new GregorianCalendar();
 		this.setEmail(email);
 		this.setCardID(cardID);
@@ -40,96 +28,93 @@ public class Person implements Comparable<Person> {
 		this.noteList = new TreeSet<Note>();
 	}
 
-	/**
-	 * Adds a note to the teacher.
-	 * 
-	 * @param Note note
-	 * @see Note
-	 */
-	public void addNote(Note note){
-		this.noteList.add(note);
-	}
-	
-	/**
-	 * Removes a note from the person
-	 * 
-	 * @param Note note
-	 * @see Note
-	 */
-	public void removeNote(Note note){
-		this.noteList.remove(note);
-	}
-	
-	public String getDateOfBirthInString(){
-		return dateOfBirth.get(GregorianCalendar.DAY_OF_MONTH) + " " + getMonthName() + " " + dateOfBirth.get(GregorianCalendar.YEAR);
-	}
-	
-	public String getMonthName(){
-		return new SimpleDateFormat("MMMM").format(dateOfBirth.getTime());
-	}
-	
-	//getters and setters
-	public String getEmail() {
-		return email;
-	}
+    /**
+     * Adds a note to the teacher.
+     *
+     * @param Note note
+     * @see Note
+     */
+    public void addNote(Note note) {
+        this.noteList.add(note);
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    /**
+     * Removes a note from the person
+     *
+     * @param Note note
+     * @see Note
+     */
+    public void removeNote(Note note) {
+        this.noteList.remove(note);
+    }
 
-	public int getCardID() {
-		return cardID;
-	}
+    //getters and setters
+    public String getEmail() {
+        return email;
+    }
 
-	public void setCardID(int cardID) {
-		this.cardID = cardID;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public int getCardID() {
+        return cardID;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public void setCardID(int cardID) {
+        this.cardID = cardID;
+    }
 
-	public String getInsertion() {
-		return insertion;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public void setInsertion(String insertion) {
-		this.insertion = insertion;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public String getInsertion() {
+        return insertion;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	
-	public String getFullName(){
-		if(this.insertion != "" || this.insertion != null){
-		return this.getFirstName()+" "+this.getInsertion()+" "+this.getLastName();
-		}
-		return this.getFirstName()+" "+this.getLastName();
-	}
+    public void setInsertion(String insertion) {
+        this.insertion = insertion;
+    }
 
-	public Calendar getDateOfBirth() {
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public GregorianCalendar getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public TreeSet<Note> getNoteList() {
-		return noteList;
+	public void setDateOfBirth(GregorianCalendar dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
-	public void setNoteList(TreeSet<Note> noteList) {
-		this.noteList = noteList;
-	}
+	public String getFullName() {
+        if (this.insertion != "" && this.insertion != null) {
+            return this.getFirstName() + " " + this.getInsertion() + " " + this.getLastName();
+        }
+        return this.getFirstName() + " " + this.getLastName();
+    }
 
-	@Override
-	public int compareTo(Person o) {
-		return email.compareTo(o.getEmail());
-	}
+    public TreeSet<Note> getNoteList() {
+        return noteList;
+    }
+
+    public void setNoteList(TreeSet<Note> noteList) {
+        this.noteList = noteList;
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return email.compareTo(o.getEmail());
+    }
+
 }

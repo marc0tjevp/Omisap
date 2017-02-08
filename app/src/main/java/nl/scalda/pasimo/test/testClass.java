@@ -1,7 +1,9 @@
 package nl.scalda.pasimo.test;
 import java.text.ParseException;
-import nl.scalda.pasimo.datalayer.DAOFactory;
-import nl.scalda.pasimo.datalayer.TestDAOFactory;
+
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
+
 
 public class testClass {
 

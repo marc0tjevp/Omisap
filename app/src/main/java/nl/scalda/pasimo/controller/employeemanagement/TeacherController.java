@@ -7,9 +7,6 @@ import java.util.TreeSet;
 import org.apache.commons.io.FileUtils;
 
 import com.opensymphony.xwork2.ActionSupport;
-
-import nl.scalda.pasimo.datalayer.DAOFactory;
-import nl.scalda.pasimo.datalayer.TestDAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.test.EducationTeamList;
