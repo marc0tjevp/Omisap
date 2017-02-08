@@ -42,6 +42,14 @@ public class Team {
     }
 
     /**
+     * Updates an EducationTeam.
+     */
+    public void updateEducationTeam(EducationTeam educationTeam) {
+        if (this.educationTeams.remove(educationTeam)) // Remove the original educationTeam from the Set
+            this.educationTeams.add(educationTeam); // Add the 'updated' version to the Set
+    }
+
+    /**
      * Removes an EducationTeam from the Team.
      */
     public void removeEducationTeam(EducationTeam educationTeam) {
