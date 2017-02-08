@@ -12,13 +12,14 @@ public class LessonGroupController extends ActionSupport {
     public TreeSet<Student> students = new TreeSet<>();
     public LessonGroup lessonGroup;
 
-    public String execute(){
+    public String execute() {
         //actions
         return SUCCESS;
     }
 
-    public String saveLessonGroup(){
+    public String saveLessonGroup() {
 
 
         return SUCCESS;
     }
+}
