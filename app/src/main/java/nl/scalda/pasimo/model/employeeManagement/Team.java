@@ -45,8 +45,12 @@ public class Team {
      * Updates an EducationTeam.
      */
     public void updateEducationTeam(EducationTeam educationTeam) {
-        if (this.educationTeams.remove(educationTeam)) // Remove the original educationTeam from the Set
-            this.educationTeams.add(educationTeam); // Add the 'updated' version to the Set
+        for (EducationTeam et : this.educationTeams) {
+            if (et.getAbbreviation().equals(educationTeam.getAbbreviation())) {
+                et.setAbbreviation(educationTeam.getAbbreviation());
+                et.setName(educationTeam.getName());
+            }
+        }
     }
 
     /**
