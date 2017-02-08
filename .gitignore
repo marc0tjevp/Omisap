@@ -7,3 +7,4 @@ Server/*
 .idea/
 *.iws
 *.iml
+app/nb-configuration\.xml

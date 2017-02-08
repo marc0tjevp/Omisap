@@ -2,8 +2,8 @@ package nl.scalda.pasimo.interfaces;
 
 import java.util.TreeSet;
 
-import nl.scalda.pasimo.model.EducationTeam;
-import nl.scalda.pasimo.model.Teacher;
+import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public interface IDAOTeacher {
 	

@@ -1,0 +1,94 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 7, 2016, 8:53:24 PM
+    Author     : gino
+*/
+.icheckbox_flat-green.checked.disabled {
+    background-position: -22px 0!important;
+}
+.student-tag span {
+    margin-left: 4px;
+    cursor: pointer;
+}
+.student-tag {
+    background-color: #3c8dbc;
+    color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    border-color: #367fa9;  
+    cursor: default;
+    float: left;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding: 1px 10px;
+    list-style: none;
+}
+
+.account-image-l {
+    height: 105px;
+    border: 3px solid;
+    border-color: transparent;
+    border-color: rgba(255,255,255,0.2);
+    width: auto !important
+}
+.account-image {
+    float: left;
+    width: 25px;
+    margin-right: 10px;
+    margin-top: -2px;
+}
+.quick-notes {
+    margin-top: 5px;
+}
+
+.bpv-note {
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    border-radius: 5px;
+}
+.bpv-note.fulfilled-true {
+    background-color: #efffe4;
+}
+
+.bpv-note.fulfilled-false {
+    background-color: #ffede4;
+}
+
+.bpv-note-operations {
+    float: right;
+}
+
+td.imageColumn {
+    /*display: block;*/
+}
+.dtr-data .person-popover {
+    width: 20% !important;
+}
+
+.teacher-avatar {
+    margin-top: -12px;
+    border: 1px solid;
+    margin-left: -10px;
+}
+
+img.note-avatar { 
+    width: 30px;
+    border-radius: 0px;
+    height: auto;
+}
+.ul-slide {
+    list-style: none;
+    padding-top: 7px;   
+    padding-bottom: 7px;
+    padding-left: 25px;
+}
+
+#students .box.neutral-border {
+    border: 1px solid #eee;
+}
