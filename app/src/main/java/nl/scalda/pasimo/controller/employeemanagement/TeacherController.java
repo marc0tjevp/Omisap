@@ -12,7 +12,6 @@ import nl.scalda.pasimo.datalayer.DAOFactory;
 import nl.scalda.pasimo.datalayer.TestDAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
-import nl.scalda.pasimo.service.Service;
 import nl.scalda.pasimo.test.EducationTeamList;
 import nl.scalda.pasimo.test.TeacherList;
 
@@ -73,12 +72,7 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String readTeacher() {
-		// Teacher t = new Teacher(123456, "email@myemaildomain.com", 654321789,
-		// "henk", "de", "alien", 1965, 7, 23);
-		// Teacher t1 = new Teacher(876543, "perkamentus@zweinstein.uk",
-		// 635685473, "Hermelien", "", "Griffel", 1990, 5, 20);
-		// TeacherList.getInstance().addTeacher(t);
-		// TeacherList.getInstance().addTeacher(t1);
+		getTeachers();
 		return SUCCESS;
 	}
 
@@ -130,11 +124,24 @@ public class TeacherController extends ActionSupport {
 		return SUCCESS;
 	}
 	
+	/**
+	 * Removes the teacher from the old education team.
+	 * 
+	 * @param t
+	 * @param oldTeam
+	 * @return String
+	 */
 	public String removeTeacherFromEducationTeam(Teacher t, EducationTeam oldTeam){
 		oldTeam.deleteTeacher(t);
 		return SUCCESS;
 	}
 	
+	/**
+	 * returns the education team the teacher is currently in.
+	 * 
+	 * @param t
+	 * @return EducationTeam
+	 */
 	public EducationTeam getOldEducationTeam(Teacher t){
 		
 		for(EducationTeam et : getEducationTeams()){
@@ -144,7 +151,7 @@ public class TeacherController extends ActionSupport {
 		}
 		return null;
 	}
-
+	
 	/**
 	 * gets the teacher by employee number.
 	 * 
