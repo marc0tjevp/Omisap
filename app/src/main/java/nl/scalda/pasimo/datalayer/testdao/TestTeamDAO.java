@@ -12,6 +12,9 @@ public class TestTeamDAO implements ITeamDAO {
 
     private TestTeamDAO() {
         this.teams = new TreeSet<Team>();
+
+        this.teams.add(new Team("ICT", "Informatie- Communicatie Technologie"));
+
     }
 
     @Override

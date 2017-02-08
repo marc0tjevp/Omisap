@@ -15,7 +15,7 @@ public class TestEducationTeamDAO implements IEducationTeamDAO {
 
         // Test data
         this.educationTeams.add(new EducationTeam("AO", "Applicatieontwikkelaar"));
-        this.educationTeams.add(new EducationTeam("SSC", "Shared Service Center");
+        this.educationTeams.add(new EducationTeam("SSC", "Shared Service Center"));
         this.educationTeams.add(new EducationTeam("MV", "Mediavormgeving"));
 
     }
