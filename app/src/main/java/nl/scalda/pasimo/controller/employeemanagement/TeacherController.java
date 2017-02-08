@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.controller;
+package nl.scalda.pasimo.controller.employeemanagement;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,8 +10,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import nl.scalda.pasimo.datalayer.DAOFactory;
 import nl.scalda.pasimo.datalayer.TestDAOFactory;
-import nl.scalda.pasimo.model.employeeManagement.EducationTeam;
-import nl.scalda.pasimo.model.employeeManagement.Teacher;
+import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.service.Service;
 import nl.scalda.pasimo.test.EducationTeamList;
 import nl.scalda.pasimo.test.TeacherList;

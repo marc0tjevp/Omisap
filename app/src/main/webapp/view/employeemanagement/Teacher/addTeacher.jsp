@@ -10,7 +10,7 @@
       <h1>Docent toevoegen</h1>
       <br>
       <form action="addTeacher" class="" enctype="multipart/form-data" method="post">
-        <s:bean name="nl.scalda.pasimo.model.employeeManagement.Teacher" var="teacher">
+        <s:bean name="nl.scalda.pasimo.model.employeemanagement.Teacher" var="teacher">
           <div class="form-group row">
             <label class="col-2 col-form-label">Voornaam</label>
             <div class="col-10">
@@ -57,7 +57,7 @@
           <div class="form-group row">
             <label class="col-2 col-form-label">Educatieteam</label>
             <div class="col-10">
-              <s:bean name="nl.scalda.pasimo.model.employeeManagement.EducationTeam" var="team">
+              <s:bean name="nl.scalda.pasimo.model.employeemanagement.EducationTeam" var="team">
                 <s:select class="form-control" style="width: 50%;" name="teamAbbreviation" list="educationTeams" listKey="abbreviation" listValue="abbreviation + ' - ' + name"></s:select>
               </s:bean>
               <br>

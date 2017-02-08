@@ -8,7 +8,7 @@
     <h1>Docent wijzigen</h1>
     <br>
     <form action="editTeacher" class="" enctype="multipart/form-data" method="post">
-      <s:bean name="nl.scalda.pasimo.model.employeeManagement.Teacher" var="teacher">
+      <s:bean name="nl.scalda.pasimo.model.employeemanagement.Teacher" var="teacher">
         <div class="form-group row">
           <label class="col-2 col-form-label">Voornaam</label>
           <div class="col-10">

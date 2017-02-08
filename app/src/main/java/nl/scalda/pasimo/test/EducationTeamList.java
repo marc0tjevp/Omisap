@@ -2,7 +2,7 @@ package nl.scalda.pasimo.test;
 
 import java.util.TreeSet;
 
-import nl.scalda.pasimo.model.employeeManagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 
 public class EducationTeamList extends TreeSet<EducationTeam>{
 	

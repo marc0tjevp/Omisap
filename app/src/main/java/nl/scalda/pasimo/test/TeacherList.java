@@ -2,7 +2,7 @@ package nl.scalda.pasimo.test;
 
 import java.util.TreeSet;
 
-import nl.scalda.pasimo.model.employeeManagement.Teacher;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.service.Service;
 import nl.scalda.pasimo.service.TeacherService;
 

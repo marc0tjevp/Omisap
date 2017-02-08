@@ -21,4 +21,12 @@ public class Service {
         return instance;
     }
 
+    public CoachGroupService getCoachGroupService() {
+        return CoachGroupService.getInstance();
+    }
+
+    public LessonGroupService getLessonGroupService() {
+        return LessonGroupService.getInstance();
+    }
+
 }

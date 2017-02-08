@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.datalayer;
+package nl.scalda.pasimo.datalayer.testdao;
 
 import java.util.TreeSet;
 
@@ -14,35 +14,15 @@ public class TestDAOTeacher implements IDAOTeacher {
 	private TestDAOTeacher() {}
 
 	@Override
-	public void create(Teacher t, EducationTeam team) {
-		teachers.add(t);
-	}
-
-	@Override
-	public void update(Teacher t, EducationTeam team) {
-		for(Teacher ca : teachers){
-			if(ca.getEmployeeNumber() == t.getEmployeeNumber()){
-				ca.setCardID(t.getCardID());
-				ca.setFirstName(t.getFirstName());
-				ca.setInsertion(t.getInsertion());
-				ca.setLastName(t.getLastName());
-				ca.setEmail(t.getEmail());
-				ca.setAbbreviation();
-			}
-		}
-		
-	}
-
-	@Override
 	public void delete(Teacher t, EducationTeam team) {
 		teachers.remove(t);
 
 	}
 
 	@Override
-	public Teacher readByEmployeeNumber(int id) {
+	public Teacher readByAbbr(String id) {
 		for (Teacher ca : teachers) {
-			if (ca.getEmployeeNumber() == id) {
+			if (ca.getAbbreviation().equals(id)) {
 				return ca;
 			}
 		}
@@ -67,7 +47,30 @@ public class TestDAOTeacher implements IDAOTeacher {
 	}
 
 	@Override
-	public Teacher readByAbbr(String id) {
+	public void create(Teacher teacher, EducationTeam team) {
+		teachers.add(teacher);
+		
+	}
+
+	@Override
+	public void update(Teacher t, EducationTeam team) {
+		for(Teacher ca : teachers){
+//			if(ca.getAbbrevation().equals(oldAbbr)){
+//				ca.setAbbrevation(t.getAbbrevation());
+//				ca.setCardID(t.getCardID());
+//				ca.setEmployeeNumber(t.getEmployeeNumber());
+//				ca.setFirstName(t.getFirstName());
+//				ca.setInsertion(t.getInsertion());
+//				ca.setLastName(t.getLastName());
+//				ca.setEmail(t.getEmail());
+//				ca.setDateOfBirth(t.getDateOfBirth());
+//			}
+		}
+		
+	}
+
+	@Override
+	public Teacher readByEmployeeNumber(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

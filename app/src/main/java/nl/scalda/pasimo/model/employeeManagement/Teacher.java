@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.model.employeeManagement;
+package nl.scalda.pasimo.model.employeemanagement;
 
 public class Teacher extends Person {
 
@@ -50,3 +50,4 @@ public class Teacher extends Person {
 				+ ", cardID=" + getCardID() + ", name=" + getFullName() + "]";
 	}
 }
+

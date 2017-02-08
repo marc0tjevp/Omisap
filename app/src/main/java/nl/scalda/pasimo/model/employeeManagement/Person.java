@@ -1,8 +1,7 @@
-package nl.scalda.pasimo.model.employeeManagement;
+package nl.scalda.pasimo.model.employeemanagement;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TreeSet;
 
@@ -133,5 +132,4 @@ public class Person implements Comparable<Person> {
 	public int compareTo(Person o) {
 		return email.compareTo(o.getEmail());
 	}
-
 }
