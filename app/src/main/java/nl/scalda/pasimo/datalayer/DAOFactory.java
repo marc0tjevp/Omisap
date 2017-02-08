@@ -21,9 +21,6 @@ public abstract class DAOFactory {
     }
 //methods
     
-    public abstract IDAOLessonGroup getDAOLessonGroup();
-    
-
     public abstract IDAOCoachGroup getDAOCoachGroup();
 
     public abstract IDAOLessonGroup getDAOLessonGroup();

@@ -1,10 +1,9 @@
 package nl.scalda.pasimo.main;
 
 import nl.scalda.pasimo.datalayer.TestDAOFactory;
-import nl.scalda.pasimo.datalayer.TestDAOLessonGroup;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
-import nl.scalda.pasimo.model.employeeManagement.LessonGroup;
-import nl.scalda.pasimo.model.employeeManagement.Student;
+import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
 import java.util.TreeSet;
 
@@ -45,7 +44,7 @@ public class Main {
 
         TreeSet<LessonGroup> createdLessonGroups = ((TestDAOLessonGroup) lessonGroupDAO).getLessongroups();
 
-
+        LessonGroup l43q34 = new LessonGroup(1, "hoi");
         //Testing delete
 //        lessonGroupDAO.delete(lessonGroup1);
 

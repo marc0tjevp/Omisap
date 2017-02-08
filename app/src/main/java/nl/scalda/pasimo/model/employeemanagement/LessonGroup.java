@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.model.employeeManagement;
+package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
 
@@ -46,7 +46,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
      *
      * @return The index of this lesson group
      */
-    public int getID() {
+    public int getId() {
         return this.id;
     }
 
@@ -55,7 +55,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
      *
      * @param id The index of this lesson group to set
      */
-    public void setID(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 

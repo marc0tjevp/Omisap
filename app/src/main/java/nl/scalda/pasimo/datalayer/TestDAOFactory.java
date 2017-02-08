@@ -1,5 +1,9 @@
 package nl.scalda.pasimo.datalayer;
 
+import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
+import nl.scalda.pasimo.datalayer.testdao.TestDAONote;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
 import nl.scalda.pasimo.interfaces.*;
 
 import nl.scalda.pasimo.interfaces.IDAONote;
@@ -16,11 +20,6 @@ public class TestDAOFactory extends DAOFactory {
     @Override
     public IDAOCoachGroup getDAOCoachGroup() {
         return TestDAOCoachGroup.getInstance();
-    }
-
-    @Override
-    public IDAOLessonGroup getDAOLessonGroup() {
-        return TestDAOLessonGroup.getInstance();
     }
 
     public static TestDAOFactory getInstance() {

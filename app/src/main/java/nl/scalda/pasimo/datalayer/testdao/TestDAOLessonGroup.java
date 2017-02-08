@@ -1,73 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package nl.scalda.pasimo.datalayer.testdao;
 
-import java.util.TreeSet;
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
-/**
- *
- * @author jeroe
- */
+import java.util.TreeSet;
+
 public class TestDAOLessonGroup implements IDAOLessonGroup {
 
     private static TestDAOLessonGroup instance = null;
-    private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
+    private TreeSet<LessonGroup> lessongroups = new TreeSet<>();
 
-    public TestDAOLessonGroup() {
-        lessonGroups.add(new LessonGroup("ICO41"));
-        lessonGroups.add(new LessonGroup("ICO42"));
-        lessonGroups.add(new LessonGroup("ICO43"));
-        lessonGroups.add(new LessonGroup("ICO44"));
-    }
+    private TestDAOLessonGroup() {
 
-    @Override
-    public void create(LessonGroup lessonGroup) {
-        try {
-            lessonGroups.add(lessonGroup);
-        } catch (Exception ex) {
-            System.out.println("Could not save. ended with Exception: " + ex.getMessage());
-        }
-    }
-
-    @Override
-    public LessonGroup read(LessonGroup lessonGroup) {
-        for (LessonGroup clg : lessonGroups) {
-            try {
-                if (lessonGroup.getId() == clg.getId()) {
-                    return clg;
-                }
-            } catch (Exception ex) {
-                System.out.println("Could not read. ended with Exception: " + ex.getMessage());
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public void update(LessonGroup lessonGroup) {
-        for (LessonGroup clg : lessonGroups) {
-            try {
-                if (lessonGroup.getId() == clg.getId()) {
-                    clg = lessonGroup;
-                }
-            } catch (Exception ex) {
-                System.out.println("Could not update, ended with Exception: " + ex.getMessage());
-            }
-        }
-    }
-
-    @Override
-    public void delete(LessonGroup lessonGroup) {
-        try {
-            lessonGroups.remove(lessonGroup);
-        } catch (Exception ex) {
-            System.out.println("Could not remove. ended with Exception: " + ex.getMessage());
-        }
     }
 
     public static TestDAOLessonGroup getInstance() {
@@ -77,8 +21,58 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
         return instance;
     }
 
-    public TreeSet<LessonGroup> getLessonGroups() {
-        return lessonGroups;
+    public TreeSet<LessonGroup> getLessongroups() {
+        return lessongroups;
+    }
+
+    @Override
+    public void create(LessonGroup lessonGroup) {
+        if (lessonGroup == null) {
+            return;
+        }
+        this.lessongroups.add(lessonGroup);
+    }
+
+    @Override
+    public LessonGroup read(LessonGroup lessonGroup) {
+        if (lessonGroup == null || !this.lessongroups.contains(lessonGroup)) {
+            return null;
+        }
+
+        for (LessonGroup eachLessonGroup : this.lessongroups) {
+            if (lessonGroup != eachLessonGroup) {
+                continue;
+            }
+            return eachLessonGroup;
+        }
+
+        return null;
+    }
+
+    @Override
+    public void update(LessonGroup newLessonGroup) {
+        if (newLessonGroup == null || !this.lessongroups.contains(newLessonGroup)) {
+            return;
+        }
+
+        for (LessonGroup lessonGroup : this.lessongroups) {
+            if (lessonGroup != newLessonGroup) {
+                continue;
+            }
+            lessonGroup.setName(newLessonGroup.getName());
+            lessonGroup.setId(newLessonGroup.getId());
+            lessonGroup.setStudents(newLessonGroup.getStudents());
+        }
+
+    }
+
+    @Override
+    public void delete(LessonGroup lessonGroup) {
+        if (lessonGroup == null || !this.lessongroups.contains(lessonGroup)) {
+            return;
+        }
+        this.lessongroups.remove(lessonGroup);
+
     }
 
 }

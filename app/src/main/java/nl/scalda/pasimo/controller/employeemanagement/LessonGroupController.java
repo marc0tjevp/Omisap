@@ -1,8 +1,8 @@
-package nl.scalda.pasimo.controller;
+package nl.scalda.pasimo.controller.employeemanagement;
 
 import com.opensymphony.xwork2.ActionSupport;
-import nl.scalda.pasimo.model.employeeManagement.LessonGroup;
-import nl.scalda.pasimo.model.employeeManagement.Student;
+import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.Student;
 
 import java.util.TreeSet;
 

@@ -13,7 +13,7 @@ public class TestDAONote implements IDAONote {
 	private TreeSet<Note> noteList;
 	
 	private TestDAONote() {
-		Teacher tea1 = new Teacher();
+		Teacher tea1 = new Teacher("BRM");
                 tea1.setFirstName("Bram");
 		noteList = new TreeSet<Note>();
 		Note note1 = new Note("Vertraging bus", "Lijn 660 had vertraging van 30 minuten", tea1);
