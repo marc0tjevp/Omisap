@@ -39,19 +39,12 @@
             <s:textfield id="teacherCardID" style="width: 50%;" class="form-control" name="teacher.cardID" type="text" />
           </div>
         </div>
-        <div class="form-group row">
-          <label class="col-2 col-form-label">Werknemersnummer</label>
-          <div class="col-10">
-            <s:textfield id="teacherEmployeeNumber" style="width: 50%;" class="form-control" name="teacher.employeeNumber" type="text" />
-            <br>
-          </div>
-        </div>
+        <s:textfield id="employeeNumber" style="width: 0%; display: none" class="form-control" name="teacher.employeeNumber" type="hidden" />
         <div class="form-group row">
           <label class="col-2 col-form-label">Educatieteam</label>
           <div class="col-10">
-            <s:bean name="nl.scalda.pasimo.model.employeeManagement.EducationTeam" var="team">
-                <s:select class="form-control" style="width: 50%;" name="teamAbbreviation" list="educationTeams" listKey="abbreviation" listValue="abbreviation + ' - ' + name"></s:select>
-              </s:bean>
+                <s:select class="form-control" style="width: 50%;" name="teamAbbreviation" list="educationTeams" 
+                listKey="abbreviation" listValue="abbreviation + ' - ' + name" value="teamAbbreviation"></s:select>
             <br>
             <br>
             <input type="submit" value="Wijzigen" class="btn btn-primary" id="submitId" />
