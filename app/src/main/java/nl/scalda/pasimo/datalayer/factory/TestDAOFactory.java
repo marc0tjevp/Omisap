@@ -1,9 +1,9 @@
 package nl.scalda.pasimo.datalayer.factory;
 
-import nl.scalda.pasimo.interfaces.IEducationTeamDAO;
-import nl.scalda.pasimo.interfaces.ITeamDAO;
-import nl.scalda.pasimo.datalayer.TestEducationTeamDAO;
-import nl.scalda.pasimo.datalayer.TestTeamDAO;
+import nl.scalda.pasimo.datalayer.interfaces.IEducationTeamDAO;
+import nl.scalda.pasimo.datalayer.interfaces.ITeamDAO;
+import nl.scalda.pasimo.datalayer.testdao.TestEducationTeamDAO;
+import nl.scalda.pasimo.datalayer.testdao.TestTeamDAO;
 
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
@@ -16,6 +16,7 @@ public class TestDAOFactory extends DAOFactory {
     private static TestDAOFactory instance = null;
 
     private TestDAOFactory() {
+
     }
 
     @Override

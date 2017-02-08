@@ -6,11 +6,6 @@ public class Service {
 
     private Service() {}
 
-    public static DAOFactoryService getDAOFactoryService()
-    {
-        return DAOFactoryService.getInstance();
-    }
-    
     public NoteService getNoteService(){
     	return NoteService.getInstance();
     };

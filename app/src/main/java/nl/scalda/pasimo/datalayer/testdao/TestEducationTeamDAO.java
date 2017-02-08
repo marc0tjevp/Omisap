@@ -1,6 +1,6 @@
-package nl.scalda.pasimo.datalayer;
+package nl.scalda.pasimo.datalayer.testdao;
 
-import nl.scalda.pasimo.interfaces.IEducationTeamDAO;
+import nl.scalda.pasimo.datalayer.interfaces.IEducationTeamDAO;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 
 import java.util.Set;
@@ -10,7 +10,7 @@ public class TestEducationTeamDAO implements IEducationTeamDAO {
 
     private Set<EducationTeam> educationTeams;
 
-    public TestEducationTeamDAO() {
+    private TestEducationTeamDAO() {
         this.educationTeams = new TreeSet<EducationTeam>();
     }
 

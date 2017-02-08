@@ -1,6 +1,6 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
-import nl.scalda.pasimo.datalayer.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 
 import java.util.TreeSet;
 
