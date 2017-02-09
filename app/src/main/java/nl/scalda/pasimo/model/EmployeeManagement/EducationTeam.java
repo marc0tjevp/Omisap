@@ -8,7 +8,7 @@ public class EducationTeam implements Comparable<EducationTeam>{
 
 
 
-    private TreeSet<Teacher> teachers;
+    private TreeSet<Teacher> teachers = new TreeSet<>();
 
     /**
      * Abbreviation of the EducationTeam; e.g. AO
@@ -21,15 +21,19 @@ public class EducationTeam implements Comparable<EducationTeam>{
     private String name;
 
 	public void addTeacher(Teacher t){
+		System.out.println(t);
+		teachers.add(t);
+		System.out.println(teachers);
 		if (teachers.add(t)) {
-			DAOFactory.getTheFactory().getDAOTeacher().create(t, this);
+			System.out.println(teachers);
+			//DAOFactory.getTheFactory().getDAOTeacher().create(t, this);
 		}
 		
 	}
 	
 	public void deleteTeacher(Teacher t){
 		if (teachers.remove(t)) {
-			DAOFactory.getTheFactory().getDAOTeacher().delete(t, this);
+			//DAOFactory.getTheFactory().getDAOTeacher().delete(t, this);
 		}		
 		
 	}
@@ -62,10 +66,14 @@ public class EducationTeam implements Comparable<EducationTeam>{
     public void setName(String name) {
         this.name = name;
     }
+    
+    public void setTeachers(TreeSet<Teacher> teachers) {
+		this.teachers = teachers;
+	}
 
     //</editor-fold>
 
-    @Override
+	@Override
     public int compareTo(EducationTeam o) {
         return this.name.compareTo(o.getName());
     }

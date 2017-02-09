@@ -57,9 +57,7 @@
           <div class="form-group row">
             <label class="col-2 col-form-label">Educatieteam</label>
             <div class="col-10">
-              <s:bean name="nl.scalda.pasimo.model.employeemanagement.EducationTeam" var="team">
                 <s:select class="form-control" style="width: 50%;" name="teamAbbreviation" list="educationTeams" listKey="abbreviation" listValue="abbreviation + ' - ' + name"></s:select>
-              </s:bean>
               <br>
               <br>
               <input type="submit" value="Toevoegen" class="btn btn-primary" id="submitId" />
