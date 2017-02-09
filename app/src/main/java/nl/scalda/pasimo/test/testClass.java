@@ -8,6 +8,10 @@ import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
 
+/**
+ * TOD: Remove t
+ * @deprecated
+ */
 public class testClass {
 
     public static void main(String[] args) throws ParseException {
