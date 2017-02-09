@@ -5,6 +5,9 @@
    
 <struts>
     <constant name="struts.devMode" value="true" />
+    <constant name="struts.enable.SlashesInActionNames" value="true" />
+    <constant name="struts.mapper.alwaysSelectFullNamespace" value="false" />
+
     <package name="alles" extends="struts-default">
         <action name="pag1" class="nl.scalda.pasimo.controller.MainController"
                 method="execute">
@@ -21,13 +24,13 @@
             <result name="success">/view/employeeManagement/educationTeam/index.jsp</result>
         </action>
 
-        <action name="educationTeam-create"
+        <action name="educationTeam/create"
                 class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
                 method="create">
             <result name="success">/view/employeeManagement/educationTeam/create.jsp</result>
         </action>
 
-        <action name="educationTeam-update"
+        <action name="educationTeam/update"
                 class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
                 method="update">
             <result name="success">/view/employeeManagement/educationTeam/update.jsp</result>
