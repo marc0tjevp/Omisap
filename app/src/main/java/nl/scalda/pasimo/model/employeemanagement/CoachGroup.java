@@ -35,13 +35,13 @@ public class CoachGroup implements Comparable<CoachGroup> {
         this.lessonGroups.add(lg);
     }
 
-    public void updateLessonGroup(LessonGroup lg) {
-        for (LessonGroup clg : this.lessonGroups) {
-            if (clg != lg) {
+    public void updateLessonGroup(LessonGroup lessonGroup) {
+        for (LessonGroup eachLessonGroup : this.lessonGroups) {
+            if (eachLessonGroup != lessonGroup) {
                 continue;
             }
-            clg.setName(lg.getName());
-            clg.setStudents(lg.getStudents());
+            eachLessonGroup.setName(lessonGroup.getName());
+            eachLessonGroup.setStudents(lessonGroup.getStudents());
         }
     }
 

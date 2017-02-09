@@ -129,4 +129,9 @@ public class LessonGroup implements Comparable<LessonGroup> {
     public int compareTo(LessonGroup lessonGroup) {
         return this.name.compareTo(lessonGroup.getName());
     }
+
+    @Override
+    public String toString(){
+        return this.name;
+    }
 }

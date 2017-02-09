@@ -5,6 +5,8 @@
  */
 package nl.scalda.pasimo.main;
 
+import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+
 /**
  *
  * @author jeroe
@@ -12,7 +14,7 @@ package nl.scalda.pasimo.main;
 public class Main {
 
     public static void main(String args[]) {
-        
+
     }
 
 }
