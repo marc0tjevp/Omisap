@@ -1,6 +1,5 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TreeSet;
 
@@ -11,10 +10,10 @@ public class Person implements Comparable<Person> {
     private String firstName;
     private String insertion;
     private String lastName;
-    private GregorianCalendar dateOfBirth;
     private TreeSet<Note> noteList;
+    private GregorianCalendar dateOfBirth;
 
-    public Person() {
+	public Person() {
     }
 
     public Person(String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
@@ -98,7 +97,7 @@ public class Person implements Comparable<Person> {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getFullName() {
+	public String getFullName() {
         if (this.insertion != "" && this.insertion != null) {
             return this.getFirstName() + " " + this.getInsertion() + " " + this.getLastName();
         }
