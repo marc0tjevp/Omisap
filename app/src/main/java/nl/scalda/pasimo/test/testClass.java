@@ -1,8 +1,13 @@
 package nl.scalda.pasimo.test;
 import java.text.ParseException;
-import nl.scalda.pasimo.datalayer.DAOFactory;
-import nl.scalda.pasimo.datalayer.TestDAOFactory;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
+
+/**
+ * TOD: Remove t
+ * @deprecated
+ */
 public class testClass {
 
 	public static void main(String[] args) throws ParseException{

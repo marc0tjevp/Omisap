@@ -15,9 +15,8 @@ public class Service {
     };
 
     public static Service getInstance() {
-        if (instance == null) {
+        if (instance == null)
             instance = new Service();
-        }
         return instance;
     }
 
