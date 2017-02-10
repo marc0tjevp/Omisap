@@ -8,7 +8,7 @@ public class EducationTeam implements Comparable<EducationTeam>{
 
 
 
-    private TreeSet<Teacher> teachers;
+    private TreeSet<Teacher> teachers = new TreeSet<>();
 
     /**
      * Abbreviation of the EducationTeam; e.g. AO
