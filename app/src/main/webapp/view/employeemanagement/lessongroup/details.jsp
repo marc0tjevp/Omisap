@@ -173,7 +173,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
-                <button type="button" class="btn btn-primary" disabled>Studenten toevoegen</button>
+                <button type="button" id="addStudentToLessonGroupButton" class="btn btn-primary" disabled>Studenten toevoegen</button>
             </div>
         </div>
     </div>

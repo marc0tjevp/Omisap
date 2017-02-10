@@ -3,14 +3,14 @@ $(document).ready(function () {
     $("#selectAll").on('click', function () {
         if (this.checked) {
             // Iterate each checkbox
-            $(':checkbox').each(function () {
+            $('.lesson-groups-table :checkbox').each(function () {
                 this.checked = true;
                 $(this).addClass("selectedLessonGroupStudent");
                 $("#deleteStudentButton").removeAttr("disabled");
             });
         }
         else {
-            $(':checkbox').each(function () {
+            $('.lesson-groups-table :checkbox').each(function () {
                 this.checked = false;
                 $(this).removeClass("selectedLessonGroupStudent");
                 $("#deleteStudentButton").attr("disabled", true);
@@ -39,36 +39,36 @@ $(document).ready(function () {
     $("#selectAllStudentsForLessonGroupCheckbox").on('click', function () {
         if (this.checked) {
             // Iterate each checkbox
-            $(':checkbox').each(function () {
+            $('table.lesson-group-other-students-table :checkbox').each(function () {
                 this.checked = true;
-                $(this).addClass("selectedLessonGroupStudent");
-                $("#deleteStudentButton").removeAttr("disabled");
+                $(this).addClass("selectedLessonGroupStudentDetail");
+                $("#addStudentToLessonGroupButton").removeAttr("disabled");
             });
         }
         else {
-            $(':checkbox').each(function () {
+            $('table.lesson-group-other-students-table :checkbox').each(function () {
                 this.checked = false;
-                $(this).removeClass("selectedLessonGroupStudent");
-                $("#deleteStudentButton").attr("disabled", true);
+                $(this).removeClass("selectedLessonGroupStudentDetail");
+                $("#addStudentToLessonGroupButton").attr("disabled", true);
             });
         }
     });
 
-    $(".lesson-groups-table tbody td input[type=\"checkbox\"]").change(function () {
+    $(".lesson-group-other-students-table tbody td input[type=\"checkbox\"]").change(function () {
         if (this.checked) {
-            $(this).addClass("selectedLessonGroupStudent");
+            $(this).addClass("selectedLessonGroupStudentDetail");
         } else {
-            $(this).removeClass("selectedLessonGroupStudent");
+            $(this).removeClass("selectedLessonGroupStudentDetail");
         }
 
 
-        var selectedLessonGroup = $(".selectedLessonGroupStudent");
+        var selectedLessonGroup = $(".selectedLessonGroupStudentDetail");
         if (selectedLessonGroup.length == 0) {
-            $("#deleteStudentButton").attr("disabled", true);
+            $("#addStudentToLessonGroupButton").attr("disabled", true);
         }
 
         if (selectedLessonGroup.length >= 1) {
-            $("#deleteStudentButton").removeAttr("disabled");
+            $("#addStudentToLessonGroupButton").removeAttr("disabled");
         }
     });
 
