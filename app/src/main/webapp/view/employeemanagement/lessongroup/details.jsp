@@ -30,7 +30,7 @@
                     <div class="lessonGroupButtons">
 
                         <button class="btn btn-success" data-toggle="modal" data-target="#addStudentsModal">Studenten
-                            toevoegen
+                                                                                                            toevoegen
                         </button>
                         <button id="deleteStudentButton" class="btn btn-danger" data-toggle="modal"
                                 data-target="#deleteStudentsModal" disabled>Studenten verwijderen
@@ -42,25 +42,25 @@
 
             <table class="table lesson-groups-table">
                 <thead>
-                <tr>
-                    <th>
-                        <label>
-                            <input type="checkbox" id="selectAll">
-                        </label>
-                    </th>
-                    <th>
-                        OV-nummer
-                    </th>
-                    <th>
-                        Voornaam
-                    </th>
-                    <th>
-                        Achternaam
-                    </th>
-                    <th>
-                        Cohort
-                    </th>
-                </tr>
+                    <tr>
+                        <th>
+                            <label>
+                                <input type="checkbox" id="selectAll">
+                            </label>
+                        </th>
+                        <th>
+                            OV-nummer
+                        </th>
+                        <th>
+                            Voornaam
+                        </th>
+                        <th>
+                            Achternaam
+                        </th>
+                        <th>
+                            Cohort
+                        </th>
+                    </tr>
                 </thead>
                 <tbody>
                 <c:forEach begin="0" end="10">
@@ -110,7 +110,7 @@
 
 <!-- Add Students Modal -->
 <div class="modal fade" id="addStudentsModal" tabindex="-1" role="dialog" aria-labelledby="addStudentLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -118,11 +118,62 @@
                 <h4 class="modal-title" id="addStudentLabel">Student(en) toevoegen</h4>
             </div>
             <div class="modal-body">
-                (Genereer lijst van alle studenten met checkboxes zodat je ook bulk kan toevoegen)
+                <div>
+                    <h3>Alle studenten</h3>
+                        <%-- Alle studenten weergeven behalve degene die al in deze lesgroep zitten --%>
+                    <table class="table lesson-group-other-students-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <label>
+                                        <input type="checkbox" id="selectAllStudentsForLessonGroupCheckbox">
+                                    </label>
+                                </th>
+                                <th>
+                                    OV-nummer
+                                </th>
+                                <th>
+                                    Voornaam
+                                </th>
+                                <th>
+                                    Achternaam
+                                </th>
+                                <th>
+                                    Cohort
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                <c:forEach begin="0" end="10">
+                        <tr>
+                            <td>
+                                <label>
+                                    <input type="checkbox" name="checkbox">
+                                </label>
+                            </td>
+                            <td>
+                                205657
+                            </td>
+                            <td>
+                                Niek
+                            </td>
+                            <td>
+                                Flipse
+                            </td>
+                            <td>
+                                2014
+                            </td>
+                        </tr>
+                    </c:forEach>
+                        </tbody>
+                    </table>
+
+                </div>
+
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+                <button type="button" class="btn btn-primary" disabled>Studenten toevoegen</button>
             </div>
         </div>
     </div>
