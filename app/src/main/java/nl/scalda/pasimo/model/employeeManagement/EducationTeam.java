@@ -4,78 +4,76 @@ import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 
 import java.util.TreeSet;
 
-public class EducationTeam implements Comparable<EducationTeam>{
+public class EducationTeam implements Comparable<EducationTeam> {
 
+	private TreeSet<Teacher> teachers;
 
+	/**
+	 * Abbreviation of the EducationTeam; e.g. AO
+	 */
+	private String abbreviation;
 
-    private TreeSet<Teacher> teachers;
+	/**
+	 * Name of the EducationTeam; e.g. Applicatie Ontwikkelaar
+	 */
+	private String name;
 
-    /**
-     * Abbreviation of the EducationTeam; e.g. AO
-     */
-    private String abbreviation;
-
-    /**
-     * Name of the EducationTeam; e.g. Applicatie Ontwikkelaar
-     */
-    private String name;
-
-	public void addTeacher(Teacher t){
+	public void addTeacher(Teacher t) {
 		if (teachers.add(t)) {
 			DAOFactory.getTheFactory().getDAOTeacher().add(t, this);
 		}
-		
+
 	}
-	
-	public void deleteTeacher(Teacher t){
+
+	public void deleteTeacher(Teacher t) {
 		if (teachers.remove(t)) {
 			DAOFactory.getTheFactory().getDAOTeacher().delete(t, this);
-		}		
-		
+		}
+
 	}
-	
+
 	public TreeSet<Teacher> getTeachers() {
-		 return teachers;
+		return teachers;
 	}
 
-    public EducationTeam(String abbreviation, String name) {
-        this.abbreviation = abbreviation;
-        this.name = name;
-    }
+	public EducationTeam() {
+	}
 
-    //</editor-fold>
+	public EducationTeam(String abbreviation, String name) {
+		this.abbreviation = abbreviation;
+		this.name = name;
+	}
 
-    //<editor-fold defaultstate="collapsed" desc="getters and setters">
+	// </editor-fold>
 
-    public String getAbbreviation() {
-        return abbreviation;
-    }
+	// <editor-fold defaultstate="collapsed" desc="getters and setters">
 
-    public void setAbbreviation(String abbreviation) {
-        this.abbreviation = abbreviation;
-    }
+	public String getAbbreviation() {
+		return abbreviation;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setAbbreviation(String abbreviation) {
+		this.abbreviation = abbreviation;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    //</editor-fold>
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    @Override
-    public int compareTo(EducationTeam o) {
-        return this.name.compareTo(o.getName());
-    }
+	// </editor-fold>
 
-    @Override
-    public String toString() {
-        return "EducationTeam{" +
-                "abbreviation='" + abbreviation + '\'' +
-                ", name='" + name + '\'' +
-                '}';
-    }
+	@Override
+	public int compareTo(EducationTeam o) {
+		return this.name.compareTo(o.getName());
+	}
+
+	@Override
+	public String toString() {
+		return "EducationTeam{" + "abbreviation='" + abbreviation + '\'' + ", name='" + name + '\'' + '}';
+	}
 
 }
