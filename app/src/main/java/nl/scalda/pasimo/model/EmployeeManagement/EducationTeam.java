@@ -21,11 +21,11 @@ public class EducationTeam implements Comparable<EducationTeam>{
     private String name;
 
 	public void addTeacher(Teacher t){
-		System.out.println(t);
+		//System.out.println(t);
 		teachers.add(t);
-		System.out.println(teachers);
+		//System.out.println(teachers);
 		if (teachers.add(t)) {
-			System.out.println(teachers);
+			//System.out.println(teachers);
 			//DAOFactory.getTheFactory().getDAOTeacher().create(t, this);
 		}
 		
