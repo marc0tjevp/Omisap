@@ -1,15 +1,22 @@
 package nl.scalda.pasimo.test;
+
 import java.text.ParseException;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
 
+/**
+ * TOD: Remove t
+ * @deprecated
+ */
 public class testClass {
 
-	public static void main(String[] args) throws ParseException{
-		
-		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
+    public static void main(String[] args) throws ParseException {
+
+        DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 //		
 //		
 //		
@@ -34,8 +41,26 @@ public class testClass {
 //		
 //		System.out.println("TestDAO: " + TestDAOTeacher.getInstance().readAll().toString());
 //		System.out.println("EducationTeam: " + et.getTeachers());
-		
-		
-	}
+        CoachGroup c1 = new CoachGroup(1, "A1");
+        CoachGroup c2 = new CoachGroup(2, "A2");
+
+        LessonGroup l1 = new LessonGroup(1, "ICO41A");
+        LessonGroup l2 = new LessonGroup(2, "ICO42A");
+        LessonGroup l3 = new LessonGroup(3, "ICO43A");
+
+        c1.addLessonGroup(l1);
+        c1.addLessonGroup(l2);
+        c1.addLessonGroup(l3);
+
+        c2.addLessonGroup(l1);
+        c2.addLessonGroup(l2);
+        c2.addLessonGroup(l3);
+
+//        c1.deleteLessonGroup(l2);
+
+        l2.setName("Mijn mama");
+        c1.updateLessonGroup(l2);
+
+     }
 
 }

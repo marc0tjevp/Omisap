@@ -3,7 +3,6 @@ package nl.scalda.pasimo.model.employeemanagement;
 import java.util.TreeSet;
 
 /**
- *
  * @author jeroe
  */
 public class CoachGroup implements Comparable<CoachGroup> {
@@ -36,12 +35,13 @@ public class CoachGroup implements Comparable<CoachGroup> {
         this.lessonGroups.add(lg);
     }
 
-    public void updateLessonGroup(LessonGroup lg) {
-        for (LessonGroup clg : this.lessonGroups) {
-            if (clg.getId() == lg.getId()) {
-                clg.setName(lg.getName());
-                clg.setStudents(lg.getStudents());
+    public void updateLessonGroup(LessonGroup lessonGroup) {
+        for (LessonGroup eachLessonGroup : this.lessonGroups) {
+            if (eachLessonGroup != lessonGroup) {
+                continue;
             }
+            eachLessonGroup.setName(lessonGroup.getName());
+            eachLessonGroup.setStudents(lessonGroup.getStudents());
         }
     }
 
@@ -49,7 +49,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
         lessonGroups.remove(lg);
     }
 
-//<editor-fold defaultstate="collapsed" desc="getters and setters">    
+    //<editor-fold defaultstate="collapsed" desc="getters and setters">
     public int getId() {
         return id;
     }
@@ -85,7 +85,14 @@ public class CoachGroup implements Comparable<CoachGroup> {
 
     @Override
     public String toString() {
-        return "\n CoachGroup: id= " + id + ", name= " + name + ", teacher= " + teacher + ", lessongroup= " + lessonGroups;
+        return "\n CoachGroup: id= " +
+               id +
+               ", name= " +
+               name +
+               ", teacher= " +
+               teacher +
+               ", lessongroup= " +
+               lessonGroups;
     }
 
     @Override
