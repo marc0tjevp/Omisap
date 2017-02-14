@@ -44,6 +44,7 @@ public class EducationTeamController extends ActionSupport {
     public String addEducationTeam() {
  //  		EducationTeam.setAbbreviation();
     	TestEducationTeamDAO.getInstance().create(educationTeam);
+    	System.out.println("kut project");
     
   return SUCCESS;
     }
