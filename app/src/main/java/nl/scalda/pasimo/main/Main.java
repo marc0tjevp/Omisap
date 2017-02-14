@@ -5,6 +5,9 @@
  */
 package nl.scalda.pasimo.main;
 
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+
 /**
  *
  * @author jeroe
@@ -12,7 +15,17 @@ package nl.scalda.pasimo.main;
 public class Main {
 
     public static void main(String args[]) {
-        
+
+        LessonGroup l1 = new LessonGroup("ICO43A");
+        LessonGroup l2 = new LessonGroup("ICO42A");
+        LessonGroup l3 = new LessonGroup("ICO41A");
+
+        CoachGroup c1 = new CoachGroup(1, "A1");
+
+        c1.addLessonGroup(l1);
+        c1.addLessonGroup(l2);
+        c1.addLessonGroup(l3);
+
     }
 
 }

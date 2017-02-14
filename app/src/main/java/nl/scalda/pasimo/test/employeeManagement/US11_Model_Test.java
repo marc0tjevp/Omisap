@@ -20,7 +20,7 @@ public class US11_Model_Test {
         t.addEducationTeam(ao);
         t.addEducationTeam(ssc);
 
-        System.out.println(t);
+        //System.out.println(t);
 
     }
 
