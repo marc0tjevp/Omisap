@@ -30,5 +30,11 @@ public class EducationTeamController extends ActionSupport {
 
         return SUCCESS;
     }
+    
+    public String addEducationTeam(){
+    	
+    	return SUCCESS;
+    }
+    
 
 }

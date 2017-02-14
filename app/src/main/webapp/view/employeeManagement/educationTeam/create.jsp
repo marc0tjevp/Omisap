@@ -23,9 +23,8 @@
 
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Annuleren</button>
-
-                        <button type="submit" class="btn btn-primary pull-right">Aanmaken</button>
+                        ><button type="submit" class="btn btn-primary">Annuleren</button>
+                        <button id="addEducationTeam" type="submit" class="btn btn-primary pull-right">Aanmaken</button>
 
                     </form>
 
