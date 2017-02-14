@@ -35,6 +35,13 @@
                 method="update">
             <result name="success">/view/employeeManagement/educationTeam/update.jsp</result>
         </action>
+        
+                <action name="addEducationTeam"
+                class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
+                method="addEducationTeam">
+            <result name="success" type="redirect">EducationTeam</result>
+            <result> name="input">/view/employeeManagement/educationTeam/index.jsp</result>
+        </action>
 
     </package>
 </struts>
