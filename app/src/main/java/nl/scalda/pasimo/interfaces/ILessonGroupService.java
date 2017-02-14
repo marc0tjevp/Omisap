@@ -2,7 +2,10 @@ package nl.scalda.pasimo.interfaces;
 
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
-public interface IDAOLessonGroup {
+/**
+ * Created by Gebruiker on 25-1-2017.
+ */
+public interface ILessonGroupService {
 
     void create(LessonGroup lessonGroup);
 
