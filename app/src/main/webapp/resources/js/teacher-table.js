@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+/*$(document).ready(function () {
 $(document).ready(function () {
     $('#teacherTable').DataTable({
         "ajax": {
@@ -16,4 +17,49 @@ $(document).ready(function () {
             $(row).data('id', teachers['id']);
         }
     });
+});*/
+
+//$('table>tbody>tr').click(function(){
+//	window.location = "/Pasimo/editTeacherPage?id="+$(this).find('[name=emplnumb]')[0].innerHTML+"fout";
+//});
+
+//$('[name=edit]').click(function(){
+//	window.location = "/Pasimo/editTeacherPage?id="+$(this).find('[name=emplnumb]')[0].innerHTML;
+//});
+
+//$.each($('table>tbody>tr'),function(){
+//	$(this).find('a[name=edit]').href = "http://www.google.com"//$.find('[name=emplnumb]')[0].innerHTML
+//})
+//});
+
+$(function () {
+var data = [
+    {
+        value: 800,
+        color:"#0084B0",
+        highlight: "#7487B0",
+        label: "Aanwezig"
+    },
+    {
+        value: 50,
+        color: "#00B09E",
+        highlight: "#74B39E",
+        label: "Geoorloofd afwezig"
+    },
+    {
+        value: 25,
+        color: "#0029B0",
+        highlight: "#7432B0",
+        label: "Ongeoorloofd afwezig"
+    }
+]
+    
+var option = {
+    responsive: true,
+    animationSteps: 1
+    };
+    // Get the context of the canvas element we want to select
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myPieChart = new Chart(ctx).Pie(data,option);
+    $('#legend').append(myPieChart.generateLegend());
 });

@@ -1,3 +1,4 @@
+<%@tag import="java.text.SimpleDateFormat"%>
 <%@tag description="Overall Page template" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%--
@@ -33,6 +34,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link rel="stylesheet"  href="<c:url value="/resources/plugins/AdminLTE/css/AdminLTE.min.css"/>"/>
         <link rel="stylesheet"  href="<c:url value="/resources/css/style.css"/>"/>
         <link rel="stylesheet"  href="<c:url value="/resources/css/parsley.css"/>"/>
+        <link rel="stylesheet"  href="<c:url value="/resources/css/content.css"/>"/>
 
         <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
               page. However, you can choose any other skin. Make sure you
@@ -147,7 +149,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </ul>
                             </li>
                             <li class="treeview">
-                                <a href="#"><i class="fa fa-user-plus"></i> <span>Teachers</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <a href="teacherOverview"><i class="fa fa-user-plus"></i> <span>Teachers</span> <i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
                                  &lt;%&ndash;   <li><a href="<c:url value="teacher"><c:param name="action" value="all"/></c:url>">Overview</a></li>
                                 &ndash;%&gt;</ul>
@@ -192,7 +194,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 --%>
                 </div>
                 <!-- Default to the left -->
-                <strong><a href="http://www.scalda.nl">Scalda</a> 2016</strong>
+                <strong><a href="http://www.scalda.nl">Scalda</a> 
+                	<c:set var="now" value="<%= new java.util.GregorianCalendar().get(java.util.GregorianCalendar.YEAR)%>" />
+					<c:out value="${now}"></c:out>
+                </strong>
             </footer>
         </div><!-- ./wrapper -->
 
@@ -218,6 +223,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap4.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+
         <jsp:invoke fragment="scripts"/>
     </body>
 </html>
