@@ -39,8 +39,9 @@ public class EducationTeamController extends ActionSupport {
     
 
     public String addEducationTeam() {
- //  		EducationTeam.setAbbreviation();
+  
     	TestEducationTeamDAO.getInstance().create(educationTeam);
+    
     
   return SUCCESS;
     }
