@@ -1,7 +1,6 @@
 package nl.scalda.pasimo.controller.employeemanagement;
 
 import com.opensymphony.xwork2.ActionSupport;
-import nl.scalda.pasimo.model.employeemanagement.Student;
 import java.util.TreeSet;
 
 public class LessonGroupController extends ActionSupport {
