@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.test.employeemanagement;
+package nl.scalda.pasimo.test.employeeManagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
@@ -20,7 +20,7 @@ public class US11_Model_Test {
         t.addEducationTeam(ao);
         t.addEducationTeam(ssc);
 
-        System.out.println(t);
+        //System.out.println(t);
 
     }
 
