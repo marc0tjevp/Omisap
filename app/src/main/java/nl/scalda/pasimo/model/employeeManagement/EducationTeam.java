@@ -56,6 +56,8 @@ public class EducationTeam implements Comparable<EducationTeam> {
 		this.abbreviation = abbreviation;
 	}
 
+
+	
 	public String getName() {
 		return name;
 	}
@@ -69,7 +71,9 @@ public class EducationTeam implements Comparable<EducationTeam> {
 	@Override
 	public int compareTo(EducationTeam o) {
 		return this.name.compareTo(o.getName());
+	
 	}
+
 
 	@Override
 	public String toString() {
