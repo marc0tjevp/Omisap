@@ -200,25 +200,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <script>
-
-$(".table lesson-groups-table tbody td input[type=\"checkbox\"]").change(function () {
-    if (this.checked) {
-        $(this).addClass("selectedLessonGroup");
-    } else {
-        $(this).removeClass("selectedLessonGroup");
-    }
-
-
-    var selectedLessonGroup = $(".selectedLessonGroup");
-    if (selectedLessonGroup.length == 0) {
-        $("#deleteButton").attr("disabled", true);
-    }
-
-    if (selectedLessonGroup.length >= 1) {
-        $("#deleteButton").removeAttr("disabled");
-    }
-});
-
 $('#selectAll').on('click', function (){
 	$('.leerlingcheck').each(function(index){
 		$(this).prop('checked', true);
