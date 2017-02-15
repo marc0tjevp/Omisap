@@ -3,7 +3,6 @@
    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
    "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-<<<<<<< HEAD
     <constant name="struts.devMode" value="true"/>
     <constant name="struts.enable.SlashesInActionNames" value="true"/>
     <constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
@@ -26,7 +25,6 @@
             <result name="success">/view/employeemanagement/lessongroup/details.jsp</result>
         </action>
     </package>
-=======
 	<constant name="struts.devMode" value="true" />
 	<package name="alles" extends="struts-default">
 		<action name="teacherOverview" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
@@ -60,5 +58,4 @@
 			<result name="success">/view/employeemanagement/Teacher/TeacherInformation.jsp</result>
 		</action>
 	</package>
->>>>>>> 7bf8467140aacc2d550b9029fca21147ddaaa3bc
 </struts>

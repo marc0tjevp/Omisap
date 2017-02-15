@@ -199,6 +199,8 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+<!--This is a comment. Comments are not displayed in the browser
+
 <script>
 $('#selectAll').on('click', function (){
 	$('.leerlingcheck').each(function(index){
@@ -207,7 +209,7 @@ $('#selectAll').on('click', function (){
 });
 
 </script>
-
+                                          -->
 
 
     </jsp:attribute>
