@@ -5,6 +5,7 @@ import nl.scalda.pasimo.datalayer.interfaces.IEducationTeamDAO;
 import nl.scalda.pasimo.datalayer.interfaces.ITeamDAO;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
 import nl.scalda.pasimo.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.interfaces.IDAONote;
