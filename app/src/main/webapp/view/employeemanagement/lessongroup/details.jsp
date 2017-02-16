@@ -7,7 +7,7 @@
          <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/lessongroup.css"/>"/>
     </jsp:attribute>
     <jsp:attribute name="scripts">
-         <script src="/resources/js/lessonGroupDetails.js"></script>
+         <script type="text/javascript" src="<c:url value="/resources/js/lessonGroupDetails.js"/>"></script>
     </jsp:attribute>
     <jsp:attribute name="content">
 
