@@ -15,7 +15,8 @@
     <link href="../Pasimo/resources/css/starter-template.css" rel="stylesheet">
     <link rel="stylesheet" href="../Pasimo/resources/css/studentinfo.css">
     <link rel="stylesheet" href="../Pasimo/resources/css/font-awesome.min.css">
-    
+    <link rel="stylesheet" href="../Pasimo/resources/css/noteAdd.css"></link>
+    <link rel="stylesheet" href="../Pasimo/resources/css/style.css">
     
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

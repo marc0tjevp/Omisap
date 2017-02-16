@@ -35,5 +35,10 @@
 			method="loadTeacherInfo">
 			<result name="success">/view/employeemanagement/Teacher/TeacherInformation.jsp</result>
 		</action>
+		
+		<action name="noteAdd" class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
+			method="readTeacher">
+			<result name="success">/view/employeemanagement/Teacher/teacherOverview.jsp</result>
+		</action>
 	</package>
 </struts>
