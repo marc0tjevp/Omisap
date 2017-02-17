@@ -9,18 +9,6 @@
 
     <jsp:attribute name="scripts">
         <script>
-            var kkeys = [], konami = "38,38,40,40,37,39,37,39,66,65";
-            $(document).keydown(function(e) {
-                console.log(e.keyCode);
-                kkeys.push( e.keyCode );
-                if ( kkeys.toString().indexOf( konami ) >= 0 ){
-                    $(document).unbind('keydown',arguments.callee);
-                    $.getScript('http://www.cornify.com/js/cornify.js',function(){
-                        cornify_add();
-                        $(document).keydown(cornify_add);
-                    });
-                }
-            });
             $(document).ready(function () {
                 $("#selectAllCoachGroups").on('click', function () {
                     if (this.checked) {
@@ -35,7 +23,7 @@
                         $(':checkbox').each(function () {
                             this.checked = false;
                             $(this).removeClass("selectedCoachGroup");
-                            $("#deleteButton").attr("disabled", true);
+                            $("#deleteButton").attr("disabled");
                         });
                     }
                 });
@@ -54,7 +42,7 @@
                     }
 
                     if (selectedCoachGroup.length >= 1) {
-                        $("#deleteButton").removeAttr("disabled");
+                        $("#deleteButton").removeAttr("disabled", true);
                     }
                 });
 
@@ -125,7 +113,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>	
 
             <table class="table coach-groups-table table-responsive">
                 <thead>
@@ -144,7 +132,7 @@
                     <tr>
                         <td>
                             <label>
-                                <input type="checkbox">
+                                 <input id="selectAllCoachGroups" type="checkbox">
                             </label>
                         </td>
 
@@ -161,7 +149,7 @@
                     <tr>
                         <td>
                             <label>
-                                <input type="checkbox">
+                                 <input id="selectAllCoachGroups" type="checkbox">
                             </label>
                         </td>
 
@@ -175,7 +163,7 @@
                     <tr>
                         <td>
                             <label>
-                                <input type="checkbox">
+                                 <input id="selectAllCoachGroups" type="checkbox">
                             </label>
                         </td>
 
@@ -190,7 +178,7 @@
                     <tr>
                         <td>
                             <label>
-                                <input type="checkbox">
+                                 <input id="selectAllCoachGroups" type="checkbox">
                             </label>
                         </td>
 
@@ -204,7 +192,7 @@
                     <tr>
                         <td>
                             <label>
-                                <input type="checkbox">
+                                 <input id="selectAllCoachGroups" type="checkbox">
                             </label>
                         </td>
 
@@ -220,7 +208,7 @@
                     <tr>
                         <td>
                             <label>
-                                <input type="checkbox">
+                                 <input id="selectAllCoachGroups" type="checkbox">
                             </label>
                         </td>
 
