@@ -37,8 +37,8 @@
 		</action>
 		
 		<action name="noteAdd" class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
-			method="readTeacher">
-			<result name="success">/view/employeemanagement/Teacher/teacherOverview.jsp</result>
+			method="noteAdd">
+			<result name="success">/view/employeemanagement/note/noteAdd.jsp</result>
 		</action>
 	</package>
 </struts>
