@@ -57,6 +57,10 @@
                         $("#deleteButton").removeAttr("disabled");
                     }
                 });
+                
+                $(".addLessonGroupButton").on("click", function()) {
+                	
+                }
 
 
             });
@@ -101,7 +105,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluiten</button>
-                            <button type="button" class="btn btn-primary">Toevoegen</button>
+                            <button id="addLessonGroupButton" type="button" class="btn btn-primary">Toevoegen</button>
                         </div>
                     </div>
                 </div>
