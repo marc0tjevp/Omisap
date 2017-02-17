@@ -1,0 +1,38 @@
+
+.users {
+  table-layout: fixed;
+  width: 500px;
+  white-space: nowrap;
+}
+/* Column widths are based on these cells */
+.row-OvNumber,
+.row-OvNumber1 {
+  width: 10%;
+}
+.row-Name,
+.row-Name1 {
+  width: 30%;
+}
+.row-Cohort,
+.row-Cohort1 {
+  width: 30%;
+}
+
+.users td 
+{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.users th {
+  background: darkblue;
+  color: white;
+}
+.users td,
+.users th {
+  text-align: left;
+  padding: 5px 10px;
+}
+.users tr:nth-child(even) {
+  background: lightblue;
+}
