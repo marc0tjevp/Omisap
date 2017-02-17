@@ -65,11 +65,13 @@
     <jsp:attribute name="content">
 
         <div class="container" style="width: 85%;">
-
+         
+          <!-- Text on top of page -->
             <h1>Les groepen</h1>
             <div class="lessonGroupButtons">
                 <button class="btn btn-primary" type="button" id="addButton" data-toggle="modal"
                         data-target="#lessonGroupAddModal">Toevoegen
+                <!-- Delete button -->
                 </button>
                 <button class="btn btn-danger" id="deleteButton" type="button" data-toggle="modal"
                         data-target="#lessonGroupDeleteModal" disabled>Verwijderen
@@ -131,6 +133,7 @@
                 <thead>
                     <tr>
                         <th>
+                        <!--For selecting all lesson groups -->
                             <label>
                                 <input id="selectAllLessonGroups" type="checkbox">
                             </label>
@@ -138,9 +141,10 @@
                         <th>Naam (klik om te openen)</th>
                         <th>Aantal studenten</th>
                     </tr>
-
+               
                 </thead>
                 <tbody>
+                <!-- Every lesson group -->
                     <tr>
                         <td>
                             <label>

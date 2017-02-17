@@ -21,16 +21,16 @@
             </div>
             <div class="row">
                 <div class=" col-md-12">
-
+                     <!-- Editing the lesson group name -->
                     <div class="lessonGroupButtons lessonGroupNameButton">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#editLessonGroupName"><i
                                 class="fa fa-pencil"></i> Lesgroep naam wijzigen
                         </button>
                     </div>
                     <div class="lessonGroupButtons">
-
+                         <!-- To add students -->
                         <button class="btn btn-success" data-toggle="modal" data-target="#addStudentsModal">Studenten
-                                                                                                            toevoegen
+                         <!-- To delete students -->                                                                               toevoegen
                         </button>
                         <button id="deleteStudentButton" class="btn btn-danger" data-toggle="modal"
                                 data-target="#deleteStudentsModal" disabled>Studenten verwijderen
@@ -39,7 +39,7 @@
                 </div>
 
             </div>
-
+            <!-- The properties of a person -->
             <table class="table lesson-groups-table">
                 <thead>
                     <tr>
@@ -171,6 +171,7 @@
                 </div>
 
             </div>
+            <!-- Button for adding student to a lesson group -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
                 <button type="button" id="addStudentToLessonGroupButton" class="btn btn-primary" disabled>Studenten toevoegen</button>
@@ -198,18 +199,6 @@
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<!--This is a comment. Comments are not displayed in the browser
-
-<script>
-$('#selectAll').on('click', function (){
-	$('.leerlingcheck').each(function(index){
-		$(this).prop('checked', true);
-	});
-});
-
-</script>
-                                          -->
 
 
     </jsp:attribute>
