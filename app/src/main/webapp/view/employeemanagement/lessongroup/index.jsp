@@ -58,9 +58,9 @@
                     }
                 });
                 
-                $(".addLessonGroupButton").on("click", function()) {
-                	
-                }
+                $(".addLessonGroupButton").on("click", function() {
+                	if($("input[type=text]#lessonGroupName-input")) {}
+                });
 
 
             });

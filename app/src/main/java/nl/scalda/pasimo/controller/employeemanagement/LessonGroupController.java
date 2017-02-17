@@ -13,6 +13,14 @@ public class LessonGroupController extends ActionSupport {
         //actions
         return SUCCESS;
     }
+    
+    public String readLessonGroup() {
+    	return SUCCESS;
+    }
+    
+    public String addLessonGroup() {
+    	return SUCCESS;
+    }
 
     public String saveLessonGroup() {
 
