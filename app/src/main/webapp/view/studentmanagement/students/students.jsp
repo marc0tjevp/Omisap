@@ -6,12 +6,17 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
-<style>
-button{
-text-align:center;
-padding: 10px 60px;
-border-radius: 10px;
+<style type="text/css">
+button {
+	text-align: center;
+	padding: 10px 60px;
+	border-radius: 10px;
 }
+
+.highlight {
+    background-color: #66FFFF;
+}
+
 </style>
 <t:layout2>
 	<jsp:attribute name="css">
@@ -23,8 +28,10 @@ border-radius: 10px;
 		<thead>
 			<tr>
 				<td><button data-toggle="modal" data-target="#addModal">Add</button></td>
-            <td><button data-toggle="modal" data-target="#editModal">Edit</button></td>
-            <td><button data-toggle="modal" data-target="#deleteModal">Delete</button></td>
+            <td><button data-toggle="modal"
+							data-target="#editModal">Edit</button></td>
+            <td><button data-toggle="modal"
+							data-target="#deleteModal">Delete</button></td>
 			</tr>
 		</thead>
 	</table>
@@ -35,7 +42,7 @@ border-radius: 10px;
 			<thead>
 				<tr>
 					<th>Name</th>
-					<th >OV Number</th>
+					<th>OV Number</th>
 					<th>Cohort</th>
 				</tr>
 			</thead>
@@ -185,37 +192,40 @@ border-radius: 10px;
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close"
+							data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Student Toevoegen</h4>
                 </div>
 
                 <div class="modal-body" student-name="">
                     <p>Name:</p>
                     <div class="NametoGive">
-                        <input type="text" class="form-control" id="studentName"
-                            placeholder="Enter name">
+                        <input type="text" class="form-control"
+								id="studentName" placeholder="Enter name">
                     </div>
                 </div>
 
                 <div class="modal-body" student-OV="">
                     <p>OV Nummer :</p>
                     <div class="OVtoGive">
-                        <input type="text" class="form-control" id="studentOV"
-                            placeholder="Enter OV Nummer">
+                        <input type="text" class="form-control"
+								id="studentOV" placeholder="Enter OV Nummer">
                     </div>
                 </div>
 
                 <div class="modal-body" student-cohort="">
                     <p>Cohort:</p>
                     <div class="CohorttoGive">
-                        <input type="text" class="form-control" id="studentCohort"
-                            placeholder="Enter Cohort">
+                        <input type="text" class="form-control"
+								id="studentCohort" placeholder="Enter Cohort">
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-default" data-dismiss="modal">Ok</button>
+                    <button type="button" class="btn btn-default"
+							data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-default"
+							data-dismiss="modal">Ok</button>
                 </div>
             </div>
 
@@ -229,38 +239,40 @@ border-radius: 10px;
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close"
+							data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Student Aanpassen</h4>
                 </div>
 
                 <div class="modal-body" student-name="">
                     <p>Name:</p>
                     <div class="NametoEdit">
-                        <input type="text" class="form-control" id="studentEditName"
-                            placeholder="Enter name">
+                        <input type="text" class="form-control"
+								id="studentEditName" placeholder="Enter name">
                     </div>
                 </div>
 
                 <div class="modal-body" student-OV="">
                     <p>OV Nummer :</p>
                     <div class="OVtoEdit">
-                        <input type="text" class="form-control" id="studentEditOV"
-                            placeholder="Enter OV Nummer">
+                        <input type="text" class="form-control"
+								id="studentEditOV" placeholder="Enter OV Nummer">
                     </div>
                 </div>
 
                 <div class="modal-body" student-cohort="">
                     <p>Cohort:</p>
                     <div class="CohorttoEdit">
-                        <input type="text" class="form-control" id="studentEditCohort"
-                            placeholder="Enter Cohort">
+                        <input type="text" class="form-control"
+								id="studentEditCohort" placeholder="Enter Cohort">
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" onclick="" class="btn btn-default"
-                        data-dismiss="modal">Ok</button>
+                    <button type="button" class="btn btn-default"
+							data-dismiss="modal">Close</button>
+                    <button type="submit" onclick=""
+							class="btn btn-default" data-dismiss="modal">Ok</button>
                 </div>
             </div>
 
@@ -273,7 +285,8 @@ border-radius: 10px;
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close"
+							data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Student Verwijderen</h4>
                 </div>
 
@@ -282,9 +295,10 @@ border-radius: 10px;
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" onclick="" class="btn btn-default"
-                        data-dismiss="modal">Ok</button>
+                    <button type="button" class="btn btn-default"
+							data-dismiss="modal">Close</button>
+                    <button type="submit" onclick=""
+							class="btn btn-default" data-dismiss="modal">Ok</button>
                 </div>
             </div>
 
@@ -293,13 +307,18 @@ border-radius: 10px;
 	</jsp:attribute>
 	<jsp:attribute name="scripts">
 	<script type="text/javascript">
-	console.log('testtt');
-	$(document).ready(function() {
-	    $('#studentTable').DataTable( {
-	        "scrollY": true
-	    } );
-	    
-	} );
+		console.log('testtt');
+		$(document).ready(function() {
+			
+			$('#studentTable').DataTable({
+				"scrollY" : true
+			});
+			
+			$('tr').on('click', function () {
+                $(this).addClass('highlight').siblings().removeClass('highlight');
+            });
+
+		});
 	</script>
 
 	</jsp:attribute>
