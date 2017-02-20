@@ -14,7 +14,7 @@ button {
 }
 
 .highlight {
-    background-color: #66FFFF;
+    background-color: #3c8dbc;
 }
 
 </style>
@@ -32,6 +32,8 @@ button {
 							data-target="#editModal">Edit</button></td>
             <td><button data-toggle="modal"
 							data-target="#deleteModal">Delete</button></td>
+			<td><button data-toggle="modal"
+							data-target="#detailModal">Details</button></td>
 			</tr>
 		</thead>
 	</table>
@@ -304,6 +306,38 @@ button {
 
         </div>
     </div>
+    
+    <div id="detailModal" class="modal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+							data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Student Details</h4>
+                </div>
+					<img src="D:\FREEK IS FIJN\Gifs\pokemon gofuckyourself.gif" alt="Student Picture" >
+                </div>
+                <div>
+                <table>
+                <tr>
+                <td>Naam</td>
+                <td> Ov Number</td>
+                </tr>
+                </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+							data-dismiss="modal">Close</button>
+                    <button type="submit" onclick=""
+							class="btn btn-default" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
 	</jsp:attribute>
 	<jsp:attribute name="scripts">
 	<script type="text/javascript">
@@ -314,7 +348,7 @@ button {
 				"scrollY" : true
 			});
 			
-			$('tr').on('click', function () {
+			$('#studentTable tr').on('click', function () {
                 $(this).addClass('highlight').siblings().removeClass('highlight');
             });
 
