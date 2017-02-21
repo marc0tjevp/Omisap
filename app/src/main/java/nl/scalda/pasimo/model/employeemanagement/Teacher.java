@@ -5,7 +5,9 @@ public class Teacher extends Person {
     private String abbreviation;
     private int employeeNumber;
     
-    public Teacher(){}
+    public Teacher(){
+        
+    }
 
     public Teacher(String abbreviation) {
         this.abbreviation = abbreviation;
@@ -28,6 +30,10 @@ public class Teacher extends Person {
 
     public void setAbbreviation() {
         this.abbreviation = getLastName().substring(0, 4).toUpperCase() + getFirstName().substring(0, 2).toUpperCase();
+    }
+    
+    public void setAbbreviation(String abbreviation){
+    	this.abbreviation = abbreviation;
     }
 
     public int getEmployeeNumber() {
