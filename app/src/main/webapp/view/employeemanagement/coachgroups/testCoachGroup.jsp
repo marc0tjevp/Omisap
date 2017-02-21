@@ -47,12 +47,23 @@
                         $("#editButton").attr("disabled", true);
                     }
 
-                    if (selectedCoachGroup >= 1) {
+                    if (selectedCoachGroup == 1) {
                         $("#deleteButton").removeAttr("disabled");
                         
                         $("#editButton").removeAttr("disabled");
                     }
+                    if(selectedCoachGroup >= 2) {
+                        $("#deleteButton").removeAttr("disabled");
+                        
+                        $("#editButton").attr("disabled", true);
+                    }
+                    
+                    if(this.checked){
+                    	var closestTr = $(this).closest('tr').attr('id');
+                    	console.log(closestTr);
+                    }
                 });
+             
 
 
             });
@@ -170,7 +181,7 @@
                 </div>
             </div>	
 
-            <table class="table coach-groups-table table-responsive">
+            <table class="table coach-groups-table table-responsive" align="left">
                 <thead>
                     <tr>
                         <th>
@@ -186,7 +197,7 @@
 
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr id="1">
                         <td>
                             <label>
                                  <input id="selectedCoachGroup" type="checkbox">
@@ -203,7 +214,7 @@
                         
                     </tr>
 
-                    <tr>
+                    <tr id="2">
                         <td>
                             <label>
                                  <input id="selectedCoachGroup" type="checkbox">
@@ -217,7 +228,7 @@
 				
                     </tr>
 
-                    <tr>
+                    <tr id="3">
                         <td>
                             <label>
                                  <input id="selectedCoachGroup" type="checkbox">
@@ -232,7 +243,7 @@
                         
                     </tr>
 
-                    <tr>
+                    <tr id="4">
                         <td>
                             <label>
                                  <input id="selectedCoachGroup" type="checkbox">
@@ -246,14 +257,14 @@
 						
                     </tr>
 
-                    <tr>
+                    <tr id="5">
                         <td>
                             <label>
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
 
-                        <td><a href='moet nog komen'>ICO89E</td>
+                        <td><a href='moet nog komen'>ICO89E</a></td>
                         <td>Kees</td>
                         
                         <td> 12</td>
@@ -262,17 +273,16 @@
                     </tr>
 
 
-                    <tr>
+                    <tr id="6">
                         <td>
                             <label>
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
 
-                        
+                        <td><a href='moet nog komen'>ICO33A </a> </td>
                         <td>Piet</td>
-                        <td>ICO33A</td>
-                        <td><a href='moet nog komen'> 12</a></td>
+                        <td> 12</td>
                         
 					
                     </tr>
