@@ -31,6 +31,10 @@ public class Teacher extends Person {
     public void setAbbreviation() {
         this.abbreviation = getLastName().substring(0, 4).toUpperCase() + getFirstName().substring(0, 2).toUpperCase();
     }
+    
+    public void setAbbreviation(String abbreviation){
+    	this.abbreviation = abbreviation;
+    }
 
     public int getEmployeeNumber() {
         return employeeNumber;
