@@ -19,38 +19,41 @@
 <!-- note imput -->	
 <div class="container kader">
 	<div class = "row">
-		<div class = "col col-md-3 border">
+		<div class = "col col-md-6 border">
+			<div class = "row">
+			<div class = "col col-md-12">
+				<h5>Door:</h5> <input class = "input" type="text" name="inputDate" placeholder="Docent"><br>
+			</div>
+			</div>
+	
 			<div class = "row">
 				<div class = "col col-md-12">
 					<h5>Titel:</h5>
-					<input type="text" name="inputDate" placeholder="DD-MM-YY / Name"><br>
+					<input class = "input" type="text" name="inputDate" placeholder="DD-MM-YY / Name"><br>
 				</div>
 			</div>
 			<div class = "row">
 				<div class = "col col-md-12">
 					
 					<h5>Bericht:</h5>
-					<form>
-					<textarea name="note" rows="10" cols="30" placeholder="Notitie"></textarea>
-					</form>
 				</div>
-			</div>
-			<div class = "row">
-				<div class = "col col-md-4">
-				<button type="button" data-toggle="modal" data-target="#myModal">Aanmaken</button>
-				</div>
-				<div class = "col col-md-4">
-				<button type="button" name="cancel">Annuleren</button>
-				</div>
-				<div class = "col col-md-4">
+				<div class ="col col-md-12">
+					<textarea class = "textarea" name="note" rows="10" placeholder="Notitie"></textarea>
 				
 				</div>
 			</div>
-			
-		
-		
-		
-		
+			<div class = "row">
+				<div class = "col col-md-3">
+				<button class = "button" type="button" data-toggle="modal" data-target="#myModal">Aanmaken</button>
+				</div>
+				<div class = "col col-md-3">
+				<button class = "button" type="button" name="cancel">Annuleren</button>
+				</div>
+				<div class = "col col-md-6">
+				
+				</div>
+			</div>
+
 	
 		</div>
 	</div>

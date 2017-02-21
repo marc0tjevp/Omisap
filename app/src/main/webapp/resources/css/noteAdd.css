@@ -2,5 +2,17 @@
 
 
 .border {
-	border: solid 3px #1E90FF;
+	border: solid 3px #3c8dbc;
+}
+
+.textarea {
+	width: 100%;
+}
+
+.input {
+	width: 90%;
+}
+
+.button {
+	margin: 10px;
 }
