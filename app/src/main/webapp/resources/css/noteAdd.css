@@ -2,7 +2,9 @@
 
 
 .border {
-	border: solid 3px #3c8dbc;
+	border: solid 2px #3c8dbc;
+	padding: 10px;
+	background-color: white;
 }
 
 .textarea {
@@ -14,5 +16,6 @@
 }
 
 .button {
-	margin: 10px;
+	float: right;
+	background-color: none;
 }
