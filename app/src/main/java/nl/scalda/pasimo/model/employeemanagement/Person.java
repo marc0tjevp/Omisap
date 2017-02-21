@@ -1,6 +1,6 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
-import java.util.GregorianCalendar;
+import java.util.Date;
 import java.util.TreeSet;
 
 public class Person implements Comparable<Person> {
@@ -10,23 +10,21 @@ public class Person implements Comparable<Person> {
     private String firstName;
     private String insertion;
     private String lastName;
+    private Date dateOfBirth;
     private TreeSet<Note> noteList;
-    private GregorianCalendar dateOfBirth;
 
-	public Person() {
+    public Person() {
     }
 
-    public Person(String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
-		GregorianCalendar gc = new GregorianCalendar();
-		this.setEmail(email);
-		this.setCardID(cardID);
-		this.setFirstName(firstName);
-		this.setInsertion(insertion);
-		this.setLastName(lastName);
-		gc.set(yearOfBirth, monthOfBirth - 1, dayOfBirth);
-		this.dateOfBirth = gc;
-		this.noteList = new TreeSet<Note>();
-	}
+    public Person(String email, int cardID, String firstName, String insertion, String lastName, Date dateOfBirth) {
+        this.setEmail(email);
+        this.setCardID(cardID);
+        this.setFirstName(firstName);
+        this.setInsertion(insertion);
+        this.setLastName(lastName);
+        this.setDateOfBirth(dateOfBirth);
+        this.noteList = new TreeSet<Note>();
+    }
 
     /**
      * Adds a note to the teacher.
@@ -89,15 +87,15 @@ public class Person implements Comparable<Person> {
         this.lastName = lastName;
     }
 
-    public GregorianCalendar getDateOfBirth() {
-		return dateOfBirth;
-	}
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
 
-	public void setDateOfBirth(GregorianCalendar dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 
-	public String getFullName() {
+    public String getFullName() {
         if (this.insertion != "" && this.insertion != null) {
             return this.getFirstName() + " " + this.getInsertion() + " " + this.getLastName();
         }

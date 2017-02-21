@@ -35,7 +35,7 @@ public class CSVReader {
                     // use comma as separator
                     String[] currentstudent = line.split(cvsSplitBy);
 
-                    //System.out.println("Country [code= " + currentstudent[0] + " , name=" + currentstudent[1] + "]");
+                    System.out.println("Country [code= " + currentstudent[0] + " , name=" + currentstudent[1] + "]");
                     s.setFirstName(currentstudent[1]);
                     if(currentstudent[2].equals("")){
                         s.setLastName(currentstudent[3]);

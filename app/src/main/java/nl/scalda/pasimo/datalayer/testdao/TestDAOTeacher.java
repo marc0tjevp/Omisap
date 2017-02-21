@@ -14,6 +14,27 @@ public class TestDAOTeacher implements IDAOTeacher {
 	private TestDAOTeacher() {}
 
 	@Override
+	public void add(Teacher t, EducationTeam team) {
+		teachers.add(t);
+	}
+
+	@Override
+	public void edit(Teacher t, EducationTeam team, String oldAbbr) {
+		for(Teacher ca : teachers){
+//			if(ca.getAbbrevation().equals(oldAbbr)){
+//				ca.setAbbrevation(t.getAbbrevation());
+//				ca.setCardID(t.getCardID());
+//				ca.setEmployeeNumber(t.getEmployeeNumber());
+//				ca.setFirstName(t.getFirstName());
+//				ca.setInsertion(t.getInsertion());
+//				ca.setLastName(t.getLastName());
+//				ca.setEmail(t.getEmail());
+//				ca.setDateOfBirth(t.getDateOfBirth());
+//			}
+		}
+	}
+
+	@Override
 	public void delete(Teacher t, EducationTeam team) {
 		teachers.remove(t);
 
@@ -44,35 +65,6 @@ public class TestDAOTeacher implements IDAOTeacher {
 			instance = new TestDAOTeacher();
 		}
 		return instance;
-	}
-
-	@Override
-	public void create(Teacher teacher, EducationTeam team) {
-		teachers.add(teacher);
-		
-	}
-
-	@Override
-	public void update(Teacher t, EducationTeam team) {
-		for(Teacher ca : teachers){
-//			if(ca.getAbbrevation().equals(oldAbbr)){
-//				ca.setAbbrevation(t.getAbbrevation());
-//				ca.setCardID(t.getCardID());
-//				ca.setEmployeeNumber(t.getEmployeeNumber());
-//				ca.setFirstName(t.getFirstName());
-//				ca.setInsertion(t.getInsertion());
-//				ca.setLastName(t.getLastName());
-//				ca.setEmail(t.getEmail());
-//				ca.setDateOfBirth(t.getDateOfBirth());
-//			}
-		}
-		
-	}
-
-	@Override
-	public Teacher readByEmployeeNumber(int id) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

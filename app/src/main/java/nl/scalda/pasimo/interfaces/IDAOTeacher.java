@@ -7,18 +7,16 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public interface IDAOTeacher {
 	
-    public void create(Teacher teacher, EducationTeam team);
+    public void add(Teacher teacher, EducationTeam team);
 
-    public void update(Teacher t, EducationTeam team);
+    public void edit(Teacher t, EducationTeam team, String oldAbbr);
 
     public void delete(Teacher t, EducationTeam team);
 
     public TreeSet<Teacher> readAll();
 
-    public Teacher readByEmployeeNumber(int id);
+    public Teacher readByAbbr(String id);
 
     public TreeSet<Teacher> readAllForEducationTeam(EducationTeam t);
-
-	public Teacher readByAbbr(String id);
 
 }

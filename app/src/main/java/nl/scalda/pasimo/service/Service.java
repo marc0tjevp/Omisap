@@ -5,10 +5,6 @@ public class Service {
     private static Service instance = null;
 
     private Service() {}
-    
-    public TeacherService getTeacherService() {
-        return TeacherService.getInstance();
-    }
 
     public NoteService getNoteService(){
     	return NoteService.getInstance();

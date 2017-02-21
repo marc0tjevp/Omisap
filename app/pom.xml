@@ -143,11 +143,6 @@
         	<artifactId>hibernate-core</artifactId>
         	<version>5.2.6.Final</version>
         </dependency>
-        <dependency>
-        	<groupId>org.apache.struts</groupId>
-        	<artifactId>struts2-dojo-plugin</artifactId>
-        	<version>2.1.8</version>
-        </dependency>
     </dependencies>
 
     <build>

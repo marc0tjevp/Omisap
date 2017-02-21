@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import java.util.Date;
+
 public class Teacher extends Person {
 
     private String abbreviation;
@@ -18,18 +20,18 @@ public class Teacher extends Person {
         this.employeeNumber = employeeNumber;
     }
 
-    public Teacher(int employeeNumber, String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
-		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
-		this.employeeNumber = employeeNumber;
-		setAbbreviation();
-	}
+    public Teacher(String abbreviation, int employeeNumber, String email, int cardID, String firstName, String insertion, String lastName, Date dateOfBirth) {
+        super(email, cardID, firstName, insertion, lastName, dateOfBirth);
+        this.abbreviation = abbreviation;
+        this.employeeNumber = employeeNumber;
+    }
 
     public String getAbbreviation() {
         return abbreviation;
     }
 
-    public void setAbbreviation() {
-        this.abbreviation = getLastName().substring(0, 4).toUpperCase() + getFirstName().substring(0, 2).toUpperCase();
+    public void setAbbreviation(String abbreviation) {
+        this.abbreviation = abbreviation;
     }
 
     public int getEmployeeNumber() {
