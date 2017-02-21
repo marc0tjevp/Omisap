@@ -3,9 +3,29 @@
    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
    "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<constant name="struts.devMode" value="true" />
-	<package name="alles" extends="struts-default">
-		<action name="teacherOverview" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.enable.SlashesInActionNames" value="true"/>
+    <constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
+
+    <package name="alles" extends="struts-default">
+        <!--        <action name="pag1" class="nl.scalda.pasimo.controller.MainController"
+                        method="execute">
+                    <result name="success">/index.jsp</result>
+                </action>
+                <action name="pag2" class="nl.scalda.pasimo.controller.MainController"
+                        method="execute">
+                    <result name="success">/index2.jsp</result>
+                </action>-->
+        <action name="lessongroup" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
+                method="execute">
+            <result name="success">/view/employeemanagement/lessongroup/index.jsp</result>
+        </action>
+        <action name="lessongroup/details" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
+                method="execute">
+            <result name="success">/view/employeemanagement/lessongroup/details.jsp</result>
+        </action>
+        
+        		<action name="teacherOverview" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="readTeacher">
 			<result name="success">/view/employeemanagement/Teacher/teacherOverview.jsp</result>
 		</action>
@@ -35,10 +55,6 @@
 			method="loadTeacherInfo">
 			<result name="success">/view/employeemanagement/Teacher/TeacherInformation.jsp</result>
 		</action>
-		
-		<action name="noteAdd" class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
-			method="noteAdd">
-			<result name="success">/view/employeemanagement/note/noteAdd.jsp</result>
-		</action>
-	</package>
+	
+    </package>
 </struts>
