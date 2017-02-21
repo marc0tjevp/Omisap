@@ -18,12 +18,12 @@ public class EducationTeam implements Comparable<EducationTeam> {
 	 */
 	private String name;
 
-//	public void addTeacher(Teacher t) {
-//		if (teachers.add(t)) {
-//			DAOFactory.getTheFactory().getDAOTeacher().add(t, this);
-//		}
-//
-//	}
+	public void addTeacher(Teacher t) {
+		if (teachers.add(t)) {
+			DAOFactory.getTheFactory().getDAOTeacher().add(t, this);
+		}
+
+	}
 
 	public void deleteTeacher(Teacher t) {
 		if (teachers.remove(t)) {

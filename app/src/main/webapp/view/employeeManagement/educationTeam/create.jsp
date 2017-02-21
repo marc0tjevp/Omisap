@@ -5,34 +5,33 @@
 
 
 <t:layout2>
-	<jsp:attribute name="content">
-  
+    <jsp:attribute name="content">
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <h1>Create educationTeam</h1>
-   						<form action="addEducationTeam">
-          
+                    <form action="addEducationTeam">
 
                         <div class="form-group">
                             <label class="control-label" for="name">Name</label>
                             <input class="form-control"
-								placeholder="Name" id="name" type="text">
+                                   placeholder="Name" name="name" type="text">
                         </div>
+                        
                         <div class="form-group">
-                            <label>Abbrevation</label>
+                            <label>Abbreviation</label>
                             <input class="form-control"
-								placeholder="Abbrevation" id="abbrevation" type="text">
-
+                                   placeholder="Abbreviation" name="abbrevation" type="text">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Annuleren</button>
                         <button id="addEducationTeam" type="submit"
-							class="btn btn-primary pull-right">Aanmaken</button>
-					 </form>
+                                class="btn btn-primary pull-right">Aanmaken</button>
+                    </form>
                 </div>
             </div>
         </div>
-        
+
     </jsp:attribute>
 </t:layout2>
