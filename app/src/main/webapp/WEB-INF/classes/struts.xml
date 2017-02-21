@@ -22,28 +22,28 @@
 		<action name="educationTeam"
 			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
 			method="index">
-			<result name="success">/view/employeeManagement/educationTeam/index.jsp
+			<result name="success">/view/employeeManagement/educationteam/index.jsp
 			</result>
 		</action>
 
 		<action name="educationTeam/create"
 			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
 			method="create">
-			<result name="success">/view/employeeManagement/educationTeam/create.jsp
+			<result name="success">/view/employeeManagement/educationteam/create.jsp
 			</result>
 		</action>
 
 		<action name="educationTeam/update"
 			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
 			method="update">
-			<result name="success">/view/employeeManagement/educationTeam/update.jsp
+			<result name="success">/view/employeeManagement/educationteam/update.jsp
 			</result>
 		</action>
 
 		<action name="educationTeam/addEducationTeam"
 			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
 			method="addEducationTeam">
-			<result name="success" type="redirect">/view/employeeManagement/educationTeam/index.jsp</result>
+			<result name="success" type="redirect">/educationteam</result>
 		</action>
 
 	</package>
