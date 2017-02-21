@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h1>Create educationTeam</h1>
+                    <h1>Create EducationTeam</h1>
                     <form action="addEducationTeam">
 
                         <div class="form-group">
@@ -22,7 +22,7 @@
                         <div class="form-group">
                             <label>Abbreviation</label>
                             <input class="form-control"
-                                   placeholder="Abbreviation" name="abbrevation" type="text">
+                                   placeholder="Abbreviation" name="abbreviation" type="text">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Annuleren</button>

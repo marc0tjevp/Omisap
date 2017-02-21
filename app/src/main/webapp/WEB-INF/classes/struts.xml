@@ -44,9 +44,6 @@
 			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
 			method="addEducationTeam">
 			<result name="success" type="redirect">/view/employeeManagement/educationTeam/index.jsp</result>
-			<result
-				name="input">/view/employeeManagement/educationTeam/index.jsp
-			</result>
 		</action>
 
 	</package>
