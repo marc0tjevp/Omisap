@@ -10,6 +10,8 @@
     <jsp:attribute name="scripts">
         <script>
             $(document).ready(function () {
+            	
+            	
                 $("#selectAllCoachGroups").on('click', function () {
                     if (this.checked) {
                         // Iterate each checkbox
@@ -17,6 +19,7 @@
                             this.checked = true;
                             $(this).addClass("selectedCoachGroup");
                             $("#deleteButton").removeAttr("disabled");
+                            
                             
                            
                         });
@@ -33,10 +36,19 @@
                 });
 
                 $(".coach-groups-table tbody td input[type=\"checkbox\"]").change(function () {
+                	var closestTr;
                     if (this.checked) {
+                    	
                         $(this).addClass("selectedCoachGroup");
+                        
+                        var closestTr = closestTr + $(this).closest('tr').attr('id');
+                        
+                        console.log(closestTr);
+                        
                     } else {
                         $(this).removeClass("selectedCoachGroup");
+                        
+                        closestTr.splice( $.inArray($(this).closest('tr').attr('id'), y), 1 );
                     }
 
 
@@ -58,10 +70,7 @@
                         $("#editButton").attr("disabled", true);
                     }
                     
-                    if(this.checked){
-                    	var closestTr = $(this).closest('tr').attr('id');
-                    	console.log(closestTr);
-                    }
+                   
                 });
              
 
