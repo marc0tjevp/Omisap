@@ -48,7 +48,7 @@
                     } else {
                         $(this).removeClass("selectedCoachGroup");
                         
-                        closestTr.splice( $.inArray($(this).closest('tr').attr('id'), y), 1 );
+                       // closestTr.splice( $.inArray($(this).closest('tr').attr('id'), y), 1 );
                     }
 
 
