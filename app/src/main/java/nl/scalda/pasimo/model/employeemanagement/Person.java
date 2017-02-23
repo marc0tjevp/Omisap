@@ -111,6 +111,10 @@ public class Person implements Comparable<Person> {
     public void setNoteList(TreeSet<Note> noteList) {
         this.noteList = noteList;
     }
+    
+    public String getDateOfBirthInString(){
+    	return this.getDateOfBirth().get(GregorianCalendar.DAY_OF_MONTH) + "-" + (this.getDateOfBirth().get(GregorianCalendar.MONTH)+1) + "-" + this.getDateOfBirth().get(GregorianCalendar.YEAR);
+    }
 
     @Override
     public int compareTo(Person o) {

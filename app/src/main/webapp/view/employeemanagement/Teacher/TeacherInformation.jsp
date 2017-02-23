@@ -16,8 +16,8 @@
   		 <tr><td><label>Werknemer: </label></td><td><span><s:property value="teacher.employeeNumber" /></span></td></tr>
   		 <tr><td><label>Kaartnummer: </label></td><td><span><s:property value="teacher.cardID" /></span></td></tr>
   		 <tr><td><label>Geboortedatum: </label></td><td><span><s:property value="teacher.getDateOfBirthInString()" /></span></td></tr>
-  		 <tr><td><label>Coach groep: </label></td><td><span><s:property value="teacher.getCoachGroup" /></span></td></tr>
-  		 <tr><td><label>Team: </label></td><td><span><s:property value="teacher.getTeam" /></span></td></tr>
+  		 <tr><td><label>Coach groep: </label></td><td><span><s:property value="teacher.getCoachGroup()" /></span></td></tr>
+  		 <tr><td><label>Team: </label></td><td><span><s:property value="teacher.getEducationTeam().name" /></span></td></tr>
   		 <tr><td><label>Emailadres: </label></td><td><span><s:property value="teacher.email" /></span></td></tr>
   		 </tbody>
   		 </table>
