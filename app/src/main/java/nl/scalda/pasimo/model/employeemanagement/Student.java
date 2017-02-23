@@ -17,8 +17,8 @@ public class Student extends Person {
         this.noteList = noteList;
     }
 
-    public Student(String name, TreeSet<Note> noteList, String email, int cardID, String firstName, String insertion, String lastName, Date dateOfBirth) {
-        super(email, cardID, firstName, insertion, lastName, dateOfBirth);
+    public Student(String name, TreeSet<Note> noteList, String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth) {
+        super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
         this.name = name;
         this.noteList = noteList;
     }
