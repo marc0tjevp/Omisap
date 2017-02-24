@@ -4,7 +4,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:layout2>
     <jsp:attribute name="css">
-         <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/coachgroup.css"/>"/>
+         <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/coachgroups.css"/>"/>
     </jsp:attribute>
 
     <jsp:attribute name="scripts">
