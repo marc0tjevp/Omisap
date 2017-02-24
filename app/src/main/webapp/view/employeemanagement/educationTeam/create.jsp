@@ -23,7 +23,7 @@
 
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Annuleren</button>
+                        <a href="educationTeam"><button type="submit" class="btn btn-primary">Annuleren</button></a>
 
                         <button type="submit" class="btn btn-primary pull-right">Aanmaken</button>
 

@@ -12,7 +12,7 @@
         <div class="col-sm-12">
             <div class="text-right">
                 <button class="btn btn-primary">Verwijderen</button>
-                <button class="btn btn-primary">Nieuw</button>
+              <a href="create.jsp"><button class="btn btn-primary">Nieuw</button></a>  
             </div>
             <table class="table">
                 <thead>
