@@ -12,6 +12,7 @@
             $(document).ready(function () {
             	
             	
+            	 
                 $("#selectAllCoachGroups").on('click', function () {
                     if (this.checked) {
                         // Iterate each checkbox
@@ -34,24 +35,34 @@
                         });
                     }
                 });
-
+               
+                var closestTr = [];
+                
                 $(".coach-groups-table tbody td input[type=\"checkbox\"]").change(function () {
-                	var closestTr;
+                	
                     if (this.checked) {
                     	
+                    	
                         $(this).addClass("selectedCoachGroup");
+        
                         
-                        var closestTr = closestTr + $(this).closest('tr').attr('id');
-                        
-                        console.log(closestTr);
                         
                     } else {
                         $(this).removeClass("selectedCoachGroup");
-                        
-                       // closestTr.splice( $.inArray($(this).closest('tr').attr('id'), y), 1 );
                     }
+                    
+					
+                    closestTr = [];
+                   
+                    $(':checkbox').each(function () {
+                    if(this.checked){
+                    	closestTr = closestTr + $(this).closest('tr').attr('id');
+                    	console.log(closestTr);
+                    }
+                    });
+                   
 
-
+                    
                     var selectedCoachGroup = $(".selectedCoachGroup").length;
                     if (selectedCoachGroup == 0) {
                         $("#deleteButton").attr("disabled", true);
@@ -72,10 +83,23 @@
                     
                    
                 });
-             
-
+                
+                
+                $('#coachGroupDeleteModal').on('show.bs.modal', function(e) {
+                   	
+                	 
+                   
+                });
+                
+                
+                $('#coachGroupEditModal').on('show.bs.modal', function(e) {
+                	
+                	$(e.currentTarget).find('input[name="bookId"]').val();
+                    
+                });
 
             });
+            
         </script>
     </jsp:attribute>
     <jsp:attribute name="content">
@@ -102,7 +126,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="coachGroupAddModalLabel">coach groep toevoegen</h5>
+                            <h5 class="modal-title" id="coachGroupAddModalLabel">Coach groep toevoegen</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -110,9 +134,19 @@
                         <div class="modal-body">
                             <form class="addCoachGroupForm" role="form">
                                 <div class="form-group">
-                                    <label for="coachGroupName-input" class="col-2 col-form-label">Naam</label>
+                                   <label for="coachGroupName-input" class="col-2 col-form-label">Naam</label>
                                     <div class="col-10">
                                         <input class="form-control" type="text" value="" id="coachGroupName-input">
+                                    </div>
+                                    <label for="coachGroupTeacherName-input" class="col-2 col-form-label">Teacher</label>
+                                    <div class="col-10">
+                                        <select class="form-control"   id="coachGroupTeacherName-input">
+                                        <option>Bram</option>
+     									<option>Rens</option>
+      									<option>Gino</option>
+      									<option>Max</option>
+      									<option>Piet</option>
+                                    </select>
                                     </div>
                                 </div>
                             </form>
@@ -137,6 +171,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
+                        
                             <p>Weet je zeker dat je de les groep ICO41A wilt verwijderen met 123 studenten?</p>
                         </div>
                         <div class="modal-footer">
@@ -178,6 +213,7 @@
       									<option>Max</option>
       									<option>Piet</option>
                                     </select>
+                                     
                                 </div>
                                 </div>
                             </form>
