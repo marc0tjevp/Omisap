@@ -26,8 +26,8 @@
                                     <td><s:property value="name"/></td>
                                     <td><s:property value="abbreviation"/></td>
                                     <td style="width: 10%;">
-                                        <a href="#" class="btn btn-primary align-right"><i class="fa fa-edit"></i></a>
-                                        <a href="#" class="btn btn-primary align-right"><i class="fa fa-trash"></i></a>
+                                        <a href="educationTeam/update" class="btn btn-primary align-right"><i class="fa fa-edit"></i></a>
+                                        <a data-toggle="modal" data-target="#deleteConfirmation" class="btn btn-primary align-right"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             </s:iterator>
@@ -51,6 +51,27 @@
                     </nav>
                 </div>
             </div>
+
+            <!-- Modal -->
+            <div id="deleteConfirmation" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Verwijderen</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Weet u zeker dat u "name goes here" wilt verwijderen?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Annuleren</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Verwijderen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
     </jsp:attribute>
 </t:layout2>

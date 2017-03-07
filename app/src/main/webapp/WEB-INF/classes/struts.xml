@@ -45,6 +45,12 @@
                 method="addEducationTeam">
             <result name="success" type="redirect">/educationTeam</result>
         </action>
+        
+        <action name="educationTeam/editEducationTeam"
+                class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
+                method="editEducationTeam">
+            <result name="success" type="redirect">/educationTeam</result>
+        </action>
 
     </package>
 </struts>
