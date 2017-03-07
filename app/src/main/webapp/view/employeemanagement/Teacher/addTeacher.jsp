@@ -9,7 +9,7 @@
     <div class="container">
       <h1>Docent toevoegen</h1>
       <br>
-      <form action="addTeacher" class="" enctype="multipart/form-data" method="post">
+      <form action="addTeacher" class="" enctype="multipart/form-data" method="post" id="addTeacherForm">
         <s:bean name="nl.scalda.pasimo.model.employeemanagement.Teacher" var="teacher">
           <div class="form-group row">
             <label class="col-2 col-form-label">Voornaam</label>
@@ -38,7 +38,7 @@
           <div class="form-group row">
             <label class="col-2 col-form-label">Geboortedatum</label>
             <div class="col-10">
-              <sx:datetimepicker name="teacher.dateOfBirth" displayFormat="dd-MMM-yyyy" value="" />
+              <sx:datetimepicker name="teacher.dateOfBirth" displayFormat="dd-MMM-yyyy" value="" id="teacherDateOfBirth" />
             </div>
           </div>
           <div class="form-group row">
@@ -60,7 +60,7 @@
                 <s:select class="form-control" style="width: 50%;" name="teamAbbreviation" list="educationTeams" listKey="abbreviation" listValue="abbreviation + ' - ' + name"></s:select>
               <br>
               <br>
-              <input type="submit" value="Toevoegen" class="btn btn-primary" id="submitId" />
+              <div class="btn btn-primary" id="submitId">Toevoegen</div>
             </div>
           </div>
           <!-- <div class="form-group row">
@@ -73,4 +73,7 @@
       </form>
     </div>
   </jsp:attribute>
+  <jsp:attribute name="scripts">
+  <script type="text/javascript" src="resources/js/teacher.js"></script>
+</jsp:attribute>
 </t:layout2>
