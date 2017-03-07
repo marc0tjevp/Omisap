@@ -90,12 +90,12 @@ public class Person implements Comparable<Person> {
     }
 
     public GregorianCalendar getDateOfBirth() {
-		return dateOfBirth;
-	}
+        return dateOfBirth;
+    }
 
-	public void setDateOfBirth(GregorianCalendar dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
+    public void setDateOfBirth(GregorianCalendar dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 
 	public String getFullName() {
         if (this.insertion != "" && this.insertion != null) {
@@ -110,6 +110,10 @@ public class Person implements Comparable<Person> {
 
     public void setNoteList(TreeSet<Note> noteList) {
         this.noteList = noteList;
+    }
+    
+    public String getDateOfBirthInString(){
+    	return this.getDateOfBirth().get(GregorianCalendar.DAY_OF_MONTH) + "-" + (this.getDateOfBirth().get(GregorianCalendar.MONTH)+1) + "-" + this.getDateOfBirth().get(GregorianCalendar.YEAR);
     }
 
     @Override
