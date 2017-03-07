@@ -226,7 +226,7 @@
                 </div>
             </div>	
 
-            <table class="table coach-groups-table table-responsive" align="left">
+            <table class="table coach-groups-table table-responsive" >
                 <thead>
                     <tr>
                         <th>
