@@ -5,6 +5,7 @@ import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestEducationTeamDAO;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.Iterator;
 import java.util.TreeSet;
 
 /**
@@ -18,7 +19,11 @@ public class EducationTeamController extends ActionSupport {
     public TreeSet<EducationTeam> educationTeams = new TreeSet<>();
 
     public String index() {
-
+        
+        EducationTeam e = new EducationTeam("TOBJ", "Test Object");
+        
+        educationTeams.add(e);
+        
         readTeams();
 
         return SUCCESS;
@@ -64,8 +69,6 @@ public class EducationTeamController extends ActionSupport {
         EducationTeam d = new EducationTeam(name, abbreviation);
 
         educationTeams.add(d);
-        
-//        System.out.println(d.toString());
 
         return SUCCESS;
     }

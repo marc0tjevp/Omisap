@@ -3,7 +3,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
 
-
 <t:layout2>
     <jsp:attribute name="content">
         <h1>Education</h1>
@@ -11,14 +10,14 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="text-right">
-                        <button class="btn btn-primary">Verwijderen</button>
-                        <a href="educationTeam/create">  <button class="btn btn-primary">Nieuw</button></a>
+                        <a href="educationTeam/create">  <button class="btn btn-primary"><i class="fa fa-plus"></i> Nieuw EducationTeam</button></a>
                     </div>
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>Afkorting</th>
                                 <th>Naam</th>
+                                <th>Acties</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,6 +25,10 @@
                                 <tr>
                                     <td><s:property value="name"/></td>
                                     <td><s:property value="abbreviation"/></td>
+                                    <td style="width: 10%;">
+                                        <a href="#" class="btn btn-primary align-right"><i class="fa fa-edit"></i></a>
+                                        <a href="#" class="btn btn-primary align-right"><i class="fa fa-trash"></i></a>
+                                    </td>
                                 </tr>
                             </s:iterator>
                         </tbody>
