@@ -9,7 +9,7 @@ package nl.scalda.pasimo.model.timeregistration;
  *
  * @author hunteroooox
  */
-public class Time {
+public class WorkingDay {
     
     public String wieIsErOpTijd(){
         return "Weet ik niet maar in iederig geval Jeroen wel";
