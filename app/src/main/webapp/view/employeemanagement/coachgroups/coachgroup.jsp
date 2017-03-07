@@ -249,7 +249,7 @@
                             </label>
                         </td>
 
-                        <td><a href='moet nog komen'>ICOA41A</a>	</td>
+                        <td><a href='coachGroups/students'>ICOA41A</a>	</td>
                         <td>Bram	</td>
                         
                         <td> 12</td>
@@ -265,7 +265,7 @@
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
-						<td><a href='moet nog komen'>ICOA41B</a></td>
+						<td><a href='coachGroups/students'>ICOA41B</a></td>
                         <td>Rens</td>
                         
                         <td> 12</td>
@@ -279,7 +279,7 @@
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
-						<td><a href='moet nog komen'>ICOA41C</a></td>
+						<td><a href='coachgroups/students'>ICOA41C</a></td>
                         <td>Gino</td>
                         
                         <td> 12</td>
@@ -294,7 +294,7 @@
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
-						<td><a href='moet nog komen'>ICOA41D</a></td>
+						<td><a href='coachgroups/students'>ICOA41D</a></td>
                         <td>Max</td>
                         
                         <td> 12</td>
@@ -309,7 +309,7 @@
                             </label>
                         </td>
 
-                        <td><a href='moet nog komen'>ICO89E</a></td>
+                        <td><a href='coachGroups/students'>ICO89E</a></td>
                         <td>Kees</td>
                         
                         <td> 12</td>
@@ -325,7 +325,7 @@
                             </label>
                         </td>
 
-                        <td><a href='moet nog komen'>ICO33A </a> </td>
+                        <td><a href='coachGroups/students'>ICO33A </a> </td>
                         <td>Piet</td>
                         <td> 12</td>
                         
