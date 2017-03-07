@@ -1,5 +1,8 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import nl.scalda.pasimo.test.EducationTeamList;
+import nl.scalda.pasimo.test.TeacherList;
+
 public class Teacher extends Person {
 
     private String abbreviation;
@@ -31,6 +34,10 @@ public class Teacher extends Person {
     public void setAbbreviation() {
         this.abbreviation = getLastName().substring(0, 4).toUpperCase() + getFirstName().substring(0, 2).toUpperCase();
     }
+    
+    public void setAbbreviation(String abbreviation){
+    	this.abbreviation = abbreviation;
+    }
 
     public int getEmployeeNumber() {
         return employeeNumber;
@@ -38,6 +45,20 @@ public class Teacher extends Person {
 
     public void setEmployeeNumber(int employeeNumber) {
         this.employeeNumber = employeeNumber;
+    }
+    
+    public CoachGroup getCoachGroup(){
+    	//TODO
+    	return null;
+    }
+    
+    public EducationTeam getEducationTeam(){
+    	for(EducationTeam et : EducationTeamList.getInstance().getTeams()){
+			if(et.getTeachers().contains(this)){
+				return et;
+			}
+		}
+    	return null;
     }
 
     @Override
