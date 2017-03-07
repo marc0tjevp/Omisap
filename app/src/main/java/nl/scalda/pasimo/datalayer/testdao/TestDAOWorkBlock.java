@@ -20,20 +20,29 @@ public class TestDAOWorkBlock implements IDAOWorkBlock {
 
 	@Override
 	public void updateWorkBlock(WorkBlock workBlock) {
-		// TODO Auto-generated method stub
+		WorkBlock target = this.read(workBlock.getId());
+		
+		target.setId(workBlock.getId());
+		target.setStartTime(workBlock.getStartTime());
+		target.setEndTime(workBlock.getEndTime());
 		
 	}
 
 	@Override
 	public WorkBlock read(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+        for (WorkBlock workblock : this.workBlocks) {
+            if (workblock.getId() == (id))
+                return workblock;
+        }
+
+        return null;
+    }
+
 
 	@Override
 	public Set<WorkBlock> readAll() {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return this.workBlocks;
 	}
 	
 	
