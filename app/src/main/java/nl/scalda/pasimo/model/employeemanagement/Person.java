@@ -17,7 +17,7 @@ public class Person implements Comparable<Person> {
     public Person() {
     }
 
-    public Person(String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
+    public Person(String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth) {
         GregorianCalendar gc = new GregorianCalendar();
         this.setEmail(email);
         this.setCardID(cardID);
@@ -91,11 +91,8 @@ public class Person implements Comparable<Person> {
     }
 
     public GregorianCalendar getDateOfBirth() {
-<<<<<<< HEAD
-         return dateOfBirth;
-=======
+
         return dateOfBirth;
->>>>>>> develop
     }
 
     public void setDateOfBirth(GregorianCalendar dateOfBirth) {
@@ -116,9 +113,9 @@ public class Person implements Comparable<Person> {
     public void setNoteList(TreeSet<Note> noteList) {
         this.noteList = noteList;
     }
-    
-    public String getDateOfBirthInString(){
-    	return this.getDateOfBirth().get(GregorianCalendar.DAY_OF_MONTH) + "-" + (this.getDateOfBirth().get(GregorianCalendar.MONTH)+1) + "-" + this.getDateOfBirth().get(GregorianCalendar.YEAR);
+
+    public String getDateOfBirthInString() {
+        return this.getDateOfBirth().get(GregorianCalendar.DAY_OF_MONTH) + "-" + (this.getDateOfBirth().get(GregorianCalendar.MONTH) + 1) + "-" + this.getDateOfBirth().get(GregorianCalendar.YEAR);
     }
 
     @Override

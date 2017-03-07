@@ -1,7 +1,6 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-
 import java.util.TreeSet;
 
 public class EducationTeam implements Comparable<EducationTeam> {
@@ -17,34 +16,13 @@ public class EducationTeam implements Comparable<EducationTeam> {
      */
     private String name;
 
-<<<<<<< HEAD
-//	public void addTeacher(Teacher t) {
-//		if (teachers.add(t)) {
-//			DAOFactory.getTheFactory().getDAOTeacher().add(t, this);
-//		}
-//
-//	}
-    public void deleteTeacher(Teacher t) {
-        if (teachers.remove(t)) {
-            DAOFactory.getTheFactory().getDAOTeacher().delete(t, this);
+    public void addTeacher(Teacher t) {
+        if (teachers.add(t)) {
+            //DAOFactory.getTheFactory().getDAOTeacher().create(t, this);
         }
 
     }
 
-    public TreeSet<Teacher> getTeachers() {
-        return teachers;
-    }
-
-    public EducationTeam() {
-    }
-=======
-    public void addTeacher(Teacher t){
-		if (teachers.add(t)) {
-			//DAOFactory.getTheFactory().getDAOTeacher().create(t, this);
-		}
-		
-	}
-    
     public void updateTeacher(Teacher teacher) {
         for (Teacher ct : teachers) {
             if (teacher.getAbbreviation().equals(ct.getAbbreviation())) {
@@ -54,32 +32,28 @@ public class EducationTeam implements Comparable<EducationTeam> {
                 ct.setCardID(teacher.getCardID());
                 ct.setEmployeeNumber(teacher.getEmployeeNumber());
                 ct.setEmail(teacher.getEmail());
- //               ct.setDateOfBirth(teacher.getDateOfBirth());
+                //               ct.setDateOfBirth(teacher.getDateOfBirth());
                 ct.setNoteList(teacher.getNoteList());
             }
         }
     }
-    
-    
-	public void deleteTeacher(Teacher t){
-		if (teachers.remove(t)) {
-			//DAOFactory.getTheFactory().getDAOTeacher().delete(t, this);
-		}		
-		
-	}
-	
-	public TreeSet<Teacher> getTeachers() {
-		 return teachers;
-	}
->>>>>>> develop
+
+    public void deleteTeacher(Teacher t) {
+        if (teachers.remove(t)) {
+            //DAOFactory.getTheFactory().getDAOTeacher().delete(t, this);
+        }
+
+    }
+
+    public TreeSet<Teacher> getTeachers() {
+        return teachers;
+    }
 
     public EducationTeam(String abbreviation, String name) {
         this.abbreviation = abbreviation;
         this.name = name;
     }
 
-    // </editor-fold>
-    // <editor-fold defaultstate="collapsed" desc="getters and setters">
     public String getAbbreviation() {
         return abbreviation;
     }
@@ -96,12 +70,6 @@ public class EducationTeam implements Comparable<EducationTeam> {
         this.name = name;
     }
 
-<<<<<<< HEAD
-    // </editor-fold>
-=======
-    //</editor-fold>
-
->>>>>>> develop
     @Override
     public int compareTo(EducationTeam o) {
         return this.name.compareTo(o.getName());
@@ -111,9 +79,5 @@ public class EducationTeam implements Comparable<EducationTeam> {
     @Override
     public String toString() {
         return "EducationTeam{" + "abbreviation='" + abbreviation + '\'' + ", name='" + name + '\'' + '}';
-    }
-<<<<<<< HEAD
-
-=======
->>>>>>> develop
+    }    
 }

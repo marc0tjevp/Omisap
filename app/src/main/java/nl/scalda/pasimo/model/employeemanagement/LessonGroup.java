@@ -20,8 +20,9 @@ public class LessonGroup implements Comparable<LessonGroup> {
     public LessonGroup() {
     }
 
-    public LessonGroup(String name) {
+    public LessonGroup(int id, String name) {
         this.name = name;
+        this.id = id;
     }
 
     public LessonGroup(String name, TreeSet<Student> students) {

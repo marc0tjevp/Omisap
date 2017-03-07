@@ -12,7 +12,6 @@ import java.util.TreeSet;
  */
 public class EducationTeamController extends ActionSupport {
 
-    public EducationTeam educationTeam = new EducationTeam();
     public String name;
     public String abbreviation;
     public TreeSet<EducationTeam> educationTeams = new TreeSet<>();
