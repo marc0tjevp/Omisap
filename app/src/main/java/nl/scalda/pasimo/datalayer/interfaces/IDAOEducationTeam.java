@@ -4,7 +4,7 @@ import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 
 import java.util.Set;
 
-public interface IEducationTeamDAO {
+public interface IDAOEducationTeam {
 
     /**
      * Creates the EducationTeam.

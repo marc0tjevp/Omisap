@@ -3,7 +3,7 @@ package nl.scalda.pasimo.test;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
-
+@Deprecated
 public class EducationTeamList extends TreeSet<EducationTeam>{
 	
 	private static EducationTeamList instance;

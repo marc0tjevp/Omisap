@@ -5,7 +5,7 @@ import java.util.TreeSet;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.service.Service;
 import nl.scalda.pasimo.service.TeacherService;
-
+@Deprecated
 public class TeacherList extends TreeSet<Teacher> {
 
 	private static TeacherList instance;

@@ -1,13 +1,14 @@
 package nl.scalda.pasimo.datalayer.factory;
 
-import nl.scalda.pasimo.datalayer.interfaces.IEducationTeamDAO;
-import nl.scalda.pasimo.datalayer.interfaces.ITeamDAO;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
+import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOTeam;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
-import nl.scalda.pasimo.interfaces.IDAOCoachGroup;
-import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
-import nl.scalda.pasimo.interfaces.IDAONote;
-import nl.scalda.pasimo.interfaces.IDAOTeacher;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
 
 public class MySQLDAOFactory extends DAOFactory {
 
@@ -23,18 +24,9 @@ public class MySQLDAOFactory extends DAOFactory {
         return instance;
     }
 
-//methodes
-
-    @Override
-    public ITeamDAO getTeamDAO() {
-        return null;
-    }
-
-    @Override
-    public IEducationTeamDAO getEducationTeamDAO() {
-        return null;
-    }
-
+/**
+ * methods from interface
+ */
     @Override
     public IDAOCoachGroup getDAOCoachGroup() {
         return MYSQLDAOCoachGroup.getInstance();
@@ -44,16 +36,27 @@ public class MySQLDAOFactory extends DAOFactory {
     public IDAOLessonGroup getDAOLessonGroup() {
         return MYSQLDAOLessonGroup.getInstance();
     }
+    
+	@Override
+	public IDAONote getDAONote() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
 
-    @Override
-    public IDAONote getDAONote() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+	public IDAOTeacher getDAOTeacher() {
+		return TestDAOTeacher.getInstance();
+	}
 
-    @Override
-    public IDAOTeacher getDAOTeacher() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+	@Override
+	public IDAOTeam getTeamDAO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IDAOEducationTeam getEducationTeamDAO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -1,9 +1,13 @@
 package nl.scalda.pasimo.datalayer.factory;
 
-import nl.scalda.pasimo.datalayer.interfaces.IEducationTeamDAO;
-import nl.scalda.pasimo.datalayer.interfaces.ITeamDAO;
-import nl.scalda.pasimo.datalayer.testdao.TestEducationTeamDAO;
-import nl.scalda.pasimo.datalayer.testdao.TestTeamDAO;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
+import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOTeam;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOEducationTeam;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOTeam;
 
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
@@ -20,13 +24,13 @@ public class TestDAOFactory extends DAOFactory {
     }
 
     @Override
-    public ITeamDAO getTeamDAO() {
-        return TestTeamDAO.getInstance();
+    public IDAOTeam getTeamDAO() {
+        return TestDAOTeam.getInstance();
     }
 
     @Override
-    public IEducationTeamDAO getEducationTeamDAO() {
-        return TestEducationTeamDAO.getInstance();
+    public IDAOEducationTeam getEducationTeamDAO() {
+        return TestDAOEducationTeam.getInstance();
     }
 
     @Override

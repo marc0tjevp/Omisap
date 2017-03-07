@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.test;
 import java.text.ParseException;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.MySQLDAOConnection;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
@@ -13,6 +14,7 @@ public class testClass {
 
 	public static void main(String[] args) throws ParseException{
 		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
+		DAOFactory.getTheFactory().getDAOTeacher().readAll();
    
 //		
 //		Teacher t = new Teacher("lelele", 123456, "ikke@email.com", 654321789, "kaas","","souffle", new SimpleDateFormat("dd/MM/yyyy").parse("01/02/1996"));
