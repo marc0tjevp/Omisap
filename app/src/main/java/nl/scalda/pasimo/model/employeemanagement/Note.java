@@ -14,6 +14,11 @@ public class Note implements Comparable<Note> {
     private Teacher madeBy;
     private Date lastEdit;
 
+    
+    public Note(){
+    	
+    	
+    }
     public Note(String title, String message, Teacher madeBy) {
 
         this.title = title;
@@ -97,6 +102,10 @@ public class Note implements Comparable<Note> {
             return 0;
         }
         return this.getCreationDate().before(o.getCreationDate()) ? -1 : 1;
+    }
+    @Override
+    public String toString(){
+    	return "Note (Title = " + title + " Message = " + message +")";
     }
 
 }
