@@ -5,6 +5,28 @@
  */
 $(document).ready(function () {
     initCreateAbbreviation();
+    $('#submitId').on('click', function(){
+    	console.log('inside click function');
+    	console.log($.trim($("#teacherFirstName").val()));
+    	console.log($.trim($("#teacherLastName").val()));
+    	console.log($.trim($("#teacherEmail").val()));
+    	console.log($.trim($("#teacherDateOfBirth > input").val()));
+    	console.log($.trim($("#teacherCardID").val()));
+    	console.log($.trim($("#teacherEmployeeNumber").val()));
+    	if(
+    			$.trim($("#teacherFirstName").val())!==''&&
+    			$.trim($("#teacherLastName").val())!==''&&
+    			$.trim($("#teacherEmail").val())!==''&&
+    			$.trim($("#teacherDateOfBirth > input").val())!==''&&
+    			$.trim($("#teacherCardID").val())!==0&&
+    			$.trim($("#teacherEmployeeNumber").val())!==0){
+    		console.log('inside if statement');
+    				$('#addTeacherForm').submit();
+    	} else {
+    		console.log('inside else statement');
+    		return false;
+    	}	
+    });
 });
 
 function initCreateAbbreviation() {
@@ -15,3 +37,7 @@ function initCreateAbbreviation() {
         $('#abbreviation').val(s.toLowerCase());
     });
 }
+
+
+
+	

@@ -51,8 +51,6 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String addTeacher() {
-		// EducationTeam team =
-		// getEducationTeamByTeamAbbreviation(teamAbbreviation);
 		teacher.setAbbreviation();
 		TeacherList.getInstance().addTeacher(teacher);
 		EducationTeam et = getEducationTeamByAbbreviation(teamAbbreviation);
