@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div>
-                        <h1>Edit educationTeam</h1>
+                        <h1>Edit EducationTeam</h1>
 
                         <form action="editEducationTeam">
 
