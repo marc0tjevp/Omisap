@@ -14,23 +14,34 @@ public class EducationTeam implements Comparable<EducationTeam>{
      * Abbreviation of the EducationTeam; e.g. AO
      */
     private String abbreviation;
-
     /**
      * Name of the EducationTeam; e.g. Applicatie Ontwikkelaar
      */
     private String name;
 
-	public void addTeacher(Teacher t){
-		//System.out.println(t);
-		teachers.add(t);
-		//System.out.println(teachers);
+    public void addTeacher(Teacher t){
 		if (teachers.add(t)) {
-			//System.out.println(teachers);
 			//DAOFactory.getTheFactory().getDAOTeacher().create(t, this);
 		}
 		
 	}
-	
+    
+    public void updateTeacher(Teacher teacher) {
+        for (Teacher ct : teachers) {
+            if (teacher.getAbbreviation().equals(ct.getAbbreviation())) {
+                ct.setFirstName(teacher.getFirstName());
+                ct.setInsertion(teacher.getInsertion());
+                ct.setLastName(teacher.getLastName());
+                ct.setCardID(teacher.getCardID());
+                ct.setEmployeeNumber(teacher.getEmployeeNumber());
+                ct.setEmail(teacher.getEmail());
+ //               ct.setDateOfBirth(teacher.getDateOfBirth());
+                ct.setNoteList(teacher.getNoteList());
+            }
+        }
+    }
+    
+    
 	public void deleteTeacher(Teacher t){
 		if (teachers.remove(t)) {
 			//DAOFactory.getTheFactory().getDAOTeacher().delete(t, this);
@@ -66,14 +77,10 @@ public class EducationTeam implements Comparable<EducationTeam>{
     public void setName(String name) {
         this.name = name;
     }
-    
-    public void setTeachers(TreeSet<Teacher> teachers) {
-		this.teachers = teachers;
-	}
 
     //</editor-fold>
 
-	@Override
+    @Override
     public int compareTo(EducationTeam o) {
         return this.name.compareTo(o.getName());
     }
@@ -85,5 +92,4 @@ public class EducationTeam implements Comparable<EducationTeam>{
                 ", name='" + name + '\'' +
                 '}';
     }
-
 }
