@@ -16,6 +16,7 @@
 }
 
 .button {
-	float: right;
-	background-color: none;
+	border: none;
+	background-color: ;
+	padding: 5px;
 }

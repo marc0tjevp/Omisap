@@ -6,9 +6,9 @@
 <!-- <link rel="stylesheet" href="/resources/css/noteAdd.css"></link>
     <link rel="stylesheet" href="../Pasimo/resources/css/style.css"> -->
 <t:layout2>
-	<jsp:attribute name="css">
 
-	<link rel="stylesheet"  href="<c:url value="/resources/css/noteAdd.css"/>"/>
+	<jsp:attribute name="css">
+	<link rel="stylesheet"  href="<c:url value="/resources/css/note.css"/>"/>
 	</jsp:attribute>
 	<jsp:attribute name="content">
 	
@@ -53,7 +53,7 @@
 				<button class = "button" type="button" data-toggle="modal" data-target="#myModal">Aanmaken</button>
 				</div>
 				<div class = "col col-md-3">
-				<button class = "button" type="button" name="cancel">Annuleren</button>
+				<button class = "button" type="button" name="cancel" data-toggle="modal" data-target="#myModal">Annuleren</button>
 				</div>
 				
 			</div>
@@ -86,6 +86,8 @@
 
   </div>
 </div>
+
+
 <!-- end pop up -->
 	
 	
