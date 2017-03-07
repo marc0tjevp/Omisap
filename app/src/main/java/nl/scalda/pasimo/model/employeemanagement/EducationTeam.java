@@ -12,12 +12,12 @@ public class EducationTeam implements Comparable<EducationTeam> {
      * Abbreviation of the EducationTeam; e.g. AO
      */
     private String abbreviation;
-
     /**
      * Name of the EducationTeam; e.g. Applicatie Ontwikkelaar
      */
     private String name;
 
+<<<<<<< HEAD
 //	public void addTeacher(Teacher t) {
 //		if (teachers.add(t)) {
 //			DAOFactory.getTheFactory().getDAOTeacher().add(t, this);
@@ -37,6 +37,41 @@ public class EducationTeam implements Comparable<EducationTeam> {
 
     public EducationTeam() {
     }
+=======
+    public void addTeacher(Teacher t){
+		if (teachers.add(t)) {
+			//DAOFactory.getTheFactory().getDAOTeacher().create(t, this);
+		}
+		
+	}
+    
+    public void updateTeacher(Teacher teacher) {
+        for (Teacher ct : teachers) {
+            if (teacher.getAbbreviation().equals(ct.getAbbreviation())) {
+                ct.setFirstName(teacher.getFirstName());
+                ct.setInsertion(teacher.getInsertion());
+                ct.setLastName(teacher.getLastName());
+                ct.setCardID(teacher.getCardID());
+                ct.setEmployeeNumber(teacher.getEmployeeNumber());
+                ct.setEmail(teacher.getEmail());
+ //               ct.setDateOfBirth(teacher.getDateOfBirth());
+                ct.setNoteList(teacher.getNoteList());
+            }
+        }
+    }
+    
+    
+	public void deleteTeacher(Teacher t){
+		if (teachers.remove(t)) {
+			//DAOFactory.getTheFactory().getDAOTeacher().delete(t, this);
+		}		
+		
+	}
+	
+	public TreeSet<Teacher> getTeachers() {
+		 return teachers;
+	}
+>>>>>>> develop
 
     public EducationTeam(String abbreviation, String name) {
         this.abbreviation = abbreviation;
@@ -61,7 +96,12 @@ public class EducationTeam implements Comparable<EducationTeam> {
         this.name = name;
     }
 
+<<<<<<< HEAD
     // </editor-fold>
+=======
+    //</editor-fold>
+
+>>>>>>> develop
     @Override
     public int compareTo(EducationTeam o) {
         return this.name.compareTo(o.getName());
@@ -72,5 +112,8 @@ public class EducationTeam implements Comparable<EducationTeam> {
     public String toString() {
         return "EducationTeam{" + "abbreviation='" + abbreviation + '\'' + ", name='" + name + '\'' + '}';
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
 }

@@ -12,9 +12,9 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 
     private TestDAOLessonGroup() {
 
-        LessonGroup l1 = new LessonGroup(1, "ICO43A");
-        LessonGroup l2 = new LessonGroup(1, "ICO42A");
-        LessonGroup l3 = new LessonGroup(1, "ICO41A");
+        LessonGroup l1 = new LessonGroup("ICO43A");
+        LessonGroup l2 = new LessonGroup("ICO42A");
+        LessonGroup l3 = new LessonGroup("ICO41A");
 
     }
 

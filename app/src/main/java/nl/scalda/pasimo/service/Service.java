@@ -5,10 +5,18 @@ public class Service {
     private static Service instance = null;
 
     private Service() {}
+<<<<<<< HEAD
 
+=======
+    
+    public TeacherService getTeacherService() {
+        return TeacherService.getInstance();
+    }
+    
+>>>>>>> develop
     public NoteService getNoteService(){
     	return NoteService.getInstance();
-    };
+    }
 
     public static Service getInstance() {
         if (instance == null)
