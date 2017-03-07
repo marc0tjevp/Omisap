@@ -14,9 +14,8 @@ button {
 }
 
 .highlight {
-    background-color: #3c8dbc;
+	background-color: #3c8dbc;
 }
-
 </style>
 <t:layout2>
 	<jsp:attribute name="css">
@@ -32,8 +31,7 @@ button {
 							data-target="#editModal">Edit</button></td>
             <td><button data-toggle="modal"
 							data-target="#deleteModal">Delete</button></td>
-			<td><button data-toggle="modal"
-							data-target="#detailModal">Details</button></td>
+			<td><button data-toggle="modal" data-target="#detailModal">Details</button></td>
 			</tr>
 		</thead>
 	</table>
@@ -213,7 +211,7 @@ button {
                         <input type="text" class="form-control"
 								id="studentOV" placeholder="Enter OV Nummer">
                     </div>
-                </div>
+                </div>a
 
                 <div class="modal-body" student-cohort="">
                     <p>Cohort:</p>
@@ -292,6 +290,7 @@ button {
                     <h4 class="modal-title">Student Verwijderen</h4>
                 </div>
 
+				<div class="container">
                 <div>
                     <p>Weer u zeker dat u de student wilt verwijderen?</p>
                 </div>
@@ -303,22 +302,26 @@ button {
 							class="btn btn-default" data-dismiss="modal">Ok</button>
                 </div>
             </div>
-
+			</div>
         </div>
     </div>
     
     <div id="detailModal" class="modal" role="dialog">
         <div class="modal-dialog">
-
+			
             <!-- Modal content-->
             <div class="modal-content">
+            
                 <div class="modal-header">
                     <button type="button" class="close"
-							data-dismiss="modal">&times;</button>
+								data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Student Details</h4>
                 </div>
-					<img src="D:\FREEK IS FIJN\Gifs\pokemon gofuckyourself.gif" alt="Student Picture" >
-                </div>
+            		<div class="container">
+					<img
+							src="https://www.hartstichting.nl/system/highlights/images/000/000/102/small/highlight-generiek.png?1390160192"
+							alt="Student Picture">
+                
                 <div>
                 <table>
                 <tr>
@@ -329,12 +332,12 @@ button {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default"
-							data-dismiss="modal">Close</button>
+								data-dismiss="modal">Close</button>
                     <button type="submit" onclick=""
-							class="btn btn-default" data-dismiss="modal">Ok</button>
+								class="btn btn-default" data-dismiss="modal">Ok</button>
                 </div>
             </div>
-
+		 </div>
         </div>
     </div>
     
@@ -342,17 +345,21 @@ button {
 	<jsp:attribute name="scripts">
 	<script type="text/javascript">
 		console.log('testtt');
-		$(document).ready(function() {
-			
-			$('#studentTable').DataTable({
-				"scrollY" : true
-			});
-			
-			$('#studentTable tr').on('click', function () {
-                $(this).addClass('highlight').siblings().removeClass('highlight');
-            });
+		$(document).ready(
+				function() {
 
-		});
+					$('#studentTable').DataTable({
+						"scrollY" : true
+					});
+
+					$('#studentTable tr').on(
+							'click',
+							function() {
+								$(this).addClass('highlight').siblings()
+										.removeClass('highlight');
+							});
+
+				});
 	</script>
 
 	</jsp:attribute>
