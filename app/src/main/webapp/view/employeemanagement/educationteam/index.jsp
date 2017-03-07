@@ -58,7 +58,7 @@
             </div>
         </div>
 
-        <!-- Modal -->
+        <!-- Modal for Delete Confirmation -->
         <div id="deleteConfirmation" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
