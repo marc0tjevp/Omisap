@@ -119,7 +119,7 @@
                             <p>Weet je zeker dat je de les groep ICO41A wilt verwijderen met 123 studenten?</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluiten</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
                             <button type="button" class="btn btn-danger">Verwijderen</button>
                         </div>
                     </div>
