@@ -97,7 +97,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluiten</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
                             <button type="button" class="btn btn-primary">Toevoegen</button>
                         </div>
                     </div>

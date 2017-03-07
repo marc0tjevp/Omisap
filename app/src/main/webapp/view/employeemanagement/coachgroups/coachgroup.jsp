@@ -109,7 +109,7 @@
             <h1>Coach groepen</h1>
             <div class="coachGroupButtons">
                 <button class="btn btn-primary" type="button" id="addButton" data-toggle="modal"
-                        data-target="#coachGroupAddModal">Toevoegen
+                        data-target="#coachGroupAddModal">Coachgroup Aanmaken
                 </button>
                 <button class="btn btn-danger" id="deleteButton" type="button" data-toggle="modal"
                         data-target="#coachGroupDeleteModal" disabled>Verwijderen
@@ -126,14 +126,18 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="coachGroupAddModalLabel">Coach groep toevoegen</h5>
+                            <h5 class="modal-title" id="coachGroupAddModalLabel">Coachgroup Aanmaken</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
+                          <div class="modal-body">
                             <form class="addCoachGroupForm" role="form">
                                 <div class="form-group">
+                                <label for="coachGroupName-input" class="col-2 col-form-label">EducationTeam</label>
+                                	<div class="col-10">
+                                        <input class="form-control" type="text" value="" id="coachGroupName-input">
+                                    </div>
                                    <label for="coachGroupName-input" class="col-2 col-form-label">Naam</label>
                                     <div class="col-10">
                                         <input class="form-control" type="text" value="" id="coachGroupName-input">
@@ -177,7 +181,7 @@
                         <div class="modal-footer">
                         
                         <form id="subscribe-email-form" action="/notifications/subscribe/" method="post">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluiten</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
                             <button type="submit" value= "SUBMIT" class="btn btn-danger">Verwijderen</button>
                             </form>
                             
@@ -219,7 +223,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluiten</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
                             <button  type="submit" class="btn btn-danger">Wijzigen</button>
                         </div>
                     </div>
@@ -249,7 +253,7 @@
                             </label>
                         </td>
 
-                        <td><a href='coachGroups/students'>ICOA41A</a>	</td>
+                        <td><a href='students'>ICOA41A</a>	</td>
                         <td>Bram	</td>
                         
                         <td> 12</td>
@@ -265,7 +269,7 @@
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
-						<td><a href='coachGroups/students'>ICOA41B</a></td>
+						<td><a href='students'>ICOA41B</a></td>
                         <td>Rens</td>
                         
                         <td> 12</td>
@@ -279,7 +283,7 @@
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
-						<td><a href='coachgroups/students'>ICOA41C</a></td>
+						<td><a href='students'>ICOA41C</a></td>
                         <td>Gino</td>
                         
                         <td> 12</td>
@@ -294,7 +298,7 @@
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
-						<td><a href='coachgroups/students'>ICOA41D</a></td>
+						<td><a href='students'>ICOA41D</a></td>
                         <td>Max</td>
                         
                         <td> 12</td>
@@ -309,7 +313,7 @@
                             </label>
                         </td>
 
-                        <td><a href='coachGroups/students'>ICO89E</a></td>
+                        <td><a href='students'>ICO89E</a></td>
                         <td>Kees</td>
                         
                         <td> 12</td>
@@ -325,7 +329,7 @@
                             </label>
                         </td>
 
-                        <td><a href='coachGroups/students'>ICO33A </a> </td>
+                        <td><a href='students'>ICO33A </a> </td>
                         <td>Piet</td>
                         <td> 12</td>
                         
