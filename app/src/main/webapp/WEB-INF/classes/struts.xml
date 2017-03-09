@@ -25,6 +25,18 @@
             <result name="success">/view/employeemanagement/lessongroup/details.jsp</result>
         </action>
         
+        
+          <action name="coachGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+                method="execute">
+            <result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
+        </action>
+        
+        <action name="students" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+                method="execute">
+            <result name="success">/view/employeemanagement/coachgroups/student.jsp</result>
+        </action>
+        
+        
         		<action name="teacherOverview" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="readTeacher">
 			<result name="success">/view/employeemanagement/Teacher/teacherOverview.jsp</result>
