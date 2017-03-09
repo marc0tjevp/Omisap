@@ -20,6 +20,12 @@ public class Teacher extends Person {
         this.abbreviation = abbreviation;
         this.employeeNumber = employeeNumber;
     }
+    
+    public Teacher(String abbreviation, int employeeNumber, String email) {
+    	super(email);
+        this.abbreviation = abbreviation;
+        this.employeeNumber = employeeNumber;
+    }
 
     public Teacher(int employeeNumber, String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
 		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);

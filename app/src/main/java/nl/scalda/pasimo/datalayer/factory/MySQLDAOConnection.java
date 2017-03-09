@@ -41,12 +41,12 @@ public class MySQLDAOConnection {
      */
     public MySQLDAOConnection() {
         //database for testing
-        this.url = "jdbc:mysql://localhost/";
+        //this.url = "jdbc:mysql://localhost/";
 
         //actual database for user
 //        this.url = "jdbc:mysql://172.16.17.102/";
-        this.user = "root";
-        this.password = "";
+        //this.user = "root";
+        //this.password = "";
     }
 
     /**
