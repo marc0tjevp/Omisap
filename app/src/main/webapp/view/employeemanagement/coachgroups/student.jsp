@@ -104,19 +104,19 @@
                 </div>
             </div>
 
-            <!-- Modal for deleting an lesson group -->
+            <!-- Modal for deleting an student from coachgroup -->
             <div class="modal fade" id="coachGroupDeleteModal" tabindex="-1" role="dialog"
                  aria-labelledby="coachGroupDeleteModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="coachGroupDeleteModalLabel">Les groep verwijderen</h5>
+                            <h5 class="modal-title" id="coachGroupDeleteModalLabel">Student verwijderen from Coachgroup</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>Weet je zeker dat je de les groep ICO41A wilt verwijderen met 123 studenten?</p>
+                            <p>Weet u zeker dat u student 1234 wilt verwijderen?</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
