@@ -13,11 +13,26 @@ public class CoachGroupList extends TreeSet<CoachGroup>{
 		
 	}
 	public void addCoachGroup(CoachGroup c){
+		c.setId(2);
+		c.setName("bal");
+		
 		coachgroups.add(c);
 	}
 	
 	public void removeCoachGroup(CoachGroup c) {
-		coachgroups.remove(c);
+		CoachGroup d = new CoachGroup();
+		d.setId(2);
+		d.setName("bal");
+		c.setId(d.getId());
+		coachgroups.add(d);
+		
+		for(CoachGroup cg : coachgroups){
+			if(cg.getId() == c.getId()){
+				coachgroups.remove(cg);
+				break;
+			}
+		
+		}
 	}
 	
 	public TreeSet<CoachGroup> getCoachgroups() {

@@ -3,6 +3,7 @@ package nl.scalda.pasimo.controller.employeemanagement;
 import java.util.TreeSet;
 import com.opensymphony.xwork2.ActionSupport;
 
+import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
@@ -33,7 +34,7 @@ public class CoachGroupController extends ActionSupport {
     public String addCoachGroup() {
     	CoachGroupList.getInstance().addCoachGroup(coach);
       	coachGroup.add(coach);
-    	
+    	TestDAOCoachGroup.getInstance().create(coach);
         return SUCCESS;
     }
 
@@ -52,7 +53,10 @@ public class CoachGroupController extends ActionSupport {
     }
 
     public String deleteCoachGroup() {
-
+    	CoachGroupList.getInstance().removeCoachGroup(coach);
+    	coachGroup.remove(coach);
+    	TestDAOCoachGroup.getInstance().delete(coach);
+    	
         return SUCCESS;
     }
 	public String getName() {

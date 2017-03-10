@@ -131,8 +131,9 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+                        <form class="addCoachGroups" action="addCoachGroup" role="form" method="post">
                           <div class="modal-body">
-                            <form class="addCoachGroupForm" role="form">
+                            
                                 <div class="form-group">
                                 <label for="coachGroupName-input" class="col-2 col-form-label">EducationTeam</label>
                                 	<div class="col-10">
@@ -153,12 +154,15 @@
                                     </select>
                                     </div>
                                 </div>
-                            </form>
+                            
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
-                            <button type="submit" class="btn btn-primary">Toevoegen</button>
+                            
+                            	<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
+                            	<input  type="submit" value="Toevoegen" class="btn btn-primary" ><br>
+                            
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -174,15 +178,18 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+                         <form id="deleteCoachGroup" action="deleteCoachGroup" role="form" method="post">
                         <div class="modal-body">
                         
                             <p>Weet je zeker dat je de les groep ICO41A wilt verwijderen met 123 studenten?</p>
                         </div>
                         <div class="modal-footer">
                         
-                        <form id="subscribe-email-form" action="/notifications/subscribe/" method="post">
+                        
+                       
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
-                            <button type="submit" value= "SUBMIT" class="btn btn-danger">Verwijderen</button>
+                            <input type="submit" value= "Verwijderen" class="btn btn-danger">
+                            </div>
                             </form>
                             
                         </div>
@@ -241,7 +248,8 @@
                         <th>Naam</th>
                         <th>Docent</th>
                         
-                        <th style="width:100px;">Aantal Studenten</th>
+                        <th style="width:200px;">Aantal LessonGroups</th>
+                        <th>EducationTeam</th>
                     </tr>
 
                 </thead>
@@ -257,6 +265,7 @@
                         <td>Bram	</td>
                         
                         <td> 12</td>
+                        <td>ICO42A</td>
                         
 						
                         
@@ -273,7 +282,7 @@
                         <td>Rens</td>
                         
                         <td> 12</td>
-                        
+                        <td>ICO42A</td>
 				
                     </tr>
 
@@ -287,7 +296,7 @@
                         <td>Gino</td>
                         
                         <td> 12</td>
-                       
+                       <td>ICO42A</td>
 					
                         
                     </tr>
@@ -302,7 +311,7 @@
                         <td>Max</td>
                         
                         <td> 12</td>
-                     
+                     	<td>ICO42A</td>
 						
                     </tr>
 
@@ -317,7 +326,7 @@
                         <td>Kees</td>
                         
                         <td> 12</td>
-                        
+                        <td>ICO42A</td>
 						
                     </tr>
 
@@ -332,7 +341,7 @@
                         <td><a href='students'>ICO33A </a> </td>
                         <td>Piet</td>
                         <td> 12</td>
-                        
+                        <td>ICO42A</td>
 					
                     </tr>
                 </tbody>

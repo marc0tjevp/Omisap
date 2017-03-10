@@ -31,10 +31,24 @@
             <result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
         </action>
         
+        <action name="addCoachGroup" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController" 
+        		method="addCoachGroup">
+        		<result name="success" type="redirect">coachGroups</result>
+        		<result name="input">/view/employeemanagement/coachgroups.jsp</result>
+        		
+        </action>
+        
+        <action name="deleteCoachGroup" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+        		method="deleteCoachGroup">
+        		<result name="success" type="redirect">coachgroups</result>
+        		<result name="input">/view/employeemanagement/coachgroups.jsp</result>
+        </action>
+        
         <action name="students" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
                 method="execute">
             <result name="success">/view/employeemanagement/coachgroups/student.jsp</result>
         </action>
+        
         
         
         		<action name="teacherOverview" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"

@@ -26,6 +26,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
     public void create(CoachGroup cg) {
         try {
             coachGroups.add(cg);
+            System.out.println(cg);
         } catch (Exception ex) {
             System.out.println("Could not save. ended with Exception: " + ex.getMessage());
         }
@@ -65,6 +66,8 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
     public void delete(CoachGroup coachGroup) {
         try {
             coachGroups.remove(coachGroup);
+            System.out.println(coachGroup);
+
         } catch (Exception ex) {
             System.out.println("Could not remove. ended with Exception: " + ex.getMessage());
         }
