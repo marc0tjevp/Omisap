@@ -14,7 +14,7 @@ public class TestDAOTeacher implements IDAOTeacher {
 	private TestDAOTeacher() {}
 
 	@Override
-	public void delete(Teacher t, EducationTeam team) {
+	public void delete(Teacher t) {
 		teachers.remove(t);
 
 	}

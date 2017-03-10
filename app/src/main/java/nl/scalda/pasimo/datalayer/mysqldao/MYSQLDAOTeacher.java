@@ -15,6 +15,7 @@ import nl.scalda.pasimo.datalayer.factory.MySQLDAOConnection;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.Person;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class MYSQLDAOTeacher extends MySQLDAOConnection implements IDAOTeacher {
@@ -30,21 +31,17 @@ public class MYSQLDAOTeacher extends MySQLDAOConnection implements IDAOTeacher {
 		}
 		MYSQLDAOTeacher MT = new MYSQLDAOTeacher();
 		
-//		Teacher t1 = new Teacher("henkie", 123456, "henkie@email.com");
+		Teacher t1 = new Teacher("henkie", 123456, "henkie@email.com");
 //		Teacher t2 = new Teacher("klaase", 654321, "klaase@email.com");
 //		MT.create(t1);
 //		MT.create(t2);
 		
-		TreeSet<Teacher> allTeachers = MT.readAll();
-		System.out.println(allTeachers.toString());
+//		TreeSet<Teacher> allTeachers = MT.readAll();
+//		System.out.println(allTeachers.toString());
 		
-//		MT.listTeachers();
-//		
 //		MT.updateTeacher();
 //		
-//		MT.deleteTeacher();
-//		
-//		MT.listTeachers();
+		MT.delete(t1);
 		
 	}
 
@@ -81,8 +78,21 @@ public class MYSQLDAOTeacher extends MySQLDAOConnection implements IDAOTeacher {
 	}
 
 	@Override
-	public void delete(Teacher t, EducationTeam team) {
-		// TODO Auto-generated method stub
+	public void delete(Teacher t) {
+		Session session = factory.openSession();
+		Transaction tx = null;
+		try{
+			tx = session.beginTransaction();
+			session.delete(t);
+			Person p = new Person(t.getEmail());
+			session.delete(p);
+			tx.commit();
+		} catch(HibernateException e) {
+			if(tx!=null)tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
 		
 	}
 

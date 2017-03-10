@@ -11,7 +11,7 @@ public interface IDAOTeacher {
 
     public void update(Teacher t, EducationTeam team);
 
-    public void delete(Teacher t, EducationTeam team);
+    public void delete(Teacher t);
 
     public TreeSet<Teacher> readAll();
 
