@@ -8,7 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class CoachGroupController extends ActionSupport {
 
-    public String name;
+	public String name;
 //    public Teacher teacher;
 
     public String addCoachGroup() {
