@@ -14,7 +14,7 @@ import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
  *
  * @author Diederik
  */
-public class WorkingDay {
+public class WorkingDay implements Comparable<WorkingDay> {
 
 	public String name;
 
@@ -41,19 +41,19 @@ public class WorkingDay {
 	public void deleteWorkBlock(WorkBlock workblock) {
 		this.workBlocks.remove(workblock);
 	}
-	
+
 	// updates an workblock
 
-	public void updateWorkBlock(WorkBlock workblock){
-		for(WorkBlock wo : this.workBlocks){
-		if(wo.startTime.equals(workblock.getStartTime())){
-			wo.setStartTime(workblock.getStartTime());
-			wo.setEndTime(workblock.getEndTime());
-			
+	public void updateWorkBlock(WorkBlock workblock) {
+		for (WorkBlock wo : this.workBlocks) {
+			if (wo.startTime.equals(workblock.getStartTime())) {
+				wo.setStartTime(workblock.getStartTime());
+				wo.setEndTime(workblock.getEndTime());
+
+			}
 		}
+
 	}
-		
-}
 
 	public String wieIsErOpTijd() {
 		return "Weet ik niet maar in iederig geval Diederik wel";
@@ -77,7 +77,15 @@ public class WorkingDay {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+        return "WorkingDay{" +
+        		"name='" + name + '\'' +
+        		 "workBlocks='" + workBlocks + '\'' +
+                '}';
+    }
+
+	@Override
+	public int compareTo(WorkingDay w) {
+		return this.name.compareTo(w.getName());
 	}
+
 }
