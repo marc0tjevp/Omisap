@@ -50,7 +50,6 @@ public class MYSQLDAOTeacher extends MySQLDAOConnection implements IDAOTeacher {
 	public void create(Teacher teacher) {
 		Session session = factory.openSession();
 		Transaction tx = null;
-		Integer teacherEmployeeNumber = null;
 		try{
 			tx = session.beginTransaction();
 			String sql = "INSERT INTO person (email) VALUES (:email);";
