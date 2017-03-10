@@ -12,17 +12,16 @@
 	</jsp:attribute>
 	<jsp:attribute name="content">
 	
-	<div class = "row">
-		<div class ="col col-md-6">
-			<h1>Nieuwe notitie aanmaken</h1>
-		</div>
-	</div>
-    
 
 <!-- note imput -->	
 <div class="container kader">
 	<div class = "row">
 		<div class = "col col-md-6 border">
+			<div class = "row">
+				<div class = "col-md-12">
+				<h2>Nieuwe notitie aanmaken</h2>
+				</div>
+			</div>
 			<div class = "row">
 			<div class = "col col-md-12">
 				<h5>Door:</h5> <input class = "input" type="text" name="inputDate" placeholder="Docent"><br>
@@ -50,10 +49,10 @@
 				
 				</div>
 				<div class = "col col-md-3">
-				<button class = "button" type="button" data-toggle="modal" data-target="#myModal">Aanmaken</button>
+				<button class = "button1" type="button" data-toggle="modal" data-target="#myModal">Aanmaken</button>
 				</div>
 				<div class = "col col-md-3">
-				<button class = "button" type="button" name="cancel" data-toggle="modal" data-target="#myModal">Annuleren</button>
+				<button class = "button1" type="button" name="cancel" data-toggle="modal" data-target="#myModal">Annuleren</button>
 				</div>
 				
 			</div>
