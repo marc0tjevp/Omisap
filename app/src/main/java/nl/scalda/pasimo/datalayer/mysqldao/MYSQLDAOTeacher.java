@@ -1,11 +1,10 @@
 package nl.scalda.pasimo.datalayer.mysqldao;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.TreeSet;
 
-import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -31,10 +30,13 @@ public class MYSQLDAOTeacher extends MySQLDAOConnection implements IDAOTeacher {
 		}
 		MYSQLDAOTeacher MT = new MYSQLDAOTeacher();
 		
-		Teacher t1 = new Teacher("henkie", 123456, "henkie@email.com");
-		Teacher t2 = new Teacher("klaase", 654321, "klaase@email.com");
-		MT.create(t1);
-		MT.create(t2);
+//		Teacher t1 = new Teacher("henkie", 123456, "henkie@email.com");
+//		Teacher t2 = new Teacher("klaase", 654321, "klaase@email.com");
+//		MT.create(t1);
+//		MT.create(t2);
+		
+		TreeSet<Teacher> allTeachers = MT.readAll();
+		System.out.println(allTeachers.toString());
 		
 //		MT.listTeachers();
 //		
@@ -86,14 +88,38 @@ public class MYSQLDAOTeacher extends MySQLDAOConnection implements IDAOTeacher {
 
 	@Override
 	public TreeSet<Teacher> readAll() {
-		//openConn();
-		//TODO
 		Session session = factory.openSession();
 		Transaction tx = null;
+		TreeSet<Teacher> teachers = new TreeSet<>();
 		try {
 		   tx = session.beginTransaction();
-		   // do some work
-		   
+		   List teachersList = session.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email;").getResultList();
+		   for(Iterator iterator = teachersList.iterator();iterator.hasNext();){
+			   /*
+			    * obj[0] = teacher.employeeNumber
+			    * obj[1] = teacher.abbreviation
+			    * obj[2] = teacher.person_email
+			    * obj[3] = coach_group.coachGroupID
+			    * obj[4] = person.email
+			    * obj[5] = person.cardID
+			    * obj[6] = person.firstName
+			    * obj[7] = person.insertion
+			    * obj[8] = person.lastName
+			    * obj[9] = person.dateOfBirth
+			    */
+			   Object[] obj = (Object[]) iterator.next();
+//			   System.out.println(obj[0]);
+//			   System.out.println(obj[1]);
+//			   System.out.println(obj[2]);
+//			   System.out.println(obj[4]);
+//			   System.out.println("----------------------------");
+			   Teacher teacher = new Teacher(String.valueOf(obj[1]), Integer.parseInt(String.valueOf(obj[0])), String.valueOf(obj[2]));
+//			   System.out.println(teacher.getAbbreviation());
+//			   System.out.println(teacher.getEmail());
+//			   System.out.println(teacher.getEmployeeNumber());
+//			   System.out.println("___________________________");
+			   teachers.add(teacher);
+		   }
 		   tx.commit();
 		}
 		catch (Exception e) {
@@ -103,7 +129,7 @@ public class MYSQLDAOTeacher extends MySQLDAOConnection implements IDAOTeacher {
 		   session.close();
 		}
 		
-		return null;
+		return teachers;
 	}
 
 	@Override
