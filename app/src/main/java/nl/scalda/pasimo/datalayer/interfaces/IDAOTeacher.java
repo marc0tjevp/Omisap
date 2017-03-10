@@ -15,7 +15,7 @@ public interface IDAOTeacher {
 
     public TreeSet<Teacher> readAll();
 
-    public Teacher readByEmployeeNumber(int id);
+    public Teacher readByEmployeeNumber(int employeeNumber);
 
     public TreeSet<Teacher> readAllForEducationTeam(EducationTeam t);
 

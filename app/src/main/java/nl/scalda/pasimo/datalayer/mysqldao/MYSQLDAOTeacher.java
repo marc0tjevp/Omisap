@@ -31,17 +31,19 @@ public class MYSQLDAOTeacher extends MySQLDAOConnection implements IDAOTeacher {
 		}
 		MYSQLDAOTeacher MT = new MYSQLDAOTeacher();
 		
-		Teacher t1 = new Teacher("henkie", 123456, "henkie@email.com");
+//		Teacher t1 = new Teacher("henkie", 123456, "henkie@email.com");
 //		Teacher t2 = new Teacher("klaase", 654321, "klaase@email.com");
 //		MT.create(t1);
 //		MT.create(t2);
 		
+//		Teacher t3 = MT.readByEmployeeNumber(123456);
+//		System.out.println(MT.readByEmployeeNumber(123456));
+//		System.out.println(t3.getEmail());
+		
 //		TreeSet<Teacher> allTeachers = MT.readAll();
 //		System.out.println(allTeachers.toString());
-		
-//		MT.updateTeacher();
 //		
-		MT.delete(t1);
+//		MT.delete(t1);
 		
 	}
 
@@ -143,9 +145,37 @@ public class MYSQLDAOTeacher extends MySQLDAOConnection implements IDAOTeacher {
 	}
 
 	@Override
-	public Teacher readByEmployeeNumber(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Teacher readByEmployeeNumber(int employeeNumber) {
+		Session session = factory.openSession();
+		Transaction tx = null;
+		Teacher teacher = null;
+		try{
+			tx = session.beginTransaction();
+			/*
+			 * obj[0] = teacher.employeeNumber
+			 * obj[1] = teacher.abbreviation
+			 * obj[2] = teacher.person_email
+			 * obj[3] = coach_group.coachGroupID
+			 * obj[4] = person.email
+			 * obj[5] = person.cardID
+			 * obj[6] = person.firstName
+			 * obj[7] = person.insertion
+			 * obj[8] = person.lastName
+			 * obj[9] = person.dateOfBirth
+			 */
+			Object[] obj = (Object[]) session
+					.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email WHERE employeeNumber=:employeeNumber")
+					.setParameter("employeeNumber", employeeNumber).getSingleResult();
+			teacher = new Teacher(String.valueOf(obj[1]), Integer.parseInt(String.valueOf(obj[0])), String.valueOf(obj[2]));
+			tx.commit();
+		}
+		catch (Exception e) {
+		   if (tx!=null) tx.rollback();
+		   e.printStackTrace(); 
+		}finally {
+		   session.close();
+		}
+		return teacher;
 	}
 
 	@Override
