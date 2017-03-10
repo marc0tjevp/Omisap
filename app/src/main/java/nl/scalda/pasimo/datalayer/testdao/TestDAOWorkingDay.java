@@ -8,26 +8,33 @@ import nl.scalda.pasimo.model.timeregistration.WorkingDay;
 
 public class TestDAOWorkingDay implements IDAOWorkingDay {
 
-	private Set <WorkingDay> workingdays;
-	
-	public TestDAOWorkingDay(){
+	private Set<WorkingDay> workingdays;
+
+	public TestDAOWorkingDay() {
 		this.workingdays = new TreeSet<WorkingDay>();
-		
+
 		this.workingdays.add(new WorkingDay("Maandag"));
-		
+
 	}
-	
-	
+
 	@Override
 	public void read(String name) {
-		for(WorkingDay workingday : this.workingdays){
-			if(workingday.getName() == (name)){
-						}
-		
+		for (WorkingDay workingday : this.workingdays) {
+			if (workingday.getName() == (name)) {
+			}
 
-			
 		}
-		
+
+	}
+
+	private static TestDAOWorkingDay instance;
+
+	public static TestDAOWorkingDay getInstance() {
+		if (instance == null) {
+			instance = new TestDAOWorkingDay();
+
+		}
+		return instance;
 	}
 
 }
