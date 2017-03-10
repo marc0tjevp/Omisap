@@ -7,11 +7,25 @@ package nl.scalda.pasimo.model.timeregistration;
 
 /**
  *
- * @author hunteroooox
+ * @author Diederik
  */
 public class WorkingDay {
+	
+	public String name;
+	
+	public WorkingDay(String name){
+		this.name = name;
+	}
     
     public String wieIsErOpTijd(){
-        return "Weet ik niet maar in iederig geval Jeroen wel";
+        return "Weet ik niet maar in iederig geval Diederik wel";
     }
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }

@@ -6,12 +6,11 @@ public class WorkBlock {
 	public String startTime;
 	public String endTime;
 
-	
-	public WorkBlock(){
-		
+	public WorkBlock() {
+
 	}
-	
-	public WorkBlock(int id, String startTime, String endTime){
+
+	public WorkBlock(int id, String startTime, String endTime) {
 		this.startTime = startTime;
 		this.endTime = endTime;
 	}

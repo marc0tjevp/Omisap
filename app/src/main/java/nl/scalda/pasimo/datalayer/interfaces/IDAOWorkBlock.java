@@ -6,10 +6,13 @@ import nl.scalda.pasimo.model.timeregistration.WorkBlock;
 
 public interface IDAOWorkBlock {
 
-	
-	public void updateWorkBlock(WorkBlock workBlock);
-		
+	public void update(WorkBlock workBlock);
+
+	public void add(WorkBlock workBlock);
+
+	public void delete(WorkBlock workBlock);
+
 	public WorkBlock read(int id);
-	
-	public Set <WorkBlock> readAll();
+
+	public Set<WorkBlock> readAll();
 }
