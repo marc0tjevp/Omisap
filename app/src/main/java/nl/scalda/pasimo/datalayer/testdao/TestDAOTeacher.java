@@ -20,9 +20,9 @@ public class TestDAOTeacher implements IDAOTeacher {
 	}
 
 	@Override
-	public Teacher readByAbbr(String employeeNumber) {
+	public Teacher readByAbbr(String abbreviation) {
 		for (Teacher ca : teachers) {
-			if (ca.getAbbreviation().equals(employeeNumber)) {
+			if (ca.getAbbreviation().equals(abbreviation)) {
 				return ca;
 			}
 		}
