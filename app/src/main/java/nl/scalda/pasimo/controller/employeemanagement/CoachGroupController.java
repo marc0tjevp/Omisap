@@ -16,79 +16,100 @@ import nl.scalda.pasimo.test.CoachGroupList;
 public class CoachGroupController extends ActionSupport {
 
 	public String name;
-    public Teacher teacher;
-    public EducationTeam educationTeam;
+	public Teacher teacher;
+	public EducationTeam educationTeam;
 	CoachGroup coach = new CoachGroup();
-	public TreeSet<CoachGroup>coachGroup = new TreeSet<>();
-	
-	
+	public TreeSet<CoachGroup> coachGroup = new TreeSet<>();
+
 	public String execute() {
 		this.readCoachGroup();
 		return SUCCESS;
 	}
-	public String readCoachGroup(){
+
+	public String readCoachGroup() {
 		getCoachGroup();
 		return SUCCESS;
 	}
 
-    public String addCoachGroup() {
-    	CoachGroupList.getInstance().addCoachGroup(coach);
-      	coachGroup.add(coach);
-    	TestDAOCoachGroup.getInstance().create(coach);
-        return SUCCESS;
-    }
+	public String addCoachGroup() {
+		TreeSet<Integer> count = new TreeSet<>();
+		int id = 0;
+		for (CoachGroup cg : CoachGroupList.getInstance().getCoachgroups()) {
+			count.add(cg.getId());
+		}
+		while (true) {
+			if (!count.contains(id)) {
+				break;
+			}
+			id++;
+		}
+		coach.setId(id);
+		
+		CoachGroupList.getInstance().addCoachGroup(coach);
+		coachGroup.add(coach);
+		TestDAOCoachGroup.getInstance().create(coach);
+		return SUCCESS;
+	}
 
-    public String updateCoachGroup() {
-    	for(CoachGroup cg : CoachGroupList.getInstance().getCoachgroups()){
-    		if(cg.getId() == coach.getId()){
-    			cg.setLessonGroups(coach.getLessonGroups());
-    			cg.setName(coach.getName());
-    			cg.setTeacher(coach.getTeacher());
-    		
-    			
-    		}
-    		
-    	}
-        return SUCCESS;
-    }
+	public String updateCoachGroup() {
+		for (CoachGroup cg : CoachGroupList.getInstance().getCoachgroups()) {
+			if (cg.getId() == coach.getId()) {
+				cg.setLessonGroups(coach.getLessonGroups());
+				cg.setName(coach.getName());
+				cg.setTeacher(coach.getTeacher());
 
-    public String deleteCoachGroup() {
-    	CoachGroupList.getInstance().removeCoachGroup(coach);
-    	coachGroup.remove(coach);
-    	TestDAOCoachGroup.getInstance().delete(coach);
-    	
-        return SUCCESS;
-    }
+			}
+
+		}
+		return SUCCESS;
+	}
+
+	public String deleteCoachGroup() {
+		CoachGroupList.getInstance().removeCoachGroup(coach);
+		coachGroup.remove(coach);
+		TestDAOCoachGroup.getInstance().delete(coach);
+
+		return SUCCESS;
+	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public Teacher getTeacher() {
 		return teacher;
 	}
+
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
 	}
+
 	public EducationTeam getEducationTeam() {
 		return educationTeam;
 	}
+
 	public void setEducationTeam(EducationTeam educationTeam) {
 		this.educationTeam = educationTeam;
 	}
+
 	public CoachGroup getCoach() {
 		return coach;
 	}
+
 	public void setCoach(CoachGroup coach) {
 		this.coach = coach;
 	}
+
 	public TreeSet<CoachGroup> getCoachGroup() {
 		return coachGroup;
 	}
+
 	public void setCoachGroup(TreeSet<CoachGroup> coachGroup) {
 		this.coachGroup = coachGroup;
 	}
-
 
 }
