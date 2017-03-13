@@ -6,6 +6,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import nl.scalda.pasimo.test.lessonGroupList;
 
 public class LessonGroupController extends ActionSupport {
 	
@@ -20,13 +21,14 @@ public class LessonGroupController extends ActionSupport {
     public String readLessonGroups() {
     	lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
     	
+    	
     	return SUCCESS;
     }
     
-    public String addLessonGroup() {
-    
-    
-    	return SUCCESS;
+    public String addLessonGroup(LessonGroup lg) {
+   lessonGroupList.getInstance().addLessonGroup(lg);
+   
+    return SUCCESS;
     }
 
     public String saveLessonGroup() {
@@ -42,5 +44,6 @@ public class LessonGroupController extends ActionSupport {
 	public void setLessonGroups(TreeSet<LessonGroup> lessonGroups) {
 		this.lessonGroups = lessonGroups;
 	}
-    
+
+	LessonGroup i4 = new LessonGroup("TestLessonGroup");
 }
