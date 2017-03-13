@@ -21,7 +21,7 @@
             <result name="success">/view/employeemanagement/lessongroup/index.jsp</result>
         </action>
         <action name="lessongroup/details" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
-                method="execute">
+                method="readLessonGroups">
             <result name="success">/view/employeemanagement/lessongroup/details.jsp</result>
         </action>
         

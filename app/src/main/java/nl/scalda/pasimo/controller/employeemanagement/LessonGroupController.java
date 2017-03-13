@@ -1,11 +1,11 @@
 package nl.scalda.pasimo.controller.employeemanagement;
 
+import java.util.TreeSet;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
-
-import java.util.TreeSet;
 
 public class LessonGroupController extends ActionSupport {
 	
@@ -13,21 +13,19 @@ public class LessonGroupController extends ActionSupport {
 
     public String execute() {
     	this.readLessonGroups();
-    	TestDAOLessonGroup.getInstance().getLessongroups();
         
-    	
     	return SUCCESS;
     }
     
     public String readLessonGroups() {
-    	
+    	lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
     	
     	return SUCCESS;
     }
     
-    public String addLessonGroup() 
+    public String addLessonGroup() {
     
-    {
+    
     	return SUCCESS;
     }
 
@@ -36,5 +34,13 @@ public class LessonGroupController extends ActionSupport {
     	
         return SUCCESS;
     }
+
+	public TreeSet<LessonGroup> getLessonGroups() {
+		return lessonGroups;
+	}
+
+	public void setLessonGroups(TreeSet<LessonGroup> lessonGroups) {
+		this.lessonGroups = lessonGroups;
+	}
     
 }
