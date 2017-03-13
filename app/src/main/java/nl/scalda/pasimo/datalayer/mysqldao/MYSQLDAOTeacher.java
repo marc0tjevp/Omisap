@@ -11,7 +11,6 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.NativeQuery;
 
-import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Person;
@@ -173,7 +172,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		}
 		return teacher;
 	}
-
+	
 	@Override
 	public TreeSet<Teacher> readAllForEducationTeam(EducationTeam t) {
 		Session session = factory.openSession();
@@ -211,10 +210,9 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		}finally {
 		   session.close();
 		}
-		
 		return teachers;
 	}
-
+	
 	@Override
 	public Teacher readByAbbr(String abbreviation) {
 		Session session = factory.openSession();
