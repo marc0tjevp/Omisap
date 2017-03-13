@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.interfaces;
+package nl.scalda.pasimo.datalayer.interfaces;
 
 import nl.scalda.pasimo.model.employeemanagement.Note;
 

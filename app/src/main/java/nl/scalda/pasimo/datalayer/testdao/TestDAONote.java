@@ -2,7 +2,7 @@ package nl.scalda.pasimo.datalayer.testdao;
 
 import java.util.TreeSet;
 
-import nl.scalda.pasimo.interfaces.IDAONote;
+import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
