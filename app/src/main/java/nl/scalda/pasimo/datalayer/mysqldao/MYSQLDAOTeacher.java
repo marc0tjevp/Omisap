@@ -35,7 +35,8 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		//session.update(teacher);
 //		MT.create(t1);
 //		MT.create(t2);
-		MT.update(t1);
+		//MT.update(t1);
+					
 		
 //		System.out.println(MT.readByAbbr("klaase"));
 		
@@ -86,10 +87,8 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		Transaction tx = null;
 		try{
 			tx = session.beginTransaction();
-			//String sql1 = "SET foreign_key_checks = 0; UPDATE teacher SET person_email = :email, employeeNumber = :employeeNumber ,abbreviation = :abbreviation;SET foreign_key_checks = 0;";
 			NativeQuery query1 = session.createNativeQuery("SET foreign_key_checks = 0;");
 			NativeQuery query2 = session.createNativeQuery("UPDATE teacher SET person_email = :email, employeeNumber = :employeeNumber ,abbreviation = :abbreviation where employeeNumber = :employeeNumber ;");
-//			NativeQuery query2 = session.createNativeQuery("UPDATE teacher SET person_email = 'a@j.nl', employeeNumber = '12234' ,abbreviation = 'kkaaka' where employeeNumber = 1234 ;");
 			NativeQuery query3 = session.createNativeQuery("SET foreign_key_checks = 1;");
 			query1.executeUpdate();
 			//query2.setParameter("oldEmployeeNumber", t.getEmployeeNumber());
@@ -134,7 +133,8 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		TreeSet<Teacher> teachers = new TreeSet<>();
 		try {
 		   tx = session.beginTransaction();
-		   List teachersList = session.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email;").getResultList();
+		   List teachersList = session.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email INNER JOIN teacher_education_team ON teacher_education_team.teacher_employeeNumber = teacher.employeeNumber ;")
+				   .getResultList();
 		   for(Iterator iterator = teachersList.iterator();iterator.hasNext();){
 			   /*
 			    * obj[0] = teacher.employeeNumber
@@ -193,7 +193,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			 * obj[9] = person.dateOfBirth
 			 */
 			Object[] obj = (Object[]) session
-					.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email WHERE employeeNumber=:employeeNumber")
+					.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email INNER JOIN teacher_education_team ON teacher_education_team.teacher_employeeNumber = teacher.employeeNumber WHERE employeeNumber=:employeeNumber")
 					.setParameter("employeeNumber", employeeNumber).getSingleResult();
 			teacher = new Teacher(String.valueOf(obj[1]), Integer.parseInt(String.valueOf(obj[0])), String.valueOf(obj[2]));
 			tx.commit();
@@ -214,7 +214,9 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		TreeSet<Teacher> teachers = new TreeSet<>();
 		try {
 		   tx = session.beginTransaction();
-		   List teachersList = session.createNativeQuery("SELECT * FROM teacher_education_team INNER JOIN teacher ON teacher_employeeNumber = teacher.employeeNumber INNER JOIN person ON teacher.person_email = person.email WHERE education_team_id=:educationTeamID ;").setParameter("educationTeamID", t.getId()).getResultList();
+		   List teachersList = session.createNativeQuery("SELECT * FROM teacher_education_team INNER JOIN teacher ON teacher_employeeNumber = teacher.employeeNumber INNER JOIN person ON teacher.person_email = person.email WHERE education_team_id=:educationTeamID ;")
+				   .setParameter("educationTeamID", t.getId())
+				   .getResultList();
 		   for(Iterator iterator = teachersList.iterator();iterator.hasNext();){
 			   /*
 			    * obj[0] = teacher_education_team.teacher_employeeNumber
@@ -275,7 +277,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			 * obj[9] = person.dateOfBirth
 			 */
 			Object[] obj = (Object[]) session
-					.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email WHERE abbreviation=:abbreviation")
+					.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email INNER JOIN teacher_education_team ON teacher_education_team.teacher_employeeNumber = teacher.employeeNumber WHERE abbreviation=:abbreviation")
 					.setParameter("abbreviation", abbreviation).getSingleResult();
 			teacher = new Teacher(String.valueOf(obj[1]), Integer.parseInt(String.valueOf(obj[0])), String.valueOf(obj[2]));
 			tx.commit();
