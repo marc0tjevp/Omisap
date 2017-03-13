@@ -20,38 +20,16 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 public class MYSQLDAOTeacher implements IDAOTeacher {
 	
 	private static SessionFactory factory;
+	private static MYSQLDAOTeacher instance = null;
 	
-	public static void main(String[] args) {
+	
+	public static void initialiseFactory() {
 		try{
 			factory = new Configuration().configure().buildSessionFactory();
 		} catch(Throwable ex) {
 			System.err.println("Failed to create sessionFactory object." + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
-		MYSQLDAOTeacher MT = new MYSQLDAOTeacher();
-		
-		Teacher t1 = new Teacher("henkie", 1211, "henkie@email.com");
-		Teacher t2 = new Teacher("klaase", 654321, "klaase@email.com");
-		//session.update(teacher);
-//		MT.create(t1);
-//		MT.create(t2);
-		//MT.update(t1);
-					
-		
-//		System.out.println(MT.readByAbbr("klaase"));
-		
-//		Teacher t3 = MT.readByEmployeeNumber(123456);
-//		System.out.println(MT.readByEmployeeNumber(123456));
-//		System.out.println(t3.getEmail());
-		
-//		EducationTeam et = new EducationTeam(0);
-//		System.out.println(MT.readAllForEducationTeam(et));
-		
-//		TreeSet<Teacher> allTeachers = MT.readAll();
-//		System.out.println(allTeachers.toString());
-//		
-//		MT.delete(t1);
-		
 	}
 
 	@Override
@@ -82,7 +60,6 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 
 	@Override
 	public void update(Teacher t) {
-		// TODO Auto-generated method stub
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try{
@@ -91,7 +68,6 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			NativeQuery query2 = session.createNativeQuery("UPDATE teacher SET person_email = :email, employeeNumber = :employeeNumber ,abbreviation = :abbreviation where employeeNumber = :employeeNumber ;");
 			NativeQuery query3 = session.createNativeQuery("SET foreign_key_checks = 1;");
 			query1.executeUpdate();
-			//query2.setParameter("oldEmployeeNumber", t.getEmployeeNumber());
 			query2.setParameter("employeeNumber", t.getEmployeeNumber());
 			query2.setParameter("email", t.getEmail());
 			query2.setParameter("abbreviation", t.getAbbreviation());
@@ -149,16 +125,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			    * obj[9] = person.dateOfBirth
 			    */
 			   Object[] obj = (Object[]) iterator.next();
-//			   System.out.println(obj[0]);
-//			   System.out.println(obj[1]);
-//			   System.out.println(obj[2]);
-//			   System.out.println(obj[4]);
-//			   System.out.println("----------------------------");
 			   Teacher teacher = new Teacher(String.valueOf(obj[1]), Integer.parseInt(String.valueOf(obj[0])), String.valueOf(obj[2]));
-//			   System.out.println(teacher.getAbbreviation());
-//			   System.out.println(teacher.getEmail());
-//			   System.out.println(teacher.getEmployeeNumber());
-//			   System.out.println("___________________________");
 			   teachers.add(teacher);
 		   }
 		   tx.commit();
@@ -233,16 +200,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			    * obj[11] = person.dateOfBirth
 			    */
 			   Object[] obj = (Object[]) iterator.next();
-//			   System.out.println(obj[0]);
-//			   System.out.println(obj[1]);
-//			   System.out.println(obj[2]);
-//			   System.out.println(obj[4]);
-//			   System.out.println("----------------------------");
 			   Teacher teacher = new Teacher(String.valueOf(obj[1]), Integer.parseInt(String.valueOf(obj[0])), String.valueOf(obj[2]));
-//			   System.out.println(teacher.getAbbreviation());
-//			   System.out.println(teacher.getEmail());
-//			   System.out.println(teacher.getEmployeeNumber());
-//			   System.out.println("___________________________");
 			   teachers.add(teacher);
 		   }
 		   tx.commit();
@@ -290,5 +248,13 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		}
 		return teacher;
 	}
+	
+	public static MYSQLDAOTeacher getInstance() {
+        if (instance == null) {
+            instance = new MYSQLDAOTeacher();
+            initialiseFactory();
+        }
+        return instance;
+    }
 	
 }
