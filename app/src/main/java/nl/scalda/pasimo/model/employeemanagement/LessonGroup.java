@@ -145,14 +145,14 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	}
 
     /**
-     * Sorts the lesson groups on alphabetic order when adding a lesson group to a TreeSet
+     * Sorts the lesson groups on numeric order when adding a lesson group to a TreeSet
      *
      * @param lessonGroup The {@link LessonGroup} to sort
      * @return ..
      */
     @Override
     public int compareTo(LessonGroup lessonGroup) {
-        return this.name.compareTo(lessonGroup.getName());
+    	return Integer.compare(this.id, lessonGroup.getId());
     }
 
 }
