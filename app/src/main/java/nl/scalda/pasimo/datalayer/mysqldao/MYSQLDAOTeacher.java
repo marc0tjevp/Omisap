@@ -11,14 +11,13 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.NativeQuery;
 
-import nl.scalda.pasimo.datalayer.factory.MySQLDAOConnection;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Person;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
-public class MYSQLDAOTeacher extends MySQLDAOConnection implements IDAOTeacher {
+public class MYSQLDAOTeacher implements IDAOTeacher {
 	
 	private static SessionFactory factory;
 	
@@ -37,6 +36,8 @@ public class MYSQLDAOTeacher extends MySQLDAOConnection implements IDAOTeacher {
 //		MT.create(t1);
 //		MT.create(t2);
 		MT.update(t1);
+		
+//		System.out.println(MT.readByAbbr("klaase"));
 		
 //		Teacher t3 = MT.readByEmployeeNumber(123456);
 //		System.out.println(MT.readByEmployeeNumber(123456));
@@ -210,9 +211,37 @@ public class MYSQLDAOTeacher extends MySQLDAOConnection implements IDAOTeacher {
 	}
 
 	@Override
-	public Teacher readByAbbr(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Teacher readByAbbr(String abbreviation) {
+		Session session = factory.openSession();
+		Transaction tx = null;
+		Teacher teacher = null;
+		try{
+			tx = session.beginTransaction();
+			/*
+			 * obj[0] = teacher.employeeNumber
+			 * obj[1] = teacher.abbreviation
+			 * obj[2] = teacher.person_email
+			 * obj[3] = coach_group.coachGroupID
+			 * obj[4] = person.email
+			 * obj[5] = person.cardID
+			 * obj[6] = person.firstName
+			 * obj[7] = person.insertion
+			 * obj[8] = person.lastName
+			 * obj[9] = person.dateOfBirth
+			 */
+			Object[] obj = (Object[]) session
+					.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email WHERE abbreviation=:abbreviation")
+					.setParameter("abbreviation", abbreviation).getSingleResult();
+			teacher = new Teacher(String.valueOf(obj[1]), Integer.parseInt(String.valueOf(obj[0])), String.valueOf(obj[2]));
+			tx.commit();
+		}
+		catch (Exception e) {
+		   if (tx!=null) tx.rollback();
+		   e.printStackTrace(); 
+		}finally {
+		   session.close();
+		}
+		return teacher;
 	}
 	
 }

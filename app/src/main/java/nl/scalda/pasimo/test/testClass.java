@@ -1,7 +1,6 @@
 package nl.scalda.pasimo.test;
 import java.text.ParseException;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.MySQLDAOConnection;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
