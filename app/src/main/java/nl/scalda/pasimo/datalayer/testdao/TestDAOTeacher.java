@@ -14,15 +14,15 @@ public class TestDAOTeacher implements IDAOTeacher {
 	private TestDAOTeacher() {}
 
 	@Override
-	public void delete(Teacher t, EducationTeam team) {
+	public void delete(Teacher t) {
 		teachers.remove(t);
 
 	}
 
 	@Override
-	public Teacher readByAbbr(String id) {
+	public Teacher readByAbbr(String employeeNumber) {
 		for (Teacher ca : teachers) {
-			if (ca.getAbbreviation().equals(id)) {
+			if (ca.getAbbreviation().equals(employeeNumber)) {
 				return ca;
 			}
 		}

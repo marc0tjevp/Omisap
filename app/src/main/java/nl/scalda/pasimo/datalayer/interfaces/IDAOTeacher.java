@@ -11,11 +11,11 @@ public interface IDAOTeacher {
 
     public void update(Teacher t);
 
-    public void delete(Teacher t, EducationTeam team);
+    public void delete(Teacher t);
 
     public TreeSet<Teacher> readAll();
 
-    public Teacher readByEmployeeNumber(int id);
+    public Teacher readByEmployeeNumber(int employeeNumber);
 
     public TreeSet<Teacher> readAllForEducationTeam(EducationTeam t);
 
