@@ -20,7 +20,7 @@ public class TestDAOFactory extends DAOFactory {
     private TestDAOFactory() {
 
     }
-
+    
     @Override
     public ITeamDAO getTeamDAO() {
         return TestTeamDAO.getInstance();
@@ -57,5 +57,4 @@ public class TestDAOFactory extends DAOFactory {
         }
         return instance;
     }
-
 }
