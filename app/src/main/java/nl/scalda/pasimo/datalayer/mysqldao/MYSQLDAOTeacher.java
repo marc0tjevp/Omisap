@@ -41,6 +41,9 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 //		System.out.println(MT.readByEmployeeNumber(123456));
 //		System.out.println(t3.getEmail());
 		
+//		EducationTeam et = new EducationTeam(0);
+//		System.out.println(MT.readAllForEducationTeam(et));
+		
 //		TreeSet<Teacher> allTeachers = MT.readAll();
 //		System.out.println(allTeachers.toString());
 //		
@@ -181,8 +184,50 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 
 	@Override
 	public TreeSet<Teacher> readAllForEducationTeam(EducationTeam t) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = factory.openSession();
+		Transaction tx = null;
+		TreeSet<Teacher> teachers = new TreeSet<>();
+		try {
+		   tx = session.beginTransaction();
+		   List teachersList = session.createNativeQuery("SELECT * FROM teacher_education_team INNER JOIN teacher ON teacher_employeeNumber = teacher.employeeNumber INNER JOIN person ON teacher.person_email = person.email WHERE education_team_id=:educationTeamID ;").setParameter("educationTeamID", t.getId()).getResultList();
+		   for(Iterator iterator = teachersList.iterator();iterator.hasNext();){
+			   /*
+			    * obj[0] = teacher_education_team.teacher_employeeNumber
+			    * obj[1] = teacher_education_team.education_team_id
+			    * obj[2] = teacher.employeeNumber
+			    * obj[3] = teacher.abbreviation
+			    * obj[4] = teacher.person_email
+			    * obj[5] = coach_group.coachGroupID
+			    * obj[6] = person.email
+			    * obj[7] = person.cardID
+			    * obj[8] = person.firstName
+			    * obj[9] = person.insertion
+			    * obj[10] = person.lastName
+			    * obj[11] = person.dateOfBirth
+			    */
+			   Object[] obj = (Object[]) iterator.next();
+//			   System.out.println(obj[0]);
+//			   System.out.println(obj[1]);
+//			   System.out.println(obj[2]);
+//			   System.out.println(obj[4]);
+//			   System.out.println("----------------------------");
+			   Teacher teacher = new Teacher(String.valueOf(obj[1]), Integer.parseInt(String.valueOf(obj[0])), String.valueOf(obj[2]));
+//			   System.out.println(teacher.getAbbreviation());
+//			   System.out.println(teacher.getEmail());
+//			   System.out.println(teacher.getEmployeeNumber());
+//			   System.out.println("___________________________");
+			   teachers.add(teacher);
+		   }
+		   tx.commit();
+		}
+		catch (Exception e) {
+		   if (tx!=null) tx.rollback();
+		   e.printStackTrace(); 
+		}finally {
+		   session.close();
+		}
+		
+		return teachers;
 	}
 
 	@Override

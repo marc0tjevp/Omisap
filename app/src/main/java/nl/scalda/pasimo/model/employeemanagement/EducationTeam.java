@@ -18,6 +18,11 @@ public class EducationTeam implements Comparable<EducationTeam>{
      * Name of the EducationTeam; e.g. Applicatie Ontwikkelaar
      */
     private String name;
+    /**
+     * 
+     * Id of the EducationTeam
+     */
+    private int id;
 
     public void addTeacher(Teacher t){
 		if (teachers.add(t)) {
@@ -52,8 +57,18 @@ public class EducationTeam implements Comparable<EducationTeam>{
 	public TreeSet<Teacher> getTeachers() {
 		 return teachers;
 	}
+	
+	public EducationTeam(int id) {
+    	this.setId(id);
+    }
 
     public EducationTeam(String abbreviation, String name) {
+        this.abbreviation = abbreviation;
+        this.name = name;
+    }
+    
+    public EducationTeam(String abbreviation, String name, int id) {
+    	this.setId(id);
         this.abbreviation = abbreviation;
         this.name = name;
     }
@@ -77,6 +92,14 @@ public class EducationTeam implements Comparable<EducationTeam>{
     public void setName(String name) {
         this.name = name;
     }
+    
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
     //</editor-fold>
 
@@ -92,4 +115,5 @@ public class EducationTeam implements Comparable<EducationTeam>{
                 ", name='" + name + '\'' +
                 '}';
     }
+
 }
