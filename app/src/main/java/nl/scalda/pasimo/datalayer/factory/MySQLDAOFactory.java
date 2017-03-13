@@ -23,7 +23,7 @@ public class MySQLDAOFactory extends DAOFactory {
         return instance;
     }
 
-//methodes
+//methods
 
     @Override
     public ITeamDAO getTeamDAO() {
