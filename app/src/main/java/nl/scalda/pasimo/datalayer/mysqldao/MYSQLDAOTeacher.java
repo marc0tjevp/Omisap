@@ -30,10 +30,12 @@ public class MYSQLDAOTeacher extends MySQLDAOConnection implements IDAOTeacher {
 		}
 		MYSQLDAOTeacher MT = new MYSQLDAOTeacher();
 		
-//		Teacher t1 = new Teacher("henkie", 123456, "henkie@email.com");
-//		Teacher t2 = new Teacher("klaase", 654321, "klaase@email.com");
+		Teacher t1 = new Teacher("henkie", 123456, "henkie@email.com");
+		Teacher t2 = new Teacher("klaase", 654321, "klaase@email.com");
+		//session.update(teacher);
 //		MT.create(t1);
 //		MT.create(t2);
+		MT.update(t1);
 		
 		TreeSet<Teacher> allTeachers = MT.readAll();
 		System.out.println(allTeachers.toString());
@@ -75,8 +77,29 @@ public class MYSQLDAOTeacher extends MySQLDAOConnection implements IDAOTeacher {
 	}
 
 	@Override
-	public void update(Teacher t, EducationTeam team) {
+	public void update(Teacher t) {
 		// TODO Auto-generated method stub
+		Session session = factory.openSession();
+		Transaction tx = null;
+		try{
+			tx = session.beginTransaction();
+			String sql1 = "SET foreign_key_checks = 0; UPDATE teacher SET person_email = :email, employeeNumber = :employeeNumber ,abbreviation = :abbreviation;SET foreign_key_checks = 0;";
+			NativeQuery query1 = session.createNativeQuery("SET foreign_key_checks = 0;");
+			NativeQuery query2 = session.createNativeQuery("UPDATE teacher SET person_email = :email, employeeNumber = :employeeNumber ,abbreviation = :abbreviation;");
+			NativeQuery query3 = session.createNativeQuery("SET foreign_key_checks = 1;");
+			query1.executeUpdate();
+			query2.executeUpdate();
+			query2.setParameter("email", "t@t.nl");
+			query2.setParameter("employeeNumber", "111");
+			query2.setParameter("abbreviation", "111");
+			query3.executeUpdate();
+			tx.commit();
+		} catch(HibernateException e) {
+			if(tx!=null) tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
 		
 	}
 

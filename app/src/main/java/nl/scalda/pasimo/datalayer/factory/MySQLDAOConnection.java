@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
+
 /**
  * <p>
  * A Data access object for the connection to the database</p>
@@ -98,4 +100,9 @@ public class MySQLDAOConnection {
     private void setConn(Connection conn) {
         this.conn = conn;
     }
+
+	public void update(Teacher t) {
+		// TODO Auto-generated method stub
+		
+	}
 }

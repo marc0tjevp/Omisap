@@ -9,7 +9,7 @@ public interface IDAOTeacher {
 	
     public void create(Teacher teacher);
 
-    public void update(Teacher t, EducationTeam team);
+    public void update(Teacher t);
 
     public void delete(Teacher t, EducationTeam team);
 
