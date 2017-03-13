@@ -14,12 +14,12 @@ public class TestDAOTeacher implements IDAOTeacher {
 	private TestDAOTeacher() {}
 
 	@Override
-	public void create(Teacher t, EducationTeam team) {
+	public void create(Teacher t) {
 		teachers.add(t);
 	}
 
 	@Override
-	public void update(Teacher t, EducationTeam team) {
+	public void update(Teacher t) {
 		for(Teacher ca : teachers){
 			if(ca.getEmployeeNumber() == t.getEmployeeNumber()){
 				ca.setCardID(t.getCardID());
@@ -34,7 +34,7 @@ public class TestDAOTeacher implements IDAOTeacher {
 	}
 
 	@Override
-	public void delete(Teacher t, EducationTeam team) {
+	public void delete(Teacher t) {
 		teachers.remove(t);
 
 	}
