@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nl.scalda.pasimo.interfaces;
+package nl.scalda.pasimo.datalayer.interfaces;
 
 import java.util.TreeSet;
 

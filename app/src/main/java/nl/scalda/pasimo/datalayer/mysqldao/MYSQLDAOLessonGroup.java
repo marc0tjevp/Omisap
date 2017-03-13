@@ -5,7 +5,7 @@
  */
 package nl.scalda.pasimo.datalayer.mysqldao;
 
-import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
 /**
