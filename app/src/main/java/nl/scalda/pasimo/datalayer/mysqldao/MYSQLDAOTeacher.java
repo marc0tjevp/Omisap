@@ -31,7 +31,7 @@ public class MYSQLDAOTeacher extends MySQLDAOConnection implements IDAOTeacher {
 		}
 		MYSQLDAOTeacher MT = new MYSQLDAOTeacher();
 		
-		Teacher t1 = new Teacher("henkie", 123456, "henkie@email.com");
+		Teacher t1 = new Teacher("henkie", 1211, "henkie@email.com");
 		Teacher t2 = new Teacher("klaase", 654321, "klaase@email.com");
 		//session.update(teacher);
 //		MT.create(t1);
@@ -82,15 +82,17 @@ public class MYSQLDAOTeacher extends MySQLDAOConnection implements IDAOTeacher {
 		Transaction tx = null;
 		try{
 			tx = session.beginTransaction();
-			String sql1 = "SET foreign_key_checks = 0; UPDATE teacher SET person_email = :email, employeeNumber = :employeeNumber ,abbreviation = :abbreviation;SET foreign_key_checks = 0;";
+			//String sql1 = "SET foreign_key_checks = 0; UPDATE teacher SET person_email = :email, employeeNumber = :employeeNumber ,abbreviation = :abbreviation;SET foreign_key_checks = 0;";
 			NativeQuery query1 = session.createNativeQuery("SET foreign_key_checks = 0;");
-			NativeQuery query2 = session.createNativeQuery("UPDATE teacher SET person_email = :email, employeeNumber = :employeeNumber ,abbreviation = :abbreviation;");
+			NativeQuery query2 = session.createNativeQuery("UPDATE teacher SET person_email = :email, employeeNumber = :employeeNumber ,abbreviation = :abbreviation where employeeNumber = :employeeNumber ;");
+//			NativeQuery query2 = session.createNativeQuery("UPDATE teacher SET person_email = 'a@j.nl', employeeNumber = '12234' ,abbreviation = 'kkaaka' where employeeNumber = 1234 ;");
 			NativeQuery query3 = session.createNativeQuery("SET foreign_key_checks = 1;");
 			query1.executeUpdate();
+			//query2.setParameter("oldEmployeeNumber", t.getEmployeeNumber());
+			query2.setParameter("employeeNumber", t.getEmployeeNumber());
+			query2.setParameter("email", t.getEmail());
+			query2.setParameter("abbreviation", t.getAbbreviation());
 			query2.executeUpdate();
-			query2.setParameter("email", "t@t.nl");
-			query2.setParameter("employeeNumber", "111");
-			query2.setParameter("abbreviation", "111");
 			query3.executeUpdate();
 			tx.commit();
 		} catch(HibernateException e) {
