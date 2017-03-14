@@ -54,9 +54,9 @@ public class CoachGroupController extends ActionSupport {
 	public String updateCoachGroup() {
 		for (CoachGroup cg : CoachGroupList.getInstance().getCoachgroups()) {
 			if (cg.getId() == coach.getId()) {
-				cg.setLessonGroups(coach.getLessonGroups());
 				cg.setName(coach.getName());
 				cg.setTeacher(coach.getTeacher());
+				cg.setCurrentEducationTeam(coach.getCurrentEducationTeam());
 
 			}
 

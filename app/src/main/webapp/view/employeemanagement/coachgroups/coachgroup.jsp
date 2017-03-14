@@ -97,6 +97,10 @@
                 	$(e.currentTarget).find('input[name="bookId"]').val();
                     
                 });
+                
+                $('.form-control')
+                .dropdown();
+               
 
             });
             
@@ -202,6 +206,7 @@
                  aria-labelledby="coachGroupEditModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
+                    <form id="updateCoachGroup" action="updateCoachGroup" role="form" method="post">
                         <div class="modal-header">
                             <h5 class="modal-title" id="coachGroupEditModalLabel">Coach groep wijzigen</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -209,12 +214,24 @@
                             </button>
                         </div>
                       <div class="modal-body">
-                            <form class="editCoachGroupForm" role="form" action="/notifications/subscribe/" method="post">
+                            
                                 <div class="form-group">
                                     <label for="coachGroupName-input" class="col-2 col-form-label">Naam</label>
                                     <div class="col-10">
                                         <input class="form-control" type="text" value="" id="coachGroupName-input">
                                     </div>
+                                    <label for="coachGroupTeacherName-input" class="col-2 col-form-label">EducationTeam</label>
+                                    <div class="col-10">
+                                        <select class="form-control"   id="coachGroupTeacherName-input">
+                                        <option>ICO41A</option>
+     									<option>ICO41B</option>
+      									<option>ICO41C</option>
+      									<option>ICO41D</option>
+      									<option>ICO41E</option>
+                                    </select>
+                                     
+                                </div>
+                                  
                                     <label for="coachGroupTeacherName-input" class="col-2 col-form-label">Teacher</label>
                                     <div class="col-10">
                                         <select class="form-control"   id="coachGroupTeacherName-input">
@@ -227,12 +244,14 @@
                                      
                                 </div>
                                 </div>
-                            </form>
+                           
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
-                            <button  type="submit" class="btn btn-danger">Wijzigen</button>
+                            <input type="submit" value= "Wijzigen" class="btn btn-danger">
+                           
                         </div>
+                         </form>
                     </div>
                 </div>
             </div>	
