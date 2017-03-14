@@ -15,9 +15,10 @@
       <div class="container">
 	      <div class="col-sm-12">
 	                        <div class="div-inline">
-                     <button class="btn btn-primary">Add</button>
-                     <button class="btn btn-primary">Edit</button>
-                     <button class="btn btn-primary">Delete</button>
+                     <button class="btn btn-primary">Aanmaken</button>
+                     
+                     <button class="btn btn-primary">Aanpassen</button>
+                     <button class="btn btn-danger">Verwijder</button>
                   </div>
 	      		  <div class="dropdown div-inline">
                      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Klas
@@ -61,6 +62,12 @@
                   <tr>
                      <td>10:25	12:05</td>
                      <td>
+	                     <div class="well">
+	                     </div>
+                     </td>
+ <td>
+ </td>
+                                          <td>
 	                     <div class="well">
 	                     </div>
                      </td>
