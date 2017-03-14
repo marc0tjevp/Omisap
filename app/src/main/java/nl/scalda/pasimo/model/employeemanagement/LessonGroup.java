@@ -35,7 +35,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
 
     public void updateStudent(Student s) {
         for (Student cs : this.students) {
-            if (cs.getName().equals(s.getName())) {
+            if (cs.getFirstName().equals(s.getFirstName())) {
                 cs.setLastName(s.getLastName());
                 cs.setEmail(s.getEmail());
                 cs.setCardID(s.getCardID());
