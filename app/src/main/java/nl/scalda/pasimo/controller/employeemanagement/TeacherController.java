@@ -7,6 +7,9 @@ import java.util.TreeSet;
 import org.apache.commons.io.FileUtils;
 
 import com.opensymphony.xwork2.ActionSupport;
+
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.test.EducationTeamList;
@@ -163,7 +166,8 @@ public class TeacherController extends ActionSupport {
 	}
 
 	public TreeSet<Teacher> getTeachers() {
-		teachers.addAll(TeacherList.getInstance().getTeachers());
+		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+		teachers.addAll(DAOFactory.getTheFactory().getDAOTeacher().readAll());
 		return teachers;
 	}
 
