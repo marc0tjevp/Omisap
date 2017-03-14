@@ -9,12 +9,12 @@
     <jsp:attribute name="scripts">
         <script>
         $(document).ready(function () {
-            $("#selectAllCoachGroups").on('click', function () {
+            $("#selectAllLessonGroups").on('click', function () {
                 if (this.checked) {
                     // Iterate each checkbox
                     $(':checkbox').each(function () {
                         this.checked = true;
-                        $(this).addClass("selectedCoachGroup");
+                        $(this).addClass("selectedLessonGroup");
                         $("#deleteButton").removeAttr("disabled");
                         
                       
@@ -23,7 +23,7 @@
                 else {
                     $(':checkbox').each(function () {
                         this.checked = false;
-                        $(this).removeClass("selectedCoachGroup");
+                        $(this).removeClass("selectedLessonGroup");
                         $("#deleteButton").attr("disabled", true);
                         
         
@@ -31,22 +31,35 @@
                 }
             });
 
-            $(".coach-groups-table tbody td input[type=\"checkbox\"]").change(function () {
+            
+            
+            
+            
+            var closestTr = [];
+            $(".lesson-groups-table tbody td input[type=\"checkbox\"]").change(function () {
                 if (this.checked) {
-                    $(this).addClass("selectedCoachGroup");
+                    $(this).addClass("selectedLessonGroup");
                 } else {
-                    $(this).removeClass("selectedCoachGroup");
+                    $(this).removeClass("selectedLessonGroup");
                 }
 
+                closestTr = [];
+                
+                $(':checkbox').each(function () {
+                if(this.checked){
+                	closestTr = closestTr + $(this).closest('tr').attr('id');
+                	console.log(closestTr);
+                }
+                });
 
-                var selectedCoachGroup = $(".selectedCoachGroup").length;
-                if (selectedCoachGroup == 0) {
+                var selectedLessonGroup = $(".selectedLessonGroup").length;
+                if (selectedLessonGroup == 0) {
                     $("#deleteButton").attr("disabled", true);
                     
                   
                 }
 
-                if (selectedCoachGroup >= 1) {
+                if (selectedLessonGroup >= 1) {
                     $("#deleteButton").removeAttr("disabled");
                     
                    
@@ -61,81 +74,87 @@
 
         <div class="container" style="width: 85%;">
 
-            <h1>Leerlingen in ICO41A</h1>
-            <div class="coachGroupButtons">
+            <h1>Lesson Groups in ICO41A</h1>
+            <div class="lessonGroupButtons">
                 <button class="btn btn-primary" type="button" id="addButton" data-toggle="modal"
-                        data-target="#coachGroupAddModal">Toevoegen
+                        data-target="#lessonGroupAddModal">Toevoegen
                 </button>
                 <button class="btn btn-danger" id="deleteButton" type="button" data-toggle="modal"
-                        data-target="#coachGroupDeleteModal" disabled>Verwijderen
+                        data-target="#lessonGroupDeleteModal" disabled>Verwijderen
                 </button>
             </div>
 
             <!-- Modal for adding an lesson group -->
-            <div class="modal fade" id="coachGroupAddModal" tabindex="-1" role="dialog"
-                 aria-labelledby="coachGroupAddModalLabel" aria-hidden="true">
+            <div class="modal fade" id="lessonGroupAddModal" tabindex="-1" role="dialog"
+                 aria-labelledby="lessonGroupAddModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="coachGroupAddModalLabel">Student toevoegen</h5>
+                            <h5 class="modal-title" id="lessonGroupAddModalLabel">LessonGroup toevoegen</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+                          <form action="addLessonGroup"class="addLessonGroupForm" role="form">
+                        
                         <div class="modal-body">
-                            <form class="addCoachGroupForm" role="form">
-                                <div class="form-group">
-                                    <label for="coachGroupName-input" class="col-2 col-form-label">Naam</label>
+                                                          <div class="form-group">
+                                    <label for="lessonGroupName-input" class="col-2 col-form-label">Name</label>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" value="" id="Voornaam">                                    
-		                            </div>
-		                            	<label for="coachGroupName-input" class="col-2 col-form-label">Achternaam</label>
-		                            <div class=col-10 >
-		                           		<input class="form-control" type="text" value="" id="Achternaam">
-		                            </div>
+                                        <select class="form-control"   id="LessonGroupName-input">
+                                        <option>Bram</option>
+     									<option>Rens</option>
+      									<option>Gino</option>
+      									<option>Max</option>
+      									<option>Piet</option>
+                                    </select>
+                                    </div>
                                 </div>
-                            </form>
+                            
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
-                            <button type="button" class="btn btn-primary">Toevoegen</button>
+                            <button type="button" class="btn btn-primary" >Toevoegen</button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
 
-            <!-- Modal for deleting an student from coachgroup -->
-            <div class="modal fade" id="coachGroupDeleteModal" tabindex="-1" role="dialog"
-                 aria-labelledby="coachGroupDeleteModalLabel" aria-hidden="true">
+            <!-- Modal for deleting an lessonGroup from  a coachgroup -->
+            <div class="modal fade" id="lessonGroupDeleteModal" tabindex="-1" role="dialog"
+                 aria-labelledby="lessonGroupDeleteModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="coachGroupDeleteModalLabel">Student verwijderen from Coachgroup</h5>
+                            <h5 class="modal-title" id="coachGroupDeleteModalLabel">LessonGroup verwijderen from Coachgroup</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+                         <form action="addLessonGroup"class="addLessonGroupForm" role="form">
                         <div class="modal-body">
-                            <p>Weet u zeker dat u student 1234 wilt verwijderen?</p>
+                            <p>Weet u zeker dat u Lesson Group 1234 wilt verwijderen van CoachGroup?</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
                             <button type="button" class="btn btn-danger">Verwijderen</button>
                         </div>
+                       </form>
                     </div>
                 </div>
             </div>	
 
-            <table class="table coach-groups-table table-responsive">
+            <table class="table lesson-groups-table table-responsive">
                 <thead>
                     <tr>
                         <th>
                             <label>
-                                <input id="selectAllCoachGroups" type="checkbox">
+                                <input id="selectAllLessonGroups" type="checkbox">
                             </label>
                         </th>
-                        <th>Leerling Nummer</th>
-                        <th>Leerling Naam</th>
+                        <th>LessonGroup Name</th>
+                        <th>Aantal studenten</th>
                         
                     </tr>
 
@@ -144,14 +163,12 @@
                     <tr>
                         <td>
                             <label>
-                                 <input id="selectedCoachGroup" type="checkbox">
+                                 <input id="selectedLessonGroup" type="checkbox">
                             </label>
                         </td>
 
                         <td>1234</td>
-                        <td>Leerling naam	</td>
-                       
-                        <td><a href='moet nog komen'> Notities</a></td>
+                        <td>24</td>
                 
                         
                         
@@ -160,67 +177,66 @@
                     <tr>
                         <td>
                             <label>
-                                 <input id="selectedCoachGroup" type="checkbox">
+                                 <input id="selectedLessonGroup" type="checkbox">
                             </label>
                         </td>
 							
 						<td>1234</td>	
-                        <td>Leerling naam	</td>
+                        <td>24</td>
                         
-                        <td><a href='moet nog komen'> Notities</a></td>
+                       
                     </tr>
 
                     <tr>
                         <td>
                             <label>
-                                 <input id="selectedCoachGroup" type="checkbox">
+                                 <input id="selectedLessonGroup" type="checkbox">
                             </label>
                         </td>
 
 						<td>1234</td>
-                        <td>Leerling naam	</td>
+                        <td>24</td>
                         
-                        <td><a href='moet nog komen'> Notities</a></td>
+                        
                         
                     </tr>
 
                     <tr>
                         <td>
                             <label>
-                                 <input id="selectedCoachGroup" type="checkbox">
+                                 <input id="selectedLessonGroup" type="checkbox">
                             </label>
                         </td>
 						<td>1234</td>
-                        <td>Leerling naam	</td>
+                        <td>24</td>
                         
-                        <td><a href='moet nog komen'> Notities</a></td>
+                        
                     </tr>
 
                     <tr>
                         <td>
                             <label>
-                                 <input id="selectedCoachGroup" type="checkbox">
+                                 <input id="selectedLessonGroup" type="checkbox">
                             </label>
                         </td>
 
                         <td>1234</td>
                         <td>Leerling naam	</td>
                         
-                        <td><a href='moet nog komen'> Notities</a></td>
+                       
                     </tr>
 
 
                     <tr>
                         <td>
                             <label>
-                                 <input id="selectedCoachGroup" type="checkbox">
+                                 <input id="selectedLessonGroup" type="checkbox">
                             </label>
                         </td>
 
                         <td>1234</td>
-                        <td>Leerling naam	</td>
+                        <td>24</td>
                         
-                        <td><a href='moet nog komen'> Notities</a></td>
                     </tr>
                 </tbody>
             </table>
