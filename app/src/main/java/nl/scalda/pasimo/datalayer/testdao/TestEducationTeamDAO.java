@@ -7,6 +7,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class TestEducationTeamDAO implements IEducationTeamDAO {
+	
+	private static TestEducationTeamDAO instance = null;
 
     private Set<EducationTeam> educationTeams;
 
@@ -81,13 +83,11 @@ public class TestEducationTeamDAO implements IEducationTeamDAO {
     // --------------------------------------------------
     // Singleton
 
-    private static TestEducationTeamDAO instance;
-
-    public static TestEducationTeamDAO getInstance()
-    {
-        if (instance == null)
-            instance = new TestEducationTeamDAO();
-        return instance;
-    }
+    public static TestEducationTeamDAO getInstance() {
+		if(instance == null){
+			instance = new TestEducationTeamDAO();
+		}
+		return instance;
+	}
 
 }

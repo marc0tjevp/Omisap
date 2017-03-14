@@ -1,8 +1,10 @@
 package nl.scalda.pasimo.datalayer;
 
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
 import nl.scalda.pasimo.interfaces.IDAOCoachGroup;
+import nl.scalda.pasimo.interfaces.IDAOEducationTeam;
 import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
 
 import nl.scalda.pasimo.interfaces.IDAONote;
@@ -45,5 +47,11 @@ public class MySQLDAOFactory extends DAOFactory {
 	public IDAOTeacher getDAOTeacher() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public IDAOEducationTeam getDAOEducationTeam() {
+		// TODO Auto-generated method stub
+		return MYSQLDAOEducationTeam.getInstance();
 	}
 }
