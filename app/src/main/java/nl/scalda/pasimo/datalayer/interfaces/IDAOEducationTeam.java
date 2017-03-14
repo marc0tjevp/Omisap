@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.datalayer.interfaces;
 
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 import java.util.Set;
 
@@ -43,5 +44,7 @@ public interface IDAOEducationTeam {
      * @return - Whether that EducationTeam exists.
      */
     boolean exist(String abbr);
+    
+    void addTeacherToEducationTeam(Teacher teacher, EducationTeam educationTeam);
 
 }

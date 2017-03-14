@@ -88,6 +88,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		Transaction tx = null;
 		try{
 			tx = session.beginTransaction();
+			session.createNativeQuery("DELETE FROM teacher_education_team WHERE teacher_employeeNumber = :employeeNumber").setParameter("employeeNumber", t.getEmployeeNumber()).executeUpdate();
 			session.delete(t);
 			Person p = new Person(t.getEmail());
 			session.delete(p);
@@ -98,7 +99,6 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		} finally {
 			session.close();
 		}
-		
 	}
 
 	@Override
@@ -245,6 +245,27 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		   session.close();
 		}
 		return teacher;
+	}
+	
+	public EducationTeam getCurrentEducationTeamOfTeacher(Teacher teacher) {
+		Session session = factory.openSession();
+		Transaction tx = null;
+		EducationTeam educationTeam = null;
+		try{
+			tx = session.beginTransaction();
+			Object[] obj = (Object[]) session
+					.createNativeQuery("SELECT * FROM education_team WHERE educationTeamID = (SELECT education_team_id FROM teacher_education_team WHERE teacher_employeeNumber = 123456)")
+					.getSingleResult();
+			educationTeam = new EducationTeam(Integer.parseInt(String.valueOf(obj[0])));
+			tx.commit();
+		}
+		catch (Exception e) {
+		   if (tx!=null) tx.rollback();
+		   e.printStackTrace(); 
+		}finally {
+		   session.close();
+		}
+		return educationTeam;
 	}
 	
 	public static MYSQLDAOTeacher getInstance() {

@@ -75,4 +75,10 @@ public class TestDAOTeacher implements IDAOTeacher {
 		return null;
 	}
 
+	@Override
+	public EducationTeam getCurrentEducationTeamOfTeacher(Teacher teacher) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

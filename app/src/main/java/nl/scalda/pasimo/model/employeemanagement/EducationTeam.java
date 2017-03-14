@@ -26,7 +26,7 @@ public class EducationTeam implements Comparable<EducationTeam>{
 
     public void addTeacher(Teacher t){
 		if (teachers.add(t)) {
-			//DAOFactory.getTheFactory().getDAOTeacher().create(t, this);
+			DAOFactory.getTheFactory().getEducationTeamDAO().addTeacherToEducationTeam(t, this);
 		}
 		
 	}

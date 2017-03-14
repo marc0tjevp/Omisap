@@ -42,8 +42,7 @@
 		</action>
 		<action name="addTeacher" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="addTeacher">
-			<result name="success"  type="redirect">teacherOverview</result>
-			<result name="input">/view/employeemanagement/teacher/teacherOverview.jsp</result>
+			<result name="success" type="redirect">teacherOverview</result>
 		</action>
 		<action name="editTeacherPage" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="loadTeacherInfo">

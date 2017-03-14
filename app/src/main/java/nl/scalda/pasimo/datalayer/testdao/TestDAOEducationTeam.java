@@ -2,6 +2,7 @@ package nl.scalda.pasimo.datalayer.testdao;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 import java.util.Set;
 import java.util.TreeSet;
@@ -89,5 +90,11 @@ public class TestDAOEducationTeam implements IDAOEducationTeam {
             instance = new TestDAOEducationTeam();
         return instance;
     }
+
+	@Override
+	public void addTeacherToEducationTeam(Teacher teacher, EducationTeam educationTeam) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
