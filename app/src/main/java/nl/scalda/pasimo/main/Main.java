@@ -18,17 +18,19 @@ public class Main {
     public static void main(String args[]) {
 
 
-   Student edgelord = new Student(420, 420, 420, 420, "ditiseenemail", "edgelord2", "edgelord3", "edgelord4", 420, 420, 420, 420, 420);
-	System.out.println(edgelord);
-	
-    	try {
-			TestDAOStudent.getInstance().addtodatabase(edgelord);
-			System.out.println(edgelord);
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		}
+ Student edgelord = new Student(51125, 69, 666, 1234, "nee", "johan", "archibald klasdf sadfsad fasdfsaaus johan", "goudvis", 1567, 6969, 666, 89, 69 );
+//    	try {
+//			TestDAOStudent.getInstance().addtodatabase(edgelord);
+//		} catch (SQLException e) {
+//
+//			e.printStackTrace();
+//		}
     
+    	
+    	System.out.println(edgelord.getCoachGroupID());
+    	
+   edgelord.editCardID(edgelord, 2592);
+   System.out.println(edgelord.getCardID());
     }
 
 }

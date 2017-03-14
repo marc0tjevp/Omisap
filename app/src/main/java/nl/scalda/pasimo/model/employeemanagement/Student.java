@@ -33,14 +33,6 @@ public class Student extends Person {
     	this.monthOfBirth = monthOfBirth;
 		this.dayOfBirth = dayOfBirth;
 	}
-
-	public void editEmail(Student s, String email) {
-  		s.setEmail(email);
-  	}
-
-      public void editCardID(Student s, int cardID){
-      	s.cardID = cardID;
-      }
       
       public boolean deleteStudent(Student s){
       	s = null;

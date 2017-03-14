@@ -5,6 +5,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.TreeSet;
 import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.exceptions.MySQLDataException;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
+
 import nl.scalda.pasimo.datalayer.DAOFactory;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOStudent;
 import nl.scalda.pasimo.model.employeemanagement.Student;
@@ -53,8 +56,8 @@ public class TestDAOStudent implements IDAOStudent {
 	 
 	 java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/StudentDAO", "root", "skullcandy1" ); 
 	 statement = conn.createStatement();
-	 
-	 statement.executeUpdate("INSERT INTO student " + "VALUES (" + studentOV + "," + coachGroupID + "," + lessonGroupID + "," + cohort + "," + email + "," + firstName + "," + insertion + "," + lastName + "," + cardID + "," + yearOfBirth  + "," + noteListID + "," + monthOfBirth +"," + dayOfBirth + ");");
+
+	 statement.executeUpdate("INSERT INTO `studentdao`.`student` (`studentOV`, `coachgroupID`, `lessongroupID`, `cohort`, `email`, `firstname`, `insertion`, `lastname`, `cardID`, `yearofbirth`, `notelistID`, `monthofbirth`, `dayofbirth`) VALUES ('" + studentOV + "','" + coachGroupID + "','" + lessonGroupID + "','" + cohort + "', '" + email + "','" + firstName + "','" + insertion + "','" + lastName + "','" + cardID + "','" + yearOfBirth  + "','" + noteListID + "','" + monthOfBirth +"','" + dayOfBirth + "');");
 	 
 	}
 	
