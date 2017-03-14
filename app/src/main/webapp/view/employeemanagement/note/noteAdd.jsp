@@ -22,9 +22,18 @@
 				<h2>Nieuwe notitie aanmaken</h2>
 				</div>
 			</div>
-			<div class = "row">
-			<div class = "col col-md-12">
-				<h5>Door:</h5> <input class = "input" type="text" name="inputDate" placeholder="Docent"><br>
+			<div class="row">
+			<div class="col col-md-12">
+				<div class="form-group">
+  					<label for="sel1"><h5>Gemaakt door docent:</h5></label>
+  					<select name="note.teacher" class="form-control" id="sel1">
+   					 <option value="SCHOMX">Max</option>
+   					 <!--<option>Rens</option> -->
+  					 <!--<option>Bram</option> -->
+    				<!--<option>Gino</option> -->
+ 					 </select>
+				</div>
+				
 			</div>
 			</div>
 	
@@ -52,7 +61,7 @@
 				<button class = "button1" type="button" data-toggle="modal" data-target="#myModal">Aanmaken</button>
 				</div>
 				<div class = "col col-md-3">
-				<button class = "button1" type="button" name="cancel" data-toggle="modal" data-target="#myModal">Annuleren</button>
+				<button class = "button1" type="button"><a href="">Annuleren</a></button>
 				</div>
 				
 			</div>

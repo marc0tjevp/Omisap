@@ -37,7 +37,6 @@
 		</div>
 	</div>
 		
-		<!-- arraylist terug krijgen van controller, doorheenloopen in een div met c for each -->
 		
 	</jsp:attribute>
 </t:layout2>

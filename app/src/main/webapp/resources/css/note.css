@@ -13,6 +13,11 @@
 	width: 100%;
 }
 
+.form-group {
+	width: 90%;
+}
+
+
 .input {
 	width: 90%;
 }
@@ -22,6 +27,10 @@
 	background-color: #3c8dbc;
 	padding: 5px;
 	margin: 1px;
+}
+
+.button1 a {
+	color: black;
 }
 
 .note {
