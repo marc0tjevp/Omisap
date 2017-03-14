@@ -45,5 +45,4 @@ public class LessonGroupController extends ActionSupport {
 		this.lessonGroups = lessonGroups;
 	}
 
-	LessonGroup i4 = new LessonGroup("TestLessonGroup");
 }

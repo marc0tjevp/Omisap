@@ -16,6 +16,10 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
         LessonGroup l2 = new LessonGroup("ICO42A");
         LessonGroup l3 = new LessonGroup("ICO41A");
         
+        lessongroups.add(l1);
+        lessongroups.add(l2);
+        lessongroups.add(l3);
+        
 
     }
 
@@ -66,5 +70,13 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
     public void delete(LessonGroup lessonGroup) {
         this.lessongroups.remove(lessonGroup);
     }
+
+	public static void setInstance(TestDAOLessonGroup instance) {
+		TestDAOLessonGroup.instance = instance;
+	}
+
+	public void setLessongroups(TreeSet<LessonGroup> lessongroups) {
+		this.lessongroups = lessongroups;
+	}
 
 }
