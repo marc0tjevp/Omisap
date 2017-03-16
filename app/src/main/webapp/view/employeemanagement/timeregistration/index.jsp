@@ -14,11 +14,114 @@
       <h1>Time Registration</h1>
       <div class="container">
 	      <div class="col-sm-12">
-	                        <div class="div-inline">
-                     <button class="btn btn-primary">Aanmaken</button>
+	                      <div class="div-inline">
+                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
+  Aanmaken
+</button>
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;
+        </span></button>
+              <h4 class="modal-title" id="myModalLabel">Schooltijden aanmaken</h4>
+      </div>
+      <div class="modal-body">
+       <div class="btn-group">
+       
+       <!-- TODO via struts tijden kiezen in de dropdown -->
+       
+	      		  <div class="dropdown div-inline">
+                     <button class="btn btn-classic dropdown-toggle" type="button" data-toggle="dropdown">Start time
+                     <span class="caret"></span></button>
+                     <ul class="dropdown-menu">
+                        <li><a href="#">Tijd</a></li>
+                        <li><a href="#">Tijd</a></li>
+                     </ul>
+                  </div>
+</div>
+<!-- TODO via struts tijden kiezen in de dropdown -->
+	      		  <div class="dropdown div-inline">
+                     <button class="btn btn-classic dropdown-toggle" type="button" data-toggle="dropdown">End time
+                     <span class="caret"></span></button>
+                     <ul class="dropdown-menu">
+                        <li><a href="#">Tijd</a></li>
+                        <li><a href="#">Tijd</a></li>
+                     </ul>
+                  </div>
+</div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success ">Toevoegen</button>
+      </div>
+     
+    </div>
+  </div>
+		</div>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Aanpassen
+</button>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;
+        </span></button>
+              <h4 class="modal-title" id="myModalLabel">Schooltijden aanpassen</h4>
+      </div>
+      <div class="modal-body">
+       <div class="btn-group">
+       
+       <!-- TODO via struts tijden kiezen in de dropdown -->
+       
+	      		  <div class="dropdown div-inline">
+                     <button class="btn btn-classic dropdown-toggle" type="button" data-toggle="dropdown">Start time
+                     <span class="caret"></span></button>
+                     <ul class="dropdown-menu">
+                        <li><a href="#">Tijd</a></li>
+                        <li><a href="#">Tijd</a></li>
+                     </ul>
+                  </div>
+</div>
+<!-- TODO via struts tijden kiezen in de dropdown -->
+	      		  <div class="dropdown div-inline">
+                     <button class="btn btn-classic dropdown-toggle" type="button" data-toggle="dropdown">End time
+                     <span class="caret"></span></button>
+                     <ul class="dropdown-menu">
+                        <li><a href="#">Tijd</a></li>
+                        <li><a href="#">Tijd</a></li>
+                     </ul>
+                  </div>
+</div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success ">Toevoegen</button>
+      </div>
+    </div>
+    </div>
+    </div>
+    
+                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2">
+ Verwijder
+</button>
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Verwijder een WorkBlock</h4>
+      </div>
+      <div class="modal-body">
+        Weet je zeker dat je zeker dat je dit les block wilt verwijderen?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-succes">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
                      
-                     <button class="btn btn-primary">Aanpassen</button>
-                     <button class="btn btn-danger">Verwijder</button>
                   </div>
 	      		  <div class="dropdown div-inline">
                      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Klas
@@ -37,6 +140,7 @@
                      </ul>
                   </div>
 	      </div>
+
       
          <div class="row">
             <div class="col-sm-12">
