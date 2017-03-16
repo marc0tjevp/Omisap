@@ -2,43 +2,44 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 public class Student extends Person {
 
-    private int noteListID;
-    private int lessonGroupID;
-    private int cardID;
-    private String firstName;
-    private String insertion;
-    private String lastName;
-    private String email;
-    private int cohort;
-    private int coachGroupID;
-    private int studentOV;
-    private int yearOfBirth;
-    private int monthOfBirth;
-    private int dayOfBirth;
-    
+	private int noteListID;
+	private int lessonGroupID;
+	private int cardID;
+	private String firstName;
+	private String insertion;
+	private String lastName;
+	private String email;
+	private int cohort;
+	private int coachGroupID;
+	private int studentOV;
+	private int yearOfBirth;
+	private int monthOfBirth;
+	private int dayOfBirth;
 
-    public Student(int studentOV, int coachGroupID, int lessonGroupID,  int cohort, String email, String firstName, String insertion, String lastName, int cardID, int yearOfBirth, int noteListID, int monthOfBirth, int dayOfBirth) {
-    	super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
-    	this.studentOV = studentOV;
-    	this.coachGroupID = coachGroupID;
-    	this.lessonGroupID = lessonGroupID;
-    	this.cohort = cohort;
+	public Student(int studentOV, int coachGroupID, int lessonGroupID, int cohort, String email, String firstName,
+			String insertion, String lastName, int cardID, int yearOfBirth, int noteListID, int monthOfBirth,
+			int dayOfBirth) {
+		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
+		this.studentOV = studentOV;
+		this.coachGroupID = coachGroupID;
+		this.lessonGroupID = lessonGroupID;
+		this.cohort = cohort;
 		this.email = email;
 		this.firstName = firstName;
 		this.insertion = insertion;
 		this.lastName = lastName;
 		this.cardID = cardID;
 		this.yearOfBirth = yearOfBirth;
-    	this.noteListID = noteListID;
-    	this.monthOfBirth = monthOfBirth;
+		this.noteListID = noteListID;
+		this.monthOfBirth = monthOfBirth;
 		this.dayOfBirth = dayOfBirth;
 	}
-      
-      public boolean deleteStudent(Student s){
-      	s = null;
-      	return true;
-      }
-      
+
+	public boolean deleteStudent(Student s) {
+		s = null;
+		return true;
+	}
+
 	public int getNoteListID() {
 		return noteListID;
 	}
@@ -62,7 +63,7 @@ public class Student extends Person {
 	public void setCardID(int cardID) {
 		this.cardID = cardID;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -142,17 +143,22 @@ public class Student extends Person {
 	public void setDayOfBirth(int dayOfBirth) {
 		this.dayOfBirth = dayOfBirth;
 	}
+	
+	@Override
+	public String compareTo(){
+		
+	}
 
 	@Override
 	public String toString() {
-		return "Student [noteListID=" + noteListID + ", lessonGroupID=" + lessonGroupID + ", cardID=" + cardID + ", firstName=" + firstName + ", insertion=" + insertion + ", lastName="
-				+ lastName + ", email=" + email + ", cohort=" + cohort + ", coachGroupID=" + coachGroupID
-				+ ", studentOV=" + studentOV + ", yearOfBirth=" + yearOfBirth + ", monthOfBirth=" + monthOfBirth
-				+ ", dayOfBirth=" + dayOfBirth + "]";
+		return "Student [noteListID=" + noteListID + ", lessonGroupID=" + lessonGroupID + ", cardID=" + cardID
+				+ ", firstName=" + firstName + ", insertion=" + insertion + ", lastName=" + lastName + ", email="
+				+ email + ", cohort=" + cohort + ", coachGroupID=" + coachGroupID + ", studentOV=" + studentOV
+				+ ", yearOfBirth=" + yearOfBirth + ", monthOfBirth=" + monthOfBirth + ", dayOfBirth=" + dayOfBirth
+				+ "]";
 	}
 
+	
+	
 
-
-    
-    
 }

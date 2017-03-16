@@ -8,26 +8,26 @@ import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
 
 public abstract class DAOFactory {
 
-    protected static DAOFactory theFactory;
+	protected static DAOFactory theFactory;
 
-    public static DAOFactory getTheFactory() {
-        return theFactory;
-    }
+	public static DAOFactory getTheFactory() {
+		return theFactory;
+	}
 
-    public static void setTheFactory(DAOFactory factory) {
-        theFactory = factory;
-    }
-    
-//methods
+	public static void setTheFactory(DAOFactory factory) {
+		theFactory = factory;
+	}
 
-    public abstract IDAOCoachGroup getDAOCoachGroup();
+	// methods
 
-    public abstract IDAONote getDAONote();
-    
-    public abstract IDAOTeacher getDAOTeacher();
+	public abstract IDAOCoachGroup getDAOCoachGroup();
 
-    public abstract IDAOLessonGroup getDAOLessonGroup();
-    
-    public abstract IDAOStudent getDAOStudent();
+	public abstract IDAONote getDAONote();
+
+	public abstract IDAOTeacher getDAOTeacher();
+
+	public abstract IDAOLessonGroup getDAOLessonGroup();
+
+	public abstract IDAOStudent getDAOStudent();
 
 }

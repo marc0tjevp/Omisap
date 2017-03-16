@@ -8,36 +8,35 @@ import nl.scalda.pasimo.model.employeemanagement.Team;
 
 public class TestTeamDAO implements ITeamDAO {
 
-    private Set<Team> teams;
+	private Set<Team> teams;
 
-    private TestTeamDAO() {
-        this.teams = new TreeSet<Team>();
+	private TestTeamDAO() {
+		this.teams = new TreeSet<Team>();
 
-        this.teams.add(new Team("ICT", "Informatie- Communicatie Technologie"));
+		this.teams.add(new Team("ICT", "Informatie- Communicatie Technologie"));
 
-    }
+	}
 
-    @Override
-    public Team read(String abbreviation) {
+	@Override
+	public Team read(String abbreviation) {
 
-        for (Team team : this.teams) {
-            if (team.getAbbreviation().equals(abbreviation))
-                return team;
-        }
+		for (Team team : this.teams) {
+			if (team.getAbbreviation().equals(abbreviation))
+				return team;
+		}
 
-        return null;
-    }
+		return null;
+	}
 
-    // --------------------------------------------------
-    // Singleton
+	// --------------------------------------------------
+	// Singleton
 
-    private static TestTeamDAO instance;
+	private static TestTeamDAO instance;
 
-    public static TestTeamDAO getInstance()
-    {
-        if (instance == null)
-            instance = new TestTeamDAO();
-        return instance;
-    }
+	public static TestTeamDAO getInstance() {
+		if (instance == null)
+			instance = new TestTeamDAO();
+		return instance;
+	}
 
 }
