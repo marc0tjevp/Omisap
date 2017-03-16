@@ -14,6 +14,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
     private Teacher teacher;
     private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
     private EducationTeam currentEducationTeam;
+    private int CoachGroupNumber;
 
     public CoachGroup() {
     }
@@ -52,9 +53,19 @@ public class CoachGroup implements Comparable<CoachGroup> {
             eachLessonGroup.setName(lessonGroup.getName());
             eachLessonGroup.setStudents(lessonGroup.getStudents());
         }
+        
+        
     }
 
-    public void deleteLessonGroup(LessonGroup lg) {
+    public int getCoachGroupNumber() {
+		return CoachGroupNumber;
+	}
+
+	public void setCoachGroupNumber(int coachGroupNumber) {
+		CoachGroupNumber = coachGroupNumber;
+	}
+
+	public void deleteLessonGroup(LessonGroup lg) {
         lessonGroups.remove(lg);
     }
 

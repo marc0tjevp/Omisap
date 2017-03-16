@@ -46,8 +46,11 @@ public class CoachGroupController extends ActionSupport {
 		coach.setId(id);
 		
 		CoachGroupList.getInstance().addCoachGroup(coach);
+		System.out.println(CoachGroupList.getInstance().getCoachgroups());
 		coachGroup.add(coach);
+		System.out.println(coachGroup);
 		TestDAOCoachGroup.getInstance().create(coach);
+		System.out.println(TestDAOCoachGroup.getInstance().getCoachGroups());
 		return SUCCESS;
 	}
 
@@ -65,12 +68,16 @@ public class CoachGroupController extends ActionSupport {
 	}
 
 	public String deleteCoachGroup() {
+		
+		this.addCoachGroup();
+		
 		CoachGroupList.getInstance().removeCoachGroup(coach);
 		coachGroup.remove(coach);
 		TestDAOCoachGroup.getInstance().delete(coach);
 
 		return SUCCESS;
 	}
+
 
 	public String getName() {
 		return name;
