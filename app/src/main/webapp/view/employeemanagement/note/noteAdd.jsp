@@ -6,65 +6,91 @@
 <!-- <link rel="stylesheet" href="/resources/css/noteAdd.css"></link>
     <link rel="stylesheet" href="../Pasimo/resources/css/style.css"> -->
 <t:layout2>
-
+	<jsp:attribute name="scripts">
+<script type="text/javascript" src="/Pasimo/resources/js/note.js"></script>
+</jsp:attribute>
 	<jsp:attribute name="css">
-	<link rel="stylesheet"  href="<c:url value="/resources/css/note.css"/>"/>
+		<link rel="stylesheet" href="<c:url value="/resources/css/note.css"/>" />
 	</jsp:attribute>
 	<jsp:attribute name="content">
 	
 
 <!-- note imput -->	
+
+<form action="noteAdd" class="" enctype="multipart/form-data"
+			method="post" id="noteForm">		
+			<s:bean name="nl.scalda.pasimo.model.employeemanagement.Note"
+				var="note">					
 <div class="container kader">
-	<div class = "row">
-		<div class = "col col-md-6 border">
-			<div class = "row">
-				<div class = "col-md-12">
-				<h2>Nieuwe notitie aanmaken</h2>
-				<form action="noteAdd" class="" enctype="multipart/form-data" method="post" id="noteForm">
+	<div class="row">
+		<div class="col col-md-6 border">
+			<div class="row">
+				<div class="col-md-12">
+				<h2>Nieuwe notitie aanmaken</h2>				
 				</div>
 			</div>
-			<div class = "row">
-			<div class = "col col-md-12">
-				<h5>Door:</h5> <input class = "input" type="text" name="inputDate" placeholder="Docent"><br>
-			</div>
+			
+			<div class="row">
+				<div class="col col-md-12">
+<div class="form-group">
+  <label for="sel1">Gemaakt door docent:	</label>
+  <select name="note.teacher" class="form-control" id="sel1">
+    <option value="SCHOMX">Max</option>
+    <!--<option>Rens</option> -->
+    <!--<option>Bram</option> -->
+    <!--<option>Gino</option> -->
+  </select>
+</div>
+				</div>
 			</div>
 	
-			<div class = "row">
-				<div class = "col col-md-12">
+			<div class="row">
+				<div class="col col-md-12">
 					<h5>Titel:</h5>
-					<input class = "input" type="text" name="inputDate" placeholder="DD-MM-YY / Name"><br>
+					<input id="noteTitle" class="input" type="text" name="note.title"
+										placeholder="DD-MM-YY / Name"><br>
 				</div>
 			</div>
-			<div class = "row">
-				<div class = "col col-md-12">
+			<div class="row">
+				<div class="col col-md-12">
 					
 					<h5>Bericht:</h5>
 				</div>
-				<div class ="col col-md-12">
-					<textarea class = "textarea" name="note" rows="10" placeholder="Notitie"></textarea>
+				<div class="col col-md-12">
+					<textarea id="noteMessage" class="textarea" name="note.message"
+										rows="10" placeholder="Notitie"></textarea>
+									
 				
-				</div>
-			</div>
-			<div class = "row">
-				<div class = "col col-md-6">
-				
-				</div>
-				<div class = "col col-md-3">
-				<button class = "button1" type="button" data-toggle="modal" data-target="#myModal">Aanmaken</button>
-				</div>
-				<div class = "col col-md-3">
-				<button class = "button1" type="button" name="cancel" data-toggle="modal" data-target="#myModal">Annuleren</button>
 				</div>
 				
 			</div>
-
+			
+			<div class="row">
+				<div class="col col-md-6">
+				
+				</div>
+		
+	
+			
+				<div class="col col-md-3">
+				<button class="button1" type="button" data-toggle="modal"
+										data-target="#myModal">Aanmaken</button>
+				</div>
+				<div class="col col-md-3">
+				<button class="button1" type="button" name="cancel"
+										data-toggle="modal" data-target="#myModal">Annuleren</button>
+				</div>
+				
+			</div>
+		
 		</div>
-		
-		
-	</div>
-</div>	
+	</div>	
 <!-- end note imput -->
 
+</div>
+
+</s:bean>
+		</form>
 <!--pop up-->
 <div id="myModal" class="modal fade" role="dialog">
 	<div class="modal-dialog">
@@ -78,7 +104,7 @@
    	   	</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default"
-							data-dismiss="modal">Toevoegen</button>
+							data-dismiss="modal" id="noteSubmit">Toevoegen</button>
         <button type="button" class="btn btn-default"
 							data-dismiss="modal">Annuleren</button>
 
@@ -92,5 +118,6 @@
 <!-- end pop up -->
 	
 	
-            </jsp:attribute>
+	</jsp:attribute>
+
 </t:layout2>

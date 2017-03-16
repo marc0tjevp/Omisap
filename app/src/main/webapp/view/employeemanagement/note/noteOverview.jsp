@@ -21,17 +21,27 @@
 					</div>
 					
 					<div class = "col-md-3">
-					<button class = "button" ><a href = "noteAdd.jsp">Nieuw Aanmaken</a></button>
+					<button class = "button" ><a href = "noteAdd">Nieuw Aanmaken</a></button>
 					</div>
 				</div>
 				
 			 	<div class= "row">
-					<c:forEach var="noteList" items="${notes}">
+					<c:forEach var="a" items="${noteList}">
 						<div class = "note col-md-4">
-							${noteList.getTitle()}
+							<div class= "row">
+								<div class = "col-md-12 noteTitle">${a.getTitle()}</div>
+							</div>
+							<div class= "row">
+								<div class = "col-md-12 noteMessage">${a.getMessage()}</div>
+							</div>
+							
+							
 						</div>
+						
 					</c:forEach>				
 				</div>
+				
+				
 				
 			</div>
 		</div>

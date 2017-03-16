@@ -30,8 +30,18 @@
 	border: 1px solid grey;
 	padding: 2px;
 	
+	
 }
 
+.noteTitle {
+	font-weight: bold;
+}
+
+.noteMessage {
+	width: 100%;
+	word-wrap: break-word;
+	
+}
 .button {
 	border: none;
 	background-color: #3c8dbc;

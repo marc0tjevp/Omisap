@@ -71,5 +71,12 @@
 			<result name="success">/view/employeemanagement/note/noteAdd.jsp
 			</result>
 		</action>
+				<action name="noteOverview"
+			class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
+			method="noteAdd">
+			<result name="success">/view/employeemanagement/note/noteOverview.jsp
+			</result>
+		</action>
+		
 	</package>
 </struts>
