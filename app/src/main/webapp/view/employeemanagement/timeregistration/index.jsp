@@ -116,7 +116,7 @@
         Weet je zeker dat je zeker dat je dit les block wilt verwijderen?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-succes">Save changes</button>
+        <button type="button" class="btn btn-succes">Verwijder dit work block</button>
       </div>
     </div>
   </div>
@@ -173,7 +173,7 @@
  </td>
                                           <td>
 	                     <div class="well">
-	                     </div>
+	                     </div> 
                      </td>
                   </tr>
                   <tr>
