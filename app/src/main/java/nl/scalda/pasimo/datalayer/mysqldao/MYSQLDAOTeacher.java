@@ -125,7 +125,13 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			    * obj[9] = person.dateOfBirth
 			    */
 			   Object[] obj = (Object[]) iterator.next();
-			   Teacher teacher = new Teacher(String.valueOf(obj[1]), Integer.parseInt(String.valueOf(obj[0])), String.valueOf(obj[2]));
+			   Teacher teacher = new Teacher(Integer.parseInt(String.valueOf(obj[0])),
+					   String.valueOf(obj[4]),
+					   Integer.parseInt(String.valueOf(obj[5])),
+					   String.valueOf(obj[6]),
+					   String.valueOf(obj[7]),
+					   String.valueOf(obj[8]),
+					   0, 0, 0);
 			   teachers.add(teacher);
 		   }
 		   tx.commit();
@@ -162,7 +168,13 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			Object[] obj = (Object[]) session
 					.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email INNER JOIN teacher_education_team ON teacher_education_team.teacher_employeeNumber = teacher.employeeNumber WHERE employeeNumber=:employeeNumber")
 					.setParameter("employeeNumber", employeeNumber).getSingleResult();
-			teacher = new Teacher(String.valueOf(obj[1]), Integer.parseInt(String.valueOf(obj[0])), String.valueOf(obj[2]));
+			teacher = new Teacher(Integer.parseInt(String.valueOf(obj[0])),
+					   String.valueOf(obj[4]),
+					   Integer.parseInt(String.valueOf(obj[5])),
+					   String.valueOf(obj[6]),
+					   String.valueOf(obj[7]),
+					   String.valueOf(obj[8]),
+					   0, 0, 0);
 			tx.commit();
 		}
 		catch (Exception e) {
@@ -200,7 +212,13 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			    * obj[11] = person.dateOfBirth
 			    */
 			   Object[] obj = (Object[]) iterator.next();
-			   Teacher teacher = new Teacher(String.valueOf(obj[1]), Integer.parseInt(String.valueOf(obj[0])), String.valueOf(obj[2]));
+			   Teacher teacher = new Teacher(Integer.parseInt(String.valueOf(obj[2])),
+					   String.valueOf(obj[6]),
+					   Integer.parseInt(String.valueOf(obj[7])),
+					   String.valueOf(obj[8]),
+					   String.valueOf(obj[9]),
+					   String.valueOf(obj[10]),
+					   0, 0, 0);
 			   teachers.add(teacher);
 		   }
 		   tx.commit();
@@ -236,7 +254,13 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			Object[] obj = (Object[]) session
 					.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email INNER JOIN teacher_education_team ON teacher_education_team.teacher_employeeNumber = teacher.employeeNumber WHERE abbreviation=:abbreviation")
 					.setParameter("abbreviation", abbreviation).getSingleResult();
-			teacher = new Teacher(String.valueOf(obj[1]), Integer.parseInt(String.valueOf(obj[0])), String.valueOf(obj[2]));
+			teacher = new Teacher(Integer.parseInt(String.valueOf(obj[0])),
+					   String.valueOf(obj[4]),
+					   Integer.parseInt(String.valueOf(obj[5])),
+					   String.valueOf(obj[6]),
+					   String.valueOf(obj[7]),
+					   String.valueOf(obj[8]),
+					   0, 0, 0);
 			tx.commit();
 		}
 		catch (Exception e) {
