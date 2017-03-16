@@ -38,9 +38,13 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		Transaction tx = null;
 		try{
 			tx = session.beginTransaction();
-			String sql = "INSERT INTO person (email) VALUES (:email);";
+			String sql = "INSERT INTO person (email, cardID, firstName, insertion, lastName) VALUES (:email, :cardID, :firstName, :insertion, :lastName);";
 			NativeQuery query = session.createNativeQuery(sql);
 			query.setParameter("email", teacher.getEmail());
+			query.setParameter("cardID", teacher.getCardID());
+			query.setParameter("firstName", teacher.getFirstName());
+			query.setParameter("insertion", teacher.getInsertion());
+			query.setParameter("lastName", teacher.getLastName());
 			query.executeUpdate();
 			String sql1 = "INSERT INTO teacher (person_email,employeeNumber,abbreviation,coach_group_coachGroupID) VALUES (:email,:employeeNumber,:abbreviation,:coachGroup);";
 			NativeQuery query1 = session.createNativeQuery(sql1);
