@@ -159,7 +159,15 @@
                         <td><a href="/Pasimo/lessongroup/details">ICO41A</a></td>
                         <td>3</td>
                     </tr>
-
+                      <s:iterator value = "lessongroups" status = "LessongroupsStatus">
+                      <tr> 
+                      <s:if test= "#LessongroupStatus.unchanged = true">
+                      <td>
+                   
+                      </s:if>
+                      
+                      
+                      </s:iterator>
                     <tr>
                         <td>
                             <label>
