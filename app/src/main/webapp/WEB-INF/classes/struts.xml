@@ -35,8 +35,8 @@
         		method="addCoachGroup">
         		<result name="success" type="redirect">coachGroups</result>
         		<result name="input">/view/employeemanagement/coachgroups.jsp</result>
-        		
         </action>
+     	
         
         <action name="deleteCoachGroup" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
         		method="deleteCoachGroup">
@@ -49,6 +49,7 @@
         		<result name="success" type="redirect">coachGroups</result>
         		<result name="input">/view/employeemanagement/coachgroups.jsp</result>
         </action>
+        
         
        
         <action name="students" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"

@@ -146,6 +146,7 @@
                                    <label for="coachGroupName-input" class="col-2 col-form-label">Naam</label>
                                     <div class="col-10">
                                         <input class="form-control" type="text" value="" id="coachGroupName-input">
+                                        <h2><s:property value="String.name"/></h2>
                                     </div>
                                     <label for="coachGroupTeacherName-input" class="col-2 col-form-label">Teacher</label>
                                     <div class="col-10">

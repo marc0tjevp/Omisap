@@ -16,7 +16,7 @@ import nl.scalda.pasimo.test.CoachGroupList;
 public class CoachGroupController extends ActionSupport {
 
 	public String name;
-	public Teacher teacher;
+	public TreeSet<Teacher> teacher;
 	public EducationTeam educationTeam;
 	CoachGroup coach = new CoachGroup();
 	public TreeSet<CoachGroup> coachGroup = new TreeSet<>();
@@ -46,11 +46,11 @@ public class CoachGroupController extends ActionSupport {
 		coach.setId(id);
 		
 		CoachGroupList.getInstance().addCoachGroup(coach);
-		System.out.println(CoachGroupList.getInstance().getCoachgroups());
+		
 		coachGroup.add(coach);
-		System.out.println(coachGroup);
+		
 		TestDAOCoachGroup.getInstance().create(coach);
-		System.out.println(TestDAOCoachGroup.getInstance().getCoachGroups());
+		
 		return SUCCESS;
 	}
 
@@ -69,8 +69,6 @@ public class CoachGroupController extends ActionSupport {
 
 	public String deleteCoachGroup() {
 		
-		this.addCoachGroup();
-		
 		CoachGroupList.getInstance().removeCoachGroup(coach);
 		coachGroup.remove(coach);
 		TestDAOCoachGroup.getInstance().delete(coach);
@@ -87,11 +85,11 @@ public class CoachGroupController extends ActionSupport {
 		this.name = name;
 	}
 
-	public Teacher getTeacher() {
+	public TreeSet<Teacher> getTeacher() {
 		return teacher;
 	}
 
-	public void setTeacher(Teacher teacher) {
+	public void setTeacher(TreeSet<Teacher> teacher) {
 		this.teacher = teacher;
 	}
 
