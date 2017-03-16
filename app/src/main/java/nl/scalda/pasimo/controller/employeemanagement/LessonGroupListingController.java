@@ -8,39 +8,36 @@ import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 import nl.scalda.pasimo.test.lessonGroupList;
 
-public class LessonGroupController extends ActionSupport {
+public class LessonGroupListingController extends ActionSupport {
 	
-	private TreeSet<LessonGroup> lessonGroups;
+	/**
+	 * 
+	 */
+	private static TreeSet<LessonGroup> lessonGroups;
 
+	/**
+	 * 
+	 */
     public String execute() {
-    	this.readLessonGroups();
-        
-    	return SUCCESS;
-    }
-    
-    public String readLessonGroups() {
+    	if(lessonGroups == null) {
+    		lessonGroups = new TreeSet<>();
+    	}
     	lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
-    	
-    	
     	return SUCCESS;
     }
-    
-    public String addLessonGroup(LessonGroup lg) {
-   lessonGroupList.getInstance().addLessonGroup(lg);
    
-    return SUCCESS;
-    }
-
-    public String saveLessonGroup() {
-
-    	
-        return SUCCESS;
-    }
-
+    /**
+     * 
+     * @return
+     */
 	public TreeSet<LessonGroup> getLessonGroups() {
 		return lessonGroups;
 	}
 
+	/**
+	 * 
+	 * @param lessonGroups
+	 */
 	public void setLessonGroups(TreeSet<LessonGroup> lessonGroups) {
 		this.lessonGroups = lessonGroups;
 	}
