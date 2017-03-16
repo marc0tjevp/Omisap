@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 import nl.scalda.pasimo.test.EducationTeamList;
 import nl.scalda.pasimo.test.TeacherList;
 
@@ -54,17 +56,13 @@ public class Teacher extends Person {
     }
     
     public CoachGroup getCoachGroup(){
-    	//TODO
-    	return null;
+    	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+    	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentCoachGroup(this);
     }
     
     public EducationTeam getEducationTeam(){
-    	for(EducationTeam et : EducationTeamList.getInstance().getTeams()){
-			if(et.getTeachers().contains(this)){
-				return et;
-			}
-		}
-    	return null;
+    	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+    	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentEducationTeamOfTeacher(this);
     }
 
     @Override

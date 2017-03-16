@@ -46,5 +46,7 @@ public interface IDAOEducationTeam {
     boolean exist(String abbr);
     
     void addTeacherToEducationTeam(Teacher teacher, EducationTeam educationTeam);
+    
+    void deleteTeacherFromEducationTeam(Teacher teacher, EducationTeam educationTeam);
 
 }

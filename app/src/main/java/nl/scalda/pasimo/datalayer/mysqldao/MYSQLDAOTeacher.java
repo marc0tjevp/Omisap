@@ -12,6 +12,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.query.NativeQuery;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Person;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
@@ -247,6 +248,29 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		return teacher;
 	}
 	
+	@Override
+	public CoachGroup getCurrentCoachGroup(Teacher teacher) {
+		Session session = factory.openSession();
+		Transaction tx = null;
+		CoachGroup coachGroup = null;
+		try{
+			tx = session.beginTransaction();
+			Object[] obj = (Object[]) session
+					.createNativeQuery("SELECT * FROM coach_group WHERE coachGroupID = (SELECT coach_group_coachGroupID FROM teacher WHERE employeeNumber = :employeeNumber)")
+					.setParameter("employeeNumber", teacher.getEmployeeNumber()).getSingleResult();
+			coachGroup = new CoachGroup(String.valueOf(obj[1]), teacher);
+			tx.commit();
+		}
+		catch (Exception e) {
+		   if (tx!=null) tx.rollback();
+		   e.printStackTrace(); 
+		}finally {
+		   session.close();
+		}
+		return coachGroup;
+	}
+	
+	
 	public EducationTeam getCurrentEducationTeamOfTeacher(Teacher teacher) {
 		Session session = factory.openSession();
 		Transaction tx = null;
@@ -256,7 +280,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			Object[] obj = (Object[]) session
 					.createNativeQuery("SELECT * FROM education_team WHERE educationTeamID = (SELECT education_team_id FROM teacher_education_team WHERE teacher_employeeNumber = :employeeNumber)")
 					.setParameter("employeeNumber", teacher.getEmployeeNumber()).getSingleResult();
-			educationTeam = new EducationTeam(Integer.parseInt(String.valueOf(obj[0])));
+			educationTeam = new EducationTeam(String.valueOf(obj[2]), String.valueOf(obj[1]), Integer.parseInt(String.valueOf(obj[0])));
 			tx.commit();
 		}
 		catch (Exception e) {
@@ -275,5 +299,5 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
         }
         return instance;
     }
-	
+
 }

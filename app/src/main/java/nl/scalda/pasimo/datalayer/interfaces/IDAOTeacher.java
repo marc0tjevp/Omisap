@@ -2,6 +2,7 @@ package nl.scalda.pasimo.datalayer.interfaces;
 
 import java.util.TreeSet;
 
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
@@ -22,5 +23,7 @@ public interface IDAOTeacher {
 	public Teacher readByAbbr(String abbreviation);
 	
 	public EducationTeam getCurrentEducationTeamOfTeacher(Teacher teacher);
+	
+	public CoachGroup getCurrentCoachGroup(Teacher teacher);
 
 }

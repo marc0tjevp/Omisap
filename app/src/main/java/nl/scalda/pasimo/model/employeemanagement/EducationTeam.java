@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 
 import java.util.TreeSet;
 
@@ -49,7 +50,8 @@ public class EducationTeam implements Comparable<EducationTeam>{
     
 	public void deleteTeacher(Teacher t){
 		if (teachers.remove(t)) {
-			//DAOFactory.getTheFactory().getDAOTeacher().delete(t, this);
+			DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+			DAOFactory.getTheFactory().getEducationTeamDAO().deleteTeacherFromEducationTeam(t, this);
 		}		
 		
 	}
@@ -58,8 +60,9 @@ public class EducationTeam implements Comparable<EducationTeam>{
 		 return teachers;
 	}
 	
-	public EducationTeam(int id) {
+	public EducationTeam(int id, String name) {
     	this.setId(id);
+    	this.setName(name);
     }
 
     public EducationTeam(String abbreviation, String name) {

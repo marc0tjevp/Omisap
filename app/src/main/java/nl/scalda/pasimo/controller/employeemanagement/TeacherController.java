@@ -118,7 +118,10 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String updateTeacherEducationTeam(Teacher t, EducationTeam newTeam) {
-		newTeam.addTeacher(t);
+		if(!(getOldEducationTeam(t).equals(newTeam))){
+			getOldEducationTeam(t).deleteTeacher(t);
+			newTeam.addTeacher(t);
+		}
 		return SUCCESS;
 	}
 	
@@ -191,16 +194,8 @@ public class TeacherController extends ActionSupport {
 	}
 
 	public TreeSet<EducationTeam> getEducationTeams() {
-		// ONLY FOR TESTING
-		if(EducationTeamList.getInstance().getTeams().isEmpty()){
-			EducationTeam et = new EducationTeam("TET", "Test Team");
-			EducationTeam et1 = new EducationTeam("TEAMAN", "Ander Team");
-
-			EducationTeamList.getInstance().addTeam(et);
-			EducationTeamList.getInstance().addTeam(et1);
-		}
-		educationTeams.addAll(EducationTeamList.getInstance().getTeams());
-		// ONLY FOR TESTING
+		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+		educationTeams.addAll(DAOFactory.getTheFactory().getEducationTeamDAO().readAll());
 		return educationTeams;
 	}
 	

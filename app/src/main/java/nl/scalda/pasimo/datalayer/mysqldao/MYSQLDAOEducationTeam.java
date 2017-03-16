@@ -69,7 +69,7 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 				   .getResultList();
 		   for(Iterator iterator = educationTeamList.iterator();iterator.hasNext();){
 			   Object[] obj = (Object[]) iterator.next();
-			   EducationTeam et = new EducationTeam(Integer.parseInt(String.valueOf(obj[0])));
+			   EducationTeam et = new EducationTeam(Integer.parseInt(String.valueOf(obj[0])), String.valueOf(obj[1]));
 			   teams.add(et);
 		   }
 		   tx.commit();
@@ -107,6 +107,24 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 		   session.createNativeQuery("INSERT INTO teacher_education_team (teacher_employeeNumber, education_team_id) VALUES (:teacheremployeeNumber, :educationTeamID);")
 				   .setParameter("teacheremployeeNumber", teacher.getEmployeeNumber()).setParameter("educationTeamID", educationTeam.getId()).executeUpdate();
 		   tx.commit();
+		}
+		catch (Exception e) {
+		   if (tx!=null) tx.rollback();
+		   e.printStackTrace(); 
+		}finally {
+		   session.close();
+		}
+	}
+	
+	@Override
+	public void deleteTeacherFromEducationTeam(Teacher teacher, EducationTeam educationTeam) {
+		Session session = factory.openSession();
+		Transaction tx = null;
+		try{
+			tx = session.beginTransaction();
+			session.createNativeQuery("DELETE FROM teacher_education_team WHERE teacher_employeeNumber = :employeeNumber")
+				.setParameter("employeeNumber", teacher.getEmployeeNumber()).executeUpdate();
+			tx.commit();
 		}
 		catch (Exception e) {
 		   if (tx!=null) tx.rollback();

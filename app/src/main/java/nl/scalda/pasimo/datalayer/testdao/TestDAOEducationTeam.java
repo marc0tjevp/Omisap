@@ -97,4 +97,10 @@ public class TestDAOEducationTeam implements IDAOEducationTeam {
 		
 	}
 
+	@Override
+	public void deleteTeacherFromEducationTeam(Teacher teacher, EducationTeam educationTeam) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

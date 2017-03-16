@@ -44,7 +44,7 @@
           <label class="col-2 col-form-label">Educatieteam</label>
           <div class="col-10">
                 <s:select class="form-control" style="width: 50%;" name="teamAbbreviation" list="educationTeams" 
-                listKey="abbreviation" listValue="abbreviation + ' - ' + name" value="teamAbbreviation"></s:select>
+                listKey="abbreviation" listValue="name" value="teamAbbreviation"></s:select>
             <br>
             <br>
             <input type="submit" value="Wijzigen" class="btn btn-primary" id="submitId" />
