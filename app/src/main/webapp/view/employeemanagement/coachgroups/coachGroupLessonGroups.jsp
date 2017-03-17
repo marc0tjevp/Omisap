@@ -221,7 +221,7 @@
                         </td>
 
                         <td>1234</td>
-                        <td>Leerling naam	</td>
+                        <td>24	</td>
                         
                        
                     </tr>

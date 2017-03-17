@@ -52,9 +52,9 @@
         
         
        
-        <action name="students" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+        <action name="lessonGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
                 method="execute">
-            <result name="success">/view/employeemanagement/coachgroups/student.jsp</result>
+            <result name="success">/view/employeemanagement/coachgroups/coachGroupLessonGroups.jsp</result>
         </action>
         
         
