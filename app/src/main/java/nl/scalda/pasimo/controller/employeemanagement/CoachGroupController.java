@@ -8,6 +8,8 @@ import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.test.CoachGroupList;
+import nl.scalda.pasimo.test.EducationTeamList;
+import nl.scalda.pasimo.test.TeacherList;
 
 /**
  *
@@ -16,13 +18,22 @@ import nl.scalda.pasimo.test.CoachGroupList;
 public class CoachGroupController extends ActionSupport {
 
 	public String name;
-	public TreeSet<Teacher> teacher;
-	public EducationTeam educationTeam;
+	public TreeSet<Teacher> teacher = TeacherList.getInstance().getTeachers();
+	public TreeSet<EducationTeam> educationTeam = EducationTeamList.getInstance();
 	CoachGroup coach = new CoachGroup();
-	public TreeSet<CoachGroup> coachGroup = new TreeSet<>();
+	public TreeSet<CoachGroup> coachGroup = CoachGroupList.getInstance().getCoachgroups();
 
 	public String execute() {
-		this.readCoachGroup();
+		educationTeam = EducationTeamList.getInstance();
+		teacher = TeacherList.getInstance().getTeachers();
+		coachGroup = CoachGroupList.getInstance().getCoachgroups();
+		
+		//CoachGroup a1 = new CoachGroup();
+		EducationTeam a2 = new EducationTeam("ao", "1");
+		 Teacher a3 = new Teacher(12,"1", 12, "fgkerbjfnkbjergkbjersbknj", "1", "fegwbjufbverbj", 1988, 12, 12);
+		teacher.add(a3);
+		educationTeam.add(a2);
+	//	coachGroup.add(a1);
 		return SUCCESS;
 	}
 
@@ -32,13 +43,9 @@ public class CoachGroupController extends ActionSupport {
 	}
 
 	public String addCoachGroup() {
-		TreeSet<Integer> count = new TreeSet<>();
-		int id = 0;
-		for (CoachGroup cg : CoachGroupList.getInstance().getCoachgroups()) {
-			count.add(cg.getId());
-		}
+	 int id = 0;
 		while (true) {
-			if (!count.contains(id)) {
+			if (!CoachGroupList.getInstance().getCoachgroups().contains(id)) {
 				break;
 			}
 			id++;
@@ -50,6 +57,7 @@ public class CoachGroupController extends ActionSupport {
 		coachGroup.add(coach);
 		
 		TestDAOCoachGroup.getInstance().create(coach);
+	
 		
 		return SUCCESS;
 	}
@@ -93,11 +101,11 @@ public class CoachGroupController extends ActionSupport {
 		this.teacher = teacher;
 	}
 
-	public EducationTeam getEducationTeam() {
+	public TreeSet<EducationTeam> getEducationTeam() {
 		return educationTeam;
 	}
 
-	public void setEducationTeam(EducationTeam educationTeam) {
+	public void setEducationTeam(TreeSet<EducationTeam> educationTeam) {
 		this.educationTeam = educationTeam;
 	}
 

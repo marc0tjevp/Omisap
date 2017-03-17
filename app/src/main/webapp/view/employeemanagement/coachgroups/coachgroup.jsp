@@ -139,24 +139,32 @@
                           <div class="modal-body">
                             
                                 <div class="form-group">
-                                <label for="coachGroupName-input" class="col-2 col-form-label">EducationTeam</label>
+                                <label for="educationTeam-input" class="col-2 col-form-label">EducationTeam</label>
                                 	<div class="col-10">
-                                        <input class="form-control" type="text" value="" id="coachGroupName-input">
+                                        
+                                        <select class="form-control" name="coach.currentEducationTeam" id="educationTeam-input">
+                                        <option disabled="disabled">EducationTeams</option>
+                                        <s:iterator value="educationTeam" var="ed">
+                                        <option value="ed">${ed.name} </option>
+                                        </s:iterator>
+                                        </select>
                                     </div>
+                                    
                                    <label for="coachGroupName-input" class="col-2 col-form-label">Naam</label>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" value="" id="coachGroupName-input">
-                                        <h2><s:property value="String.name"/></h2>
+                                        
+                                        <s:textfield class="form-control" name="coach.name" id="coachGroupName-input"/>
                                     </div>
                                     <label for="coachGroupTeacherName-input" class="col-2 col-form-label">Teacher</label>
                                     <div class="col-10">
-                                        <select class="form-control"   id="coachGroupTeacherName-input">
-                                        <option>Bram</option>
-     									<option>Rens</option>
-      									<option>Gino</option>
-      									<option>Max</option>
-      									<option>Piet</option>
-                                    </select>
+     
+                                    
+                                    <select class="form-control" name="coach.teacher" id="coachGroupTeacherName-input">
+                                        <option value="" selected disabled>Select Teachers</option>
+                                        <s:iterator value="educationTeam" var="ed">
+                                        <option value="ed">${ed.name} </option>
+                                        </s:iterator>
+                                        </select>
                                     </div>
                                 </div>
                             
@@ -183,10 +191,11 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                         <form id="deleteCoachGroup" action="deleteCoachGroup" role="form" method="post">
+                         <s:form id="deleteCoachGroup" action="deleteCoachGroup" role="form" method="post">
                         <div class="modal-body">
-                        
-                            <p>Weet je zeker dat je de les groep ICO41A wilt verwijderen met 123 studenten?</p>
+                        <c:forEach var="p" items="${stuff}">
+                            <p>Weet u zeker dat u Coach Group ${p.getName} wilt verwijderen van CoachGroup?</p>
+                            </c:forEach>
                         </div>
                         <div class="modal-footer">
                         
@@ -195,7 +204,7 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
                             <input type="submit" value= "Verwijderen" class="btn btn-danger">
                             </div>
-                            </form>
+                            </s:form>
                             
                         </div>
                     </div>
