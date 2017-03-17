@@ -10,6 +10,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
@@ -78,6 +79,24 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String updateTeacher() {
+		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+		for (Teacher f : getTeachers()) {
+			if (f.getEmployeeNumber() == teacher.getEmployeeNumber()){
+				f.setFirstName(teacher.getFirstName());
+				f.setAbbreviation();
+				f.setInsertion(teacher.getInsertion());
+				f.setLastName(teacher.getLastName());
+				f.setEmail(teacher.getEmail());
+				f.setCardID(teacher.getCardID());
+				if (!(getOldEducationTeam(f).getAbbreviation().equals(teamAbbreviation))){
+					getOldEducationTeam(f).deleteTeacher(f);
+					getEducationTeamByAbbreviation(teamAbbreviation).addTeacher(f);
+				}
+			}
+			MYSQLDAOTeacher.getInstance().update(getTeacher());
+		}
+		
+		
 //		for (Teacher f : TeacherList.getInstance().getTeachers()) {
 //			if (f.getEmployeeNumber() == teacher.getEmployeeNumber()) {
 //				EducationTeam oldTeam = getOldEducationTeam(f);

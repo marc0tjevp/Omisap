@@ -65,7 +65,7 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 		Set<EducationTeam> teams = new TreeSet<>();
 		try {
 		   tx = session.beginTransaction();
-		   List educationTeamList = session.createNativeQuery("SELECT * FROM education_team INNER JOIN teacher_education_team ON teacher_education_team.education_team_id = education_team.educationTeamID ;")
+		   List educationTeamList = session.createNativeQuery("SELECT * FROM education_team;")
 				   .getResultList();
 		   for(Iterator iterator = educationTeamList.iterator();iterator.hasNext();){
 			   Object[] obj = (Object[]) iterator.next();

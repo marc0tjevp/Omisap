@@ -322,6 +322,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			Object[] obj = (Object[]) session
 					.createNativeQuery("SELECT * FROM education_team WHERE educationTeamID = (SELECT education_team_id FROM teacher_education_team WHERE teacher_employeeNumber = :employeeNumber)")
 					.setParameter("employeeNumber", teacher.getEmployeeNumber()).getSingleResult();
+			System.out.println(teacher.getEmployeeNumber());
 			educationTeam = new EducationTeam(String.valueOf(obj[2]),
 					String.valueOf(obj[1]),
 					Integer.parseInt(String.valueOf(obj[0])));
