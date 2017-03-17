@@ -2,8 +2,6 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
-import nl.scalda.pasimo.test.EducationTeamList;
-import nl.scalda.pasimo.test.TeacherList;
 
 public class Teacher extends Person {
 

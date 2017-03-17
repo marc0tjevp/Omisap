@@ -12,8 +12,6 @@ import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
-import nl.scalda.pasimo.test.EducationTeamList;
-import nl.scalda.pasimo.test.TeacherList;
 
 public class TeacherController extends ActionSupport {
 
@@ -80,20 +78,20 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String updateTeacher() {
-		for (Teacher f : TeacherList.getInstance().getTeachers()) {
-			if (f.getEmployeeNumber() == teacher.getEmployeeNumber()) {
-				EducationTeam oldTeam = getOldEducationTeam(f);
-				removeTeacherFromEducationTeam(f, oldTeam);
-				f.setFirstName(teacher.getFirstName());
-				f.setInsertion(teacher.getInsertion());
-				f.setLastName(teacher.getLastName());
-				f.setAbbreviation();
-				f.setCardID(teacher.getCardID());
-				f.setEmail(teacher.getEmail());
-				EducationTeam team = getEducationTeamByAbbreviation(teamAbbreviation);
-				updateTeacherEducationTeam(f, team);
-			}
-		}
+//		for (Teacher f : TeacherList.getInstance().getTeachers()) {
+//			if (f.getEmployeeNumber() == teacher.getEmployeeNumber()) {
+//				EducationTeam oldTeam = getOldEducationTeam(f);
+//				removeTeacherFromEducationTeam(f, oldTeam);
+//				f.setFirstName(teacher.getFirstName());
+//				f.setInsertion(teacher.getInsertion());
+//				f.setLastName(teacher.getLastName());
+//				f.setAbbreviation();
+//				f.setCardID(teacher.getCardID());
+//				f.setEmail(teacher.getEmail());
+//				EducationTeam team = getEducationTeamByAbbreviation(teamAbbreviation);
+//				updateTeacherEducationTeam(f, team);
+//			}
+//		}
 		return SUCCESS;
 	}
 
