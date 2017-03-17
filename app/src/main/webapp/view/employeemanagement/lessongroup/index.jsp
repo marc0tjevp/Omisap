@@ -149,67 +149,25 @@
                 </thead>
                 <tbody>
                 <!-- Every lesson group -->
-                    <tr>
-                        <td>
-                            <label>
-                                <input type="checkbox">
-                            </label>
-                      </td>
-                    <tr>
-                        <td>
-                            <label>
-                                <input type="checkbox">
-                            </label>
-                        </td>
-
-                        <td><a href="/Pasimo/lessongroup/details">ICO41B</a></td>
-                        <td>8</td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <label>
-                                <input type="checkbox">
-                            </label>
-                        </td>
-
-                        <td><a href="/Pasimo/lessongroup/details">ICO45E</a></td>
-                        <td>16</td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <label>
-                                <input type="checkbox">
-                            </label>
-                        </td>
-
-                        <td><a href="/Pasimo/lessongroup/details">ICO56T</a></td>
-                        <td>42</td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <label>
-                                <input type="checkbox">
-                            </label>
-                        </td>
-
-                        <td><a href="/Pasimo/lessongroup/details">ICO89E</a></td>
-                        <td>2</td>
-                    </tr>
-
-
-                    <tr>
-                        <td>
-                            <label>
-                                <input type="checkbox">
-                            </label>
-                        </td>
-
-                        <td><a href="/Pasimo/lessongroup/details">ICO33A</a></td>
-                        <td>12</td>
-                    </tr>
+                    <s:iterator value="lessonGroups">
+                    	<tr>
+                    		<td>
+                    			<label>
+                    				<input type="checkbox">
+                    			</label>
+                    		</td>
+                    		
+                    		<td>
+                   				<a href="/Pasimo/lessongroup/details?lessonGroupId=<s:property value="id"></s:property>">
+                   					<s:property value="name"></s:property>
+                   				</a>
+                    		</td>
+                    		
+                    		<td>
+                    			<s:property value="students.size()"></s:property>
+                    		</td>
+                    	</tr>
+                    </s:iterator>
                 </tbody>
                 <tbody>
                 

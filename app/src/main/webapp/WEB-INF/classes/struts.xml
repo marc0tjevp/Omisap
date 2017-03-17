@@ -20,8 +20,8 @@
                 method="execute">
             <result name="success">/view/employeemanagement/lessongroup/index.jsp</result>
         </action>
-        <action name="lessongroup/details" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
-                method="readLessonGroups">
+        <action name="lessongroup/details" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupDetailsAction"
+                method="execute">
             <result name="success">/view/employeemanagement/lessongroup/details.jsp</result>
         </action>
         
