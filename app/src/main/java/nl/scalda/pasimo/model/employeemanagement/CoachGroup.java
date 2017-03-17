@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import java.util.ArrayList;
 import java.util.TreeSet;
 
 /**
@@ -10,27 +11,43 @@ public class CoachGroup implements Comparable<CoachGroup> {
     private int id;
     private String name;
     private Teacher teacher;
+    private TreeSet<CoachGroup> coachgroups = new TreeSet<>();
     private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
+    private TreeSet<Student> students = new TreeSet<>();
 
     public CoachGroup() {
     }
 
-    public CoachGroup(int id, String name) {
+    public CoachGroup(int id, String name, TreeSet<Student> students) {
         this.id = id;
         this.name = name;
+        this.students = students;
+        this.coachgroups.add(this);
     }
 
-    public CoachGroup(String name, Teacher teacher) {
+    public CoachGroup(String name, Teacher teacher ,TreeSet<Student> students) {
         this.name = name;
         this.teacher = teacher;
+        this.students = students;
+        this.coachgroups.add(this);
     }
 
-    public CoachGroup(String name, Teacher teacher, TreeSet<LessonGroup> lessonGroups) {
+    public CoachGroup(String name, Teacher teacher, TreeSet<LessonGroup> lessonGroups, TreeSet<Student> students) {
         this.name = name;
         this.teacher = teacher;
         this.lessonGroups = lessonGroups;
+        this.students = students;
+        this.coachgroups.add(this);
     }
 
+    public void addStudent(Student s, int id){
+    	for(CoachGroup c : this.coachgroups){
+    		if(c.getId() == id){
+    			students.add(s);
+    			continue;
+    		}
+    	}
+    }
     public void addLessonGroup(LessonGroup lg) {
         this.lessonGroups.add(lg);
     }
@@ -81,9 +98,27 @@ public class CoachGroup implements Comparable<CoachGroup> {
     public void setLessonGroups(TreeSet<LessonGroup> lessonGroups) {
         this.lessonGroups = lessonGroups;
     }
+    
+    public TreeSet<CoachGroup> getCoachgroups() {
+		return coachgroups;
+	}
+
+	public void setCoachgroups(TreeSet<CoachGroup> coachgroups) {
+		this.coachgroups = coachgroups;
+	}
+
+	public TreeSet<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(TreeSet<Student> students) {
+		this.students = students;
+	}
+    
 //</editor-fold>
 
-    @Override
+
+	@Override
     public String toString() {
         return "\n CoachGroup: id= " +
                id +

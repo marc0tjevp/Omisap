@@ -1,6 +1,11 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import java.util.TreeSet;
+
+import nl.scalda.pasimo.service.CoachGroupService;
+
 public class Student extends Person {
+
 
 	private int noteListID;
 	private int lessonGroupID;
@@ -15,6 +20,11 @@ public class Student extends Person {
 	private int yearOfBirth;
 	private int monthOfBirth;
 	private int dayOfBirth;
+	private CoachGroup CoachGroup;
+	
+	public Student(String email) {
+		this.email = email;
+	}
 
 	public Student(int studentOV, int coachGroupID, int lessonGroupID, int cohort, String email, String firstName,
 			String insertion, String lastName, int cardID, int yearOfBirth, int noteListID, int monthOfBirth,
@@ -33,11 +43,17 @@ public class Student extends Person {
 		this.noteListID = noteListID;
 		this.monthOfBirth = monthOfBirth;
 		this.dayOfBirth = dayOfBirth;
+		this.addToCoachGroup();
 	}
 
 	public boolean deleteStudent(Student s) {
 		s = null;
 		return true;
+	}
+
+	public void addToCoachGroup() {
+	CoachGroup.addStudent(this, this.getCoachGroupID());
+	
 	}
 
 	public int getNoteListID() {
@@ -143,10 +159,10 @@ public class Student extends Person {
 	public void setDayOfBirth(int dayOfBirth) {
 		this.dayOfBirth = dayOfBirth;
 	}
-	
+
 	@Override
-	public String compareTo(){
-		
+	public int compareTo(Person o) {
+		return email.compareTo(o.getEmail());
 	}
 
 	@Override
@@ -157,8 +173,5 @@ public class Student extends Person {
 				+ ", yearOfBirth=" + yearOfBirth + ", monthOfBirth=" + monthOfBirth + ", dayOfBirth=" + dayOfBirth
 				+ "]";
 	}
-
-	
-	
 
 }

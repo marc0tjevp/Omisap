@@ -12,7 +12,7 @@ public interface IDAOStudent {
 
 	public void delete(Student s);
 
-	public Student readByOvNumber(int ov);
+	public void readByOvNumber(int ov);
 
 	public TreeSet<Student> readAll();
 }

@@ -86,17 +86,15 @@ public class TestDAOStudent implements IDAOStudent {
 		try {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost/StudentDAO", "root", "skullcandy1");
 			statement = conn.createStatement();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 
-		try {
 			statement.executeUpdate(
 					"INSERT INTO `studentdao`.`student` (`studentOV`, `coachgroupID`, `lessongroupID`, `cohort`, `email`, `firstname`, "
 							+ "`insertion`, `lastname`, `cardID`, `yearofbirth`, `notelistID`, `monthofbirth`, `dayofbirth`) VALUES "
 							+ "('" + studentOV + "','" + coachGroupID + "','" + lessonGroupID + "','" + cohort + "', '"
 							+ email + "','" + firstName + "','" + insertion + "','" + lastName + "','" + cardID + "','"
 							+ yearOfBirth + "','" + noteListID + "','" + monthOfBirth + "','" + dayOfBirth + "');");
+
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -105,8 +103,12 @@ public class TestDAOStudent implements IDAOStudent {
 
 	@Override
 	public void update(Student s) {
+
+	}
+
+	@Override
+	public void readByOvNumber(int ov) {
 		try {
-			int ovnumber = s.getStudentOV();
 			// create the mysql database connection
 			String myDriver = "org.gjt.mm.mysql.Driver";
 			String myUrl = "jdbc:mysql://localhost";
@@ -116,7 +118,7 @@ public class TestDAOStudent implements IDAOStudent {
 			// create the mysql delete statement.
 			String query = "delete from `studentdao`.`student` where studentOV = ?";
 			java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
-			preparedStmt.setInt(1, ovnumber);
+			preparedStmt.setInt(1, ov);
 
 			// execute the preparedstatement
 			preparedStmt.execute();
@@ -126,11 +128,6 @@ public class TestDAOStudent implements IDAOStudent {
 
 		}
 
-	}
-
-	@Override
-	public Student readByOvNumber(int ov) {
-		
 	}
 
 	@Override
