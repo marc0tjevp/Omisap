@@ -8,25 +8,48 @@ public class Teacher extends Person {
     private String abbreviation;
     private int employeeNumber;
     
-    public Teacher(){
-        
-    }
+    /**
+     * default constructor.
+     */
+    public Teacher(){}
 
-    public Teacher(String abbreviation) {
-        this.abbreviation = abbreviation;
-    }
-
+    /**
+     * constructor with all variables in the teacher class.
+     * 
+     * @param abbreviation
+     * @param employeeNumber
+     */
     public Teacher(String abbreviation, int employeeNumber) {
         this.abbreviation = abbreviation;
         this.employeeNumber = employeeNumber;
     }
     
+    /**
+     * constructor with all primary and foreign keys from teacher and person table.
+     * 
+     * @param abbreviation
+     * @param employeeNumber
+     * @param email
+     */
     public Teacher(String abbreviation, int employeeNumber, String email) {
     	super(email);
         this.abbreviation = abbreviation;
         this.employeeNumber = employeeNumber;
     }
 
+    /**
+     * constructor with all variables.
+     * 
+     * @param employeeNumber
+     * @param email
+     * @param cardID
+     * @param firstName
+     * @param insertion
+     * @param lastName
+     * @param yearOfBirth
+     * @param monthOfBirth
+     * @param dayOfBirth
+     */
     public Teacher(int employeeNumber, String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
 		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.employeeNumber = employeeNumber;
@@ -53,11 +76,21 @@ public class Teacher extends Person {
         this.employeeNumber = employeeNumber;
     }
     
+    /**
+     * gets the coach group the teacher is currently in.
+     * 
+     * @return CoachGroup
+     */
     public CoachGroup getCoachGroup(){
     	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
     	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentCoachGroup(this);
     }
     
+    /**
+     * gets the education team the teacher is currently in.
+     * 
+     * @return EducationTeam
+     */
     public EducationTeam getEducationTeam(){
     	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
     	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentEducationTeamOfTeacher(this);

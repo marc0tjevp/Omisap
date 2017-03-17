@@ -46,7 +46,7 @@ public class TeacherController extends ActionSupport {
 	}
 
 	/**
-	 * Adds the teacher to the Teacher list.
+	 * Adds the teacher.
 	 * Called from Struts.xml file
 	 * 
 	 * @return String
@@ -96,7 +96,7 @@ public class TeacherController extends ActionSupport {
 	}
 
 	/**
-	 * Removes the teacher from the Teacher list.
+	 * Removes the teacher.
 	 * Called from Struts.xml file
 	 * 
 	 * @return String
@@ -164,11 +164,42 @@ public class TeacherController extends ActionSupport {
 			return null;
 		}
 	}
-
+	
+	/**
+	 * gets all teachers
+	 * 
+	 * @return TreeSet<Teacher>
+	 */
 	public TreeSet<Teacher> getTeachers() {
 		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 		teachers.addAll(DAOFactory.getTheFactory().getDAOTeacher().readAll());
 		return teachers;
+	}
+	
+	/**
+	 * gets all education teams
+	 * 
+	 * @return TreeSet<EducationTeam>
+	 */
+	public TreeSet<EducationTeam> getEducationTeams() {
+		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+		educationTeams.addAll(DAOFactory.getTheFactory().getEducationTeamDAO().readAll());
+		return educationTeams;
+	}
+	
+	/**
+	 * gets the educationteam with the abbreviation that equals given abbreviation
+	 * 
+	 * @param abbr
+	 * @return EducationTeam
+	 */
+	public EducationTeam getEducationTeamByAbbreviation(String abbr){
+		for(EducationTeam et : getEducationTeams()){
+			if(et.getAbbreviation().equals(abbr)){
+				return et;
+			}
+		}
+		return null;
 	}
 
 	public void setTeachers(TreeSet<Teacher> teachers) {
@@ -189,21 +220,6 @@ public class TeacherController extends ActionSupport {
 
 	public void setTeamAbbreviation(String teamAbbreviation) {
 		this.teamAbbreviation = teamAbbreviation;
-	}
-
-	public TreeSet<EducationTeam> getEducationTeams() {
-		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
-		educationTeams.addAll(DAOFactory.getTheFactory().getEducationTeamDAO().readAll());
-		return educationTeams;
-	}
-	
-	public EducationTeam getEducationTeamByAbbreviation(String abbr){
-		for(EducationTeam et : getEducationTeams()){
-			if(et.getAbbreviation().equals(abbr)){
-				return et;
-			}
-		}
-		return null;
 	}
 
 	public void setEducationTeams(TreeSet<EducationTeam> educationTeams) {
@@ -241,5 +257,4 @@ public class TeacherController extends ActionSupport {
 	public void setId(int id) {
 		this.id = id;
 	}
-
 }

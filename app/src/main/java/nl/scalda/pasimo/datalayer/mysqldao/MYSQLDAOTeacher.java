@@ -22,7 +22,10 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 	private static SessionFactory factory;
 	private static MYSQLDAOTeacher instance = null;
 	
-	
+	/**
+	 * initialises the configuration of hibernate.
+	 * called once from getInstance() method
+	 */
 	public static void initialiseFactory() {
 		try{
 			factory = new Configuration().configure().buildSessionFactory();
@@ -32,6 +35,11 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		}
 	}
 
+	/**
+	 * creates a teacher in the database.
+	 * 
+	 * @param Teacher teacher
+	 */
 	@Override
 	public void create(Teacher teacher) {
 		Session session = factory.openSession();
@@ -63,6 +71,11 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		}
 	}
 
+	/**
+	 * updates the teacher in the database.
+	 * 
+	 * @param Teacher t
+	 */
 	@Override
 	public void update(Teacher t) {
 		Session session = factory.openSession();
@@ -88,6 +101,11 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		
 	}
 
+	/**
+	 * deletes the teacher from the database.
+	 * 
+	 * @param Teacher t
+	 */
 	@Override
 	public void delete(Teacher t) {
 		Session session = factory.openSession();
@@ -107,6 +125,11 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		}
 	}
 
+	/**
+	 * reads all teachers from the database.
+	 * 
+	 * @return TreeSet<Teacher>
+	 */
 	@Override
 	public TreeSet<Teacher> readAll() {
 		Session session = factory.openSession();
@@ -155,6 +178,12 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		return teachers;
 	}
 
+	/**
+	 * reads the teacher from the database by employeeNumber
+	 * 
+	 * @param int employeeNumber
+	 * @return Teacher
+	 */
 	@Override
 	public Teacher readByEmployeeNumber(int employeeNumber) {
 		Session session = factory.openSession();
@@ -198,6 +227,12 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		return teacher;
 	}
 	
+	/**
+	 * reads all teacher from the database that are in the given education team.
+	 * 
+	 * @param EducationTeam t
+	 * @return TreeSet<Teacher>
+	 */
 	@Override
 	public TreeSet<Teacher> readAllForEducationTeam(EducationTeam t) {
 		Session session = factory.openSession();
@@ -247,6 +282,12 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		return teachers;
 	}
 	
+	/**
+	 * reads the teacher from the database by the given abbreviation.
+	 * 
+	 * @param String abbreviation
+	 * @return Teacher
+	 */
 	@Override
 	public Teacher readByAbbr(String abbreviation) {
 		Session session = factory.openSession();
@@ -290,6 +331,12 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		return teacher;
 	}
 	
+	/**
+	 * gets the coach group the given teacher is currently in.
+	 * 
+	 * @param Teacher teacher
+	 * @return CoachGroup
+	 */
 	@Override
 	public CoachGroup getCurrentCoachGroup(Teacher teacher) {
 		Session session = factory.openSession();
@@ -312,7 +359,12 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		return coachGroup;
 	}
 	
-	
+	/**
+	 * gets the education team the teacher is currently in.
+	 * 
+	 * @param Teacher teacher
+	 * @return EducationTeam
+	 */
 	public EducationTeam getCurrentEducationTeamOfTeacher(Teacher teacher) {
 		Session session = factory.openSession();
 		Transaction tx = null;
@@ -336,6 +388,11 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		return educationTeam;
 	}
 	
+	/**
+	 * check if there is already an instance of this class and returns it.
+	 * 
+	 * @return MYSQLDAOTeacher
+	 */
 	public static MYSQLDAOTeacher getInstance() {
         if (instance == null) {
             instance = new MYSQLDAOTeacher();

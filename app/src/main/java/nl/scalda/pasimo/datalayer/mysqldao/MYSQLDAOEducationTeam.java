@@ -19,6 +19,10 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 	private static SessionFactory factory;
 	private static MYSQLDAOEducationTeam instance = null;
 	
+	/**
+	 * initialises the configuration of hibernate.
+	 * called once from getInstance() method
+	 */
 	public static void initialiseFactory() {
 		try{
 			factory = new Configuration().configure().buildSessionFactory();
@@ -28,36 +32,56 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 		}
 	}
 
+	/**
+	 * @param EducationTeam educationTeam
+	 */
 	@Override
 	public void create(EducationTeam educationTeam) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/**
+	 * @param EducationTeam educationTeam
+	 */
 	@Override
 	public void update(EducationTeam educationTeam) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/**
+	 * @param EducationTeam educationTeam
+	 */
 	@Override
 	public void save(EducationTeam educationTeam) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/**
+	 * @param EducationTeam educationTeam
+	 */
 	@Override
 	public void delete(EducationTeam educationTeam) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/**
+	 * @param String abbreviation
+	 */
 	@Override
 	public EducationTeam read(String abbreviation) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * reads all the education in the database
+	 * 
+	 * @return Set<EducationTeam>
+	 */
 	@Override
 	public Set<EducationTeam> readAll() {
 		Session session = factory.openSession();
@@ -83,20 +107,21 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 		return teams;
 	}
 
+	/**
+	 * @param String abbr
+	 */
 	@Override
 	public boolean exist(String abbr) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	public static MYSQLDAOEducationTeam getInstance() {
-        if (instance == null) {
-            instance = new MYSQLDAOEducationTeam();
-            initialiseFactory();
-        }
-        return instance;
-    }
 
+	/**
+	 * adds the given teacher to the given education team.
+	 * 
+	 * @param Teacher teacher
+	 * @param EducationTeam educationTeam
+	 */
 	@Override
 	public void addTeacherToEducationTeam(Teacher teacher, EducationTeam educationTeam) {
 		Session session = factory.openSession();
@@ -116,6 +141,12 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 		}
 	}
 	
+	/**
+	 * deletes the given teacher from the given education team.
+	 * 
+	 * @param Teacher teacher
+	 * @param EducationTeam educationTeam
+	 */
 	@Override
 	public void deleteTeacherFromEducationTeam(Teacher teacher, EducationTeam educationTeam) {
 		Session session = factory.openSession();
@@ -133,4 +164,17 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 		   session.close();
 		}
 	}
+	
+	/**
+	 * check if there already is an instance of this class and returns it.
+	 * 
+	 * @return MYSQLDAOEducationTeam
+	 */
+	public static MYSQLDAOEducationTeam getInstance() {
+        if (instance == null) {
+            instance = new MYSQLDAOEducationTeam();
+            initialiseFactory();
+        }
+        return instance;
+    }
 }
