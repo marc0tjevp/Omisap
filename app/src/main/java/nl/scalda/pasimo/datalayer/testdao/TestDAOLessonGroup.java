@@ -15,10 +15,12 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
         LessonGroup l1 = new LessonGroup("ICO43A");
         LessonGroup l2 = new LessonGroup("ICO42A");
         LessonGroup l3 = new LessonGroup("ICO41A");
+        LessonGroup l4 = new LessonGroup("ICO441G");
         
         lessongroups.add(l1);
         lessongroups.add(l2);
         lessongroups.add(l3);
+        lessongroups.add(l4);
         
 
     }

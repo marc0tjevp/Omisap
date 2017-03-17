@@ -154,20 +154,7 @@
                             <label>
                                 <input type="checkbox">
                             </label>
-                        </td>
-
-                        <td><a href="/Pasimo/lessongroup/details">ICO41A</a></td>
-                        <td>3</td>
-                    </tr>
-                      <s:iterator value = "lessongroups" status = "LessongroupsStatus">
-                      <tr> 
-                      <s:if test= "#LessongroupStatus.unchanged = true">
-                      <td>
-                   
-                      </s:if>
-                      
-                      
-                      </s:iterator>
+                      </td>
                     <tr>
                         <td>
                             <label>
@@ -223,6 +210,9 @@
                         <td><a href="/Pasimo/lessongroup/details">ICO33A</a></td>
                         <td>12</td>
                     </tr>
+                </tbody>
+                <tbody>
+                
                 </tbody>
             </table>
         </div>
