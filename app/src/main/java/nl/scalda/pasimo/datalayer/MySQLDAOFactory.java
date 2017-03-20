@@ -8,13 +8,7 @@ import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
-import nl.scalda.pasimo.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.interfaces.IDAOEducationTeam;
-import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
-
-import nl.scalda.pasimo.interfaces.IDAONote;
-import nl.scalda.pasimo.interfaces.IDAOTeacher;
-import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
 import nl.scalda.pasimo.interfaces.IEducationTeamDAO;
 import nl.scalda.pasimo.interfaces.ITeamDAO;

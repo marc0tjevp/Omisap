@@ -5,9 +5,6 @@ import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
 
-import nl.scalda.pasimo.interfaces.IDAONote;
-import nl.scalda.pasimo.interfaces.IDAOTeacher;
-import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.interfaces.IDAOEducationTeam;
 
 public abstract class DAOFactory {
