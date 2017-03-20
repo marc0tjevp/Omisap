@@ -28,7 +28,7 @@
       </div>
       <div class="modal-body">
        <div class="btn-group">
-       
+        <div class="btn-group">
        <!-- TODO via struts tijden kiezen in de dropdown -->
        
 	      		  <div class="dropdown div-inline">
@@ -54,7 +54,18 @@
                      </ul>
                   </div>
 </div>
-
+	      		  <div class="dropdown div-inline">
+                     <button class="btn btn-classic dropdown-toggle" type="button" data-toggle="dropdown">Day
+                     <span class="caret"></span></button>
+                     <ul class="dropdown-menu">
+                        <li><a href="#">Maandag</a></li>
+                        <li><a href="#">Dinsdag</a></li>
+                        <li><a href="#">Woensdag</a></li>
+                        <li><a href="#">Donderdag</a></li>
+                        <li><a href="#">Vrijdag</a></li>
+                     </ul>
+                  </div>
+</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success ">Toevoegen</button>
       </div>
@@ -74,6 +85,7 @@
               <h4 class="modal-title" id="myModalLabel">Schooltijden aanpassen</h4>
       </div>
       <div class="modal-body">
+       <div class="btn-group">
        <div class="btn-group">
        
        <!-- TODO via struts tijden kiezen in de dropdown -->
@@ -101,7 +113,18 @@
                      </ul>
                   </div>
 </div>
-
+	      		  <div class="dropdown div-inline">
+                     <button class="btn btn-classic dropdown-toggle" type="button" data-toggle="dropdown">Day
+                     <span class="caret"></span></button>
+                     <ul class="dropdown-menu">
+                        <li><a href="#">Maandag</a></li>
+                        <li><a href="#">Dinsdag</a></li>
+                        <li><a href="#">Woensdag</a></li>
+                        <li><a href="#">Donderdag</a></li>
+                        <li><a href="#">Vrijdag</a></li>
+                     </ul>
+                  </div>
+</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success ">Toevoegen</button>
       </div>
