@@ -116,7 +116,7 @@
         Weet je zeker dat je zeker dat je dit les block wilt verwijderen?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-succes">Verwijder dit work block</button>
+        <button type="button" class="btn btn-">Verwijder</button>
       </div>
     </div>
   </div>
