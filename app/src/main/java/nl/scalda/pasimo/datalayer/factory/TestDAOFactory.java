@@ -1,12 +1,12 @@
 package nl.scalda.pasimo.datalayer.factory;
 
-import nl.scalda.pasimo.datalayer.interfaces.IDAOCheckIn;
-import nl.scalda.pasimo.datalayer.interfaces.IEducationTeamDAO;
-import nl.scalda.pasimo.datalayer.interfaces.ITeamDAO;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
+import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
 import nl.scalda.pasimo.datalayer.testdao.TestEducationTeamDAO;
 import nl.scalda.pasimo.datalayer.testdao.TestTeamDAO;
-import nl.scalda.pasimo.interfaces.IDAOCoachGroup;
-import nl.scalda.pasimo.datalayer.testdao.TestDAOCheckIn;
+
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAONote;
@@ -49,10 +49,6 @@ public class TestDAOFactory extends DAOFactory {
     @Override
     public IDAONote getDAONote() {
         return TestDAONote.getInstance();
-    }
-    
-    public IDAOCheckIn getDAOCheckIn() {
-    	return TestDAOCheckIn.getInstance();
     }
 
     public static TestDAOFactory getInstance() {
