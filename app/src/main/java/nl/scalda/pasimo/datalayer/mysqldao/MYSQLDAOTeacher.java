@@ -83,12 +83,20 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		try{
 			tx = session.beginTransaction();
 			NativeQuery query1 = session.createNativeQuery("SET foreign_key_checks = 0;");
-			// update person?
-			NativeQuery query2 = session.createNativeQuery("UPDATE teacher SET person_email = :email, employeeNumber = :employeeNumber ,abbreviation = :abbreviation where employeeNumber = :employeeNumber ;");
+			NativeQuery query2 = session.createNativeQuery("UPDATE teacher SET person_email = :email, employeeNumber = :employeeNumber ,abbreviation = :abbreviation WHERE employeeNumber = :employeeNumber");
 			NativeQuery query3 = session.createNativeQuery("SET foreign_key_checks = 1;");
 			query1.executeUpdate();
+			session.createNativeQuery("UPDATE person SET email = :email, firstName = :firstName, insertion = :insertion, lastName = :lastName, cardID = :cardID WHERE email = :oldEmail")
+			.setParameter("email", t.getEmail())
+			.setParameter("firstName", t.getFirstName())
+			.setParameter("insertion", t.getInsertion())
+			.setParameter("lastName", t.getLastName())
+			.setParameter("cardID", t.getCardID())
+			.setParameter("oldEmail", readByEmployeeNumber(t.getEmployeeNumber()).getEmail())
+			.executeUpdate();
 			query2.setParameter("employeeNumber", t.getEmployeeNumber());
 			query2.setParameter("email", t.getEmail());
+			t.setAbbreviation();
 			query2.setParameter("abbreviation", t.getAbbreviation());
 			query2.executeUpdate();
 			query3.executeUpdate();

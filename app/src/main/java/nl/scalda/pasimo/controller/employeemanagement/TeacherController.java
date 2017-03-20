@@ -92,8 +92,8 @@ public class TeacherController extends ActionSupport {
 					getOldEducationTeam(f).deleteTeacher(f);
 					getEducationTeamByAbbreviation(teamAbbreviation).addTeacher(f);
 				}
+				MYSQLDAOTeacher.getInstance().update(getTeacher());
 			}
-			MYSQLDAOTeacher.getInstance().update(getTeacher());
 		}
 		
 		
