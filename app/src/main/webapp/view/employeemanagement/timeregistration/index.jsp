@@ -35,8 +35,10 @@
                      <button class="btn btn-classic dropdown-toggle" type="button" data-toggle="dropdown">Start time
                      <span class="caret"></span></button>
                      <ul class="dropdown-menu">
-                        <li><a href="#">Tijd</a></li>
-                        <li><a href="#">Tijd</a></li>
+                        <li><a href="#">8:30</a></li>
+                        <li><a href="#">10:25</a></li>
+                        <li><a href="#">12:35</a></li>
+                        <li><a href="#">14:30</a></li>
                      </ul>
                   </div>
 </div>
@@ -45,8 +47,10 @@
                      <button class="btn btn-classic dropdown-toggle" type="button" data-toggle="dropdown">End time
                      <span class="caret"></span></button>
                      <ul class="dropdown-menu">
-                        <li><a href="#">Tijd</a></li>
-                        <li><a href="#">Tijd</a></li>
+                        <li><a href="#">10:10</a></li>
+                        <li><a href="#">12:05</a></li>
+                        <li><a href="#">14:15</a></li>
+                        <li><a href="#">15:35</a></li>
                      </ul>
                   </div>
 </div>
@@ -78,8 +82,10 @@
                      <button class="btn btn-classic dropdown-toggle" type="button" data-toggle="dropdown">Start time
                      <span class="caret"></span></button>
                      <ul class="dropdown-menu">
-                        <li><a href="#">Tijd</a></li>
-                        <li><a href="#">Tijd</a></li>
+                        <li><a href="#">8:30</a></li>
+                        <li><a href="#">10:25</a></li>
+                        <li><a href="#">12:35</a></li>
+                        <li><a href="#">14:30</a></li>
                      </ul>
                   </div>
 </div>
@@ -88,8 +94,10 @@
                      <button class="btn btn-classic dropdown-toggle" type="button" data-toggle="dropdown">End time
                      <span class="caret"></span></button>
                      <ul class="dropdown-menu">
-                        <li><a href="#">Tijd</a></li>
-                        <li><a href="#">Tijd</a></li>
+                        <li><a href="#">10:10</a></li>
+                        <li><a href="#">12:05</a></li>
+                        <li><a href="#">14:15</a></li>
+                        <li><a href="#">15:35</a></li>
                      </ul>
                   </div>
 </div>
@@ -144,50 +152,78 @@
       
          <div class="row">
             <div class="col-sm-12">
-               <table class="table">
-               <thead>
+               <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Maandag</th>
+        <th>Dinsdag</th>
+        <th>Woensdag</th>
+        <th>Donderdag</th>
+        <th>Vrijdag</th>
+      </tr>
+    </thead>
+
+<tbody>
                   <tr>
-                     <th></th>
-                     <th>Maandag</th>
-                     <th>Dinsdag</th>
-                     <th>Woensdag<th>
-                     <th>Donderdag<th>
-                     <th>Vrijdag</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                     <td>8:30	10:10</td>
                      <td>
-	                     <div class="well">
-	                     </div>
+	                     <div class="well well-sm">8:30	10:10</div>
                      </td>
-                  </tr>
-                  <tr>
-                     <td>10:25	12:05</td>
-                     <td>
-	                     <div class="well">
-	                     </div>
-                     </td>
- <td>
- </td>
                                           <td>
-	                     <div class="well">
-	                     </div> 
+	                     <div class="well well-sm">8:30	10:10</div>
+                     </td>
+                                          <td>
+	                     <div class="well well-sm">8:30	10:10</div>
+                     </td>
+                     
+                  </tr>
+                  <tr>
+                     <td>
+	                     <div class="well well-sm">10:25  12:05</div>
+                     </td>
+                                          <td>
+	                     <div class="well well-sm">10:25  12:05</div>
+                     </td>
+                                          <td>
+	                     <div class="well well-sm">10:25  12:05</div>
+                     </td>
+                                          <td>
+	                     <div class="well well-sm">10:25  12:05</div>
+                     </td>
+                                          <td>
+	                     <div class="well well-sm">10:25  12:05</div>
+                     </td>
+                     
+                  </tr>
+     <tr>
+                     <td>
+	                     <div class="well well-sm">12:35	14:15</div>
+                     </td>
+                                          <td>
+	                     <div class="well well-sm">12:35	14:15</div>
+                     </td>
+                                          <td>
+	                     <div class="well well-sm">12:35	14:15</div>
+                     </td>
+                     <td></td>
+                                                        <td>
+	                     <div class="well well-sm">12:35	14:15</div>
                      </td>
                   </tr>
                   <tr>
-                     <td>12:35	14:15</td>
                      <td>
-	                     <div class="well">
-	                     </div>
+	                     <div class="well well-sm">14:30	15:35</div>
                      </td>
-                  </tr>
-                  <tr>
-                     <td>14:30	15:35</td>
-                     <td>
-	                     <div class="well">
-	                     </div>
+                                          <td>
+	                     <div class="well well-sm">14:30	15:35</div>
+                     </td>
+                                          <td>
+	                     <div class="well well-sm">14:30	15:35</div>
+                     </td>
+                                          <td>
+	                     <div class="well well-sm">14:30	15:35</div>
+                     </td>
+                                          <td>
+	                     <div class="well well-sm">14:30	15:35</div>
                      </td>
                   </tr>
                   </tbody>
