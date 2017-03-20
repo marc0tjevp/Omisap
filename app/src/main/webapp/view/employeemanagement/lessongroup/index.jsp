@@ -58,13 +58,23 @@
                     }
                 });
                 
-                $(".addLessonGroupButton").on("click", function() {
-                	if($("input[type=text]#lessonGroupName-input")) {}
+                $("#addLessonGroupButton").on("click", function() {
+                	if($("input[type=text]#lessonGroupName-input").val()) {
+                		console.log("Hallo!");
+                		 $.ajax({
+                		       type: 'POST',
+                		       url:'Pasimo/lessongroup/add.action?lessonGroupName='+ $("input[type=text]#lessonGroupName-input").val(),
+                		       dataType: 'json',
+                		       success: function(data){
+                		             console.log(stringify(data));
+                		        }});
+                	}
                 });
 
 
             });
         </script>
+        
     </jsp:attribute>
     <jsp:attribute name="content">
 

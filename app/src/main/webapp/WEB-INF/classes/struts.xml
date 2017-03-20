@@ -24,6 +24,11 @@
                 method="execute">
             <result name="success">/view/employeemanagement/lessongroup/details.jsp</result>
         </action>
+                
+        <action name="lessongroup/add" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
+                method="addLessonGroup">
+            <result name="success">/view/employeemanagement/lessongroup/index.jsp</result>
+        </action>
         
         
           <action name="coachGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
