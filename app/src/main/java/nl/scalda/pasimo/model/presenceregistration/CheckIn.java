@@ -1,6 +1,6 @@
 package nl.scalda.pasimo.model.presenceregistration;
 
-public class checkIn {
+public class CheckIn {
 
 	
 	
