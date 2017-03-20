@@ -101,7 +101,15 @@
                 $('.form-control')
                 .dropdown();
                
-
+                
+                
+                $('select').change(function() {
+                    if ($(this).children('option:first-child').is(':selected')) {
+                      $(this).addClass('placeholder');
+                    } else {
+                     $(this).removeClass('placeholder');
+                    }
+                   });
             });
             
         </script>
@@ -135,7 +143,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form class="addCoachGroups" action="addCoachGroup" role="form" method="post">
+                        <form class="addCoachGroup" action="addCoachGroup" role="form" method="post">
                           <div class="modal-body">
                             
                                 <div class="form-group">
@@ -143,7 +151,7 @@
                                 	<div class="col-10">
                                         
                                         <select class="form-control" name="coach.currentEducationTeam" id="educationTeam-input">
-                                        <option disabled="disabled">EducationTeams</option>
+                                        <option value="">Select EducationTeam</option>
                                         <s:iterator value="educationTeam" var="ed">
                                         <option value="ed">${ed.name} </option>
                                         </s:iterator>
@@ -160,7 +168,7 @@
      
                                     
                                     <select class="form-control" name="coach.teacher" id="coachGroupTeacherName-input">
-                                        <option value="" selected disabled>Select Teachers</option>
+                                        <option value="" >Select Teacher</option>
                                         <s:iterator value="educationTeam" var="ed">
                                         <option value="ed">${ed.name} </option>
                                         </s:iterator>

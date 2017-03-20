@@ -34,6 +34,7 @@ public class CoachGroupController extends ActionSupport {
 		teacher.add(a3);
 		educationTeam.add(a2);
 	//	coachGroup.add(a1);
+		
 		return SUCCESS;
 	}
 
@@ -51,6 +52,8 @@ public class CoachGroupController extends ActionSupport {
 			id++;
 		}
 		coach.setId(id);
+		coach.setCurrentEducationTeam(coach.getCurrentEducationTeam());
+		coach.setTeacher(coach.getTeacher());
 		
 		CoachGroupList.getInstance().addCoachGroup(coach);
 		
@@ -58,7 +61,7 @@ public class CoachGroupController extends ActionSupport {
 		
 		TestDAOCoachGroup.getInstance().create(coach);
 	
-		
+		System.out.println(CoachGroupList.getInstance().getCoachgroups());
 		return SUCCESS;
 	}
 
