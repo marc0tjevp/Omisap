@@ -50,8 +50,8 @@
 		</action>
 		<action name="editTeacher" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="updateTeacher">
-			<result name="success">/view/employeemanagement/teacher/teacherOverview.jsp</result>
-			<result name="input">/view/employeemanagement/teacher/teacherOverview.jsp</result>
+			<result name="success" type="redirect">teacherOverview</result>
+			<result name="input" type="redirect">teacherOverview</result>
 		</action>
 		<action name="removeTeacher" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="removeTeacher">

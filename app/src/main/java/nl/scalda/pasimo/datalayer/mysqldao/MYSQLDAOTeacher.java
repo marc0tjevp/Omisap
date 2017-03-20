@@ -83,6 +83,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		try{
 			tx = session.beginTransaction();
 			NativeQuery query1 = session.createNativeQuery("SET foreign_key_checks = 0;");
+			// update person?
 			NativeQuery query2 = session.createNativeQuery("UPDATE teacher SET person_email = :email, employeeNumber = :employeeNumber ,abbreviation = :abbreviation where employeeNumber = :employeeNumber ;");
 			NativeQuery query3 = session.createNativeQuery("SET foreign_key_checks = 1;");
 			query1.executeUpdate();
