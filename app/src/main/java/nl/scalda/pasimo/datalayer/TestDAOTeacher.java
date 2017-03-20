@@ -2,7 +2,7 @@ package nl.scalda.pasimo.datalayer;
 
 import java.util.TreeSet;
 
-import nl.scalda.pasimo.interfaces.IDAOTeacher;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 

@@ -1,11 +1,9 @@
 package nl.scalda.pasimo.datalayer;
 
-import nl.scalda.pasimo.interfaces.IDAOCoachGroup;
-import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
-
-import nl.scalda.pasimo.interfaces.IDAONote;
-import nl.scalda.pasimo.interfaces.IDAOTeacher;
-import nl.scalda.pasimo.interfaces.IDAOLessonGroup;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
+import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
 
 public abstract class DAOFactory {
 
