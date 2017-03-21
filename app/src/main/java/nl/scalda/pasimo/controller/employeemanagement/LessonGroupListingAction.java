@@ -8,7 +8,7 @@ import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 import nl.scalda.pasimo.test.lessonGroupList;
 
-public class LessonGroupListingController extends ActionSupport {
+public class LessonGroupListingAction extends ActionSupport {
 	
 	/**
 	 * 
@@ -37,12 +37,14 @@ public class LessonGroupListingController extends ActionSupport {
      * @return
      */
     public String addLessonGroup() {
+    	System.out.println("hallo");
+    	System.out.println(this.lessonGroupName);
     	if(this.lessonGroupName == null || this.lessonGroupName.equals("")) {
     		return ERROR;
     	}
-    	LessonGroup previousLessonGroup = this.lessonGroups.last();
+    	LessonGroup previousLessonGroup = this.getLessonGroups().last();
     	
-    	this.lessonGroups.add(new LessonGroup(previousLessonGroup.getId() + 1, lessonGroupName));
+    	this.getLessonGroups().add(new LessonGroup(previousLessonGroup.getId() + 1, lessonGroupName));
     	return SUCCESS;
     }
    

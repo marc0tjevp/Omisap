@@ -63,12 +63,12 @@
                 		console.log("Hallo!");
                 		console.log($("input[type=text]#lessonGroupName-input").val());
                 		 $.ajax({
-                		       type: 'POST',
-                		       url:'lessongroup/add.action?lessonGroupName='+ $("input[type=text]#lessonGroupName-input").val(),
+                		     type: 'POST',	  
+                			 url:'lessongroup/add',
                 		       dataType: 'json',
-                		       success: function(data){
-                		             console.log("succes!");
-                		        }});
+               				   data : "lessonGroupName="+$("input[type=text]#lessonGroupName-input").val(),
+                		});
+                		location.reload();
                 	}
                 });
 
