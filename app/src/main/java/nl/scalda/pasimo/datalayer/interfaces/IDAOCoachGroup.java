@@ -5,7 +5,6 @@
  */
 package nl.scalda.pasimo.datalayer.interfaces;
 
-import java.util.TreeSet;
 
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 

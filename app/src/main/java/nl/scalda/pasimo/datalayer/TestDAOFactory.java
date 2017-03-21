@@ -9,7 +9,7 @@ import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAONote;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
 
-import nl.scalda.pasimo.interfaces.*;
+
 
 public class TestDAOFactory extends DAOFactory {
 
