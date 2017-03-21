@@ -8,8 +8,13 @@ import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAONote;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
+<<<<<<< HEAD
 import nl.scalda.pasimo.datalayer.testdao.TestEducationTeamDAO;
 import nl.scalda.pasimo.interfaces.*;
+=======
+
+
+>>>>>>> develop
 
 public class TestDAOFactory extends DAOFactory {
 
