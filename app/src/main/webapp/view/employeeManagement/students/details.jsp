@@ -37,9 +37,9 @@ button {
  		 <div class="row">
   		<div class="col-xs-12 col-sm-6 col-md-4">
   		<div style="background-color: #FFF" border="black">
-			<p> Naam: PLACEHOLDER TEXT</p>
-			<p>Ov nummer: PLACEHOLDER TEXT</p>
-			<p>Les groep:  PLACEHOLDER TEXT</p>
+			<p> Naam: </p> student(a).getName 
+			<p>Ov nummer: </p> student(a).getOvNumber
+			<p>Les groep: </p> student(a).getlessonGroup
 		</div>
 		</div>
   
