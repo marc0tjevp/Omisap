@@ -1,9 +1,8 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
-<<<<<<< HEAD
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-=======
->>>>>>> develop
+
 import java.util.TreeSet;
 
 public class EducationTeam implements Comparable<EducationTeam> {

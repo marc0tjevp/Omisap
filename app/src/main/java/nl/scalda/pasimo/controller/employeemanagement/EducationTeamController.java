@@ -26,21 +26,28 @@ public class EducationTeamController extends ActionSupport {
 
         return SUCCESS;
     }
+    
+    public String addEducationTeam() {
 
-    public String create() {
+        EducationTeam d = new EducationTeam(name, abbreviation);
 
-        return SUCCESS;
-    }
-
-    public String delete() {
-
-        return SUCCESS;
-    }
-
-    public String update() {
+        educationTeams.add(d);
 
         return SUCCESS;
     }
+
+    public String editEducationTeam() {
+        // Executed when educationTeam edit form is submitted
+        
+        return SUCCESS;
+    }
+    
+    public String deleteEducationTeam() {
+        // Executed when educationTeam edit form is submitted
+        
+        return SUCCESS;
+    }
+    
 
     public TreeSet getEducationTeams() {
         return educationTeams;
@@ -62,20 +69,7 @@ public class EducationTeamController extends ActionSupport {
         this.abbreviation = abbreviation;
     }
 
-    public String addEducationTeam() {
 
-        EducationTeam d = new EducationTeam(name, abbreviation);
-
-        educationTeams.add(d);
-
-        return SUCCESS;
-    }
-
-    public String editEducationTeam() {
-        // Executed when educationTeam edit form is submitted
-        
-        return SUCCESS;
-    }
 
     public String readTeams() {
 

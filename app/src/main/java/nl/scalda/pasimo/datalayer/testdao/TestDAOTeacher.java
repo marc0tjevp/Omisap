@@ -67,26 +67,22 @@ public class TestDAOTeacher implements IDAOTeacher {
 		return instance;
 	}
 
-<<<<<<< HEAD
-=======
-	@Override
+
 	public void create(Teacher teacher, EducationTeam team) {
 		teachers.add(teacher);
 		
 	}
 
-	@Override
 	public void update(Teacher t, EducationTeam team) {
 		// TODO what is the meaning of this method? Implement or remove. Beware: it overrides another method.
 
 		
 	}
 
-	@Override
 	public Teacher readByEmployeeNumber(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
->>>>>>> develop
+
 }

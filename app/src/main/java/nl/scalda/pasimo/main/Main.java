@@ -5,14 +5,13 @@
  */
 package nl.scalda.pasimo.main;
 
-<<<<<<< HEAD
+
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
-=======
->>>>>>> develop
+
 /**
  *
  * @author jeroe

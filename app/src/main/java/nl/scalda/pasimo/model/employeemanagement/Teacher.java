@@ -1,9 +1,6 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> develop
 public class Teacher extends Person {
 
     private String abbreviation;
@@ -47,17 +44,14 @@ public class Teacher extends Person {
     public void setEmployeeNumber(int employeeNumber) {
         this.employeeNumber = employeeNumber;
     }
-<<<<<<< HEAD
+
 
     public CoachGroup getCoachGroup() {
         //TODO
         return null;
-=======
-    
-    public CoachGroup getCoachGroup(){
-    	//TODO What todo???
-    	return null;
     }
+
+    
     
     public EducationTeam getEducationTeam(){
     	//FIXME this is terribly wrong!  Why use a EducationTeamlist in a testpackage? Use TestDAO instead.
@@ -67,7 +61,7 @@ public class Teacher extends Person {
 //			}
 //		}
     	return null;
->>>>>>> develop
+
     }
 
     @Override
