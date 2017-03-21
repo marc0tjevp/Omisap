@@ -4,6 +4,8 @@ import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkBlock;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkingDay;
 import nl.scalda.pasimo.datalayer.testdao.TestEducationTeamDAO;
 import nl.scalda.pasimo.datalayer.testdao.TestTeamDAO;
 
@@ -11,6 +13,8 @@ import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAONote;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOWorkBlock;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOWorkingDay;
 import nl.scalda.pasimo.interfaces.*;
 
 public class TestDAOFactory extends DAOFactory {
@@ -57,5 +61,17 @@ public class TestDAOFactory extends DAOFactory {
         }
         return instance;
     }
+
+	@Override
+	public IDAOWorkingDay getDAOWorkingDay() {
+
+		return TestDAOWorkingDay.getInstance();
+	}
+
+	@Override
+	public IDAOWorkBlock getDAOWorkBlock() {
+	
+		return TestDAOWorkBlock.getInstance();
+	}
 
 }

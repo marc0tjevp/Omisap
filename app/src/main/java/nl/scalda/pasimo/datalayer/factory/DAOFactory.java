@@ -16,6 +16,8 @@ public abstract class DAOFactory {
     }
 //methods
 
+
+
     public abstract ITeamDAO getTeamDAO();
 
     public abstract IEducationTeamDAO getEducationTeamDAO();
@@ -27,5 +29,9 @@ public abstract class DAOFactory {
     public abstract IDAONote getDAONote();
 
     public abstract IDAOTeacher getDAOTeacher();
+    
+    public abstract IDAOWorkingDay getDAOWorkingDay();
+    
+    public abstract IDAOWorkBlock getDAOWorkBlock();
 
 }
