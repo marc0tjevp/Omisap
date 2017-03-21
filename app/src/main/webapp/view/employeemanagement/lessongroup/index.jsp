@@ -71,6 +71,24 @@
                 		location.reload();
                 	}
                 });
+                
+                $("#confirmDeleteLessonGroupButton").on("click", function() {
+                	
+                	$("input[type=checkbox].selectedLessonGroup").each(function() {
+                		var parentElement = $(this).parent().parent().parent();
+                		var lessonGroupId = parentElement.attr("id");
+                		
+                		console.log(lessonGroupId);
+                		
+	               		 $.ajax({
+	            		     type: 'POST',	  
+	            			 url:'lessongroup/delete',
+	            		     dataType: 'json',
+	           				 data : "lessonGroupId="+$("input[type=text]#lessonGroupName-input").val(),
+	            		});
+                	});
+            		location.reload();
+                });
 
 
             });
@@ -138,7 +156,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluiten</button>
-                            <button type="button" class="btn btn-danger">Verwijderen</button>
+                            <button type="button" id="confirmDeleteLessonGroupButton" class="btn btn-danger">Verwijderen</button>
                         </div>
                     </div>
                 </div>
@@ -161,7 +179,7 @@
                 <tbody>
                 <!-- Every lesson group -->
                     <s:iterator value="lessonGroups">
-                    	<tr>
+                    	<tr id="<s:property value="id"></s:property>">
                     		<td>
                     			<label>
                     				<input type="checkbox">
