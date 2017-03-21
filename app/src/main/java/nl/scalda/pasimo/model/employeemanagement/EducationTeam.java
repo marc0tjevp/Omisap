@@ -50,7 +50,6 @@ public class EducationTeam implements Comparable<EducationTeam>{
     
 	public void deleteTeacher(Teacher t){
 		if (teachers.remove(t)) {
-			DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 			DAOFactory.getTheFactory().getEducationTeamDAO().deleteTeacherFromEducationTeam(t, this);
 		}		
 		

@@ -53,7 +53,6 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String addTeacher() {
-		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 		teacher.setAbbreviation();
 		DAOFactory.getTheFactory().getDAOTeacher().create(teacher);
 		EducationTeam et = getEducationTeamByAbbreviation(teamAbbreviation);
@@ -79,7 +78,6 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String updateTeacher() {
-		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 		for (Teacher f : getTeachers()) {
 			if (f.getEmployeeNumber() == teacher.getEmployeeNumber()){
 				f.setFirstName(teacher.getFirstName());
@@ -95,22 +93,6 @@ public class TeacherController extends ActionSupport {
 				MYSQLDAOTeacher.getInstance().update(getTeacher());
 			}
 		}
-		
-		
-//		for (Teacher f : TeacherList.getInstance().getTeachers()) {
-//			if (f.getEmployeeNumber() == teacher.getEmployeeNumber()) {
-//				EducationTeam oldTeam = getOldEducationTeam(f);
-//				removeTeacherFromEducationTeam(f, oldTeam);
-//				f.setFirstName(teacher.getFirstName());
-//				f.setInsertion(teacher.getInsertion());
-//				f.setLastName(teacher.getLastName());
-//				f.setAbbreviation();
-//				f.setCardID(teacher.getCardID());
-//				f.setEmail(teacher.getEmail());
-//				EducationTeam team = getEducationTeamByAbbreviation(teamAbbreviation);
-//				updateTeacherEducationTeam(f, team);
-//			}
-//		}
 		return SUCCESS;
 	}
 
@@ -121,7 +103,6 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String removeTeacher() {
-		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 		teacher = getTeacherByEmployeeID(id);
 		DAOFactory.getTheFactory().getDAOTeacher().delete(teacher);
 		return SUCCESS;
@@ -161,7 +142,6 @@ public class TeacherController extends ActionSupport {
 	 * @return EducationTeam
 	 */
 	public EducationTeam getOldEducationTeam(Teacher t){
-		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 		try {
 			return DAOFactory.getTheFactory().getDAOTeacher().getCurrentEducationTeamOfTeacher(t);
 		} catch(Exception e) {
@@ -177,7 +157,6 @@ public class TeacherController extends ActionSupport {
 	 */
 	private Teacher getTeacherByEmployeeID(int id) {
 		try {
-			DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 			return DAOFactory.getTheFactory().getDAOTeacher().readByEmployeeNumber(id);
 		} catch (Exception e) {
 			return null;
@@ -190,7 +169,6 @@ public class TeacherController extends ActionSupport {
 	 * @return TreeSet<Teacher>
 	 */
 	public TreeSet<Teacher> getTeachers() {
-		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 		teachers.addAll(DAOFactory.getTheFactory().getDAOTeacher().readAll());
 		return teachers;
 	}
@@ -201,7 +179,6 @@ public class TeacherController extends ActionSupport {
 	 * @return TreeSet<EducationTeam>
 	 */
 	public TreeSet<EducationTeam> getEducationTeams() {
-		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 		educationTeams.addAll(DAOFactory.getTheFactory().getEducationTeamDAO().readAll());
 		return educationTeams;
 	}
