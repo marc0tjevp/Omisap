@@ -52,8 +52,14 @@ public class MySQLDAOFactory extends DAOFactory {
 	}
 
 	@Override
-	public IDAOEducationTeam getDAOEducationTeam() {
+	public ITeamDAO getTeamDAO() {
 		// TODO Auto-generated method stub
-		return MYSQLDAOEducationTeam.getInstance();
+		return null;
+	}
+
+	@Override
+	public IEducationTeamDAO getEducationTeamDAO() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

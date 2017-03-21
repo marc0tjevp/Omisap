@@ -20,8 +20,8 @@
                                 <input class="form-control" required="true" placeholder="Name" id="name">
                             </div>
                             <div class="form-group">
-                                <label>Abbrevation</label>
-                                <input class="form-control" required="true" placeholder="Abbrevation" id="abbrevation">
+                                <label>Abbreviation</label>
+                                <input class="form-control" required="true" placeholder="Abbreviation" id="abbreviation">
 
                             </div>
 
