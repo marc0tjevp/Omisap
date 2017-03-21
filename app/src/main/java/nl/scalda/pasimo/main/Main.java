@@ -2,7 +2,10 @@ package nl.scalda.pasimo.main;
 
 import java.util.TreeSet;
 
+import nl.scalda.pasimo.datalayer.testdao.TestDAOStudent;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 
 /**
@@ -11,20 +14,11 @@ import nl.scalda.pasimo.model.employeemanagement.Student;
  */
 public class Main {
 	public static void main(String args[]) {
-
-		TreeSet<Student> students = new TreeSet<>();
-		CoachGroup c1 = new CoachGroup(2, "ICOTEST", students );
-		
-		Student edgelord = new Student(1, 2, 3, 4, "nee", "koi",
-				"", "karper", 5, 6, 7, 8, 9);
+	//The database needs a password to work, so if you run it without a password you WILL get a java.sql.SQLException access denied. 
+	//The methods which use a database password are in TestDAOStudent
 	
-		
-		System.out.println(c1.getStudents());
-		
-		 
-		 }
-
-
+	
+	
 	}
 
-
+}

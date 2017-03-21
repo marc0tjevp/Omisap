@@ -11,7 +11,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
     private int id;
     private String name;
     private Teacher teacher;
-    private TreeSet<CoachGroup> coachgroups = new TreeSet<>();
+    private static TreeSet<CoachGroup> coachgroups = new TreeSet<>();
     private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
     private TreeSet<Student> students = new TreeSet<>();
 
@@ -40,12 +40,11 @@ public class CoachGroup implements Comparable<CoachGroup> {
         this.coachgroups.add(this);
     }
 
-    public void addStudent(Student s, int id){
-    	for(CoachGroup c : this.coachgroups){
-    		if(c.getId() == id){
-    			students.add(s);
-    			continue;
-    		}
+    public void addStudent(Student s, CoachGroup cg){
+    	for(CoachGroup c : coachgroups){
+    		if(cg.getId() == c.getId()){
+    			c.students.add(s);
+       		}
     	}
     }
     public void addLessonGroup(LessonGroup lg) {
@@ -136,4 +135,8 @@ public class CoachGroup implements Comparable<CoachGroup> {
 //        if(i == 0) return i;
         return name.compareTo(o.getName());
     }
+
+	
+	
+	
 }

@@ -2,37 +2,34 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
 
-import nl.scalda.pasimo.service.CoachGroupService;
-
 public class Student extends Person {
 
 
-	private int noteListID;
-	private int lessonGroupID;
+	private TreeSet<Note> noteList;
+	private LessonGroup lessonGroup;
 	private int cardID;
 	private String firstName;
 	private String insertion;
 	private String lastName;
 	private String email;
 	private int cohort;
-	private int coachGroupID;
 	private int studentOV;
 	private int yearOfBirth;
 	private int monthOfBirth;
 	private int dayOfBirth;
-	private CoachGroup CoachGroup;
+	private CoachGroup coachGroup;
 	
 	public Student(String email) {
 		this.email = email;
 	}
 
-	public Student(int studentOV, int coachGroupID, int lessonGroupID, int cohort, String email, String firstName,
-			String insertion, String lastName, int cardID, int yearOfBirth, int noteListID, int monthOfBirth,
+	public Student(int studentOV, CoachGroup coachGroup, LessonGroup lessonGroup, int cohort, String email, String firstName,
+			String insertion, String lastName, int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth,
 			int dayOfBirth) {
 		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.studentOV = studentOV;
-		this.coachGroupID = coachGroupID;
-		this.lessonGroupID = lessonGroupID;
+		this.coachGroup = coachGroup;
+		this.lessonGroup = lessonGroup;
 		this.cohort = cohort;
 		this.email = email;
 		this.firstName = firstName;
@@ -40,38 +37,22 @@ public class Student extends Person {
 		this.lastName = lastName;
 		this.cardID = cardID;
 		this.yearOfBirth = yearOfBirth;
-		this.noteListID = noteListID;
+		this.noteList = noteList;
 		this.monthOfBirth = monthOfBirth;
 		this.dayOfBirth = dayOfBirth;
-		this.addToCoachGroup();
+		this.addToCoachGroup(coachGroup);
 	}
 
 	public boolean deleteStudent(Student s) {
 		s = null;
 		return true;
 	}
-
-	public void addToCoachGroup() {
-	CoachGroup.addStudent(this, this.getCoachGroupID());
+		
+	public boolean addToCoachGroup(CoachGroup c){
+		c.addStudent(this, c);
+			return true;
+		}
 	
-	}
-
-	public int getNoteListID() {
-		return noteListID;
-	}
-
-	public void setNoteListID(int noteListID) {
-		this.noteListID = noteListID;
-	}
-
-	public int getLessonGroupID() {
-		return lessonGroupID;
-	}
-
-	public void setLessonGroupID(int lessonGroupID) {
-		this.lessonGroupID = lessonGroupID;
-	}
-
 	public int getCardID() {
 		return cardID;
 	}
@@ -120,14 +101,6 @@ public class Student extends Person {
 		this.cohort = cohort;
 	}
 
-	public int getCoachGroupID() {
-		return coachGroupID;
-	}
-
-	public void setCoachGroupID(int coachGroupID) {
-		this.coachGroupID = coachGroupID;
-	}
-
 	public int getStudentOV() {
 		return studentOV;
 	}
@@ -160,6 +133,34 @@ public class Student extends Person {
 		this.dayOfBirth = dayOfBirth;
 	}
 
+	public void setNoteList(TreeSet<Note> noteList) {
+		this.noteList = noteList;
+	}
+
+	public String getNameOfLessonGroup() {
+		return lessonGroup.getName();
+	}
+
+	public void setLessonGroup(LessonGroup lessonGroup) {
+		this.lessonGroup = lessonGroup;
+	}
+
+	public String getNameOfCoachGroup() {
+		return coachGroup.getName();
+	}
+
+	public void setCoachGroup(CoachGroup coachGroup) {
+		this.coachGroup = coachGroup;
+	}
+
+	public int getMonthOfBirth() {
+		return monthOfBirth;
+	}
+
+	public void setMonthOfBirth(int monthOfBirth) {
+		this.monthOfBirth = monthOfBirth;
+	}
+
 	@Override
 	public int compareTo(Person o) {
 		return email.compareTo(o.getEmail());
@@ -167,11 +168,11 @@ public class Student extends Person {
 
 	@Override
 	public String toString() {
-		return "Student [noteListID=" + noteListID + ", lessonGroupID=" + lessonGroupID + ", cardID=" + cardID
-				+ ", firstName=" + firstName + ", insertion=" + insertion + ", lastName=" + lastName + ", email="
-				+ email + ", cohort=" + cohort + ", coachGroupID=" + coachGroupID + ", studentOV=" + studentOV
-				+ ", yearOfBirth=" + yearOfBirth + ", monthOfBirth=" + monthOfBirth + ", dayOfBirth=" + dayOfBirth
-				+ "]";
+		return "Student [noteList=" + noteList + ", lessonGroup=" + lessonGroup + ", cardID=" + cardID + ", firstName="
+				+ firstName + ", insertion=" + insertion + ", lastName=" + lastName + ", email=" + email + ", cohort="
+				+ cohort + ", coachGroup=" + coachGroup + ", studentOV=" + studentOV + ", yearOfBirth=" + yearOfBirth
+				+ ", monthOfBirth=" + monthOfBirth + ", dayOfBirth=" + dayOfBirth + ", CoachGroup=" + coachGroup + "]";
 	}
 
+	
 }

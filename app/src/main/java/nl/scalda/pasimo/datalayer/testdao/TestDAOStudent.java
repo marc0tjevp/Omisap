@@ -30,41 +30,40 @@ public class TestDAOStudent implements IDAOStudent {
 		return instance;
 	}
 
-	public void addtodatabase(Student s) throws SQLException {
-
-	}
 
 	@Override
 	public void delete(Student s) {
-
+		int studentOV = s.getStudentOV();
 		try {
-			int ovnumber = s.getStudentOV();
-			// create the mysql database connection
-			String myDriver = "org.gjt.mm.mysql.Driver";
-			String myUrl = "jdbc:mysql://localhost";
-			Class.forName(myDriver);
-			java.sql.Connection conn = DriverManager.getConnection(myUrl, "root", "");
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		java.sql.Connection conn;
+		try {
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/StudentDAO", "root", "");
 
-			// create the mysql delete statement.
-			String query = "delete from `studentdao`.`student` where studentOV = ?";
+			// the mysql insert statement
+			String query = " delete from student where studentOV = (?)";
+			// create the mysql insert preparedstatement
 			java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
-			preparedStmt.setInt(1, ovnumber);
-
+			preparedStmt.setInt(1, studentOV);
 			// execute the preparedstatement
 			preparedStmt.execute();
 
 			conn.close();
-		} catch (Exception e) {
-
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-
 	}
 
 	@Override
 	public void create(Student s) {
 		int studentOV = s.getStudentOV();
-		int coachGroupID = s.getCoachGroupID();
-		int lessonGroupID = s.getLessonGroupID();
+		String coachGroup = s.getNameOfCoachGroup();
+		String lessonGroup = s.getNameOfLessonGroup();
 		int cohort = s.getCohort();
 		String email = s.getEmail();
 		String firstName = s.getFirstName();
@@ -72,38 +71,98 @@ public class TestDAOStudent implements IDAOStudent {
 		String lastName = s.getLastName();
 		int cardID = s.getCardID();
 		int yearOfBirth = s.getYearOfBirth();
-		int noteListID = s.getNoteListID();
 		int monthOfBirth = s.getMontOfBirth();
 		int dayOfBirth = s.getDayOfBirth();
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
-
 		java.sql.Connection conn;
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/StudentDAO", "root", "skullcandy1");
-			statement = conn.createStatement();
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/StudentDAO", "root", "");
 
-			statement.executeUpdate(
-					"INSERT INTO `studentdao`.`student` (`studentOV`, `coachgroupID`, `lessongroupID`, `cohort`, `email`, `firstname`, "
-							+ "`insertion`, `lastname`, `cardID`, `yearofbirth`, `notelistID`, `monthofbirth`, `dayofbirth`) VALUES "
-							+ "('" + studentOV + "','" + coachGroupID + "','" + lessonGroupID + "','" + cohort + "', '"
-							+ email + "','" + firstName + "','" + insertion + "','" + lastName + "','" + cardID + "','"
-							+ yearOfBirth + "','" + noteListID + "','" + monthOfBirth + "','" + dayOfBirth + "');");
+			// the mysql insert statement
+			String query = " insert into student (studentOV, coachGroup, lessongroup, cohort, email, firstName, insertion, lastName, cardID, yearOfBirth, monthOfBirth, dayOfBirth)"
+					+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+			// create the mysql insert preparedstatement
+			java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
+			preparedStmt.setInt(1, studentOV);
+			preparedStmt.setString(2, coachGroup);
+			preparedStmt.setString(3, lessonGroup);
+			preparedStmt.setInt(4, cohort);
+			preparedStmt.setString(5, email);
+			preparedStmt.setString(6, firstName);
+			preparedStmt.setString(7, insertion);
+			preparedStmt.setString(8, lastName);
+			preparedStmt.setInt(9, cardID);
+			preparedStmt.setInt(10, yearOfBirth);
+			preparedStmt.setInt(11, monthOfBirth);
+			preparedStmt.setInt(12, dayOfBirth);
+			// execute the preparedstatement
+			preparedStmt.execute();
 
 			conn.close();
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 	@Override
 	public void update(Student s) {
+		int studentOV = s.getStudentOV();
+		String coachGroup = s.getNameOfCoachGroup();
+		String lessonGroup = s.getNameOfLessonGroup();
+		int cohort = s.getCohort();
+		String email = s.getEmail();
+		String firstName = s.getFirstName();
+		String insertion = s.getInsertion();
+		String lastName = s.getLastName();
+		int cardID = s.getCardID();
+		int yearOfBirth = s.getYearOfBirth();
+		int monthOfBirth = s.getMontOfBirth();
+		int dayOfBirth = s.getDayOfBirth();
 
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		java.sql.Connection conn;
+		try {
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/StudentDAO", "root", "");
+
+			// the mysql insert statement
+			String query = " UPDATE student set coachGroup = (?) , lessongroup = (?) , cohort = (?) , email = (?) , firstName = (?) , insertion = (?) , lastName = (?) , cardID = (?) , "
+					+ "yearOfBirth = (?) , monthOfBirth = (?) , dayOfBirth = (?) where studentOV = (?)";
+
+			// create the mysql insert preparedstatement
+			java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
+			preparedStmt.setString(1, coachGroup);
+			preparedStmt.setString(2, lessonGroup);
+			preparedStmt.setInt(3, cohort);
+			preparedStmt.setString(4, email);
+			preparedStmt.setString(5, firstName);
+			preparedStmt.setString(6, insertion);
+			preparedStmt.setString(7, lastName);
+			preparedStmt.setInt(8, cardID);
+			preparedStmt.setInt(9, yearOfBirth);
+			preparedStmt.setInt(10, monthOfBirth);
+			preparedStmt.setInt(11, dayOfBirth);
+			preparedStmt.setInt(12, studentOV);
+			// execute the preparedstatement
+			preparedStmt.execute();
+
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -111,12 +170,12 @@ public class TestDAOStudent implements IDAOStudent {
 		try {
 			// create the mysql database connection
 			String myDriver = "org.gjt.mm.mysql.Driver";
-			String myUrl = "jdbc:mysql://localhost";
+			String myUrl = "jdbc:mysql://localhost/StudentDAO";
 			Class.forName(myDriver);
 			java.sql.Connection conn = DriverManager.getConnection(myUrl, "root", "");
 
 			// create the mysql delete statement.
-			String query = "delete from `studentdao`.`student` where studentOV = ?";
+			String query = "select from `studentdao`.`student` where studentOV = (?)";
 			java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
 			preparedStmt.setInt(1, ov);
 
