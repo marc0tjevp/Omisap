@@ -30,41 +30,63 @@
        <div class="btn-group">
         <div class="btn-group">
        <!-- TODO via struts tijden kiezen in de dropdown -->
-       
-	      		  <div class="dropdown div-inline">
-                     <button class="btn btn-classic dropdown-toggle" type="button" data-toggle="dropdown">Start time
-                     <span class="caret"></span></button>
-                     <ul class="dropdown-menu">
-                        <li><a href="#">8:30</a></li>
-                        <li><a href="#">10:25</a></li>
-                        <li><a href="#">12:35</a></li>
-                        <li><a href="#">14:30</a></li>
-                     </ul>
-                  </div>
+       <label>Start Time</label>
+<input type="text" name="time" list="Starttime1"/>
+<datalist id="Starttime1">
+   		<option>8:30</option>
+        <option>09:00</option>
+        <option>09:30</option>
+        <option>10:00</option>
+        <option>10:30</option>
+        <option>11:00</option>
+        <option>11:30</option>
+        <option>12:00</option>
+        <option>12:30</option>
+        <option>13:00</option>
+        <option>13:30</option>
+        <option>14:00</option>
+        <option>14:30</option>
+        <option>15:00</option>
+        <option>15:30</option>
+        <option>16:00</option>
+        <option>16:30</option>
+</datalist>
 </div>
 <!-- TODO via struts tijden kiezen in de dropdown -->
-	      		  <div class="dropdown div-inline">
-                     <button class="btn btn-classic dropdown-toggle" type="button" data-toggle="dropdown">End time
-                     <span class="caret"></span></button>
-                     <ul class="dropdown-menu">
-                        <li><a href="#">10:10</a></li>
-                        <li><a href="#">12:05</a></li>
-                        <li><a href="#">14:15</a></li>
-                        <li><a href="#">15:35</a></li>
-                     </ul>
-                  </div>
-</div>
-	      		  <div class="dropdown div-inline">
-                     <button class="btn btn-classic dropdown-toggle" type="button" data-toggle="dropdown">Day
-                     <span class="caret"></span></button>
-                     <ul class="dropdown-menu">
-                        <li><a href="#">Maandag</a></li>
-                        <li><a href="#">Dinsdag</a></li>
-                        <li><a href="#">Woensdag</a></li>
-                        <li><a href="#">Donderdag</a></li>
-                        <li><a href="#">Vrijdag</a></li>
-                     </ul>
-                  </div>
+   
+      <label>End Time</label>
+      <input type="text" name="time" list="Starttime2"/>
+      <datalist id="Starttime2">
+        <option>08:30</option>
+        <option>09:00</option>
+        <option>09:30</option>
+        <option>10:00</option>
+        <option>10:30</option>
+        <option>11:00</option>
+        <option>11:30</option>
+        <option>12:00</option>
+        <option>12:30</option>
+        <option>13:00</option>
+        <option>13:30</option>
+        <option>14:00</option>
+        <option>14:30</option>
+        <option>15:00</option>
+        <option>15:30</option>
+        <option>16:00</option>
+        <option>16:30</option>
+      </datalist>
+      </div>
+
+    <div class="form-group">
+      <label for="sel3">Day</label>
+      <select class="form-control" id="sel3">
+        <option>Maandag</option>
+        <option>Dinsdag</option>
+        <option>Woensdag</option>
+        <option>Donderdag</option>
+        <option>Vrijdag</option>
+      </select>
+      </div>
 </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success ">Toevoegen</button>
@@ -89,41 +111,64 @@
        <div class="btn-group">
        
        <!-- TODO via struts tijden kiezen in de dropdown -->
-       
-	      		  <div class="dropdown div-inline">
-                     <button class="btn btn-classic dropdown-toggle" type="button" data-toggle="dropdown">Start time
-                     <span class="caret"></span></button>
-                     <ul class="dropdown-menu">
-                        <li><a href="#">8:30</a></li>
-                        <li><a href="#">10:25</a></li>
-                        <li><a href="#">12:35</a></li>
-                        <li><a href="#">14:30</a></li>
-                     </ul>
-                  </div>
-</div>
+      <label>Start Time</label>
+      <input type="text" name="time" list="Starttime3"/>
+      <datalist id="Starttime3">
+        <option>08:30</option>
+        <option>09:00</option>
+        <option>09:30</option>
+        <option>10:00</option>
+        <option>10:30</option>
+        <option>11:00</option>
+        <option>11:30</option>
+        <option>12:00</option>
+        <option>12:30</option>
+        <option>13:00</option>
+        <option>13:30</option>
+        <option>14:00</option>
+        <option>14:30</option>
+        <option>15:00</option>
+        <option>15:30</option>
+        <option>16:00</option>
+        <option>16:30</option>
+      </datalist>
+      </div>
+
+
 <!-- TODO via struts tijden kiezen in de dropdown -->
-	      		  <div class="dropdown div-inline">
-                     <button class="btn btn-classic dropdown-toggle" type="button" data-toggle="dropdown">End time
-                     <span class="caret"></span></button>
-                     <ul class="dropdown-menu">
-                        <li><a href="#">10:10</a></li>
-                        <li><a href="#">12:05</a></li>
-                        <li><a href="#">14:15</a></li>
-                        <li><a href="#">15:35</a></li>
-                     </ul>
-                  </div>
-</div>
-	      		  <div class="dropdown div-inline">
-                     <button class="btn btn-classic dropdown-toggle" type="button" data-toggle="dropdown">Day
-                     <span class="caret"></span></button>
-                     <ul class="dropdown-menu">
-                        <li><a href="#">Maandag</a></li>
-                        <li><a href="#">Dinsdag</a></li>
-                        <li><a href="#">Woensdag</a></li>
-                        <li><a href="#">Donderdag</a></li>
-                        <li><a href="#">Vrijdag</a></li>
-                     </ul>
-                  </div>
+      <label>End Time</label>
+      <input type="text" name="time" list="Starttime4"/>
+      <datalist id="Starttime4">
+        <option>08:30</option>
+        <option>09:00</option>
+        <option>09:30</option>
+        <option>10:00</option>
+        <option>10:30</option>
+        <option>11:00</option>
+        <option>11:30</option>
+        <option>12:00</option>
+        <option>12:30</option>
+        <option>13:00</option>
+        <option>13:30</option>
+        <option>14:00</option>
+        <option>14:30</option>
+        <option>15:00</option>
+        <option>15:30</option>
+        <option>16:00</option>
+        <option>16:30</option>
+      </datalist>
+      </div>
+
+    <div class="form-group">
+      <label for="sel6">Day</label>
+      <select class="form-control" id="sel6">
+        <option>Maandag</option>
+        <option>Dinsdag</option>
+        <option>Woensdag</option>
+        <option>Donderdag</option>
+        <option>Vrijdag</option>
+      </select>
+      </div>
 </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success ">Toevoegen</button>
