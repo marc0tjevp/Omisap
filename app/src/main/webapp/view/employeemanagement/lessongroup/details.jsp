@@ -161,28 +161,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                <c:forEach begin="0" end="10">
-                        <tr>
-                            <td>
-                                <label>
-                                    <input class="leerlingcheck"
-													type="checkbox" name="checkbox">
-                                </label>
-                            </td>
-                            <td>
-                                205657
-                            </td>
-                            <td>
-                                Niek
-                            </td>
-                            <td>
-                                Flipse
-                            </td>
-                            <td>
-                                2014
-                            </td>
-                        </tr>
-                    </c:forEach>
+							<s:iterator value="additionalStudents">
+                				<tr>
+		                			<td>
+		                                <label>
+		                                    <input type="checkbox"
+											name="checkbox">
+		                                </label>
+		                            </td>
+		                            
+									<td>
+		                                <s:property value="studentOV"></s:property>
+		                            </td>
+		                            <td>
+		                                <s:property value="firstName"></s:property>
+		                            </td>
+		                            <td>
+		                                <s:property value="insertion"></s:property> <s:property value="lastName"></s:property>
+		                            </td>
+		                            <td>
+		                                <s:property value="cohort"></s:property>
+		                            </td>
+                				</tr>
+                			</s:iterator>
                         </tbody>
                     </table>
 

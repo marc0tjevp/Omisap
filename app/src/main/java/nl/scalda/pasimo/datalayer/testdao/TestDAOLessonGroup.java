@@ -3,7 +3,9 @@ package nl.scalda.pasimo.datalayer.testdao;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 
 public class TestDAOLessonGroup implements IDAOLessonGroup {
@@ -17,20 +19,20 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
         LessonGroup l3 = new LessonGroup(3, "ICO41A");
         LessonGroup l4 = new LessonGroup(4, "ICO441G");
         
-        Student student1 = new Student(1111, 1, 1, 2014, "bvandriel@student.scalda.nl", "Koen", "van", "driel", 201403, 1994, 1, 04, 26);
-        Student student2 = new Student(2222, 2, 2, 2015, "someOtherGUy@student.scalda.nl", "Max", "van", "driel", 21235, 1994, 1, 04, 26);
-        Student student3 = new Student(3333, 3, 3, 2016, "Hallo@student.scalda.nl", "Iemand", "van", "driel", 2521, 1994, 1, 04, 26);
-        
-        l1.addStudent(student1);
-        l1.addStudent(student2);
-        l2.addStudent(student3);
+        TreeSet<Student> students = TestDAOStudent.getInstance().readAll();
+
+        for(Student s : students) {
+        	if(s == students.first()) {
+        		l1.addStudent(s);
+        		continue;
+        	}
+        	l2.addStudent(s);
+        }
         
         lessongroups.add(l1);
         lessongroups.add(l2);
         lessongroups.add(l3);
         lessongroups.add(l4);
-        
-
     }
 
     public static TestDAOLessonGroup getInstance() {
