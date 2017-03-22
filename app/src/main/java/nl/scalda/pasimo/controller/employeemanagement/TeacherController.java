@@ -189,7 +189,7 @@ public class TeacherController extends ActionSupport {
 	}
 
 	public TreeSet<EducationTeam> getEducationTeams() {
-		//FIXME Not the wau to code!!!!!
+		//FIXME Not the way to code!!!!!
 //		// ONLY FOR TESTING
 //		if(EducationTeamList.getInstance().getTeams().isEmpty()){
 //			EducationTeam et = new EducationTeam("TET", "Test Team");
