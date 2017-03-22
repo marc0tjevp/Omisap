@@ -7,8 +7,8 @@ public class Student extends Person {
 
 	private TreeSet<Note> noteList;
 	private LessonGroup lessonGroup;
-	private int cohort;
 	private int studentOV;
+	private int cohort;
 	private CoachGroup coachGroup;
 	
 	public Student(int studentOV, CoachGroup coachGroup, LessonGroup lessonGroup, int cohort, String email, String firstName,
@@ -20,7 +20,6 @@ public class Student extends Person {
 		this.lessonGroup = lessonGroup;
 		this.cohort = cohort;
 		this.noteList = noteList;
-
 	}
 
 	public boolean deleteStudent(Student s) {
@@ -40,7 +39,6 @@ public class Student extends Person {
 	public CoachGroup getCoachGroup() {
 		return coachGroup;
 	}
-
 
 	public int getCohort() {
 		return cohort;
@@ -74,7 +72,11 @@ public class Student extends Person {
 		this.coachGroup = coachGroup;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Student [noteList=" + noteList + ", lessonGroup=" + lessonGroup + ", studentOV=" + studentOV
+				+ ", cohort=" + cohort + ", coachGroup=" + coachGroup + "]";
+	}
 
 	
 }
