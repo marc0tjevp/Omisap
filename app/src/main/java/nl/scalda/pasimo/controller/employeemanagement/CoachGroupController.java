@@ -8,7 +8,11 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class CoachGroupController extends ActionSupport {
 
-    public String name;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public String name;
 //    public Teacher teacher;
 
     public String addCoachGroup() {

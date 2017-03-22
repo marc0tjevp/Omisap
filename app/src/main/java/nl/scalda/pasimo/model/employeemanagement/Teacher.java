@@ -1,7 +1,5 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
-import nl.scalda.pasimo.test.EducationTeamList;
-import nl.scalda.pasimo.test.TeacherList;
 
 public class Teacher extends Person {
 
@@ -48,16 +46,17 @@ public class Teacher extends Person {
     }
     
     public CoachGroup getCoachGroup(){
-    	//TODO
+    	//TODO What todo???
     	return null;
     }
     
     public EducationTeam getEducationTeam(){
-    	for(EducationTeam et : EducationTeamList.getInstance().getTeams()){
-			if(et.getTeachers().contains(this)){
-				return et;
-			}
-		}
+    	//FIXME this is terribly wrong!  Why use a EducationTeamlist in a testpackage? Use TestDAO instead.
+//    	for(EducationTeam et : EducationTeamList.getInstance().getTeams()){
+//			if(et.getTeachers().contains(this)){
+//				return et;
+//			}
+//		}
     	return null;
     }
 
