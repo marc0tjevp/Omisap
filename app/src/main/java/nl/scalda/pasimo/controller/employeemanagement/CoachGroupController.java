@@ -8,6 +8,10 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class CoachGroupController extends ActionSupport {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public String name;
 //    public Teacher teacher;
 

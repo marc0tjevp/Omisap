@@ -54,18 +54,8 @@ public class TestDAOTeacher implements IDAOTeacher {
 
 	@Override
 	public void update(Teacher t, EducationTeam team) {
-		for(Teacher ca : teachers){
-//			if(ca.getAbbrevation().equals(oldAbbr)){
-//				ca.setAbbrevation(t.getAbbrevation());
-//				ca.setCardID(t.getCardID());
-//				ca.setEmployeeNumber(t.getEmployeeNumber());
-//				ca.setFirstName(t.getFirstName());
-//				ca.setInsertion(t.getInsertion());
-//				ca.setLastName(t.getLastName());
-//				ca.setEmail(t.getEmail());
-//				ca.setDateOfBirth(t.getDateOfBirth());
-//			}
-		}
+		// TODO what is the meaning of this method? Implement or remove. Beware: it overrides another method.
+
 		
 	}
 
