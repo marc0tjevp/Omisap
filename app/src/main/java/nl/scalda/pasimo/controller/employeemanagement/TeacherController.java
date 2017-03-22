@@ -1,19 +1,19 @@
 package nl.scalda.pasimo.controller.employeemanagement;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.TreeSet;
 
-import org.apache.commons.io.FileUtils;
-
 import com.opensymphony.xwork2.ActionSupport;
+
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
-import nl.scalda.pasimo.test.EducationTeamList;
-import nl.scalda.pasimo.test.TeacherList;
 
 public class TeacherController extends ActionSupport {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Teacher teacher = new Teacher();
 	public String teamAbbreviation;
 	public TreeSet<Teacher> teachers = new TreeSet<>();
@@ -51,12 +51,12 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String addTeacher() {
-		teacher.setAbbreviation();
-		TeacherList.getInstance().addTeacher(teacher);
-		EducationTeam et = getEducationTeamByAbbreviation(teamAbbreviation);
-		et.addTeacher(teacher);
-		// getTeachers();
-		// team.addTeacher(teacher);
+		//FIXME You should use test datalayer instead.
+//		teacher.setAbbreviation();
+//		TeacherList.getInstance().addTeacher(teacher);
+//		EducationTeam et = getEducationTeamByAbbreviation(teamAbbreviation);
+//		et.addTeacher(teacher);
+
 		return SUCCESS;
 	}
 
@@ -78,20 +78,21 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String updateTeacher() {
-		for (Teacher f : TeacherList.getInstance().getTeachers()) {
-			if (f.getEmployeeNumber() == teacher.getEmployeeNumber()) {
-				EducationTeam oldTeam = getOldEducationTeam(f);
-				removeTeacherFromEducationTeam(f, oldTeam);
-				f.setFirstName(teacher.getFirstName());
-				f.setInsertion(teacher.getInsertion());
-				f.setLastName(teacher.getLastName());
-				f.setAbbreviation();
-				f.setCardID(teacher.getCardID());
-				f.setEmail(teacher.getEmail());
-				EducationTeam team = getEducationTeamByAbbreviation(teamAbbreviation);
-				updateTeacherEducationTeam(f, team);
-			}
-		}
+		//FIXME You shoul use the test datalyer instead!!!!!
+//		for (Teacher f : TeacherList.getInstance().getTeachers()) {
+//			if (f.getEmployeeNumber() == teacher.getEmployeeNumber()) {
+//				EducationTeam oldTeam = getOldEducationTeam(f);
+//				removeTeacherFromEducationTeam(f, oldTeam);
+//				f.setFirstName(teacher.getFirstName());
+//				f.setInsertion(teacher.getInsertion());
+//				f.setLastName(teacher.getLastName());
+//				f.setAbbreviation();
+//				f.setCardID(teacher.getCardID());
+//				f.setEmail(teacher.getEmail());
+//				EducationTeam team = getEducationTeamByAbbreviation(teamAbbreviation);
+//				updateTeacherEducationTeam(f, team);
+//			}
+//		}
 		return SUCCESS;
 	}
 
@@ -103,7 +104,6 @@ public class TeacherController extends ActionSupport {
 	 */
 	public String removeTeacher() {
 		teacher = getTeacherByEmployeeID(id);
-		TeacherList.getInstance().removeTeacher(teacher);
 		return SUCCESS;
 	}
 
@@ -163,7 +163,8 @@ public class TeacherController extends ActionSupport {
 	}
 
 	public TreeSet<Teacher> getTeachers() {
-		teachers.addAll(TeacherList.getInstance().getTeachers());
+		//FIXME Use testDatalayer instead
+//		teachers.addAll(TeacherList.getInstance().getTeachers());
 		return teachers;
 	}
 
@@ -188,16 +189,17 @@ public class TeacherController extends ActionSupport {
 	}
 
 	public TreeSet<EducationTeam> getEducationTeams() {
-		// ONLY FOR TESTING
-		if(EducationTeamList.getInstance().getTeams().isEmpty()){
-			EducationTeam et = new EducationTeam("TET", "Test Team");
-			EducationTeam et1 = new EducationTeam("TEAMAN", "Ander Team");
-
-			EducationTeamList.getInstance().addTeam(et);
-			EducationTeamList.getInstance().addTeam(et1);
-		}
-		educationTeams.addAll(EducationTeamList.getInstance().getTeams());
-		// ONLY FOR TESTING
+		//FIXME Not the way to code!!!!!
+//		// ONLY FOR TESTING
+//		if(EducationTeamList.getInstance().getTeams().isEmpty()){
+//			EducationTeam et = new EducationTeam("TET", "Test Team");
+//			EducationTeam et1 = new EducationTeam("TEAMAN", "Ander Team");
+//
+//			EducationTeamList.getInstance().addTeam(et);
+//			EducationTeamList.getInstance().addTeam(et1);
+//		}
+//		educationTeams.addAll(EducationTeamList.getInstance().getTeams());
+//		// ONLY FOR TESTING
 		return educationTeams;
 	}
 	

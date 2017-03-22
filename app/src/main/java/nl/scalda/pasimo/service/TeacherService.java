@@ -1,7 +1,7 @@
 package nl.scalda.pasimo.service;
 
 import java.util.TreeSet;
-import com.mysql.fabric.xmlrpc.base.Array;
+
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
