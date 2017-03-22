@@ -2,6 +2,7 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
 
 public class Teacher extends Person {
 
@@ -75,6 +76,25 @@ public class Teacher extends Person {
     public void setEmployeeNumber(int employeeNumber) {
         this.employeeNumber = employeeNumber;
     }
+    
+    /**
+     * creates the teacher in the (test)datalayer.
+     */
+    public void create(){
+    	DAOFactory.getTheFactory().getDAOTeacher().create(this);
+    }
+    
+    /**
+     * updates the teacher in the (test)datalayer.
+     */
+    public void update(){
+    	MYSQLDAOTeacher.getInstance().update(this);
+    }
+    
+    public void delete(){
+    	DAOFactory.getTheFactory().getDAOTeacher().delete(this);
+    }
+    
     
     /**
      * gets the coach group the teacher is currently in.

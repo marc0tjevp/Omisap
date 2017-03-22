@@ -9,6 +9,8 @@ import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
+import nl.scalda.pasimo.service.EducationTeamService;
+import nl.scalda.pasimo.service.TeacherService;
 
 public class TeacherController extends ActionSupport {
 
@@ -51,10 +53,9 @@ public class TeacherController extends ActionSupport {
 	 */
 	public String addTeacher() {
 		teacher.setAbbreviation();
-		DAOFactory.getTheFactory().getDAOTeacher().create(teacher);
+		teacher.create();
 		EducationTeam et = getEducationTeamByAbbreviation(teamAbbreviation);
 		et.addTeacher(teacher);
-		//FIXME You should use test datalayer instead.
 		return SUCCESS;
 	}
 
@@ -88,10 +89,9 @@ public class TeacherController extends ActionSupport {
 					getOldEducationTeam(f).deleteTeacher(f);
 					getEducationTeamByAbbreviation(teamAbbreviation).addTeacher(f);
 				}
-				MYSQLDAOTeacher.getInstance().update(getTeacher());
+				f.update();
 			}
 		}
-		//FIXME You should use the test datalayer instead!!!!!
 		return SUCCESS;
 	}
 
@@ -103,7 +103,7 @@ public class TeacherController extends ActionSupport {
 	 */
 	public String removeTeacher() {
 		teacher = getTeacherByEmployeeID(id);
-		DAOFactory.getTheFactory().getDAOTeacher().delete(teacher);
+		teacher.delete();
 		return SUCCESS;
 	}
 
@@ -142,7 +142,7 @@ public class TeacherController extends ActionSupport {
 	 */
 	public EducationTeam getOldEducationTeam(Teacher t){
 		try {
-			return DAOFactory.getTheFactory().getDAOTeacher().getCurrentEducationTeamOfTeacher(t);
+			return t.getEducationTeam();
 		} catch(Exception e) {
 			return null;
 		}
@@ -156,7 +156,7 @@ public class TeacherController extends ActionSupport {
 	 */
 	private Teacher getTeacherByEmployeeID(int id) {
 		try {
-			return DAOFactory.getTheFactory().getDAOTeacher().readByEmployeeNumber(id);
+			return TeacherService.getInstance().getTeacherByEmployeeID(id);
 		} catch (Exception e) {
 			return null;
 		}
@@ -168,9 +168,12 @@ public class TeacherController extends ActionSupport {
 	 * @return TreeSet<Teacher>
 	 */
 	public TreeSet<Teacher> getTeachers() {
-		teachers.addAll(DAOFactory.getTheFactory().getDAOTeacher().readAll());
-		//FIXME Use testDatalayer instead
-		return teachers;
+		try {
+			teachers.addAll(TeacherService.getInstance().readAll());
+			return teachers;
+		} catch (Exception e){
+			return null;
+		}
 	}
 	
 	/**
@@ -179,7 +182,7 @@ public class TeacherController extends ActionSupport {
 	 * @return TreeSet<EducationTeam>
 	 */
 	public TreeSet<EducationTeam> getEducationTeams() {
-		educationTeams.addAll(DAOFactory.getTheFactory().getDAOEducationTeam().readAll());
+		educationTeams.addAll(EducationTeamService.getInstance().getEducationTeams());
 		return educationTeams;
 	}
 	
