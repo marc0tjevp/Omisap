@@ -81,5 +81,6 @@ public class EducationTeam implements Comparable<EducationTeam> {
     @Override
     public String toString() {
         return "EducationTeam{" + "abbreviation='" + abbreviation + '\'' + ", name='" + name + '\'' + '}';
-    }    
+    }
+  
 }

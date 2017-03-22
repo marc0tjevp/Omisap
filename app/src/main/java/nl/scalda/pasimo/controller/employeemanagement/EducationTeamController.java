@@ -25,13 +25,25 @@ public class EducationTeamController extends ActionSupport {
         readTeams();
 
         return SUCCESS;
+        
+        }
+    public String create(){
+    	
+    	
+    	return SUCCESS;
+    }
+    
+    public String update(){
+    	
+    	
+    	return SUCCESS;
     }
     
     public String addEducationTeam() {
 
-        EducationTeam d = new EducationTeam(name, abbreviation);
-
-        educationTeams.add(d);
+//        EducationTeam d = new EducationTeam(name, abbreviation);
+//
+//        educationTeams.add(d);
 
         return SUCCESS;
     }
