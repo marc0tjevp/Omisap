@@ -57,7 +57,7 @@
           <div class="form-group row">
             <label class="col-2 col-form-label">Educatieteam</label>
             <div class="col-10">
-                <s:select class="form-control" style="width: 50%;" name="teamAbbreviation" list="educationTeams" listKey="abbreviation" listValue="abbreviation + ' - ' + name"></s:select>
+                <s:select class="form-control" style="width: 50%;" name="teamAbbreviation" list="educationTeams" listKey="abbreviation" listValue="name"></s:select>
               <br>
               <br>
               <div class="btn btn-primary" id="submitId">Toevoegen</div>
