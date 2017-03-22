@@ -1,21 +1,18 @@
 package nl.scalda.pasimo.controller.employeemanagement;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.TreeSet;
-
-import org.apache.commons.io.FileUtils;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class TeacherController extends ActionSupport {
 
+	private static final long serialVersionUID = 1L;
 	public Teacher teacher = new Teacher();
 	public String teamAbbreviation;
 	public TreeSet<Teacher> teachers = new TreeSet<>();
@@ -57,6 +54,7 @@ public class TeacherController extends ActionSupport {
 		DAOFactory.getTheFactory().getDAOTeacher().create(teacher);
 		EducationTeam et = getEducationTeamByAbbreviation(teamAbbreviation);
 		et.addTeacher(teacher);
+		//FIXME You should use test datalayer instead.
 		return SUCCESS;
 	}
 
@@ -93,6 +91,7 @@ public class TeacherController extends ActionSupport {
 				MYSQLDAOTeacher.getInstance().update(getTeacher());
 			}
 		}
+		//FIXME You should use the test datalayer instead!!!!!
 		return SUCCESS;
 	}
 
@@ -170,6 +169,7 @@ public class TeacherController extends ActionSupport {
 	 */
 	public TreeSet<Teacher> getTeachers() {
 		teachers.addAll(DAOFactory.getTheFactory().getDAOTeacher().readAll());
+		//FIXME Use testDatalayer instead
 		return teachers;
 	}
 	
@@ -179,7 +179,7 @@ public class TeacherController extends ActionSupport {
 	 * @return TreeSet<EducationTeam>
 	 */
 	public TreeSet<EducationTeam> getEducationTeams() {
-		educationTeams.addAll(DAOFactory.getTheFactory().getEducationTeamDAO().readAll());
+		educationTeams.addAll(DAOFactory.getTheFactory().getDAOEducationTeam().readAll());
 		return educationTeams;
 	}
 	

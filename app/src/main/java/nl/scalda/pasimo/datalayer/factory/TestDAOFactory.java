@@ -24,14 +24,14 @@ public class TestDAOFactory extends DAOFactory {
     private TestDAOFactory() {
 
     }
-
+    
     @Override
-    public IDAOTeam getTeamDAO() {
+    public IDAOTeam getDAOTeam() {
         return TestDAOTeam.getInstance();
     }
 
     @Override
-    public IDAOEducationTeam getEducationTeamDAO() {
+    public IDAOEducationTeam getDAOEducationTeam() {
         return TestDAOEducationTeam.getInstance();
     }
 
@@ -61,5 +61,4 @@ public class TestDAOFactory extends DAOFactory {
         }
         return instance;
     }
-
 }

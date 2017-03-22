@@ -1,19 +1,15 @@
-package nl.scalda.pasimo.datalayer.factory;
+package nl.scalda.pasimo.datalayer;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
-import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeam;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
-import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
-import nl.scalda.pasimo.datalayer.interfaces.IDAOTeam;;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
 
 public class MySQLDAOFactory extends DAOFactory {
 
@@ -29,15 +25,12 @@ public class MySQLDAOFactory extends DAOFactory {
         return instance;
     }
 
-/**
- * methods from interface
- */
-
+//methodes
     @Override
     public IDAOCoachGroup getDAOCoachGroup() {
         return MYSQLDAOCoachGroup.getInstance();
     }
-
+    
     @Override
     public IDAOLessonGroup getDAOLessonGroup() {
         return MYSQLDAOLessonGroup.getInstance();
@@ -51,7 +44,7 @@ public class MySQLDAOFactory extends DAOFactory {
 	@Override
 
 	public IDAOTeacher getDAOTeacher() {
-		return MYSQLDAOTeacher.getInstance();
+		return TestDAOTeacher.getInstance();
 	}
 
 	@Override
@@ -62,6 +55,7 @@ public class MySQLDAOFactory extends DAOFactory {
 
 	@Override
 	public IDAOEducationTeam getDAOEducationTeam() {
-		return MYSQLDAOEducationTeam.getInstance();
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

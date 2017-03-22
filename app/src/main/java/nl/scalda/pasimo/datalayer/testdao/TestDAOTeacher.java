@@ -83,6 +83,7 @@ public class TestDAOTeacher implements IDAOTeacher {
 	 */
 	@Override
 	public void update(Teacher t) {
+		// TODO what is the meaning of this method? Implement or remove. Beware: it overrides another method.
 		for(Teacher ca : teachers){
 //			if(ca.getAbbrevation().equals(oldAbbr)){
 //				ca.setAbbrevation(t.getAbbrevation());
@@ -93,10 +94,8 @@ public class TestDAOTeacher implements IDAOTeacher {
 //				ca.setLastName(t.getLastName());
 //				ca.setEmail(t.getEmail());
 //				ca.setDateOfBirth(t.getDateOfBirth());
-//			}
+			}
 		}
-		
-	}
 
 	/**
 	 * returns the teacher that has the given employeeNumber.

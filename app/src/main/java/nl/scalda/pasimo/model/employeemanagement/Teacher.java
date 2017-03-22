@@ -101,5 +101,4 @@ public class Teacher extends Person {
         return "Teacher [abbreviation=" + abbreviation + ", employeeNumber=" + employeeNumber
                 + ", cardID=" + getCardID() + ", name=" + getFullName() + "]";
     }
-
 }
