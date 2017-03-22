@@ -1,32 +1,56 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 $(document).ready(function () {
     initCreateAbbreviation();
+    
+    var invalidInput = false;
+    
     $('#submitId').on('click', function(){
-    	console.log('inside click function');
-    	console.log($.trim($("#teacherFirstName").val()));
-    	console.log($.trim($("#teacherLastName").val()));
-    	console.log($.trim($("#teacherEmail").val()));
-    	console.log($.trim($("#teacherDateOfBirth > input").val()));
-    	console.log($.trim($("#teacherCardID").val()));
-    	console.log($.trim($("#teacherEmployeeNumber").val()));
     	if(
     			$.trim($("#teacherFirstName").val())!==''&&
     			$.trim($("#teacherLastName").val())!==''&&
     			$.trim($("#teacherEmail").val())!==''&&
     			$.trim($("#teacherDateOfBirth > input").val())!==''&&
     			$.trim($("#teacherCardID").val())!==0&&
-    			$.trim($("#teacherEmployeeNumber").val())!==0){
-    		console.log('inside if statement');
+    			$.trim($("#teacherEmployeeNumber").val())!==0&&
+    			!invalidInput){
     				$('#addTeacherForm').submit();
     	} else {
-    		console.log('inside else statement');
+    		//TODO add notAllFieldsContainCorrectValues message for x seconds
     		return false;
     	}	
     });
+    
+    $('#teacherCardID, #teacherEmployeeNumber').keyup(function(e){
+    	var reg = /^\d+$/;
+    	if(reg.test($.trim($(this).val()))){
+    		$(this).css('border', '1px solid #ccc');
+    		if($(this).id == $('#teacherCardID')){
+    			if(reg.test($.trim($('#teacherEmployeeNumber').val()))){
+    				invalidInput = false;
+    			} else {
+    				//TODO add onlyNumbersAllowedMessage for x seconds
+    				invalidInput = true;
+    			}
+    		} else {
+    			if(reg.test($.trim($('#teacherCardID').val()))){
+    				invalidInput = false;
+    			} else {
+    				//TODO add onlyNumbersAllowedMessage for x seconds
+    				invalidInput = true;
+    			}
+    		}
+    	} else {
+    		invalidInput = true;
+    		$(this).css('border', 'red 2px solid');
+    		//TODO add onlyNumbersAllowedMessage for x seconds
+    		console.log($(this).parent('div').css('border'));
+    	}
+    	if($.trim($('#teacherCardID').val()).length > 11){
+    		//TODO add toLongErrorMessage until length is lower than or equal to 11
+    	}
+    	if($.trim($('#teacherEmployeeNumber').val()).length > 6){
+    		//TODO add toLongErrorMessage until length is lower than or equal to 6
+    	}
+    })
 });
 
 function initCreateAbbreviation() {
@@ -37,7 +61,3 @@ function initCreateAbbreviation() {
         $('#abbreviation').val(s.toLowerCase());
     });
 }
-
-
-
-	
