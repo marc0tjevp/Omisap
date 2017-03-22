@@ -11,6 +11,10 @@ public class Student extends Person {
 	private int cohort;
 	private CoachGroup coachGroup;
 	
+	public Student(String email){
+		
+	}
+	
 	public Student(int studentOV, CoachGroup coachGroup, LessonGroup lessonGroup, int cohort, String email, String firstName,
 			String insertion, String lastName, int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth,
 			int dayOfBirth) {

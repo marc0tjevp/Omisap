@@ -5,14 +5,15 @@ import java.util.TreeSet;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
+import nl.scalda.pasimo.service.EducationTeamService;
+import nl.scalda.pasimo.service.TeacherService;
 
 public class TeacherController extends ActionSupport {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	public Teacher teacher = new Teacher();
 	public String teamAbbreviation;
@@ -45,18 +46,16 @@ public class TeacherController extends ActionSupport {
 	}
 
 	/**
-	 * Adds the teacher to the Teacher list.
+	 * Adds the teacher.
 	 * Called from Struts.xml file
 	 * 
 	 * @return String
 	 */
 	public String addTeacher() {
-		//FIXME You should use test datalayer instead.
-//		teacher.setAbbreviation();
-//		TeacherList.getInstance().addTeacher(teacher);
-//		EducationTeam et = getEducationTeamByAbbreviation(teamAbbreviation);
-//		et.addTeacher(teacher);
-
+		teacher.setAbbreviation();
+		teacher.create();
+		EducationTeam et = getEducationTeamByAbbreviation(teamAbbreviation);
+		et.addTeacher(teacher);
 		return SUCCESS;
 	}
 
@@ -78,32 +77,33 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String updateTeacher() {
-		//FIXME You shoul use the test datalyer instead!!!!!
-//		for (Teacher f : TeacherList.getInstance().getTeachers()) {
-//			if (f.getEmployeeNumber() == teacher.getEmployeeNumber()) {
-//				EducationTeam oldTeam = getOldEducationTeam(f);
-//				removeTeacherFromEducationTeam(f, oldTeam);
-//				f.setFirstName(teacher.getFirstName());
-//				f.setInsertion(teacher.getInsertion());
-//				f.setLastName(teacher.getLastName());
-//				f.setAbbreviation();
-//				f.setCardID(teacher.getCardID());
-//				f.setEmail(teacher.getEmail());
-//				EducationTeam team = getEducationTeamByAbbreviation(teamAbbreviation);
-//				updateTeacherEducationTeam(f, team);
-//			}
-//		}
+		for (Teacher f : getTeachers()) {
+			if (f.getEmployeeNumber() == teacher.getEmployeeNumber()){
+				f.setFirstName(teacher.getFirstName());
+				f.setAbbreviation();
+				f.setInsertion(teacher.getInsertion());
+				f.setLastName(teacher.getLastName());
+				f.setEmail(teacher.getEmail());
+				f.setCardID(teacher.getCardID());
+				if (!(getOldEducationTeam(f).getAbbreviation().equals(teamAbbreviation))){
+					getOldEducationTeam(f).deleteTeacher(f);
+					getEducationTeamByAbbreviation(teamAbbreviation).addTeacher(f);
+				}
+				f.update();
+			}
+		}
 		return SUCCESS;
 	}
 
 	/**
-	 * Removes the teacher from the Teacher list.
+	 * Removes the teacher.
 	 * Called from Struts.xml file
 	 * 
 	 * @return String
 	 */
 	public String removeTeacher() {
 		teacher = getTeacherByEmployeeID(id);
+		teacher.delete();
 		return SUCCESS;
 	}
 
@@ -115,7 +115,10 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String updateTeacherEducationTeam(Teacher t, EducationTeam newTeam) {
-		newTeam.addTeacher(t);
+		if(!(getOldEducationTeam(t).equals(newTeam))){
+			getOldEducationTeam(t).deleteTeacher(t);
+			newTeam.addTeacher(t);
+		}
 		return SUCCESS;
 	}
 	
@@ -138,13 +141,11 @@ public class TeacherController extends ActionSupport {
 	 * @return EducationTeam
 	 */
 	public EducationTeam getOldEducationTeam(Teacher t){
-		
-		for(EducationTeam et : getEducationTeams()){
-			if(et.getTeachers().contains(t)){
-				return et;
-			}
+		try {
+			return t.getEducationTeam();
+		} catch(Exception e) {
+			return null;
 		}
-		return null;
 	}
 	
 	/**
@@ -154,18 +155,50 @@ public class TeacherController extends ActionSupport {
 	 * @return Teacher
 	 */
 	private Teacher getTeacherByEmployeeID(int id) {
-		for (Teacher t : getTeachers()) {
-			if (t.getEmployeeNumber() == id) {
-				return t;
+		try {
+			return TeacherService.getInstance().getTeacherByEmployeeID(id);
+		} catch (Exception e) {
+			return null;
+		}
+	}
+	
+	/**
+	 * gets all teachers
+	 * 
+	 * @return TreeSet<Teacher>
+	 */
+	public TreeSet<Teacher> getTeachers() {
+		try {
+			teachers.addAll(TeacherService.getInstance().readAll());
+			return teachers;
+		} catch (Exception e){
+			return null;
+		}
+	}
+	
+	/**
+	 * gets all education teams
+	 * 
+	 * @return TreeSet<EducationTeam>
+	 */
+	public TreeSet<EducationTeam> getEducationTeams() {
+		educationTeams.addAll(EducationTeamService.getInstance().getEducationTeams());
+		return educationTeams;
+	}
+	
+	/**
+	 * gets the educationteam with the abbreviation that equals given abbreviation
+	 * 
+	 * @param abbr
+	 * @return EducationTeam
+	 */
+	public EducationTeam getEducationTeamByAbbreviation(String abbr){
+		for(EducationTeam et : getEducationTeams()){
+			if(et.getAbbreviation().equals(abbr)){
+				return et;
 			}
 		}
 		return null;
-	}
-
-	public TreeSet<Teacher> getTeachers() {
-		//FIXME Use testDatalayer instead
-//		teachers.addAll(TeacherList.getInstance().getTeachers());
-		return teachers;
 	}
 
 	public void setTeachers(TreeSet<Teacher> teachers) {
@@ -186,30 +219,6 @@ public class TeacherController extends ActionSupport {
 
 	public void setTeamAbbreviation(String teamAbbreviation) {
 		this.teamAbbreviation = teamAbbreviation;
-	}
-
-	public TreeSet<EducationTeam> getEducationTeams() {
-		//FIXME Not the wau to code!!!!!
-//		// ONLY FOR TESTING
-//		if(EducationTeamList.getInstance().getTeams().isEmpty()){
-//			EducationTeam et = new EducationTeam("TET", "Test Team");
-//			EducationTeam et1 = new EducationTeam("TEAMAN", "Ander Team");
-//
-//			EducationTeamList.getInstance().addTeam(et);
-//			EducationTeamList.getInstance().addTeam(et1);
-//		}
-//		educationTeams.addAll(EducationTeamList.getInstance().getTeams());
-//		// ONLY FOR TESTING
-		return educationTeams;
-	}
-	
-	public EducationTeam getEducationTeamByAbbreviation(String abbr){
-		for(EducationTeam et : getEducationTeams()){
-			if(et.getAbbreviation().equals(abbr)){
-				return et;
-			}
-		}
-		return null;
 	}
 
 	public void setEducationTeams(TreeSet<EducationTeam> educationTeams) {
@@ -247,5 +256,4 @@ public class TeacherController extends ActionSupport {
 	public void setId(int id) {
 		this.id = id;
 	}
-
 }
