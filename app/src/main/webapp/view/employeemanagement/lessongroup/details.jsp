@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 style="float: left; margin-right: 5px;">Studenten </h1>
-                    <h1 id="lessonGroupName"> <s:property value="name"></s:property></h1>
+                    <h1 id="lessonGroupName" data-lessongroup-id="<s:property value="lessonGroupId"></s:property>"> <s:property value="name"></s:property></h1>
                 </div>
 
             </div>
@@ -114,7 +114,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default"
 							data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" id="updateLessonGroupNameButton" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>

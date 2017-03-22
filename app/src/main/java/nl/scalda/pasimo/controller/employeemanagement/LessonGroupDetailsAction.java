@@ -41,6 +41,19 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		}
 		return SUCCESS;
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String updateLessonGroupName() {
+		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
+		if(specificLessonGroup == null) {
+			return ERROR;
+		}
+		specificLessonGroup.setName(this.name);
+		return SUCCESS;
+	}
 
 	/**
 	 * 

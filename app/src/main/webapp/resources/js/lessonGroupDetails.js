@@ -76,5 +76,29 @@ $(document).ready(function () {
         $("#currentLessonGroup").val($("#lessonGroupName").text());
     })
 
+    /**
+     * AJAX request for changing a lesson group name
+     */
+    $("#updateLessonGroupNameButton").on("click", function(event) {
+    	//Incase the button does something by default
+    	event.preventDefault();
+    	
+    	var lessonGroupName = $("div#editLessonGroupName div.modal-body input#currentLessonGroup").val();
+    	
+    	//If the input is not empty
+    	if(lessonGroupName) {
+    		//Retrieve lesson group id because it only got saved in GET variables of URL
+    		var lessonGroupId = $("h1#lessonGroupName").attr("data-lessongroup-id");
+    		
+    		//POST AJAX request to update lesson group action
+      		 $.ajax({
+    		     type: 'POST',	  
+    			 url:'details/updateName',
+    		     dataType: 'json',
+   				 data : "lessonGroupId="+lessonGroupId + "&name="+lessonGroupName,
+    		});
+      	}
+    	location.reload();
+    });
 
 });
