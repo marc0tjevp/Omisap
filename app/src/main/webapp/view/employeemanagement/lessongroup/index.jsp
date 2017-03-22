@@ -146,13 +146,13 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="lessonGroupDeleteModalLabel">Les groep verwijderen</h5>
+                            <h5 class="modal-title" id="lessonGroupDeleteModalLabel">Geseleteerde les groepen verwijderen</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>Weet je zeker dat je de les groep ICO41A wilt verwijderen met 123 studenten?</p>
+                            <p>Weet je zeker dat je de geselecteerde les groepen wilt verwijderen?</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluiten</button>
