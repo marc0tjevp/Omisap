@@ -11,20 +11,24 @@ import nl.scalda.pasimo.model.employeemanagement.Student;
 public class LessonGroupDetailsAction extends ActionSupport {
 
 	/**
-	 * 
+	 * The ID of this lesson group
 	 */
 	private int lessonGroupId;
 	
 	/**
-	 * 
+	 * The lesson group name
 	 */
 	private String name;
 	
 	/**
-	 * 
+	 * The students which are in this lesson group
 	 */
 	private TreeSet<Student> students;
 	
+	/**
+	 * The additional students which are not in this lesson group
+	 */
+	private static TreeSet<Student> additionalStudents;
 	/**
 	 * 
 	 */
@@ -35,6 +39,13 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		}
 		this.name = specificLessonGroup.getName();
 		this.students = specificLessonGroup.getStudents();
+		
+		// Instantiate the static TreeSet of additional students
+		if(additionalStudents == null) {
+			additionalStudents = new TreeSet<>();
+		}
+		//TODO Filter out the students which are already in this lesson group
+		additionalStudents = TestDAOStudent.getInstance().getStudents();
 		
 		if(this.students == null) {
 			return ERROR;
@@ -54,7 +65,7 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		specificLessonGroup.setName(this.name);
 		return SUCCESS;
 	}
-
+	
 	/**
 	 * 
 	 * @return
