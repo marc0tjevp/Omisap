@@ -73,14 +73,17 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	}
 	// </editor-fold>
 
-	@Override
-	public String toString() {
-		return "LessonGroup: id= " + id + ", name= " + name + ", students= " + students;
-	}
+	
 
 	@Override
 	public int compareTo(LessonGroup lg) {
 		return name.compareTo(lg.getName());
 	}
+
+	@Override
+	public String toString() {
+		return "LessonGroup [id=" + id + ", name=" + name + "]";
+	}
+
 
 }

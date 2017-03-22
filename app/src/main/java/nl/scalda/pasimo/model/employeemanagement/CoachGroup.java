@@ -11,9 +11,8 @@ public class CoachGroup implements Comparable<CoachGroup> {
     private int id;
     private String name;
     private Teacher teacher;
-    private static TreeSet<CoachGroup> coachgroups = new TreeSet<>();
     private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
-    private TreeSet<Student> students = new TreeSet<>();
+    private static TreeSet<Student> students = new TreeSet<>();
 
     public CoachGroup() {
     }
@@ -22,14 +21,12 @@ public class CoachGroup implements Comparable<CoachGroup> {
         this.id = id;
         this.name = name;
         this.students = students;
-        this.coachgroups.add(this);
     }
 
     public CoachGroup(String name, Teacher teacher ,TreeSet<Student> students) {
         this.name = name;
         this.teacher = teacher;
         this.students = students;
-        this.coachgroups.add(this);
     }
 
     public CoachGroup(String name, Teacher teacher, TreeSet<LessonGroup> lessonGroups, TreeSet<Student> students) {
@@ -37,16 +34,12 @@ public class CoachGroup implements Comparable<CoachGroup> {
         this.teacher = teacher;
         this.lessonGroups = lessonGroups;
         this.students = students;
-        this.coachgroups.add(this);
     }
 
-    public void addStudent(Student s, CoachGroup cg){
-    	for(CoachGroup c : coachgroups){
-    		if(cg.getId() == c.getId()){
-    			c.students.add(s);
-       		}
-    	}
+    public void addStudent(Student s){
+    	students.add(s);
     }
+    
     public void addLessonGroup(LessonGroup lg) {
         this.lessonGroups.add(lg);
     }
@@ -97,14 +90,6 @@ public class CoachGroup implements Comparable<CoachGroup> {
     public void setLessonGroups(TreeSet<LessonGroup> lessonGroups) {
         this.lessonGroups = lessonGroups;
     }
-    
-    public TreeSet<CoachGroup> getCoachgroups() {
-		return coachgroups;
-	}
-
-	public void setCoachgroups(TreeSet<CoachGroup> coachgroups) {
-		this.coachgroups = coachgroups;
-	}
 
 	public TreeSet<Student> getStudents() {
 		return students;
@@ -114,20 +99,16 @@ public class CoachGroup implements Comparable<CoachGroup> {
 		this.students = students;
 	}
     
+	
+	
 //</editor-fold>
 
 
 	@Override
-    public String toString() {
-        return "\n CoachGroup: id= " +
-               id +
-               ", name= " +
-               name +
-               ", teacher= " +
-               teacher +
-               ", lessongroup= " +
-               lessonGroups;
-    }
+	public String toString() {
+		return "CoachGroup [id=" + id + ", name=" + name + ", teacher=" + teacher + ", lessonGroups=" + lessonGroups
+				+ "]";
+	}
 
     @Override
     public int compareTo(CoachGroup o) {
