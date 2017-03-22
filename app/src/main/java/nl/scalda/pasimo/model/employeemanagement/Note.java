@@ -1,7 +1,6 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 import nl.scalda.pasimo.service.Service;
 

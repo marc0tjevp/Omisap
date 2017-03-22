@@ -1,10 +1,10 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
+import java.util.TreeSet;
+
 import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.Student;
-
-import java.util.TreeSet;
 
 public class TestDAOLessonGroup implements IDAOLessonGroup {
 
@@ -12,7 +12,6 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
     private TreeSet<LessonGroup> lessongroups = new TreeSet<>();
 
     private TestDAOLessonGroup() {
-
         LessonGroup l1 = new LessonGroup(1,"ICO43A");
         LessonGroup l2 = new LessonGroup(2,"ICO42A");
         LessonGroup l3 = new LessonGroup(3, "ICO41A");
@@ -24,7 +23,6 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
         
         l1.addStudent(student1);
         l1.addStudent(student2);
-
         l2.addStudent(student3);
         
         lessongroups.add(l1);
