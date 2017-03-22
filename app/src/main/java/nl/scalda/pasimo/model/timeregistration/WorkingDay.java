@@ -59,10 +59,6 @@ public class WorkingDay implements Comparable<WorkingDay> {
 
 	}
 
-	public String wieIsErOpTijd() {
-		return "Weet ik niet maar in iederig geval Diederik wel";
-	}
-
 	public String getName() {
 		return name;
 	}
