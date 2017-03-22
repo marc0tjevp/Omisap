@@ -27,5 +27,9 @@ public abstract class DAOFactory {
     public abstract IDAONote getDAONote();
 
     public abstract IDAOTeacher getDAOTeacher();
+    
+    public abstract IDAOWorkingDay getDAOWorkingDay();
+    
+    public abstract IDAOWorkBlock getDAOWorkBlock();
 
 }
