@@ -30,7 +30,7 @@ public class MySQLDAOFactory extends DAOFactory {
     public IDAOCoachGroup getDAOCoachGroup() {
         return MYSQLDAOCoachGroup.getInstance();
     }
-
+    
     @Override
     public IDAOLessonGroup getDAOLessonGroup() {
         return MYSQLDAOLessonGroup.getInstance();
