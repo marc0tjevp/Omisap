@@ -88,7 +88,7 @@ public class Teacher extends Person {
      * updates the teacher in the (test)datalayer.
      */
     public void update(){
-    	MYSQLDAOTeacher.getInstance().update(this);
+    	DAOFactory.getTheFactory().getDAOTeacher().update(this);
     }
     
     public void delete(){
