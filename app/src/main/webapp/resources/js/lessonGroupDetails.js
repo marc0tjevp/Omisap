@@ -36,33 +36,39 @@ $(document).ready(function () {
         }
     });
 
+    /**
+     * Selecting all students for adding them into a lesson group
+     */
     $("#selectAllStudentsForLessonGroupCheckbox").on('click', function () {
         if (this.checked) {
             // Iterate each checkbox
             $('table.lesson-group-other-students-table :checkbox').each(function () {
                 this.checked = true;
-                $(this).addClass("selectedLessonGroupStudentDetail");
+                $(this).addClass("selectedLessonGroupStudentForAdding");
                 $("#addStudentToLessonGroupButton").removeAttr("disabled");
             });
         }
         else {
             $('table.lesson-group-other-students-table :checkbox').each(function () {
                 this.checked = false;
-                $(this).removeClass("selectedLessonGroupStudentDetail");
+                $(this).removeClass("selectedLessonGroupStudentForAdding");
                 $("#addStudentToLessonGroupButton").attr("disabled", true);
             });
         }
     });
 
+    /**
+     * Select one student for adding them into the lesson group
+     */
     $(".lesson-group-other-students-table tbody td input[type=\"checkbox\"]").change(function () {
         if (this.checked) {
-            $(this).addClass("selectedLessonGroupStudentDetail");
+            $(this).addClass("selectedLessonGroupStudentForAdding");
         } else {
-            $(this).removeClass("selectedLessonGroupStudentDetail");
+            $(this).removeClass("selectedLessonGroupStudentForAdding");
         }
 
 
-        var selectedLessonGroup = $(".selectedLessonGroupStudentDetail");
+        var selectedLessonGroup = $(".selectedLessonGroupStudentForAdding");
         if (selectedLessonGroup.length == 0) {
             $("#addStudentToLessonGroupButton").attr("disabled", true);
         }
@@ -100,5 +106,13 @@ $(document).ready(function () {
       	}
     	location.reload();
     });
+    
+    $("#addStudentToLessonGroupButton").on("click", function(event) {
+    	event.preventDefault();
+    
+    	$("input[type=checkbox].selectedLessonGroupStudentForAdding").each(function() {
+    		
+    	});
 
+    });
 });
