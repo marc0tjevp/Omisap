@@ -1,9 +1,11 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
+<head>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css"/>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
 <t:layout2>
    <jsp:attribute name="content">
    <style>
@@ -11,6 +13,20 @@
 	    display:inline-block;
 	}
    </style>
+           <style>
+            #popup{
+                display: none;
+                border: 1px solid black;
+            }
+
+            .cell-which-triggers-popup{
+                cursor: pointer;    
+            }
+
+            .cell-which-triggers-popup:hover{
+                background-color: #6BBAAB;    
+            }
+        </style>
       <h1>Time Registration</h1>
       <div class="container">
 	      <div class="col-sm-12">
@@ -95,10 +111,10 @@
     </div>
   </div>
 		</div>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+<!--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
   Aanpassen
-</button>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+</button>-->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -172,31 +188,16 @@
 </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success ">Toevoegen</button>
-      </div>
-    </div>
-    </div>
-    </div>
-    
-                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2">
+         
+             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2">
  Verwijder
 </button>
-
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Verwijder een WorkBlock</h4>
-      </div>
-      <div class="modal-body">
-        Weet je zeker dat je zeker dat je dit les block wilt verwijderen?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-">Verwijder</button>
       </div>
     </div>
-  </div>
-</div>
+    </div>
+    </div>
+
+
                      
                   </div>
 	      		  <div class="dropdown div-inline">
@@ -230,75 +231,111 @@
         <th>Vrijdag</th>
       </tr>
     </thead>
-
 <tbody>
                   <tr>
-                     <td>
+         
+                <td        
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
+                <div class="well well-sm">8:30 10:10</div>
+                </td>
+                                                        <td 
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">8:30	10:10</div>
                      </td>
-                                          <td>
+                                                        <td 
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">8:30	10:10</div>
                      </td>
-                                          <td>
+                                                                             <td 
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">8:30	10:10</div>
                      </td>
-                     
+                                                                             <td 
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
+	                     <div class="well well-sm">8:30	10:10</div>
+                     </td>
                   </tr>
                   <tr>
-                     <td>
+                                   <td
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">10:25  12:05</div>
                      </td>
-                                          <td>
+                                                        <td 
+              class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">10:25  12:05</div>
                      </td>
-                                          <td>
+                                                        <td 
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">10:25  12:05</div>
                      </td>
-                                          <td>
+                                                        <td 
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">10:25  12:05</div>
                      </td>
-                                          <td>
+                                                        <td 
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">10:25  12:05</div>
                      </td>
                      
                   </tr>
      <tr>
-                     <td>
+                                   <td 
+               class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">12:35	14:15</div>
                      </td>
-                                          <td>
+                                                       <td 
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">12:35	14:15</div>
                      </td>
-                                          <td>
+                                                        <td 
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">12:35	14:15</div>
                      </td>
-                     <td></td>
-                                                        <td>
+                                                                             <td 
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
+	                     <div class="well well-sm">12:35	14:15</div>
+                     </td>
+                                                                      <td 
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">12:35	14:15</div>
                      </td>
                   </tr>
                   <tr>
-                     <td>
+                                   <td 
+               class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">14:30	15:35</div>
                      </td>
-                                          <td>
+                                                        <td 
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">14:30	15:35</div>
                      </td>
-                                          <td>
+                                                        <td 
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">14:30	15:35</div>
                      </td>
-                                          <td>
+                                                        <td 
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">14:30	15:35</div>
                      </td>
-                                          <td>
+                                                        <td 
+                class="cell-which-triggers-popup" data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">14:30	15:35</div>
                      </td>
                   </tr>
-                  </tbody>
+                  
+                  </tbody>                  
                </table>
             </div>
          </div>
       </div>
+      
+      
+      <style>
+		.table tbody tr:hover 
+		{
+		  background-color: transparent;
+		}
+      </style>
    </jsp:attribute>
 </t:layout2>
-
+ 	
