@@ -14,7 +14,7 @@ public class LessonGroupListingAction extends ActionSupport {
 	/**
 	 * 
 	 */
-	private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
+	private TreeSet<LessonGroup> lessonGroups;
 
 	/**
 	 * 
@@ -30,7 +30,6 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * 
 	 */
 	public String execute() {
-		System.out.println("gewoon hier ");
 		this.lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
 		return SUCCESS;
 	}
@@ -44,13 +43,27 @@ public class LessonGroupListingAction extends ActionSupport {
 		if (this.lessonGroupName == null || this.lessonGroupName.equals("")) {
 			return ERROR;
 		}
+		// Add all the lesson groups to the action variable
 		this.lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
-		LessonGroup previousLessonGroup = this.getLessonGroups().last();
 
-		LessonGroup lessonGroupToAdd = new LessonGroup(previousLessonGroup.getId() + 1,
-				this.lessonGroupName);
-		this.lessonGroups.add(lessonGroupToAdd);
+		//Retrieve the previous lesson group for getting an lesson group id
+		LessonGroup previousLessonGroup = null;
+		if (!this.lessonGroups.isEmpty()) {
+			previousLessonGroup = this.lessonGroups.last();
+		}
+
+		/*
+		 * Create the new lesson group
+		 */
+		int newLessonGroupId = previousLessonGroup != null ? previousLessonGroup.getId() + 1 : 1;
+		LessonGroup lessonGroupToAdd = new LessonGroup(newLessonGroupId, this.lessonGroupName);
+		
+		/*
+		 * Save the new lesson group in the DAO and in the action variable
+		 */
 		TestDAOLessonGroup.getInstance().create(lessonGroupToAdd);
+		this.lessonGroups.add(lessonGroupToAdd);
+		
 		return SUCCESS;
 	}
 
