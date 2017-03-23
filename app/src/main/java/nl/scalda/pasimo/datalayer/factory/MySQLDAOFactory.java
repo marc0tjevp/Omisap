@@ -1,21 +1,18 @@
 package nl.scalda.pasimo.datalayer.factory;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOTeam;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkBlock;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkingDay;
-import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
-import nl.scalda.pasimo.datalayer.interfaces.IDAOTeam;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
-import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
-import nl.scalda.pasimo.datalayer.interfaces.IDAOTeam;;
+
 
 public class MySQLDAOFactory extends DAOFactory {
 

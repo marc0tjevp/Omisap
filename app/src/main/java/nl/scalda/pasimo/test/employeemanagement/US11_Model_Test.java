@@ -1,14 +1,5 @@
 package nl.scalda.pasimo.test.employeemanagement;
 
-import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
-import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
-import nl.scalda.pasimo.model.employeemanagement.Student;
-import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
-import nl.scalda.pasimo.model.employeemanagement.Team;
-import nl.scalda.pasimo.model.timeregistration.WorkBlock;
-import nl.scalda.pasimo.model.timeregistration.WorkingDay;
-
 public class US11_Model_Test {
 
 
