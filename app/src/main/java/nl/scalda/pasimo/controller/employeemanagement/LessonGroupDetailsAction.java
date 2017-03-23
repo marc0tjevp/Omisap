@@ -44,24 +44,53 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		}
 		this.name = specificLessonGroup.getName();
 		this.students = specificLessonGroup.getStudents();
-	
+
 		/*
-		 * Retrieve all the students from the student DAO and add them to the array
+		 * Retrieve all the students from the student DAO and add them to the
+		 * array
 		 */
 		this.additionalStudents = TestDAOStudent.getInstance().readAll();
-		
+
 		/*
 		 * Filter out the students which are in the current lesson group
 		 */
-		Iterator<Student> iterator = additionalStudents.iterator();
-		while(iterator.hasNext()) {
-			Student currentStudent = iterator.next();
-			if(!students.contains(currentStudent)) {
+		Iterator<Student> currentLessonGroupStudentsIterator = additionalStudents.iterator();
+		while (currentLessonGroupStudentsIterator.hasNext()) {
+			Student currentStudent = currentLessonGroupStudentsIterator.next();
+			if (!students.contains(currentStudent)) {
 				continue;
 			}
-			iterator.remove();
+			currentLessonGroupStudentsIterator.remove();
 		}
-				
+
+		/*
+		 * Get all lesson groups for filtering out students which are in other
+		 * lesson groups
+		 */
+		TreeSet<LessonGroup> allLessonGroups =
+				new TreeSet<>(TestDAOLessonGroup.getInstance().getLessongroups());
+
+		/*
+		 * Loop through all other lesson groups which are not this current
+		 * lesson group
+		 */
+		for (LessonGroup lessonGroup : allLessonGroups) {
+			if (lessonGroup == specificLessonGroup) {
+				continue;
+			}
+			TreeSet<Student> otherStudents = new TreeSet<>(lessonGroup.getStudents());
+
+			/*
+			 * Filter out students which are in other lesson groups
+			 */
+			Iterator<Student> otherLessonGroupsStudentsIterator = otherStudents.iterator();
+			while (otherLessonGroupsStudentsIterator.hasNext()) {
+				Student otherLessonGroupStudent = otherLessonGroupsStudentsIterator.next();
+
+				this.additionalStudents.remove(otherLessonGroupStudent);
+			}
+		}
+
 		if (this.students == null) {
 			return ERROR;
 		}

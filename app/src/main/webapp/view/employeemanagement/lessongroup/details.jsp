@@ -162,7 +162,7 @@
                         </thead>
                         <tbody>
 							<s:iterator value="additionalStudents">
-                				<tr>
+                				<tr data-additional-student-id="<s:property value="studentOV"></s:property>">
 		                			<td>
 		                                <label>
 		                                    <input type="checkbox"

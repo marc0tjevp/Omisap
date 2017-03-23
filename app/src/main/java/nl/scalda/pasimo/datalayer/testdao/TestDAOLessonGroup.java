@@ -23,7 +23,6 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 
         for(Student s : students) {
         	if(s == students.first()) {
-        		l1.addStudent(s);
         		continue;
         	}
         	l2.addStudent(s);
