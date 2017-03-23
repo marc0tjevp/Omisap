@@ -30,10 +30,12 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * 
 	 */
 	public String execute() {
+		System.out.println("gewoon hier ");
 		if (lessonGroups == null) {
 			lessonGroups = new TreeSet<>();
 		}
-		lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
+		lessonGroups.clear();
+		lessonGroups.addAll(TestDAOLessonGroup.getInstance().getLessongroups());
 		return SUCCESS;
 	}
 
@@ -43,14 +45,13 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * @return
 	 */
 	public String addLessonGroup() {
-		System.out.println("hallo");
-		System.out.println(this.lessonGroupName);
 		if (this.lessonGroupName == null || this.lessonGroupName.equals("")) {
 			return ERROR;
 		}
 		LessonGroup previousLessonGroup = this.getLessonGroups().last();
 
-		this.getLessonGroups().add(new LessonGroup(previousLessonGroup.getId() + 1, lessonGroupName));
+		TestDAOLessonGroup.getInstance().create(new LessonGroup(previousLessonGroup.getId() + 1, lessonGroupName));
+		System.out.println("added lesson group with name " + lessonGroupName);
 		return SUCCESS;
 	}
 

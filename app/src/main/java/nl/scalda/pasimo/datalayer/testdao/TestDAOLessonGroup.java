@@ -35,6 +35,7 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 
     public static TestDAOLessonGroup getInstance() {
         if (instance == null) {
+        	System.out.println("hallo ja");
             instance = new TestDAOLessonGroup();
         }
         return instance;
