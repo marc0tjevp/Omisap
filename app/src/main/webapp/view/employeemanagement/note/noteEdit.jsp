@@ -26,21 +26,7 @@
 		<div class="col col-md-6 border">
 			<div class="row">
 				<div class="col-md-12">
-				<h2>Nieuwe notitie aanmaken</h2>				
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col col-md-12">
-<div class="form-group">
-  <label for="sel1">Gemaakt door docent:	</label>
-  <select name="madeBy" class="form-control" id="sel1">
-    <option value="Ma">Max</option>
-    <option value="Re">Rens</option>
-    <option value="Br">Bram</option>
-    <option value="Gi">Gino</option>
-  </select>
-</div>
+				<h2>Notitie bewerken</h2>				
 				</div>
 			</div>
 	
@@ -74,13 +60,12 @@
 			
 				<div class="col col-md-3">
 				<button class="button" type="button" data-toggle="modal"
-										data-target="#myModal">Aanmaken</button>
+										data-target="#myModal">Bewerken</button>
 				</div>
 				<div class="col col-md-3">
-				<button class="button">
-										<a href="noteOverview">Annuleren</a>
-									</button>
+				<button class="button"><a href="noteOverview">Annuleren</a></button>
 				</div>
+				
 				
 			</div>
 		
@@ -99,13 +84,13 @@
     
       	<div class="modal-header">	
         	<button type="button" class="close" data-dismiss="modal">&times;</button>
-        	<h4 class="modal-title">Weet u zeker dat u de geselecteerde notitie wilt toevoegen?	</h4>
+        	<h4 class="modal-title">Weet u zeker dat u de geselecteerde notitie wilt bewerken?	</h4>
       	</div>
       	<div class="modal-body">
    	   	</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default"
-							data-dismiss="modal" id="noteSubmit">Toevoegen</button>
+							data-dismiss="modal" >Bewerken</button>
         <button type="button" class="btn btn-default"
 							data-dismiss="modal">Annuleren</button>
 
@@ -114,28 +99,6 @@
 
   </div>
 </div>
-<div id="myModal" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-      <div class="modal-content">
-    
-      	<div class="modal-header">	
-        	<button type="button" class="close" data-dismiss="modal">&times;</button>
-        	<h4 class="modal-title">Weet u zeker dat u de geselecteerde notitie wilt toevoegen?	</h4>
-      	</div>
-      	<div class="modal-body">
-   	   	</div>
-      <div class="modal-footer">
-        <button "type="button" class="btn btn-default"
-							data-dismiss="modal" id="noteSubmit">Toevoegen</button>
-        <button type="button" class="btn btn-default"
-							data-dismiss="modal">Annuleren</button>
-
-      </div>
-    </div>
-
-  </div>
-</div>
-
 <!-- end pop up -->
 	
 	

@@ -1,41 +1,70 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="s" uri="/struts-tags"%>   
+<%@taglib prefix="s" uri="/struts-tags"%>
 
 <t:layout2>
 	<jsp:attribute name="css">
-		<link rel="stylesheet"  href="<c:url value="/resources/css/note.css"/>"/>
+		<link rel="stylesheet" href="<c:url value="/resources/css/note.css"/>" />
 	</jsp:attribute>
 	<jsp:attribute name="content">
 
-	<div class = "container">
-		<div class = "row">
-			<div class = "col-md-6 all">	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 all">	
 		
-				<div class = "row">
-					<div class ="col-md-6"><h4>Notities:</h4></div>
+				<div class="row">
+					<div class="col-md-6">
+							<h4>Notities overzicht</h4>
+						</div>
 					
-					<div class = "col-md-3">
-					<button class = "button">Alles Verwijderen</button>
+					<div class="col-md-3">
+					<button class="button" type="button" data-toggle="modal"
+								data-target="#myModal">Alles Verwijderen</button>
 					</div>
 					
-					<div class = "col-md-3">
-					<button class = "button" ><a href = "noteAdd">Nieuw Aanmaken</a></button>
+					<div class="col-md-3">
+					<button class="button" class="btn btn-default">
+								<a href="noteView">Nieuw Aanmaken</a>
+							</button>
 					</div>
 				</div>
+				<div id="myModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+      <div class="modal-content">
+    
+      	<div class="modal-header">	
+        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+        	<h4 class="modal-title">Weet u zeker dat u alle notities wilt verwijderen?	</h4>
+      	</div>
+      	<div class="modal-body">
+   	   	</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default"
+										data-dismiss="modal" id="noteDeleteAll">Alles verwijderen</button>
+        <button type="button" class="btn btn-default"
+										data-dismiss="modal">Annuleren</button>
+
+      </div>
+    </div>
+
+  </div>
+</div>
 				
-			 	<div class= "row">
+			 	<div class="row">
 					<c:forEach var="a" items="${noteList}">
-						<div class = "note col-md-4">
-							<div class= "row">
-								<div class = "col-md-12 noteTitle">${a.getTitle()}</div>
+						<div class="note col-md-4" data-toggle="modal"
+								data-target="#overviewModal">
+							<div class="row">
+							<div onClick=";" style="cursor: pointer;"
+										class="col-md-12 noteTitle">${a.getMessage()}</div>
 							</div>
-							<div class= "row">
-								<div class = "col-md-12 noteMessage">${a.getMessage()}</div>
-							</div>
-							
-							
+							<div class="row">
+								<div class="col-md-12 noteMessage">${a.getTitle()}</div>
+							</div>					
+							<div class="row">
+								<div class="col-md-12 noteMessage">Gemaakt door: ${a.getMadeBy().getFirstName()}</div>
+							</div>		
 						</div>
 						
 					</c:forEach>				
@@ -46,7 +75,26 @@
 			</div>
 		</div>
 	</div>
-		
+	<div id="overviewModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+      <div class="modal-content">
+    
+      	<div class="modal-header">	
+        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+        	<h4 class="modal-title">Wilt u de notitie verwijderen of bewerken?	</h4>
+      	</div>
+      	<div class="modal-body">
+   	   	</div>
+      <div class="modal-footer">
+        <a "type="button" class="btn btn-default" data-dismiss="modal"
+							id="noteDelete">Verwijderen</a>
+        <a type="button" class="btn btn-default" href="noteEdit">Bewerken</a>
+
+      </div>
+    </div>
+
+  </div>
+</div>
 		<!-- arraylist terug krijgen van controller, doorheenloopen in een div met c for each -->
 		
 	</jsp:attribute>

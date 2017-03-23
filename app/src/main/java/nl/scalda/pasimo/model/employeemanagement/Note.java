@@ -2,11 +2,13 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import nl.scalda.pasimo.service.Service;
 
 public class Note implements Comparable<Note> {
 
+	private static final AtomicInteger count = new AtomicInteger(0);
     private int id;
     private String title;
     private Date creationDate;
@@ -27,8 +29,7 @@ public class Note implements Comparable<Note> {
 
         this.creationDate = new Date();
         this.lastEdit = this.creationDate;
-        Note cNote = Service.getInstance().getNoteService().create(this);
-        this.id = cNote.getId();
+        this.id = count.incrementAndGet();
     }
 
     /**
@@ -98,8 +99,8 @@ public class Note implements Comparable<Note> {
 
     @Override
     public int compareTo(Note o) {
-        if (this.id == o.getId()) {
-            return 0;
+        if (id == o.getId()) {
+            return 0; 
         }
         return this.getCreationDate().before(o.getCreationDate()) ? -1 : 1;
     }
