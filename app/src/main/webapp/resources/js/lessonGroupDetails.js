@@ -111,7 +111,13 @@ $(document).ready(function () {
     	event.preventDefault();
     
     	$("input[type=checkbox].selectedLessonGroupStudentForAdding").each(function() {
+    		var studentRow = $(this).parent().parent().parent();
+    		var studentOV = studentRow.attr("data-additional-student-id");
     		
+    		$.ajax({
+    			type: 'POST',
+    			dataType: 'json'
+    		});
     	});
 
     });
