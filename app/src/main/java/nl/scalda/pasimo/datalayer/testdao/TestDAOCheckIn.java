@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
+import java.util.ArrayList;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
@@ -9,15 +10,15 @@ import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 public class TestDAOCheckIn {
 
 	private static TestDAOCheckIn instance = null;
-	private TreeSet<CheckIn> checkIn = new TreeSet<>();
+	private ArrayList<CheckIn> checkIn = new ArrayList<>();
 	
 	private TestDAOCheckIn() {}
 	
-	public TreeSet<CheckIn> readAll() {
+	public ArrayList<CheckIn> readAll() {
 		return checkIn;
 	}
 
-	public TreeSet<CheckIn> readAllForEducationTeam(EducationTeam t) {
+	public ArrayList<CheckIn> readAllForEducationTeam(EducationTeam t) {
 		return null;
 	}
 
@@ -29,7 +30,7 @@ public class TestDAOCheckIn {
 	}
 	
 	public void update(CheckIn c, EducationTeam team) {
-		
+		// TODO implement this method
 	}
 
 }
