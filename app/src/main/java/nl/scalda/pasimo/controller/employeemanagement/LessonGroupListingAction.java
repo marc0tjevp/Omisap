@@ -4,6 +4,7 @@ import java.util.TreeSet;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 import nl.scalda.pasimo.service.LessonGroupService;
@@ -59,8 +60,9 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * @return
 	 */
 	public String deleteLessonGroup() {
-		TestDAOLessonGroup.getInstance().readLessonGroupByID(deletelessongroupID);
-		int deleteLessonGroupByID;
+		LessonGroup g = TestDAOFactory.getInstance().getDAOLessonGroup().readLessonGroupByID(deletelessongroupID);
+		this.getLessonGroups().remove(g);
+		System.out.println("Hello");
 		return SUCCESS;
 	}
 

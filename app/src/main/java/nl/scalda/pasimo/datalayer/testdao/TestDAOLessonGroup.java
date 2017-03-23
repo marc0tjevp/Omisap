@@ -18,6 +18,7 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
         LessonGroup l2 = new LessonGroup(2,"ICO42A");
         LessonGroup l3 = new LessonGroup(3, "ICO41A");
         LessonGroup l4 = new LessonGroup(4, "ICO441G");
+        LessonGroup l5 = new LessonGroup(5,"ICOTSTCL");
         
         TreeSet<Student> students = TestDAOStudent.getInstance().readAll();
 
@@ -31,6 +32,7 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
         lessongroups.add(l2);
         lessongroups.add(l3);
         lessongroups.add(l4);
+        lessongroups.add(l5);
     }
 
     public static TestDAOLessonGroup getInstance() {

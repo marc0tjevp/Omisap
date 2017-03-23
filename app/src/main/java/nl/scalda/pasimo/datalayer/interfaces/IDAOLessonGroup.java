@@ -12,4 +12,5 @@ public interface IDAOLessonGroup {
 
     void delete(LessonGroup lessonGroup);
 
+    LessonGroup readLessonGroupByID(int lessonGroupId);
 }

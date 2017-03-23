@@ -43,4 +43,10 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
         return instance;
     }
 
+	@Override
+	public LessonGroup readLessonGroupByID(int lessonGroupId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

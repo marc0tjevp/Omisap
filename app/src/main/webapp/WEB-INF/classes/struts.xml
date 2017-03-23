@@ -20,10 +20,7 @@
                 method="execute">
             <result name="success">/view/employeemanagement/lessongroup/index.jsp</result>
         </action>
-        <action name="lessongroup/details" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupDetailsAction"
-                method="execute">
-            <result name="success">/view/employeemanagement/lessongroup/details.jsp</result>
-        </action>
+        
         
 		<action name="lessongroup/details/updateName" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupDetailsAction"
                 method="updateLessonGroupName">
@@ -40,9 +37,14 @@
             <result name="success">/view/employeemanagement/lessongroup/index.jsp</result>
         </action>
         
-        <action name="coachGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+        <action name="Lessongroup/delete" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
+        method="deleteLessonGroup">
+        <result name="success">/view/employeemanagement/lessongroup/index.jsp</result>
+        </action>
+        
+        <action name="coachgroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
                 method="execute">
-            <result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
+            <result name="success">/view/employeemanagement/coachgroups/details.jsp</result>
         </action>
         <action name="students" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
                 method="execute">
