@@ -114,10 +114,12 @@ $(document).ready(function () {
     		var studentRow = $(this).parent().parent().parent();
     		var studentOV = studentRow.attr("data-additional-student-id");
     		
-    		$.ajax({
-    			type: 'POST',
-    			dataType: 'json'
-    		});
+      		 $.ajax({
+    		     type: 'POST',	  
+    			 url:"details/students/add",
+    		     dataType: 'json',
+   				 data : "studentId="+studentOV
+      		 });
     	});
 
     });
