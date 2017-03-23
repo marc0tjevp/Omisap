@@ -1,8 +1,8 @@
-package nl.scalda.pasimo.interfaces;
+package nl.scalda.pasimo.datalayer.interfaces;
 
 import nl.scalda.pasimo.model.employeemanagement.Team;
 
-public interface ITeamDAO {
+public interface IDAOTeam {
 
     /**
      * @return - The requested Team if one exist with that abbreviation.
