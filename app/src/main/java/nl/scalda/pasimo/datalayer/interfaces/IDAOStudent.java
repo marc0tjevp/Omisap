@@ -15,4 +15,6 @@ public interface IDAOStudent {
 	public Student readByOvNumber(int ov);
 
 	public TreeSet<Student> readAll();
+
+	
 }

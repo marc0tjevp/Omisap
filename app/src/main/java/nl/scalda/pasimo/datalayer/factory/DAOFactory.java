@@ -28,4 +28,6 @@ public abstract class DAOFactory {
 
     public abstract IDAOTeacher getDAOTeacher();
 
+	public abstract IDAOStudent getDAOStudent();
+	
 }

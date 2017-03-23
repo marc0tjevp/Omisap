@@ -2,6 +2,8 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+
 public class Student extends Person {
 
 
@@ -13,6 +15,9 @@ public class Student extends Person {
 	
 	public Student(String email){
 		
+	}
+	public Student(){
+	
 	}
 	
 	public Student(int studentOV, CoachGroup coachGroup, LessonGroup lessonGroup, int cohort, String email, String firstName,
@@ -81,6 +86,13 @@ public class Student extends Person {
 		return "Student [noteList=" + noteList + ", lessonGroup=" + lessonGroup + ", studentOV=" + studentOV
 				+ ", cohort=" + cohort + ", coachGroup=" + coachGroup + "]";
 	}
-
+	
+	/**
+     * creates the student in the (test)datalayer.
+     */
+	 public void create(){
+    	DAOFactory.getTheFactory().getDAOStudent().create(this);
+    }
+	
 	
 }
