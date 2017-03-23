@@ -19,14 +19,21 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class MYSQLDAOTeacher implements IDAOTeacher {
 	
-	private static SessionFactory factory;
+	private SessionFactory factory;
 	private static MYSQLDAOTeacher instance = null;
+	
+	/**
+	 * 
+	 */
+	private MYSQLDAOTeacher() {
+		initialiseFactory();
+	}
 	
 	/**
 	 * initialises the configuration of hibernate.
 	 * called once from getInstance() method
 	 */
-	public static void initialiseFactory() {
+	private void initialiseFactory() {
 		try{
 			factory = new Configuration().configure().buildSessionFactory();
 		} catch(Throwable ex) {
@@ -405,7 +412,6 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 	public static MYSQLDAOTeacher getInstance() {
         if (instance == null) {
             instance = new MYSQLDAOTeacher();
-            initialiseFactory();
         }
         return instance;
     }
