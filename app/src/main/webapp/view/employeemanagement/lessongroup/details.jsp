@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 style="float: left; margin-right: 5px;">Studenten </h1>
-                    <h1 id="lessonGroupName"> <s:property value="name"></s:property></h1>
+                    <h1 id="lessonGroupName" data-lessongroup-id="<s:property value="lessonGroupId"></s:property>"> <s:property value="name"></s:property></h1>
                 </div>
 
             </div>
@@ -114,7 +114,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default"
 							data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" id="updateLessonGroupNameButton" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
@@ -161,28 +161,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                <c:forEach begin="0" end="10">
-                        <tr>
-                            <td>
-                                <label>
-                                    <input class="leerlingcheck"
-													type="checkbox" name="checkbox">
-                                </label>
-                            </td>
-                            <td>
-                                205657
-                            </td>
-                            <td>
-                                Niek
-                            </td>
-                            <td>
-                                Flipse
-                            </td>
-                            <td>
-                                2014
-                            </td>
-                        </tr>
-                    </c:forEach>
+							<s:iterator value="additionalStudents">
+                				<tr>
+		                			<td>
+		                                <label>
+		                                    <input type="checkbox"
+											name="checkbox">
+		                                </label>
+		                            </td>
+		                            
+									<td>
+		                                <s:property value="studentOV"></s:property>
+		                            </td>
+		                            <td>
+		                                <s:property value="firstName"></s:property>
+		                            </td>
+		                            <td>
+		                                <s:property value="insertion"></s:property> <s:property value="lastName"></s:property>
+		                            </td>
+		                            <td>
+		                                <s:property value="cohort"></s:property>
+		                            </td>
+                				</tr>
+                			</s:iterator>
                         </tbody>
                     </table>
 
