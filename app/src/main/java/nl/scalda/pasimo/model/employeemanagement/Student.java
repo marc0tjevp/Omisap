@@ -22,6 +22,10 @@ public class Student extends Person {
 		this.noteList = noteList;
 
 	}
+	
+	public Student(String email) {
+		this.setEmail(email);
+	}
 
 	public boolean deleteStudent(Student s) {
 		s = null;

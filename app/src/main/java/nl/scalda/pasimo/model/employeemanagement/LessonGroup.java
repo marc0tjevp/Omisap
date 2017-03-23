@@ -114,22 +114,6 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	}
 
 	/**
-	 * Updates an existing {@link Student} in the lesson group
-	 * 
-	 * @param updatingStudent The student to update
-	 */
-	public void updateStudent(Student updatingStudent) {
-		for (Student student : this.students) {
-			if (student != updatingStudent) {
-				continue;
-			}
-			student.setLastName(updatingStudent.getLastName());
-			student.setEmail(updatingStudent.getEmail());
-			student.setCardID(updatingStudent.getCardID());
-		}
-	}
-
-	/**
 	 * Removes an {@link Student} from the lesson group
 	 *
 	 * @param student
@@ -144,15 +128,15 @@ public class LessonGroup implements Comparable<LessonGroup> {
 		return "LessonGroup: id= " + id + ", name= " + name + ", students= " + students;
 	}
 
-    /**
-     * Sorts the lesson groups on numeric order when adding a lesson group to a TreeSet
-     *
-     * @param lessonGroup The {@link LessonGroup} to sort
-     * @return ..
-     */
-    @Override
-    public int compareTo(LessonGroup lessonGroup) {
-    	return Integer.compare(this.id, lessonGroup.getId());
-    }
-
+	/**
+	 * Sorts the lesson groups by name when adding a lesson group to a TreeSet
+	 *
+	 * @param lessonGroup
+	 *            The {@link LessonGroup} to sort
+	 * @return ..
+	 */
+	@Override
+	public int compareTo(LessonGroup lessonGroup) {
+		return name.compareTo(lessonGroup.getName());
+	}
 }
