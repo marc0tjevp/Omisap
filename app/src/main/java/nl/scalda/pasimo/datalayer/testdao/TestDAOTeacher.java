@@ -17,27 +17,27 @@ public class TestDAOTeacher implements IDAOTeacher {
 
 
 	private TestDAOTeacher() {
-		Teacher Ma = new Teacher();
-		Ma.setFirstName("Max");
-		Ma.setEmail("max email");
-		Ma.setAbbreviation("Ma");
-		Teacher Re = new Teacher();
-		Re.setFirstName("Rens");
-		Re.setEmail("rens email");
-		Re.setAbbreviation("Re");
-		Teacher Gi = new Teacher();
-		Gi.setFirstName("Gino");
-		Gi.setEmail("gino email");
-		Gi.setAbbreviation("Gi");
-		Teacher Br = new Teacher();
-		Br.setFirstName("Bram");
-		Br.setEmail("bram email");
-		Br.setAbbreviation("Br");
+		Teacher ma = new Teacher();
+		ma.setFirstName("Max");
+		ma.setEmail("max email");
+		ma.setAbbreviation("Ma");
+		Teacher re = new Teacher();
+		re.setFirstName("Rens");
+		re.setEmail("rens email");
+		re.setAbbreviation("Re");
+		Teacher gi = new Teacher();
+		gi.setFirstName("Gino");
+		gi.setEmail("gino email");
+		gi.setAbbreviation("Gi");
+		Teacher br = new Teacher();
+		br.setFirstName("Bram");
+		br.setEmail("bram email");
+		br.setAbbreviation("Br");
 		
-		teachers.add(Ma);
-		teachers.add(Re);
-		teachers.add(Gi);
-		teachers.add(Br);
+		teachers.add(ma);
+		teachers.add(re);
+		teachers.add(gi);
+		teachers.add(br);
 		
 		
 		
