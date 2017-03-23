@@ -79,12 +79,15 @@
                 		var lessonGroupId = parentElement.attr("id");
                 		
                 		console.log(lessonGroupId);
-                		
 	               		 $.ajax({
 	            		     type: 'POST',	  
-	            			 url:'lessongroup/delete',
+	            			 url:"lessongroup/delete",
 	            		     dataType: 'json',
-	           				 data : "lessonGroupId="+$("input[type=text]#lessonGroupName-input").val(),
+	           				 data : "lessonGroupId="+lessonGroupId,
+	           				 
+	           				 
+	           				 
+	           				 }
 	            		});
                 	});
             		location.reload();
