@@ -1,17 +1,21 @@
 package nl.scalda.pasimo.datalayer.factory;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
-import nl.scalda.pasimo.datalayer.testdao.TestEducationTeamDAO;
-import nl.scalda.pasimo.datalayer.testdao.TestTeamDAO;
-
+import nl.scalda.pasimo.datalayer.interfaces.IDAOTeam;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkBlock;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkingDay;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAONote;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
-import nl.scalda.pasimo.interfaces.*;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOTeam;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOWorkBlock;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOWorkingDay;
 
 public class TestDAOFactory extends DAOFactory {
 
@@ -22,13 +26,13 @@ public class TestDAOFactory extends DAOFactory {
     }
     
     @Override
-    public ITeamDAO getTeamDAO() {
-        return TestTeamDAO.getInstance();
+    public IDAOTeam getDAOTeam() {
+        return TestDAOTeam.getInstance();
     }
 
     @Override
-    public IEducationTeamDAO getEducationTeamDAO() {
-        return TestEducationTeamDAO.getInstance();
+    public IDAOEducationTeam getDAOEducationTeam() {
+        return TestDAOEducationTeam.getInstance();
     }
 
     @Override
@@ -57,4 +61,19 @@ public class TestDAOFactory extends DAOFactory {
         }
         return instance;
     }
+
+
+	@Override
+	public IDAOWorkingDay getDAOWorkingDay() {
+
+		return TestDAOWorkingDay.getInstance();
+	}
+
+	@Override
+	public IDAOWorkBlock getDAOWorkBlock() {
+	
+		return TestDAOWorkBlock.getInstance();
+	}
+
+
 }

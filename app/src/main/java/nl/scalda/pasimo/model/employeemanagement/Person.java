@@ -13,9 +13,32 @@ public class Person implements Comparable<Person> {
     private TreeSet<Note> noteList;
     private GregorianCalendar dateOfBirth;
 
-	public Person() {
+    /**
+     * default constructor.
+     */
+	public Person() {}
+	
+	/**
+	 * constructor with only email.
+	 * 
+	 * @param email
+	 */
+	public Person(String email) {
+		this.email = email;
     }
 
+	/**
+	 * constructor with all variables.
+	 * 
+	 * @param email
+	 * @param cardID
+	 * @param firstName
+	 * @param insertion
+	 * @param lastName
+	 * @param yearOfBirth
+	 * @param monthOfBirth
+	 * @param dayOfBirth
+	 */
     public Person(String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
 		GregorianCalendar gc = new GregorianCalendar();
 		this.setEmail(email);
@@ -97,6 +120,12 @@ public class Person implements Comparable<Person> {
         this.dateOfBirth = dateOfBirth;
     }
 
+    /**
+     * returns the full name of the person.
+     * used for displaying purposes in the view.
+     * 
+     * @return String
+     */
 	public String getFullName() {
         if (this.insertion != "" && this.insertion != null) {
             return this.getFirstName() + " " + this.getInsertion() + " " + this.getLastName();
@@ -112,6 +141,11 @@ public class Person implements Comparable<Person> {
         this.noteList = noteList;
     }
     
+    /**
+     * returns the date of birth as readable string object.
+     * 
+     * @return String
+     */
     public String getDateOfBirthInString(){
     	return this.getDateOfBirth().get(GregorianCalendar.DAY_OF_MONTH) + "-" + (this.getDateOfBirth().get(GregorianCalendar.MONTH)+1) + "-" + this.getDateOfBirth().get(GregorianCalendar.YEAR);
     }

@@ -1,7 +1,13 @@
 package nl.scalda.pasimo.datalayer.factory;
 
-import nl.scalda.pasimo.datalayer.interfaces.*;
-import nl.scalda.pasimo.interfaces.*;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
+import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOTeam;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkBlock;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkingDay;
 
 public abstract class DAOFactory {
 
@@ -16,9 +22,9 @@ public abstract class DAOFactory {
     }
 //methods
 
-    public abstract ITeamDAO getTeamDAO();
+    public abstract IDAOTeam getDAOTeam();
 
-    public abstract IEducationTeamDAO getEducationTeamDAO();
+    public abstract IDAOEducationTeam getDAOEducationTeam();
 
     public abstract IDAOCoachGroup getDAOCoachGroup();
 
@@ -27,5 +33,9 @@ public abstract class DAOFactory {
     public abstract IDAONote getDAONote();
 
     public abstract IDAOTeacher getDAOTeacher();
+    
+    public abstract IDAOWorkingDay getDAOWorkingDay();
+    
+    public abstract IDAOWorkBlock getDAOWorkBlock();
 
 }
