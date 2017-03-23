@@ -10,7 +10,7 @@ import nl.scalda.pasimo.service.LessonGroupService;
 import nl.scalda.pasimo.test.lessonGroupList;
 
 public class LessonGroupListingAction extends ActionSupport {
-	
+
 	/**
 	 * 
 	 */
@@ -20,51 +20,54 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * 
 	 */
 	private String lessonGroupName;
-	
+
 	/**
 	 * 
 	 */
 	private int deletelessongroupID;
+
 	/**
 	 * 
 	 */
-    public String execute() {
-    	if(lessonGroups == null) {
-    		lessonGroups = new TreeSet<>();
-    	}
-    	lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
-    	return SUCCESS;
-    }
-    
-    /**
-     * Adds a lesson group
-     * 
-     * @return
-     */
-    public String addLessonGroup() {
-    	System.out.println("hallo");
-    	System.out.println(this.lessonGroupName);
-    	if(this.lessonGroupName == null || this.lessonGroupName.equals("")) {
-    		return ERROR;
-    	}
-    	LessonGroup previousLessonGroup = this.getLessonGroups().last();
-    	
-    	this.getLessonGroups().add(new LessonGroup(previousLessonGroup.getId() + 1, lessonGroupName));
-    	return SUCCESS;
-    }
-    /**
-     * 
-     * @return
-     */
-   public String deleteLessonGroup() {
-   TestDAOLessonGroup.getInstance().readLessonGroupByID(deletelessongroupID);
-   int deleteLessonGroupByID;
-   return SUCCESS;
-   }
-    /**
-     * 
-     * @return
-     */
+	public String execute() {
+		if (lessonGroups == null) {
+			lessonGroups = new TreeSet<>();
+		}
+		lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
+		return SUCCESS;
+	}
+
+	/**
+	 * Adds a lesson group
+	 * 
+	 * @return
+	 */
+	public String addLessonGroup() {
+		System.out.println("hallo");
+		System.out.println(this.lessonGroupName);
+		if (this.lessonGroupName == null || this.lessonGroupName.equals("")) {
+			return ERROR;
+		}
+		LessonGroup previousLessonGroup = this.getLessonGroups().last();
+
+		this.getLessonGroups().add(new LessonGroup(previousLessonGroup.getId() + 1, lessonGroupName));
+		return SUCCESS;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String deleteLessonGroup() {
+		TestDAOLessonGroup.getInstance().readLessonGroupByID(deletelessongroupID);
+		int deleteLessonGroupByID;
+		return SUCCESS;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
 	public TreeSet<LessonGroup> getLessonGroups() {
 		return lessonGroups;
 	}
@@ -76,7 +79,7 @@ public class LessonGroupListingAction extends ActionSupport {
 	public void setLessonGroups(TreeSet<LessonGroup> lessonGroups) {
 		this.lessonGroups = lessonGroups;
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -84,7 +87,7 @@ public class LessonGroupListingAction extends ActionSupport {
 	public String getLessonGroupName() {
 		return lessonGroupName;
 	}
-	
+
 	/**
 	 * 
 	 * @param lessonGroupName
@@ -100,5 +103,5 @@ public class LessonGroupListingAction extends ActionSupport {
 	public void setDeletelessongroupID(int deletelessongroupID) {
 		this.deletelessongroupID = deletelessongroupID;
 	}
-	
+
 }
