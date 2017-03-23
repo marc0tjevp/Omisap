@@ -66,10 +66,14 @@
                 		 	type: 'POST',	  
                 			url:'lessongroup/add.action',
                 		   	dataType: 'json',
-               				data : "lessonGroupName="+$("input[type=text]#lessonGroupName-input").val()
+               				data : "lessonGroupName="+$("input[type=text]#lessonGroupName-input").val(),
+               				success: function(data) {
+               					console.log(data);
+               					location.reload();
+               					
+               				}
                 		});
                 	}
-                	location.reload();
                 });
                 
                 $("#confirmDeleteLessonGroupButton").on("click", function() {

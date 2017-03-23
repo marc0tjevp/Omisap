@@ -7,6 +7,14 @@
     <constant name="struts.enable.SlashesInActionNames" value="true"/>
     <constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
 
+	<package name="jsons" extends="json-default">
+	
+		<action name="lessongroup/add" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
+        	method="addLessonGroup">
+            	<result name="success" type="json"></result>
+       	</action>
+	
+	</package>
     <package name="alles" extends="struts-default">
         <!--        <action name="pag1" class="nl.scalda.pasimo.controller.MainController"
                         method="execute">
@@ -33,11 +41,6 @@
         <action name="lessongroup/details/students/add" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupDetailsAction"
                 method="addStudent">
             <result name="success">/view/employeemanagement/lessongroup/details.jsp</result>
-        </action>
-                
-        <action name="lessongroup/add" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
-                method="addLessonGroup">
-            <result name="success">/view/employeemanagement/lessongroup/index.jsp</result>
         </action>
         
         <action name="coachGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
