@@ -5,8 +5,6 @@ import java.util.TreeSet;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.service.EducationTeamService;

@@ -126,7 +126,6 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 	public void addTeacherToEducationTeam(Teacher teacher, EducationTeam educationTeam) {
 		Session session = factory.openSession();
 		Transaction tx = null;
-		Set<EducationTeam> teams = new TreeSet<>();
 		try {
 		   tx = session.beginTransaction();
 		   session.createNativeQuery("INSERT INTO teacher_education_team (teacher_employeeNumber, education_team_id) VALUES (:teacheremployeeNumber, :educationTeamID);")
