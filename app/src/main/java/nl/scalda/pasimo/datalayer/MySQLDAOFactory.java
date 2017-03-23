@@ -37,29 +37,30 @@ public class MySQLDAOFactory extends DAOFactory {
     public IDAOLessonGroup getDAOLessonGroup() {
         return MYSQLDAOLessonGroup.getInstance();
     }
-  //methodes
-    
-	@Override
-	public IDAONote getDAONote() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
+    //methodes
 
-	public IDAOTeacher getDAOTeacher() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public IDAONote getDAONote() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public ITeamDAO getTeamDAO() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
 
-	@Override
-	public IEducationTeamDAO getEducationTeamDAO() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public IDAOTeacher getDAOTeacher() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ITeamDAO getTeamDAO() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public IEducationTeamDAO getEducationTeamDAO() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }
