@@ -33,6 +33,11 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * The additional students which are not in this lesson group
 	 */
 	private TreeSet<Student> additionalStudents;
+	
+	/**
+	 * The ID of the student to add to this lesson group
+	 */
+	private int studentId;
 
 	/**
 	 * 
@@ -109,6 +114,20 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		specificLessonGroup.setName(this.name);
 		return SUCCESS;
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String addStudent() {
+		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
+		Student specificStudent = TestDAOStudent.getInstance().readByOvNumber(this.studentId);
+		if(specificLessonGroup == null || specificStudent == null) {
+			return ERROR;
+		}
+		specificLessonGroup.addStudent(specificStudent);
+		return SUCCESS;
+	}
 
 	/**
 	 * 
@@ -159,6 +178,21 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		this.additionalStudents = additionalStudents;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	public int getStudentId() {
+		return this.studentId;
+	}
+	
+	/**
+	 * 
+	 * @param studentId
+	 */
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
+	}
 	/**
 	 * 
 	 * @return

@@ -84,12 +84,8 @@
 	            			 url:"lessongroup/delete",
 	            		     dataType: 'json',
 	           				 data : "lessonGroupId="+lessonGroupId,
-	           				 
-	           				 
-	           				 
-	           				 }
+	           				 });
 	            		});
-                	});
             		location.reload();
                 });
 

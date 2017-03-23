@@ -107,9 +107,14 @@ $(document).ready(function () {
     	location.reload();
     });
     
+    /**
+     * AJAX request for adding student to the lesson group
+     */
     $("#addStudentToLessonGroupButton").on("click", function(event) {
     	event.preventDefault();
     
+		var lessonGroupId = $("h1#lessonGroupName").attr("data-lessongroup-id");
+
     	$("input[type=checkbox].selectedLessonGroupStudentForAdding").each(function() {
     		var studentRow = $(this).parent().parent().parent();
     		var studentOV = studentRow.attr("data-additional-student-id");
@@ -118,9 +123,9 @@ $(document).ready(function () {
     		     type: 'POST',	  
     			 url:"details/students/add",
     		     dataType: 'json',
-   				 data : "studentId="+studentOV
+   				 data : "studentId="+studentOV + "&lessonGroupId=" + lessonGroupId
       		 });
     	});
-
+    	location.reload();
     });
 });

@@ -29,6 +29,11 @@
                 method="updateLessonGroupName">
             <result name="success">/view/employeemanagement/lessongroup/details.jsp</result>
         </action>
+        
+        <action name="lessongroup/details/students/add" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupDetailsAction"
+                method="addStudent">
+            <result name="success">/view/employeemanagement/lessongroup/details.jsp</result>
+        </action>
                 
         <action name="lessongroup/add" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
                 method="addLessonGroup">
