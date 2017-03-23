@@ -1,16 +1,17 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
-import nl.scalda.pasimo.datalayer.interfaces.IEducationTeamDAO;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 import java.util.Set;
 import java.util.TreeSet;
 
-public class TestEducationTeamDAO implements IEducationTeamDAO {
+public class TestDAOEducationTeam implements IDAOEducationTeam {
 
     private Set<EducationTeam> educationTeams;
 
-    private TestEducationTeamDAO() {
+    private TestDAOEducationTeam() {
         this.educationTeams = new TreeSet<EducationTeam>();
 
         // Test data
@@ -81,13 +82,25 @@ public class TestEducationTeamDAO implements IEducationTeamDAO {
     // --------------------------------------------------
     // Singleton
 
-    private static TestEducationTeamDAO instance;
+    private static TestDAOEducationTeam instance;
 
-    public static TestEducationTeamDAO getInstance()
+    public static TestDAOEducationTeam getInstance()
     {
         if (instance == null)
-            instance = new TestEducationTeamDAO();
+            instance = new TestDAOEducationTeam();
         return instance;
     }
+
+	@Override
+	public void addTeacherToEducationTeam(Teacher teacher, EducationTeam educationTeam) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteTeacherFromEducationTeam(Teacher teacher, EducationTeam educationTeam) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

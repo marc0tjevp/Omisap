@@ -17,6 +17,11 @@
         </init-param>
         <load-on-startup>2</load-on-startup>
     </servlet>
+    <servlet>
+    	<servlet-name>Main</servlet-name>
+    	<servlet-class>nl.scalda.pasimo.main.InitializationServlet</servlet-class>
+    	<load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>action</servlet-name>
         <url-pattern>*.do</url-pattern>
