@@ -10,10 +10,8 @@
    <property name="hibernate.connection.driver_class">
       com.mysql.jdbc.Driver
    </property>
-
-   <!-- Assume test is the database name -->
    <property name="hibernate.connection.url">
-      jdbc:mysql://localhost/pasimo
+      jdbc:mysql://localhost/pasimo?createDatabaseIfNotExist=true
    </property>
    <property name="hibernate.connection.username">
       root
@@ -21,6 +19,13 @@
    <property name="hibernate.connection.password">
       AOscalda
    </property>
+   <property name="hibernate.hbm2ddl.auto">
+      create
+   </property>
+   <property name="hibernate.hbm2ddl.import_files">
+      import.sql
+   </property>
+   
 
    <!-- List of XML mapping files -->
    <mapping resource="Person.hbm.xml"/>
