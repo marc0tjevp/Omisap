@@ -58,7 +58,7 @@
                 method="execute">
             <result name="success">/view/employeemanagement/coachgroups/coachGroupLessonGroups.jsp</result>
         </action>
-<<<<<<< HEAD
+
         <action name="addCoachLessonGroup" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
         		method="addLessonGroup">
         			<result name="success" type="redirect">lessonGroups</result>
@@ -69,10 +69,7 @@
         		<result name="success" type="redirect">LessonGroup</result>
         		<result name="input">/view/employeemanagement/coachgroups/coachGroupLessonGroups.jsp</result>
         </action>
-=======
 
-        
->>>>>>> e17e10de830c51e0b7846e3633a2137d97b05d37
         
         
         
