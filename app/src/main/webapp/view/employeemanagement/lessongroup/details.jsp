@@ -70,7 +70,7 @@
                 </thead>
                 <tbody>
                 <s:iterator value="students">
-                	<tr>
+                	<tr data-student-ov="<s:property value="studentOV"></s:property>">
                 			<td>
                                 <label>
                                     <input type="checkbox"
@@ -213,12 +213,12 @@
                 <h4 class="modal-title" id="myModalLabel">Verwijder student(en)</h4>
             </div>
             <div class="modal-body">
-                Weet u zeker dat u deze student(en) wilt verwijderen?
+                Weet u zeker dat u de geselecteerde studenten wilt verwijderen? 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary"
 							data-dismiss="modal">Annuleren</button>
-                <button type="button" class="btn btn-danger">Verwijderen</button>
+                <button type="button" id="confirmDeleteStudentsInLessonGroupButton" class="btn btn-danger">Verwijderen</button>
             </div>
         </div>
     </div>

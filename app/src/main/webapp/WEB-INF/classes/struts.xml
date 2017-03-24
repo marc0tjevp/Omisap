@@ -19,6 +19,18 @@
                 method="updateLessonGroupName">
             <result name="success" type="json"></result>
         </action>
+        
+        <!-- Adding students to a lesson group -->        
+        <action name="lessongroup/details/students/add" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupDetailsAction"
+                method="addStudent">
+            <result name="success" type="json"></result>
+        </action>
+        
+		<!-- Deleting students from a lesson group -->        
+        <action name="lessongroup/details/students/delete" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupDetailsAction"
+                method="deleteStudent">
+            <result name="success" type="json"></result>
+        </action>
 	
 	</package>
     <package name="alles" extends="struts-default">
@@ -42,10 +54,7 @@
         
 
         
-        <action name="lessongroup/details/students/add" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupDetailsAction"
-                method="addStudent">
-            <result name="success">/view/employeemanagement/lessongroup/details.jsp</result>
-        </action>
+
         
         <action name="Lessongroup/delete" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
         method="deleteLessonGroup">

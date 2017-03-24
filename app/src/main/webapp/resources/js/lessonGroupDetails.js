@@ -3,14 +3,14 @@ $(document).ready(function () {
     $("#selectAll").on('click', function () {
         if (this.checked) {
             // Iterate each checkbox
-            $('.lesson-groups-table :checkbox').each(function () {
+            $('.lesson-groups-table tbody :checkbox').each(function () {
                 this.checked = true;
                 $(this).addClass("selectedLessonGroupStudent");
                 $("#deleteStudentButton").removeAttr("disabled");
             });
         }
         else {
-            $('.lesson-groups-table :checkbox').each(function () {
+            $('.lesson-groups-table tbody :checkbox').each(function () {
                 this.checked = false;
                 $(this).removeClass("selectedLessonGroupStudent");
                 $("#deleteStudentButton").attr("disabled", true);
@@ -42,14 +42,14 @@ $(document).ready(function () {
     $("#selectAllStudentsForLessonGroupCheckbox").on('click', function () {
         if (this.checked) {
             // Iterate each checkbox
-            $('table.lesson-group-other-students-table :checkbox').each(function () {
+            $('table.lesson-group-other-students-table tbody :checkbox').each(function () {
                 this.checked = true;
                 $(this).addClass("selectedLessonGroupStudentForAdding");
                 $("#addStudentToLessonGroupButton").removeAttr("disabled");
             });
         }
         else {
-            $('table.lesson-group-other-students-table :checkbox').each(function () {
+            $('table.lesson-group-other-students-table tbody :checkbox').each(function () {
                 this.checked = false;
                 $(this).removeClass("selectedLessonGroupStudentForAdding");
                 $("#addStudentToLessonGroupButton").attr("disabled", true);
@@ -113,6 +113,7 @@ $(document).ready(function () {
      * AJAX request for adding student to the lesson group
      */
     $("#addStudentToLessonGroupButton").on("click", function(event) {
+    	//Incase the button does something by default    	
     	event.preventDefault();
     
 		var lessonGroupId = $("h1#lessonGroupName").attr("data-lessongroup-id");
@@ -121,13 +122,44 @@ $(document).ready(function () {
     		var studentRow = $(this).parent().parent().parent();
     		var studentOV = studentRow.attr("data-additional-student-id");
     		
+    		//POST AJAX request to add the each student to the lesson group
       		 $.ajax({
     		     type: 'POST',	  
     			 url:"details/students/add",
     		     dataType: 'json',
-   				 data : "studentId="+studentOV + "&lessonGroupId=" + lessonGroupId
+   				 data: "studentId="+studentOV + "&lessonGroupId=" + lessonGroupId,
+   				 success: function(data) {
+   					//Reload the page to get all the new students into the table sorted
+    				location.reload();
+   				 }
       		 });
     	});
-    	location.reload();
+    });
+    
+    /**
+     * AJAX request for deleting one or multiple students from the lesson group
+     */
+    $("#confirmDeleteStudentsInLessonGroupButton").on("click", function(event) {
+    	//Incase the button does something by default    	
+    	event.preventDefault();
+    
+		var lessonGroupId = $("h1#lessonGroupName").attr("data-lessongroup-id");
+
+    	$("input[type=checkbox].selectedLessonGroupStudent").each(function() {
+    		var studentRow = $(this).parent().parent().parent();
+    		var studentOV = studentRow.attr("data-student-ov");
+    		
+    		//POST AJAX request to delete each selected student from the lesson group
+      		 $.ajax({
+    		     type: 'POST',	  
+    			 url:"details/students/delete",
+    		     dataType: 'json',
+   				 data: "studentId="+studentOV + "&lessonGroupId=" + lessonGroupId,
+   				 success: function(data) {
+   					//Reload the page to get all the new students into the table sorted
+    				location.reload();
+   				 }
+      		 });
+    	});
     });
 });
