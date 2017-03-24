@@ -80,15 +80,13 @@ $(document).ready(function () {
 
     $("#editLessonGroupName").on('show.bs.modal', function () {
         $("#currentLessonGroup").val($("#lessonGroupName").text());
-    })
+    });
 
     /**
      * AJAX request for changing a lesson group name
      */
     $("#updateLessonGroupNameButton").on("click", function(event) {
-    	//Incase the button does something by default
-    	event.preventDefault();
-    	
+    	//Incase the button does something by default    	
     	var lessonGroupName = $("div#editLessonGroupName div.modal-body input#currentLessonGroup").val();
     	
     	//If the input is not empty

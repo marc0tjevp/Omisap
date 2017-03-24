@@ -63,12 +63,16 @@
                 		console.log("Hallo!");
                 		console.log($("input[type=text]#lessonGroupName-input").val());
                 		 $.ajax({
-                		     type: 'POST',	  
-                			 url:'lessongroup/add',
-                		       dataType: 'json',
-               				   data : "lessonGroupName="+$("input[type=text]#lessonGroupName-input").val(),
+                		 	type: 'POST',	  
+                			url:'lessongroup/add.action',
+                		   	dataType: 'json',
+               				data : "lessonGroupName="+$("input[type=text]#lessonGroupName-input").val(),
+               				success: function(data) {
+               					console.log(data);
+               					location.reload();
+               					
+               				}
                 		});
-                		location.reload();
                 	}
                 });
                 
@@ -87,7 +91,7 @@
 	           				 });
 	            		});
             		location.reload();
-                });
+                }); 
 
 
             });
