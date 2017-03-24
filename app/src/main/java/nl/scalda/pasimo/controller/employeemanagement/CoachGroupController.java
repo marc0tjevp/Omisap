@@ -8,8 +8,7 @@ import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.test.CoachGroupList;
-import nl.scalda.pasimo.test.EducationTeamList;
-import nl.scalda.pasimo.test.TeacherList;
+
 
 /**
  *
@@ -22,14 +21,12 @@ public class CoachGroupController extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	public String name;
-	public TreeSet<Teacher> teacher = TeacherList.getInstance().getTeachers();
-	public TreeSet<EducationTeam> educationTeam = EducationTeamList.getInstance();
+	public TreeSet<Teacher> teacher = new TreeSet<>();
+	public TreeSet<EducationTeam> educationTeam  = new TreeSet<>();
 	CoachGroup coach = new CoachGroup();
-	public TreeSet<CoachGroup> coachGroup = CoachGroupList.getInstance().getCoachgroups();
+	public TreeSet<CoachGroup> coachGroup  = new TreeSet<>();
 
 	public String execute() {
-		educationTeam = EducationTeamList.getInstance();
-		teacher = TeacherList.getInstance().getTeachers();
 		coachGroup = CoachGroupList.getInstance().getCoachgroups();
 		
 		//CoachGroup a1 = new CoachGroup();
