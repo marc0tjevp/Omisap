@@ -5,18 +5,14 @@
  */
 package nl.scalda.pasimo.datalayer.mysqldao;
 
-import nl.scalda.pasimo.datalayer.factory.MySQLDAOConnection;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
-
-import java.util.TreeSet;
-
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 
 /**
  *
  * @author jeroe
  */
-public class MYSQLDAOCoachGroup extends MySQLDAOConnection implements IDAOCoachGroup {
+public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 
     private static MYSQLDAOCoachGroup instance = null;
 

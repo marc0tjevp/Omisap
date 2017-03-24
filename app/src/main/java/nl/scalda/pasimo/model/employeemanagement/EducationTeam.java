@@ -1,7 +1,6 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-
 import java.util.TreeSet;
 
 public class EducationTeam implements Comparable<EducationTeam>{
@@ -18,10 +17,15 @@ public class EducationTeam implements Comparable<EducationTeam>{
      * Name of the EducationTeam; e.g. Applicatie Ontwikkelaar
      */
     private String name;
+    /**
+     * 
+     * Id of the EducationTeam
+     */
+    private int id;
 
     public void addTeacher(Teacher t){
 		if (teachers.add(t)) {
-			//DAOFactory.getTheFactory().getDAOTeacher().create(t, this);
+			DAOFactory.getTheFactory().getDAOEducationTeam().addTeacherToEducationTeam(t, this);
 		}
 		
 	}
@@ -44,7 +48,7 @@ public class EducationTeam implements Comparable<EducationTeam>{
     
 	public void deleteTeacher(Teacher t){
 		if (teachers.remove(t)) {
-			//DAOFactory.getTheFactory().getDAOTeacher().delete(t, this);
+			DAOFactory.getTheFactory().getDAOEducationTeam().deleteTeacherFromEducationTeam(t, this);
 		}		
 		
 	}
@@ -52,8 +56,19 @@ public class EducationTeam implements Comparable<EducationTeam>{
 	public TreeSet<Teacher> getTeachers() {
 		 return teachers;
 	}
+	
+	public EducationTeam(int id, String name) {
+    	this.setId(id);
+    	this.setName(name);
+    }
 
     public EducationTeam(String abbreviation, String name) {
+        this.abbreviation = abbreviation;
+        this.name = name;
+    }
+    
+    public EducationTeam(String abbreviation, String name, int id) {
+    	this.setId(id);
         this.abbreviation = abbreviation;
         this.name = name;
     }
@@ -77,6 +92,14 @@ public class EducationTeam implements Comparable<EducationTeam>{
     public void setName(String name) {
         this.name = name;
     }
+    
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
     //</editor-fold>
 
@@ -92,4 +115,5 @@ public class EducationTeam implements Comparable<EducationTeam>{
                 ", name='" + name + '\'' +
                 '}';
     }
+
 }

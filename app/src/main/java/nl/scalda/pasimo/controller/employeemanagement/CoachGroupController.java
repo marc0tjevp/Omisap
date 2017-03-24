@@ -17,6 +17,10 @@ import nl.scalda.pasimo.test.TeacherList;
  */
 public class CoachGroupController extends ActionSupport {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public String name;
 	public TreeSet<Teacher> teacher = TeacherList.getInstance().getTeachers();
 	public TreeSet<EducationTeam> educationTeam = EducationTeamList.getInstance();
