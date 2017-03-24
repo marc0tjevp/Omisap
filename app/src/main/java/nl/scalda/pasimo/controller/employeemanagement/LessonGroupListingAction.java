@@ -7,31 +7,38 @@ import com.opensymphony.xwork2.ActionSupport;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
-import nl.scalda.pasimo.service.LessonGroupService;
-import nl.scalda.pasimo.test.lessonGroupList;
 
 public class LessonGroupListingAction extends ActionSupport {
 
 	/**
 	 * 
 	 */
+	private static final long serialVersionUID = 3651415035371001870L;
+
+	/**
+	 * All the lesson groups
+	 */
 	private TreeSet<LessonGroup> lessonGroups;
 
 	/**
-	 * 
+	 * The name for adding a lesson group
 	 */
 	private String lessonGroupName;
 
 	/**
-	 * 
+	 * The ID for deleting a lesson group
 	 */
 	private int deletelessongroupID;
 
+
 	/**
-	 * 
+	 * Retrieves all the lesson groups and puts them in a list
 	 */
 	public String execute() {
 		this.lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
+		if (this.lessonGroups == null) {
+			return ERROR;
+		}
 		return SUCCESS;
 	}
 
@@ -41,13 +48,16 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * @return
 	 */
 	public String addLessonGroup() {
+		/*
+		 * When the lesson group name is not filled in or empty
+		 */
 		if (this.lessonGroupName == null || this.lessonGroupName.equals("")) {
 			return ERROR;
 		}
-		// Add all the lesson groups to the action variable
+		/*
+		 * Add all the lesson groups to the action variable
+		 */
 		this.lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
-
-		// Retrieve the previous lesson group for getting an lesson group id
 		LessonGroup previousLessonGroup = null;
 		if (!this.lessonGroups.isEmpty()) {
 			previousLessonGroup = this.lessonGroups.last();
@@ -137,10 +147,18 @@ public class LessonGroupListingAction extends ActionSupport {
 		this.lessonGroupName = lessonGroupName;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public int getDeletelessongroupID() {
 		return deletelessongroupID;
 	}
 
+	/**
+	 * 
+	 * @param deletelessongroupID
+	 */
 	public void setDeletelessongroupID(int deletelessongroupID) {
 		this.deletelessongroupID = deletelessongroupID;
 	}

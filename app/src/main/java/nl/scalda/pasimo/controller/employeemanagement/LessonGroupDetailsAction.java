@@ -33,14 +33,14 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * The additional students which are not in this lesson group
 	 */
 	private TreeSet<Student> additionalStudents;
-	
+
 	/**
 	 * The ID of the student to add to this lesson group
 	 */
 	private int studentId;
 
 	/**
-	 * 
+	 * Retrieves all the students for the current lesson group
 	 */
 	public String execute() {
 		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
@@ -72,8 +72,7 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		 * Get all lesson groups for filtering out students which are in other
 		 * lesson groups
 		 */
-		TreeSet<LessonGroup> allLessonGroups =
-				new TreeSet<>(TestDAOLessonGroup.getInstance().getLessongroups());
+		TreeSet<LessonGroup> allLessonGroups = new TreeSet<>(TestDAOLessonGroup.getInstance().getLessongroups());
 
 		/*
 		 * Loop through all other lesson groups which are not this current
@@ -103,6 +102,7 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	}
 
 	/**
+	 * Updates the lesson group name
 	 * 
 	 * @return
 	 */
@@ -114,18 +114,34 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		specificLessonGroup.setName(this.name);
 		return SUCCESS;
 	}
-	
+
 	/**
+	 * Adds a student to the current lesson group
 	 * 
 	 * @return
 	 */
 	public String addStudent() {
 		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
 		Student specificStudent = TestDAOStudent.getInstance().readByOvNumber(this.studentId);
-		if(specificLessonGroup == null || specificStudent == null) {
+		if (specificLessonGroup == null || specificStudent == null) {
 			return ERROR;
 		}
 		specificLessonGroup.addStudent(specificStudent);
+		return SUCCESS;
+	}
+
+	/**
+	 * Deletes one student from the current lesson group
+	 * 
+	 * @return
+	 */
+	public String deleteStudent() {
+		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
+		Student specificStudent = TestDAOStudent.getInstance().readByOvNumber(this.studentId);
+		if (specificLessonGroup == null || specificStudent == null) {
+			return ERROR;
+		}
+		specificLessonGroup.deleteStudent(specificStudent);
 		return SUCCESS;
 	}
 
@@ -185,7 +201,7 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	public int getStudentId() {
 		return this.studentId;
 	}
-	
+
 	/**
 	 * 
 	 * @param studentId
@@ -193,6 +209,7 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
 	}
+
 	/**
 	 * 
 	 * @return
@@ -208,5 +225,4 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 }
