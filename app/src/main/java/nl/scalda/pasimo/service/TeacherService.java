@@ -1,8 +1,8 @@
 package nl.scalda.pasimo.service;
 
 import java.util.TreeSet;
-import com.mysql.fabric.xmlrpc.base.Array;
-import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class TeacherService {
@@ -12,46 +12,14 @@ public class TeacherService {
 	private TeacherService() {
 	}
 
-	public void create(Teacher t, EducationTeam team) {
-		team.addTeacher(t);
-		
+	public TreeSet<Teacher> readAll(){
+		return DAOFactory.getTheFactory().getDAOTeacher().readAll();
 	}
-
-//	public Teacher readByID(int id) {
-//		for (EducationTeam ct : Cluster.getInstance().getEducationTeams()) {
-//			for(Teacher cte : ct.getTeachers()){
-//				if(cte.getEmployeeNumber() == id){
-//					return cte;
-//				}
-//			}
-//		}
-//		return null;
-//	}
-
-	public void update(Teacher t) {
-//		EducationTeam tmpTeam = getTeamForTeacher(t);
-//		DAOFactory.getTheFactory().getDAOTeacher().update(t, tmpTeam);
+	
+	public Teacher getTeacherByEmployeeID(int id) {
+		return DAOFactory.getTheFactory().getDAOTeacher().readByEmployeeNumber(id);
 	}
-
-//	public EducationTeam getTeamForTeacher(Teacher t){
-//		for (EducationTeam ct : Cluster.getInstance().getEducationTeams()) {
-//			for(Teacher cte : ct.getTeachers()){
-//				if(cte.getAbbreviation().equals(t.getAbbreviation())){
-//					return ct;
-//				}
-//			}
-//		}
-//		return null;
-//	}
-
-	public void delete(Teacher t, EducationTeam team) {
-		team.deleteTeacher(t);
-	}
-
-	public TreeSet<Teacher> readAllForTeam(EducationTeam t) {
-		return null;
-	}
-
+	
 	public static TeacherService getInstance() {
 		if (instance == null) {
 			instance = new TeacherService();

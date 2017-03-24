@@ -8,8 +8,7 @@ import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.test.CoachGroupList;
-import nl.scalda.pasimo.test.EducationTeamList;
-import nl.scalda.pasimo.test.TeacherList;
+
 
 /**
  *
@@ -17,23 +16,32 @@ import nl.scalda.pasimo.test.TeacherList;
  */
 public class CoachGroupController extends ActionSupport {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public String name;
-	public TreeSet<Teacher> teacher = TeacherList.getInstance().getTeachers();
-	public TreeSet<EducationTeam> educationTeam = EducationTeamList.getInstance();
+	public TreeSet<Teacher> teacher = new TreeSet<>();
+<<<<<<< Updated upstream
+	public TreeSet<EducationTeam> educationTeam  = new TreeSet<>();
 	CoachGroup coach = new CoachGroup();
-	public TreeSet<CoachGroup> coachGroup = CoachGroupList.getInstance().getCoachgroups();
+	public TreeSet<CoachGroup> coachGroup  = new TreeSet<>();
 
+=======
+	public TreeSet<EducationTeam> educationTeam = new TreeSet<>();
+	CoachGroup coach = new CoachGroup();
+	public TreeSet<CoachGroup> coachGroup = new TreeSet<>();
+>>>>>>> Stashed changes
 	public String execute() {
-		educationTeam = EducationTeamList.getInstance();
-		teacher = TeacherList.getInstance().getTeachers();
 		coachGroup = CoachGroupList.getInstance().getCoachgroups();
 		
 		//CoachGroup a1 = new CoachGroup();
-		EducationTeam a2 = new EducationTeam("ao", "1");
+		EducationTeam a2 = new EducationTeam("ao", "edu");
 		 Teacher a3 = new Teacher(12,"1", 12, "fgkerbjfnkbjergkbjersbknj", "1", "fegwbjufbverbj", 1988, 12, 12);
 		teacher.add(a3);
 		educationTeam.add(a2);
 	//	coachGroup.add(a1);
+		
 		return SUCCESS;
 	}
 
@@ -51,6 +59,10 @@ public class CoachGroupController extends ActionSupport {
 			id++;
 		}
 		coach.setId(id);
+		coach.setCurrentEducationTeam(coach.getCurrentEducationTeam());
+		System.out.println(coach.getTeacher());
+		coach.setTeacher(coach.getTeacher());
+		coach.setName(coach.getName());
 		
 		CoachGroupList.getInstance().addCoachGroup(coach);
 		
@@ -58,7 +70,7 @@ public class CoachGroupController extends ActionSupport {
 		
 		TestDAOCoachGroup.getInstance().create(coach);
 	
-		
+		System.out.println(CoachGroupList.getInstance().getCoachgroups());
 		return SUCCESS;
 	}
 

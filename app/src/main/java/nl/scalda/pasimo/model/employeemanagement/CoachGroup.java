@@ -2,7 +2,11 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
 
+
 import nl.scalda.pasimo.test.CoachGroupList;
+
+import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
+
 
 /**
  * @author jeroe
@@ -43,6 +47,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 
     public void addLessonGroup(LessonGroup lg) {
         this.lessonGroups.add(lg);
+        TestDAOLessonGroup.getInstance().create(lg);
     }
 
     public void updateLessonGroup(LessonGroup lessonGroup) {
@@ -67,6 +72,8 @@ public class CoachGroup implements Comparable<CoachGroup> {
 
 	public void deleteLessonGroup(LessonGroup lg) {
         lessonGroups.remove(lg);
+        TestDAOLessonGroup.getInstance().delete(lg);
+
     }
 
     //<editor-fold defaultstate="collapsed" desc="getters and setters">
