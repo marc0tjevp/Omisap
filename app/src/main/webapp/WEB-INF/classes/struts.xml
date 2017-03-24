@@ -51,10 +51,11 @@
         
         <action name="coachgroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
                 method="execute">
+         <result name="success">/view/employeemanagement/coachgroups/Coachgroups.jsp</result>
         </action>
         <action name="students" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
                 method="execute">
-            <result name="success">/view/employeemanagement/coachgroups/student.jsp</result>
+            <result name="success">/view/employeemanagement/coachgroups/students.jsp</result>
         </action>
         <action name="teacherOverview" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="readTeacher">
