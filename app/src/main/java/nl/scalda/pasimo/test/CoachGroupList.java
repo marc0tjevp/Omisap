@@ -13,8 +13,7 @@ public class CoachGroupList extends TreeSet<CoachGroup>{
 		
 	}
 	public void addCoachGroup(CoachGroup c){
-		c.setId(2);
-		c.setName("bal");
+		
 		
 		coachgroups.add(c);
 	}

@@ -22,15 +22,21 @@ public class CoachGroupController extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	public String name;
 	public TreeSet<Teacher> teacher = new TreeSet<>();
+<<<<<<< Updated upstream
 	public TreeSet<EducationTeam> educationTeam  = new TreeSet<>();
 	CoachGroup coach = new CoachGroup();
 	public TreeSet<CoachGroup> coachGroup  = new TreeSet<>();
 
+=======
+	public TreeSet<EducationTeam> educationTeam = new TreeSet<>();
+	CoachGroup coach = new CoachGroup();
+	public TreeSet<CoachGroup> coachGroup = new TreeSet<>();
+>>>>>>> Stashed changes
 	public String execute() {
 		coachGroup = CoachGroupList.getInstance().getCoachgroups();
 		
 		//CoachGroup a1 = new CoachGroup();
-		EducationTeam a2 = new EducationTeam("ao", "1");
+		EducationTeam a2 = new EducationTeam("ao", "edu");
 		 Teacher a3 = new Teacher(12,"1", 12, "fgkerbjfnkbjergkbjersbknj", "1", "fegwbjufbverbj", 1988, 12, 12);
 		teacher.add(a3);
 		educationTeam.add(a2);
@@ -54,7 +60,9 @@ public class CoachGroupController extends ActionSupport {
 		}
 		coach.setId(id);
 		coach.setCurrentEducationTeam(coach.getCurrentEducationTeam());
+		System.out.println(coach.getTeacher());
 		coach.setTeacher(coach.getTeacher());
+		coach.setName(coach.getName());
 		
 		CoachGroupList.getInstance().addCoachGroup(coach);
 		

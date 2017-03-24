@@ -153,7 +153,7 @@
                                         <select class="form-control" name="coach.currentEducationTeam" id="educationTeam-input">
                                         <option value="">Select EducationTeam</option>
                                         <s:iterator value="educationTeam" var="ed">
-                                        <option value="ed">${ed.name} </option>
+                                        <option value="ed">${ed.abbreviation} </option>
                                         </s:iterator>
                                         </select>
                                     </div>
@@ -169,8 +169,8 @@
                                     
                                     <select class="form-control" name="coach.teacher" id="coachGroupTeacherName-input">
                                         <option value="" >Select Teacher</option>
-                                        <s:iterator value="educationTeam" var="ed">
-                                        <option value="ed">${ed.name} </option>
+                                        <s:iterator value="teacher" var="ed">
+                                        <option value="ed">${ed.abbreviation} </option>
                                         </s:iterator>
                                         </select>
                                     </div>
