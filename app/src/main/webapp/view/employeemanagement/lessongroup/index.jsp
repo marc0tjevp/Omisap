@@ -76,21 +76,25 @@
                 	}
                 });
                 
-                $("#confirmDeleteLessonGroupButton").on("click", function() {
+                $("#confirmDeleteLessonGroupButton").on("click", function(event) {
+                	event.preventDefault();
                 	
                 	$("input[type=checkbox].selectedLessonGroup").each(function() {
                 		var parentElement = $(this).parent().parent().parent();
                 		var lessonGroupId = parentElement.attr("id");
                 		
-                		console.log(lessonGroupId);
 	               		 $.ajax({
 	            		     type: 'POST',	  
-	            			 url:"lessongroup/delete",
+	            			 url: 'lessongroup/delete',
 	            		     dataType: 'json',
-	           				 data : "lessonGroupId="+lessonGroupId,
-	           				 });
-	            		});
-            		location.reload();
+	           				 data: "deletelessongroupID="+lessonGroupId,
+	           				 success: function(data) {
+	           			     	console.log(data);
+	           			     $('input:checkbox').removeAttr('checked');
+	           			     	location.reload();
+	           				 }
+	           			});
+	            	});
                 }); 
 
 

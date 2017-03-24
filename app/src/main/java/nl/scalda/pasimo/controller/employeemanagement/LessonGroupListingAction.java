@@ -47,7 +47,7 @@ public class LessonGroupListingAction extends ActionSupport {
 		// Add all the lesson groups to the action variable
 		this.lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
 
-		//Retrieve the previous lesson group for getting an lesson group id
+		// Retrieve the previous lesson group for getting an lesson group id
 		LessonGroup previousLessonGroup = null;
 		if (!this.lessonGroups.isEmpty()) {
 			previousLessonGroup = this.lessonGroups.last();
@@ -58,28 +58,50 @@ public class LessonGroupListingAction extends ActionSupport {
 		 */
 		int newLessonGroupId = previousLessonGroup != null ? previousLessonGroup.getId() + 1 : 1;
 		LessonGroup lessonGroupToAdd = new LessonGroup(newLessonGroupId, this.lessonGroupName);
-		
+
 		/*
 		 * Save the new lesson group in the DAO and in the action variable
 		 */
 		TestDAOLessonGroup.getInstance().create(lessonGroupToAdd);
 		this.lessonGroups.add(lessonGroupToAdd);
-		
+
 		return SUCCESS;
 	}
 
 	/**
+	 * Deletes the lesson group via the given id and creates 1 new ajax request
+	 * per press
 	 * 
 	 * @return
 	 */
 	public String deleteLessonGroup() {
-		LessonGroup g = TestDAOFactory.getInstance().getDAOLessonGroup().readLessonGroupByID(deletelessongroupID);
-		this.getLessonGroups().remove(g);
-		if (g == null) {
+		/*
+		 * Add all the lesson groups to the action variable
+		 */
+		this.lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
+		
+		/*
+		 * Gets id from lesson group
+		 */
+		LessonGroup lessonGroupToDelete = TestDAOLessonGroup.getInstance()
+				.readLessonGroupByID(deletelessongroupID);
+
+		/*
+		 * Checks if there is a lesson group to delete, If none is found return
+		 * ERROR
+		 */
+		if (lessonGroupToDelete == null) {
 			return ERROR;
 		}
-		System.out.println("Hello");
+		/*
+		 * Deletes the given ID from the DAO and from the lessongroups, In case
+		 * this succeeds, return SUCCESS
+		 */
+		TestDAOLessonGroup.getInstance().delete(lessonGroupToDelete);
+		this.lessonGroups.remove(lessonGroupToDelete);
+
 		return SUCCESS;
+		
 
 	}
 
