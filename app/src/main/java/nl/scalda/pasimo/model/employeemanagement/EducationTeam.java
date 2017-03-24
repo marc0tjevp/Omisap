@@ -3,25 +3,32 @@ package nl.scalda.pasimo.model.employeemanagement;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import java.util.TreeSet;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="education_team")
 public class EducationTeam implements Comparable<EducationTeam>{
-
-
-
+	
+	/**
+     * 
+     * Id of the EducationTeam
+     */
+	@Id
+	@Column(name="educationTeamID", length=11, nullable=false)
+    private int id;
+	
     private TreeSet<Teacher> teachers = new TreeSet<>();
 
     /**
      * Abbreviation of the EducationTeam; e.g. AO
      */
+    @Column(name="abbreviation", length=64)
     private String abbreviation;
     /**
      * Name of the EducationTeam; e.g. Applicatie Ontwikkelaar
      */
+    @Column(name="name", length=64)
     private String name;
-    /**
-     * 
-     * Id of the EducationTeam
-     */
-    private int id;
 
     public void addTeacher(Teacher t){
 		if (teachers.add(t)) {

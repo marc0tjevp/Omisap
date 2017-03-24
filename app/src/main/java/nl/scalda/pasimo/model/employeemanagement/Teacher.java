@@ -1,13 +1,25 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import javax.persistence.*;
+
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
 
+@Entity
+@Table(name="teacher")
+@PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
 public class Teacher extends Person {
 
+	private static final long serialVersionUID = 1L;
+
+	//this needs to be the pk of teacher table
+	//@Id
+	@Column(name="employeeNumber", length=6, nullable=false)
+	private int employeeNumber;
+	
+	@Column(name="abbreviation", length=6)
     private String abbreviation;
-    private int employeeNumber;
     
     /**
      * default constructor.

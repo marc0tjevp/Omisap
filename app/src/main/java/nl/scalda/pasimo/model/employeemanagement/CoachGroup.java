@@ -2,16 +2,27 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
 
+import javax.persistence.*;
+
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 
 /**
  * @author jeroe
  */
+@Entity
+@Table(name="coach_group")
 public class CoachGroup implements Comparable<CoachGroup> {
 
+	@Id
+	@Column(name="coachGroupID", length=64, nullable=false)
     private int id;
+	
+	@Column(name="name", length=64)
     private String name;
+	
+	@OneToOne
     private Teacher teacher;
+
     private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
 
     public CoachGroup() {

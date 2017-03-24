@@ -2,15 +2,33 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.Date;
 
+import javax.persistence.*;
+
+import org.hibernate.annotations.Type;
+
 import nl.scalda.pasimo.service.Service;
 
+@Entity
+@Table(name="note")
 public class Note implements Comparable<Note> {
 
+	@Id
+	@Column(name="noteID", nullable=false)
     private int id;
+	
+	@Column(name="title")
     private String title;
+	
+	@Column(name="creationDate", updatable=false)
     private Date creationDate;
+	
+	@Column(name="message")
     private String message;
+	
+	@Type(type="java.lang.String")
     private Teacher madeBy;
+	
+	@Column(name="lastEdit")
     private Date lastEdit;
 
     public Note(String title, String message, Teacher madeBy) {

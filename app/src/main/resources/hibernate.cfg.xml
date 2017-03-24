@@ -22,14 +22,12 @@
    <property name="hibernate.hbm2ddl.auto">
       create
    </property>
-   <property name="hibernate.hbm2ddl.import_files">
-      import.sql
-   </property>
-   
-
-   <!-- List of XML mapping files -->
-   <mapping resource="Person.hbm.xml"/>
-   <mapping resource="Teacher.hbm.xml"/>
-
+   <mapping class="nl.scalda.pasimo.model.employeemanagement.Person" />
+   <mapping class="nl.scalda.pasimo.model.employeemanagement.EducationTeam" />
+   <mapping class="nl.scalda.pasimo.model.employeemanagement.LessonGroup" />
+   <mapping class="nl.scalda.pasimo.model.employeemanagement.CoachGroup" />
+   <mapping class="nl.scalda.pasimo.model.employeemanagement.Teacher" />
+   <mapping class="nl.scalda.pasimo.model.employeemanagement.Note" />
+   <mapping class="nl.scalda.pasimo.model.employeemanagement.Student" />
 </session-factory>
 </hibernate-configuration>

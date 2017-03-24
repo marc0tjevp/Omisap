@@ -2,11 +2,17 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="lesson_group")
 public class LessonGroup implements Comparable<LessonGroup> {
 
 	/**
 	 * The index of this lesson group
 	 */
+	@Id
+	@Column(name="lessonGroupID", length=11, nullable=false)
 	private int id;
 
 	/**
@@ -14,6 +20,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	 * <p>
 	 * e.g. ICO41A, ICO42B
 	 */
+	@Column(name="name", length=64)
 	private String name;
 
 	/**

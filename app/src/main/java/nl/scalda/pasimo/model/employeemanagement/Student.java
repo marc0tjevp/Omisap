@@ -1,7 +1,13 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="student")
+@PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
 public class Student extends Person {
 
+	private static final long serialVersionUID = 1L;
 	private int noteListID;
 	private int lessonGroupID;
 	private int cardID;
@@ -9,9 +15,17 @@ public class Student extends Person {
 	private String insertion;
 	private String lastName;
 	private String email;
+	
+	@Column(name="cohort")
 	private int cohort;
+	
 	private int coachGroupID;
+	
+	//this needs to be the pk of student table
+	//@Id
+	@Column(name="ovNumber")
 	private int studentOV;
+	
 	private int yearOfBirth;
 	private int monthOfBirth;
 	private int dayOfBirth;
