@@ -87,6 +87,7 @@ $(document).ready(function () {
      */
     $("#updateLessonGroupNameButton").on("click", function(event) {
     	//Incase the button does something by default    	
+    	event.preventDefault();
     	var lessonGroupName = $("div#editLessonGroupName div.modal-body input#currentLessonGroup").val();
     	
     	//If the input is not empty
@@ -97,12 +98,15 @@ $(document).ready(function () {
     		//POST AJAX request to update lesson group action
       		 $.ajax({
     		     type: 'POST',	  
-    			 url:'details/updateName',
+    			 url:'details/updatename',
     		     dataType: 'json',
    				 data : "lessonGroupId="+lessonGroupId + "&name="+lessonGroupName,
+   				 success: function(data) {
+   					$('div.modal#editLessonGroupName').modal('hide');
+   					 $("h1#lessonGroupName").text(" " + data['name']);
+   				 }
     		});
       	}
-    	location.reload();
     });
     
     /**
