@@ -9,24 +9,23 @@
 	</jsp:attribute>
 	<jsp:attribute name="content">
 
-	<div class="container">
+	<div class="container" style="
+    max-width: 600px;">
 		<div class="row">
-			<div class="col-md-6 all">	
+			<div class="col-md-12 all">	
 		
 				<div class="row">
 					<div class="col-md-6">
 							<h4>Notities overzicht</h4>
 						</div>
 					
-					<div class="col-md-3">
-					<button class="button" type="button" data-toggle="modal"
-								data-target="#myModal">Alles Verwijderen</button>
+					<div class="col-md-3 button2">
+					<a class="btn btn-primary" type="button" data-toggle="modal"
+								data-target="#myModal">Alles Verwijderen</a>
 					</div>
 					
-					<div class="col-md-3">
-					<button class="button" class="btn btn-default">
-								<a href="noteView">Nieuw Aanmaken</a>
-							</button>
+					<div class="col-md-3 button2" id="buttonseperator">
+					<a class="btn btn-primary" href="noteView"> Nieuw Aanmaken</a>
 					</div>
 				</div>
 				<div id="myModal" class="modal fade" role="dialog">
@@ -53,7 +52,7 @@
 				
 			 	<div class="row">
 					<c:forEach var="a" items="${noteList}">
-						<div class="note col-md-4" data-toggle="modal"
+						<div class="note col-md-3" data-toggle="modal"
 								data-target="#overviewModal">
 							<div class="row">
 							<div onClick=";" style="cursor: pointer;"

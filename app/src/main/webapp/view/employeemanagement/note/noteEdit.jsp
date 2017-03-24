@@ -59,11 +59,11 @@
 	
 			
 				<div class="col col-md-3">
-				<button class="button" type="button" data-toggle="modal"
+				<button class="btn btn-primary" type="button" data-toggle="modal"
 										data-target="#myModal">Bewerken</button>
 				</div>
 				<div class="col col-md-3">
-				<button class="button"><a href="noteOverview">Annuleren</a></button>
+				<a class="btn btn-primary"href="noteOverview">Annuleren</a>
 				</div>
 				
 				

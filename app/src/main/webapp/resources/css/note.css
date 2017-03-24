@@ -23,6 +23,14 @@
 	padding: 5px;
 	margin: 1px;
 }
+.button2 {
+	top: 5px;
+    right: 50px;
+}
+.button2#buttonseperator {
+
+    right: 35px;
+}
 
 .note {
 	background-color: white;

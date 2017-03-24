@@ -48,7 +48,7 @@
 				<div class="col col-md-12">
 					<h5>Titel:</h5>
 					<input id="noteTitle" class="input" type="text" name="title"
-										placeholder="DD-MM-YY / Name"><br>
+										placeholder="DD-MM-YY / Studente naam"><br>
 				</div>
 			</div>
 			<div class="row">
@@ -73,13 +73,13 @@
 	
 			
 				<div class="col col-md-3">
-				<button class="button" type="button" data-toggle="modal"
+				<button class="btn btn-primary" type="button" data-toggle="modal"
 										data-target="#myModal">Aanmaken</button>
 				</div>
 				<div class="col col-md-3">
-				<button class="button">
-										<a href="noteOverview">Annuleren</a>
-									</button>
+				<a class="btn btn-primary"
+										href="noteOverview">Annuleren</a>
+	
 				</div>
 				
 			</div>
