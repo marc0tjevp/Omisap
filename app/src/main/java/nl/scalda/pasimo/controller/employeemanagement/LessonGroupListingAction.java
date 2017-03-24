@@ -32,6 +32,9 @@ public class LessonGroupListingAction extends ActionSupport {
 	 */
 	public String execute() {
 		this.lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
+		if (this.lessonGroups == null) {
+			return ERROR;
+		}
 		return SUCCESS;
 	}
 
@@ -41,13 +44,20 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * @return
 	 */
 	public String addLessonGroup() {
+		/*
+		 * When the lesson group name is not filled in or empty
+		 */
 		if (this.lessonGroupName == null || this.lessonGroupName.equals("")) {
 			return ERROR;
 		}
-		// Add all the lesson groups to the action variable
+		/*
+		 * Add all the lesson groups to the action variable
+		 */
 		this.lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
 
-		//Retrieve the previous lesson group for getting an lesson group id
+		/*
+		 * Retrieve the previous lesson group for getting an lesson group id
+		 */
 		LessonGroup previousLessonGroup = null;
 		if (!this.lessonGroups.isEmpty()) {
 			previousLessonGroup = this.lessonGroups.last();
