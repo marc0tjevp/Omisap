@@ -40,7 +40,7 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	private int studentId;
 
 	/**
-	 * Retrieves all the lesson groups and puts them in a list
+	 * Retrieves all the students for the current lesson group
 	 */
 	public String execute() {
 		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
@@ -225,5 +225,4 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 }

@@ -7,28 +7,32 @@ import com.opensymphony.xwork2.ActionSupport;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
-import nl.scalda.pasimo.service.LessonGroupService;
-import nl.scalda.pasimo.test.lessonGroupList;
 
 public class LessonGroupListingAction extends ActionSupport {
 
 	/**
 	 * 
 	 */
+	private static final long serialVersionUID = 3651415035371001870L;
+
+	/**
+	 * All the lesson groups
+	 */
 	private TreeSet<LessonGroup> lessonGroups;
 
 	/**
-	 * 
+	 * The name for adding a lesson group
 	 */
 	private String lessonGroupName;
 
 	/**
-	 * 
+	 * The ID for deleting a lesson group
 	 */
 	private int deletelessongroupID;
 
+
 	/**
-	 * 
+	 * Retrieves all the lesson groups and puts them in a list
 	 */
 	public String execute() {
 		this.lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
@@ -125,10 +129,18 @@ public class LessonGroupListingAction extends ActionSupport {
 		this.lessonGroupName = lessonGroupName;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public int getDeletelessongroupID() {
 		return deletelessongroupID;
 	}
 
+	/**
+	 * 
+	 * @param deletelessongroupID
+	 */
 	public void setDeletelessongroupID(int deletelessongroupID) {
 		this.deletelessongroupID = deletelessongroupID;
 	}
