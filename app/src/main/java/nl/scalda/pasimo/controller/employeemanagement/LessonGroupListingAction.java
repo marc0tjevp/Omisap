@@ -62,8 +62,12 @@ public class LessonGroupListingAction extends ActionSupport {
 	public String deleteLessonGroup() {
 		LessonGroup g = TestDAOFactory.getInstance().getDAOLessonGroup().readLessonGroupByID(deletelessongroupID);
 		this.getLessonGroups().remove(g);
+		if (g == null) {
+			return ERROR;
+		}
 		System.out.println("Hello");
 		return SUCCESS;
+
 	}
 
 	/**
