@@ -150,10 +150,11 @@
                                 <label for="educationTeam-input" class="col-2 col-form-label">EducationTeam</label>
                                 	<div class="col-10">
                                         
-                                        <select class="form-control" name="coach.currentEducationTeam" id="educationTeam-input">
+                                        <select class="form-control" name="s1" id="educationTeam-input">
                                         <option value="">Select EducationTeam</option>
                                         <s:iterator value="educationTeam" var="ed">
-                                        <option value="ed">${ed.abbreviation} </option>
+                                        
+                                        <option value="${ed.id}">${ed.abbreviation} </option>
                                         </s:iterator>
                                         </select>
                                     </div>
@@ -162,15 +163,16 @@
                                     <div class="col-10">
                                         
                                         <s:textfield class="form-control" name="coach.name" id="coachGroupName-input"/>
+                                        
                                     </div>
                                     <label for="coachGroupTeacherName-input" class="col-2 col-form-label">Teacher</label>
                                     <div class="col-10">
      
                                     
-                                    <select class="form-control" name="coach.teacher" id="coachGroupTeacherName-input">
+                                    <select class="form-control" name="s2" id="coachGroupTeacherName-input">
                                         <option value="" >Select Teacher</option>
                                         <s:iterator value="teacher" var="ed">
-                                        <option value="ed">${ed.abbreviation} </option>
+                                        <option value="${ed.employeeNumber}">${ed.abbreviation} </option>
                                         </s:iterator>
                                         </select>
                                     </div>
