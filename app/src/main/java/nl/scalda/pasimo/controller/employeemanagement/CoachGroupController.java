@@ -23,9 +23,14 @@ public class CoachGroupController extends ActionSupport {
 	public String name;
 	public TreeSet<Teacher> teacher = new TreeSet<>();
 
-	public TreeSet<EducationTeam> educationTeam = new TreeSet<>();
+
+	public TreeSet<EducationTeam> educationTeam  = new TreeSet<>();
 	CoachGroup coach = new CoachGroup();
-	public TreeSet<CoachGroup> coachGroup = new TreeSet<>();
+	public TreeSet<CoachGroup> coachGroup  = new TreeSet<>();
+
+	public String s1; 
+	public String s2;
+
 
 	public String execute() {
 		coachGroup = CoachGroupList.getInstance().getCoachgroups();
@@ -49,14 +54,23 @@ public class CoachGroupController extends ActionSupport {
 	 int id = 0;
 		while (true) {
 			if (!CoachGroupList.getInstance().getCoachgroups().contains(id)) {
+				coach.setId(id);
 				break;
 			}
 			id++;
 		}
-		coach.setId(id);
-		coach.setCurrentEducationTeam(coach.getCurrentEducationTeam());
-		System.out.println(coach.getTeacher());
-		coach.setTeacher(coach.getTeacher());
+		for (EducationTeam o: educationTeam){
+			if(o.getId() == Integer.parseInt(s1)){
+				coach.setCurrentEducationTeam(o);
+				break;
+			}
+		}
+		for (Teacher o: teacher){
+			if(o.getCardID() == Integer.parseInt(s2)){
+				coach.setTeacher(o);
+				break;
+			}
+		}
 		coach.setName(coach.getName());
 		
 		CoachGroupList.getInstance().addCoachGroup(coach);
