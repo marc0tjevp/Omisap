@@ -83,7 +83,7 @@ public class Teacher extends Person {
      * creates the teacher in the (test)datalayer.
      */
     public void create(){
-    	DAOFactory.getTheFactory().getDAOTeacher().create(this);
+    	DAOFactory.getTheFactory().getDAOTeacher().create(this, null);
     }
     
     /**
@@ -94,7 +94,7 @@ public class Teacher extends Person {
     }
     
     public void delete(){
-    	DAOFactory.getTheFactory().getDAOTeacher().delete(this);
+    	DAOFactory.getTheFactory().getDAOTeacher().delete(this, null);
     }
     
     

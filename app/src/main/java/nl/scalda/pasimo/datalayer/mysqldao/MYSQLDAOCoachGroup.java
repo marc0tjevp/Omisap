@@ -5,6 +5,9 @@
  */
 package nl.scalda.pasimo.datalayer.mysqldao;
 
+
+import java.util.TreeSet;
+
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 

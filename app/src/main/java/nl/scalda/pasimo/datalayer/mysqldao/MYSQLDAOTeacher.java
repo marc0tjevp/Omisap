@@ -47,7 +47,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 	 * 
 	 * @param Teacher teacher
 	 */
-	@Override
+
 	public void create(Teacher teacher) {
 		Session session = factory.openSession();
 		Transaction tx = null;
@@ -83,7 +83,6 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 	 * 
 	 * @param Teacher t
 	 */
-	@Override
 	public void update(Teacher t) {
 		Session session = factory.openSession();
 		Transaction tx = null;
@@ -122,7 +121,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 	 * 
 	 * @param Teacher t
 	 */
-	@Override
+
 	public void delete(Teacher t) {
 		Session session = factory.openSession();
 		Transaction tx = null;
@@ -353,7 +352,6 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 	 * @param Teacher teacher
 	 * @return CoachGroup
 	 */
-	@Override
 	public CoachGroup getCurrentCoachGroup(Teacher teacher) {
 		Session session = factory.openSession();
 		Transaction tx = null;
@@ -415,5 +413,23 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
         }
         return instance;
     }
+
+	@Override
+	public void create(Teacher teacher, EducationTeam team) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Teacher t, EducationTeam team) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Teacher t, EducationTeam team) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

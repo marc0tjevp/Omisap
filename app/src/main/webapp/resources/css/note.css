@@ -1,0 +1,68 @@
+@CHARSET "ISO-8859-1";
+
+.col-md-12 h2 {
+	border-bottom: solid 1px #c0c0c0;
+}
+.border {
+	border: solid 2px #3c8dbc;
+	padding: 10px;
+	background-color: white;
+}
+
+.textarea {
+	width: 100%;
+}
+
+.input {
+	width: 90%;
+}
+
+.button1 {
+	border: none;
+	background-color: #3c8dbc;
+	padding: 5px;
+	margin: 1px;
+}
+.button2 {
+	top: 5px;
+    right: 50px;
+}
+.button2#buttonseperator {
+
+    right: 35px;
+}
+
+.note {
+	background-color: white;
+	margin: 5px;
+	border: 1px solid grey;
+	padding: 2px;
+	
+	
+}
+
+.noteTitle {
+	font-weight: bold;
+}
+
+.noteMessage {
+	width: 100%;
+	word-wrap: break-word;
+	
+}
+.button {
+	border: none;
+	background-color: #3c8dbc;
+	padding: 5px;
+	margin: 5px;
+	color: black;
+}
+
+.button a {
+	color: black;
+}
+
+.all {
+	border: solid 1px #3c8dbc;
+	background-color: white;
+}

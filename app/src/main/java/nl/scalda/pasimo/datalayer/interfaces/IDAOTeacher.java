@@ -8,22 +8,22 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public interface IDAOTeacher {
 	
-    public void create(Teacher teacher);
+    public void create(Teacher teacher, EducationTeam team);
 
-    public void update(Teacher t);
+    public void update(Teacher t, EducationTeam team);
 
-    public void delete(Teacher t);
+    public void delete(Teacher t, EducationTeam team);
 
     public TreeSet<Teacher> readAll();
 
-    public Teacher readByEmployeeNumber(int employeeNumber);
+    public Teacher readByEmployeeNumber(int id);
 
     public TreeSet<Teacher> readAllForEducationTeam(EducationTeam t);
 
-	public Teacher readByAbbr(String abbreviation);
-	
+	public Teacher readByAbbr(String id);
+
 	public EducationTeam getCurrentEducationTeamOfTeacher(Teacher teacher);
-	
+
 	public CoachGroup getCurrentCoachGroup(Teacher teacher);
 
 }

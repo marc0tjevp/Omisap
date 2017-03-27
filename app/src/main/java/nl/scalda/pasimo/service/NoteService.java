@@ -12,7 +12,11 @@ public class NoteService {
     }
 
     public Note create(Note note) {
-        return DAOFactory.getTheFactory().getDAONote().create(note);
+    	System.out.println(note);
+        return DAOFactory.
+        		getTheFactory().
+        		getDAONote().
+        		create(note);
     }
 
     public Note update(Note note) {
