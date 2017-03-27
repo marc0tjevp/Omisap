@@ -1,11 +1,10 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
 import java.util.ArrayList;
-import java.util.TreeSet;
 
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
-import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.model.presenceregistration.CheckIn;
+
 
 public class TestDAOCheckIn {
 
@@ -30,13 +29,16 @@ public class TestDAOCheckIn {
 	}
 	
 	public void update(CheckIn c) {
-		for (c ci : checkIn)
+		for (CheckIn ci : checkIn) {
 			try {
 				if (c.getCardID() == ci.getCardID())
 				{
 					ci = c;
 				}
+			} catch (Exception ex) {
+				System.out.println("Could not update, ended with Exception: " + ex.getMessage());
 			}
+		}
 	}
 
 }
