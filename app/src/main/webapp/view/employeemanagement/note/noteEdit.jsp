@@ -89,8 +89,8 @@
       	<div class="modal-body">
    	   	</div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default"
-							data-dismiss="modal" >Bewerken</button>
+        <a type="button" class="btn btn-default"
+							href="noteEdit" >Bewerken</a>
         <button type="button" class="btn btn-default"
 							data-dismiss="modal">Annuleren</button>
 

@@ -125,8 +125,8 @@
       	<div class="modal-body">
    	   	</div>
       <div class="modal-footer">
-        <button "type="button" class="btn btn-default"
-							data-dismiss="modal" id="noteSubmit">Toevoegen</button>
+        <a "type="button" class="btn btn-default"
+						id="noteSubmit" >Toevoegen</a>
         <button type="button" class="btn btn-default"
 							data-dismiss="modal">Annuleren</button>
 

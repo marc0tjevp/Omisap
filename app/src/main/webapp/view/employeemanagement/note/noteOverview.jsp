@@ -85,9 +85,9 @@
       	<div class="modal-body">
    	   	</div>
       <div class="modal-footer">
-        <a "type="button" class="btn btn-default" data-dismiss="modal"
-							id="noteDelete">Verwijderen</a>
-        <a type="button" class="btn btn-default" href="noteEdit">Bewerken</a>
+        <a "type="button" class="btn btn-default" 
+							id="noteDelete" href="noteRemove">Verwijderen</a>
+        <a type="button" class="btn btn-default" href="noteEditView">Bewerken</a>
 
       </div>
     </div>

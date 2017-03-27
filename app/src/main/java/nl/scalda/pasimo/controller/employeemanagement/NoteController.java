@@ -15,7 +15,15 @@ public class NoteController extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	private String madeBy;
+	private int id;
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	private String title;
 	private String message;
@@ -43,14 +51,36 @@ public class NoteController extends ActionSupport {
 		dao.create(note);
 
 		return SUCCESS;
-
 	}
 
-	public String noteEdit() {
-
+	public String noteRemove(){
+		
+		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
+		TestDAONote dao = TestDAONote.getInstance();
+		
+		dao.delete(dao.read(id));
+		
+		return SUCCESS;
+		
+	}
+	
+	public String noteEdit(){
+		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
+		TestDAONote dao = TestDAONote.getInstance();
+		Note note = dao.read(id);
+		
+		for(Note a : getNoteList()){
+			if (a.getId() == note.getId()){
+				a.setTitle(note.getTitle());
+				a.setMessage(note.getMessage());
+				
+			}
+		}
+		
+		
+		
 		return SUCCESS;
 	}
-
 	public TreeSet<Note> getNoteList() {
 		return noteList;
 	}
