@@ -27,8 +27,9 @@
                 background-color: #6BBAAB;    
             }
         </style>
-      <h1>Time Registration</h1>
       <div class="container">
+            <h1>Tijd Registratie</h1>
+     
 	      <div class="col-sm-12">
 	                      <div class="div-inline">
                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">

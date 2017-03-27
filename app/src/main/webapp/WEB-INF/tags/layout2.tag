@@ -77,7 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <header class="main-header">
 
                 <!-- Logo -->
-                <a href="index2.html" class="logo">
+                <a href="/Pasimo" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini">AO</span>
                     <!-- logo for regular state and mobile devices -->
@@ -149,7 +149,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </ul>
                             </li>--%>
                         <li class="treeview">
-                            <a href="/teacherOverview"><i class="fa fa-users"></i> <span>Leraren</span> <i class="fa fa-angle-left pull-right"></i></a>
+                            <a href="teacherOverview"><i class="fa fa-users"></i> <span>Leraren</span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
                                 &lt;%&ndash;   <li><a href="<c:url value="teacher"><c:param name="action" value="all"/></c:url>">Overview</a></li>
                                     &ndash;%&gt;</ul>
@@ -162,13 +162,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     &ndash;%&gt;</ul>
                             </li>
                             <li class="treeview">
-                                <a href="/view/employeemanagement/educationteam/"><i class="fa fa-users"></i> <span>EducatieTeams</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <a href="view/employeemanagement/educationteam/"><i class="fa fa-users"></i> <span>EducatieTeams</span> <i class="fa fa-angle-left pull-right"></i></a>
                             </li>
                             <li class="treeview">
                                 <a href="noteOverview"><i class="fa fa-sticky-note"></i> <span>Notities</span> <i class="fa fa-angle-left pull-right"></i></a>
                             </li>
                              <li class="treeview">
-                                <a href="/view/timeregistration/"><i class="fa fa-clock-o"></i> <span>Schooluren</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <a href="view/timeregistration/"><i class="fa fa-clock-o"></i> <span>Schooluren</span> <i class="fa fa-angle-left pull-right"></i></a>
                             </li>
                         <%--<li class="treeview">
                             <a href="#"><i class="fa fa-users"></i> <span>Groups</span> <i class="fa fa-angle-left pull-right"></i></a>

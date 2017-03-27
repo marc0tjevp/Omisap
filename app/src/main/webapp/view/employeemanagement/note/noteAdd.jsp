@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Pasimo/resources/css/style.css"> -->
 <t:layout2>
     <jsp:attribute name="scripts">
-        <script type="text/javascript" src="/resources/js/note.js"></script>
+        <script type="text/javascript" src="resources/js/note.js"></script>
     </jsp:attribute>
     <jsp:attribute name="css">
         <link rel="stylesheet" href="<c:url value="/resources/css/note.css"/>" />
