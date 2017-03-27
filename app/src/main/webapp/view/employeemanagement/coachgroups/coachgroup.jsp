@@ -94,8 +94,8 @@
                 
                 $('#coachGroupEditModal').on('show.bs.modal', function(e) {
                 	
-                	$(e.currentTarget).find('input[name="bookId"]').val();
-                    
+               		$(e.currentTarget).find('option[value="closestTr"]').val();
+               		coach.setId(Integer.parseInt(closestTr));
                 });
                 
                 $('.form-control')
@@ -240,15 +240,19 @@
                                     <div class="col-10">
                                         <input class="form-control" type="text" value="" id="coachGroupName-input">
                                     </div>
+                                    
                                     <label for="coachGroupTeacherName-input" class="col-2 col-form-label">EducationTeam</label>
                                     <div class="col-10">
-                                        <select class="form-control"   id="coachGroupTeacherName-input">
-                                        <option>ICO41A</option>
-     									<option>ICO41B</option>
-      									<option>ICO41C</option>
-      									<option>ICO41D</option>
-      									<option>ICO41E</option>
+                                        <select class="form-control" name="s1" id="coachGroupTeacherName-input">
+                                         <option value="">${ed.abbreviation}</option>
+                                         
+                                        <s:iterator value="teacher" var="ed">
+                                        <s:if test="%{#!ed.teacher.getEmployeeNumber().equals()}">
+                                        <option value="${ed.employeeNumber}">${ed.abbreviation} </option>
+                                        </s:if>
+                                        </s:iterator>
                                     </select>
+                                     
                                      
                                 </div>
                                   
