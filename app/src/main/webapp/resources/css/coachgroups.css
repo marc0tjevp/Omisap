@@ -2,17 +2,17 @@
 	float: right;
 }
 
-.coachGroupButtons button {
+/*.coachGroupButtons button {
 	font-size: 18px;
-}
+}*/
 
 .coachGroupButtons.coachGroupNameButton {
 	float: left;
 }
 
-table.coach-groups-table {
+/*table.coach-groups-table {
 	font-size: 21px;
-}
+}*/
 
 table.coach-groups-table thead th {
 	vertical-align: middle;
@@ -24,7 +24,7 @@ table.coach-groups-table tbody td {
 	border-top: 1px solid #333333;
 }
 
-table.coach-groups-table input[type="checkbox"] {
+/*table.coach-groups-table input[type="checkbox"] {
 	height: 20px;
 	width: 20px;
-}
+}*/

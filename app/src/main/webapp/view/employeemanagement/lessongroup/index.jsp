@@ -64,7 +64,7 @@
     </jsp:attribute>
     <jsp:attribute name="content">
 
-        <div class="container" style="width: 85%;">
+        <div class="container">
          
           <!-- Text on top of page -->
             <h1>Les groepen</h1>

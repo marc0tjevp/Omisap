@@ -104,9 +104,9 @@
     </jsp:attribute>
     <jsp:attribute name="content">
 
-        <div class="container" style="width: 70%;">
+        <div class="container">
 
-            <h1>Coach groepen</h1>
+            <h1>Coachgroepen</h1>
             <div class="coachGroupButtons">
                 <button class="btn btn-primary" type="button" id="addButton" data-toggle="modal"
                         data-target="#coachGroupAddModal">Coachgroup Aanmaken
