@@ -29,8 +29,14 @@ public class TestDAOCheckIn {
 		return instance;
 	}
 	
-	public void update(CheckIn c, EducationTeam team) {
-		// TODO implement this method
+	public void update(CheckIn c) {
+		for (c ci : checkIn)
+			try {
+				if (c.getCardID() == ci.getCardID())
+				{
+					ci = c;
+				}
+			}
 	}
 
 }
