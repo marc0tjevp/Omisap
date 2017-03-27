@@ -2,7 +2,9 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
 
 public class Teacher extends Person {
 
@@ -88,7 +90,7 @@ public class Teacher extends Person {
      * updates the teacher in the (test)datalayer.
      */
     public void update(){
-    	MYSQLDAOTeacher.getInstance().update(this);
+    	TestDAOTeacher.getInstance().update(this);
     }
     
     public void delete(){
@@ -102,7 +104,7 @@ public class Teacher extends Person {
      * @return CoachGroup
      */
     public CoachGroup getCoachGroup(){
-    	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+    	DAOFactory.setTheFactory(TestDAOFactory.getInstance());
     	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentCoachGroup(this);
     }
     
@@ -112,7 +114,7 @@ public class Teacher extends Person {
      * @return EducationTeam
      */
     public EducationTeam getEducationTeam(){
-    	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+    	DAOFactory.setTheFactory(TestDAOFactory.getInstance());
     	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentEducationTeamOfTeacher(this);
     }
 

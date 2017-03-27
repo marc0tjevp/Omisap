@@ -18,8 +18,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html>
     <head>
-<%--        <sec:csrfMetaTags/>
-        <sec:authentication var="user" property="principal" />--%>
+        <%--        <sec:csrfMetaTags/>
+                <sec:authentication var="user" property="principal" />--%>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Scalda AO</title>
@@ -85,44 +85,44 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
 
                     <!-- Header Navbar -->
-                   <nav class="navbar navbar-static-top" role="navigation">
+                    <nav class="navbar navbar-static-top" role="navigation">
                         <!-- Sidebar toggle button-->
-                        <%--<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">--%>
-                            <%--<span class="sr-only">Toggle navigation</span>--%>
-                        <%--</a>--%>
-                        <%--<div class="navbar-custom-menu">--%>
-                            <%--<ul class="nav navbar-nav">--%>
-                                <%--<!-- User Account: style can be found in dropdown.less -->--%>
-                                <%--<li class="dropdown user user-menu">--%>
-                                    <%--<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">--%>
-                                        <%--<img src="/project/images/${user.abbreviation}.jpeg" class="account-image" alt="User Image">--%>
-                                    <%--<span class="hidden-xs">${user.makeFullName()}</span>--%>
-                                <%--</a>--%>
-                                <%--<ul class="dropdown-menu">--%>
-                                    <%--<!-- User image -->--%>
-                                    <%--<li class="user-header">--%>
-                                        <%--<img src="/project/images/${user.abbreviation}.jpeg" class="account-image-l" alt="User Image">--%>
-                                        <%--<p>--%>
-                                            <%--${user.abbreviation}--%>
-                                            <%--<small>${user.function}</small>--%>
-                                        <%--</p>--%>
-                                    <%--</li>--%>
-                                    <%--<!-- Menu Footer-->--%>
-                                    <%--<li class="user-footer">--%>
-                                        <%--<div class="pull-left">--%>
-                                            <%--<a href="<c:url value="/profile" />" class="btn btn-default btn-flat">Profile</a>--%>
-                                        <%--</div>--%>
-                                        <%--<div class="pull-right">--%>
-                                            <%--<form action="<c:url value="/logout" />" id="logout" method="post">--%>
-                                                <%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
-                                                <%--<button id="signOut" type="submit" class="btn btn-default btn-flat" value="Sign out"/>Sign out--%>
-                                            <%--</form>--%>
+                    <%--<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">--%>
+                    <%--<span class="sr-only">Toggle navigation</span>--%>
+                    <%--</a>--%>
+                    <%--<div class="navbar-custom-menu">--%>
+                    <%--<ul class="nav navbar-nav">--%>
+                    <%--<!-- User Account: style can be found in dropdown.less -->--%>
+                    <%--<li class="dropdown user user-menu">--%>
+                    <%--<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">--%>
+                    <%--<img src="/project/images/${user.abbreviation}.jpeg" class="account-image" alt="User Image">--%>
+                    <%--<span class="hidden-xs">${user.makeFullName()}</span>--%>
+                    <%--</a>--%>
+                    <%--<ul class="dropdown-menu">--%>
+                    <%--<!-- User image -->--%>
+                    <%--<li class="user-header">--%>
+                    <%--<img src="/project/images/${user.abbreviation}.jpeg" class="account-image-l" alt="User Image">--%>
+                    <%--<p>--%>
+                    <%--${user.abbreviation}--%>
+                    <%--<small>${user.function}</small>--%>
+                    <%--</p>--%>
+                    <%--</li>--%>
+                    <%--<!-- Menu Footer-->--%>
+                    <%--<li class="user-footer">--%>
+                    <%--<div class="pull-left">--%>
+                    <%--<a href="<c:url value="/profile" />" class="btn btn-default btn-flat">Profile</a>--%>
+                    <%--</div>--%>
+                    <%--<div class="pull-right">--%>
+                    <%--<form action="<c:url value="/logout" />" id="logout" method="post">--%>
+                    <%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
+                    <%--<button id="signOut" type="submit" class="btn btn-default btn-flat" value="Sign out"/>Sign out--%>
+                    <%--</form>--%>
 
-                                        <%--</div>--%>
-                                    <%--</li>--%>
-                                <%--</ul>--%>
-                            <%--</li>--%>
-                        <%--</ul>--%>
+                    <%--</div>--%>
+                    <%--</li>--%>
+                    <%--</ul>--%>
+                    <%--</li>--%>
+                    <%--</ul>--%>
                     <%--</div>--%>
                 </nav>
             </header>
@@ -137,7 +137,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- Optionally, you can add icons to the links -->
 
                         <li class="treeview">
-                            <a href="/Pasimo/lessongroup"><i class="fa fa-user"></i> <span>Les groepen</span> <i class="fa fa-angle-left pull-right"></i></a>
+                            <a href="lessongroup"><i class="fa fa-user"></i> <span>Lesgroepen</span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
                                 <%--<li><a href="<c:url value="student"><c:param name="action" value="all"/></c:url>">Overview</a></li>--%>
                             </ul>
@@ -148,34 +148,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 &lt;%&ndash;<li><a href="<c:url value="student"><c:param name="action" value="all"/></c:url>">Overview</a></li>&ndash;%&gt;
                                 </ul>
                             </li>--%>
-                            <li class="treeview">
-                                <a href="teacherOverview"><i class="fa fa-user-plus"></i> <span>Teachers</span> <i class="fa fa-angle-left pull-right"></i></a>
-                                <ul class="treeview-menu">
-                                 &lt;%&ndash;   <li><a href="<c:url value="teacher"><c:param name="action" value="all"/></c:url>">Overview</a></li>
-                                &ndash;%&gt;</ul>
+                        <li class="treeview">
+                            <a href="teacherOverview"><i class="fa fa-user-plus"></i> <span>Teachers</span> <i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                &lt;%&ndash;   <li><a href="<c:url value="teacher"><c:param name="action" value="all"/></c:url>">Overview</a></li>
+                                    &ndash;%&gt;</ul>
                             </li>
-                            
+
                             <li class="treeview">
-                                <a href="coachGroups"><i class="fa fa-user-plus"></i> <span>CoachGroups</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <a href="coachGroups"><i class="fa fa-user-plus"></i> <span>Coachgroepen</span> <i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
-                                 &lt;%&ndash;   <li><a href="<c:url value="coachGroups"><c:param name="action" value="all"/></c:url>">Overview</a></li>
-                                &ndash;%&gt;</ul>
+                                    &lt;%&ndash;   <li><a href="<c:url value="coachGroups"><c:param name="action" value="all"/></c:url>">Overview</a></li>
+                                    &ndash;%&gt;</ul>
                             </li>
-                            <%--<li class="treeview">
-                                <a href="#"><i class="fa fa-users"></i> <span>Groups</span> <i class="fa fa-angle-left pull-right"></i></a>
-                                <ul class="treeview-menu">
-                                    <li><a href="<c:url value="group?action=all" />">Overview</a></li>
+                        <%--<li class="treeview">
+                            <a href="#"><i class="fa fa-users"></i> <span>Groups</span> <i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a href="<c:url value="group?action=all" />">Overview</a></li>
+                        </ul>
+                    </li>--%>
+                        <%--<sec:authorize access="hasRole('ADMIN')">--%>
+                        <%--<li class="treeview">
+                            <a href="#"><i class="fa fa-lock"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a href="<c:url value="management?name=student" />">Students</a></li>
+                                <li><a href="<c:url value="management?name=group" />">Groups</a></li>
+                                <li><a href="<c:url value="management?name=teacher" />">Teachers</a></li>
                             </ul>
                         </li>--%>
-                        <%--<sec:authorize access="hasRole('ADMIN')">--%>
-                            <%--<li class="treeview">
-                                <a href="#"><i class="fa fa-lock"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i></a>
-                                <ul class="treeview-menu">
-                                    <li><a href="<c:url value="management?name=student" />">Students</a></li>
-                                    <li><a href="<c:url value="management?name=group" />">Groups</a></li>
-                                    <li><a href="<c:url value="management?name=teacher" />">Teachers</a></li>
-                                </ul>
-                            </li>--%>
                         <%--</sec:authorize>--%>
                     </ul><!-- /.sidebar-menu -->
                 </section>
@@ -196,37 +196,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <footer class="main-footer">
                 <!-- To the right -->
                 <div style="height:30px" class="pull-right image hidden-xs">
-<%--
-                    <img style="height:100%" src="<c:url value ="/images/logoscalda2.png"/>"/>
---%>
+                    <%--
+                                        <img style="height:100%" src="<c:url value ="/images/logoscalda2.png"/>"/>
+                    --%>
                 </div>
                 <!-- Default to the left -->
                 <strong><a href="http://www.scalda.nl">Scalda</a> 
-                	<c:set var="now" value="<%= new java.util.GregorianCalendar().get(java.util.GregorianCalendar.YEAR)%>" />
-					<c:out value="${now}"></c:out>
-                </strong>
-            </footer>
-        </div><!-- ./wrapper -->
+                    <c:set var="now" value="<%= new java.util.GregorianCalendar().get(java.util.GregorianCalendar.YEAR)%>" />
+                    <c:out value="${now}"></c:out>
+                    </strong>
+                </footer>
+            </div><!-- ./wrapper -->
 
-        <!-- REQUIRED JS SCRIPTS -->
-        <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+            <!-- REQUIRED JS SCRIPTS -->
+            <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 
-        <!-- jQuery 2.x -->
-        <script
-            src="https://code.jquery.com/jquery-2.2.3.min.js"
-            integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
-        crossorigin="anonymous"></script>
+            <!-- jQuery 2.x -->
+            <script
+                src="https://code.jquery.com/jquery-2.2.3.min.js"
+                integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
+            crossorigin="anonymous"></script>
 
-        <!-- Bootstrap 3.3.6 -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-        <!-- AdminLTE App -->
-<%--
-        <script type="text/javascript" src="<c:url value="/common/plugins/AdminLTE/js/app.min.js" />"></script>
---%>
+            <!-- Bootstrap 3.3.6 -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+            <!-- AdminLTE App -->
+        <%--
+                <script type="text/javascript" src="<c:url value="/common/plugins/AdminLTE/js/app.min.js" />"></script>
+        --%>
 
-<%--
-        <script type="text/javascript" src="<c:url value="/common/js/app.js" />"></script>
---%>
+        <%--
+                <script type="text/javascript" src="<c:url value="/common/js/app.js" />"></script>
+        --%>
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap4.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>

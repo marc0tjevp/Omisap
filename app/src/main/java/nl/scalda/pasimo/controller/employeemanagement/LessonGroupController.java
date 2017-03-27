@@ -9,21 +9,20 @@ public class LessonGroupController extends ActionSupport {
 //    public LessonGroup lessonGroup;
 
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	public String execute() {
+    public String execute() {
         //actions
         return SUCCESS;
     }
 
     public String saveLessonGroup() {
 
-
         return SUCCESS;
     }
-    
+
     public String lessonGroup() {
 
         return SUCCESS;
