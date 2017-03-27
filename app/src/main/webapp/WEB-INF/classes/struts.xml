@@ -61,6 +61,6 @@
                 method="loadTeacherInfo">
             <result name="success">view/employeemanagement/teacher/TeacherInformation.jsp</result>
         </action>
-	
+        
     </package>
 </struts>

@@ -149,7 +149,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </ul>
                             </li>--%>
                         <li class="treeview">
-                            <a href="teacherOverview"><i class="fa fa-user-plus"></i> <span>Teachers</span> <i class="fa fa-angle-left pull-right"></i></a>
+                            <a href="/teacherOverview"><i class="fa fa-user-plus"></i> <span>Teachers</span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
                                 &lt;%&ndash;   <li><a href="<c:url value="teacher"><c:param name="action" value="all"/></c:url>">Overview</a></li>
                                     &ndash;%&gt;</ul>
@@ -157,6 +157,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                             <li class="treeview">
                                 <a href="coachGroups"><i class="fa fa-user-plus"></i> <span>Coachgroepen</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <ul class="treeview-menu">
+                                    &lt;%&ndash;   <li><a href="<c:url value="coachGroups"><c:param name="action" value="all"/></c:url>">Overview</a></li>
+                                    &ndash;%&gt;</ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="/view/employeemanagement/educationteam/"><i class="fa fa-user-plus"></i> <span>Educatie Teams</span> <i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
                                     &lt;%&ndash;   <li><a href="<c:url value="coachGroups"><c:param name="action" value="all"/></c:url>">Overview</a></li>
                                     &ndash;%&gt;</ul>
