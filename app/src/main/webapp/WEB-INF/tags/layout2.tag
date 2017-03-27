@@ -167,6 +167,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <li class="treeview">
                                 <a href="noteOverview"><i class="fa fa-sticky-note"></i> <span>Notities</span> <i class="fa fa-angle-left pull-right"></i></a>
                             </li>
+                             <li class="treeview">
+                                <a href="/view/timeregistration/"><i class="fa fa-clock-o"></i> <span>Schooluren</span> <i class="fa fa-angle-left pull-right"></i></a>
+                            </li>
                         <%--<li class="treeview">
                             <a href="#"><i class="fa fa-users"></i> <span>Groups</span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
