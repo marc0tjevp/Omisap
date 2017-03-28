@@ -5,65 +5,125 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.NativeQuery;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.Person;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
+import nl.scalda.pasimo.model.employeemanagement.Team;
 
-public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
-	
-	private static SessionFactory factory;
-	private static MYSQLDAOEducationTeam instance = null;
-	
-	/**
-	 * initialises the configuration of hibernate.
-	 * called once from getInstance() method
-	 */
-	public static void initialiseFactory() {
-		try{
-			factory = new Configuration().configure().buildSessionFactory();
-		} catch(Throwable ex) {
-			System.err.println("Failed to create sessionFactory object." + ex);
-			throw new ExceptionInInitializerError(ex);
+	public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
+		
+		private SessionFactory factory;
+		private static MYSQLDAOEducationTeam instance = null;
+		
+		/**
+		 * 
+		 */
+		private MYSQLDAOEducationTeam() {
+			initialiseFactory();
 		}
-	}
-
-	/**
-	 * @param EducationTeam educationTeam
-	 */
-	@Override
-	public void create(EducationTeam educationTeam) {
-		// TODO Auto-generated method stub
 		
-	}
+		/**
+		 * initialises the configuration of hibernate.
+		 * called once from getInstance() method
+		 */
+		private  void initialiseFactory() {
+			try{
+				factory = new Configuration().configure().buildSessionFactory();
+			} catch(Throwable ex) {
+				System.err.println("Failed to create sessionFactory object." + ex);
+				throw new ExceptionInInitializerError(ex);
+			}
+		}
 
-	/**
-	 * @param EducationTeam educationTeam
-	 */
-	@Override
-	public void update(EducationTeam educationTeam) {
-		// TODO Auto-generated method stub
+		/**
+		 * creates a teacher in the database.
+		 * 
+		 * @param EducationTeam EducationTeam
+		 */
+		@Override
+		public void create(EducationTeam e) {
+			Session session = factory.openSession();
+			Transaction tx = null;
+			try{
+				tx = session.beginTransaction();
+				String sql = "INSERT INTO EducationTeam (educationTeamID, name, abbreviation) VALUES (:educationTeamID, :name, :abbreviation );";
+				NativeQuery query = session.createNativeQuery(sql);
+				query.setParameter("educationTeamID", e.getId());
+				query.setParameter("name", e.getName());
+				query.setParameter("abbreviation", e.getAbbreviation());
+				query.executeUpdate();
+				tx.commit();
+			} catch(HibernateException s) {
+				if(tx!=null) tx.rollback();
+				s.printStackTrace();
+			} finally {
+				session.close();
+			}
+		}
+
+		/**
+		 * updates the teacher in the database.
+		 * 
+		 * @param Teacher t
+		 */
+		@Override
+		public void update(EducationTeam o) {
+			Session session = factory.openSession();
+			Transaction tx = null;
+			try{
+				tx = session.beginTransaction();
+
+				String sql = "UPDATE educationTeam SET name = :name, abbreviation = :abbreviation WHERE name = :name";
+
+				
+				session.createNativeQuery("UPDATE educationTeam SET educationTeamID = :educationTeamID, name = :name, abbreviation = :abbreviation")
+				.setParameter("educationTeamID", o.getId())
+				.setParameter("name", o.getName())
+				.setParameter("abbreviation", o.getAbbreviation());
+				
+				
+				tx.commit();
+				
+			} catch(HibernateException e) {
+				if(tx!=null) tx.rollback();
+				e.printStackTrace();
+			} finally {
+				session.close();
+			}
+			
+		}
+		@Override
+		public void delete(EducationTeam p) {
+			Session session = factory.openSession();
+	        Transaction tx = null;
+	        try {
+	            tx = session.beginTransaction();
+	            session.createNativeQuery("DELETE FROM educationTeam WHERE name = :name")
+	                    .setParameter("name", p.getName()).executeUpdate();
+	            tx.commit();
+	        } catch (HibernateException e) {
+	            if (tx != null)
+	                tx.rollback();
+	            e.printStackTrace();
+	        } finally {
+	            session.close();
+	        }
+	    }
+			
 		
-	}
 
-	/**
-	 * @param EducationTeam educationTeam
-	 */
+
 	@Override
 	public void save(EducationTeam educationTeam) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	/**
-	 * @param EducationTeam educationTeam
-	 */
-	@Override
-	public void delete(EducationTeam educationTeam) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -172,8 +232,10 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 	public static MYSQLDAOEducationTeam getInstance() {
         if (instance == null) {
             instance = new MYSQLDAOEducationTeam();
-            initialiseFactory();
         }
         return instance;
     }
+
+
+
 }
