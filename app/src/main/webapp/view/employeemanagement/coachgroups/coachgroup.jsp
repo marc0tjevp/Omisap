@@ -94,9 +94,24 @@
                 
                 $('#coachGroupEditModal').on('show.bs.modal', function(e) {
                 	
+
+               		$.ajax({
+            		 	type: 'POST',	  
+            			url:'coachGroup/add.action',
+            		   	dataType: 'json',
+           				data : "name=" + closestTr,
+           				success: function(data) {
+           					console.log(data);
+           					
+           				}
+            		});
+               		
                		$(e.currentTarget).find('option[value="closestTr"]').val();
                		coach.setId(Integer.parseInt(closestTr));
+               		
                 });
+                
+                
                 
                 $('.form-control')
                 .dropdown();
@@ -247,7 +262,7 @@
                                          <option value="">${ed.abbreviation}</option>
                                          
                                         <s:iterator value="teacher" var="ed">
-                                        <s:if test="%{#!ed.teacher.getEmployeeNumber().equals()}">
+                                        <s:if test="%{#ed.getEmployeeNumber() =! coach.teacher.getEmployeeNumber }">
                                         <option value="${ed.employeeNumber}">${ed.abbreviation} </option>
                                         </s:if>
                                         </s:iterator>

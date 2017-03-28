@@ -15,12 +15,11 @@ import nl.scalda.pasimo.test.CoachGroupList;
  * @author jeroe
  */
 public class CoachGroupController extends ActionSupport {
-
+	public String name;
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public String name;
 	public TreeSet<Teacher> teacher = new TreeSet<>();
 
 	public TreeSet<EducationTeam> educationTeam  = new TreeSet<>();
@@ -102,15 +101,12 @@ public class CoachGroupController extends ActionSupport {
 
 		return SUCCESS;
 	}
+	 
+	public String CheckCoach() {
 
-
-	public String getName() {
-		return name;
+		return SUCCESS;
 	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 
 	public TreeSet<Teacher> getTeacher() {
 		return teacher;
@@ -142,6 +138,30 @@ public class CoachGroupController extends ActionSupport {
 
 	public void setCoachGroup(TreeSet<CoachGroup> coachGroup) {
 		this.coachGroup = coachGroup;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getS1() {
+		return s1;
+	}
+
+	public void setS1(String s1) {
+		this.s1 = s1;
+	}
+
+	public String getS2() {
+		return s2;
+	}
+
+	public void setS2(String s2) {
+		this.s2 = s2;
 	}
 
 }
