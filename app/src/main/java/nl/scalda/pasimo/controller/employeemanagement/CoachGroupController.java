@@ -22,12 +22,14 @@ public class CoachGroupController extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	public TreeSet<Teacher> teacher = new TreeSet<>();
 
+
 	public TreeSet<EducationTeam> educationTeam  = new TreeSet<>();
 	CoachGroup coach = new CoachGroup();
 	public TreeSet<CoachGroup> coachGroup  = new TreeSet<>();
 
 	public String s1; 
 	public String s2;
+
 
 	public String execute() {
 		coachGroup = CoachGroupList.getInstance().getCoachgroups();

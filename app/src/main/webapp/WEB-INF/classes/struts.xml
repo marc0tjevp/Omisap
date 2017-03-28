@@ -56,14 +56,23 @@
         </action>
         
 
-        <action name="students" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+        <action name="CoachLessonGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
 
                 method="execute">
             <result name="success">/view/employeemanagement/coachgroups/coachGroupLessonGroups.jsp</result>
         </action>
 
+      <action name="createLessonGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupLessonGroupsController" 
+      			method="addLessonGroup">
+      	<result name="success" type="redirect">LessonGroups</result>
+		<result name="success">/view/employeemanagement/coachgroups/coachGroupLessonGroups.jsp</result>      
+      </action>
         
-        
+        <action name="deleteLessonGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupLessonGroupsController" 
+      			method="deleteLessonGroup">
+      	<result name="success" type="redirect">LessonGroups</result>
+		<result name="success">/view/employeemanagement/coachgroups/coachGroupLessonGroups.jsp</result>      
+      </action>
         
         
         

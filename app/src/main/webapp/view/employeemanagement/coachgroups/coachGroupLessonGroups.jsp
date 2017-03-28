@@ -95,7 +95,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                          <form action="addLessonGroup"class="addLessonGroupForm" role="form">
+                          <form action="createLessonGroups"class="createLessonGroupForm" role="form" method="post">
                         
                         <div class="modal-body">
                                                           <div class="form-group">
@@ -114,7 +114,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
-                            <button type="button" class="btn btn-primary" >Toevoegen</button>
+                            <input type="submit" value= "Toevoegen" class="btn btn-danger">
                         </div>
                         </form>
                     </div>
@@ -132,13 +132,13 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                         <form action="addLessonGroup"class="addLessonGroupForm" role="form">
+                         <form action="deleteLessonGroups"class="deleteLessonGroupForm" role="form" method="post">
                         <div class="modal-body">
                             <p>Weet u zeker dat u Lesson Group 1234 wilt verwijderen van CoachGroup?</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
-                            <button type="button" class="btn btn-danger">Verwijderen</button>
+                            <input type="submit" value= "Verwijderen" class="btn btn-danger">
                         </div>
                        </form>
                     </div>
@@ -163,7 +163,7 @@
                     <tr>
                         <td>
                             <label>
-                                 <input id="selectedLessonGroup" type="checkbox">
+                                 <input id="LessonGroup" type="checkbox">
                             </label>
                         </td>
 
@@ -177,7 +177,7 @@
                     <tr>
                         <td>
                             <label>
-                                 <input id="selectedLessonGroup" type="checkbox">
+                                 <input id="LessonGroup" type="checkbox">
                             </label>
                         </td>
 							
@@ -190,7 +190,7 @@
                     <tr>
                         <td>
                             <label>
-                                 <input id="selectedLessonGroup" type="checkbox">
+                                 <input id="LessonGroup" type="checkbox">
                             </label>
                         </td>
 
@@ -204,7 +204,7 @@
                     <tr>
                         <td>
                             <label>
-                                 <input id="selectedLessonGroup" type="checkbox">
+                                 <input id="LessonGroup" type="checkbox">
                             </label>
                         </td>
 						<td>1234</td>
@@ -216,7 +216,7 @@
                     <tr>
                         <td>
                             <label>
-                                 <input id="selectedLessonGroup" type="checkbox">
+                                 <input id="LessonGroup" type="checkbox">
                             </label>
                         </td>
 

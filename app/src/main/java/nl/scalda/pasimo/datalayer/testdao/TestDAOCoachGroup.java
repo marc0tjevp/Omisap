@@ -4,6 +4,8 @@ import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 /**
@@ -19,7 +21,11 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 		coachGroups.add(new CoachGroup(123, "A1"));
 		coachGroups.add(new CoachGroup(124, "A2"));
 		coachGroups.add(new CoachGroup(125, "A3"));
+		
 	}
+	
+	
+
 
 	@Override
 	public void create(CoachGroup cg) {
@@ -73,7 +79,29 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 			}
 
 		}
-	
+	public void updateLessonGroup(CoachGroup coachGroup, LessonGroup lg) {
+		try {
+			for (CoachGroup ccg : coachGroups) {
+			
+				if (coachGroup.getId() == ccg.getId()) {
+					 ccg = coachGroup;
+					 ccg.addLessonGroup(lg);
+				}
+			}
+			} catch (Exception ex) {
+				System.out.println("Could not update, ended with Exception: " + ex.getMessage());
+			}
+		
+	}
+	public void delete(CoachGroup coachGroup, LessonGroup lg) {
+			try {
+				coachGroup.deleteLessonGroup(lg);
+				
+			} catch (Exception ex) {
+				System.out.println("Could not remove. ended with Exception: " + ex.getMessage());
+			}
+
+		}
 
 	public static TestDAOCoachGroup getInstance() {
 		if (instance == null) {

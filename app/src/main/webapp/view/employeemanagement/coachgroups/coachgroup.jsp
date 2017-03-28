@@ -319,7 +319,7 @@
                             </label>
                         </td>
 
-                        <td><a href='lessonGroups'>ICOA41A</a>	</td>
+                        <td><a href='CoachLessonGroups'>ICOA41A</a>	</td>
                         <td>Bram	</td>
                         
                         <td> 12</td>
@@ -336,7 +336,7 @@
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
-						<td><a href='lessonGroups'>ICOA41B</a></td>
+						<td><a href='CoachLessonGroups'>ICOA41B</a></td>
                         <td>Rens</td>
                         
                         <td> 12</td>
@@ -350,7 +350,7 @@
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
-						<td><a href='lessonGroups'>ICOA41C</a></td>
+						<td><a href='CoachLessonGroups'>ICOA41C</a></td>
                         <td>Gino</td>
                         
                         <td> 12</td>
@@ -365,7 +365,7 @@
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
-						<td><a href='lessonGroups'>ICOA41D</a></td>
+						<td><a href='CoachLessonGroups'>ICOA41D</a></td>
                         <td>Max</td>
                         
                         <td> 12</td>
@@ -380,7 +380,7 @@
                             </label>
                         </td>
 
-                        <td><a href='lessonGroups'>ICO89E</a></td>
+                        <td><a href='CoachLessonGroups'>ICO89E</a></td>
                         <td>Kees</td>
                         
                         <td> 12</td>
@@ -396,7 +396,7 @@
                             </label>
                         </td>
 
-                        <td><a href='lessonGroups'>ICO33A </a> </td>
+                        <td><a href='CoachLessonGroups'>ICO33A </a> </td>
                         <td>Piet</td>
                         <td> 12</td>
                         <td>ICO42A</td>
@@ -404,7 +404,7 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
+       
 
     </jsp:attribute>
 </t:layout2>
