@@ -1,16 +1,18 @@
 package nl.scalda.pasimo.datalayer.interfaces;
 
+import java.util.TreeSet;
+
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
 public interface IDAOLessonGroup {
 
     void create(LessonGroup lessonGroup);
 
-    LessonGroup read(LessonGroup lessonGroup);
+    TreeSet<LessonGroup> readAll();
 
     void update(LessonGroup newLessonGroup);
 
     void delete(LessonGroup lessonGroup);
 
-    LessonGroup readLessonGroupByID(int lessonGroupId);
+    LessonGroup readLessonGroupByName(String lessonGroupName);
 }

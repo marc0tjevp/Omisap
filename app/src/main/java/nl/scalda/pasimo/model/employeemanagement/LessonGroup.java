@@ -5,11 +5,6 @@ import java.util.TreeSet;
 public class LessonGroup implements Comparable<LessonGroup> {
 
 	/**
-	 * The index of this lesson group
-	 */
-	private int id;
-
-	/**
 	 * The name of this lesson group
 	 * <p>
 	 * e.g. ICO41A, ICO42B
@@ -22,47 +17,23 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	private TreeSet<Student> students;
 
 	/**
-	 * @param id
-	 *            The index of this lesson group
 	 * @param name
 	 *            The name of this lesson group
 	 */
-	public LessonGroup(int id, String name) {
-		this.id = id;
+	public LessonGroup(String name) {
 		this.name = name;
 		this.students = new TreeSet<>();
 	}
 
 	/**
-	 * @param id
-	 *            The index of this lesson group
 	 * @param name
 	 *            The name of this lesson group
 	 * @param students
 	 *            The {@link Student}'s who are in this lesson group
 	 */
-	public LessonGroup(int id, String name, TreeSet<Student> students) {
-		this(id, name);
+	public LessonGroup(String name, TreeSet<Student> students) {
+		this(name);
 		this.students = students;
-	}
-
-	/**
-	 * Retrieves the index of this lesson group
-	 *
-	 * @return The index of this lesson group
-	 */
-	public int getId() {
-		return this.id;
-	}
-
-	/**
-	 * Sets the index of this lesson group
-	 *
-	 * @param id
-	 *            The index of this lesson group to set
-	 */
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	/**
@@ -125,7 +96,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
 
 	@Override
 	public String toString() {
-		return "LessonGroup: id= " + id + ", name= " + name + ", students= " + students;
+		return "LessonGroup: name= " + name + ", students= " + students;
 	}
 
 	/**

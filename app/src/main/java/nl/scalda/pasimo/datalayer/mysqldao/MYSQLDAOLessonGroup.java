@@ -5,6 +5,8 @@
  */
 package nl.scalda.pasimo.datalayer.mysqldao;
 
+import java.util.TreeSet;
+
 import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
@@ -19,11 +21,6 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
     @Override
     public void create(LessonGroup LessonGroup) {
 
-    }
-
-    @Override
-    public LessonGroup read(LessonGroup LessonGroup) {
-        return LessonGroup;
     }
 
     @Override
@@ -44,7 +41,13 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
     }
 
 	@Override
-	public LessonGroup readLessonGroupByID(int lessonGroupId) {
+	public TreeSet<LessonGroup> readAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LessonGroup readLessonGroupByName(String lessonGroupName) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -7,6 +7,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import nl.scalda.pasimo.service.LessonGroupService;
 
 public class LessonGroupListingAction extends ActionSupport {
 
@@ -21,21 +22,15 @@ public class LessonGroupListingAction extends ActionSupport {
 	private TreeSet<LessonGroup> lessonGroups;
 
 	/**
-	 * The name for adding a lesson group
+	 * The name for adding or removing a lesson group
 	 */
 	private String lessonGroupName;
-
-	/**
-	 * The ID for deleting a lesson group
-	 */
-	private int deletelessongroupID;
-
 
 	/**
 	 * Retrieves all the lesson groups and puts them in a list
 	 */
 	public String execute() {
-		this.lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
+		this.lessonGroups = LessonGroupService.getInstance().readAll();
 		if (this.lessonGroups == null) {
 			return ERROR;
 		}
@@ -48,33 +43,24 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * @return
 	 */
 	public String addLessonGroup() {
-		/*
-		 * When the lesson group name is not filled in or empty
-		 */
-		if (this.lessonGroupName == null || this.lessonGroupName.equals("")) {
-			return ERROR;
-		}
+		LessonGroup lessonGroupToAdd = new LessonGroup(lessonGroupName);
+		LessonGroupService.getInstance().create(lessonGroupToAdd);
+
 		/*
 		 * Add all the lesson groups to the action variable
 		 */
-		this.lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
+/*		this.lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
 		LessonGroup previousLessonGroup = null;
 		if (!this.lessonGroups.isEmpty()) {
 			previousLessonGroup = this.lessonGroups.last();
-		}
-
-		/*
-		 * Create the new lesson group
-		 */
-		int newLessonGroupId = previousLessonGroup != null ? previousLessonGroup.getId() + 1 : 1;
-		LessonGroup lessonGroupToAdd = new LessonGroup(newLessonGroupId, this.lessonGroupName);
+		}*/
 
 		/*
 		 * Save the new lesson group in the DAO and in the action variable
 		 */
-		TestDAOLessonGroup.getInstance().create(lessonGroupToAdd);
+/*		TestDAOLessonGroup.getInstance().create(lessonGroupToAdd);
 		this.lessonGroups.add(lessonGroupToAdd);
-
+*/
 		return SUCCESS;
 	}
 
@@ -88,13 +74,13 @@ public class LessonGroupListingAction extends ActionSupport {
 		/*
 		 * Add all the lesson groups to the action variable
 		 */
-		this.lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
+		this.lessonGroups = LessonGroupService.getInstance().readAll();
 		
 		/*
 		 * Gets id from lesson group
 		 */
 		LessonGroup lessonGroupToDelete = TestDAOLessonGroup.getInstance()
-				.readLessonGroupByID(deletelessongroupID);
+				.readLessonGroupByName(lessonGroupName);
 
 		/*
 		 * Checks if there is a lesson group to delete, If none is found return
@@ -145,22 +131,6 @@ public class LessonGroupListingAction extends ActionSupport {
 	 */
 	public void setLessonGroupName(String lessonGroupName) {
 		this.lessonGroupName = lessonGroupName;
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public int getDeletelessongroupID() {
-		return deletelessongroupID;
-	}
-
-	/**
-	 * 
-	 * @param deletelessongroupID
-	 */
-	public void setDeletelessongroupID(int deletelessongroupID) {
-		this.deletelessongroupID = deletelessongroupID;
 	}
 
 }
