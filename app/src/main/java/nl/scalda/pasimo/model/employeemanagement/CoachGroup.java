@@ -2,6 +2,13 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
 
+<<<<<<< Updated upstream
+=======
+
+import nl.scalda.pasimo.test.CoachGroupList;
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
+>>>>>>> Stashed changes
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 
 /**
@@ -11,8 +18,14 @@ public class CoachGroup implements Comparable<CoachGroup> {
 
     private int id;
     private String name;
+<<<<<<< Updated upstream
     private Teacher teacher;
     private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
+=======
+    private Teacher coach;
+    private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
+   
+>>>>>>> Stashed changes
 
     public CoachGroup() {
     }
@@ -24,12 +37,19 @@ public class CoachGroup implements Comparable<CoachGroup> {
 
     public CoachGroup(String name, Teacher teacher) {
         this.name = name;
+<<<<<<< Updated upstream
         this.teacher = teacher;
     }
 
     public CoachGroup(String name, Teacher teacher, TreeSet<LessonGroup> lessonGroups) {
+=======
+        this.coach = teacher;
+    }
+    
+    public CoachGroup(String name, Teacher coach, TreeSet<LessonGroup> lessonGroups) {
+>>>>>>> Stashed changes
         this.name = name;
-        this.teacher = teacher;
+        this.coach = coach;
         this.lessonGroups = lessonGroups;
     }
 
@@ -38,6 +58,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
         TestDAOLessonGroup.getInstance().create(lg);
     }
 
+<<<<<<< Updated upstream
     public void updateLessonGroup(LessonGroup lessonGroup) {
         for (LessonGroup eachLessonGroup : this.lessonGroups) {
             if (eachLessonGroup != lessonGroup) {
@@ -49,17 +70,34 @@ public class CoachGroup implements Comparable<CoachGroup> {
     }
 
     public void deleteLessonGroup(LessonGroup lg) {
+=======
+	public void deleteLessonGroup(LessonGroup lg) {
+>>>>>>> Stashed changes
         lessonGroups.remove(lg);
         TestDAOLessonGroup.getInstance().delete(lg);
 
     }
+	
+	public void addCoachGroup(){
+		TestDAOCoachGroup.getInstance().create(this);
+	}
+	
+	public void updateCoachGroup(CoachGroup coach){
+		this.setName(coach.name);
+		this.setCoach(coach.coach);
+		TestDAOCoachGroup.getInstance().update(this);
+	}
 
     //<editor-fold defaultstate="collapsed" desc="getters and setters">
     public int getId() {
         return id;
     }
 
+<<<<<<< Updated upstream
     public void setId(int id) {
+=======
+	public void setId(int id) {
+>>>>>>> Stashed changes
         this.id = id;
     }
 
@@ -71,15 +109,15 @@ public class CoachGroup implements Comparable<CoachGroup> {
         this.name = name;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
-    }
+    public Teacher getCoach() {
+		return coach;
+	}
 
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
-    }
+	public void setCoach(Teacher coach) {
+		this.coach = coach;
+	}
 
-    public TreeSet<LessonGroup> getLessonGroups() {
+	public TreeSet<LessonGroup> getLessonGroups() {
         return lessonGroups;
     }
 
@@ -94,8 +132,8 @@ public class CoachGroup implements Comparable<CoachGroup> {
                id +
                ", name= " +
                name +
-               ", teacher= " +
-               teacher +
+               ", coach= " +
+               coach +
                ", lessongroup= " +
                lessonGroups;
     }

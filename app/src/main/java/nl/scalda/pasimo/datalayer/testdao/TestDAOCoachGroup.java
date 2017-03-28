@@ -60,6 +60,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
         }
     }
 
+<<<<<<< Updated upstream
     @Override
     public void delete(CoachGroup coachGroup) {
         try {
@@ -68,6 +69,25 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
             System.out.println("Could not remove. ended with Exception: " + ex.getMessage());
         }
     }
+=======
+	@Override
+	public void update(CoachGroup coachGroup) {
+		try {
+			for (CoachGroup ccg : coachGroups) {
+			
+				if (coachGroup.getId() == ccg.getId()) {
+					ccg = coachGroup;
+					 ccg.setName(coachGroup.getName());
+					 ccg.setLessonGroups(coachGroup.getLessonGroups());
+					 continue;
+				}
+			}
+			} catch (Exception ex) {
+				System.out.println("Could not update, ended with Exception: " + ex.getMessage());
+			}
+		
+	}
+>>>>>>> Stashed changes
 
     public static TestDAOCoachGroup getInstance() {
         if (instance == null) {
@@ -76,8 +96,24 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
         return instance;
     }
 
+<<<<<<< Updated upstream
     public TreeSet<CoachGroup> getCoachGroups() {
         return coachGroups;
     }
+=======
+		}
+
+
+	public static TestDAOCoachGroup getInstance() {
+		if (instance == null) {
+			instance = new TestDAOCoachGroup();
+		}
+		return instance;
+	}
+
+	public TreeSet<CoachGroup> getCoachGroups() {
+		return coachGroups;
+	}
+>>>>>>> Stashed changes
 
 }

@@ -17,13 +17,18 @@ public class CoachGroupService {
     private static CoachGroupService instance = null;
 
     public void create(CoachGroup coachGroup) {//teacher
-        DAOFactory.getTheFactory().getDAOCoachGroup().create(coachGroup);
-
+    	coachGroup.addCoachGroup();
+     //   DAOFactory.getTheFactory().getDAOCoachGroup().create(coachGroup);
+    	
     }
 
-    public CoachGroup read(CoachGroup coachGroup) {
-        return DAOFactory.getTheFactory().getDAOCoachGroup().read(coachGroup);
-    }
+//    public CoachGroup read(CoachGroup coachGroup) {
+//       // return DAOFactory.getTheFactory().getDAOCoachGroup().read(coachGroup);
+//    }
+//    
+//    public CoachGroup readAll(CoachGroup coachGroup) {
+//       // return DAOFactory.getTheFactory().getDAOCoachGroup().read(coachGroup);
+//    }
 
     public void update(CoachGroup coachGroup) {
         DAOFactory.getTheFactory().getDAOCoachGroup().update(coachGroup);
