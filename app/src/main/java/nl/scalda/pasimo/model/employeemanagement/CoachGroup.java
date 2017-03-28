@@ -15,10 +15,11 @@ public class CoachGroup implements Comparable<CoachGroup> {
 
     private int id;
     private String name;
+    //TODO verander coach
     private Teacher teacher;
     private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
-    private EducationTeam currentEducationTeam;
-    private int CoachGroupNumber;
+  
+   
 
     public CoachGroup() {
     }
@@ -49,7 +50,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
         this.lessonGroups.add(lg);
         TestDAOLessonGroup.getInstance().create(lg);
     }
-
+    //TODO naar lesson Group
     public void updateLessonGroup(LessonGroup lessonGroup) {
         for (LessonGroup eachLessonGroup : this.lessonGroups) {
             if (eachLessonGroup != lessonGroup) {
