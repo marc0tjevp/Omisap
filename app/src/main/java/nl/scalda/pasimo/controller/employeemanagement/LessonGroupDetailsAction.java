@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOStudent;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
@@ -43,7 +44,8 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * Retrieves all the students for the current lesson group
 	 */
 	public String execute() {
-		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
+//		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
+		LessonGroup specificLessonGroup = null;
 		if (specificLessonGroup == null) {
 			return ERROR;
 		}
@@ -72,7 +74,7 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		 * Get all lesson groups for filtering out students which are in other
 		 * lesson groups
 		 */
-		TreeSet<LessonGroup> allLessonGroups = new TreeSet<>(TestDAOLessonGroup.getInstance().getLessongroups());
+		TreeSet<LessonGroup> allLessonGroups = new TreeSet<>(DAOFactory.getTheFactory().getDAOLessonGroup().readAll());
 
 		/*
 		 * Loop through all other lesson groups which are not this current
@@ -107,7 +109,8 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * @return
 	 */
 	public String updateLessonGroupName() {
-		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
+//		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
+		LessonGroup specificLessonGroup = null;
 		if (specificLessonGroup == null) {
 			return ERROR;
 		}
@@ -121,7 +124,8 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * @return
 	 */
 	public String addStudent() {
-		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
+		//LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
+		LessonGroup specificLessonGroup = null;
 		Student specificStudent = TestDAOStudent.getInstance().readByOvNumber(this.studentId);
 		if (specificLessonGroup == null || specificStudent == null) {
 			return ERROR;
@@ -136,7 +140,8 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * @return
 	 */
 	public String deleteStudent() {
-		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
+		//LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
+		LessonGroup specificLessonGroup = null;
 		Student specificStudent = TestDAOStudent.getInstance().readByOvNumber(this.studentId);
 		if (specificLessonGroup == null || specificStudent == null) {
 			return ERROR;
