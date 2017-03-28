@@ -5,6 +5,8 @@
  */
 package nl.scalda.pasimo.main;
 
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 /**
  *
@@ -13,7 +15,13 @@ package nl.scalda.pasimo.main;
 public class Main {
 
     public static void main(String args[]) {
-
+    	Teacher tc = new Teacher(124, "k@k.com", 215950, "sibgadhfasfd", "van", "klaas", 1999, 9, 15);
+    	CoachGroup cg = new CoachGroup("123", tc);
+    	cg.setId(125);
+    	
+    cg.
+    
+    
     
     }
 
