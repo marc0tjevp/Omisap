@@ -5,8 +5,6 @@ import java.util.TreeSet;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOStudent;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.service.LessonGroupService;
@@ -40,7 +38,7 @@ public class StudentController extends ActionSupport {
 	 * @return String
 	 */
 	public String loadStudentInfo() {
-		Student = getStudentByStudentOv(id);
+		student = getStudentByStudentOv(id);
 		return SUCCESS;
 	}
 
@@ -74,24 +72,23 @@ public class StudentController extends ActionSupport {
 	 * 
 	 * @return String
 	 */
-	public String updateStudent() {
-		for (Student f : getStudents()) {
-			if (f.getEmployeeNumber() == Student.getEmployeeNumber()){
-				f.setFirstName(Student.getFirstName());
-				f.setAbbreviation();
-				f.setInsertion(Student.getInsertion());
-				f.setLastName(Student.getLastName());
-				f.setEmail(Student.getEmail());
-				f.setCardID(Student.getCardID());
-				if (!(getOldLessonGroup(f).getAbbreviation().equals(teamAbbreviation))){
-					getOldLessonGroup(f).deleteStudent(f);
-					getLessonGroupByAbbreviation(teamAbbreviation).addStudent(f);
-				}
-				f.update();
-			}
-		}
-		return SUCCESS;
-	}
+//	public String updateStudent() {
+//		for (Student f : getStudents()) {
+//			if (f.getStudentOV() == Student.getStudentOV()){
+//				f.setFirstName(Student.getFirstName());
+//				f.setInsertion(Student.getInsertion());
+//				f.setLastName(Student.getLastName());
+//				f.setEmail(Student.getEmail());
+//				f.setCardID(Student.getCardID());
+//				if (!(getOldLessonGroup(f).getAbbreviation().equals(teamAbbreviation))){
+//					getOldLessonGroup(f).deleteStudent(f);
+//					getLessonGroupByAbbreviation(teamAbbreviation).addStudent(f);
+//				}
+//				f.update();
+//			}
+//		}
+//		return SUCCESS;
+//	}
 
 	/**
 	 * Removes the Student.
@@ -99,9 +96,9 @@ public class StudentController extends ActionSupport {
 	 * 
 	 * @return String
 	 */
-	public String removeStudent() {
-		Student = getStudentByEmployeeID(id);
-		Student.delete();
+	public String removeStudent(Student s) {
+		student = getStudentByEmployeeID(id);
+		student.deleteStudent(s);
 		return SUCCESS;
 	}
 
@@ -135,12 +132,12 @@ public class StudentController extends ActionSupport {
 	/**
 	 * returns the education team the Student is currently in.
 	 * 
-	 * @param t
+	 * @param s
 	 * @return LessonGroup
 	 */
-	public LessonGroup getOldLessonGroup(Student t){
+	public LessonGroup getOldLessonGroup(Student s){
 		try {
-			return t.getLessonGroup();
+			return s.getLessonGroup();
 		} catch(Exception e) {
 			return null;
 		}
@@ -154,7 +151,7 @@ public class StudentController extends ActionSupport {
 	 */
 	private Student getStudentByEmployeeID(int id) {
 		try {
-			return StudentService.getInstance().getStudentByEmployeeID(id);
+			return StudentService.getInstance().getStudentById(id);
 		} catch (Exception e) {
 			return null;
 		}
@@ -204,11 +201,11 @@ public class StudentController extends ActionSupport {
 	}
 
 	public Student getStudent() {
-		return Student;
+		return student;
 	}
 
 	public void setStudent(Student Student) {
-		this.Student = Student;
+		this.student = Student;
 	}
 
 	public String getTeamAbbreviation() {
