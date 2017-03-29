@@ -49,6 +49,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	public void delete(CoachGroup coachGroup) {
 		try {
 			coachGroups.remove(coachGroup);
+			System.out.println(coachGroups.size());
 		} catch (Exception ex) {
 			System.out.println("Could not remove. ended with Exception: " + ex.getMessage());
 		}
@@ -57,11 +58,15 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	@Override
 	public void update(CoachGroup coachGroup) {
 		try {
+			
 			for (CoachGroup ccg : coachGroups) {
 
 				if (coachGroup.getId() == ccg.getId()) {
+					System.out.println(ccg.getCoach());
 					ccg.setName(coachGroup.getName());
 					ccg.setCoach(coachGroup.getCoach());
+					System.out.println(ccg.getCoach());
+					
 					continue;
 				}
 			}

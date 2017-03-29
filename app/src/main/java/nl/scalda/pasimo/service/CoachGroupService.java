@@ -7,6 +7,7 @@ package nl.scalda.pasimo.service;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 /**
  *
@@ -18,12 +19,12 @@ public class CoachGroupService {
 
     public void create(CoachGroup coachGroup) {//teacher
     	coachGroup.addCoachGroup();
-     //   DAOFactory.getTheFactory().getDAOCoachGroup().create(coachGroup);
+        //DAOFactory.getTheFactory().getDAOCoachGroup().create(coachGroup);
     	
     }
 
 //    public CoachGroup read(CoachGroup coachGroup) {
-//       // return DAOFactory.getTheFactory().getDAOCoachGroup().read(coachGroup);
+//        return DAOFactory.getTheFactory().getDAOCoachGroup().read(coachGroup);
 //    }
 //    
 //    public CoachGroup readAll(CoachGroup coachGroup) {
@@ -31,11 +32,13 @@ public class CoachGroupService {
 //    }
 
     public void update(CoachGroup coachGroup) {
-        DAOFactory.getTheFactory().getDAOCoachGroup().update(coachGroup);
+    	coachGroup.updateCoachGroup();
+        //DAOFactory.getTheFactory().getDAOCoachGroup().update(coachGroup);
     }
 
     public void delete(CoachGroup coachGroup) {
-        DAOFactory.getTheFactory().getDAOCoachGroup().delete(coachGroup);
+    	coachGroup.deleteCoachGroup();
+        //DAOFactory.getTheFactory().getDAOCoachGroup().delete(coachGroup);
     }
 
 //    public TreeSet<CoachGroup> getCoachGroups() {

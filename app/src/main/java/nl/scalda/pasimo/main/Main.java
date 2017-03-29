@@ -7,6 +7,7 @@ package nl.scalda.pasimo.main;
 
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
+import nl.scalda.pasimo.service.CoachGroupService;
 
 /**
  *
@@ -19,8 +20,15 @@ public class Main {
     	CoachGroup cg = new CoachGroup("123", tc);
     	cg.setId(125);
     	
-    cg.
-    
+    	CoachGroupService.getInstance().create(cg);
+    	
+    	
+    	Teacher td = new Teacher(124, "k@k.nl", 215951, "sibgadhfadfsafasfd", "vsdfan", "klaasdfs", 192399, 92, 135);
+    	cg.setCoach(td);
+    	
+    	
+    	CoachGroupService.getInstance().update(cg);
+
     
     
     }

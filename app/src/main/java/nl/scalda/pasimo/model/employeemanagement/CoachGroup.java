@@ -56,7 +56,12 @@ public class CoachGroup implements Comparable<CoachGroup> {
         }
     }
 
+    public void deleteCoachGroup() {
+    	
+        TestDAOCoachGroup.getInstance().delete(this);
+        
 
+    }
 
 	public void deleteLessonGroup(LessonGroup lg) {
 
@@ -70,9 +75,10 @@ public class CoachGroup implements Comparable<CoachGroup> {
 		TestDAOCoachGroup.getInstance().create(this);
 	}
 	
-	public void updateCoachGroup(CoachGroup coach){
-		this.setName(coach.name);
-		this.setCoach(coach.coach);
+	public void test(String bla, int zou){}
+	
+	public void updateCoachGroup(){
+		
 		TestDAOCoachGroup.getInstance().update(this);
 	}
 
