@@ -13,11 +13,9 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.query.NativeQuery;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
-import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
-import nl.scalda.pasimo.model.employeemanagement.Person;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
-import nl.scalda.pasimo.model.employeemanagement.Team;
+
 
 	public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 		
@@ -50,16 +48,16 @@ import nl.scalda.pasimo.model.employeemanagement.Team;
 		 * @param EducationTeam EducationTeam
 		 */
 		@Override
-		public void create(EducationTeam e) {
+		public void create(EducationTeam thiseducationTeam) {
 			Session session = factory.openSession();
 			Transaction tx = null;
 			try{
 				tx = session.beginTransaction();
 				String sql = "INSERT INTO EducationTeam (educationTeamID, name, abbreviation) VALUES (:educationTeamID, :name, :abbreviation );";
 				NativeQuery query = session.createNativeQuery(sql);
-				query.setParameter("educationTeamID", e.getId());
-				query.setParameter("name", e.getName());
-				query.setParameter("abbreviation", e.getAbbreviation());
+				query.setParameter("educationTeamID", thiseducationTeam.getId());
+				query.setParameter("name", thiseducationTeam.getName());
+				query.setParameter("abbreviation", thiseducationTeam.getAbbreviation());
 				query.executeUpdate();
 				
 				
@@ -80,16 +78,18 @@ import nl.scalda.pasimo.model.employeemanagement.Team;
 		 * @param 
 		 */
 		@Override
-		public void update(EducationTeam o) {
+		public void update(EducationTeam thiseducationTeam) {
 			Session session = factory.openSession();
 			Transaction tx = null;
 			try{
 				tx = session.beginTransaction();
-
+                String sql = "UPDATE educationTeam SET name = :Name , abbreviation = :Abbreviation 	WHERE educationTeamID = :educationTeamID ;"; 
+                NativeQuery query = session.createNativeQuery(sql);
 				
-				session.createNativeQuery("UPDATE educationTeam SET name = :name, abbreviation = :abbreviation")
-				.setParameter("name", o.getName())
-				.setParameter("abbreviation", o.getAbbreviation());
+                query.setParameter("educationTeamID", thiseducationTeam.getId());
+				query.setParameter("Name", thiseducationTeam.getName());
+				query.setParameter("Abbreviation", thiseducationTeam.getAbbreviation());
+				query.executeUpdate();
 				
 				
 				tx.commit();
@@ -107,13 +107,13 @@ import nl.scalda.pasimo.model.employeemanagement.Team;
 			
 		}
 		@Override
-		public void delete(EducationTeam p) {
+		public void delete(EducationTeam thiseducationTeam) {
 			Session session = factory.openSession();
 	        Transaction tx = null;
 	        try {
 	            tx = session.beginTransaction();
 	            session.createNativeQuery("DELETE FROM educationTeam WHERE name = :name")
-	                    .setParameter("name", p.getName()).executeUpdate();
+	                    .setParameter("name", thiseducationTeam.getName()).executeUpdate();
 	            
 	            tx.commit();
 	            

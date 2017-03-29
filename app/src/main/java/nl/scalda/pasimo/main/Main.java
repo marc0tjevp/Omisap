@@ -17,18 +17,19 @@ public class Main {
     public static void main(String args[]) {
 
     
-    	EducationTeam e = new EducationTeam("marco","VP");
+    	EducationTeam e = new EducationTeam("MAMBO","Tim");
     	
 //    	Database create functie
 //    	MYSQLDAOEducationTeam.getInstance().create(e);
 //    	
 //    	Database delete functie
-    	MYSQLDAOEducationTeam.getInstance().delete(e);
+//    	MYSQLDAOEducationTeam.getInstance().delete(e);
 //    	
 //    	Database update functie
-//    	e.setName("Mike");
-//    	e.setAbbreviation("stut");
-//    	MYSQLDAOEducationTeam.getInstance().update(e);
+    	e.setId(108);
+    	e.setName("Mike");
+    	e.setAbbreviation("stut");
+    	MYSQLDAOEducationTeam.getInstance().update(e);
     	
     	
     }
