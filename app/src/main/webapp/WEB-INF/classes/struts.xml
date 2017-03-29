@@ -63,7 +63,7 @@
         </action>
 	
         <action name="educationTeam" class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
-                method="execute">
+                method="index">
             <result name="success">/view/employeemanagement/educationteam/index.jsp</result>
         </action>
     </package>

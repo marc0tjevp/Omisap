@@ -7,9 +7,10 @@ import java.util.TreeSet;
 
 public class EducationTeamController extends ActionSupport {
 
-    public String name;
+	private static final long serialVersionUID = 1L;
+	public String name;
     public String abbreviation;
-    public TreeSet<EducationTeam> educationTeams;
+    public TreeSet<EducationTeam> educationTeams = new TreeSet<EducationTeam>();
 
     public String index() {
         
