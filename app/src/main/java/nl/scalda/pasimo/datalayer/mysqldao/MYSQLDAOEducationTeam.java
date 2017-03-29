@@ -45,7 +45,7 @@ import nl.scalda.pasimo.model.employeemanagement.Team;
 		}
 
 		/**
-		 * creates a teacher in the database.
+		 * creates a educationTeam in the database.
 		 * 
 		 * @param EducationTeam EducationTeam
 		 */
@@ -61,7 +61,11 @@ import nl.scalda.pasimo.model.employeemanagement.Team;
 				query.setParameter("name", e.getName());
 				query.setParameter("abbreviation", e.getAbbreviation());
 				query.executeUpdate();
+				
+				
 				tx.commit();
+				
+				
 			} catch(HibernateException s) {
 				if(tx!=null) tx.rollback();
 				s.printStackTrace();
@@ -71,9 +75,9 @@ import nl.scalda.pasimo.model.employeemanagement.Team;
 		}
 
 		/**
-		 * updates the teacher in the database.
+		 * updates a educationTeam 
 		 * 
-		 * @param Teacher t
+		 * @param 
 		 */
 		@Override
 		public void update(EducationTeam o) {
@@ -82,11 +86,8 @@ import nl.scalda.pasimo.model.employeemanagement.Team;
 			try{
 				tx = session.beginTransaction();
 
-				String sql = "UPDATE educationTeam SET name = :name, abbreviation = :abbreviation WHERE name = :name";
-
 				
-				session.createNativeQuery("UPDATE educationTeam SET educationTeamID = :educationTeamID, name = :name, abbreviation = :abbreviation")
-				.setParameter("educationTeamID", o.getId())
+				session.createNativeQuery("UPDATE educationTeam SET name = :name, abbreviation = :abbreviation")
 				.setParameter("name", o.getName())
 				.setParameter("abbreviation", o.getAbbreviation());
 				
@@ -100,6 +101,10 @@ import nl.scalda.pasimo.model.employeemanagement.Team;
 				session.close();
 			}
 			
+			
+			
+			
+			
 		}
 		@Override
 		public void delete(EducationTeam p) {
@@ -109,7 +114,9 @@ import nl.scalda.pasimo.model.employeemanagement.Team;
 	            tx = session.beginTransaction();
 	            session.createNativeQuery("DELETE FROM educationTeam WHERE name = :name")
 	                    .setParameter("name", p.getName()).executeUpdate();
+	            
 	            tx.commit();
+	            
 	        } catch (HibernateException e) {
 	            if (tx != null)
 	                tx.rollback();

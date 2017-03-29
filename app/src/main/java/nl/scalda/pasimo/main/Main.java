@@ -17,13 +17,13 @@ public class Main {
     public static void main(String args[]) {
 
     
-    	EducationTeam e = new EducationTeam("Name","Abbreviation");
+    	EducationTeam e = new EducationTeam("marco","VP");
     	
 //    	Database create functie
 //    	MYSQLDAOEducationTeam.getInstance().create(e);
 //    	
 //    	Database delete functie
-//    	MYSQLDAOEducationTeam.getInstance().delete(e);
+    	MYSQLDAOEducationTeam.getInstance().delete(e);
 //    	
 //    	Database update functie
 //    	e.setName("Mike");
