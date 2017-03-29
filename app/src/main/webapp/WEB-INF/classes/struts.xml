@@ -88,10 +88,16 @@
             <result name="success">/view/employeemanagement/Teacher/TeacherInformation.jsp</result>
         </action>
 	
+        <action name="educationTeam"
+                class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
+                method="execute">
+            <result name="success" type="redirect">view/employeemanagement/educationteam/index.jsp</result>
+        </action>
+        
         <action name="educationTeam/editEducationTeam"
                 class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
                 method="editEducationTeam">
-            <result name="success" type="redirect">/educationTeam</result>
+            <result name="success" type="redirect">view/employeemanagement/educationteam/index.jsp</result>
         </action>
 
     </package>
