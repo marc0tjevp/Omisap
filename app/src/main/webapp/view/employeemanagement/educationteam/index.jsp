@@ -6,32 +6,37 @@
 
 <t:layout2>
     <jsp:attribute name="content">
-        <h1>Education</h1>
         <div class="container">
+
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="text-right">
-                        <button class="btn btn-primary">Verwijderen</button>
-                        <button class="btn btn-primary">Nieuw</button>
-                    </div>
+                    <h1>EducationTeams
+                        <a href="educationTeam/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nieuw EducationTeam</a>
+                    </h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>Afkorting</th>
                                 <th>Naam</th>
+                                <th>Acties</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>AO</td>
-                                <td>Applicatie Ontwikkelaar</td>
-                                <td><a href="update.jsp">Wijzigen</a></td>
-                            </tr>
-                            <tr>
-                                <td>SSC</td>
-                                <td>Shared Server Center</td>
-                                <td><a href="update.jsp">Wijzigen</a></td>
-                            </tr>
+                            <s:iterator value="educationTeams">
+                                <tr>
+                                    <td><s:property value="name"/></td>
+                                    <td><s:property value="abbreviation"/></td>
+                                    <td style="width: 10%;">
+                                        <a href="educationTeam/update" class="btn btn-primary align-right"><i class="fa fa-edit"></i></a>
+                                        <a data-toggle="modal" data-target="#deleteConfirmation" class="btn btn-danger align-right"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            </s:iterator>
                         </tbody>
 
                     </table>
@@ -53,5 +58,27 @@
                 </div>
             </div>
         </div>
-    </jsp:attribute>
+
+        <!-- Modal for Delete Confirmation -->
+        <div id="deleteConfirmation" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Verwijderen</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Weet u zeker dat u "name goes here" wilt verwijderen?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Annuleren</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Verwijderen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</jsp:attribute>
 </t:layout2>
