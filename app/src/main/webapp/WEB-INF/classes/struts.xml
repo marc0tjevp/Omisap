@@ -37,28 +37,28 @@
             <result name="success">/view/employeemanagement/teacher/teacherOverview.jsp</result>
         </action>
         <action name="addTeacherPage" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-                        method="execute">
+                method="execute">
             <result name="success">/view/employeemanagement/teacher/addTeacher.jsp</result>
         </action>
         <action name="addTeacher" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-                        method="addTeacher">
+                method="addTeacher">
             <result name="success" type="redirect">teacherOverview</result>
         </action>
         <action name="editTeacherPage" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-                        method="loadTeacherInfo">
+                method="loadTeacherInfo">
             <result name="success">/view/employeemanagement/teacher/editTeacher.jsp</result>
         </action>
         <action name="editTeacher" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-                        method="updateTeacher">
+                method="updateTeacher">
             <result name="success" type="redirect">teacherOverview</result>
             <result name="input" type="redirect">teacherOverview</result>
         </action>
         <action name="removeTeacher" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-                        method="removeTeacher">
+                method="removeTeacher">
             <result name="success" type="redirect">teacherOverview</result>
         </action>
         <action name="teacherInfo" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-                        method="loadTeacherInfo">
+                method="loadTeacherInfo">
             <result name="success">/view/employeemanagement/teacher/TeacherInformation.jsp</result>
         </action>
 	

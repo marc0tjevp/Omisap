@@ -6,52 +6,52 @@
 
 <t:layout2>
     <jsp:attribute name="content">
-<h1>Education</h1>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="text-right">
-                <button class="btn btn-primary">Verwijderen</button>
-                <button class="btn btn-primary">Nieuw</button>
-            </div>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Afkorting</th>
-                    <th>Naam</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>AO</td>
-                    <td>Applicatie Ontwikkelaar</td>
-                    <td><a href="update.jsp">Wijzigen</a></td>
-                </tr>
-                <tr>
-                    <td>SSC</td>
-                    <td>Shared Server Center</td>
-                    <td><a href="update.jsp">Wijzigen</a></td>
-                </tr>
-                </tbody>
+        <h1>Education</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="text-right">
+                        <button class="btn btn-primary">Verwijderen</button>
+                        <button class="btn btn-primary">Nieuw</button>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Afkorting</th>
+                                <th>Naam</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AO</td>
+                                <td>Applicatie Ontwikkelaar</td>
+                                <td><a href="update.jsp">Wijzigen</a></td>
+                            </tr>
+                            <tr>
+                                <td>SSC</td>
+                                <td>Shared Server Center</td>
+                                <td><a href="update.jsp">Wijzigen</a></td>
+                            </tr>
+                        </tbody>
 
-            </table>
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-                    <li>
-                        <a href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li><a href="#">1</a></li>
-                    <li>
-                        <a href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+                    </table>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-            </jsp:attribute>
+    </jsp:attribute>
 </t:layout2>
