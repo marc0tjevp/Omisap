@@ -29,6 +29,9 @@
         </style>
       <h1>Time Registration</h1>
       <div class="container">
+            <input type="button" class="btn btn-primary" value=">>" style="float: right;">
+      <lable type="text" value="Week" style="float: right;"></lable>
+      <input type="button" class="btn btn-primary" value="<<" style="float: right;">
 	      <div class="col-sm-12">
 	                      <div class="div-inline">
                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
@@ -231,6 +234,7 @@
         <th>Vrijdag</th>
       </tr>
     </thead>
+
 <tbody>
                   <tr>
          

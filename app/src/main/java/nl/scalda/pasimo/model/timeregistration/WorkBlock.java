@@ -3,7 +3,7 @@ package nl.scalda.pasimo.model.timeregistration;
 
 
 public class WorkBlock implements Comparable<WorkBlock> {
-
+//TODO String vervangen door een daytime of gregorian calendar
 	public int id;
 	public String startTime;
 	public String endTime;
