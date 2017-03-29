@@ -5,7 +5,10 @@
  */
 package nl.scalda.pasimo.service;
 
+import java.util.TreeSet;
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
@@ -16,20 +19,19 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 public class CoachGroupService {
 
     private static CoachGroupService instance = null;
-
+    
     public void create(CoachGroup coachGroup) {//teacher
     	coachGroup.addCoachGroup();
-        //DAOFactory.getTheFactory().getDAOCoachGroup().create(coachGroup);
     	
     }
 
-//    public CoachGroup read(CoachGroup coachGroup) {
-//        return DAOFactory.getTheFactory().getDAOCoachGroup().read(coachGroup);
-//    }
-//    
-//    public CoachGroup readAll(CoachGroup coachGroup) {
-//       // return DAOFactory.getTheFactory().getDAOCoachGroup().read(coachGroup);
-//    }
+    public CoachGroup read(CoachGroup coachGroup) {
+    	return null;
+    }
+    
+    public TreeSet<CoachGroup> readAll(CoachGroup coachGroup) {
+    	return null;
+    }
 
     public void update(CoachGroup coachGroup) {
     	coachGroup.updateCoachGroup();
@@ -41,10 +43,6 @@ public class CoachGroupService {
         //DAOFactory.getTheFactory().getDAOCoachGroup().delete(coachGroup);
     }
 
-//    public TreeSet<CoachGroup> getCoachGroups() {
-//        //you will only use this when testing
-//        return TestDAOFactory.getTheFactory().getDAOCoachGroup().getCoachGroups();
-//    }
     public static CoachGroupService getInstance() {
         if (instance == null) {
             instance = new CoachGroupService();

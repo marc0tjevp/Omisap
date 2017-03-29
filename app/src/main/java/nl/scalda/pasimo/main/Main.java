@@ -30,7 +30,7 @@ public class Main {
     	CoachGroupService.getInstance().update(cg);
 
     
-    
+    	CoachGroupService.getInstance().delete(cg);
     }
 
 }
