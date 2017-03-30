@@ -114,7 +114,6 @@ public class Teacher extends Person {
      * @return CoachGroup
      */
     public CoachGroup getCoachGroup(){
-    	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
     	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentCoachGroup(this);
     }
     
@@ -124,7 +123,6 @@ public class Teacher extends Person {
      * @return EducationTeam
      */
     public EducationTeam getEducationTeam(){
-    	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
     	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentEducationTeamOfTeacher(this);
     }
 
