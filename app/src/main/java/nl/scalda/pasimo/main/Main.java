@@ -5,6 +5,7 @@
  */
 package nl.scalda.pasimo.main;
 
+import java.sql.Date;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAONote;
@@ -22,10 +23,14 @@ public class Main {
     	TreeSet<Note> noteList = new TreeSet<>();
     	Student s = new Student(1, 1, "1", "1", "1", "1", 1, 1,noteList, 1, 1);
     		Teacher teacher = new Teacher("GG", 666);
+    		Date creationDate = new Date(666);
+    		Date lastEdit = new Date(555);
     		Note note = new Note();
     		note.setTitle("title");
     		note.setMessage("message");
     		note.setMadeBy(teacher);
+    		note.setCreationDate(creationDate);
+    		note.setLastEdit(lastEdit);
 
     		MYSQLDAONote.getInstance().create(note, s);
     		
