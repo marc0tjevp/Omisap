@@ -21,6 +21,7 @@ public class Student extends Person {
 		this.cohort = cohort;
 		this.noteList = noteList;
 	}
+	
 
 	public TreeSet<Note> getNoteList() {
 		return noteList;

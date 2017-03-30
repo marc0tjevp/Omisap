@@ -10,6 +10,7 @@ import org.hibernate.query.NativeQuery;
 import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Person;
+import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class MYSQLDAONote implements IDAONote {
@@ -31,7 +32,7 @@ public class MYSQLDAONote implements IDAONote {
 	}
 
 	@Override
-	public Note create(Note note) {
+	public Note create(Note note, Student s) {
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try{
@@ -39,10 +40,10 @@ public class MYSQLDAONote implements IDAONote {
 			String sql = "INSERT INTO note (noteID, ovNumber,title, message, employeeNumber, creationDate, lastEdit) VALUES(:noteID, :ovNumber, :title, :message, :employeeNumber, :creationDate, :lastEdit);";
 			NativeQuery query = session.createNativeQuery(sql);
 			query.setParameter("noteID", note.getId());
-			query.setParameter("ovNumber",  )
+			query.setParameter("ovNumber", s.getStudentOV());
 			query.setParameter("title", note.getTitle());
 			query.setParameter("message", note.getMessage());
-			query.setParameter("employeeNumber", )
+			query.setParameter("employeeNumber", note.getMadeBy().getEmployeeNumber());
 			query.setParameter("creationDate", note.getCreationDate());
 			query.setParameter("lastEdit", note.getLastEdit());
 			query.executeUpdate();
