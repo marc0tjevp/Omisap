@@ -26,10 +26,10 @@ public class Main {
 //    	MYSQLDAOEducationTeam.getInstance().delete(e);
 //    	
 //    	Database update functie
-    	e.setId(108);
-    	e.setName("Mike");
-    	e.setAbbreviation("stut");
-    	MYSQLDAOEducationTeam.getInstance().update(e);
+//    	e.setId(108);
+//    	e.setName("Time");
+//    	e.setAbbreviation("stut");
+//    	MYSQLDAOEducationTeam.getInstance().update(e);
     	
     	
     }

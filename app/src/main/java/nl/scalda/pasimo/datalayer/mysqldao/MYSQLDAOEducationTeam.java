@@ -47,7 +47,7 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 		 * 
 		 * @param EducationTeam EducationTeam
 		 */
-		@Override
+		@Override 
 		public void create(EducationTeam thiseducationTeam) {
 			Session session = factory.openSession();
 			Transaction tx = null;
@@ -102,9 +102,9 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 			}
 			
 			
-			
-			
-			
+/**
+ *  Delete the selected educationTeam			
+ */
 		}
 		@Override
 		public void delete(EducationTeam thiseducationTeam) {
@@ -126,23 +126,42 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 	        }
 	    }
 			
-		
-
-
+/**
+ * saves the educationTeams	
+ */
 	@Override
 	public void save(EducationTeam educationTeam) {
 		// TODO Auto-generated method stub
 		
+		
 	}
 
 	/**
-	 * @param String abbreviation
+	 * reads the educationTeam
 	 */
 	@Override
 	public EducationTeam read(String abbreviation) {
 		// TODO Auto-generated method stub
-		return null;
+		Session session = factory.openSession();
+		Transaction tx = null;
+		Set<EducationTeam> teams = new TreeSet<>();
+		try {
+		   tx = session.beginTransaction();
+		   List educationTeamList = session.createNativeQuery("SELECT * FROM educationTeam;")
+				   .getResultList();
+		
+		   tx.commit();
 	}
+		catch (Exception e) {
+		   if (tx!=null) tx.rollback();
+		   e.printStackTrace(); 
+		}finally {
+		   session.close();
+		}
+		return (EducationTeam) teams;
+	}
+	
+	
 
 	/**
 	 * reads all the education in the database
@@ -156,7 +175,7 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 		Set<EducationTeam> teams = new TreeSet<>();
 		try {
 		   tx = session.beginTransaction();
-		   List educationTeamList = session.createNativeQuery("SELECT * FROM education_team;")
+		   List educationTeamList = session.createNativeQuery("SELECT * FROM education_Team;")
 				   .getResultList();
 		   for(Iterator iterator = educationTeamList.iterator();iterator.hasNext();){
 			   Object[] obj = (Object[]) iterator.next();
