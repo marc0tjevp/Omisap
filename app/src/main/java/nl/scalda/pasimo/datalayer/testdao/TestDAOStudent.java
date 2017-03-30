@@ -24,7 +24,7 @@ public class TestDAOStudent implements IDAOStudent {
 
 		TreeSet<Note> notelist = new TreeSet<>();
 
-		LessonGroup l1 = new LessonGroup(1, "it's dat lessongroup", students);
+		LessonGroup l1 = new LessonGroup(1, "it's dat lessongroup");
 		CoachGroup c1 = new CoachGroup(69, "it's dat boi");
 
 		Student EdgeLord = new Student(69, c1, l1, 420, "you can't stop me", "klaus", "de", "man", 666, 666999420,

@@ -180,6 +180,7 @@
                         </th>
                         <th>Naam (klik om te openen)</th>
                         <th>Aantal studenten</th>
+                        <th>Coachgroep</th>
                     </tr>
                
                 </thead>
@@ -201,6 +202,10 @@
                     		
                     		<td>
                     			<s:property value="students.size()"></s:property>
+                    		</td>
+                    		
+                    		<td>
+                    			<s:property value=""></s:property>
                     		</td>
                     	</tr>
                     </s:iterator>

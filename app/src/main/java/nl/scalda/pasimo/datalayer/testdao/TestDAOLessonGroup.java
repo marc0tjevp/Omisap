@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
@@ -37,7 +38,6 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 
     public static TestDAOLessonGroup getInstance() {
         if (instance == null) {
-        	System.out.println("hallo ja");
             instance = new TestDAOLessonGroup();
         }
         return instance;
@@ -100,6 +100,11 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 
 	public void setLessongroups(TreeSet<LessonGroup> lessongroups) {
 		this.lessongroups = lessongroups;
+	}
+
+	@Override
+	public TreeMap<CoachGroup, TreeSet<LessonGroup>> readAll() {
+		return null;
 	}
 
 }
