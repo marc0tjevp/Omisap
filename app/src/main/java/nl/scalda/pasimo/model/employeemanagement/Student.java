@@ -2,8 +2,6 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
 
-import nl.scalda.pasimo.datalayer.testdao.TestDAOStudent;
-
 public class Student extends Person {
 
 	private TreeSet<Note> noteList = new TreeSet<>();
@@ -22,10 +20,6 @@ public class Student extends Person {
 		this.studentOV = studentOV;
 		this.cohort = cohort;
 		this.noteList = noteList;
-	}
-
-	public void deleteStudent() {
-		TestDAOStudent.getInstance().delete(this);
 	}
 
 	public TreeSet<Note> getNoteList() {
