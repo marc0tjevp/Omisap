@@ -1,11 +1,13 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import nl.scalda.pasimo.service.Service;
 
 public class Note implements Comparable<Note> {
-
+	AtomicInteger count = new AtomicInteger(0);
+	
     private int id;
     private String title;
     private Date creationDate;
@@ -13,16 +15,17 @@ public class Note implements Comparable<Note> {
     private Teacher madeBy;
     private Date lastEdit;
 
+    
+    /* empty constructor */
+    public Note(){
+    }
     public Note(String title, String message, Teacher madeBy) {
 
         this.title = title;
         this.message = message;
         this.madeBy = madeBy;
 
-        this.creationDate = new Date();
-        this.lastEdit = this.creationDate;
-        Note cNote = Service.getInstance().getNoteService().create(this);
-        this.id = cNote.getId();
+        this.id = count.incrementAndGet();
     }
 
     /**
