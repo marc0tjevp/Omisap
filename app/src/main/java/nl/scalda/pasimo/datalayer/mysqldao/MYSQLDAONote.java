@@ -69,21 +69,28 @@ public class MYSQLDAONote implements IDAONote {
 	}
 
 	@Override
-	public Note update(Note note) {
+	public Note update(Note note, Student s) {
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try{
 			tx = session.beginTransaction();
 			NativeQuery query1 = session.createNativeQuery("SET foreign_key_checks = 0;");
-			NativeQuery query2 = session.createNativeQuery("UPDATE note SET noteID = :noteID, ovNumber = :ovNumber, title = :title, message = :message, employeeNumber = :employeeNumber, creationDate = :creationDate, lastEdit = :lastEdit WHERE noteID = :noteID");
+			NativeQuery query2 = session.createNativeQuery("UPDATE note SET ovNumber = :ovNumber, title = :title, message = :message, employeeNumber = :employeeNumber, creationDate = :creationDate, lastEdit = :lastEdit WHERE noteID = :noteID");
 			NativeQuery query3 = session.createNativeQuery("SET foreign_key_checks = 1;");
-			
-			
-			
-		}
+			query2.setParameter("ovNumber", s.getStudentOV() );
+			query2.setParameter("title", note.getTitle());
+			query2.setParameter("message", note.getMessage());
+			query2.setParameter("employeeNumber", note.getMadeBy().getEmployeeNumber());
+			query2.setParameter("creationDate", note.getCreationDate());
+			query2.setParameter("lastEdit", note.getLastEdit());
+			query2.setParameter("noteID", note.getId());
+			query2.executeUpdate();
+			tx.commit();
+		} finally{
 		return null;
 	}
-
+	}
+	
 	@Override
 	public void delete(Note note) {
 		Session session = factory.openSession();
@@ -91,7 +98,6 @@ public class MYSQLDAONote implements IDAONote {
 		try{
 			tx = session.beginTransaction();
 			session.createNativeQuery("DELETE FROM note where noteID = :noteID").setParameter("noteID", note.getId()).executeUpdate();
-			session.delete(note);
 			tx.commit();
 		} catch(HibernateException e ){
 			if (tx!=null) tx.rollback();

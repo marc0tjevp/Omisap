@@ -93,6 +93,7 @@ public class Note implements Comparable<Note> {
         this.lastEdit = lastEdit;
     }
 
+    
     @Override
     public int compareTo(Note o) {
         if (this.id == o.getId()) {

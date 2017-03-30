@@ -19,7 +19,7 @@
       root
    </property>
    <property name="hibernate.connection.password">
-      StuT1971
+      skullcandy1
    </property>
 
    <!-- List of XML mapping files -->

@@ -32,7 +32,8 @@ public class Main {
     		note.setCreationDate(creationDate);
     		note.setLastEdit(lastEdit);
 
-    		MYSQLDAONote.getInstance().create(note, s);
+    		
+    		MYSQLDAONote.getInstance().create(note , s);
     		
     		
     		

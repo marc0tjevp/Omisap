@@ -10,8 +10,9 @@ public interface IDAONote {
 	
 	public Note read(int id);
 	
-	public Note update(Note note);
+	public Note update(Note note, Student s);
 	
 	public void delete(Note note);
+
 	
 }
