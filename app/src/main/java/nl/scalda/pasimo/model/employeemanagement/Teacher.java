@@ -8,7 +8,7 @@ import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 
 @Entity
 @Table(name="teacher")
-@PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
+//@PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
 public class Teacher extends Person {
 
 	private static final long serialVersionUID = 1L;
