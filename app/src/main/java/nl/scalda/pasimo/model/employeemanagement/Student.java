@@ -1,5 +1,8 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import java.util.GregorianCalendar;
+import java.util.TreeSet;
+
 public class Student extends Person {
 
 	private int noteListID;
@@ -16,7 +19,17 @@ public class Student extends Person {
 	private int monthOfBirth;
 	private int dayOfBirth;
 
+
 	
+	public int getMonthOfBirth() {
+		return monthOfBirth;
+	}
+
+	public void setMonthOfBirth(int monthOfBirth) {
+		this.monthOfBirth = monthOfBirth;
+	}
+
+
 	public Student(String email){
 		this.email = email;
 	}

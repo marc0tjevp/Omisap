@@ -151,7 +151,7 @@
                         <td>1234</td>
                         <td>Leerling naam	</td>
                        
-                        <td><a href='moet nog komen'> Notities</a></td>
+                        <td><a href='noteOverview'> Notities</a></td>
                 
                         
                         

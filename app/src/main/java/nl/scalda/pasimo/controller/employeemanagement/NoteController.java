@@ -17,13 +17,6 @@ public class NoteController extends ActionSupport {
 	private String madeBy;
 	private int id;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	private String title;
 	private String message;
@@ -34,6 +27,10 @@ public class NoteController extends ActionSupport {
 
 		return SUCCESS;
 	}
+	/*
+	 * Overview of all notes
+	 * Struts
+	 */
 
 	public String noteOverview() {
 		noteList = TestDAONote.getInstance().getNoteList();
@@ -41,19 +38,27 @@ public class NoteController extends ActionSupport {
 		return SUCCESS;
 	}
 
+	/*
+	 * Add a note
+	 * Struts
+	 */
 	public String noteAdd() {
 
 		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 		TestDAONote dao = TestDAONote.getInstance();
+		
 		Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
-
 		Note note = new Note(message, title, teacher);
 		dao.create(note);
 
 		return SUCCESS;
 	}
 
-	public String noteRemove(){
+	/*
+	 *  Deletes a note
+	 *  Struts
+	 */
+	public String noteDelete(){
 		
 		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 		TestDAONote dao = TestDAONote.getInstance();
@@ -63,7 +68,10 @@ public class NoteController extends ActionSupport {
 		return SUCCESS;
 		
 	}
-	
+	/*
+	 * Edit a note
+	 * Struts
+	 */
 	public String noteEdit(){
 		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 		TestDAONote dao = TestDAONote.getInstance();
@@ -76,17 +84,35 @@ public class NoteController extends ActionSupport {
 				
 			}
 		}
+
+		return SUCCESS;
+	}
+	/*
+	 * Deletes all notes in the note overview
+	 * Struts
+	 */
+	public String noteDeleteAll(){
+		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
+		TestDAONote dao = TestDAONote.getInstance();
 		
-		
+		dao.deleteAll();
 		
 		return SUCCESS;
 	}
 	public TreeSet<Note> getNoteList() {
 		return noteList;
 	}
+	
 
 	public void setNoteList(TreeSet<Note> noteList) {
 		this.noteList = noteList;
+	}
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getTitle() {

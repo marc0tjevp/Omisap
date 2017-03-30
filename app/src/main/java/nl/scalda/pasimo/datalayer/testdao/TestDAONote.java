@@ -74,6 +74,9 @@ public class TestDAONote implements IDAONote {
 	public void delete(Note note) {
 		noteList.remove(note);
 	}
+	public void deleteAll(){
+	noteList.clear();
+	}
 	
 	public TreeSet<Teacher> getTeachers() {
 		return teachers;

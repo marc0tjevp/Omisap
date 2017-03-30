@@ -143,9 +143,15 @@
 			<result name="success">/view/employeemanagement/note/noteEdit.jsp
 			</result>
 		</action>		
-		<action name="noteRemove"
+		<action name="noteDelete"
 			class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
-			method="noteRemove">
+			method="noteDelete">
+			<result name="success" type="redirectAction">noteOverview
+			</result>
+		</action>
+				<action name="noteDeleteAll"
+			class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
+			method="noteDeleteAll">
 			<result name="success" type="redirectAction">noteOverview
 			</result>
 		</action>

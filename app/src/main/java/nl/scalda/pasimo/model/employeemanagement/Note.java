@@ -20,8 +20,7 @@ public class Note implements Comparable<Note> {
     private Date lastEdit;
 
     
-    public Note(){
-    	
+    public Note(){  
     	
     }
     public Note(String title, String message, Teacher madeBy) {
@@ -30,8 +29,6 @@ public class Note implements Comparable<Note> {
         this.message = message;
         this.madeBy = madeBy;
 
-        this.creationDate = new Date();
-        this.lastEdit = this.creationDate;
         this.id = count.incrementAndGet();
     }
 

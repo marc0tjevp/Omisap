@@ -20,8 +20,8 @@
 						</div>
 					
 					<div class="col-md-3 button2">
-					<a class="btn btn-primary" type="button" data-toggle="modal"
-								data-target="#myModal">Alles Verwijderen</a>
+					<a class="btn btn-primary" type="button" 
+								href="noteDeleteAll">Alles Verwijderen</a>
 					</div>
 					
 					<div class="col-md-3 button2" id="buttonseperator">
@@ -86,7 +86,7 @@
    	   	</div>
       <div class="modal-footer">
         <a "type="button" class="btn btn-default" 
-							id="noteDelete" href="noteRemove">Verwijderen</a>
+							id="noteDelete" href="noteDelete">Verwijderen</a>
         <a type="button" class="btn btn-default" href="noteEditView">Bewerken</a>
 
       </div>
