@@ -22,13 +22,9 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	private TreeSet<Student> students;
 
 	/**
-	 * @param id
-	 *            The index of this lesson group
-	 * @param name
-	 *            The name of this lesson group
+	 * @param name The name of this lesson group
 	 */
-	public LessonGroup(int id, String name) {
-		this.id = id;
+	public LessonGroup(String name) {
 		this.name = name;
 		this.students = new TreeSet<>();
 	}
@@ -38,12 +34,10 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	 *            The index of this lesson group
 	 * @param name
 	 *            The name of this lesson group
-	 * @param students
-	 *            The {@link Student}'s who are in this lesson group
 	 */
-	public LessonGroup(int id, String name, TreeSet<Student> students) {
-		this(id, name);
-		this.students = students;
+	public LessonGroup(int id, String name) {
+		this(name);
+		this.id = id;
 	}
 
 	/**
