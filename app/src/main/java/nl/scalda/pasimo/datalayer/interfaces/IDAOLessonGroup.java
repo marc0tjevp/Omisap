@@ -4,6 +4,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
 public interface IDAOLessonGroup {
@@ -13,10 +14,10 @@ public interface IDAOLessonGroup {
     TreeMap<CoachGroup, TreeSet<LessonGroup>> readAll();
    
     LessonGroup read(LessonGroup lessonGroup);
-    
+
     void update(LessonGroup newLessonGroup);
 
     void delete(LessonGroup lessonGroup);
 
-    LessonGroup readLessonGroupByID(int lessonGroupId);
+    LessonGroup readLessonGroupByName(String lessonGroupName);
 }

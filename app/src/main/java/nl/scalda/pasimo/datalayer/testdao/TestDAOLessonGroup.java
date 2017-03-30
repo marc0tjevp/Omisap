@@ -15,11 +15,11 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
     private TreeSet<LessonGroup> lessongroups = new TreeSet<>();
 
     private TestDAOLessonGroup() {
-        LessonGroup l1 = new LessonGroup(1,"ICO43A");
-        LessonGroup l2 = new LessonGroup(2,"ICO42A");
-        LessonGroup l3 = new LessonGroup(3, "ICO41A");
-        LessonGroup l4 = new LessonGroup(4, "ICO441G");
-        LessonGroup l5 = new LessonGroup(5,"ICOTSTCL");
+        LessonGroup l1 = new LessonGroup("ICO43A");
+        LessonGroup l2 = new LessonGroup("ICO42A");
+        LessonGroup l3 = new LessonGroup("ICO41A");
+        LessonGroup l4 = new LessonGroup("ICO441G");
+        LessonGroup l5 = new LessonGroup("ICOTSTCL");
         
         TreeSet<Student> students = TestDAOStudent.getInstance().readAll();
 
@@ -42,32 +42,15 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
         }
         return instance;
     }
-
-    public TreeSet<LessonGroup> getLessongroups() {
-        return lessongroups;
-    }
-
+    
     @Override
     public void create(LessonGroup lessonGroup) {
         this.lessongroups.add(lessonGroup);
     }
-
-    @Override
-    public LessonGroup read(LessonGroup lessonGroup) {
-
-        for (LessonGroup eachLessonGroup : this.lessongroups) {
-            if (lessonGroup != eachLessonGroup) {
-                continue;
-            }
-            return eachLessonGroup;
-        }
-
-        return null;
-    }
     
-    public LessonGroup readLessonGroupByID(int lessonGroupId) {
+    public LessonGroup readLessonGroupByName(String lessonGroupName) {
     	for(LessonGroup lessonGroup : this.lessongroups) {
-    		if(lessonGroupId != lessonGroup.getId()) {
+    		if(lessonGroupName != lessonGroup.getName()) {
     			continue;
     		}
     		return lessonGroup;
@@ -83,7 +66,6 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
                 continue;
             }
             lessonGroup.setName(newLessonGroup.getName());
-            lessonGroup.setId(newLessonGroup.getId());
             lessonGroup.setStudents(newLessonGroup.getStudents());
         }
 
@@ -104,6 +86,12 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 
 	@Override
 	public TreeMap<CoachGroup, TreeSet<LessonGroup>> readAll() {
+		return null;
+	}
+
+	@Override
+	public LessonGroup read(LessonGroup lessonGroup) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

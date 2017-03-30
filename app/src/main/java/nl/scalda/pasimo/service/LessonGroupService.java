@@ -28,12 +28,17 @@ public class LessonGroupService implements ILessonGroupService {
 
     @Override
     public void create(LessonGroup lessonGroup) {
+    	/*
+    	 * Coachgroeps iets?
+    	 */
+
+    	
         DAOFactory.getTheFactory().getDAOLessonGroup().create(lessonGroup);
     }
 
     @Override
     public LessonGroup read(LessonGroup lessonGroup) {
-        return DAOFactory.getTheFactory().getDAOLessonGroup().read(lessonGroup);
+    	return null;
     }
 
     @Override

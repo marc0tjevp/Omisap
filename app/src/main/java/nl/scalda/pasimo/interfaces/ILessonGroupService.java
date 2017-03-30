@@ -4,11 +4,9 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+import java.util.TreeSet;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
-/**
- * Created by Gebruiker on 25-1-2017.
- */
 public interface ILessonGroupService {
 
     void create(LessonGroup lessonGroup);

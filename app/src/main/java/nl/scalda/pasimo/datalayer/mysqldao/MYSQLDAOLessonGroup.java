@@ -26,11 +26,6 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
     }
 
     @Override
-    public LessonGroup read(LessonGroup LessonGroup) {
-        return LessonGroup;
-    }
-
-    @Override
     public void update(LessonGroup lessonGroup) {
 
     }
@@ -48,13 +43,21 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
     }
 
 	@Override
-	public LessonGroup readLessonGroupByID(int lessonGroupId) {
+	public LessonGroup readLessonGroupByName(String lessonGroupName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public TreeMap<CoachGroup, TreeSet<LessonGroup>> readAll() {
+		return null;
+	}
+
+
+
+	@Override
+	public LessonGroup read(LessonGroup lessonGroup) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

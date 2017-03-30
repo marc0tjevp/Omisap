@@ -24,15 +24,9 @@ public class LessonGroupListingAction extends ActionSupport {
 	private TreeMap<CoachGroup, TreeSet<LessonGroup>> lessonGroups;
 
 	/**
-	 * The name for adding a lesson group
+	 * The name for adding or removing a lesson group
 	 */
 	private String lessonGroupName;
-
-	/**
-	 * The ID for deleting a lesson group
-	 */
-	private int deletelessongroupID;
-
 
 	/**
 	 * Retrieves all the lesson groups and puts them in a list
@@ -57,13 +51,14 @@ public class LessonGroupListingAction extends ActionSupport {
 /*		if (this.lessonGroupName == null || this.lessonGroupName.equals("")) {
 			return ERROR;
 		}*/
+
 		/*
 		 * Add all the lesson groups to the action variable
 		 */
 /*		this.lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
 		LessonGroup previousLessonGroup = null;
 		if (!this.lessonGroups.isEmpty()) {
-			previousLessonGroup = this.lessonGroups.last();
+			prleviousLessonGroup = this.lessonGroups.last();
 		}*/
 
 		/*
@@ -139,22 +134,6 @@ public class LessonGroupListingAction extends ActionSupport {
 	 */
 	public void setLessonGroupName(String lessonGroupName) {
 		this.lessonGroupName = lessonGroupName;
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public int getDeletelessongroupID() {
-		return deletelessongroupID;
-	}
-
-	/**
-	 * 
-	 * @param deletelessongroupID
-	 */
-	public void setDeletelessongroupID(int deletelessongroupID) {
-		this.deletelessongroupID = deletelessongroupID;
 	}
 
 }

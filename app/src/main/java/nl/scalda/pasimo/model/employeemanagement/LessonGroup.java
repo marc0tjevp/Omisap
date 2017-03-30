@@ -5,10 +5,10 @@ import java.util.TreeSet;
 public class LessonGroup implements Comparable<LessonGroup> {
 
 	/**
-	 * The index of this lesson group
+	 * 
 	 */
 	private int id;
-
+	
 	/**
 	 * The name of this lesson group
 	 * <p>
@@ -30,8 +30,6 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	}
 
 	/**
-	 * @param id
-	 *            The index of this lesson group
 	 * @param name
 	 *            The name of this lesson group
 	 */
@@ -41,24 +39,21 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	}
 
 	/**
-	 * Retrieves the index of this lesson group
-	 *
-	 * @return The index of this lesson group
+	 * 
+	 * @return
 	 */
 	public int getId() {
-		return this.id;
+		return id;
 	}
-
+	
 	/**
-	 * Sets the index of this lesson group
-	 *
+	 * 
 	 * @param id
-	 *            The index of this lesson group to set
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	
 	/**
 	 * Retrieves the index of this lesson group
 	 *
@@ -119,7 +114,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
 
 	@Override
 	public String toString() {
-		return "LessonGroup: id= " + id + ", name= " + name + ", students= " + students;
+		return "LessonGroup: name= " + name + ", students= " + students;
 	}
 
 	/**
