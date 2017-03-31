@@ -4,6 +4,7 @@ import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.model.employeemanagement.Note;
+import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class TestDAONote implements IDAONote {
@@ -26,13 +27,13 @@ public class TestDAONote implements IDAONote {
 	}
 	
 	@Override
-	public Note create(Note note) {
+	public Note create(Note note, Student s) {
 		int id = this.noteList.size();
 		note.setId(id);
 		if(this.noteList.add(note)){
 			return note;
 		}else{
-			return this.update(note);
+			return this.update(note, s);
 		}
 		
 	}
@@ -48,7 +49,7 @@ public class TestDAONote implements IDAONote {
 	}
 
 	@Override
-	public Note update(Note note) {
+	public Note update(Note note, Student s) {
 		for (Note n : noteList) {
 			if(note.compareTo(n) == 0){
 				n.setTitle(note.getTitle());

@@ -64,10 +64,10 @@ public class MYSQLDAONote implements IDAONote {
 		try{
 			tx = session.beginTransaction();
 			
-		}
+		} finally{
 		return null;
 	}
-
+	}
 	@Override
 	public Note update(Note note, Student s) {
 		Session session = factory.openSession();
