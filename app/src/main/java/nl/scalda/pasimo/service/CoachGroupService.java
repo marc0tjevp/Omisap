@@ -5,6 +5,7 @@
  */
 package nl.scalda.pasimo.service;
 
+import java.util.Objects;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
@@ -36,32 +37,17 @@ public class CoachGroupService {
      * @param id
      * @return cg
      */
-    public CoachGroup read(int id) {
+    public TreeSet<Object> readByID(int id) {
     	for(EducationTeam edu: EducationTeamService.getInstance().getEducationTeams() ){
     		if(edu.getCoachGroups().contains(id)){
     		  for(CoachGroup cg :edu.getCoachGroups()){
     			  if(cg.getId() == id){
-    				  return cg;
+    				  TreeSet<Object> objects = new TreeSet<>();
+    				  objects.add(edu);
+    				  objects.add(cg);
+    				  return objects;
     			  }
     		  }
-    		}
-    		
-    	}
-    	return null;
-    }
-    
-    /**
-     * Get EducationTeam by coachGroup
-     * @param cg
-     * @return edu
-     */
-    public EducationTeam readEducationTeamByCoachGroup(CoachGroup cg) {
-    	for(EducationTeam edu: EducationTeamService.getInstance().getEducationTeams() ){
-    		if(edu.getCoachGroups().contains(cg)){
-    		 
-    				  return edu;
-    			  
-    		  
     		}
     		
     	}
