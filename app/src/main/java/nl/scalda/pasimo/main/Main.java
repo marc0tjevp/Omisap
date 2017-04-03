@@ -21,7 +21,7 @@ public class Main {
 
     public static void main(String args[]) {
     	TreeSet<Note> noteList = new TreeSet<>();
-    	Student s = new Student(1, 1, "1", "1", "1", "1", 1, 1,noteList, 1, 1);
+    	Student s = new Student(3, 1, "1", "1", "1", "1", 1, 1,noteList, 1, 1);
     		Teacher teacher = new Teacher("GG", 666);
     		Date creationDate = new Date(666);
     		Date lastEdit = new Date(555);
@@ -31,9 +31,10 @@ public class Main {
     		note.setMadeBy(teacher);
     		note.setCreationDate(creationDate);
     		note.setLastEdit(lastEdit);
+    		note.setStudent(s);
 
     		
-    		MYSQLDAONote.getInstance().create(note , s);
+    		MYSQLDAONote.getInstance().read(4);
     		
     		
     		

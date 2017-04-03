@@ -13,11 +13,11 @@ public class NoteService {
     }
 
     public Note create(Note note, Student s) {
-        return DAOFactory.getTheFactory().getDAONote().create(note, s);
+        return DAOFactory.getTheFactory().getDAONote().create(note);
     }
 
-    public Note update(Note note, Student s) {
-        return DAOFactory.getTheFactory().getDAONote().update(note, s);
+    public Note update(Note note) {
+        return DAOFactory.getTheFactory().getDAONote().update(note);
     }
 
     public static NoteService getInstance() {

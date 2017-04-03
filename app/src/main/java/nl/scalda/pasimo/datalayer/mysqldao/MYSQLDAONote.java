@@ -14,33 +14,33 @@ import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class MYSQLDAONote implements IDAONote {
-	
+
 	private SessionFactory factory;
 	private static MYSQLDAONote instance = null;
-	
-	private MYSQLDAONote(){
+
+	private MYSQLDAONote() {
 		initialiseFactory();
 	}
-	
-	private void initialiseFactory(){
-		try{
+
+	private void initialiseFactory() {
+		try {
 			factory = new Configuration().configure().buildSessionFactory();
-		} catch(Throwable ex){
+		} catch (Throwable ex) {
 			System.err.println("Failed to create sessionFacory object." + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
 	}
 
 	@Override
-	public Note create(Note note, Student s) {
+	public Note create(Note note) {
 		Session session = factory.openSession();
 		Transaction tx = null;
-		try{
+		try {
 			tx = session.beginTransaction();
 			String sql = "INSERT INTO note (noteID, ovNumber,title, message, employeeNumber, creationDate, lastEdit) VALUES(:noteID, :ovNumber, :title, :message, :employeeNumber, :creationDate, :lastEdit);";
 			NativeQuery query = session.createNativeQuery(sql);
 			query.setParameter("noteID", note.getId());
-			query.setParameter("ovNumber", s.getStudentOV());
+			query.setParameter("ovNumber", note.getStudent().getStudentOV());
 			query.setParameter("title", note.getTitle());
 			query.setParameter("message", note.getMessage());
 			query.setParameter("employeeNumber", note.getMadeBy().getEmployeeNumber());
@@ -48,8 +48,9 @@ public class MYSQLDAONote implements IDAONote {
 			query.setParameter("lastEdit", note.getLastEdit());
 			query.executeUpdate();
 			tx.commit();
-		} catch(HibernateException e){
-			if(tx!=null) tx.rollback();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
 			e.printStackTrace();
 		} finally {
 			session.close();
@@ -61,23 +62,36 @@ public class MYSQLDAONote implements IDAONote {
 	public Note read(int id) {
 		Session session = factory.openSession();
 		Transaction tx = null;
-		try{
+		Note n = null;
+		try {
 			tx = session.beginTransaction();
-			
-		} finally{
-		return null;
+			Object[] obj = (Object[]) session
+					.createNativeQuery(
+							"SELECT FROM teacher WHERE noteID = :noteID")
+					.setParameter("noteID", id).getSingleResult();
+			n = new Note(String.valueOf(obj[1]), String.valueOf(obj[2]), n.getMadeBy());
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return n;
 	}
-	}
+
 	@Override
-	public Note update(Note note, Student s) {
+	public Note update(Note note) {
 		Session session = factory.openSession();
 		Transaction tx = null;
-		try{
+		try {
 			tx = session.beginTransaction();
 			NativeQuery query1 = session.createNativeQuery("SET foreign_key_checks = 0;");
-			NativeQuery query2 = session.createNativeQuery("UPDATE note SET ovNumber = :ovNumber, title = :title, message = :message, employeeNumber = :employeeNumber, creationDate = :creationDate, lastEdit = :lastEdit WHERE noteID = :noteID");
+			NativeQuery query2 = session.createNativeQuery(
+					"UPDATE note SET ovNumber = :ovNumber, title = :title, message = :message, employeeNumber = :employeeNumber, creationDate = :creationDate, lastEdit = :lastEdit WHERE noteID = :noteID");
 			NativeQuery query3 = session.createNativeQuery("SET foreign_key_checks = 1;");
-			query2.setParameter("ovNumber", s.getStudentOV() );
+			query2.setParameter("ovNumber", note.getStudent().getStudentOV());
 			query2.setParameter("title", note.getTitle());
 			query2.setParameter("message", note.getMessage());
 			query2.setParameter("employeeNumber", note.getMadeBy().getEmployeeNumber());
@@ -86,33 +100,35 @@ public class MYSQLDAONote implements IDAONote {
 			query2.setParameter("noteID", note.getId());
 			query2.executeUpdate();
 			tx.commit();
-		} finally{
-		return null;
+		} finally {
+			return null;
+		}
 	}
-	}
-	
+
 	@Override
 	public void delete(Note note) {
 		Session session = factory.openSession();
 		Transaction tx = null;
-		try{
+		try {
 			tx = session.beginTransaction();
-			session.createNativeQuery("DELETE FROM note where noteID = :noteID").setParameter("noteID", note.getId()).executeUpdate();
+			session.createNativeQuery("DELETE FROM note where noteID = :noteID").setParameter("noteID", note.getId())
+					.executeUpdate();
 			tx.commit();
-		} catch(HibernateException e ){
-			if (tx!=null) tx.rollback();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
 			e.printStackTrace();
-		} finally{
+		} finally {
 			session.close();
 		}
-		
+
 	}
-	
-	public static MYSQLDAONote getInstance(){
-		if (instance == null){
+
+	public static MYSQLDAONote getInstance() {
+		if (instance == null) {
 			instance = new MYSQLDAONote();
 		}
 		return instance;
 	}
-		
+
 }

@@ -14,7 +14,7 @@ public class Note implements Comparable<Note> {
     private String message;
     private Teacher madeBy;
     private Date lastEdit;
-
+    private Student student;
     
     /* empty constructor */
     public Note(){
@@ -92,9 +92,14 @@ public class Note implements Comparable<Note> {
     public void setLastEdit(Date lastEdit) {
         this.lastEdit = lastEdit;
     }
-
     
-    @Override
+    public Student getStudent() {
+		return student;
+	}
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+	@Override
     public int compareTo(Note o) {
         if (this.id == o.getId()) {
             return 0;
