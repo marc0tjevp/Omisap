@@ -37,7 +37,7 @@ public class CoachGroupService {
      * @param id
      * @return cg
      */
-    public TreeSet<Object> readByID(int id) {
+    public TreeSet<Object> readCoachGroup(int id) {
     	for(EducationTeam edu: EducationTeamService.getInstance().getEducationTeams() ){
     		if(edu.getCoachGroups().contains(id)){
     		  for(CoachGroup cg :edu.getCoachGroups()){
