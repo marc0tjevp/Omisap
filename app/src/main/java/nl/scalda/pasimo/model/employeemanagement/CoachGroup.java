@@ -184,6 +184,6 @@ public class CoachGroup implements Comparable<CoachGroup> {
     public int compareTo(CoachGroup o) {
 //        int i = this.getTeacher().getAbbrevation().compareTo(o.getTeacher().getAbbrevation());
 //        if(i == 0) return i;
-        return name.compareTo(o.getName());
+        return ((Integer) id).compareTo(o.getId());
     }
 }
