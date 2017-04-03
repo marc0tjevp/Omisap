@@ -4,7 +4,7 @@ RemoteSystemsTempFiles/*
 Server/*
 .recommenders/*
 Servers/*
-app/*
+
 
 # IntelliJ
 .idea/
