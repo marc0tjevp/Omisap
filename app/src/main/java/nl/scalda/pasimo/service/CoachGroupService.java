@@ -51,6 +51,24 @@ public class CoachGroupService {
     }
     
     /**
+     * Get EducationTeam by coachGroup
+     * @param cg
+     * @return edu
+     */
+    public EducationTeam readEducationTeamByCoachGroup(CoachGroup cg) {
+    	for(EducationTeam edu: EducationTeamService.getInstance().getEducationTeams() ){
+    		if(edu.getCoachGroups().contains(cg)){
+    		 
+    				  return edu;
+    			  
+    		  
+    		}
+    		
+    	}
+    	return null;
+    }
+    
+    /**
      * Reads all CoachGroups
      * @return TreeSet<CoachGroup>
      */
