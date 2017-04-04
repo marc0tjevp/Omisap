@@ -4,10 +4,7 @@ RemoteSystemsTempFiles/*
 Server/*
 .recommenders/*
 Servers/*
-<<<<<<< HEAD
-=======
 
->>>>>>> develop
 
 # IntelliJ
 .idea/
