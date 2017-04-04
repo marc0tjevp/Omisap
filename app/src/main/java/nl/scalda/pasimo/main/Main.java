@@ -24,42 +24,34 @@ public class Main {
     	Student s = new Student(3, 1, "1", "1", "1", "1", 1, 1,noteList, 1, 1);
     		Teacher teacher = new Teacher("GG", 666);
     		Date creationDate = new Date(666);
-    		Date lastEdit = new Date(555);
+    		Date lastEdit = new Date(555);	
+    		
     		Note note = new Note();
-    		note.setTitle("asdf");
-    		note.setMessage("ASDFSDAFSADFASDFSADFSADFASD");
+    		note.setTitle("title");
+    		note.setMessage("message");
     		note.setMadeBy(teacher);
     		note.setCreationDate(creationDate);
     		note.setLastEdit(lastEdit);
     		note.setStudent(s);
-
-    		
-    		
-    		System.out.println(note.getId());
-    		
     		
     		Note note1 = new Note();
-    		note1.setTitle("asdf");
-    		note1.setMessage("ASDFSDAFSADFASDFSADFSADFASD");
+    		note1.setTitle("title");
+    		note1.setMessage("message");
     		note1.setMadeBy(teacher);
     		note1.setCreationDate(creationDate);
     		note1.setLastEdit(lastEdit);
     		note1.setStudent(s);
     		
-    		System.out.println(note1.getId());
+    		MYSQLDAONote.getInstance().create(note);
+    		MYSQLDAONote.getInstance().create(note1);
     		
-    		Note note2 = new Note();
-    		note2.setTitle("asasdf");
-    		note2.setMessage("ASDFSDadAFSADFASDFSADFSADFASD");
-    		note2.setMadeBy(teacher);
-    		note2.setCreationDate(creationDate);
-    		note2.setLastEdit(lastEdit);
-    		note2.setStudent(s);
     		
-    		System.out.println(note2.getId());
-    	
-    		MYSQLDAONote.getInstance().read(1);
     		
+    		
+    		
+    		
+    		
+    
     }
 
 }

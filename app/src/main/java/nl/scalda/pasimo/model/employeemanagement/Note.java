@@ -6,113 +6,107 @@ import java.util.concurrent.atomic.AtomicInteger;
 import nl.scalda.pasimo.service.Service;
 
 public class Note implements Comparable<Note> {
-
 	static AtomicInteger count = new AtomicInteger(0);
-
+	
 	private int id;
-	private String title;
-	private Date creationDate;
-	private String message;
-	private Teacher madeBy;
-	private Date lastEdit;
-	private Student student;
+    private String title;
+    private Date creationDate;
+    private String message;
+    private Teacher madeBy;
+    private Date lastEdit;
+    private Student student;
+    
+    /* empty constructor */
+    public Note(){
+    	id = count.incrementAndGet();
+    }
+    public Note(String title, String message, Teacher madeBy) {
 
-	/* empty constructor */
-	public Note() {
-		id = count.incrementAndGet();
+        this.title = title;
+        this.message = message;
+        this.madeBy = madeBy;
 
-	}
+        id = count.incrementAndGet();
+      
+    }
 
-	public Note(String title, String message, Teacher madeBy) {
+    /**
+     * Edits the note, and updates the lastEdit timestamp
+     *
+     * @param title   title of the note
+     * @param message message of the note
+     * @return Note note returns a updated note
+     */
+    public Note editNote(String title, String message) {
 
-		this.title = title;
-		this.message = message;
-		this.madeBy = madeBy;
+        this.title = title;
+        this.message = message;
 
-		id = count.incrementAndGet();
-	}
+        this.lastEdit = new Date();
+        Service.getInstance().getNoteService().update(this);
+        return this;
+    }
 
-	/**
-	 * Edits the note, and updates the lastEdit timestamp
-	 *
-	 * @param title
-	 *            title of the note
-	 * @param message
-	 *            message of the note
-	 * @return Note note returns a updated note
-	 */
-	public Note editNote(String title, String message) {
+    public int getId() {
+        return id;
+    }
 
-		this.title = title;
-		this.message = message;
+    public void setId(int id) {
+        this.id = id;
+    }
 
-		this.lastEdit = new Date();
-		Service.getInstance().getNoteService().update(this);
-		return this;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Date getCreationDate() {
+        return creationDate;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getMessage() {
+        return message;
+    }
 
-	public Date getCreationDate() {
-		return creationDate;
-	}
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
+    public Teacher getMadeBy() {
+        return madeBy;
+    }
 
-	public String getMessage() {
-		return message;
-	}
+    public void setMadeBy(Teacher madeBy) {
+        this.madeBy = madeBy;
+    }
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+    public Date getLastEdit() {
+        return lastEdit;
+    }
 
-	public Teacher getMadeBy() {
-		return madeBy;
-	}
-
-	public void setMadeBy(Teacher madeBy) {
-		this.madeBy = madeBy;
-	}
-
-	public Date getLastEdit() {
-		return lastEdit;
-	}
-
-	public void setLastEdit(Date lastEdit) {
-		this.lastEdit = lastEdit;
-	}
-
-	public Student getStudent() {
+    public void setLastEdit(Date lastEdit) {
+        this.lastEdit = lastEdit;
+    }
+    
+    public Student getStudent() {
 		return student;
 	}
-
 	public void setStudent(Student student) {
 		this.student = student;
 	}
-
 	@Override
-	public int compareTo(Note o) {
-		if (this.id == o.getId()) {
-			return 0;
-		}
-		return this.getCreationDate().before(o.getCreationDate()) ? -1 : 1;
-	}
+    public int compareTo(Note o) {
+        if (this.id == o.getId()) {
+            return 0;
+        }
+        return this.getCreationDate().before(o.getCreationDate()) ? -1 : 1;
+    }
 
 }
