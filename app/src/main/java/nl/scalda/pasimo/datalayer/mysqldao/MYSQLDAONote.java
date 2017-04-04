@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.datalayer.mysqldao;
 
+import java.sql.Date;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,9 +11,6 @@ import org.hibernate.query.NativeQuery;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.model.employeemanagement.Note;
-import nl.scalda.pasimo.model.employeemanagement.Person;
-import nl.scalda.pasimo.model.employeemanagement.Student;
-import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class MYSQLDAONote implements IDAONote {
 
@@ -67,9 +66,14 @@ public class MYSQLDAONote implements IDAONote {
 			tx = session.beginTransaction();
 			Object[] obj = (Object[]) session
 					.createNativeQuery(
-							"SELECT FROM teacher WHERE noteID = :noteID")
+							"SELECT * FROM note WHERE noteID = :noteID ;")
 					.setParameter("noteID", id).getSingleResult();
-			n = new Note(String.valueOf(obj[1]), String.valueOf(obj[2]), n.getMadeBy());
+			n = new Note();
+			n.setId(Integer.parseInt(String.valueOf(obj[0])));
+			n.setTitle(String.valueOf(obj[2]));
+			n.setMessage(String.valueOf(obj[3]));
+			n.setCreationDate(Date.valueOf((String) obj[5]));
+			n.setLastEdit(Date.valueOf((String) (obj[6])));
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null)

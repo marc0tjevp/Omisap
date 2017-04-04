@@ -6,105 +6,113 @@ import java.util.concurrent.atomic.AtomicInteger;
 import nl.scalda.pasimo.service.Service;
 
 public class Note implements Comparable<Note> {
-	AtomicInteger count = new AtomicInteger(0);
-	
-    private int id;
-    private String title;
-    private Date creationDate;
-    private String message;
-    private Teacher madeBy;
-    private Date lastEdit;
-    private Student student;
-    
-    /* empty constructor */
-    public Note(){
-    }
-    public Note(String title, String message, Teacher madeBy) {
 
-        this.title = title;
-        this.message = message;
-        this.madeBy = madeBy;
+	static AtomicInteger count = new AtomicInteger(0);
 
-        this.id = count.incrementAndGet();
-    }
+	private int id;
+	private String title;
+	private Date creationDate;
+	private String message;
+	private Teacher madeBy;
+	private Date lastEdit;
+	private Student student;
 
-    /**
-     * Edits the note, and updates the lastEdit timestamp
-     *
-     * @param title   title of the note
-     * @param message message of the note
-     * @return Note note returns a updated note
-     */
-    public Note editNote(String title, String message) {
+	/* empty constructor */
+	public Note() {
+		id = count.incrementAndGet();
 
-        this.title = title;
-        this.message = message;
+	}
 
-        this.lastEdit = new Date();
-        Service.getInstance().getNoteService().update(this);
-        return this;
-    }
+	public Note(String title, String message, Teacher madeBy) {
 
-    public int getId() {
-        return id;
-    }
+		this.title = title;
+		this.message = message;
+		this.madeBy = madeBy;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+		id = count.incrementAndGet();
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	/**
+	 * Edits the note, and updates the lastEdit timestamp
+	 *
+	 * @param title
+	 *            title of the note
+	 * @param message
+	 *            message of the note
+	 * @return Note note returns a updated note
+	 */
+	public Note editNote(String title, String message) {
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+		this.title = title;
+		this.message = message;
 
-    public Date getCreationDate() {
-        return creationDate;
-    }
+		this.lastEdit = new Date();
+		Service.getInstance().getNoteService().update(this);
+		return this;
+	}
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public String getMessage() {
-        return message;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public Teacher getMadeBy() {
-        return madeBy;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public void setMadeBy(Teacher madeBy) {
-        this.madeBy = madeBy;
-    }
+	public Date getCreationDate() {
+		return creationDate;
+	}
 
-    public Date getLastEdit() {
-        return lastEdit;
-    }
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
 
-    public void setLastEdit(Date lastEdit) {
-        this.lastEdit = lastEdit;
-    }
-    
-    public Student getStudent() {
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public Teacher getMadeBy() {
+		return madeBy;
+	}
+
+	public void setMadeBy(Teacher madeBy) {
+		this.madeBy = madeBy;
+	}
+
+	public Date getLastEdit() {
+		return lastEdit;
+	}
+
+	public void setLastEdit(Date lastEdit) {
+		this.lastEdit = lastEdit;
+	}
+
+	public Student getStudent() {
 		return student;
 	}
+
 	public void setStudent(Student student) {
 		this.student = student;
 	}
+
 	@Override
-    public int compareTo(Note o) {
-        if (this.id == o.getId()) {
-            return 0;
-        }
-        return this.getCreationDate().before(o.getCreationDate()) ? -1 : 1;
-    }
+	public int compareTo(Note o) {
+		if (this.id == o.getId()) {
+			return 0;
+		}
+		return this.getCreationDate().before(o.getCreationDate()) ? -1 : 1;
+	}
 
 }
