@@ -5,10 +5,20 @@
  */
 package nl.scalda.pasimo.controller.timeregistration;
 
+
+
+import com.opensymphony.xwork2.ActionSupport;
+
 /**
  *
- * @author hunteroooox
+ * @author Diederik
  */
-public class TimeController {
+public class TimeController extends ActionSupport {
     
+
+
+	public String execute(){
+		
+		return SUCCESS;
+	}
 }
