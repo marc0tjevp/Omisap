@@ -3,6 +3,9 @@ package nl.scalda.pasimo.model.employeemanagement;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAONote;
 import nl.scalda.pasimo.service.Service;
 
 public class Note implements Comparable<Note> {
@@ -27,7 +30,6 @@ public class Note implements Comparable<Note> {
         this.madeBy = madeBy;
 
         id = count.incrementAndGet();
-      
     }
 
     /**
@@ -37,14 +39,22 @@ public class Note implements Comparable<Note> {
      * @param message message of the note
      * @return Note note returns a updated note
      */
-    public Note editNote(String title, String message) {
+    public void editNote(Note note) {
 
-        this.title = title;
-        this.message = message;
-
-        this.lastEdit = new Date();
-        Service.getInstance().getNoteService().update(this);
-        return this;
+    	DAOFactory.getTheFactory().getDAONote().update(note);
+    }
+    public Note createNote(Note note){
+    	DAOFactory.getTheFactory().getDAONote().create(note);
+    	
+    	return this;
+    }
+    public void deleteNote(Note note){
+    	DAOFactory.getTheFactory().getDAONote().delete(note);
+ 
+    }
+    public void deleteAllNote(Note note){
+    	DAOFactory.getTheFactory().getDAONote().deleteAll();
+    	
     }
 
     public int getId() {

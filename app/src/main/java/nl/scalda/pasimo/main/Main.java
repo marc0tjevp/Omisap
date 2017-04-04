@@ -26,6 +26,7 @@ import nl.scalda.pasimo.service.EducationTeamService;
 public class Main {
 
     public static void main(String args[]) {
+    	
     	TreeSet<Note> noteList = new TreeSet<>();
     	Student s = new Student(3, 1, "1", "1", "1", "1", 1, 1,noteList, 1, 1);
     		Teacher teacher = new Teacher("GG", 666);
@@ -39,17 +40,21 @@ public class Main {
     		note.setCreationDate(creationDate);
     		note.setLastEdit(lastEdit);
     		note.setStudent(s);
+//    		
+//    		Note note1 = new Note();
+//    		note1.setTitle("title");
+//    		note1.setMessage("message");
+//    		note1.setMadeBy(teacher);
+//    		note1.setCreationDate(creationDate);
+//    		note1.setLastEdit(lastEdit);
+//    		note1.setStudent(s);
+//    		
+//    		
+//    		
+//    		MYSQLDAONote.getInstance().create(note);
+//    		MYSQLDAONote.getInstance().create(note1);
     		
-    		Note note1 = new Note();
-    		note1.setTitle("title");
-    		note1.setMessage("message");
-    		note1.setMadeBy(teacher);
-    		note1.setCreationDate(creationDate);
-    		note1.setLastEdit(lastEdit);
-    		note1.setStudent(s);
-    		
-    		MYSQLDAONote.getInstance().create(note);
-    		MYSQLDAONote.getInstance().create(note1);
+    		note.createNote(note);
   
     }
 
