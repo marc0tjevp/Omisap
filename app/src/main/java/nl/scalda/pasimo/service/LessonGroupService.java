@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.service;
 
+import java.util.Collection;
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.interfaces.ILessonGroupService;
@@ -41,4 +43,9 @@ public class LessonGroupService implements ILessonGroupService {
     public void delete(LessonGroup lessonGroup) {
         DAOFactory.getTheFactory().getDAOLessonGroup().delete(lessonGroup);
     }
+
+	public Collection<? extends nl.scalda.pasimo.model.employeemanagement.LessonGroup> getLessonGroup() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

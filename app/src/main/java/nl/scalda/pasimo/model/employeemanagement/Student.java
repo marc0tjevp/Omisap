@@ -3,6 +3,8 @@ package nl.scalda.pasimo.model.employeemanagement;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOStudent;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
 
 public class Student extends Person {
 
@@ -92,6 +94,13 @@ public class Student extends Person {
      */
 	 public void create(){
     	DAOFactory.getTheFactory().getDAOStudent().create(this);
+    }
+	public void delete() {
+		DAOFactory.getTheFactory().getDAOStudent().delete(this);
+		
+	}
+	public void update(){
+    	MYSQLDAOStudent.getInstance().update(this);
     }
 	
 	

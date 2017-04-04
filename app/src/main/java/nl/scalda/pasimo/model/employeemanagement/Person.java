@@ -88,7 +88,7 @@ public class Person implements Comparable<Person> {
         this.cardID = cardID;
     }
 
-    public String getFirstName() {
+    public static String getFirstName() {
         return firstName;
     }
 
@@ -96,7 +96,7 @@ public class Person implements Comparable<Person> {
         this.firstName = firstName;
     }
 
-    public String getInsertion() {
+    public static String getInsertion() {
         return insertion;
     }
 

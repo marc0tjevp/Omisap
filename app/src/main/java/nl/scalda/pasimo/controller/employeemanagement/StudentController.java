@@ -40,7 +40,7 @@ public class StudentController extends ActionSupport {
 	 * @return String
 	 */
 	public String loadStudentInfo() {
-		Student = getStudentByStudentOv(id);
+		student = getStudentByOv(id);
 		return SUCCESS;
 	}
 
@@ -51,10 +51,15 @@ public class StudentController extends ActionSupport {
 	 * @return String
 	 */
 	public String addStudent() {
-		Student.create();
-		LessonGroup et = getLessonGroupByAbbreviation(teamAbbreviation);
+		student.create();
+		LessonGroup et = getNameOfLessonGroup();
 		et.addStudent(student);
 		return SUCCESS;
+	}
+
+	private nl.scalda.pasimo.model.employeemanagement.LessonGroup getNameOfLessonGroup() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	/**
@@ -76,17 +81,12 @@ public class StudentController extends ActionSupport {
 	 */
 	public String updateStudent() {
 		for (Student f : getStudents()) {
-			if (f.getEmployeeNumber() == Student.getEmployeeNumber()){
-				f.setFirstName(Student.getFirstName());
-				f.setAbbreviation();
+			if (f.getStudentOV() == Student.getStudentOV()){
+				f.setFirstName(Student.getFirstName());			
 				f.setInsertion(Student.getInsertion());
 				f.setLastName(Student.getLastName());
 				f.setEmail(Student.getEmail());
 				f.setCardID(Student.getCardID());
-				if (!(getOldLessonGroup(f).getAbbreviation().equals(teamAbbreviation))){
-					getOldLessonGroup(f).deleteStudent(f);
-					getLessonGroupByAbbreviation(teamAbbreviation).addStudent(f);
-				}
 				f.update();
 			}
 		}
@@ -100,7 +100,7 @@ public class StudentController extends ActionSupport {
 	 * @return String
 	 */
 	public String removeStudent() {
-		Student = getStudentByEmployeeID(id);
+		student = getStudentByOv(id);
 		Student.delete();
 		return SUCCESS;
 	}
@@ -152,9 +152,9 @@ public class StudentController extends ActionSupport {
 	 * @param id
 	 * @return Student
 	 */
-	private Student getStudentByEmployeeID(int id) {
+	private Student getStudentByOv(int id) {
 		try {
-			return StudentService.getInstance().getStudentByEmployeeID(id);
+			return StudentService.getInstance().getStudentById(id);
 		} catch (Exception e) {
 			return null;
 		}
@@ -180,47 +180,28 @@ public class StudentController extends ActionSupport {
 	 * @return TreeSet<LessonGroup>
 	 */
 	public TreeSet<LessonGroup> getLessonGroups() {
-		LessonGroups.addAll(LessonGroupService.getInstance().getLessonGroups());
-		return LessonGroups;
+		LessonGroup.addAll(LessonGroupService.getInstance().getLessonGroup());
+		return LessonGroup;
 	}
 	
-	/**
-	 * gets the LessonGroup with the abbreviation that equals given abbreviation
-	 * 
-	 * @param abbr
-	 * @return LessonGroup
-	 */
-	public LessonGroup getLessonGroupByAbbreviation(String abbr){
-		for(LessonGroup et : getLessonGroups()){
-			if(et.getAbbreviation().equals(abbr)){
-				return et;
-			}
-		}
-		return null;
-	}
 
 	public void setStudents(TreeSet<Student> Students) {
 		this.Students = Students;
 	}
 
 	public Student getStudent() {
-		return Student;
+		return student;
 	}
 
 	public void setStudent(Student Student) {
-		this.Student = Student;
+		this.student = Student;
 	}
 
-	public String getTeamAbbreviation() {
-		return teamAbbreviation;
-	}
 
-	public void setTeamAbbreviation(String teamAbbreviation) {
-		this.teamAbbreviation = teamAbbreviation;
-	}
+	
 
 	public void setLessonGroups(TreeSet<LessonGroup> LessonGroups) {
-		this.LessonGroups = LessonGroups;
+		this.LessonGroup = LessonGroup;
 	}
 
 	public String getFileUploadContentType() {
