@@ -5,8 +5,6 @@ import java.util.TreeSet;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOStudent;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.service.LessonGroupService;
@@ -40,7 +38,11 @@ public class StudentController extends ActionSupport {
 	 * @return String
 	 */
 	public String loadStudentInfo() {
+<<<<<<< HEAD
 		student = getStudentByOv(id);
+=======
+		student = getStudentByStudentOv(id);
+>>>>>>> 52bd6567c8fe4d0bf22f757aa944d9bebfc1b0ff
 		return SUCCESS;
 	}
 
@@ -79,6 +81,7 @@ public class StudentController extends ActionSupport {
 	 * 
 	 * @return String
 	 */
+<<<<<<< HEAD
 	public String updateStudent() {
 		for (Student f : getStudents()) {
 			if (f.getStudentOV() == Student.getStudentOV()){
@@ -92,6 +95,25 @@ public class StudentController extends ActionSupport {
 		}
 		return SUCCESS;
 	}
+=======
+//	public String updateStudent() {
+//		for (Student f : getStudents()) {
+//			if (f.getStudentOV() == Student.getStudentOV()){
+//				f.setFirstName(Student.getFirstName());
+//				f.setInsertion(Student.getInsertion());
+//				f.setLastName(Student.getLastName());
+//				f.setEmail(Student.getEmail());
+//				f.setCardID(Student.getCardID());
+//				if (!(getOldLessonGroup(f).getAbbreviation().equals(teamAbbreviation))){
+//					getOldLessonGroup(f).deleteStudent(f);
+//					getLessonGroupByAbbreviation(teamAbbreviation).addStudent(f);
+//				}
+//				f.update();
+//			}
+//		}
+//		return SUCCESS;
+//	}
+>>>>>>> 52bd6567c8fe4d0bf22f757aa944d9bebfc1b0ff
 
 	/**
 	 * Removes the Student.
@@ -99,9 +121,15 @@ public class StudentController extends ActionSupport {
 	 * 
 	 * @return String
 	 */
+<<<<<<< HEAD
 	public String removeStudent() {
 		student = getStudentByOv(id);
 		Student.delete();
+=======
+	public String removeStudent(Student s) {
+		student = getStudentByEmployeeID(id);
+		student.deleteStudent(s);
+>>>>>>> 52bd6567c8fe4d0bf22f757aa944d9bebfc1b0ff
 		return SUCCESS;
 	}
 
@@ -135,12 +163,12 @@ public class StudentController extends ActionSupport {
 	/**
 	 * returns the education team the Student is currently in.
 	 * 
-	 * @param t
+	 * @param s
 	 * @return LessonGroup
 	 */
-	public LessonGroup getOldLessonGroup(Student t){
+	public LessonGroup getOldLessonGroup(Student s){
 		try {
-			return t.getLessonGroup();
+			return s.getLessonGroup();
 		} catch(Exception e) {
 			return null;
 		}
