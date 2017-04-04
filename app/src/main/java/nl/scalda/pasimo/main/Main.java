@@ -7,7 +7,7 @@ package nl.scalda.pasimo.main;
 
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
-
+import nl.scalda.pasimo.model.employeemanagement.Team;
 /**
  *
  * @author jeroe
@@ -17,20 +17,28 @@ public class Main {
     public static void main(String args[]) {
 
     
-    	EducationTeam e = new EducationTeam("MAMBO","Tim");
+    	EducationTeam e = new EducationTeam("pooooo","Weasley");
+    	Team t = new Team("","");
+
+        
     	
-//    	Database create functie
-//    	MYSQLDAOEducationTeam.getInstance().create(e);
-//    	
-//    	Database delete functie
-//    	MYSQLDAOEducationTeam.getInstance().delete(e);
-//    	
-//    	Database update functie
-//    	e.setId(108);
-//    	e.setName("Time");
-//    	e.setAbbreviation("stut");
+//    	t.addEducationTeam(e);
+
+    	
+//    	t.removeEducationTeam(e);
+
+
+//    	e.setId(115);
+//    	e.setName("tuuterenn");
+//    	e.setAbbreviation("weasley");
+//	    t.updateEducationTeam(e);
+    	
+    	
+    	
 //    	MYSQLDAOEducationTeam.getInstance().update(e);
-    	
+//    	MYSQLDAOEducationTeam.getInstance().delete(e);
+//    	MYSQLDAOEducationTeam.getInstance().create(e);
+	
     	
     }
 
