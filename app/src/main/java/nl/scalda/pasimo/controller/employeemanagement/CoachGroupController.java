@@ -1,8 +1,9 @@
 package nl.scalda.pasimo.controller.employeemanagement;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.TreeSet;
 import com.opensymphony.xwork2.ActionSupport;
-
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
@@ -10,7 +11,6 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.service.CoachGroupService;
 import nl.scalda.pasimo.service.EducationTeamService;
 import nl.scalda.pasimo.service.TeacherService;
-import nl.scalda.pasimo.test.CoachGroupList;
 
 /**
  *
@@ -27,7 +27,6 @@ public class CoachGroupController extends ActionSupport {
 	public TreeSet<EducationTeam> educationTeam = new TreeSet<>();
 	public TreeSet<CoachGroup> coachGroup = new TreeSet<>();
 	CoachGroup coach = new CoachGroup();
-	EducationTeam eduTeam = new EducationTeam(0, "");
 
 	public String s1;
 	public String s2;
@@ -46,8 +45,9 @@ public class CoachGroupController extends ActionSupport {
 
 	public String addCoachGroup() {
 		int id = 0;
+		Collection<CoachGroup> c = CoachGroupService.getInstance().readAll();
 		while (true) {
-			if (!CoachGroupList.getInstance().getCoachgroups().contains(id)) {
+			if (!c.retainAll(c)) {
 				coach.setId(id);
 				break;
 			}
@@ -72,10 +72,8 @@ public class CoachGroupController extends ActionSupport {
 			if (cg.getId() == coach.getId()) {
 				cg.setName(coach.getName());
 				cg.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s1)));
-				
 				cg.setCoach(coach.getCoach());
-
-
+				CoachGroupService.getInstance().update(cg);
 			}
 
 		}
