@@ -12,7 +12,6 @@ import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAONote;
 import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
-=======
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
