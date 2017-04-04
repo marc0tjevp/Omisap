@@ -24,7 +24,8 @@ public class Main {
     	Student s = new Student(3, 1, "1", "1", "1", "1", 1, 1,noteList, 1, 1);
     		Teacher teacher = new Teacher("GG", 666);
     		Date creationDate = new Date(666);
-    		Date lastEdit = new Date(555);
+    		Date lastEdit = new Date(555);	
+    		
     		Note note = new Note();
     		note.setTitle("title");
     		note.setMessage("message");
@@ -32,9 +33,20 @@ public class Main {
     		note.setCreationDate(creationDate);
     		note.setLastEdit(lastEdit);
     		note.setStudent(s);
-
     		
-    		MYSQLDAONote.getInstance().read(4);
+    		Note note1 = new Note();
+    		note1.setTitle("title");
+    		note1.setMessage("message");
+    		note1.setMadeBy(teacher);
+    		note1.setCreationDate(creationDate);
+    		note1.setLastEdit(lastEdit);
+    		note1.setStudent(s);
+    		
+    		MYSQLDAONote.getInstance().create(note);
+    		MYSQLDAONote.getInstance().create(note1);
+    		
+    		
+    		
     		
     		
     		

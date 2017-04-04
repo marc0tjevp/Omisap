@@ -111,8 +111,7 @@ public class MYSQLDAONote implements IDAONote {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			session.createNativeQuery("DELETE FROM note where noteID = :noteID").setParameter("noteID", note.getId())
-					.executeUpdate();
+			session.createNativeQuery("DELETE FROM note where noteID = :noteID").setParameter("noteID", note.getId()).executeUpdate();
 			tx.commit();
 		} catch (HibernateException e) {
 			if (tx != null)
@@ -123,7 +122,23 @@ public class MYSQLDAONote implements IDAONote {
 		}
 
 	}
-
+	@Override
+	public void deleteAll() {
+		Session session = factory.openSession();
+		Transaction tx = null;
+		try{
+			tx = session.beginTransaction();
+			session.createNativeQuery("TRUNCATE note").executeUpdate();
+			tx.commit();
+		} catch(HibernateException e){
+			if( tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally{
+			session.close();
+		}
+		
+	}
 	public static MYSQLDAONote getInstance() {
 		if (instance == null) {
 			instance = new MYSQLDAONote();

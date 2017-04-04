@@ -6,9 +6,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import nl.scalda.pasimo.service.Service;
 
 public class Note implements Comparable<Note> {
-	AtomicInteger count = new AtomicInteger(0);
+	static AtomicInteger count = new AtomicInteger(0);
 	
-    private int id;
+	private int id;
     private String title;
     private Date creationDate;
     private String message;
@@ -18,6 +18,7 @@ public class Note implements Comparable<Note> {
     
     /* empty constructor */
     public Note(){
+    	id = count.incrementAndGet();
     }
     public Note(String title, String message, Teacher madeBy) {
 
@@ -25,7 +26,8 @@ public class Note implements Comparable<Note> {
         this.message = message;
         this.madeBy = madeBy;
 
-        this.id = count.incrementAndGet();
+        id = count.incrementAndGet();
+      
     }
 
     /**

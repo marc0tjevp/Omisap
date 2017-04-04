@@ -65,7 +65,12 @@ public class TestDAONote implements IDAONote {
 	public void delete(Note note) {
 		noteList.remove(note);
 	}
-	
+
+	@Override
+	public void deleteAll() {
+		// TODO Auto-generated method stub
+		
+	}
 	public static TestDAONote getInstance(){
 		if(instance == null){
 			instance = new TestDAONote();
