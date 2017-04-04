@@ -2,14 +2,6 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
 
-<<<<<<< HEAD
-
-import nl.scalda.pasimo.test.CoachGroupList;
-
-import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
-
-
-=======
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
@@ -18,7 +10,6 @@ import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 
 
 
->>>>>>> 426f123ee9dbf277c48fbaf7cb2735293db8089d
 /**
  * @author Collin and ismet
  */
@@ -32,10 +23,6 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 * The name of this Coach group
 	 */
     private String name;
-<<<<<<< HEAD
-    //TODO verander coach
-    private Teacher teacher;
-=======
     /**
      * The Teacher of this CoachGroup
      */
@@ -43,10 +30,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
     /**
 	 * The {@link LessonGroups}'s who are in this CoachGroup
 	 */
->>>>>>> 426f123ee9dbf277c48fbaf7cb2735293db8089d
     private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
-  
-   
 
     /**
      * Default constructor
@@ -77,20 +61,9 @@ public class CoachGroup implements Comparable<CoachGroup> {
         this.name = name;
         this.coach = coach;
     }
-<<<<<<< HEAD
-
-    public CoachGroup(String name, Teacher teacher, EducationTeam currentEducationTeam) {
-        this.name = name;
-        this.teacher = teacher;
-        this.currentEducationTeam = currentEducationTeam;
-    }
-    
-    public CoachGroup(String name, Teacher teacher, TreeSet<LessonGroup> lessonGroups) {
-=======
     
     //TODO is only used for MYSQLDAOTeacher needs to be fixed
     public CoachGroup( String name, Teacher coach) {
->>>>>>> 426f123ee9dbf277c48fbaf7cb2735293db8089d
         this.name = name;
         this.coach = coach;
     }
@@ -119,37 +92,12 @@ public class CoachGroup implements Comparable<CoachGroup> {
         this.lessonGroups.add(lg);
         TestDAOLessonGroup.getInstance().create(lg);
     }
-<<<<<<< HEAD
-    //TODO naar lesson Group
-    public void updateLessonGroup(LessonGroup lessonGroup) {
-        for (LessonGroup eachLessonGroup : this.lessonGroups) {
-            if (eachLessonGroup != lessonGroup) {
-                continue;
-            }
-            eachLessonGroup.setName(lessonGroup.getName());
-            eachLessonGroup.setStudents(lessonGroup.getStudents());
-        }
-        
-        
-    }
-
-    public int getCoachGroupNumber() {
-		return CoachGroupNumber;
-	}
-
-	public void setCoachGroupNumber(int coachGroupNumber) {
-		CoachGroupNumber = coachGroupNumber;
-	}
-
-	public void deleteLessonGroup(LessonGroup lg) {
-=======
     /**
 	 * Deletes a lessonGroup from a coachGroup
 	 * @param LessonGroup
 	 */
 	public void deleteLessonGroup(LessonGroup lg) {
 
->>>>>>> 426f123ee9dbf277c48fbaf7cb2735293db8089d
         lessonGroups.remove(lg);
         TestDAOLessonGroup.getInstance().delete(lg);
 
@@ -176,18 +124,6 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 */
 	public void setId(int id) {
 
-<<<<<<< HEAD
-    public EducationTeam getCurrentEducationTeam() {
-		return currentEducationTeam;
-	}
-
-	public void setCurrentEducationTeam(EducationTeam currentEducationTeam) {
-		this.currentEducationTeam = currentEducationTeam;
-	}
-
-	public void setId(int id) {
-=======
->>>>>>> 426f123ee9dbf277c48fbaf7cb2735293db8089d
         this.id = id;
     }
 	/**
