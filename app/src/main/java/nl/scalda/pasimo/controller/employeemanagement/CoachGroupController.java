@@ -7,12 +7,14 @@ import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
+import nl.scalda.pasimo.service.CoachGroupService;
+import nl.scalda.pasimo.service.EducationTeamService;
+import nl.scalda.pasimo.service.TeacherService;
 import nl.scalda.pasimo.test.CoachGroupList;
-
 
 /**
  *
- * @author jeroe
+ * @author Collin and Ismet
  */
 public class CoachGroupController extends ActionSupport {
 	public String name;
@@ -22,25 +24,18 @@ public class CoachGroupController extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	public TreeSet<Teacher> teacher = new TreeSet<>();
 
-
-	public TreeSet<EducationTeam> educationTeam  = new TreeSet<>();
+	public TreeSet<EducationTeam> educationTeam = new TreeSet<>();
+	public TreeSet<CoachGroup> coachGroup = new TreeSet<>();
 	CoachGroup coach = new CoachGroup();
-	public TreeSet<CoachGroup> coachGroup  = new TreeSet<>();
+	EducationTeam eduTeam = new EducationTeam(0, "");
 
-	public String s1; 
+	public String s1;
 	public String s2;
 
-
 	public String execute() {
-		coachGroup = CoachGroupList.getInstance().getCoachgroups();
-		
-		//CoachGroup a1 = new CoachGroup();
-		EducationTeam a2 = new EducationTeam("ao", "edu");
-		 Teacher a3 = new Teacher(12,"1", 12, "fgkerbjfnkbjergkbjersbknj", "1", "fegwbjufbverbj", 1988, 12, 12);
-		teacher.add(a3);
-		educationTeam.add(a2);
-	//	coachGroup.add(a1);
-		
+		educationTeam = EducationTeamService.getInstance().getEducationTeams();
+		coachGroup = CoachGroupService.getInstance().readAll();
+		teacher = TeacherService.getInstance().readAll();
 		return SUCCESS;
 	}
 
@@ -50,7 +45,7 @@ public class CoachGroupController extends ActionSupport {
 	}
 
 	public String addCoachGroup() {
-	 int id = 0;
+		int id = 0;
 		while (true) {
 			if (!CoachGroupList.getInstance().getCoachgroups().contains(id)) {
 				coach.setId(id);
@@ -58,27 +53,17 @@ public class CoachGroupController extends ActionSupport {
 			}
 			id++;
 		}
-		for (EducationTeam o: educationTeam){
-			if(o.getId() == Integer.parseInt(s1)){
-				coach.setCurrentEducationTeam(o);
+		
+		for (EducationTeam o : educationTeam) {
+			if (o.getId() == Integer.parseInt(s1)) {				
+				coach.setName(coach.getName());
+				coach.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s2)));
+				CoachGroupService.getInstance().create(coach, o);
 				break;
 			}
+
 		}
-		for (Teacher o: teacher){
-			if(o.getCardID() == Integer.parseInt(s2)){
-				coach.setTeacher(o);
-				break;
-			}
-		}
-		coach.setName(coach.getName());
-		
-		CoachGroupList.getInstance().addCoachGroup(coach);
-		
-		coachGroup.add(coach);
-		
-		TestDAOCoachGroup.getInstance().create(coach);
-	
-		System.out.println(CoachGroupList.getInstance().getCoachgroups());
+
 		return SUCCESS;
 	}
 
@@ -86,8 +71,10 @@ public class CoachGroupController extends ActionSupport {
 		for (CoachGroup cg : CoachGroupList.getInstance().getCoachgroups()) {
 			if (cg.getId() == coach.getId()) {
 				cg.setName(coach.getName());
-				cg.setTeacher(coach.getTeacher());
-				cg.setCurrentEducationTeam(coach.getCurrentEducationTeam());
+				cg.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s1)));
+				
+				cg.setCoach(coach.getCoach());
+
 
 			}
 
@@ -96,19 +83,11 @@ public class CoachGroupController extends ActionSupport {
 	}
 
 	public String deleteCoachGroup() {
-		
-		CoachGroupList.getInstance().removeCoachGroup(coach);
-		coachGroup.remove(coach);
-		TestDAOCoachGroup.getInstance().delete(coach);
+
+		CoachGroupService.getInstance().delete(coach);
 
 		return SUCCESS;
 	}
-	 
-	public String CheckCoach() {
-
-		return SUCCESS;
-	}
-	
 
 	public TreeSet<Teacher> getTeacher() {
 		return teacher;
