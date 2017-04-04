@@ -18,6 +18,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
 
 	public TestDAOCoachGroup() {
+<<<<<<< HEAD
 		coachGroups.add(new CoachGroup(123, "A1"));
 		coachGroups.add(new CoachGroup(124, "A2"));
 		coachGroups.add(new CoachGroup(125, "A3"));
@@ -49,11 +50,48 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 			}
 		}
 		return null;
+=======
+		coachGroups.add(new CoachGroup( 1234,"A1"));
+		coachGroups.add(new CoachGroup( 12345,"A2"));
+		coachGroups.add(new CoachGroup( 123456,"A3"));
+	}
+
+	@Override
+	public void create(CoachGroup cg) {
+		try {
+			coachGroups.add(cg);
+			
+		} catch (Exception ex) {
+		}
+	}
+
+	@Override
+	public CoachGroup read(CoachGroup coachGroup) {
+		for (CoachGroup ccg : coachGroups) {
+			try {
+				if (coachGroup.getId() == ccg.getId()) {
+					return ccg;
+				}
+			} catch (Exception ex) {
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public void delete(CoachGroup coachGroup) {
+		try {
+			coachGroups.remove(coachGroup);
+		
+		} catch (Exception ex) {
+		}
+>>>>>>> 426f123ee9dbf277c48fbaf7cb2735293db8089d
 	}
 
 	@Override
 	public void update(CoachGroup coachGroup) {
 		try {
+<<<<<<< HEAD
 			for (CoachGroup ccg : coachGroups) {
 			
 				if (coachGroup.getId() == ccg.getId()) {
@@ -102,6 +140,25 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 			}
 
 		}
+=======
+			
+			for (CoachGroup ccg : coachGroups) {
+
+				if (coachGroup.getId() == ccg.getId()) {
+					
+					ccg.setName(coachGroup.getName());
+					ccg.setCoach(coachGroup.getCoach());
+					
+					
+					continue;
+				}
+			}
+		} catch (Exception ex) {
+		
+		}
+
+	}
+>>>>>>> 426f123ee9dbf277c48fbaf7cb2735293db8089d
 
 	public static TestDAOCoachGroup getInstance() {
 		if (instance == null) {
