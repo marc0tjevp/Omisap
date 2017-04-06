@@ -3,6 +3,8 @@ package nl.scalda.pasimo.model.employeemanagement;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.service.Service;
 
 public class Note implements Comparable<Note> {
@@ -14,20 +16,19 @@ public class Note implements Comparable<Note> {
     private String message;
     private Teacher madeBy;
     private Date lastEdit;
-    private Student student;
+    private Student assignedTo;
     
     /* empty constructor */
     public Note(){
     	id = count.incrementAndGet();
     }
-    public Note(String title, String message, Teacher madeBy) {
+    public Note(String title, String message, Student assignedTo, Teacher madeBy) {
 
         this.title = title;
         this.message = message;
         this.madeBy = madeBy;
-
+        this.assignedTo = assignedTo;
         id = count.incrementAndGet();
-      
     }
 
     /**
@@ -41,12 +42,13 @@ public class Note implements Comparable<Note> {
 
         this.title = title;
         this.message = message;
-
         this.lastEdit = new Date();
         Service.getInstance().getNoteService().update(this);
+        id = count.incrementAndGet();
         return this;
     }
-
+    
+ 
     public int getId() {
         return id;
     }
@@ -95,11 +97,11 @@ public class Note implements Comparable<Note> {
         this.lastEdit = lastEdit;
     }
     
-    public Student getStudent() {
-		return student;
+    public Student getAssignedTo() {
+		return assignedTo;
 	}
-	public void setStudent(Student student) {
-		this.student = student;
+	public void setAssignedTo(Student student) {
+		this.assignedTo = student;
 	}
 	@Override
     public int compareTo(Note o) {

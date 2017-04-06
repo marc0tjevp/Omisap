@@ -1,7 +1,10 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import java.util.Date;
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAONote;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
 
 public class Teacher extends Person {
@@ -84,6 +87,14 @@ public class Teacher extends Person {
     	DAOFactory.getTheFactory().getDAOTeacher().create(this);
     }
     
+    public void createNote(String title, String message, Student s){
+    Note n = new Note(title, message,s, this);
+    n.setCreationDate(new Date());
+    n.setLastEdit(new Date());
+    n.getAssignedTo().getNoteList().add(n);
+    MYSQLDAONote.getInstance().create(n);
+    }
+    
     /**
      * updates the teacher in the (test)datalayer.
      */
@@ -94,7 +105,6 @@ public class Teacher extends Person {
     public void delete(){
     	DAOFactory.getTheFactory().getDAOTeacher().delete(this);
     }
-    
     
     /**
      * gets the coach group the teacher is currently in.

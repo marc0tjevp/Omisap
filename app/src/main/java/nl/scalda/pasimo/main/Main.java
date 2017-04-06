@@ -38,7 +38,7 @@ public class Main {
     		note.setMadeBy(teacher);
     		note.setCreationDate(creationDate);
     		note.setLastEdit(lastEdit);
-    		note.setStudent(s);
+    		note.setAssignedTo(s);
     		
     		Note note1 = new Note();
     		note1.setTitle("title");
@@ -46,11 +46,10 @@ public class Main {
     		note1.setMadeBy(teacher);
     		note1.setCreationDate(creationDate);
     		note1.setLastEdit(lastEdit);
-    		note1.setStudent(s);
+    		note1.setAssignedTo(s);
     		
-    		MYSQLDAONote.getInstance().create(note);
-    		MYSQLDAONote.getInstance().create(note1);
   
-    }
+    		teacher.createNote("test", "dit is een test", s);
+    }	
 
 }

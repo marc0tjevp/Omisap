@@ -15,11 +15,12 @@ public class TestDAONote implements IDAONote {
 	
 	private TestDAONote() {
 		Teacher tea1 = new Teacher();
+		Student s = new Student("test");
                 tea1.setFirstName("Bram");
 		noteList = new TreeSet<Note>();
-		Note note1 = new Note("Vertraging bus", "Lijn 660 had vertraging van 30 minuten", tea1);
-		Note note2 = new Note("Vertraging boot", "Boot had vertraging van 30 minuten", tea1);
-		Note note3 = new Note("Vertraging vliegtuig", "Vliegtuig had vertraging van 30 minuten", tea1);
+		Note note1 = new Note("Vertraging bus", "Lijn 660 had vertraging van 30 minuten",s, tea1);
+		Note note2 = new Note("Vertraging boot", "Boot had vertraging van 30 minuten",s, tea1);
+		Note note3 = new Note("Vertraging vliegtuig", "Vliegtuig had vertraging van 30 minuten",s, tea1);
 		
 		noteList.add(note1);
 		noteList.add(note2);
