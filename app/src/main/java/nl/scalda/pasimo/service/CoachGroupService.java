@@ -30,7 +30,6 @@ public class CoachGroupService {
      * @param edu
      */
     public void create(CoachGroup cg, EducationTeam edu) {//teacher
-    	cg.setName(edu.getAbbreviation() + cg.getName());
     	edu.addCoachGroup(cg);
     }
     

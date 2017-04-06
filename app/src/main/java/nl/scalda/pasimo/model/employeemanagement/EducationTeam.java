@@ -37,6 +37,7 @@ public class EducationTeam implements Comparable<EducationTeam>{
      * @param coachGroup
      */
     public void addCoachGroup(CoachGroup cg){
+    	cg.setName(this.abbreviation + cg.getName());
     	this.coachGroups.add(cg);
     	//DAOFactory.getTheFactory().getDAOCoachGroup().create(cg);
     	TestDAOCoachGroup.getInstance().create(cg);
