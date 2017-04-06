@@ -69,7 +69,7 @@ public class MYSQLDAONote implements IDAONote {
 					.createNativeQuery(
 							"SELECT FROM teacher WHERE noteID = :noteID")
 					.setParameter("noteID", id).getSingleResult();
-			n = new Note(String.valueOf(obj[1]), String.valueOf(obj[2]), n.getMadeBy());
+			n = new Note(String.valueOf(obj[1]), String.valueOf(obj[2]),n.getAssignedTo(), n.getMadeBy());
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null)

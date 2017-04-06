@@ -8,15 +8,9 @@ package nl.scalda.pasimo.main;
 import java.sql.Date;
 import java.util.TreeSet;
 
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAONote;
 import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
-import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
-import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
-import nl.scalda.pasimo.model.employeemanagement.Teacher;
-import nl.scalda.pasimo.service.CoachGroupService;
-import nl.scalda.pasimo.service.EducationTeamService;
 
 
 /**
@@ -48,8 +42,7 @@ public class Main {
     		note1.setLastEdit(lastEdit);
     		note1.setAssignedTo(s);
     		
-  
-    		teacher.createNote("test", "dit is een test", s);
+
     }	
 
 }
