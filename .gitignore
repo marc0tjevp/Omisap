@@ -19,15 +19,3 @@ Servers/*
 *.iws
 *.iml
 app/nb-configuration\.xml
-
-bin/*
-
-# Eclipse
-.classpath
-.project
-.settings/
-
-# Maven
-target/*
-log/*
-*/target/
