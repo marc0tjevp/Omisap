@@ -1,6 +1,8 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
+
 import java.util.TreeSet;
 
 import javax.persistence.*;
@@ -16,7 +18,7 @@ public class EducationTeam implements Comparable<EducationTeam>{
 	@Id
 	@Column(name="educationTeamID", length=11, nullable=false)
     private int id;
-	
+	private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
     private TreeSet<Teacher> teachers = new TreeSet<>();
 
     /**
@@ -36,6 +38,27 @@ public class EducationTeam implements Comparable<EducationTeam>{
 		}
 		
 	}
+    
+    /**
+     * Adds a coachgroup from a EducationTeam and database
+     * @param coachGroup
+     */
+    public void addCoachGroup(CoachGroup cg){
+    	this.coachGroups.add(cg);
+    	//DAOFactory.getTheFactory().getDAOCoachGroup().create(cg);
+    	TestDAOCoachGroup.getInstance().create(cg);
+    
+    }
+    
+    /**
+     * Deletes a coachgroup from a EducationTeam and database
+     * @param CoachGroup coach
+     */
+    public void deleteCoachGroup(CoachGroup cg){
+    	this.coachGroups.remove(cg);
+    	//DAOFactory.getTheFactory().getDAOCoachGroup().create(coachGroup);
+    	TestDAOCoachGroup.getInstance().delete(cg);
+    }
     
     public void updateTeacher(Teacher teacher) {
         for (Teacher ct : teachers) {
@@ -122,5 +145,16 @@ public class EducationTeam implements Comparable<EducationTeam>{
                 ", name='" + name + '\'' +
                 '}';
     }
+
+	public TreeSet<CoachGroup> getCoachGroups() {
+		return coachGroups;
+	}
+
+	public void setCoachGroups(TreeSet<CoachGroup> coachGroups) {
+		this.coachGroups = coachGroups;
+	}
+
+	
+    
 
 }

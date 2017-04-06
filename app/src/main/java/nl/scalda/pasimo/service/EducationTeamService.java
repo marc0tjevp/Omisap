@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.service;
 
 import java.util.Set;
+import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
@@ -9,11 +10,11 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 public class EducationTeamService {
 	
 	private static EducationTeamService instance;
-	
+	public TreeSet<EducationTeam> edu = new TreeSet<>();
 	public EducationTeamService(){}
 	
-	public Set<EducationTeam> getEducationTeams(){
-		return DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
+	public TreeSet<EducationTeam> getEducationTeams(){
+		return this.edu;
 	}
 	
 	public static EducationTeamService getInstance() {
