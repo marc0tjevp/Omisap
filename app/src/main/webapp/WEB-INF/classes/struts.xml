@@ -108,6 +108,10 @@
 			method="loadTeacherInfo">
 			<result name="success">/view/employeemanagement/teacher/TeacherInformation.jsp</result>
 		</action>
+		<action name="TeacherPresence" class="nl.scalda.pasimo.controller.presenceregistration.PresenceController"
+                method="execute">
+            <result name="success">/view/presenceregistration/index.jsp</result>
+        </action>
 	
     </package>
 </struts>
