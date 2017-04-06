@@ -5,20 +5,28 @@
  */
 package nl.scalda.pasimo.controller.timeregistration;
 
-
-
 import com.opensymphony.xwork2.ActionSupport;
+
+import nl.scalda.pasimo.model.timeregistration.WorkBlock;
+import nl.scalda.pasimo.model.timeregistration.WorkingDay;
 
 /**
  *
  * @author Diederik
  */
 public class TimeController extends ActionSupport {
-    
 
+	WorkingDay w = new WorkingDay("maandag");
 
-	public String execute(){
-		
+	public String execute() {
+
 		return SUCCESS;
 	}
+
+	public String removeWorkBlock(WorkBlock workblock) {
+		w.deleteWorkBlock(workblock);
+
+		return SUCCESS;
+	}
+
 }

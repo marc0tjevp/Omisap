@@ -83,5 +83,12 @@
 			<result name="success">/view/timeregistration/index.jsp
 			</result>
 		</action>
+		
+		<action name="deleteWorkBlock"
+			class="nl.scalda.pasimo.controller.timeregistration.TimeController"
+			method="removeWorkBlock">
+			<result name="success" type="redirect">/view/timeregistration/index.jsp
+			</result>
+		</action>
 	</package>
 </struts>

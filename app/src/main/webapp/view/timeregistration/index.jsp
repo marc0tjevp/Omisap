@@ -188,10 +188,11 @@
 </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success ">Aanpassen</button>
-         
+  
              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2">
  Verwijder
 </button>
+
       </div>
     </div>
     </div>
