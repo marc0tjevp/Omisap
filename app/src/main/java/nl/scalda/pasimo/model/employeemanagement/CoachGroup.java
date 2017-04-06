@@ -5,6 +5,7 @@ import java.util.TreeSet;
 import javax.persistence.*;
 
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
+import nl.scalda.pasimo.main.CSVReader;
 
 /**
  * @author jeroe
@@ -12,7 +13,7 @@ import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 @Entity
 @Table(name="coach_group")
 public class CoachGroup implements Comparable<CoachGroup> {
-
+	
 	@Id
 	@Column(name="coachGroupID", length=64, nullable=false)
     private int id;
@@ -110,6 +111,8 @@ public class CoachGroup implements Comparable<CoachGroup> {
                ", lessongroup= " +
                lessonGroups;
     }
+    
+
 
     @Override
     public int compareTo(CoachGroup o) {

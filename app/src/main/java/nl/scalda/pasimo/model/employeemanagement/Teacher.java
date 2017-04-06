@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
+import nl.scalda.pasimo.main.CSVReader;
 
 @Entity
 @Table(name="teacher")
@@ -12,7 +13,6 @@ import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 public class Teacher extends Person {
 
 	private static final long serialVersionUID = 1L;
-
 	//this needs to be the pk of teacher table
 	//@Id
 	@Column(name="employeeNumber", length=6, nullable=false)
@@ -126,6 +126,8 @@ public class Teacher extends Person {
     	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentEducationTeamOfTeacher(this);
     }
 
+   
+    
     @Override
     public String toString() {
         return "Teacher [abbreviation=" + abbreviation + ", employeeNumber=" + employeeNumber

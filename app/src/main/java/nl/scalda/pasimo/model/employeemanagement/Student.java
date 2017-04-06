@@ -2,6 +2,8 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import javax.persistence.*;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+
 @Entity
 @Table(name="student")
 //@PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
@@ -38,6 +40,10 @@ public class Student extends Person {
 		this.cardID = cardID;
 	}
 
+	public void createStudent(){
+		DAOFactory.getTheFactory().getDAOStudent().create(this);
+	}
+	
 	public boolean deleteStudent(Student s) {
 		s = null;
 		return true;
