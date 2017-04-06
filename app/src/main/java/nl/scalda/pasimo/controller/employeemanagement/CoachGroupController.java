@@ -44,15 +44,19 @@ public class CoachGroupController extends ActionSupport {
 	}
 
 	public String addCoachGroup() {
+		
 		int id = 0;
-		Collection<CoachGroup> c = CoachGroupService.getInstance().readAll();
-		while (true) {
-			if (!c.retainAll(c)) {
-				coach.setId(id);
-				break;
+		TreeSet<Integer> treep = new TreeSet<>();
+			for(CoachGroup cg: coachGroup) {
+				treep.add(cg.getId());
 			}
+			
+			while(true){
+			if(treep.contains(id)){
+				break;
+				}
 			id++;
-		}
+			}
 		
 		for (EducationTeam o : educationTeam) {
 			if (o.getId() == Integer.parseInt(s1)) {				
@@ -68,7 +72,7 @@ public class CoachGroupController extends ActionSupport {
 	}
 
 	public String updateCoachGroup() {
-		for (CoachGroup cg : CoachGroupList.getInstance().getCoachgroups()) {
+		for (CoachGroup cg : CoachGroupService.getInstance().readAll()) {
 			if (cg.getId() == coach.getId()) {
 				cg.setName(coach.getName());
 				cg.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s1)));
