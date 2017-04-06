@@ -24,10 +24,27 @@ WorkBlock workblock = new WorkBlock(12 ,"", "");
 
 		return SUCCESS;
 	}
-
+ public String createWorkBlock(WorkBlock workblock) {
+	 workblock.setId(0);
+	 workblock.setStartTime("");
+	 workblock.setEndTime("");
+	 w.addWorkBlock(workblock);
+	return SUCCESS;
+	 
+}
+ public String updateWorkBlock(WorkBlock workblock){
+	 workblock.setId(0);
+	 workblock.setStartTime("");
+	 workblock.setEndTime("");
+	 w.updateWorkBlock(workblock);
+	 return SUCCESS;
+}
 	public String removeWorkBlock(WorkBlock workblock) {
 		w.deleteWorkBlock(workblock);
 
+		return SUCCESS;
+	}
+	public String readWorkBlock() {
 		return SUCCESS;
 	}
 
