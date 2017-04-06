@@ -5,16 +5,10 @@
  */
 package nl.scalda.pasimo.service;
 
-import java.util.Objects;
 import java.util.TreeSet;
 
-import javassist.compiler.ast.Pair;
-import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
-import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
-import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 /**
  *

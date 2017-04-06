@@ -14,7 +14,6 @@ import org.hibernate.query.NativeQuery;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
-import nl.scalda.pasimo.model.employeemanagement.Person;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class MYSQLDAOTeacher implements IDAOTeacher {

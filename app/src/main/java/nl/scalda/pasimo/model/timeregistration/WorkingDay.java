@@ -10,7 +10,6 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 
 /**
  * + * + * @author Diederik +
