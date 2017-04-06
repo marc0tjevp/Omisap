@@ -1,10 +1,14 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
+
 import java.util.TreeSet;
 
 public class EducationTeam implements Comparable<EducationTeam> {
 
+
+	private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
     private TreeSet<Teacher> teachers = new TreeSet<>();
 
     /**
@@ -21,13 +25,34 @@ public class EducationTeam implements Comparable<EducationTeam> {
      */
     private int id;
 
-    public void addTeacher(Teacher t) {
-        if (teachers.add(t)) {
-            DAOFactory.getTheFactory().getDAOEducationTeam().addTeacherToEducationTeam(t, this);
-        }
-
+    public void addTeacher(Teacher t){
+		if (teachers.add(t)) {
+			DAOFactory.getTheFactory().getDAOEducationTeam().addTeacherToEducationTeam(t, this);
+		}
+		
+	}
+    
+    /**
+     * Adds a coachgroup from a EducationTeam and database
+     * @param coachGroup
+     */
+    public void addCoachGroup(CoachGroup cg){
+    	this.coachGroups.add(cg);
+    	//DAOFactory.getTheFactory().getDAOCoachGroup().create(cg);
+    	TestDAOCoachGroup.getInstance().create(cg);
+    
     }
-
+    
+    /**
+     * Deletes a coachgroup from a EducationTeam and database
+     * @param CoachGroup coach
+     */
+    public void deleteCoachGroup(CoachGroup cg){
+    	this.coachGroups.remove(cg);
+    	//DAOFactory.getTheFactory().getDAOCoachGroup().create(coachGroup);
+    	TestDAOCoachGroup.getInstance().delete(cg);
+    }
+    
     public void updateTeacher(Teacher teacher) {
         for (Teacher ct : teachers) {
             if (teacher.getAbbreviation().equals(ct.getAbbreviation())) {
@@ -109,5 +134,16 @@ public class EducationTeam implements Comparable<EducationTeam> {
                 + ", name='" + name + '\''
                 + '}';
     }
+
+	public TreeSet<CoachGroup> getCoachGroups() {
+		return coachGroups;
+	}
+
+	public void setCoachGroups(TreeSet<CoachGroup> coachGroups) {
+		this.coachGroups = coachGroups;
+	}
+
+	
+    
 
 }
