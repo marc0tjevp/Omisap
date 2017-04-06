@@ -18,6 +18,9 @@ import nl.scalda.pasimo.service.EducationTeamService;
 public class Main {
 
     public static void main(String args[]) {
+    	
+    	System.out.println("Lul!");
+    	
     	Teacher tc = new Teacher(124, "k@k.com", 215950, "sibgadhfasfd", "van", "klaas", 1999, 9, 15);
     	CoachGroup cg = new CoachGroup(0, "12", tc);
     	CoachGroup cg1 = new CoachGroup(1, "12", tc);
