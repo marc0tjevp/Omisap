@@ -20,8 +20,6 @@ public class Team {
     private Set<EducationTeam> educationTeams;
 
     //<editor-fold defaultstate="collapsed" desc="constructor">
-
-
     public Team(String abbreviation, String name) {
         this(abbreviation, name, new TreeSet<EducationTeam>());
     }
@@ -33,7 +31,6 @@ public class Team {
     }
 
     //</editor-fold>
-
     /**
      * Adds an EducationTeam to the Team.
      */
@@ -61,7 +58,6 @@ public class Team {
     }
 
     //<editor-fold defaultstate="collapsed" desc="getters and setters">
-
     public String getAbbreviation() {
         return abbreviation;
     }
@@ -87,14 +83,13 @@ public class Team {
     }
 
     //</editor-fold>
-
     @Override
     public String toString() {
-        return "Team{" +
-                "abbreviation='" + abbreviation + '\'' +
-                ", name='" + name + '\'' +
-                ", educationTeams=" + educationTeams +
-                '}';
+        return "Team{"
+                + "abbreviation='" + abbreviation + '\''
+                + ", name='" + name + '\''
+                + ", educationTeams=" + educationTeams
+                + '}';
     }
 
 }

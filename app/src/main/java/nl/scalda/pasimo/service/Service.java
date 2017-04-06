@@ -19,6 +19,10 @@ public class Service {
             instance = new Service();
         return instance;
     }
+    
+    public EducationTeamService getEducationTeamService() {
+        return EducationTeamService.getInstance();
+    }
 
     public CoachGroupService getCoachGroupService() {
         return CoachGroupService.getInstance();

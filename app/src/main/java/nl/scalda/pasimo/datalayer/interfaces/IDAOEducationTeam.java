@@ -18,7 +18,8 @@ public interface IDAOEducationTeam {
     void update(EducationTeam educationTeam);
 
     /**
-     * Creates the EducationTeam (if not exists) saves the EducationTeam otherwise.
+     * Creates the EducationTeam (if not exists) saves the EducationTeam
+     * otherwise.
      */
     void save(EducationTeam educationTeam);
 
@@ -28,8 +29,8 @@ public interface IDAOEducationTeam {
     void delete(EducationTeam educationTeam);
 
     /**
-     * @return - The requested EducationTeam if one exist with that abbreviation.
-     * Null otherwise.
+     * @return - The requested EducationTeam if one exist with that
+     * abbreviation. Null otherwise.
      */
     EducationTeam read(String abbreviation);
 
@@ -44,9 +45,9 @@ public interface IDAOEducationTeam {
      * @return - Whether that EducationTeam exists.
      */
     boolean exist(String abbr);
-    
+
     void addTeacherToEducationTeam(Teacher teacher, EducationTeam educationTeam);
-    
+
     void deleteTeacherFromEducationTeam(Teacher teacher, EducationTeam educationTeam);
 
 }
