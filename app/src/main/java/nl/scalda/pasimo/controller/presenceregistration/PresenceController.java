@@ -5,10 +5,17 @@
  */
 package nl.scalda.pasimo.controller.presenceregistration;
 
+import com.opensymphony.xwork2.ActionSupport;
+
 /**
  *
  * @author hunteroooox
  */
-public class PresenceController {
-    
+public class PresenceController extends ActionSupport {
+	
+	public String execute() {
+        //actions
+        return SUCCESS;
+    }
+
 }
