@@ -31,7 +31,11 @@
       <div class="container">
 	      <div class="col-sm-12">
 	                      <div class="div-inline">
-                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
+	                      
+	<form action="addWorkBlock" class="" enctype="multipart/form-data" method="post" id="addWorkBlockForm">
+ 
+         
+           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
   Aanmaken
 </button>
 <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -105,12 +109,14 @@
       </div>
 </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success ">Toevoegen</button>
+        <div class="btn btn-primary" id="submitId">Toevoegen</div>
       </div>
      
     </div>
   </div>
 		</div>
+		</form>
+
 <!--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
   Aanpassen
 </button>-->

@@ -67,5 +67,11 @@
 			<result name="success" type="redirect">/view/timeregistration/index.jsp
 			</result>
 		</action>
+		<action name="addWorkBlock"
+		class="nl.scalda.pasimo.controller.timeregistration.TimeController"
+		method="createWorkBlock">
+		<result name="success" type="redirect">/view/timeregistration/index.jsp
+		</result>
+		</action>
 	</package>
 </struts>
