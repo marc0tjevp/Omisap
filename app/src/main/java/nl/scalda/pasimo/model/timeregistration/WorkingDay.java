@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOWorkBlock;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 
 /**
@@ -38,6 +39,7 @@ public class WorkingDay implements Comparable<WorkingDay> {
 
 	public void addWorkBlock(WorkBlock workblock) {
 		this.workBlocks.add(workblock);
+		MYSQLDAOWorkBlock.getInstance().create(workblock);
 //		DAOFactory.getTheFactory().getDAOWorkBlock().create(workblock);
 	} // deletes
 		// an
@@ -45,14 +47,17 @@ public class WorkingDay implements Comparable<WorkingDay> {
 
 	public void deleteWorkBlock(WorkBlock workblock) {
 		this.workBlocks.remove(workblock);
+		MYSQLDAOWorkBlock.getInstance().delete(workblock);
 //		DAOFactory.getTheFactory().getDAOWorkBlock().delete(workblock);
 	} // updates
 		// an
 		// workblock
 
 	public void updateWorkBlock(WorkBlock workblock) {
+		workblock.setId(workblock.getId());
 		workblock.setStartTime(workblock.getStartTime());
 		workblock.setEndTime(workblock.getEndTime());
+		MYSQLDAOWorkBlock.getInstance().update(workblock);
 //		DAOFactory.getTheFactory().getDAOWorkBlock().update(workblock);
 
 	
