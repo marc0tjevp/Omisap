@@ -17,7 +17,7 @@ public class MySQLDAOFactory extends DAOFactory {
 
     private static MySQLDAOFactory instance = null;
 
-    MySQLDAOFactory() {
+    private MySQLDAOFactory() {
     }
 
     public static MySQLDAOFactory getInstance() {
