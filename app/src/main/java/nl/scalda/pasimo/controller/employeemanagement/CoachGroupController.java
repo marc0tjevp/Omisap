@@ -32,9 +32,26 @@ public class CoachGroupController extends ActionSupport {
 	public String s2;
 
 	public String execute() {
+		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
+	
+
+		EducationTeam edu = new EducationTeam("ICOb", "ICO41A", 1);
+	
+		EducationTeam edu1 = new EducationTeam("ICOc", "ICO41B", 2);
+		EducationTeam edu2 = new EducationTeam("ICOd", "ICO41C", 3);
+		EducationTeam edu3 = new EducationTeam("ICOe", "ICO41D", 4);
+		EducationTeam edu4 = new EducationTeam("ICOf", "ICO41E", 5);
+		educationTeam.add(edu);
+		educationTeam.add(edu1);
+		educationTeam.add(edu2);
+		educationTeam.add(edu3);
+		educationTeam.add(edu4);
+		System.out.println(educationTeam);
+		teacher.add(tc);
+
 		educationTeam = EducationTeamService.getInstance().getEducationTeams();
 		coachGroup = CoachGroupService.getInstance().readAll();
-		//teacher = TeacherService.getInstance().readAll();
+		 teacher = TeacherService.getInstance().readAll();
 		return SUCCESS;
 	}
 
@@ -44,22 +61,9 @@ public class CoachGroupController extends ActionSupport {
 	}
 
 	public String addCoachGroup() {
-		
-		int id = 0;
-		TreeSet<Integer> treep = new TreeSet<>();
-			for(CoachGroup cg: coachGroup) {
-				treep.add(cg.getId());
-			}
-			
-			while(true){
-			if(treep.contains(id)){
-				break;
-				}
-			id++;
-			}
-		
+
 		for (EducationTeam o : educationTeam) {
-			if (o.getId() == Integer.parseInt(s1)) {				
+			if (o.getId() == Integer.parseInt(s1)) {
 				coach.setName(coach.getName());
 				coach.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s2)));
 				CoachGroupService.getInstance().create(coach, o);
