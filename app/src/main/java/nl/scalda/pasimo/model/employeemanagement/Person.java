@@ -10,10 +10,10 @@ import org.hibernate.annotations.Polymorphism;
 import org.hibernate.annotations.PolymorphismType;
 
 @Entity
-@Polymorphism(type=PolymorphismType.EXPLICIT)
-@Table(name="person")
+@Polymorphism(type=PolymorphismType.IMPLICIT)
 @Inheritance(strategy=InheritanceType.JOINED)
-public class Person implements Comparable<Person>, Serializable {
+@DiscriminatorColumn(name = "PERSON_TYPE")
+public abstract class Person implements Comparable<Person>, Serializable {
 
 	private static final long serialVersionUID = 1L;
 

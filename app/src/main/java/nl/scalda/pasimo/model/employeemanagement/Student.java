@@ -4,8 +4,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="student")
-//@PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
+@DiscriminatorValue(value="Student")
 public class Student extends Person {
+	
+//	@OneToOne
+//	@PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
+//	private Person preson;
 
 	private static final long serialVersionUID = 1L;
 	private int noteListID;
@@ -19,7 +23,7 @@ public class Student extends Person {
 	
 	//FIXME this needs to be the pk of student table
 	//@Id
-	@Column(name="ovNumber")
+	@Column(name="ovNumber", nullable=false)
 	private int studentOV;
 
 	

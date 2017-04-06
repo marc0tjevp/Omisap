@@ -4,14 +4,18 @@ import javax.persistence.*;
 
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 
 @Entity
 @Table(name="teacher")
-//@PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
+@DiscriminatorValue(value="Teacher")
 public class Teacher extends Person {
 
 	private static final long serialVersionUID = 1L;
+	
+//	nope
+//	@OneToOne
+//	@PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
+//	private Person preson;
 
 	//this needs to be the pk of teacher table
 	//@Id

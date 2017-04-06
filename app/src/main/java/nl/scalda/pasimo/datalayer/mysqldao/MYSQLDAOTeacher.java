@@ -130,8 +130,8 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			tx = session.beginTransaction();
 			session.createNativeQuery("DELETE FROM teacher_education_team WHERE teacher_employeeNumber = :employeeNumber").setParameter("employeeNumber", t.getEmployeeNumber()).executeUpdate();
 			session.delete(t);
-			Person p = new Person(t.getEmail());
-			session.delete(p);
+//			Person p = new Person(t.getEmail());
+//			session.delete(p);
 			tx.commit();
 		} catch(HibernateException e) {
 			if(tx!=null)tx.rollback();
