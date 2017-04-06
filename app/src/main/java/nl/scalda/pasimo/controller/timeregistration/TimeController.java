@@ -9,38 +9,26 @@ import java.util.TreeSet;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-
 import nl.scalda.pasimo.model.timeregistration.WorkBlock;
 import nl.scalda.pasimo.model.timeregistration.WorkingDay;
 
-/**
- *
- * @author Wesley
- */
+
+
 public class TimeController extends ActionSupport {
 	
-	 public WorkBlock workBlock = new WorkBlock();
-     public WorkingDay workingDay = new WorkingDay("");
+WorkingDay w = new WorkingDay("");
+WorkBlock workblock = new WorkBlock(12 ,"", "");
 	
-public String read() {
-	
-	return SUCCESS;
-}
-	public String create() {
-		workingDay.addWorkBlock(workBlock);
-		workBlock.setStartTime("");
-		workBlock.setEndTime("");
-	
-	//	workBlock.add(workingDay);
-		
+
+	public String execute() {
+
 		return SUCCESS;
 	}
 
-	public String update() {
+	public String removeWorkBlock(WorkBlock workblock) {
+		w.deleteWorkBlock(workblock);
+
 		return SUCCESS;
 	}
 
-	public String delete() {
-		return SUCCESS;
-	}
 }

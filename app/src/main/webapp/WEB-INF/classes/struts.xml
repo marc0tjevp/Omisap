@@ -60,7 +60,12 @@
 		<action name="teacherInfo" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="loadTeacherInfo">
 			<result name="success">/view/employeemanagement/teacher/TeacherInformation.jsp</result>
+		</action>		
+		<action name="deleteWorkBlock"
+			class="nl.scalda.pasimo.controller.timeregistration.TimeController"
+			method="removeWorkBlock">
+			<result name="success" type="redirect">/view/timeregistration/index.jsp
+			</result>
 		</action>
-	
-    </package>
+	</package>
 </struts>
