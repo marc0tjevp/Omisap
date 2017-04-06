@@ -34,7 +34,7 @@ public class CoachGroupController extends ActionSupport {
 	public String execute() {
 		educationTeam = EducationTeamService.getInstance().getEducationTeams();
 		coachGroup = CoachGroupService.getInstance().readAll();
-		teacher = TeacherService.getInstance().readAll();
+		//teacher = TeacherService.getInstance().readAll();
 		return SUCCESS;
 	}
 

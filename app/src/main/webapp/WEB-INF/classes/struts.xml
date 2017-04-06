@@ -50,10 +50,10 @@
         </action>
         
         
-          <action name="coachGroup/add.action" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+         <!--   <action name="coachGroup/add.action" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
                 method="CheckCoach">
             <result name="success" type="json"></result>
-        </action>
+        </action> -->
         
 
         <action name="CoachLessonGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
