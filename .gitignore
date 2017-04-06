@@ -1,11 +1,22 @@
+#Ignore binaries:
+*.class
+
+#Ignore Jar files:
+*.jar
+*.war
+*.ear
 
 # Eclipse
 .metadata/
 RemoteSystemsTempFiles/*
 Server/*
+.recommenders/*
+Servers/*
+
 
 # IntelliJ
 .idea/
 *.iws
 *.iml
+app/nb-configuration\.xml
 
