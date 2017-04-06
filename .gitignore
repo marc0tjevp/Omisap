@@ -1,8 +1,10 @@
 #Ignore binaries:
 *.class
-*.sm
+
 #Ignore Jar files:
-!*/bin/*.jar
+*.jar
+*.war
+*.ear
 
 # Eclipse
 .metadata/
@@ -28,4 +30,4 @@ bin/*
 # Maven
 target/*
 log/*
-/target/
+*/target/
