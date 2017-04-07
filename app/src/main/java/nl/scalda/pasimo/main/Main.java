@@ -19,7 +19,7 @@ public class Main {
 
     public static void main(String args[]) {
     
-    	System.out.println("Bram heeft nooit gelijk");
+    	System.out.println("Bram nooit gelijk");
     }
 
 }
