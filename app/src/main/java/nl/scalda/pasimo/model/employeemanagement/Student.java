@@ -8,8 +8,8 @@ import javax.persistence.*;
 public class Student extends Person {
 	
 //	@OneToOne
-//	@PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
-//	private Person preson;
+//	@PrimaryKeyJoinColumn(name="person_email", referencedColumnName="email")
+//	private Person person;
 
 	private static final long serialVersionUID = 1L;
 	private int noteListID;

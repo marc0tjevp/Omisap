@@ -14,8 +14,8 @@ public class Teacher extends Person {
 	
 //	nope
 //	@OneToOne
-//	@PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
-//	private Person preson;
+//	@PrimaryKeyJoinColumn(name="person_email", referencedColumnName="email")
+//	private Person person;
 
 	//this needs to be the pk of teacher table
 	//@Id
