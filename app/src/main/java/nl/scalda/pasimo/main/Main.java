@@ -41,8 +41,7 @@ public class Main {
     		note1.setCreationDate(creationDate);
     		note1.setLastEdit(lastEdit);
     		note1.setAssignedTo(s);
-    		
-
+    		System.out.println("kut bram");
     		teacher.createNote("test", "test", s);
     }	
 
