@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.service;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 
@@ -13,7 +14,8 @@ public class NoteService {
     }
 
     public Note create(Note note, Student s) {
-        return DAOFactory.getTheFactory().getDAONote().create(note);
+         return MySQLDAOFactory.getTheFactory().getDAONote().create(note);
+   
     }
 
     public Note update(Note note) {

@@ -13,6 +13,7 @@ import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAONote;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
+import nl.scalda.pasimo.service.NoteService;
 
 
 public class MySQLDAOFactory extends DAOFactory {

@@ -7,6 +7,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.NativeQuery;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Person;
@@ -20,6 +21,13 @@ public class MYSQLDAONote implements IDAONote {
 
 	private MYSQLDAONote() {
 		initialiseFactory();
+	}
+
+	public static MYSQLDAONote getInstance() {
+		if (instance == null) {
+			instance = new MYSQLDAONote();
+		}
+		return instance;
 	}
 
 	private void initialiseFactory() {
@@ -139,11 +147,6 @@ public class MYSQLDAONote implements IDAONote {
 		}
 		
 	}
-	public static MYSQLDAONote getInstance() {
-		if (instance == null) {
-			instance = new MYSQLDAONote();
-		}
-		return instance;
-	}
-
+	
+	
 }

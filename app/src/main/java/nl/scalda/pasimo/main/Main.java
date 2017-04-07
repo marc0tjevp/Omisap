@@ -11,6 +11,7 @@ import java.util.TreeSet;
 import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
+import nl.scalda.pasimo.service.TeacherService;
 
 
 /**
@@ -42,6 +43,7 @@ public class Main {
     		note1.setLastEdit(lastEdit);
     		note1.setAssignedTo(s);
     		teacher.createNote("test", "test", s);
+ 
     }	
 
 }

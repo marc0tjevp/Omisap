@@ -13,6 +13,13 @@ public class TestDAONote implements IDAONote {
 	
 	private TreeSet<Note> noteList;
 	
+	public static TestDAONote getInstance(){
+		if(instance == null){
+			instance = new TestDAONote();
+		}
+		return instance;
+	}
+	
 	private TestDAONote() {
 		Teacher tea1 = new Teacher();
 		Student s = new Student("test");
@@ -72,11 +79,6 @@ public class TestDAONote implements IDAONote {
 		noteList.clear();
 		
 	}
-	public static TestDAONote getInstance(){
-		if(instance == null){
-			instance = new TestDAONote();
-		}
-		return instance;
-	}
+	
 
 }
