@@ -19,7 +19,16 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
  * @author jeroe
  */
 public class CSVReader {
-
+	/**
+	 * 
+	 * 
+	 * 
+	 * the csv file is in the onedrive
+	 * https://scalda365.sharepoint.com/sites/pasimo/_layouts/15/guestaccess.aspx?guestaccesstoken=UNvgztTFh1y65hLRTGZpgBI%2fRFAEiFXCsKoesH5ZLYc%3d&docid=2_1eabb040818454e5eb58e58dcdab04dae&rev=1
+	 * 
+	 * 
+	 * 
+	 */
     private TreeSet<Student> students = new TreeSet<>();
     private static CSVReader instance;
     
@@ -28,7 +37,8 @@ public class CSVReader {
     }
     
     public TreeSet<Student> readFile(String fileLocation) {
-       	String csvFile = fileLocation;
+       	// format that the csv file is: Nummer;Roepnaam;Voorvoegsel;Achternaam;Email school;Geboortedatum;
+    	String csvFile = fileLocation;
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ";";
@@ -44,21 +54,11 @@ public class CSVReader {
 			while ((line = br.readLine()) != null) {
 				String[] student = line.split(cvsSplitBy);
 				String[] YearsMonthsDays = student[5].split(date);
-//				boolean allLetters = student[5].chars().allMatch(Character::isLetter);
-//				if (!allLetters){
-//					System.out.println("day: "+YearsMonthsDays[0]);
-//					System.out.println("month: "+YearsMonthsDays[1]);					
-//					System.out.println("year: "+YearsMonthsDays[2]);
+
 //				}
 				Student a = new Student(Integer.parseInt(student[0]), 0, 0, 1, student[4], student[1], student[2], student[3], 0, Integer.parseInt(YearsMonthsDays[2]), 123, Integer.parseInt(YearsMonthsDays[1]), Integer.parseInt(YearsMonthsDays[0]));
 			    students.add(a);
 			    a.createStudent();
-//				System.out.println("nummer; "+student[0]);
-//			    System.out.println("roepnaam: "+student[1]);
-//			    System.out.println("voorvoegsel: "+student[2]);
-//			    System.out.println("achternaam: "+student[3]);
-//			    System.out.println("email school: "+student[4]);
-//			    System.out.println("year of birth: "+student[5]);
 			    
 			    
 			    
