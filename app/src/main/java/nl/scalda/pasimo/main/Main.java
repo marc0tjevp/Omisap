@@ -18,7 +18,8 @@ import nl.scalda.pasimo.service.EducationTeamService;
 public class Main {
 
     public static void main(String args[]) {
-    	
+    
+    	System.out.println("Bram heeft nooit gelijk");
     }
 
 }
