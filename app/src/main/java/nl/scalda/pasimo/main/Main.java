@@ -43,6 +43,7 @@ public class Main {
     		note1.setAssignedTo(s);
     		
 
+    		teacher.createNote("test", "test", s);
     }	
 
 }

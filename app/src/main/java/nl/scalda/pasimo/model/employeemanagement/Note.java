@@ -29,6 +29,8 @@ public class Note implements Comparable<Note> {
         this.madeBy = madeBy;
         this.assignedTo = assignedTo;
         id = count.incrementAndGet();
+        this.creationDate = new Date();
+        Service.getInstance().getNoteService().create(this, assignedTo);
     }
 
     /**

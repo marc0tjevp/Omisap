@@ -89,10 +89,6 @@ public class Teacher extends Person {
     
     public void createNote(String title, String message, Student s){
     Note n = new Note(title, message,s, this);
-    n.setCreationDate(new Date());
-    n.setLastEdit(new Date());
-    n.getAssignedTo().getNoteList().add(n);
-    MYSQLDAONote.getInstance().create(n);
     }
     
     /**
