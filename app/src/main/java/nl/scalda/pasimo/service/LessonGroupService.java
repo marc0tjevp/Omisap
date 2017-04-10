@@ -9,61 +9,75 @@ import nl.scalda.pasimo.interfaces.ILessonGroupService;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
-
 public class LessonGroupService implements ILessonGroupService {
 
-    private static LessonGroupService instance = null;
+	private static LessonGroupService instance = null;
 
-    private LessonGroupService() {
-        DAOFactory.setTheFactory(TestDAOFactory.getInstance());
-    }
+	private LessonGroupService() {
+		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
+	}
 
-    public static LessonGroupService getInstance() {
-        if (instance == null) {
-            instance = new LessonGroupService();
-        }
+	public static LessonGroupService getInstance() {
+		if (instance == null) {
+			instance = new LessonGroupService();
+		}
 
-        return instance;
-    }
+		return instance;
+	}
 
-    @Override
-    public void create(LessonGroup lessonGroup) {
-    	/*
-    	 * Coachgroeps iets?
-    	 */
+	@Override
+	public void create(LessonGroup lessonGroup) {
 
-    	
-        DAOFactory.getTheFactory().getDAOLessonGroup().create(lessonGroup);
-    }
+	}
 
-    @Override
-    public LessonGroup read(LessonGroup lessonGroup) {
-    	return null;
-    }
+	@Override
+	public LessonGroup read(LessonGroup lessonGroup) {
+		return null;
+	}
 
-    @Override
-    public void update(LessonGroup newLessonGroup) {
-        DAOFactory.getTheFactory().getDAOLessonGroup().update(newLessonGroup);
-    }
+	public LessonGroup read(int id) {
 
-    @Override
-    public void delete(LessonGroup lessonGroup) {
-        DAOFactory.getTheFactory().getDAOLessonGroup().delete(lessonGroup);
-    }
+		for (CoachGroup cg : CoachGroupService.getInstance().readAll()) {
+			for (LessonGroup lg : cg.getLessonGroups()) {
+				if (lg.getId() == id) {
+					return lg;
+				}
+			}
+		}
+		return null;
+	}
+
+	// TODO Get rid of these DAO's
+	@Override
+	public void update(LessonGroup newLessonGroup) {
+		DAOFactory.getTheFactory().getDAOLessonGroup().update(newLessonGroup);
+	}
+
+	@Override
+	public void delete(LessonGroup lessonGroup) {
+		DAOFactory.getTheFactory().getDAOLessonGroup().delete(lessonGroup);
+	}
 
 	@Override
 	public TreeMap<CoachGroup, TreeSet<LessonGroup>> readAll() {
 		TreeMap<CoachGroup, TreeSet<LessonGroup>> lessonGroups = new TreeMap<>();
-		
-		/*
-		 * TODO Get all coach groups
-		 */
-		TreeSet<CoachGroup> coachGroups = null;
-		for(CoachGroup coachGroup : coachGroups) {
-			lessonGroups.put(coachGroup, coachGroup.getLessonGroups());
+		TreeSet<CoachGroup> allLessonGroups = new TreeSet<>();
+		for (CoachGroup cg1 : CoachGroupService.getInstance().readAll() ) {
+			if (cg1.getLessonGroups().contains(cg1)) {
+				return cg1;
+
+				/*
+				 * TODO Get all Coach Groups
+				 */
+				for (CoachGroup coachGroup : CoachGroupService.getInstance().readAll()) {
+					lessonGroups.put(coachGroup, coachGroup.getLessonGroups());
+
+				}
+				DAOFactory.getTheFactory().getDAOLessonGroup().readAll();
+				return readAll();
+			}
+
 		}
-		
-		//DAOFactory.getTheFactory().getDAOLessonGroup().readAll();
-		return null;
+
 	}
 }

@@ -195,7 +195,7 @@
                     		</td>
                     		
                     		<td>
-                   				<a href="/Pasimo/lessongroup/details?lessonGroupId=<s:property value="id"></s:property>">
+                   				<a href="/Pasimo/lessongroup/details?lessonGroupName=<s:property value="name"></s:property>">
                    					<s:property value="name"></s:property>
                    				</a>
                     		</td>
@@ -206,6 +206,9 @@
                     		
                     		<td>
                     			<s:property value=""></s:property>
+                    		</td>
+                    		<td>
+                    		<s:property value=""></s:property>
                     		</td>
                     	</tr>
                     </s:iterator>

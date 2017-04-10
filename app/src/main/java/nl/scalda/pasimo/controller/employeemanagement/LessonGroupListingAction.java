@@ -12,12 +12,12 @@ import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 import nl.scalda.pasimo.service.LessonGroupService;
 
 public class LessonGroupListingAction extends ActionSupport {
-
+     
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3651415035371001870L;
-
+     LessonGroup lg = new LessonGroup(null);
 	/**
 	 * All the lesson groups belonging to a specific lesson group
 	 */
@@ -45,6 +45,11 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * @return
 	 */
 	public String addLessonGroup() {
+    //this.lessonGroups = LessonGroupService.getInstance().create(lessonGroups);
+	
+	
+	
+	
 		/*
 		 * When the lesson group name is not filled in or empty
 		 */
@@ -115,7 +120,7 @@ public class LessonGroupListingAction extends ActionSupport {
 
 	public TreeMap<CoachGroup, TreeSet<LessonGroup>> getLessonGroups() {
 		return this.lessonGroups;
-	}
+}
 	
 	public void setLessonGroups(TreeMap<CoachGroup, TreeSet<LessonGroup>> lessonGroups) {
 		this.lessonGroups = lessonGroups;

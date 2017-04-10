@@ -100,6 +100,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	 */
 	public void addStudent(Student student) {
 		this.students.add(student);
+		
 	}
 
 	/**
