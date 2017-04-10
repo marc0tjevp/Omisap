@@ -4,15 +4,17 @@ import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class TestDAOEducationTeam implements IDAOEducationTeam {
 
-    private Set<EducationTeam> educationTeams;
+    private List<EducationTeam> educationTeams;
 
     private TestDAOEducationTeam() {
-        this.educationTeams = new TreeSet<EducationTeam>();
+        this.educationTeams = new ArrayList<EducationTeam>();
 
         // Test data
         this.educationTeams.add(new EducationTeam("AO", "Applicatieontwikkelaar"));
@@ -64,7 +66,7 @@ public class TestDAOEducationTeam implements IDAOEducationTeam {
     }
 
     @Override
-    public Set<EducationTeam> readAll() {
+    public List<EducationTeam> readAll() {
         return this.educationTeams;
     }
 

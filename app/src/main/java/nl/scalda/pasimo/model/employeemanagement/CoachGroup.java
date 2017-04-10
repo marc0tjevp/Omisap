@@ -8,10 +8,6 @@ import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 
-
-
-
-
 /**
  * @author Collin and ismet
  */
@@ -42,6 +38,10 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 * The {@link LessonGroups}'s who are in this CoachGroup
 	 */
     private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
+    
+    @ManyToOne(cascade=CascadeType.ALL, targetEntity=EducationTeam.class)
+    @JoinColumn(name="id")
+    private EducationTeam educationTeam;
 
     /**
      * Default constructor
@@ -201,4 +201,12 @@ public class CoachGroup implements Comparable<CoachGroup> {
     public int compareTo(CoachGroup o) {
         return ((Integer) id).compareTo(o.getId());
     }
+
+	public EducationTeam getEducationTeam() {
+		return educationTeam;
+	}
+
+	public void setEducationTeam(EducationTeam educationTeam) {
+		this.educationTeam = educationTeam;
+	}
 }

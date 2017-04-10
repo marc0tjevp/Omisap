@@ -1,18 +1,18 @@
 package nl.scalda.pasimo.service;
 
-import java.util.TreeSet;
+import java.util.List;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class EducationTeamService {
 	
 	private static EducationTeamService instance;
-	public TreeSet<EducationTeam> edu = new TreeSet<>();
 	public EducationTeamService(){}
 	
-	public TreeSet<EducationTeam> getEducationTeams(){
-		return this.edu;
+	public List<EducationTeam> getEducationTeams(){
+		return DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
 	}
 	
 	public static EducationTeamService getInstance() {

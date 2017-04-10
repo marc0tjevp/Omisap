@@ -3,6 +3,7 @@ package nl.scalda.pasimo.datalayer.interfaces;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
+import java.util.List;
 import java.util.Set;
 
 public interface IDAOEducationTeam {
@@ -36,7 +37,7 @@ public interface IDAOEducationTeam {
     /**
      * @return - All education teams.
      */
-    Set<EducationTeam> readAll();
+    List<EducationTeam> readAll();
 
     /**
      * Get whether an EducationTeam exists.

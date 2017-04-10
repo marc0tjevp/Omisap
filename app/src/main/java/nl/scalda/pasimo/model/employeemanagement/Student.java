@@ -6,10 +6,6 @@ import javax.persistence.*;
 @Table(name="student")
 @DiscriminatorValue(value="Student")
 public class Student extends Person {
-	
-//	@OneToOne
-//	@PrimaryKeyJoinColumn(name="person_email", referencedColumnName="email")
-//	private Person person;
 
 	private static final long serialVersionUID = 1L;
 	private int noteListID;
@@ -20,9 +16,7 @@ public class Student extends Person {
 	private int cohort;
 	
 	private int coachGroupID;
-	
-	//FIXME this needs to be the pk of student table
-	//@Id
+
 	@Column(name="ovNumber", nullable=false)
 	private int studentOV;
 

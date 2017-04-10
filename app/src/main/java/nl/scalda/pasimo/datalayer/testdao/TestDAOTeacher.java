@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
@@ -10,7 +12,7 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 public class TestDAOTeacher implements IDAOTeacher {
 
 	private static TestDAOTeacher instance = null;
-	private TreeSet<Teacher> teachers = new TreeSet<>();
+	private List<Teacher> teachers = new ArrayList<Teacher>();
 
 	/**
 	 * default constructor.
@@ -50,7 +52,7 @@ public class TestDAOTeacher implements IDAOTeacher {
 	 * @return TreeSet<Teacher>
 	 */
 	@Override
-	public TreeSet<Teacher> readAll() {
+	public List<Teacher> readAll() {
 		return teachers;
 	}
 

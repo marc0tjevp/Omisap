@@ -3,6 +3,7 @@ package nl.scalda.pasimo.model.employeemanagement;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 
+import java.util.Set;
 import java.util.TreeSet;
 import javax.persistence.*;
 
@@ -18,8 +19,13 @@ public class EducationTeam implements Comparable<EducationTeam>{
 	@Column(name="educationTeamID", length=11, nullable=false)
     private int id;
 
-	private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
-    private TreeSet<Teacher> teachers = new TreeSet<>();
+	@OneToMany(cascade=CascadeType.ALL, targetEntity=CoachGroup.class)
+	@JoinColumn(name="id")
+	private Set<CoachGroup> coachGroups = new TreeSet<>();
+	
+	@ManyToMany(cascade=CascadeType.ALL, targetEntity=Teacher.class, fetch=FetchType.EAGER)
+	@JoinColumn(name="email")
+    private Set<Teacher> teachers = new TreeSet<>();
 
     /**
      * Abbreviation of the EducationTeam; e.g. AO
@@ -83,9 +89,11 @@ public class EducationTeam implements Comparable<EducationTeam>{
 		
 	}
 	
-	public TreeSet<Teacher> getTeachers() {
+	public Set<Teacher> getTeachers() {
 		 return teachers;
 	}
+	
+	public EducationTeam(){}
 	
 	public EducationTeam(int id, String name) {
     	this.setId(id);
@@ -146,11 +154,11 @@ public class EducationTeam implements Comparable<EducationTeam>{
                 '}';
     }
 
-	public TreeSet<CoachGroup> getCoachGroups() {
+	public Set<CoachGroup> getCoachGroups() {
 		return coachGroups;
 	}
 
-	public void setCoachGroups(TreeSet<CoachGroup> coachGroups) {
+	public void setCoachGroups(Set<CoachGroup> coachGroups) {
 		this.coachGroups = coachGroups;
 	}
 

@@ -1,5 +1,8 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import java.util.Set;
+import java.util.TreeSet;
+
 import javax.persistence.*;
 
 
@@ -12,19 +15,12 @@ public class Teacher extends Person {
 
 	private static final long serialVersionUID = 1L;
 	
-//	nope
-//	@OneToOne
-//	@PrimaryKeyJoinColumn(name="person_email", referencedColumnName="email")
-//	private Person person;
-
-	//this needs to be the pk of teacher table
-	//@Id
 	@Column(name="employeeNumber", length=6, nullable=false)
 	private int employeeNumber;
 	
 	@Column(name="abbreviation", length=6)
     private String abbreviation;
-    
+	
     /**
      * default constructor.
      */

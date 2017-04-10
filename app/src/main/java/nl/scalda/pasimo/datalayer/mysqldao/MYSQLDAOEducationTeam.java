@@ -1,9 +1,12 @@
 package nl.scalda.pasimo.datalayer.mysqldao;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+
+import javax.persistence.criteria.CriteriaQuery;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -83,19 +86,15 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 	 * @return Set<EducationTeam>
 	 */
 	@Override
-	public Set<EducationTeam> readAll() {
+	public List<EducationTeam> readAll() {
 		Session session = factory.openSession();
 		Transaction tx = null;
-		Set<EducationTeam> teams = new TreeSet<>();
+		List<EducationTeam> teams = new ArrayList<>();
 		try {
 		   tx = session.beginTransaction();
-		   List educationTeamList = session.createNativeQuery("SELECT * FROM education_team;")
-				   .getResultList();
-		   for(Iterator iterator = educationTeamList.iterator();iterator.hasNext();){
-			   Object[] obj = (Object[]) iterator.next();
-			   EducationTeam et = new EducationTeam(String.valueOf(obj[2]), String.valueOf(obj[1]), Integer.parseInt(String.valueOf(obj[0])));
-			   teams.add(et);
-		   }
+		   CriteriaQuery<EducationTeam> criteria =session.getCriteriaBuilder().createQuery(EducationTeam.class);
+		   criteria.select(criteria.from(EducationTeam.class));
+		   teams = session.createQuery(criteria).getResultList();
 		   tx.commit();
 		}
 		catch (Exception e) {
@@ -128,8 +127,8 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 		Transaction tx = null;
 		try {
 		   tx = session.beginTransaction();
-		   session.createNativeQuery("INSERT INTO teacher_education_team (teacher_employeeNumber, education_team_id) VALUES (:teacheremployeeNumber, :educationTeamID);")
-				   .setParameter("teacheremployeeNumber", teacher.getEmployeeNumber()).setParameter("educationTeamID", educationTeam.getId()).executeUpdate();
+		   session.createNativeQuery("INSERT INTO education_team_teacher (teachers_email, EducationTeam_educationTeamID) VALUES (:teacherEmail, :educationTeamID);")
+				   .setParameter("teacherEmail", teacher.getEmail()).setParameter("educationTeamID", educationTeam.getId()).executeUpdate();
 		   tx.commit();
 		}
 		catch (Exception e) {
@@ -152,8 +151,8 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 		Transaction tx = null;
 		try{
 			tx = session.beginTransaction();
-			session.createNativeQuery("DELETE FROM teacher_education_team WHERE teacher_employeeNumber = :employeeNumber")
-				.setParameter("employeeNumber", teacher.getEmployeeNumber()).executeUpdate();
+			session.createNativeQuery("DELETE FROM education_team_teacher WHERE teachers_email = :teachers_email")
+				.setParameter("teachers_email", teacher.getEmail()).executeUpdate();
 			tx.commit();
 		}
 		catch (Exception e) {

@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.datalayer.interfaces;
 
+import java.util.List;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
@@ -14,7 +15,7 @@ public interface IDAOTeacher {
 
     public void delete(Teacher t);
 
-    public TreeSet<Teacher> readAll();
+    public List<Teacher> readAll();
 
     public Teacher readByEmployeeNumber(int employeeNumber);
 
