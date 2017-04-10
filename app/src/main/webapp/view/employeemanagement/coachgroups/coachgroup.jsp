@@ -91,25 +91,7 @@
                    
                 });
                 
-                
-                $('#coachGroupEditModal').on('show.bs.modal', function(e) {
-                	
-
-               		$.ajax({
-            		 	type: 'POST',	  
-            			url:'coachGroup/add.action',
-            		   	dataType: 'json',
-           				data : "name=" + closestTr,
-           				success: function(data) {
-           					console.log(data);
-           					
-           				}
-            		});
-               		
-               		$(e.currentTarget).find('option[value="closestTr"]').val();
-               		coach.setId(Integer.parseInt(closestTr));
-               		
-                });
+             
                 
                 
                 
@@ -313,8 +295,10 @@
                     </tr>
 
                 </thead>
-                <tbody>
-                    <tr id="1">
+             
+                                        <s:iterator value="coachGroup" var="ed">
+                                          <tbody>
+                    <tr id="${ed.getName()}">
                         <td>
                             <label>
                                  <input id="selectedCoachGroup" type="checkbox">
@@ -322,89 +306,19 @@
                         </td>
 
                         <td><a href='CoachLessonGroups'>ICOA41A</a>	</td>
-                        <td>Bram	</td>
-                        
-                        <td> 12</td>
-                        <td>ICO42A</td>
+                        <td>${ed.getCoach().getAbbreviation()}	</td>
+                        <td>${ed.getLessonGroups().size()}</td>
+                        <td>${CoachGroupService.getInstance().getEducationTeam(ed)}</td>
                         
 						
                         
                         
                     </tr>
+                                        </s:iterator>
+                                        
+             
 
-                    <tr id="2">
-                        <td>
-                            <label>
-                                 <input id="selectedCoachGroup" type="checkbox">
-                            </label>
-                        </td>
-						<td><a href='CoachLessonGroups'>ICOA41B</a></td>
-                        <td>Rens</td>
-                        
-                        <td> 12</td>
-                        <td>ICO42A</td>
-				
-                    </tr>
-
-                    <tr id="3">
-                        <td>
-                            <label>
-                                 <input id="selectedCoachGroup" type="checkbox">
-                            </label>
-                        </td>
-						<td><a href='CoachLessonGroups'>ICOA41C</a></td>
-                        <td>Gino</td>
-                        
-                        <td> 12</td>
-                       <td>ICO42A</td>
-					
-                        
-                    </tr>
-
-                    <tr id="4">
-                        <td>
-                            <label>
-                                 <input id="selectedCoachGroup" type="checkbox">
-                            </label>
-                        </td>
-						<td><a href='CoachLessonGroups'>ICOA41D</a></td>
-                        <td>Max</td>
-                        
-                        <td> 12</td>
-                     	<td>ICO42A</td>
-						
-                    </tr>
-
-                    <tr id="5">
-                        <td>
-                            <label>
-                                 <input id="selectedCoachGroup" type="checkbox">
-                            </label>
-                        </td>
-
-                        <td><a href='CoachLessonGroups'>ICO89E</a></td>
-                        <td>Kees</td>
-                        
-                        <td> 12</td>
-                        <td>ICO42A</td>
-						
-                    </tr>
-
-
-                    <tr id="6">
-                        <td>
-                            <label>
-                                 <input id="selectedCoachGroup" type="checkbox">
-                            </label>
-                        </td>
-
-                        <td><a href='CoachLessonGroups'>ICO33A </a> </td>
-                        <td>Piet</td>
-                        <td> 12</td>
-                        <td>ICO42A</td>
-					
-                    </tr>
-                </tbody>
+                   
             </table>
        
 

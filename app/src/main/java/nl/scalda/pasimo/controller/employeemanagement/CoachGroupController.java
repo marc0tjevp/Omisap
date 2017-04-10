@@ -22,18 +22,20 @@ public class CoachGroupController extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public TreeSet<Teacher> teacher = new TreeSet<>();
+	public TreeSet<Teacher> coaches = new TreeSet<>();
 
 	public TreeSet<EducationTeam> educationTeam = new TreeSet<>();
 	public TreeSet<CoachGroup> coachGroup = new TreeSet<>();
-	CoachGroup coach = new CoachGroup();
+	CoachGroup cg = new CoachGroup();
 
 	public String s1;
 	public String s2;
 
 	public String execute() {
 		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
-	
+		CoachGroup bla = new CoachGroup("24");
+		bla.setCoach(tc);
+		coachGroup.add(bla);
 
 		EducationTeam edu = new EducationTeam("ICOb", "ICO41A", 1);
 	
@@ -47,11 +49,12 @@ public class CoachGroupController extends ActionSupport {
 		educationTeam.add(edu3);
 		educationTeam.add(edu4);
 		System.out.println(educationTeam);
-		teacher.add(tc);
-
-		educationTeam = EducationTeamService.getInstance().getEducationTeams();
-		coachGroup = CoachGroupService.getInstance().readAll();
-		 teacher = TeacherService.getInstance().readAll();
+		coaches.add(tc);
+		EducationTeamService.getInstance().getEducationTeams().addAll(educationTeam);
+		CoachGroupService.getInstance().create(bla, edu1);
+		//educationTeam = EducationTeamService.getInstance().getEducationTeams();
+		//coachGroup = CoachGroupService.getInstance().readAll();
+		//teacher = TeacherService.getInstance().readAll();
 		return SUCCESS;
 	}
 
@@ -64,9 +67,9 @@ public class CoachGroupController extends ActionSupport {
 
 		for (EducationTeam o : educationTeam) {
 			if (o.getId() == Integer.parseInt(s1)) {
-				coach.setName(coach.getName());
-				coach.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s2)));
-				CoachGroupService.getInstance().create(coach, o);
+				cg.setName(cg.getName());
+				cg.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s2)));
+				CoachGroupService.getInstance().create(cg, o);
 				break;
 			}
 
@@ -77,11 +80,10 @@ public class CoachGroupController extends ActionSupport {
 
 	public String updateCoachGroup() {
 		for (CoachGroup cg : CoachGroupService.getInstance().readAll()) {
-			if (cg.getId() == coach.getId()) {
-				cg.setName(coach.getName());
+			if (cg.getName().equals(cg.getName())) {
 				cg.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s1)));
-				cg.setCoach(coach.getCoach());
 				CoachGroupService.getInstance().update(cg);
+				
 			}
 
 		}
@@ -90,17 +92,9 @@ public class CoachGroupController extends ActionSupport {
 
 	public String deleteCoachGroup() {
 
-		CoachGroupService.getInstance().delete(coach);
+		CoachGroupService.getInstance().delete(cg);
 
 		return SUCCESS;
-	}
-
-	public TreeSet<Teacher> getTeacher() {
-		return teacher;
-	}
-
-	public void setTeacher(TreeSet<Teacher> teacher) {
-		this.teacher = teacher;
 	}
 
 	public TreeSet<EducationTeam> getEducationTeam() {
@@ -111,13 +105,7 @@ public class CoachGroupController extends ActionSupport {
 		this.educationTeam = educationTeam;
 	}
 
-	public CoachGroup getCoach() {
-		return coach;
-	}
 
-	public void setCoach(CoachGroup coach) {
-		this.coach = coach;
-	}
 
 	public TreeSet<CoachGroup> getCoachGroup() {
 		return coachGroup;
@@ -149,6 +137,22 @@ public class CoachGroupController extends ActionSupport {
 
 	public void setS2(String s2) {
 		this.s2 = s2;
+	}
+
+	public TreeSet<Teacher> getCoaches() {
+		return coaches;
+	}
+
+	public void setCoaches(TreeSet<Teacher> coaches) {
+		this.coaches = coaches;
+	}
+
+	public CoachGroup getCg() {
+		return cg;
+	}
+
+	public void setCg(CoachGroup cg) {
+		this.cg = cg;
 	}
 
 }
