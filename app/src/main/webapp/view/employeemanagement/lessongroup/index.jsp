@@ -186,31 +186,32 @@
                 </thead>
                 <tbody>
                 <!-- Every lesson group -->
-                    <s:iterator value="lessonGroups">
-                    	<tr id="<s:property value="id"></s:property>">
-                    		<td>
-                    			<label>
-                    				<input type="checkbox">
-                    			</label>
-                    		</td>
-                    		
-                    		<td>
-                   				<a href="/Pasimo/lessongroup/details?lessonGroupName=<s:property value="name"></s:property>">
-                   					<s:property value="name"></s:property>
-                   				</a>
-                    		</td>
-                    		
-                    		<td>
-                    			<s:property value="students.size()"></s:property>
-                    		</td>
-                    		
-                    		<td>
-                    			<s:property value=""></s:property>
-                    		</td>
-                    		<td>
-                    		<s:property value=""></s:property>
-                    		</td>
-                    	</tr>
+                    <s:iterator var="coachGroupWithLessonGroups" value="coachGroupsWithLessonGroups">
+                    	<s:iterator var="lessonGroup" value="#coachGroupWithLessonGroups.lessonGroups">
+                    		<tr id="<s:property value="id"></s:property>">
+	                    		<td>
+	                    			<label>
+	                    				<input type="checkbox">
+	                    			</label>
+	                    		</td>
+	                    		
+	                    		<td>
+	                   				<a href="/Pasimo/lessongroup/details?lessonGroupName=<s:property value="name"></s:property>">
+	                   					<s:property value="name"></s:property>
+	                   				</a>
+	                    		</td>
+	                    		
+	                    		<td>
+	                    			<s:property value="students.size()"></s:property>
+	                    		</td>
+	                    		
+	                    		<td>
+	                    			<s:property value="#coachGroupWithLessonGroups.name"></s:property>
+	                    		</td>
+                    		</tr>
+                    	
+                    	
+                    	</s:iterator>
                     </s:iterator>
                 </tbody>
                 <tbody>

@@ -85,8 +85,8 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 	}
 
 	@Override
-	public TreeMap<CoachGroup, TreeSet<LessonGroup>> readAll() {
-		return null;
+	public TreeSet<LessonGroup> readAll() {
+		return this.lessongroups;
 	}
 
 	@Override

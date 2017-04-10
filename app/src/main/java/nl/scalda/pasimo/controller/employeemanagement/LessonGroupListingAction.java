@@ -17,11 +17,11 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 3651415035371001870L;
-     LessonGroup lg = new LessonGroup(null);
+	
 	/**
-	 * All the lesson groups belonging to a specific lesson group
+	 * All the coach groups with lesson groups in them
 	 */
-	private TreeMap<CoachGroup, TreeSet<LessonGroup>> lessonGroups;
+	private TreeSet<CoachGroup> coachGroupsWithLessonGroups;
 
 	/**
 	 * The name for adding or removing a lesson group
@@ -32,8 +32,8 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * Retrieves all the lesson groups and puts them in a list
 	 */
 	public String execute() {
-		this.lessonGroups = LessonGroupService.getInstance().readAll();
-		if (this.lessonGroups == null) {
+		this.coachGroupsWithLessonGroups = LessonGroupService.getInstance().readAll();
+		if (this.coachGroupsWithLessonGroups == null) {
 			return ERROR;
 		}
 		return SUCCESS;
@@ -118,13 +118,23 @@ public class LessonGroupListingAction extends ActionSupport {
 
 	}
 
-	public TreeMap<CoachGroup, TreeSet<LessonGroup>> getLessonGroups() {
-		return this.lessonGroups;
-}
-	
-	public void setLessonGroups(TreeMap<CoachGroup, TreeSet<LessonGroup>> lessonGroups) {
-		this.lessonGroups = lessonGroups;
+
+	/**
+	 * 
+	 * @return
+	 */
+	public TreeSet<CoachGroup> getCoachGroupsWithLessonGroups() {
+		return coachGroupsWithLessonGroups;
 	}
+	
+	/**
+	 * 
+	 * @param coachGroupsWithLessonGroups
+	 */
+	public void setCoachGroupsWithLessonGroups(TreeSet<CoachGroup> coachGroupsWithLessonGroups) {
+		this.coachGroupsWithLessonGroups = coachGroupsWithLessonGroups;
+	}
+	
 	/**
 	 * 
 	 * @return

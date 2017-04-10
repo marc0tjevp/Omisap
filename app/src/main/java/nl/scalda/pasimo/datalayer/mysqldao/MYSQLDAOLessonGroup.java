@@ -48,15 +48,17 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
 		return null;
 	}
 
-	@Override
-	public TreeMap<CoachGroup, TreeSet<LessonGroup>> readAll() {
-		return null;
-	}
 
 
 
 	@Override
 	public LessonGroup read(LessonGroup lessonGroup) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TreeSet<LessonGroup> readAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}

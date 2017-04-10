@@ -11,7 +11,7 @@ public interface IDAOLessonGroup {
 
     void create(LessonGroup lessonGroup);
 
-    TreeMap<CoachGroup, TreeSet<LessonGroup>> readAll();
+    TreeSet<LessonGroup> readAll();
    
     LessonGroup read(LessonGroup lessonGroup);
 

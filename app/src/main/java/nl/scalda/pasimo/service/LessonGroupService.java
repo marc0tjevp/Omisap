@@ -59,25 +59,19 @@ public class LessonGroupService implements ILessonGroupService {
 	}
 
 	@Override
-	public TreeMap<CoachGroup, TreeSet<LessonGroup>> readAll() {
-		TreeMap<CoachGroup, TreeSet<LessonGroup>> lessonGroups = new TreeMap<>();
-		TreeSet<CoachGroup> allLessonGroups = new TreeSet<>();
-		for (CoachGroup cg1 : CoachGroupService.getInstance().readAll() ) {
-			if (cg1.getLessonGroups().contains(cg1)) {
-				return cg1;
-
-				/*
-				 * TODO Get all Coach Groups
-				 */
-				for (CoachGroup coachGroup : CoachGroupService.getInstance().readAll()) {
-					lessonGroups.put(coachGroup, coachGroup.getLessonGroups());
-
-				}
-				DAOFactory.getTheFactory().getDAOLessonGroup().readAll();
-				return readAll();
+	public TreeSet<CoachGroup> readAll() {
+		TreeSet<CoachGroup> coachGroupsWithLessonGroups = new TreeSet<>();	
+		
+		for(CoachGroup coachGroup : CoachGroupService.getInstance().readAll()) {
+			if(coachGroup.getLessonGroups().size() <= 0) {
+				continue;
 			}
-
+			
+			coachGroupsWithLessonGroups.add(coachGroup);
 		}
-
+		
+		
+		
+		return coachGroupsWithLessonGroups;
 	}
 }
