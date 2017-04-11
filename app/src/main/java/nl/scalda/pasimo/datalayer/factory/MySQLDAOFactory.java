@@ -12,13 +12,14 @@ import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOWorkBlock;
 
 
 public class MySQLDAOFactory extends DAOFactory {
 
     private static MySQLDAOFactory instance = null;
 
-    private MySQLDAOFactory() {
+    private  MySQLDAOFactory() {
     }
 
     public static MySQLDAOFactory getInstance() {
@@ -69,11 +70,12 @@ public class MySQLDAOFactory extends DAOFactory {
 	@Override
 
 	public IDAOWorkBlock getDAOWorkBlock() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return MYSQLDAOWorkBlock.getInstance();
 	}
 	public IDAOEducationTeam getDAOEducationTeam() {
 		return MYSQLDAOEducationTeam.getInstance();
 
 	}
+
 }

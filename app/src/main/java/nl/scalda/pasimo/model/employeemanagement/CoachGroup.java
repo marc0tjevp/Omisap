@@ -152,9 +152,13 @@ public class CoachGroup implements Comparable<CoachGroup> {
     @Override
     public int compareTo(CoachGroup o) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     	
 =======
 >>>>>>> 94c48a03475f1d4653f448461fb44d241a5c69ce
+=======
+
+>>>>>>> 0b5e85ee36cfa2656cb5c951e044f26ad39a87e7
         return name.compareToIgnoreCase(o.getName());
     }
 }
