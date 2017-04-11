@@ -1,6 +1,3 @@
-#Ignore binaries:
-*.class
-Main.java
 
 #Ignore Jar files:
 *.jar
