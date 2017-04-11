@@ -8,6 +8,8 @@ package nl.scalda.pasimo.main;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
+import nl.scalda.pasimo.model.timeregistration.WorkBlock;
+import nl.scalda.pasimo.model.timeregistration.WorkingDay;
 import nl.scalda.pasimo.service.CoachGroupService;
 import nl.scalda.pasimo.service.EducationTeamService;
 
@@ -18,8 +20,18 @@ import nl.scalda.pasimo.service.EducationTeamService;
 public class Main {
 
     public static void main(String args[]) {
+    	
+    	WorkingDay w = new WorkingDay("maandag");
     
-    	System.out.println("Bram heeft nooit gelijk");
+    	WorkBlock workblock = new WorkBlock(1, "9:30", "10:10");
+    	
+    	w.addWorkBlock(workblock);
+    	
+//    	workblock.setEndTime("10:00");
+//    	
+//    	w.updateWorkBlock(workblock);
+    	
+    	
     }
 
 }
