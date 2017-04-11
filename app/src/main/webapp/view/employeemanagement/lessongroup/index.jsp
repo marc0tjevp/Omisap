@@ -136,6 +136,20 @@
                                     <div class="col-10">
                                         <input class="form-control" type="text" value="" id="lessonGroupName-input">
                                     </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <div class="col-10">
+                                    <div class="dropdown">
+										  <button class="btn btn-primary dropdown-toggle" style="width: 100%;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+										    Kies coachgroup
+										    <span class="caret"></span>
+										  </button>
+										  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width: 100%;">
+										    <li><a href="#">CoachGroup1</a></li>
+										    <li><a href="#">CoachGroup2</a></li>
+										  </ul>
+										</div>
+                                    </div>
                                 </div>
                             </form>
                         </div>

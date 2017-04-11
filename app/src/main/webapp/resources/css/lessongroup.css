@@ -2,9 +2,9 @@
     float: right;
 }
 
-.lessonGroupButtons button {
+/* .lessonGroupButtons button {
     font-size: 18px;
-}
+} 
 
 .lessonGroupButtons.lessonGroupNameButton {
     float: left;
@@ -12,11 +12,6 @@
 
 table.lesson-groups-table {
     font-size: 21px;
-}
-
-table.lesson-groups-table thead th {
-    vertical-align: middle;
-    border-bottom:  2px solid #333333;
 }
 
 table.lesson-groups-table tbody td {
@@ -29,6 +24,13 @@ table.lesson-groups-table input[type="checkbox"] {
     width:  20px;
 }
 
+*/
+
 .margin-5px {
     margin: 5px !important;
+}
+
+table.lesson-groups-table thead th {
+    vertical-align: middle;
+    border-bottom:  1px solid #2d2d2d;
 }
