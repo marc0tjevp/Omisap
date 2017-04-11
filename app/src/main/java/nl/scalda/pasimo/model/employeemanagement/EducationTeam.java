@@ -144,8 +144,8 @@ public class EducationTeam implements Comparable<EducationTeam>{
 	public TreeSet<CoachGroup> getCoachGroups() {
 		if(coachGroups.isEmpty()){
 			this.coachGroups = 
-					//DAOFactory.getTheFactory().getDAOCoachGroup().create(coachGroup);
-			    	TestDAOFactory.getTheFactory().getDAOCoachGroup().readAll(); 
+					DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
+			    	//TestDAOFactory.getTheFactory().getDAOCoachGroup().readAll(); 
 		}
 		return coachGroups;
 	}

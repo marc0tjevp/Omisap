@@ -3,6 +3,7 @@ package nl.scalda.pasimo.model.employeemanagement;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 
@@ -83,8 +84,9 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 * Sends coachgroup naar de DAO to update
 	 */
 	public void updateCoachGroup(){
-		//DAOFactory.getTheFactory().getDAOCoachGroup().update(this);
-		TestDAOCoachGroup.getInstance().update(this);
+		DAOFactory.getTheFactory().getDAOCoachGroup().update(this);
+		//TestDAOFactory.getTheFactory().getDAOCoachGroup().update(this);
+	
 	}
 
    
