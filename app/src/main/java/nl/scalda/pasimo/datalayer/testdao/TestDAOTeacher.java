@@ -31,22 +31,6 @@ public class TestDAOTeacher implements IDAOTeacher {
 	}
 
 	/**
-	 * returns the teacher that has the given abbreviation.
-	 * 
-	 * @param String abbreviation
-	 * @return Teacher
-	 */
-	@Override
-	public Teacher readByAbbr(String abbreviation) {
-		for (Teacher ca : teachers) {
-			if (ca.getAbbreviation().equals(abbreviation)) {
-				return ca;
-			}
-		}
-		return null;
-	}
-
-	/**
 	 * returns all teachers.
 	 * 
 	 * @return TreeSet<Teacher>
@@ -64,7 +48,11 @@ public class TestDAOTeacher implements IDAOTeacher {
 	 */
 	@Override
 	public TreeSet<Teacher> readAllForEducationTeam(EducationTeam t) {
-		return null;
+		TreeSet<Teacher> teachers = new TreeSet<>();
+		for(Teacher te : t.getTeachers()){
+			teachers.add(te);
+		}
+		return teachers;
 	}
 
 	/**
@@ -85,8 +73,7 @@ public class TestDAOTeacher implements IDAOTeacher {
 	 */
 	@Override
 	public void update(Teacher t) {
-		// TODO implement this method
-
+		//no need for an update method.
 		}
 
 	/**
@@ -97,7 +84,11 @@ public class TestDAOTeacher implements IDAOTeacher {
 	 */
 	@Override
 	public Teacher readByEmployeeNumber(int employeeNumber) {
-		// TODO Auto-generated method stub
+		for(Teacher t : teachers){
+			if(t.getEmployeeNumber() == employeeNumber){
+				return t;
+			}
+		}
 		return null;
 	}
 
@@ -109,7 +100,7 @@ public class TestDAOTeacher implements IDAOTeacher {
 	 */
 	@Override
 	public EducationTeam getCurrentEducationTeamOfTeacher(Teacher teacher) {
-		// TODO Auto-generated method stub
+		//TODO need collection of all educationteams before this method can be written
 		return null;
 	}
 
@@ -121,7 +112,7 @@ public class TestDAOTeacher implements IDAOTeacher {
 	 */
 	@Override
 	public CoachGroup getCurrentCoachGroup(Teacher teacher) {
-		// TODO Auto-generated method stub
+		// TODO need collection of all coachgroups before this method can be written
 		return null;
 	}
 	

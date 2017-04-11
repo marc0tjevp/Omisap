@@ -20,8 +20,6 @@ public interface IDAOTeacher {
     public Teacher readByEmployeeNumber(int employeeNumber);
 
     public TreeSet<Teacher> readAllForEducationTeam(EducationTeam t);
-
-	public Teacher readByAbbr(String abbreviation);
 	
 	public EducationTeam getCurrentEducationTeamOfTeacher(Teacher teacher);
 	

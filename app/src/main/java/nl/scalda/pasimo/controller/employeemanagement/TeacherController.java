@@ -81,7 +81,6 @@ public class TeacherController extends ActionSupport {
 				f.setAbbreviation();
 				f.setInsertion(teacher.getInsertion());
 				f.setLastName(teacher.getLastName());
-				f.setEmail(teacher.getEmail());
 				f.setCardID(teacher.getCardID());
 				if (!(EducationTeamService.getInstance().getOldEducationTeam(f).getAbbreviation().equals(teamAbbreviation))){
 					EducationTeamService.getInstance().getOldEducationTeam(f).deleteTeacher(f);

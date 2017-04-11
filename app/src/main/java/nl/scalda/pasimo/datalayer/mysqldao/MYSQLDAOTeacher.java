@@ -80,24 +80,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		Transaction tx = null;
 		try{
 			tx = session.beginTransaction();
-			NativeQuery query1 = session.createNativeQuery("SET foreign_key_checks = 0;");
-			NativeQuery query2 = session.createNativeQuery("UPDATE teacher SET email = :email, employeeNumber = :employeeNumber ,abbreviation = :abbreviation WHERE employeeNumber = :employeeNumber");
-			NativeQuery query3 = session.createNativeQuery("SET foreign_key_checks = 1;");
-			query1.executeUpdate();
-			session.createNativeQuery("UPDATE person SET email = :email, firstName = :firstName, insertion = :insertion, lastName = :lastName, cardID = :cardID WHERE email = :oldEmail")
-			.setParameter("email", t.getEmail())
-			.setParameter("firstName", t.getFirstName())
-			.setParameter("insertion", t.getInsertion())
-			.setParameter("lastName", t.getLastName())
-			.setParameter("cardID", t.getCardID())
-			.setParameter("oldEmail", readByEmployeeNumber(t.getEmployeeNumber()).getEmail())
-			.executeUpdate();
-			query2.setParameter("employeeNumber", t.getEmployeeNumber());
-			query2.setParameter("email", t.getEmail());
-			t.setAbbreviation();
-			query2.setParameter("abbreviation", t.getAbbreviation());
-			query2.executeUpdate();
-			query3.executeUpdate();
+			session.merge(t);
 			tx.commit();
 		} catch(HibernateException e) {
 			if(tx!=null) tx.rollback();
@@ -244,55 +227,6 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		   session.close();
 		}
 		return teachers;
-	}
-	
-	/**
-	 * reads the teacher from the database by the given abbreviation.
-	 * 
-	 * @param String abbreviation
-	 * @return Teacher
-	 */
-	@Override
-	public Teacher readByAbbr(String abbreviation) {
-		Session session = factory.openSession();
-		Transaction tx = null;
-		Teacher teacher = null;
-		try{
-			tx = session.beginTransaction();
-			/*
-			 * obj[0] = teacher.employeeNumber
-			 * obj[1] = teacher.abbreviation
-			 * obj[2] = teacher.email
-			 * obj[3] = coach_group.coachGroupID
-			 * obj[4] = person.email
-			 * obj[5] = person.cardID
-			 * obj[6] = person.firstName
-			 * obj[7] = person.insertion
-			 * obj[8] = person.lastName
-			 * obj[9] = person.dateOfBirth
-			 */
-			Object[] obj = (Object[]) session
-					.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.email=person.email INNER JOIN education_team_teacher ON education_team_teacher.teachers_email = teacher.email WHERE abbreviation=:abbreviation")
-					.setParameter("abbreviation", abbreviation).getSingleResult();
-			String[] dateOfBirth = String.valueOf(obj[9]).split("-");
-			teacher = new Teacher(Integer.parseInt(String.valueOf(obj[0])),
-					   String.valueOf(obj[4]),
-					   Integer.parseInt(String.valueOf(obj[5])),
-					   String.valueOf(obj[6]),
-					   String.valueOf(obj[7]),
-					   String.valueOf(obj[8]),
-					   Integer.parseInt(String.valueOf(dateOfBirth[0])),
-					   Integer.parseInt(String.valueOf(dateOfBirth[1])),
-					   Integer.parseInt(String.valueOf(dateOfBirth[2])));
-			tx.commit();
-		}
-		catch (Exception e) {
-		   if (tx!=null) tx.rollback();
-		   e.printStackTrace(); 
-		}finally {
-		   session.close();
-		}
-		return teacher;
 	}
 	
 	/**
