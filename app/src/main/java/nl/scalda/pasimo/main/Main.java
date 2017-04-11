@@ -19,11 +19,11 @@ public class Main {
 
     public static void main(String args[]) {
     	Teacher tc = new Teacher(124, "k@k.com", 215950, "sibgadhfasfd", "van", "klaas", 1999, 9, 15);
-    	CoachGroup cg = new CoachGroup(0, "12", tc);
-    	CoachGroup cg1 = new CoachGroup(1, "12", tc);
-    	CoachGroup cg2 = new CoachGroup(2, "12", tc);
-    	CoachGroup cg3 = new CoachGroup(3, "12", tc);
-    	CoachGroup cg4 = new CoachGroup(4, "12", tc);
+    	CoachGroup cg = new CoachGroup( "12", tc);
+    	CoachGroup cg1 = new CoachGroup( "12", tc);
+    	CoachGroup cg2 = new CoachGroup( "12", tc);
+    	CoachGroup cg3 = new CoachGroup( "12", tc);
+    	CoachGroup cg4 = new CoachGroup("12", tc);
     	
     	EducationTeam edu = new EducationTeam(1, "12");
     	EducationTeam edu1 = new EducationTeam(2, "13");
@@ -46,7 +46,7 @@ public class Main {
     	
     
     	
-     	System.out.println(CoachGroupService.getInstance().readCoachGroup(cg.getId()));
+     	System.out.println(CoachGroupService.getInstance().readCoachGroup(cg.getName()));
      	System.out.println((CoachGroupService.getInstance().getEducationTeam(cg1)));
     	System.out.println(CoachGroupService.getInstance().readAll());
     
