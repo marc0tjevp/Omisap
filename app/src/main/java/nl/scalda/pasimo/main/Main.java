@@ -18,6 +18,7 @@ import nl.scalda.pasimo.service.EducationTeamService;
 public class Main {
 
     public static void main(String args[]) {
+    	
     }
 
 }
