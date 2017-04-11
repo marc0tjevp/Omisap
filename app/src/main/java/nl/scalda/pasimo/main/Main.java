@@ -31,6 +31,7 @@ public class Main {
     	EducationTeam edu3 = new EducationTeam(4, "15");
     	EducationTeam edu4 = new EducationTeam(5, "16");
     	
+    	
     	EducationTeamService.getInstance().edu.add(edu);
     	EducationTeamService.getInstance().edu.add(edu1);
     	EducationTeamService.getInstance().edu.add(edu2);
