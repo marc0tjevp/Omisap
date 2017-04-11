@@ -9,6 +9,7 @@ package nl.scalda.pasimo.datalayer.hibernatedao;
  *
  * @author hunteroooox
  */
+//abc
 public class HibernateDAOCoachGroup {
     
 }
