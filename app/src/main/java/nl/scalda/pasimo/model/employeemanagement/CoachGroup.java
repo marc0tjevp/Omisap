@@ -3,6 +3,7 @@ package nl.scalda.pasimo.model.employeemanagement;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 
@@ -15,10 +16,7 @@ import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
  */
 public class CoachGroup implements Comparable<CoachGroup> {
 	
-	/**
-	 * The index of this lesson group
-	 */
-    private int id;
+	
     /**
 	 * The name of this Coach group
 	 */
@@ -38,28 +36,11 @@ public class CoachGroup implements Comparable<CoachGroup> {
     public CoachGroup() {}
     
     /**
-	 * @param id
-	 *            The index of this Coach group
 	 * @param name
 	 *            The name of this Coach group
 	 */
-    public CoachGroup(int id, String name) {
-        this.id = id;
+    public CoachGroup( String name) {
         this.name = name;
-    }
-    
-    /**
-	 * @param id
-	 *            The index of this Coach group
-	 * @param name
-	 *            The name of this Coach group
-	 * @param coach 
-	 * 			  The Coach of this Coach group
-	 */
-    public CoachGroup(int id, String name, Teacher coach) {
-    	this.id = id;
-        this.name = name;
-        this.coach = coach;
     }
     
     //TODO is only used for MYSQLDAOTeacher needs to be fixed
@@ -69,8 +50,6 @@ public class CoachGroup implements Comparable<CoachGroup> {
     }
     
     /**
-	 * @param id
-	 *            The index of this Coach group
 	 * @param name
 	 *            The name of this Coach group
 	 * @param coach 
@@ -78,8 +57,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 * @param {@link LessonGroups}
 	 * 			  The LessonGroups of this Coach group
 	 */
-    public CoachGroup(int id, String name, Teacher coach, TreeSet<LessonGroup> lessonGroups) {
-    	this.id = id;
+    public CoachGroup(String name, Teacher coach, TreeSet<LessonGroup> lessonGroups) {
         this.name = name;
         this.coach = coach;
         this.lessonGroups = lessonGroups;
@@ -106,26 +84,13 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 * Sends coachgroup naar de DAO to update
 	 */
 	public void updateCoachGroup(){
-		//DAOFactory.getTheFactory().getDAOCoachGroup().update(this);
-		TestDAOCoachGroup.getInstance().update(this);
+		DAOFactory.getTheFactory().getDAOCoachGroup().update(this);
+		//TestDAOFactory.getTheFactory().getDAOCoachGroup().update(this);
+	
 	}
 
-    //<editor-fold defaultstate="collapsed" desc="getters and setters">
-	/**
-	 * Retrieves the index of this coach group
-	 *
-	 * @return The index of this coach group
-	 */
-    public int getId() {
-        return id;
-    }
-    /**
-	 * Sets the index of this coach group
-	 */
-	public void setId(int id) {
+   
 
-        this.id = id;
-    }
 	/**
 	 * Retrieves the name of this coach group
 	 *
@@ -173,9 +138,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 
     @Override
     public String toString() {
-        return "\n CoachGroup: id= " +
-               id +
-               ", name= " +
+        return "\n CoachGroup: name= " +
                name +
                ", coach= " +
                coach +
@@ -188,6 +151,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
      */
     @Override
     public int compareTo(CoachGroup o) {
-        return ((Integer) id).compareTo(o.getId());
+
+        return name.compareToIgnoreCase(o.getName());
     }
 }

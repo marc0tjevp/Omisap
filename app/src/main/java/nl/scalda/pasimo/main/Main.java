@@ -8,8 +8,11 @@ package nl.scalda.pasimo.main;
 
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
-import nl.scalda.pasimo.model.employeemanagement.Team;
-
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
+import nl.scalda.pasimo.model.timeregistration.WorkBlock;
+import nl.scalda.pasimo.model.timeregistration.WorkingDay;
+import nl.scalda.pasimo.service.CoachGroupService;
+import nl.scalda.pasimo.service.EducationTeamService;
 
 
 /**
@@ -19,9 +22,17 @@ import nl.scalda.pasimo.model.employeemanagement.Team;
 public class Main {
 
     public static void main(String args[]) {
+    	WorkingDay w = new WorkingDay("maandag");
+    
+    	WorkBlock workblock = new WorkBlock(2, "9:30", "10:10");
+    	
+//    	w.addWorkBlock(workblock);
     	
 
-
+    	
+    	w.deleteWorkBlock(workblock);
+    	
+    	
 
     }
 
