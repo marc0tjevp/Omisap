@@ -77,5 +77,9 @@
                 method="execute">
             <result name="success">/view/presenceregistration/index.jsp</result>
         </action>
+        <action name="TimeRegistration" class="nl.scalda.pasimo.controller.timeregistration.TimeController"
+                method="execute">
+            <result name="success">/view/timeregistration/index.jsp</result>
+        </action>
     </package>
 </struts>
