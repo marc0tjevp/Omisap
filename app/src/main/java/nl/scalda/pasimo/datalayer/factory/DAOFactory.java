@@ -12,8 +12,6 @@ import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkingDay;
 public abstract class DAOFactory {
 
     protected static DAOFactory theFactory = MySQLDAOFactory.getInstance();
-//    protected static DAOFactory theFactory = TestDAOFactory.getInstance();
-
 
     public static DAOFactory getTheFactory() {
         return theFactory;
@@ -22,7 +20,6 @@ public abstract class DAOFactory {
     public static void setTheFactory(DAOFactory factory) {
         theFactory = factory;
     }
-//methods
 
     public abstract IDAOTeam getDAOTeam();
 
@@ -35,9 +32,9 @@ public abstract class DAOFactory {
     public abstract IDAONote getDAONote();
 
     public abstract IDAOTeacher getDAOTeacher();
-    
+
     public abstract IDAOWorkingDay getDAOWorkingDay();
-    
+
     public abstract IDAOWorkBlock getDAOWorkBlock();
 
 }
