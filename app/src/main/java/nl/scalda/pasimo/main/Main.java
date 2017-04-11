@@ -8,6 +8,8 @@ package nl.scalda.pasimo.main;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
+import nl.scalda.pasimo.model.timeregistration.WorkBlock;
+import nl.scalda.pasimo.model.timeregistration.WorkingDay;
 import nl.scalda.pasimo.service.CoachGroupService;
 import nl.scalda.pasimo.service.EducationTeamService;
 
@@ -19,7 +21,6 @@ public class Main {
 
     public static void main(String args[]) {
     	
-
     }
 
 }
