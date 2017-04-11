@@ -2,22 +2,23 @@ package nl.scalda.pasimo.model.presenceregistration;
 
 import java.util.GregorianCalendar;
 
-public class CheckIn {
+import nl.scalda.pasimo.model.employeemanagement.Person;
+
+public class CheckIn extends Person {
 
 	private int logID;
-	private String cardID;
 	private GregorianCalendar date;
 	
-	public CheckIn(){
-		
+	public CheckIn(String firstName, String insertion, String lastName){
+		super(firstName, insertion, lastName);
 	}
 	
 	public CheckIn(int logID, String cardID, int yearOfCheckIn, int monthOfCheckIn, int dayOfCheckIn, int hourOfCheckIn, int minuteOfCheckIn, int secondOfCheckIn){
+		super(cardID);
 		GregorianCalendar gc = new GregorianCalendar();
 		gc.set(yearOfCheckIn, monthOfCheckIn - 1, dayOfCheckIn, hourOfCheckIn, minuteOfCheckIn, secondOfCheckIn);
 		this.date = gc;
 		this.setLogID(logID);
-		this.setCardID(cardID);
 		
 	}
 	
@@ -34,12 +35,6 @@ public class CheckIn {
 	}
 	public void setLogID(int logID) {
 		this.logID = logID;
-	}
-	public String getCardID() {
-		return cardID;
-	}
-	public void setCardID(String cardID) {
-		this.cardID = cardID;
 	}
 	
     public String toString() {

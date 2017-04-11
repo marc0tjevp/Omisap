@@ -8,9 +8,5 @@ import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 public interface IDAOCheckIn {
 
 	public TreeSet<CheckIn> readAll();
-	
-    public TreeSet<CheckIn> readAllForEducationTeam(EducationTeam t);
-    
-    public CheckIn readByCardID(String id);
 
 }

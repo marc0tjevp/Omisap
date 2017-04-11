@@ -26,6 +26,13 @@ public class Person implements Comparable<Person> {
 	public Person(String email) {
 		this.email = email;
     }
+	
+	public Person(String firstName, String insertion, String lastName) {
+		this.firstName = firstName;
+		this.insertion = insertion;
+		this.lastName = lastName;
+    }
+
 
 	/**
 	 * constructor with all variables.
