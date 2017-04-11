@@ -1,10 +1,7 @@
 package nl.scalda.pasimo.datalayer.mysqldao;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 import javax.persistence.criteria.CriteriaQuery;
 

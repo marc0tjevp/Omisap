@@ -30,6 +30,8 @@ public class Note implements Comparable<Note> {
 	
 	@Column(name="lastEdit")
     private Date lastEdit;
+	
+	public Note(){}
 
     public Note(String title, String message, Teacher madeBy) {
 

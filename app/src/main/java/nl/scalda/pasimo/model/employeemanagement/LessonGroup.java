@@ -28,6 +28,8 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	 */
 	private TreeSet<Student> students;
 
+	public LessonGroup(){}
+	
 	/**
 	 * @param id
 	 *            The index of this lesson group
