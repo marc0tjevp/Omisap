@@ -57,12 +57,6 @@ public class CoachGroup implements Comparable<CoachGroup> {
         this.name = name;
     }
     
-    //TODO is only used for MYSQLDAOTeacher needs to be fixed
-    public CoachGroup( String name, Teacher coach) {
-        this.name = name;
-        this.coach = coach;
-    }
-    
     /**
 	 * @param name
 	 *            The name of this Coach group

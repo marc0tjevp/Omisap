@@ -179,5 +179,15 @@ public abstract class Person implements Comparable<Person>, Serializable {
     public int compareTo(Person o) {
         return email.compareTo(o.getEmail());
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+    	return super.equals(obj);
+    }
+    
+    @Override
+    public int hashCode() {
+    	return super.hashCode();
+    }
 
 }

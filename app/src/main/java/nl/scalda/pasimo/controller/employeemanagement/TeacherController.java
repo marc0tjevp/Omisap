@@ -125,7 +125,9 @@ public class TeacherController extends ActionSupport {
 	 */
 	public TreeSet<Teacher> getTeachers() {
 		try {
-			teachers.addAll(TeacherService.getInstance().readAll());
+			if(teachers.isEmpty()){
+				teachers.addAll(TeacherService.getInstance().readAll());
+			}
 			return teachers;
 		} catch (Exception e){
 			return null;
@@ -138,7 +140,9 @@ public class TeacherController extends ActionSupport {
 	 * @return TreeSet<EducationTeam>
 	 */
 	public TreeSet<EducationTeam> getEducationTeams() {
-		educationTeams.addAll(EducationTeamService.getInstance().getEducationTeams());
+		if(educationTeams.isEmpty()){
+			educationTeams.addAll(EducationTeamService.getInstance().getEducationTeams());
+		}
 		return educationTeams;
 	}
 
