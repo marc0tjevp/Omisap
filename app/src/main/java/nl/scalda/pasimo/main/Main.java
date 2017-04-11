@@ -20,21 +20,6 @@ public class Main {
 
     public static void main(String args[]) {
     	
-    	EducationTeam e = new EducationTeam("FRIKANDEL","O");
-
-        Team t = new Team("", "");
-        
-        
-//    	t.addEducationTeam(e);
-    	
-
-//    	e.setId(336);
-//    	t.removeEducationTeam(e);
-
-//    	e.setId(336);
-//    	e.setName("POEP");
-//    	e.setAbbreviation("P");
-//    	t.updateEducationTeam(e);
 
 
 

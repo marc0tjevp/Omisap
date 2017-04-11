@@ -24,6 +24,8 @@ public class EducationTeam implements Comparable<EducationTeam> {
      * Id of the EducationTeam
      */
     private int id;
+    
+
 
     public void addTeacher(Teacher t){
 		if (teachers.add(t)) {
