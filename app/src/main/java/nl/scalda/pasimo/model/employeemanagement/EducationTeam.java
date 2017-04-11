@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 
 import java.util.TreeSet;
@@ -141,6 +142,11 @@ public class EducationTeam implements Comparable<EducationTeam>{
     }
 
 	public TreeSet<CoachGroup> getCoachGroups() {
+		if(coachGroups.isEmpty()){
+			this.coachGroups = 
+					//DAOFactory.getTheFactory().getDAOCoachGroup().create(coachGroup);
+			    	TestDAOFactory.getTheFactory().getDAOCoachGroup().readAll(); 
+		}
 		return coachGroups;
 	}
 

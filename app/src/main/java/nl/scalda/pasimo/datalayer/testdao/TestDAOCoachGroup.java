@@ -42,6 +42,11 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 		}
 		return null;
 	}
+	
+	@Override
+	public TreeSet<CoachGroup> readAll() {
+		return coachGroups;
+	}
 
 	@Override
 	public void delete(CoachGroup coachGroup) {
