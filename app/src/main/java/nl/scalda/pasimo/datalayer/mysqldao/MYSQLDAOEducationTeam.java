@@ -109,8 +109,8 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.createNativeQuery("DELETE FROM educationTeam WHERE name = :name")
-                    .setParameter("name", thiseducationTeam.getName()).executeUpdate();
+            session.createNativeQuery("DELETE FROM educationTeam WHERE educationTeamID = :educationTeamID")
+                    .setParameter("educationTeamID", thiseducationTeam.getId()).executeUpdate();
 
             tx.commit();
 
