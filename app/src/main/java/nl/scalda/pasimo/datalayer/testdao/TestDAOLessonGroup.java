@@ -95,4 +95,9 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 		return null;
 	}
 
+	@Override
+	public TreeSet<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup) {
+		return null;
+	}
+
 }
