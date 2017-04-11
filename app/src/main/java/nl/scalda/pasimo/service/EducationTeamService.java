@@ -7,20 +7,31 @@ import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 
 public class EducationTeamService {
-	
-	private static EducationTeamService instance;
-	public TreeSet<EducationTeam> edu = new TreeSet<>();
-	public EducationTeamService(){}
-	
-	public TreeSet<EducationTeam> getEducationTeams(){
-		return this.edu;
-	}
-	
-	public static EducationTeamService getInstance() {
-		if (instance == null) {
-			instance = new EducationTeamService();
-		}
-		return instance;
-	}
+
+    private static EducationTeamService instance;
+    private Set<EducationTeam> educationTeams;
+
+    public EducationTeamService() {
+        educationTeams = DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
+    }
+
+    public Set<EducationTeam> getEducationTeams() {
+        return educationTeams;
+    }
+
+    public void saveEducationTeam(EducationTeam e) throws Exception {
+        if (educationTeams.add(e)) {
+            DAOFactory.getTheFactory().getDAOEducationTeam().save(e);
+        } else {
+            throw new Exception("Cannot save educationTeam");
+        }
+    }
+
+    public static EducationTeamService getInstance() {
+        if (instance == null) {
+            instance = new EducationTeamService();
+        }
+        return instance;
+    }
 
 }
