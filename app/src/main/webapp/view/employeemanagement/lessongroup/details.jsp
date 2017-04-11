@@ -24,12 +24,6 @@
 				<h2 style="float: left; margin-top: 0;" id="lessonGroupCoachGroupName" data-coachgroup-id=""> A1</h2>
             </div>
             
-			<div class="row">
-                <div class="col-md-12">
-
-                </div>
-
-            </div>
             <div class="row">
                 <div class=" col-md-12">
                      <!-- Editing the lesson group name -->
