@@ -4,6 +4,7 @@ import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 /**
@@ -87,5 +88,12 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	public TreeSet<CoachGroup> getCoachGroups() {
 		return coachGroups;
 	}
+
+	@Override
+	public TreeSet<CoachGroup> readAllBYTeam(EducationTeam t) {
+		return coachGroups;
+	}
+	
+	
 
 }
