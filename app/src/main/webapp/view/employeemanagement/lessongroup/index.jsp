@@ -138,6 +138,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                 <label for="selectCoachGroup-input" class="col-2 col-form-label">Selecteer Coach Group</label>
                                 	<div class="col-10">
 	                                	<select class="form-control">
 										    <option value="one">Coachgroep A1</option>
