@@ -16,8 +16,9 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
     private TreeSet<LessonGroup> lessongroups = new TreeSet<>();
 
     private TestDAOLessonGroup() {
-		TreeSet<CoachGroup> coachGroups = 
-				DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
+		CoachGroup c1 = new CoachGroup("B1");
+		CoachGroup c2 = new CoachGroup("B2");
+		CoachGroup c3 = new CoachGroup("B3");
 		
         LessonGroup l1 = new LessonGroup("ICO43A");
         LessonGroup l2 = new LessonGroup("ICO42A");
@@ -25,7 +26,7 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
         LessonGroup l4 = new LessonGroup("ICO441G");
         LessonGroup l5 = new LessonGroup("ICOTSTCL");
        
-                
+
         TreeSet<Student> students = TestDAOStudent.getInstance().readAll();
 
         for(Student s : students) {
@@ -39,6 +40,16 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
         lessongroups.add(l3);
         lessongroups.add(l4);
         lessongroups.add(l5);
+        
+        c1.addLessonGroup(l1);
+        c1.addLessonGroup(l2);
+        c1.addLessonGroup(l3);
+        c2.addLessonGroup(l4);
+        c3.addLessonGroup(l5);
+        
+        DAOFactory.getTheFactory().getDAOCoachGroup().create(c1);
+        DAOFactory.getTheFactory().getDAOCoachGroup().create(c2);
+        DAOFactory.getTheFactory().getDAOCoachGroup().create(c3);
     }
 
     public static TestDAOLessonGroup getInstance() {
