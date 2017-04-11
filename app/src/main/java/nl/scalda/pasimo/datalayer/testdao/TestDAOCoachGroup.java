@@ -16,9 +16,9 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
 
 	public TestDAOCoachGroup() {
-		coachGroups.add(new CoachGroup( 1234,"A1"));
-		coachGroups.add(new CoachGroup( 12345,"A2"));
-		coachGroups.add(new CoachGroup( 123456,"A3"));
+		coachGroups.add(new CoachGroup("A1"));
+		coachGroups.add(new CoachGroup("A2"));
+		coachGroups.add(new CoachGroup("A3"));
 	}
 
 	@Override
@@ -34,13 +34,18 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	public CoachGroup read(CoachGroup coachGroup) {
 		for (CoachGroup ccg : coachGroups) {
 			try {
-				if (coachGroup.getId() == ccg.getId()) {
+				if (coachGroup.getName().equals(ccg.getName())) {
 					return ccg;
 				}
 			} catch (Exception ex) {
 			}
 		}
 		return null;
+	}
+	
+	@Override
+	public TreeSet<CoachGroup> readAll() {
+		return coachGroups;
 	}
 
 	@Override
@@ -58,9 +63,8 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 			
 			for (CoachGroup ccg : coachGroups) {
 
-				if (coachGroup.getId() == ccg.getId()) {
+				if (coachGroup.getName().equals(ccg.getName())) {
 					
-					ccg.setName(coachGroup.getName());
 					ccg.setCoach(coachGroup.getCoach());
 					
 					
