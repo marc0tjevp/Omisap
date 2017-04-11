@@ -3,6 +3,7 @@ package nl.scalda.pasimo.datalayer.testdao;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
@@ -15,12 +16,16 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
     private TreeSet<LessonGroup> lessongroups = new TreeSet<>();
 
     private TestDAOLessonGroup() {
+		TreeSet<CoachGroup> coachGroups = 
+				DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
+		
         LessonGroup l1 = new LessonGroup("ICO43A");
         LessonGroup l2 = new LessonGroup("ICO42A");
         LessonGroup l3 = new LessonGroup("ICO41A");
         LessonGroup l4 = new LessonGroup("ICO441G");
         LessonGroup l5 = new LessonGroup("ICOTSTCL");
-        
+       
+                
         TreeSet<Student> students = TestDAOStudent.getInstance().readAll();
 
         for(Student s : students) {
@@ -96,7 +101,17 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 	}
 
 	@Override
-	public TreeSet<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup) {
+	public TreeSet<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup) {		
+		TreeSet<CoachGroup> coachGroups = 
+				DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
+		
+		for(CoachGroup loopingCoachGroup : coachGroups) {
+			if(coachGroup != loopingCoachGroup) {
+				continue;
+			}
+			return loopingCoachGroup.getLessonGroups();
+			 
+		}
 		return null;
 	}
 
