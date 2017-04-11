@@ -46,12 +46,13 @@ public class CoachGroupController extends ActionSupport {
 		educationTeam.add(edu2);
 		educationTeam.add(edu3);
 		educationTeam.add(edu4);
-		System.out.println(educationTeam);
+		CoachGroup cg = new CoachGroup("123",tc);
+		coachGroup.add(cg);
 		teacher.add(tc);
 
-		educationTeam = EducationTeamService.getInstance().getEducationTeams();
-		coachGroup = CoachGroupService.getInstance().readAll();
-		 teacher = TeacherService.getInstance().readAll();
+		//educationTeam = EducationTeamService.getInstance().getEducationTeams();
+		//coachGroup = CoachGroupService.getInstance().readAll();
+		// teacher = TeacherService.getInstance().readAll();
 		return SUCCESS;
 	}
 
@@ -77,8 +78,8 @@ public class CoachGroupController extends ActionSupport {
 
 	public String updateCoachGroup() {
 		for (CoachGroup cg : CoachGroupService.getInstance().readAll()) {
-			if (cg.getId() == coach.getId()) {
-				cg.setName(coach.getName());
+			if (cg.getName() == coach.getName()) {
+				cg.setName(s1);
 				cg.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s1)));
 				cg.setCoach(coach.getCoach());
 				CoachGroupService.getInstance().update(cg);
