@@ -186,7 +186,7 @@
                 </thead>
                 <tbody>
                 <!-- Every lesson group -->
-                    <s:iterator var="coachGroupWithLessonGroups" value="coachGroupsWithLessonGroups">
+<%--                     <s:iterator var="coachGroupWithLessonGroups" value="coachGroupsWithLessonGroups">
                     	<s:iterator var="lessonGroup" value="#coachGroupWithLessonGroups.lessonGroups">
                     		<tr id="<s:property value="id"></s:property>">
 	                    		<td>
@@ -209,10 +209,96 @@
 	                    			<s:property value="#coachGroupWithLessonGroups.name"></s:property>
 	                    		</td>
                     		</tr>
-                    	
-                    	
                     	</s:iterator>
-                    </s:iterator>
+                    </s:iterator> --%>
+                    
+							<tr>
+	                    		<td>
+	                    			<label>
+	                    				<input type="checkbox">
+	                    			</label>
+	                    		</td>
+	                    		
+	                    		<td>
+	                   				<a href="/Pasimo/lessongroup/details?lessonGroupName=lessonGroupName">
+	                   					ICO123A
+	                   				</a>
+	                    		</td>
+	                    		
+	                    		<td>
+	                    			24
+	                    		</td>
+	                    		
+	                    		<td>
+	                    			Coachgroup A1
+	                    		</td>
+                    		</tr>
+                    		
+                    		<tr>
+	                    		<td>
+	                    			<label>
+	                    				<input type="checkbox">
+	                    			</label>
+	                    		</td>
+	                    		
+	                    		<td>
+	                   				<a href="/Pasimo/lessongroup/details?lessonGroupName=lessonGroupName">
+	                   					ICO31A
+	                   				</a>
+	                    		</td>
+	                    		
+	                    		<td>
+	                    			27
+	                    		</td>
+	                    		
+	                    		<td>
+	                    			Coachgroup A2
+	                    		</td>
+                    		</tr>
+                    		
+                    									<tr>
+	                    		<td>
+	                    			<label>
+	                    				<input type="checkbox">
+	                    			</label>
+	                    		</td>
+	                    		
+	                    		<td>
+	                   				<a href="/Pasimo/lessongroup/details?lessonGroupName=lessonGroupName">
+	                   					ICO1253A
+	                   				</a>
+	                    		</td>
+	                    		
+	                    		<td>
+	                    			24
+	                    		</td>
+	                    		
+	                    		<td>
+	                    			Coachgroup A1
+	                    		</td>
+                    		</tr>
+                    		
+                    		<tr>
+	                    		<td>
+	                    			<label>
+	                    				<input type="checkbox">
+	                    			</label>
+	                    		</td>
+	                    		
+	                    		<td>
+	                   				<a href="/Pasimo/lessongroup/details?lessonGroupName=lessonGroupName">
+	                   					ICO321A
+	                   				</a>
+	                    		</td>
+	                    		
+	                    		<td>
+	                    			27
+	                    		</td>
+	                    		
+	                    		<td>
+	                    			Coachgroup A2
+	                    		</td>
+                    		</tr>
                 </tbody>
                 <tbody>
                 
