@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.TreeSet;
 import com.opensymphony.xwork2.ActionSupport;
-import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;

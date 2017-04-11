@@ -8,7 +8,7 @@
 	<constant name="struts.mapper.alwaysSelectFullNamespace"
 		value="false" />
 
-<<<<<<< HEAD
+
     <package name="alles" extends="struts-default">
         <!--        <action name="pag1" class="nl.scalda.pasimo.controller.MainController"
                         method="execute">
@@ -82,7 +82,7 @@
 
         <action name="teacherOverview" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 
-=======
+
 	<package name="alles" extends="struts-default">
 		<!-- <action name="pag1" class="nl.scalda.pasimo.controller.MainController" 
 			method="execute"> <result name="success">/index.jsp</result> </action> <action 
@@ -114,7 +114,7 @@
 		</action>
 		<action name="teacherOverview"
 			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
->>>>>>> 973312f5611f8292d53d1fd8fbe713432d49f331
+
 			method="readTeacher">
 			<result name="success">/view/employeemanagement/teacher/teacherOverview.jsp
 			</result>
