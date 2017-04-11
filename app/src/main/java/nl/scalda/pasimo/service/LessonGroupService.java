@@ -63,10 +63,10 @@ public class LessonGroupService implements ILessonGroupService {
 		TreeSet<CoachGroup> coachGroupsWithLessonGroups = new TreeSet<>();	
 		
 		for(CoachGroup coachGroup : CoachGroupService.getInstance().readAll()) {
+			coachGroup.loadLessonGroups();
 			if(coachGroup.getLessonGroups().size() <= 0) {
 				continue;
 			}
-			
 			coachGroupsWithLessonGroups.add(coachGroup);
 		}
 		
