@@ -25,6 +25,10 @@ public class EducationTeam implements Comparable<EducationTeam>{
      * Id of the EducationTeam
      */
     private int id;
+    
+    public EducationTeam() {
+		loadCoachGroups();
+	}
 
     public void addTeacher(Teacher t){
 		if (teachers.add(t)) {
@@ -40,8 +44,8 @@ public class EducationTeam implements Comparable<EducationTeam>{
     public void addCoachGroup(CoachGroup cg){
     	cg.setName(this.abbreviation + cg.getName());
     	this.coachGroups.add(cg);
-    	//DAOFactory.getTheFactory().getDAOCoachGroup().create(cg);
-    	TestDAOCoachGroup.getInstance().create(cg);
+    	DAOFactory.getTheFactory().getDAOCoachGroup().create(cg);
+    	//TestDAOCoachGroup.getInstance().create(cg);
     
     }
     
@@ -143,9 +147,7 @@ public class EducationTeam implements Comparable<EducationTeam>{
 
 	public TreeSet<CoachGroup> getCoachGroups() {
 		if(coachGroups.isEmpty()){
-			this.coachGroups = 
-					DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
-			    	//TestDAOFactory.getTheFactory().getDAOCoachGroup().readAll(); 
+			loadCoachGroups();
 		}
 		return coachGroups;
 	}
@@ -153,8 +155,10 @@ public class EducationTeam implements Comparable<EducationTeam>{
 	public void setCoachGroups(TreeSet<CoachGroup> coachGroups) {
 		this.coachGroups = coachGroups;
 	}
-
 	
-    
-
+	public void loadCoachGroups(){
+		this.coachGroups = 
+				DAOFactory.getTheFactory().getDAOCoachGroup().readAllBYTeam(this);
+	}
+	
 }
