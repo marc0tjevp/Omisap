@@ -1,7 +1,5 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
-
-
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -22,145 +20,55 @@ import nl.scalda.pasimo.model.timeregistration.WorkBlock;
 
 public class TestDAOWorkBlock implements IDAOWorkBlock {
 
-	private static SessionFactory factory;
 	private static TestDAOWorkBlock instance = null;
+	private Set<WorkBlock> workblocks;
+
+	private TestDAOWorkBlock() {
+		this.workblocks = new TreeSet<WorkBlock>();
+
+		this.workblocks.add(new WorkBlock(1, "8:30", "10:10"));
+		this.workblocks.add(new WorkBlock(1, "10:25", "11:15"));
+		this.workblocks.add(new WorkBlock(1, "11:25", "12:05"));
+		this.workblocks.add(new WorkBlock(1, "12:35", "14:15"));
+	}
 
 	// was eerst private die static
 	public static TestDAOWorkBlock getInstance() {
 		if (instance == null) {
 			instance = new TestDAOWorkBlock();
-			initialiseFactory();
 		}
 		return instance;
 	}
 
-	/**
-	 * initialises the configuration of hibernate. called once from
-	 * getInstance() methodsadsdfsadfsdf
-	 */
-
-	public static void initialiseFactory() {
-		try {
-			factory = new Configuration().configure().buildSessionFactory();
-		} catch (Throwable ex) {
-			System.err.println("Failed to create sessionFactory object." + ex);
-			throw new ExceptionInInitializerError(ex);
-		}
-	}
-
 	@Override
 	public void update(WorkBlock workblock) {
-		Session session = factory.openSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			String sql = "UPDATE workblock SET id = :id , startTime = :startTime , endTime = :endTime     WHERE id = :id ;";
-			NativeQuery query = session.createNativeQuery(sql);
-
-			query.setParameter("id", workblock.getId());
-			query.setParameter("startTime", workblock.getStartTime());
-			query.setParameter("endTime", workblock.getEndTime());
-			query.executeUpdate();
-
-			tx.commit();
-
-		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
+		workblock.setId(workblock.getId());
+		workblock.setStartTime(workblock.getStartTime());
+		workblock.setEndTime(workblock.getEndTime());
 
 	}
 
 	@Override
 	public void create(WorkBlock workblock) {
-		Session session = factory.openSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			String sql = "INSERT INTO workblock(id, startTime, endTime) VALUES (:id, :startTime, :endTime)";
-			NativeQuery query = session.createNativeQuery(sql);
-			query.setParameter("id", workblock.getId());
-			query.setParameter("startTime", workblock.getStartTime());
-			query.setParameter("endTime", workblock.getEndTime());
-			query.executeUpdate();
-			tx.commit();
-
-		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
+		this.workblocks.add(workblock);
 
 	}
 
 	@Override
 	public void delete(WorkBlock workblock) {
-		// TODO Auto-generated method stub
-		Session session = factory.openSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			session.createNativeQuery("DELETE FROM workblock where id = :id").setParameter("id", workblock.getId())
-					.executeUpdate();
-			session.delete(workblock);
-			tx.commit();
-
-		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
+	this.workblocks.remove(workblock);
 	}
 
 	@Override
 	public Set<WorkBlock> readAll() {
-		Session session = factory.openSession();
-		Transaction tx = null;
-		Set<WorkBlock> workblocks = new TreeSet<>();
-		try {
-			tx = session.beginTransaction();
-			List workingdayList = session.createNativeQuery("SELECT * FROM workingday;").getResultList();
-			for (Iterator iterator = workingdayList.iterator(); iterator.hasNext();) {
-				Object[] obj = (Object[]) iterator.next();
-				WorkBlock w = new WorkBlock(Integer.parseInt(String.valueOf(obj[0])), String.valueOf(obj[1]),
-						String.valueOf(obj[2]));
-				workblocks.add(w);
-			}
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
+
 		return workblocks;
 
 	}
 
 	@Override
 	public WorkBlock read(int id) {
-		Session session = factory.openSession();
-		Transaction tx = null;
-		Set<WorkBlock> workblock = new TreeSet<>();
-		try {
-			tx = session.beginTransaction();
-			List WorkBlock = session.createNativeQuery("SELECT id, startTime, endtime FROM workblock;").getResultList();
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
+
 		return read(id);
 	}
 
