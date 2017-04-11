@@ -51,6 +51,8 @@ public class Main {
     	System.out.println(CoachGroupService.getInstance().readAll());
     
     	CoachGroupService.getInstance().delete(cg);
+    	
+    	System.out.println("fkajsfskja;asfjf;ajssf;");
     }
 
 }
