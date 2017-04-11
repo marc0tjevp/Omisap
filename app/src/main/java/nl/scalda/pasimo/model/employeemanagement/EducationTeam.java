@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 
 import java.util.Set;
@@ -50,6 +51,7 @@ public class EducationTeam implements Comparable<EducationTeam>{
      * @param coachGroup
      */
     public void addCoachGroup(CoachGroup cg){
+    	cg.setName(this.abbreviation + cg.getName());
     	this.coachGroups.add(cg);
     	//DAOFactory.getTheFactory().getDAOCoachGroup().create(cg);
     	TestDAOCoachGroup.getInstance().create(cg);
@@ -83,6 +85,7 @@ public class EducationTeam implements Comparable<EducationTeam>{
     
     
 	public void deleteTeacher(Teacher t){
+		//TODO implement a way to fill the teachers collection on startup.
 //		if (teachers.remove(t)) {
 			DAOFactory.getTheFactory().getDAOEducationTeam().deleteTeacherFromEducationTeam(t, this);
 //		}		
@@ -155,6 +158,9 @@ public class EducationTeam implements Comparable<EducationTeam>{
     }
 
 	public Set<CoachGroup> getCoachGroups() {
+		if(coachGroups.isEmpty()){
+			this.coachGroups = DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
+		}
 		return coachGroups;
 	}
 

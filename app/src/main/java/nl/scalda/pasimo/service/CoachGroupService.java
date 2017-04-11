@@ -32,10 +32,10 @@ public class CoachGroupService {
      * @param id
      * @return cg
      */
-    public CoachGroup readCoachGroup(int id) {
+    public CoachGroup readCoachGroup(String name) {
     	for(EducationTeam edu: EducationTeamService.getInstance().getEducationTeams() ){
     		  for(CoachGroup cg :edu.getCoachGroups()){
-    			  if(cg.getId() == id){
+    			  if(cg.getName().equals(name)){
     				  return cg;
     		  }
     		}
