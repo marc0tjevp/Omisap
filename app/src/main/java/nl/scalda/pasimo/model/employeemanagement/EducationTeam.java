@@ -81,12 +81,11 @@ public class EducationTeam implements Comparable<EducationTeam>{
                 ct.setCardID(teacher.getCardID());
                 ct.setEmployeeNumber(teacher.getEmployeeNumber());
                 ct.setEmail(teacher.getEmail());
- //               ct.setDateOfBirth(teacher.getDateOfBirth());
+                //               ct.setDateOfBirth(teacher.getDateOfBirth());
                 ct.setNoteList(teacher.getNoteList());
             }
         }
     }
-    
     
 	public void deleteTeacher(Teacher t){
 		//TODO implement a way to fill the teachers collection on startup.
@@ -109,17 +108,15 @@ public class EducationTeam implements Comparable<EducationTeam>{
         this.abbreviation = abbreviation;
         this.name = name;
     }
-    
+
     public EducationTeam(String abbreviation, String name, int id) {
-    	this.setId(id);
+        this.setId(id);
         this.abbreviation = abbreviation;
         this.name = name;
     }
 
     //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="getters and setters">
-
     public String getAbbreviation() {
         return abbreviation;
     }
@@ -135,17 +132,16 @@ public class EducationTeam implements Comparable<EducationTeam>{
     public void setName(String name) {
         this.name = name;
     }
-    
-    public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     //</editor-fold>
-
     @Override
     public int compareTo(EducationTeam o) {
         return this.name.compareTo(o.getName());
@@ -153,10 +149,10 @@ public class EducationTeam implements Comparable<EducationTeam>{
 
     @Override
     public String toString() {
-        return "EducationTeam{" +
-                "abbreviation='" + abbreviation + '\'' +
-                ", name='" + name + '\'' +
-                '}';
+        return "EducationTeam{"
+                + "abbreviation='" + abbreviation + '\''
+                + ", name='" + name + '\''
+                + '}';
     }
 
 	public Set<CoachGroup> getCoachGroups() {

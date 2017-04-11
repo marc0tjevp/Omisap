@@ -11,10 +11,10 @@ import java.util.TreeSet;
 
 public class TestDAOEducationTeam implements IDAOEducationTeam {
 
-    private List<EducationTeam> educationTeams;
+    private Set<EducationTeam> educationTeams;
 
     private TestDAOEducationTeam() {
-        this.educationTeams = new ArrayList<EducationTeam>();
+        this.educationTeams = new TreeSet<EducationTeam>();
 
         // Test data
         this.educationTeams.add(new EducationTeam("AO", "Applicatieontwikkelaar"));
@@ -66,7 +66,7 @@ public class TestDAOEducationTeam implements IDAOEducationTeam {
     }
 
     @Override
-    public List<EducationTeam> readAll() {
+    public Set<EducationTeam> readAll() {
         return this.educationTeams;
     }
 

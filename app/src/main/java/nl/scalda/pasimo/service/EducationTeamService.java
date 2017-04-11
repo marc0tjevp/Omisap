@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.service;
 
 import java.util.List;
+import java.util.Set;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
@@ -9,18 +10,12 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 public class EducationTeamService {
 	
 	private static EducationTeamService instance;
-	public EducationTeamService(){}
+	private Set<EducationTeam> educationTeams;
 	
-	public List<EducationTeam> getEducationTeams(){
-		return DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
+	public EducationTeamService(){
+		educationTeams = DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
 	}
 	
-	public static EducationTeamService getInstance() {
-		if (instance == null) {
-			instance = new EducationTeamService();
-		}
-		return instance;
-	}
 	
 	/**
 	 * gets the educationteam with the abbreviation that equals given abbreviation
@@ -50,5 +45,24 @@ public class EducationTeamService {
 			return null;
 		}
 	}
+
+    public Set<EducationTeam> getEducationTeams() {
+        return educationTeams;
+    }
+
+    public void saveEducationTeam(EducationTeam e) throws Exception {
+        if (educationTeams.add(e)) {
+            DAOFactory.getTheFactory().getDAOEducationTeam().save(e);
+        } else {
+            throw new Exception("Cannot save educationTeam");
+        }
+    }
+
+    public static EducationTeamService getInstance() {
+        if (instance == null) {
+            instance = new EducationTeamService();
+        }
+        return instance;
+    }
 
 }
