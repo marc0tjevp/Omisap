@@ -11,8 +11,7 @@ public interface IDAOEducationTeam {
      * Creates the EducationTeam.
      */
     void create(EducationTeam educationTeam);
-
-    /**
+         /** 
      * Updates the EducationTeam.
      */
     void update(EducationTeam educationTeam);

@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.controller.employeemanagement;
 
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.Set;
@@ -40,8 +41,8 @@ public class EducationTeamController extends ActionSupport {
         return SUCCESS;
     }
 
-    public Set getEducationTeams() {
-        return Service.getInstance().getEducationTeamService().getEducationTeams();
+    public Set<EducationTeam> getEducationTeams() {
+     return MYSQLDAOEducationTeam.getInstance().readAll();
     }
 
     public String getName() {

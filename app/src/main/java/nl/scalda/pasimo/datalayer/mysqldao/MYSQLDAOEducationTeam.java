@@ -136,6 +136,7 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
     @Override
     public EducationTeam read(String abbreviation) {
         // TODO Auto-generated method stub
+    	
         return null;
     }
 

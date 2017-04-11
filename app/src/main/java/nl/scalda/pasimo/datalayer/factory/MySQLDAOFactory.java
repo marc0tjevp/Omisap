@@ -70,7 +70,7 @@ public class MySQLDAOFactory extends DAOFactory {
         // TODO Auto-generated method stub
         return null;
     }
-
+    
     public IDAOEducationTeam getDAOEducationTeam() {
         return MYSQLDAOEducationTeam.getInstance();
 

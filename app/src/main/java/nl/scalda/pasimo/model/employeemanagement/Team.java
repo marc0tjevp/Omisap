@@ -3,6 +3,7 @@ package nl.scalda.pasimo.model.employeemanagement;
 import java.util.Set;
 import java.util.TreeSet;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 
 public class Team {
@@ -38,7 +39,9 @@ public class Team {
      */
     public void addEducationTeam(EducationTeam educationTeam) {
         this.educationTeams.add(educationTeam);
-        MYSQLDAOEducationTeam.getInstance().create(educationTeam);
+        DAOFactory.getTheFactory().getDAOEducationTeam().create(educationTeam);
+   
+        
         
     }
 
@@ -48,7 +51,7 @@ public class Team {
     public void updateEducationTeam(EducationTeam educationTeam) {
                 educationTeam.setAbbreviation(educationTeam.getAbbreviation());
                 educationTeam.setName(educationTeam.getName());
-                MYSQLDAOEducationTeam.getInstance().update(educationTeam);
+                DAOFactory.getTheFactory().getDAOEducationTeam().update(educationTeam);
                 
                 
             }
@@ -59,7 +62,7 @@ public class Team {
      */
     public void removeEducationTeam(EducationTeam educationTeam) {
         this.educationTeams.remove(educationTeam);
-        MYSQLDAOEducationTeam.getInstance().delete(educationTeam);
+        DAOFactory.getTheFactory().getDAOEducationTeam().delete(educationTeam);
     }
 
     //<editor-fold defaultstate="collapsed" desc="getters and setters">
