@@ -46,29 +46,29 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	public String execute() {
 //		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
 		LessonGroup specificLessonGroup = null;
-		if (specificLessonGroup == null) {
+/*		if (specificLessonGroup == null) {
 			return ERROR;
-		}
-		this.name = specificLessonGroup.getName();
-		this.students = specificLessonGroup.getStudents();
+		}*/
+//		this.name = specificLessonGroup.getName();
+//		this.students = specificLessonGroup.getStudents();
 
 		/*
 		 * Retrieve all the students from the student DAO and add them to the
 		 * array
 		 */
-		this.additionalStudents = TestDAOStudent.getInstance().readAll();
+//		this.additionalStudents = TestDAOStudent.getInstance().readAll();
 
 		/*
 		 * Filter out the students which are in the current lesson group
 		 */
-		Iterator<Student> currentLessonGroupStudentsIterator = additionalStudents.iterator();
+/*		Iterator<Student> currentLessonGroupStudentsIterator = additionalStudents.iterator();
 		while (currentLessonGroupStudentsIterator.hasNext()) {
 			Student currentStudent = currentLessonGroupStudentsIterator.next();
 			if (!students.contains(currentStudent)) {
 				continue;
 			}
 			currentLessonGroupStudentsIterator.remove();
-		}
+		}*/
 
 		/*
 		 * Get all lesson groups for filtering out students which are in other
@@ -80,15 +80,15 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		 * Loop through all other lesson groups which are not this current
 		 * lesson group
 		 */
-		for (LessonGroup lessonGroup : allLessonGroups) {
+/*		for (LessonGroup lessonGroup : allLessonGroups) {
 			if (lessonGroup == specificLessonGroup) {
 				continue;
 			}
 			TreeSet<Student> otherStudents = new TreeSet<>(lessonGroup.getStudents());
 
-			/*
+			
 			 * Filter out students which are in other lesson groups
-			 */
+			 
 			Iterator<Student> otherLessonGroupsStudentsIterator = otherStudents.iterator();
 			while (otherLessonGroupsStudentsIterator.hasNext()) {
 				Student otherLessonGroupStudent = otherLessonGroupsStudentsIterator.next();
@@ -99,7 +99,7 @@ public class LessonGroupDetailsAction extends ActionSupport {
 
 		if (this.students == null) {
 			return ERROR;
-		}
+		}*/
 		return SUCCESS;
 	}
 
