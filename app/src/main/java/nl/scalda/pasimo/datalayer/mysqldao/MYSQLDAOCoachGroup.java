@@ -9,6 +9,7 @@ import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 
 /**
  *
@@ -49,6 +50,13 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
         }
         return instance;
     }
+
+	@Override
+	public TreeSet<CoachGroup> readAllBYTeam(EducationTeam t) {
+		// TODO Auto-generated method stub
+
+		return null;
+	}
 
 	
 
