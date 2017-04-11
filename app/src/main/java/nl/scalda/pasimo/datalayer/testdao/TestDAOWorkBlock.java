@@ -15,7 +15,6 @@ import org.hibernate.query.NativeQuery;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkBlock;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOWorkBlock;
 import nl.scalda.pasimo.model.timeregistration.WorkBlock;
 
 public class TestDAOWorkBlock implements IDAOWorkBlock {

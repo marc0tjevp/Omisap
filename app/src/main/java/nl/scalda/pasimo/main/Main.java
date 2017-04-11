@@ -23,13 +23,13 @@ public class Main {
     	
     	WorkingDay w = new WorkingDay("maandag");
     
-    	WorkBlock workblock = new WorkBlock(1, "9:30", "10:10");
+    	WorkBlock workblock = new WorkBlock(2, "9:30", "10:10");
     	
-    	w.addWorkBlock(workblock);
+//    	w.addWorkBlock(workblock);
     	
-//    	workblock.setEndTime("10:00");
-//    	
-//    	w.updateWorkBlock(workblock);
+
+    	
+    	w.deleteWorkBlock(workblock);
     	
     	
     }
