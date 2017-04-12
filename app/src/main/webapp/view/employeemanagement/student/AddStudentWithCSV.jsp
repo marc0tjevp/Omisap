@@ -8,10 +8,10 @@
 	<jsp:attribute name="content">
     <div class="container">
       <h1>Add Student with CSV</h1>
-      <br>
+      <s:bean name="nl.scalda.pasimo.model.employeemanagement.Student" var="student">
       <form action="AddStudentWithCSV" class=""
 				enctype="multipart/form-data" method="post"
-				id="AddStudentWithCSVForm">
+				id="AddStudentWithCSVForm"></form>
           <div class="form-group row">
             <label class="col-2 col-form-label">coachGroupID</label>
             <div class="col-10">
@@ -48,7 +48,7 @@
 						data-toggle="button" aria-pressed="false">
   		   Add</button>
 			</div>
-      </form>
+			</s:bean>
     </div>
   </jsp:attribute>
 </t:layout2>

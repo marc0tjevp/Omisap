@@ -25,6 +25,12 @@ public class Student extends Person {
 	private int studentOV;
 
 	
+    /**
+     * default constructor.
+     */
+	public Student() {
+	}
+	
 	public Student(String email){
 		super(email);
 	}
