@@ -21,7 +21,7 @@
   <s:iterator value="students">
   	<tr>
   	<div class="rowContainer">
-  	  <td name="emplnumb"><a href="studentInfo?id=<s:property value="employeeNumber"></s:property>" class="noStyleAnchorTag"><s:property value="employeeNumber"></s:property></a></td>
+  	  <td name="emplnumbr"><a href="studentInfo?id=<s:property value="employeeNumber"></s:property>" class="noStyleAnchorTag"><s:property value="employeeNumber"></s:property></a></td>
       <td><a href="studentInfo?id=<s:property value="employeeNumber"></s:property>" class="noStyleAnchorTag"><s:property value="cardID"></s:property></a></td>
       <td><a href="studentInfo?id=<s:property value="employeeNumber"></s:property>" class="noStyleAnchorTag"><s:property value="email"></s:property></a></td>
       <td><a href="studentInfo?id=<s:property value="employeeNumber"></s:property>" class="noStyleAnchorTag"> <s:property value="firstName"></s:property></a></td>
@@ -35,7 +35,7 @@
     </div>
     </tr>
   </s:iterator>
-    <p> LALALALALALALALALALALALAAL </p>
+    
   </tbody>
 </table>
 </div>
