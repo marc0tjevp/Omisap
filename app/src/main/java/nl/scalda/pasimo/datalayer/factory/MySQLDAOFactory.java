@@ -18,7 +18,7 @@ public class MySQLDAOFactory extends DAOFactory {
 
     private static MySQLDAOFactory instance = null;
 
-    private MySQLDAOFactory() {
+    private  MySQLDAOFactory() {
     }
 
     public static MySQLDAOFactory getInstance() {
@@ -28,10 +28,9 @@ public class MySQLDAOFactory extends DAOFactory {
         return instance;
     }
 
-/**
- * methods from interface
- */
-
+    /**
+     * methods from interface
+     */
     @Override
     public IDAOCoachGroup getDAOCoachGroup() {
         return MYSQLDAOCoachGroup.getInstance();
@@ -41,39 +40,43 @@ public class MySQLDAOFactory extends DAOFactory {
     public IDAOLessonGroup getDAOLessonGroup() {
         return MYSQLDAOLessonGroup.getInstance();
     }
-    
-	@Override
-	public IDAONote getDAONote() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
 
-	public IDAOTeacher getDAOTeacher() {
-		return MYSQLDAOTeacher.getInstance();
-	}
+    @Override
+    public IDAONote getDAONote() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
+    @Override
 
+    public IDAOTeacher getDAOTeacher() {
+        return MYSQLDAOTeacher.getInstance();
+    }
 
-	@Override
-	public IDAOWorkingDay getDAOWorkingDay() {
-		return null;
-	}
-	@Override
-	public IDAOTeam getDAOTeam() {
+    @Override
+    public IDAOWorkingDay getDAOWorkingDay() {
+        return null;
+    }
 
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public IDAOTeam getDAOTeam() {
 
-	@Override
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	public IDAOWorkBlock getDAOWorkBlock() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	public IDAOEducationTeam getDAOEducationTeam() {
 		return MYSQLDAOEducationTeam.getInstance();
 
 	}
+
+	/* (non-Javadoc)
+	 * @see nl.scalda.pasimo.datalayer.factory.DAOFactory#getDAOWorkBlock()
+	 */
+	@Override
+	public IDAOWorkBlock getDAOWorkBlock() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
