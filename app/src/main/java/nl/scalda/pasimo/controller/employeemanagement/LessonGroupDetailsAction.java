@@ -21,7 +21,9 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 */
 	private String lessonGroupName;
 	
-	
+	/**
+	 * 
+	 */
 	private String coachGroupName;
 
 	/**
@@ -46,15 +48,11 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		LessonGroup specificLessonGroup =
 				LessonGroupService.getInstance().readByLessonGroupName(this.lessonGroupName, this.coachGroupName);
 		
-		
-		
-		
-//		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
-/*		if (specificLessonGroup == null) {
-			return ERROR;
-		}*/
-//		this.name = specificLessonGroup.getName();
-//		this.students = specificLessonGroup.getStudents();
+		if(specificLessonGroup == null) {
+			return null;
+		}		
+		this.lessonGroupName = specificLessonGroup.getName();
+		this.students = specificLessonGroup.getStudents();
 
 		/*
 		 * Retrieve all the students from the student DAO and add them to the
