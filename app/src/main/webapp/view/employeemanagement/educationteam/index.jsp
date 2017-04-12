@@ -10,7 +10,11 @@
 
             <div class="row">
                 <div class="col-sm-12">
+<<<<<<< HEAD
                     <h1>EducationTeams
+=======
+                    <h1>Educatieteams
+>>>>>>> develop
                         <a href="educationTeam/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nieuw EducationTeam</a>
                     </h1>
                 </div>
@@ -29,8 +33,8 @@
                         <tbody>
                             <s:iterator value="educationTeams">
                                 <tr>
-                                    <td><s:property value="name"/></td>
                                     <td><s:property value="abbreviation"/></td>
+                                    <td><s:property value="name"/></td>
                                     <td style="width: 10%;">
                                         <a href="educationTeam/update" class="btn btn-primary align-right"><i class="fa fa-edit"></i></a>
                                         <a data-toggle="modal" data-target="#deleteConfirmation" class="btn btn-danger align-right"><i class="fa fa-trash"></i></a>
