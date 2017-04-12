@@ -17,16 +17,16 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
     private static TestDAOLessonGroup instance = null;
     private TreeSet<LessonGroup> lessongroups = new TreeSet<>();
 
-    private TestDAOLessonGroup() {
-    	TreeSet<CoachGroup> coachGroups = 
-    			DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
+     private TestDAOLessonGroup() {
+//    	TreeSet<CoachGroup> coachGroups = 
+//    			DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
     	
-    	for(CoachGroup coachGroup : coachGroups) {
-    		coachGroup.addLessonGroup(
-    				new LessonGroup("lesgroep" + UUID.randomUUID().toString())
-    				
-    				);
-    	}
+//    	for(CoachGroup coachGroup : coachGroups) {
+//    		coachGroup.addLessonGroup(
+//    				new LessonGroup("lesgroep" + UUID.randomUUID().toString())
+//    				
+//    				);
+    	//}
     }
 
     public static TestDAOLessonGroup getInstance() {

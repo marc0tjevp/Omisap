@@ -19,7 +19,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
 
 	public TestDAOCoachGroup() {
-/*		CoachGroup c1 = new CoachGroup("B1");
+    	CoachGroup c1 = new CoachGroup("B1");
 		CoachGroup c2 = new CoachGroup("B2");
 		
         LessonGroup l1 = new LessonGroup("ICO43A");
@@ -36,7 +36,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
         	if(s == students.first()) {
         		l2.addStudent(s);
         	}
-        }*/
+        }
         
 		coachGroups.add(new CoachGroup("A1"));
 		coachGroups.add(new CoachGroup("A2"));
