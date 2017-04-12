@@ -87,26 +87,19 @@
                 
                 
                 $('#coachGroupDeleteModal').on('show.bs.modal', function(e) {
-                   	
-                	$(e.currentTarget).find('c:forEach[items="closestTr"]').val();
-               		
-                   
+                	
                 });
                 
              
- $('#coachGroupEditModal').on('show.bs.modal', function(e) {
-                	
-
-               		$.ajax({
+ 				$('#coachGroupEditModal').on('show.bs.modal', function(e) {
+ 					$.ajax({
             		 	type: 'POST',	  
-            			url:'coachGroup/add.action',
+            			url:'coachGroup/edit',
             		   	dataType: 'json',
            				data : "s1=" + closestTr,
-           				success: function(data) {
-           					console.log(data);
-           					
-           				}
+           				
             		});
+
                		
                 });
                 
@@ -241,9 +234,12 @@
                          <s:form id="deleteCoachGroup"
 							action="deleteCoachGroup" role="form" method="post">
                         <div class="modal-body">
-                        <c:forEach var="p" items="${stuff}">
-                            <p>Weet u zeker dat u Coach Group ${p.getName} wilt verwijderen van CoachGroup?</p>
-                            </c:forEach>
+                        <p>Weet u zeker dat u deze CoachGroupen wilt verwijderen?</p>
+                          <s:iterator value="deleteCoaches" var="ed">
+                                        <p>${ed.getName},</p>
+                          </s:iterator>
+                           
+                          
                         </div>
                         <div class="modal-footer">
                         
@@ -283,21 +279,21 @@
                                     <label for="coachGroupName-input"
 									class="col-2 col-form-label">Naam</label>
                                     <div class="col-10">
-                                        <input class="form-control"
-										type="text" value="" id="coachGroupName-input">
+										<s:textfield class="form-control" name="coach.name"
+										id="coachGroupName-input" />
                                     </div>
                                     
                                     <label
-									for="coachGroupTeacherName-input" class="col-2 col-form-label">EducationTeam</label>
+									for="coachGroupEducationTeamName-input" class="col-2 col-form-label">EducationTeam</label>
                                     <div class="col-10">
-                                        <select class="form-control"
-										name="s1" id="coachGroupTeacherName-input">
-                                         <option value="">${ed.abbreviation}</option>
+                                        <select class="form-control" name="s1" id="coachGroupEducationTeamName-input">
+                                        
+                                         <option value="">${CoachGroupService.getInstance().getEducationTeam(coach).getAbbreviation()}</option>
                                          
-                                        <s:iterator value="teacher"
+                                        <s:iterator value="educationTeam"
 											var="ed">
                                         <s:if
-												test="%{#ed.getEmployeeNumber() =! coach.teacher.getEmployeeNumber }">
+												test="%{#ed.getEmployeeNumber() =! coach.getCoach().getEmployeeNumber() }">
                                         <option
 													value="${ed.employeeNumber}">${ed.abbreviation} </option>
                                         </s:if>
@@ -310,13 +306,18 @@
                                     <label
 									for="coachGroupTeacherName-input" class="col-2 col-form-label">Teacher</label>
                                     <div class="col-10">
-                                        <select class="form-control"
-										id="coachGroupTeacherName-input">
-                                        <option>Bram</option>
-     									<option>Rens</option>
-      									<option>Gino</option>
-      									<option>Max</option>
-      									<option>Piet</option>
+                                         <select class="form-control" name="s2" id="coachGroupTeacherName-input">
+                                        
+                                         <option value="">${coach.getCoach().getEmployeeNumber()}</option>
+                                         
+                                        <s:iterator value="teacher"
+											var="ed">
+                                        <s:if
+												test="%{#ed.getEmployeeNumber() =! coach.getCoach().getEmployeeNumber() }">
+                                        <option
+													value="${ed.employeeNumber}">${ed.abbreviation} </option>
+                                        </s:if>
+                                        </s:iterator>
                                     </select>
                                      
                                 </div>
@@ -353,8 +354,7 @@
 
                 </thead>
              
-                                        <s:iterator value="coachGroup"
-				var="ed">
+                 <s:iterator value="coachGroup" var="ed">
                                           <tbody>
                     <tr id="${ed.getName()}">
                         <td>
@@ -374,6 +374,7 @@
                         
                     </tr>
                                         
+			
 			</s:iterator>
                                         
              

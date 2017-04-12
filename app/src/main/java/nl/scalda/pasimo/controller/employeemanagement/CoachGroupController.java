@@ -26,6 +26,7 @@ public class CoachGroupController extends ActionSupport {
 	public TreeSet<EducationTeam> educationTeam = new TreeSet<>();
 	public TreeSet<CoachGroup> coachGroup = new TreeSet<>();
 	CoachGroup coach = new CoachGroup();
+	public TreeSet<CoachGroup> deleteCoaches = new TreeSet<>();
 
 	public String s1;
 	public String s2;
@@ -76,9 +77,8 @@ public class CoachGroupController extends ActionSupport {
 	}
 
 	public String updateCoachGroup() {
-		for (CoachGroup cg : CoachGroupService.getInstance().readAll()) {
-			if (cg.getName() == coach.getName()) {
-				cg.setName(s1);
+		for (CoachGroup cg : coachGroup) {
+			if (cg.getName().equals(coach.getName())) {
 				cg.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s1)));
 				cg.setCoach(coach.getCoach());
 				CoachGroupService.getInstance().update(cg);
@@ -88,6 +88,18 @@ public class CoachGroupController extends ActionSupport {
 		return SUCCESS;
 	}
 
+	public String ArrayCoach(){
+		
+		return SUCCESS;
+		}
+	
+	
+	public void getThisCoach(){
+		coach = CoachGroupService.getInstance().readCoachGroup(s1);
+		
+		}
+	
+	
 	public String deleteCoachGroup() {
 
 		CoachGroupService.getInstance().delete(coach);
