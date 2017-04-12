@@ -1,15 +1,18 @@
 package nl.scalda.pasimo.model.timeregistration;
 
+import java.util.GregorianCalendar;
 
+import javax.print.attribute.standard.DateTimeAtCompleted;
 
 public class WorkBlock implements Comparable<WorkBlock> {
 
 	public int id;
 	public String startTime;
 	public String endTime;
+	private GregorianCalendar start;
 
 	public WorkBlock() {
-
+		
 	}
 
 	public WorkBlock(int id, String startTime, String endTime) {
