@@ -75,4 +75,17 @@ public class LessonGroupService implements ILessonGroupService {
 		return coachGroupsWithLessonGroups;
 	}
 	
+	public LessonGroup readByLessonGroupName(String name) {
+		LessonGroup lessonGroup = DAOFactory.getTheFactory().getDAOLessonGroup().readLessonGroupByName(name);
+		
+		/*
+		 * If the 
+		 */
+		if(lessonGroup == null) {
+			return null;
+		}
+		
+		return lessonGroup;
+	}
+	
 }

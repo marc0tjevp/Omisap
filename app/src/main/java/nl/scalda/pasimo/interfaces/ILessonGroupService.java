@@ -12,6 +12,8 @@ public interface ILessonGroupService {
     TreeSet<CoachGroup> readAll();
     
     LessonGroup read(LessonGroup lessonGroup);
+    
+    LessonGroup readByLessonGroupName(String name);
 
     void update(LessonGroup newLessonGroup);
 

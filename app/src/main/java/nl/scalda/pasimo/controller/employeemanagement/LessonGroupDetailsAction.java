@@ -12,6 +12,7 @@ import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOStudent;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.Student;
+import nl.scalda.pasimo.service.LessonGroupService;
 
 public class LessonGroupDetailsAction extends ActionSupport {
 
@@ -21,7 +22,7 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	private int lessonGroupId;
 
 	/**
-	 * The lesson group name
+	 * The lesson group name for retreiving the actions
 	 */
 	private String name;
 
@@ -44,8 +45,10 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * Retrieves all the students for the current lesson group
 	 */
 	public String execute() {
+		LessonGroup specificLessonGroup = LessonGroup		
+		
+		
 //		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
-		LessonGroup specificLessonGroup = null;
 /*		if (specificLessonGroup == null) {
 			return ERROR;
 		}*/

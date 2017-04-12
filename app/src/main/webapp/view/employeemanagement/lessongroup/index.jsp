@@ -199,7 +199,7 @@
                 <!-- Every lesson group -->
                     <s:iterator var="coachGroupWithLessonGroups" value="coachGroupsWithLessonGroups">
                     	<s:iterator var="lessonGroup" value="#coachGroupWithLessonGroups.lessonGroups">
-                    		<tr id="<s:property value="id"></s:property>">
+                    		<tr>
 	                    		<td>
 	                    			<label>
 	                    				<input type="checkbox">
