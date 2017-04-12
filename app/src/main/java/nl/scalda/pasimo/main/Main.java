@@ -6,6 +6,7 @@
 package nl.scalda.pasimo.main;
 
 
+import nl.scalda.pasimo.model.timeregistration.PasimoTime;
 import nl.scalda.pasimo.model.timeregistration.WorkBlock;
 import nl.scalda.pasimo.model.timeregistration.WorkingDay;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
@@ -29,13 +30,13 @@ public class Main {
     	
     	WorkingDay w = new WorkingDay("maandag");
     
-    	WorkBlock workblock = new WorkBlock(2, "9:30", "10:10");
+    	WorkBlock workblock = new WorkBlock(2, new PasimoTime(8, 30), new PasimoTime(10, 10));
     	
-//    	w.addWorkBlock(workblock);
+    	w.addWorkBlock(workblock);
     	
-
+    	System.out.println(workblock);
     	
-    	w.deleteWorkBlock(workblock);
+//    	w.deleteWorkBlock(workblock);
     	
     }
 

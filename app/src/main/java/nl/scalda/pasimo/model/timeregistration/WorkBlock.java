@@ -6,18 +6,17 @@ import javax.print.attribute.standard.DateTimeAtCompleted;
 
 public class WorkBlock implements Comparable<WorkBlock> {
 
-	public int id;
-	public String startTime;
-	public String endTime;
-	private GregorianCalendar start;
+	private int id;
+	PasimoTime start;
+	PasimoTime end;
 
 	public WorkBlock() {
 		
 	}
 
-	public WorkBlock(int id, String startTime, String endTime) {
-		this.startTime = startTime;
-		this.endTime = endTime;
+	public WorkBlock(int id, PasimoTime start, PasimoTime end) {
+		this.start = start;
+		this.end = end;
 		this.id = id;
 	}
 
@@ -29,34 +28,36 @@ public class WorkBlock implements Comparable<WorkBlock> {
 		this.id = id;
 	}
 
-	public String getStartTime() {
-		return startTime;
+
+
+	public PasimoTime getStart() {
+		return start;
 	}
 
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
+	public void setStart(PasimoTime start) {
+		this.start = start;
 	}
 
-	public String getEndTime() {
-		return endTime;
+	public PasimoTime getEnd() {
+		return end;
 	}
 
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
+	public void setEnd(PasimoTime end) {
+		this.end = end;
 	}
 
 	@Override
 	public String toString() {
         return "WorkBlock{" +
         		"id='" + id + '\'' +
-                "startTime='" + startTime + '\'' +               ", endTime='" + endTime + '\'' +
+                "start='" + start + '\'' +               ", end='" + end + '\'' +
                 '}';
    }
 
 	@Override
 	public int compareTo(WorkBlock o) {
 		
-		return this.startTime.compareTo(o.getStartTime());
+		return this.start.compareTo(o.getStart());
 	}
 	
 }

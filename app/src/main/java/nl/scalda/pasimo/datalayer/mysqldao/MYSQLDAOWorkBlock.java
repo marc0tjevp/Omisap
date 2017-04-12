@@ -47,12 +47,12 @@ public class MYSQLDAOWorkBlock implements IDAOWorkBlock {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			String sql = "UPDATE workblock SET id = :id , startTime = :startTime , endTime = :endTime     WHERE id = :id ;";
+			String sql = "UPDATE workblock SET id = :id , start = :start , end = :end     WHERE id = :id ;";
 			NativeQuery query = session.createNativeQuery(sql);
 
 			query.setParameter("id", workblock.getId());
-			query.setParameter("startTime", workblock.getStartTime());
-			query.setParameter("endTime", workblock.getEndTime());
+			query.setParameter("start", workblock.getStart());
+			query.setParameter("end", workblock.getEnd());
 			query.executeUpdate();
 
 			tx.commit();
@@ -73,11 +73,11 @@ public class MYSQLDAOWorkBlock implements IDAOWorkBlock {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			String sql = "INSERT INTO workblock(id, startTime, endTime) VALUES (:id, :startTime, :endTime)";
+			String sql = "INSERT INTO workblock(id, start, end) VALUES (:id, :start, :end)";
 			NativeQuery query = session.createNativeQuery(sql);
 			query.setParameter("id", workblock.getId());
-			query.setParameter("startTime", workblock.getStartTime());
-			query.setParameter("endTime", workblock.getEndTime());
+			query.setParameter("start", workblock.getStart());
+			query.setParameter("end", workblock.getEnd());
 			query.executeUpdate();
 			tx.commit();
 
@@ -111,30 +111,31 @@ public class MYSQLDAOWorkBlock implements IDAOWorkBlock {
 			session.close();
 		}
 	}
-
+//TODO MAKE IT WORK
 	@Override
 	public Set<WorkBlock> readAll() {
-		Session session = factory.openSession();
-		Transaction tx = null;
-		Set<WorkBlock> workblocks = new TreeSet<>();
-		try {
-			tx = session.beginTransaction();
-			List workingdayList = session.createNativeQuery("SELECT * FROM workingday;").getResultList();
-			for (Iterator iterator = workingdayList.iterator(); iterator.hasNext();) {
-				Object[] obj = (Object[]) iterator.next();
-				WorkBlock w = new WorkBlock(Integer.parseInt(String.valueOf(obj[0])), String.valueOf(obj[1]),
-						String.valueOf(obj[2]));
-				workblocks.add(w);
-			}
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-		return workblocks;
+		return null;
+//		Session session = factory.openSession();
+//		Transaction tx = null;
+//		Set<WorkBlock> workblocks = new TreeSet<>();
+//		try {
+//			tx = session.beginTransaction();
+//			List workingdayList = session.createNativeQuery("SELECT * FROM workingday;").getResultList();
+//			for (Iterator iterator = workingdayList.iterator(); iterator.hasNext();) {
+//				Object[] obj = (Object[]) iterator.next();
+//				WorkBlock w = new WorkBlock(Integer.parseInt(String.valueOf(obj[0])), String.valueOf(obj[1]),
+//						String.valueOf(obj[2]));
+//				workblocks.add(w);
+//			}
+//			tx.commit();
+//		} catch (Exception e) {
+//			if (tx != null)
+//				tx.rollback();
+//			e.printStackTrace();
+//		} finally {
+//			session.close();
+//		}
+//		return workblocks;
 
 	}
 
