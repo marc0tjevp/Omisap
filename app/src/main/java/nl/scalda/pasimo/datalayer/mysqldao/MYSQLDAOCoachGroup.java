@@ -25,8 +25,8 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
     }
 
     @Override
-    public CoachGroup read(CoachGroup CoachGroup) {
-        return CoachGroup;
+    public CoachGroup read(String name) {
+        return null;
     }
 
     @Override

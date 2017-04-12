@@ -19,7 +19,7 @@ public interface IDAOCoachGroup {
 
     public void create(CoachGroup CoachGroup);
 
-    public CoachGroup read(CoachGroup CoachGroup);
+    public CoachGroup read(String name);
     
     public TreeSet<CoachGroup> readAll();
     

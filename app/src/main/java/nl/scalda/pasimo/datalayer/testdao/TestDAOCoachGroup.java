@@ -32,10 +32,10 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	}
 
 	@Override
-	public CoachGroup read(CoachGroup coachGroup) {
+	public CoachGroup read(String name) {
 		for (CoachGroup ccg : coachGroups) {
 			try {
-				if (coachGroup.getName().equals(ccg.getName())) {
+				if (ccg.getName().equals(name)) {
 					return ccg;
 				}
 			} catch (Exception ex) {
