@@ -45,7 +45,8 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * Retrieves all the students for the current lesson group
 	 */
 	public String execute() {
-		LessonGroup specificLessonGroup = LessonGroup		
+		LessonGroup specificLessonGroup =
+				LessonGroupService.getInstance().readByLessonGroupName(this.name);	
 		
 		
 //		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);

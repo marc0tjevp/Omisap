@@ -23,7 +23,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	/**
 	 * The {@link LessonGroups}'s who are in this CoachGroup
 	 */
-	private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
+	private TreeSet<LessonGroup> lessonGroups;
 
 	/**
 	 * Default constructor
@@ -160,5 +160,27 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	public int compareTo(CoachGroup o) {
 
 		return name.compareToIgnoreCase(o.getName());
+	}
+	
+	/**
+	 * 
+	 * @param lessonGroupName
+	 * @return
+	 */
+	public LessonGroup getLessonGroupByName(String lessonGroupName){
+		if(lessonGroups == null){
+			this.lessonGroups = 
+					DAOFactory.getTheFactory().getDAOLessonGroup().readAllByCoachGroup(this);
+		}
+		
+		for(LessonGroup lessonGroup : lessonGroups) {
+			if(!lessonGroup.getName().equals(lessonGroupName)) {
+				continue;
+			}
+			return lessonGroup;
+		}
+		return null;
+		
+		
 	}
 }
