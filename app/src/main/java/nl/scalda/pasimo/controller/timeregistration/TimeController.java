@@ -16,28 +16,41 @@ import nl.scalda.pasimo.model.timeregistration.WorkingDay;
 
 public class TimeController extends ActionSupport {
 
-	private TreeSet<WorkBlock> WorkBlocks = new TreeSet<>();
+	 public TreeSet<WorkBlock> WorkBlocks = new TreeSet<>();
 
-	WorkingDay w = new WorkingDay("");
+	WorkingDay w = new WorkingDay("Maandag");
 
-	
 	public String SSC() {
-		
+
 		return SUCCESS;
-		
+
 	}
+
 	public String execute() {
 
-		WorkBlock wq = new WorkBlock(1, "08:30", "10:10");
+		WorkBlock wq  = new WorkBlock(1, "08:30", "10:10");
 		WorkBlock wq1 = new WorkBlock(2, "10:25", "11:15");
-		WorkBlock wq2 = new WorkBlock(2, "11:25", "12:05");
-		WorkBlock wq3 = new WorkBlock(2, "12:35", "14:15");
-		WorkBlock wq4 = new WorkBlock(2, "14:30", "15:20");
+		WorkBlock wq2 = new WorkBlock(3, "11:25", "12:05");
+		WorkBlock wq3 = new WorkBlock(4, "12:35", "14:15");
+		WorkBlock wq4 = new WorkBlock(5, "14:30", "15:20");
+//		w.addWorkBlock(wq);
+//		w.addWorkBlock(wq1);
+//		w.addWorkBlock(wq2);
+//		w.addWorkBlock(wq3);
+//		w.addWorkBlock(wq4);
+//		WorkBlocks.remove(wq);
+//		WorkBlocks.remove(wq1);
+//		WorkBlocks.remove(wq2);
+//		WorkBlocks.remove(wq3);
+//		WorkBlocks.remove(wq4);
+		
+		
 		WorkBlocks.add(wq);
 		WorkBlocks.add(wq1);
 		WorkBlocks.add(wq2);
 		WorkBlocks.add(wq3);
 		WorkBlocks.add(wq4);
+		
 		return SUCCESS;
 	}
 
@@ -68,8 +81,5 @@ public class TimeController extends ActionSupport {
 		return SUCCESS;
 	}
 
-	public TreeSet<WorkBlock> getWorkBlocks() {
-		return WorkBlocks;
-	}
-	
+
 }

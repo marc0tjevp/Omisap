@@ -9,16 +9,15 @@ public class WorkBlock implements Comparable<WorkBlock> {
 	public int id;
 	public String startTime;
 	public String endTime;
-	private GregorianCalendar start;
 
 	public WorkBlock() {
-		
+
 	}
 
 	public WorkBlock(int id, String startTime, String endTime) {
+		this.id = id;
 		this.startTime = startTime;
 		this.endTime = endTime;
-		this.id = id;
 	}
 
 	public int getId() {
@@ -47,16 +46,14 @@ public class WorkBlock implements Comparable<WorkBlock> {
 
 	@Override
 	public String toString() {
-        return "WorkBlock{" +
-        		"id='" + id + '\'' +
-                "startTime='" + startTime + '\'' +               ", endTime='" + endTime + '\'' +
-                '}';
-   }
+		return "WorkBlock{" + "id='" + id + '\'' + "startTime='" + startTime + '\'' + ", endTime='" + endTime + '\''
+				+ '}';
+	}
 
 	@Override
 	public int compareTo(WorkBlock o) {
-		
+
 		return this.startTime.compareTo(o.getStartTime());
 	}
-	
+
 }

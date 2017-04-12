@@ -218,8 +218,8 @@
                      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Opleiding
                      <span class="caret"></span></button>
                      <ul class="dropdown-menu">
-                        <li><a href="index.jsp">Applicatie Ontwikkeling</a></li>
-                        <li><a href="SSC.jsp">SSC</a></li>
+              <li><a href="http://localhost:8080/Pasimo/TimeRegistration">Applicatie Ontwikkeling</a></li>
+              <li><a href="http://localhost:8080/Pasimo/TimeRegistrationSSC">SSC</a></li>
                      </ul>
                   </div>
 	      </div>
