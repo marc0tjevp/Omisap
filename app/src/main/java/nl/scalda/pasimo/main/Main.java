@@ -27,6 +27,7 @@ public class Main {
 
     public static void main(String args[]) {
 
+<<<<<<< HEAD
     	
     	WorkingDay w = new WorkingDay("maandag");
     
@@ -39,5 +40,19 @@ public class Main {
 //    	w.deleteWorkBlock(workblock);
     	
     }
+=======
+//    	
+//    	WorkingDay w = new WorkingDay("Maandag");
+//    
+//    	WorkBlock workblock = new WorkBlock(2, "9:30", "11:10");
+//    	
+//    	w.addWorkBlock(workblock);
+//    	
+//System.out.println(w);
+//    	
+////    	w.deleteWorkBlock(workblock);
+//    	
+  }
+>>>>>>> US-21-Controller
 
 }

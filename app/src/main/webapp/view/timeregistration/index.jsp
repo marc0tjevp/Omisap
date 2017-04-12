@@ -248,11 +248,13 @@
                <table class="table table-bordered">
         
       	<thead>
+      	<tr>
       		<th>Maandag</th>
       		<th>Dinsdag</th>
       		<th>Woensdag</th>
       		<th>Donderdag</th>
       		<th>Vrijdag</th>
+      		</tr>
       	</thead>
       	
       	<tbody>
@@ -266,25 +268,20 @@
 						<s:property value="startTime" /> - <s:property value="endTime" />
 					</div>
         	</td>
-      	        	<td class="cell-which-triggers-popup" data-toggle="modal"
+	      	<td class="cell-which-triggers-popup" data-toggle="modal"
 							data-target="#editModal">
 	                     <div class="well well-sm">
 						<s:property value="startTime" /> - <s:property value="endTime" />
 					</div>
         	</td>
-        	<td class="cell-which-triggers-popup" data-toggle="modal"
+        	<td>					</td>
+        		      	<td class="cell-which-triggers-popup" data-toggle="modal"
 							data-target="#editModal">
 	                     <div class="well well-sm">
 						<s:property value="startTime" /> - <s:property value="endTime" />
 					</div>
         	</td>
-        	 	<td class="cell-which-triggers-popup" data-toggle="modal"
-							data-target="#editModal">
-	                     <div class="well well-sm">
-						<s:property value="startTime" /> - <s:property value="endTime" />
-					</div>
-        	</td>
-        	 	<td class="cell-which-triggers-popup" data-toggle="modal"
+              		      	<td class="cell-which-triggers-popup" data-toggle="modal"
 							data-target="#editModal">
 	                     <div class="well well-sm">
 						<s:property value="startTime" /> - <s:property value="endTime" />
@@ -299,43 +296,6 @@
             </div>
          </div>
       </div>
-      
-      <table>
-      	<thead>
-      		<th>Monday</th>
-      		<th>Tuesday</th>
-      		<th>Enzovoorts</th>
-      	</thead>
-      	
-      	<tbody>
-      
-      <!-- TODO: Je moeder  -->
-      <s:iterator value="WorkBlocks">
-      	<tr>	
-	      	<td class="cell-which-triggers-popup" data-toggle="modal"
-							data-target="#editModal">
-	                     <div class="well well-sm">
-						<s:property value="startTime" /> - <s:property value="endTime" />
-					</div>
-        	</td>
-        	<td class="cell-which-triggers-popup" data-toggle="modal"
-							data-target="#editModal">
-	                     <div class="well well-sm">
-						<s:property value="startTime" /> - <s:property value="endTime" />
-					</div>
-        	</td>
-        	<td class="cell-which-triggers-popup" data-toggle="modal"
-							data-target="#editModal">
-	                     <div class="well well-sm">
-						<s:property value="startTime" /> - <s:property value="endTime" />
-					</div>
-        	</td>
-      	</tr>
-      </s:iterator>
-      
-      </tbody>
-      
-      </table>
       
       <div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel">

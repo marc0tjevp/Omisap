@@ -11,7 +11,7 @@ public class WorkBlock implements Comparable<WorkBlock> {
 	PasimoTime end;
 
 	public WorkBlock() {
-		
+
 	}
 
 	public WorkBlock(int id, PasimoTime start, PasimoTime end) {
@@ -59,5 +59,5 @@ public class WorkBlock implements Comparable<WorkBlock> {
 		
 		return this.start.compareTo(o.getStart());
 	}
-	
+
 }
