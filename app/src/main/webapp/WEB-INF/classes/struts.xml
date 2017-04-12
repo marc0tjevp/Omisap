@@ -3,10 +3,12 @@
    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
    "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-    <constant name="struts.devMode" value="true"/>
-    <constant name="struts.enable.SlashesInActionNames" value="true"/>
-    <constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.enable.SlashesInActionNames" value="true" />
+	<constant name="struts.mapper.alwaysSelectFullNamespace"
+		value="false" />
 
+<<<<<<< HEAD
 	<package name="jsons" extends="json-default">
 		<!-- Adding a lesson group -->
 		<action name="lessongroup/add" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
@@ -72,37 +74,54 @@
         </action>
         <action name="teacherOverview" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="readTeacher">
-			<result name="success">/view/employeemanagement/teacher/teacherOverview.jsp</result>
+			<result name="success">/view/employeemanagement/teacher/teacherOverview.jsp
+			</result>
 		</action>
-		<action name="addTeacherPage" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
+		<action name="addTeacherPage"
+			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="execute">
-			<result name="success">/view/employeemanagement/teacher/addTeacher.jsp</result>
+			<result name="success">/view/employeemanagement/teacher/addTeacher.jsp
+			</result>
 		</action>
-		<action name="addTeacher" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
+		<action name="addTeacher"
+			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="addTeacher">
 			<result name="success" type="redirect">teacherOverview</result>
 		</action>
-		<action name="editTeacherPage" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
+		<action name="editTeacherPage"
+			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="loadTeacherInfo">
-			<result name="success">/view/employeemanagement/teacher/editTeacher.jsp</result>
+			<result name="success">/view/employeemanagement/teacher/editTeacher.jsp
+			</result>
 		</action>
-		<action name="editTeacher" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
+		<action name="editTeacher"
+			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="updateTeacher">
 			<result name="success" type="redirect">teacherOverview</result>
 			<result name="input" type="redirect">teacherOverview</result>
 		</action>
-		<action name="removeTeacher" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
+		<action name="removeTeacher"
+			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="removeTeacher">
 			<result name="success" type="redirect">teacherOverview</result>
 		</action>
-		<action name="teacherInfo" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
+		<action name="teacherInfo"
+			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="loadTeacherInfo">
-			<result name="success">/view/employeemanagement/teacher/TeacherInformation.jsp</result>
+			<result name="success">/view/employeemanagement/teacher/TeacherInformation.jsp
+			</result>
 		</action>
-		<action name="TeacherPresence" class="nl.scalda.pasimo.controller.presenceregistration.PresenceController"
-                method="execute">
-            <result name="success">/view/presenceregistration/index.jsp</result>
-        </action>
-	
-    </package>
+		<action name="TeacherPresence"
+			class="nl.scalda.pasimo.controller.presenceregistration.PresenceController"
+			method="execute">
+			<result name="success">/view/presenceregistration/index.jsp</result>
+		</action>
+		<action name="educationTeam"
+			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
+			method="index">
+			<result name="success">/view/employeemanagement/educationteam/index.jsp
+			</result>
+		</action>
+
+	</package>
 </struts>
