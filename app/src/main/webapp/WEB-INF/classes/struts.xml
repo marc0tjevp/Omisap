@@ -8,6 +8,81 @@
 	<constant name="struts.mapper.alwaysSelectFullNamespace"
 		value="false" />
 
+
+    <package name="alles" extends="struts-default">
+        <!--        <action name="pag1" class="nl.scalda.pasimo.controller.MainController"
+                        method="execute">
+                    <result name="success">/index.jsp</result>
+                </action>
+                <action name="pag2" class="nl.scalda.pasimo.controller.MainController"
+                        method="execute">
+                    <result name="success">/index2.jsp</result>
+                </action>-->
+        <action name="lessongroup" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
+                method="execute">
+            <result name="success">/view/employeemanagement/lessongroup/index.jsp</result>
+        </action>
+        <action name="lessongroup/details" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
+                method="execute">
+            <result name="success">/view/employeemanagement/lessongroup/details.jsp</result>
+        </action>
+        <action name="coachGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+                method="execute">
+            <result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
+        </action>
+
+        
+        <action name="addCoachGroup" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController" 
+        		method="addCoachGroup">
+        		<result name="success" type="redirect">coachGroups</result>
+        		<result name="input">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
+        </action>
+     	
+        
+        <action name="deleteCoachGroup" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+        		method="deleteCoachGroup">
+        		<result name="success" type="redirect">coachGroups</result>
+        		<result name="input">/view/employeemanagement/coachgroups.jsp</result>
+        </action>
+        
+        <action name="updateCoachGroup" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+        		method="updateCoachGroup">
+        		<result name="success" type="redirect">coachGroups</result>
+        		<result name="input">/view/employeemanagement/coachgroups.jsp</result>
+        </action>
+        
+        
+         <!--   <action name="coachGroup/add.action" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+                method="CheckCoach">
+            <result name="success" type="json"></result>
+        </action> -->
+        
+
+        <action name="CoachLessonGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+
+                method="execute">
+            <result name="success">/view/employeemanagement/coachgroups/coachGroupLessonGroups.jsp</result>
+        </action>
+
+      <action name="createLessonGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupLessonGroupsController" 
+      			method="addLessonGroup">
+      	<result name="success" type="redirect">LessonGroups</result>
+		<result name="success">/view/employeemanagement/coachgroups/coachGroupLessonGroups.jsp</result>      
+      </action>
+        
+        <action name="deleteLessonGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupLessonGroupsController" 
+      			method="deleteLessonGroup">
+      	<result name="success" type="redirect">LessonGroups</result>
+		<result name="success">/view/employeemanagement/coachgroups/coachGroupLessonGroups.jsp</result>      
+      </action>
+        </package>
+        
+
+
+        
+        
+
+
 	<package name="alles" extends="struts-default">
 		<!-- <action name="pag1" class="nl.scalda.pasimo.controller.MainController" 
 			method="execute"> <result name="success">/index.jsp</result> </action> <action 
@@ -39,6 +114,7 @@
 		</action>
 		<action name="teacherOverview"
 			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
+
 			method="readTeacher">
 			<result name="success">/view/employeemanagement/teacher/teacherOverview.jsp
 			</result>
@@ -90,4 +166,5 @@
 		</action>
 
 	</package>
+
 </struts>

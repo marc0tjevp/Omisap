@@ -13,13 +13,13 @@
 
    <!-- Assume test is the database name -->
    <property name="hibernate.connection.url">
-      jdbc:mysql://localhost/pasimo
+      jdbc:mysql://localhost/pasimo_coachgroup
    </property>
    <property name="hibernate.connection.username">
       root
    </property>
    <property name="hibernate.connection.password">
-      West29stekel
+      Aardappel1
    </property>
 
    <!-- List of XML mapping files -->
