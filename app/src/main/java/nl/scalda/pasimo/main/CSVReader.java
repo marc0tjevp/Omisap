@@ -6,11 +6,13 @@
 package nl.scalda.pasimo.main;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.TreeSet;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
@@ -36,16 +38,15 @@ public class CSVReader {
     	
     }
     
-    public TreeSet<Student> readFile(String fileLocation, String coachGroupID, String lessonGroupID, String cohort) {
+    public TreeSet<Student> readFile(File file, int coachGroupID, int lessonGroupID, int cohort) {
        	// format that the csv file is: Nummer;Roepnaam;Voorvoegsel;Achternaam;Email school;Geboortedatum;
-    	String csvFile = fileLocation;
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ";";
         String date = "-";
 
         try {
-			br = new BufferedReader(new FileReader(csvFile));
+			br = new BufferedReader(new FileReader(file));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -54,14 +55,11 @@ public class CSVReader {
 			while ((line = br.readLine()) != null) {
 				String[] student = line.split(cvsSplitBy);
 				String[] YearsMonthsDays = student[5].split(date);
-
-//				}
-				Student a = new Student(Integer.parseInt(student[0]), Integer.parseInt(coachGroupID), Integer.parseInt(lessonGroupID), Integer.parseInt(cohort), student[4], student[1], student[2], student[3], 0, Integer.parseInt(YearsMonthsDays[2]), 123, Integer.parseInt(YearsMonthsDays[1]), Integer.parseInt(YearsMonthsDays[0]));
-			    students.add(a);
+				Student a = new Student(Integer.parseInt(student[0]), coachGroupID, lessonGroupID, cohort, student[4], student[1], student[2], student[3], 0, Integer.parseInt(YearsMonthsDays[2]), 0, Integer.parseInt(YearsMonthsDays[1]), Integer.parseInt(YearsMonthsDays[0]));
+				students.add(a);
+				
+				//TODO create method in IDAOStudent to add all students in one session.
 			    a.createStudent();
-			    
-			    
-			    
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

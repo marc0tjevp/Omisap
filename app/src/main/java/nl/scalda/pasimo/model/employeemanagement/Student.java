@@ -113,7 +113,7 @@ public class Student extends Person {
 		return "Student [noteListID=" + getNoteListID() + ", lessonGroupID=" + getLessonGroupID() + ", cardID=" + getCardID()
 				+ ", firstName=" + getFirstName() + ", insertion=" + getInsertion() + ", lastName=" + getLastName() + ", email="
 				+ getEmail() + ", cohort=" + getCohort() + ", coachGroupID=" + getCoachGroupID() + ", studentOV=" + getStudentOV()
-				+ "dateOfBirth=" + getDateOfBirthInString() + "]";
+				+ " dateOfBirth=" + getDateOfBirthInString() + "]";
 	}
 
 }
