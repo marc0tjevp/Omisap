@@ -1,7 +1,9 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
+import java.util.Random;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.UUID;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
@@ -16,41 +18,15 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
     private TreeSet<LessonGroup> lessongroups = new TreeSet<>();
 
     private TestDAOLessonGroup() {
-		CoachGroup c1 = new CoachGroup("B1");
-		CoachGroup c2 = new CoachGroup("B2");
-		CoachGroup c3 = new CoachGroup("B3");
-		
-        LessonGroup l1 = new LessonGroup("ICO43A");
-        LessonGroup l2 = new LessonGroup("ICO42A");
-        LessonGroup l3 = new LessonGroup("ICO41A");
-        LessonGroup l4 = new LessonGroup("ICO441G");
-        LessonGroup l5 = new LessonGroup("ICOTSTCL");
-       
-
-        TreeSet<Student> students = TestDAOStudent.getInstance().readAll();
-
-        for(Student s : students) {
-        	if(s == students.first()) {
-        		l2.addStudent(s);
-        	}
-        }
-        
-        lessongroups.add(l1);
-        lessongroups.add(l2);
-        lessongroups.add(l3);
-        lessongroups.add(l4);
-        lessongroups.add(l5);
-        
-        //recursive call, stackoverflow
-//        c1.addLessonGroup(l1);
-//        c1.addLessonGroup(l2);
-//        c1.addLessonGroup(l3);
-//        c2.addLessonGroup(l4);
-//        c3.addLessonGroup(l5);
-        
-        DAOFactory.getTheFactory().getDAOCoachGroup().create(c1);
-        DAOFactory.getTheFactory().getDAOCoachGroup().create(c2);
-        DAOFactory.getTheFactory().getDAOCoachGroup().create(c3);
+    	TreeSet<CoachGroup> coachGroups = 
+    			DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
+    	
+    	for(CoachGroup coachGroup : coachGroups) {
+    		coachGroup.addLessonGroup(
+    				new LessonGroup("lesgroep" + UUID.randomUUID().toString())
+    				
+    				);
+    	}
     }
 
     public static TestDAOLessonGroup getInstance() {
