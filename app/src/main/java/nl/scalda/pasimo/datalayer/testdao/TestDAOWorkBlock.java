@@ -15,6 +15,7 @@ import org.hibernate.query.NativeQuery;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkBlock;
+import nl.scalda.pasimo.model.timeregistration.PasimoTime;
 import nl.scalda.pasimo.model.timeregistration.WorkBlock;
 
 public class TestDAOWorkBlock implements IDAOWorkBlock {
@@ -25,10 +26,10 @@ public class TestDAOWorkBlock implements IDAOWorkBlock {
 	private TestDAOWorkBlock() {
 		this.workblocks = new TreeSet<WorkBlock>();
 
-		this.workblocks.add(new WorkBlock(1, "8:30", "10:10"));
-		this.workblocks.add(new WorkBlock(1, "10:25", "11:15"));
-		this.workblocks.add(new WorkBlock(1, "11:25", "12:05"));
-		this.workblocks.add(new WorkBlock(1, "12:35", "14:15"));
+		this.workblocks.add(new WorkBlock(1, new PasimoTime(8, 30), new PasimoTime(10, 10)));
+		this.workblocks.add(new WorkBlock(1, new PasimoTime(10, 25), new PasimoTime(11, 15)));
+		this.workblocks.add(new WorkBlock(1, new PasimoTime(11, 25), new PasimoTime(12, 05)));
+		this.workblocks.add(new WorkBlock(1, new PasimoTime(12, 35), new PasimoTime(14, 15)));
 	}
 
 	// was eerst private die static
@@ -42,8 +43,8 @@ public class TestDAOWorkBlock implements IDAOWorkBlock {
 	@Override
 	public void update(WorkBlock workblock) {
 		workblock.setId(workblock.getId());
-		workblock.setStartTime(workblock.getStartTime());
-		workblock.setEndTime(workblock.getEndTime());
+		workblock.setStart(workblock.getStart());
+		workblock.setEnd(workblock.getEnd());
 
 	}
 

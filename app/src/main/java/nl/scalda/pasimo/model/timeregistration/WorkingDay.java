@@ -52,8 +52,8 @@ public class WorkingDay implements Comparable<WorkingDay> {
 
 	public void updateWorkBlock(WorkBlock workblock) {
 		workblock.setId(workblock.getId());
-		workblock.setStartTime(workblock.getStartTime());
-		workblock.setEndTime(workblock.getEndTime());
+		workblock.setStart(workblock.getStart());
+		workblock.setEnd(workblock.getEnd());
 
 		DAOFactory.getTheFactory().getDAOWorkBlock().update(workblock);
 
