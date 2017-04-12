@@ -41,11 +41,12 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
         lessongroups.add(l4);
         lessongroups.add(l5);
         
-        c1.addLessonGroup(l1);
-        c1.addLessonGroup(l2);
-        c1.addLessonGroup(l3);
-        c2.addLessonGroup(l4);
-        c3.addLessonGroup(l5);
+        //recursive call, stackoverflow
+//        c1.addLessonGroup(l1);
+//        c1.addLessonGroup(l2);
+//        c1.addLessonGroup(l3);
+//        c2.addLessonGroup(l4);
+//        c3.addLessonGroup(l5);
         
         DAOFactory.getTheFactory().getDAOCoachGroup().create(c1);
         DAOFactory.getTheFactory().getDAOCoachGroup().create(c2);
@@ -113,8 +114,7 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 
 	@Override
 	public TreeSet<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup) {		
-		TreeSet<CoachGroup> coachGroups = 
-				DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
+		TreeSet<CoachGroup> coachGroups = DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
 		
 		for(CoachGroup loopingCoachGroup : coachGroups) {
 			if(coachGroup != loopingCoachGroup) {

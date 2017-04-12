@@ -66,7 +66,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 */
 	public void addLessonGroup(LessonGroup lg) {
 		this.lessonGroups.add(lg);
-		TestDAOLessonGroup.getInstance().create(lg);
+		DAOFactory.getTheFactory().getDAOLessonGroup().create(lg);
 	}
 
 	/**

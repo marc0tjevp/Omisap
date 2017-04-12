@@ -74,4 +74,5 @@ public class LessonGroupService implements ILessonGroupService {
 		
 		return coachGroupsWithLessonGroups;
 	}
+	
 }
