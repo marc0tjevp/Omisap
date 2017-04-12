@@ -20,6 +20,12 @@ public class TimeController extends ActionSupport {
 
 	WorkingDay w = new WorkingDay("");
 
+	
+	public String SSC() {
+		
+		return SUCCESS;
+		
+	}
 	public String execute() {
 
 		WorkBlock wq = new WorkBlock(1, "08:30", "10:10");

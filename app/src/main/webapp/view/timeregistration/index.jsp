@@ -236,8 +236,8 @@
                      <span class="caret"></span>
 					</button>
                      <ul class="dropdown-menu">
-                        <li><a href="index.jsp">Applicatie Ontwikkeling</a></li>
-                        <li><a href="SSC.jsp">SSC</a></li>
+                        <li><a href="http://localhost:8080/Pasimo/TimeRegistration">Applicatie Ontwikkeling</a></li>
+                        <li><a href="http://localhost:8080/Pasimo/TimeRegistrationSSC">SSC</a></li>
                      </ul>
                   </div>
 	      </div>
@@ -257,7 +257,7 @@
       	
       	<tbody>
       
-      <!-- TODO: Je moeder  -->
+      <!-- TODO: zorgen dat de td appart wordne geplaatst en niet in de hele row  -->
       <s:iterator value="WorkBlocks">
       	<tr>	
 	      	<td class="cell-which-triggers-popup" data-toggle="modal"
