@@ -9,21 +9,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h1>Create educationTeam</h1>
+                    <h1>Nieuw Educatieteam</h1>
 
-                    <form action="TODO">
+                    <form action="addEducationTeam">
 
                         <div class="form-group">
-                            <label class="control-label" for="name">Name</label>
+                            <label class="control-label" for="name">Naam</label>
                             <input class="form-control" placeholder="Name" id="name">
                         </div>
                         <div class="form-group">
-                            <label>Abbrevation</label>
+                            <label>Afkorting</label>
                             <input class="form-control" placeholder="Abbrevation" id="abbrevation">
 
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Annuleren</button>
+                        <button href="educationTeam" class="btn btn-primary">Annuleren</button>
 
                         <button type="submit" class="btn btn-primary pull-right">Aanmaken</button>
 

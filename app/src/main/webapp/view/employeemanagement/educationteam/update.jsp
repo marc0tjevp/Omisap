@@ -11,16 +11,16 @@
     <div class="row">
         <div class="col-sm-12">
             <div>
-                <h1>Edit educationTeam</h1>
+                <h1>Educatieteam bewerken</h1>
 
-                <form action="TODO">
+                <form action="updateEducationTeam">
 
                     <div class="form-group">
-                        <label class="control-label" for="name">Name</label>
+                        <label class="control-label" for="name">Naam</label>
                         <input class="form-control" placeholder="Name" id="name">
                     </div>
                     <div class="form-group">
-                        <label>Abbrevation</label>
+                        <label>Afkorting</label>
                         <input class="form-control" placeholder="Abbrevation" id="abbrevation">
 
                     </div>
