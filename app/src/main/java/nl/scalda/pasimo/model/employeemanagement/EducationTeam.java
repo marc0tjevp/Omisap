@@ -27,7 +27,7 @@ public class EducationTeam implements Comparable<EducationTeam> {
     private int id;
     
     public EducationTeam() {
-		loadCoachGroups();
+		
 	}
 
     public void addTeacher(Teacher t){
