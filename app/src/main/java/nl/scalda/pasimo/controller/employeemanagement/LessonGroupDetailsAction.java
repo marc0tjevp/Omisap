@@ -17,14 +17,12 @@ import nl.scalda.pasimo.service.LessonGroupService;
 public class LessonGroupDetailsAction extends ActionSupport {
 
 	/**
-	 * The ID of this lesson group
-	 */
-	private int lessonGroupId;
-
-	/**
 	 * The lesson group name for retreiving the actions
 	 */
-	private String name;
+	private String lessonGroupName;
+	
+	
+	private String coachGroupName;
 
 	/**
 	 * The students which are in this lesson group
@@ -46,7 +44,9 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 */
 	public String execute() {
 		LessonGroup specificLessonGroup =
-				LessonGroupService.getInstance().readByLessonGroupName(this.name);	
+				LessonGroupService.getInstance().readByLessonGroupName(this.lessonGroupName, this.coachGroupName);
+		
+		
 		
 		
 //		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
@@ -118,7 +118,7 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		if (specificLessonGroup == null) {
 			return ERROR;
 		}
-		specificLessonGroup.setName(this.name);
+		specificLessonGroup.setName(this.lessonGroupName);
 		return SUCCESS;
 	}
 
@@ -152,23 +152,6 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		}
 		specificLessonGroup.deleteStudent(specificStudent);
 		return SUCCESS;
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public int getLessonGroupId() {
-		return this.lessonGroupId;
-	}
-
-	/**
-	 * 
-	 * @param lessonGroupId
-	 */
-	public void setLessonGroupId(int lessonGroupId) {
-		this.lessonGroupId = lessonGroupId;
-
 	}
 
 	/**
@@ -223,15 +206,24 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * 
 	 * @return
 	 */
-	public String getName() {
-		return name;
+	public String getLessonGroupName() {
+		return lessonGroupName;
 	}
 
 	/**
 	 * 
 	 * @param name
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setLessonGroupName(String name) {
+		this.lessonGroupName = name;
 	}
+
+	public String getCoachGroupName() {
+		return coachGroupName;
+	}
+
+	public void setCoachGroupName(String coachGroupName) {
+		this.coachGroupName = coachGroupName;
+	}
+	
 }

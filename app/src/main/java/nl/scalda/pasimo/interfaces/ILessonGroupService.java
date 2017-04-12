@@ -13,7 +13,7 @@ public interface ILessonGroupService {
     
     LessonGroup read(LessonGroup lessonGroup);
     
-    LessonGroup readByLessonGroupName(String name);
+    LessonGroup readByLessonGroupName(String name, String coachGroupName );
 
     void update(LessonGroup newLessonGroup);
 

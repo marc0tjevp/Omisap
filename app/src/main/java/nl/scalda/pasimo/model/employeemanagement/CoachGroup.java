@@ -23,7 +23,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	/**
 	 * The {@link LessonGroups}'s who are in this CoachGroup
 	 */
-	private TreeSet<LessonGroup> lessonGroups;
+	private TreeSet<LessonGroup> lessonGroups = new TreeSet<>() ;
 
 	/**
 	 * Default constructor

@@ -207,7 +207,7 @@
 	                    		</td>
 	                    		
 	                    		<td>
-	                   				<a href="/Pasimo/lessongroup/details?lessonGroupName=<s:property value="name"></s:property>">
+	                   				<a href="/Pasimo/lessongroup/details?lessonGroupName=<s:property value="name"></s:property>&coachGroupName=<s:property value="#coachGroupWithLessonGroups.name"></s:property>">
 	                   					<s:property value="name"></s:property>
 	                   				</a>
 	                    		</td>

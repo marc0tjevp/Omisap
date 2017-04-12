@@ -60,28 +60,25 @@ public class LessonGroupService implements ILessonGroupService {
 
 	@Override
 	public TreeSet<CoachGroup> readAll() {
-		TreeSet<CoachGroup> coachGroupsWithLessonGroups = new TreeSet<>();	
-		
-		for(CoachGroup coachGroup : CoachGroupService.getInstance().readAll()) {
+		TreeSet<CoachGroup> coachGroupsWithLessonGroups = new TreeSet<>();
+
+		for (CoachGroup coachGroup : CoachGroupService.getInstance().readAll()) {
 			coachGroup.loadLessonGroups();
-			if(coachGroup.getLessonGroups().size() <= 0) {
+			if (coachGroup.getLessonGroups().size() <= 0) {
 				continue;
 			}
 			coachGroupsWithLessonGroups.add(coachGroup);
 		}
-		
-		
-		
+
 		return coachGroupsWithLessonGroups;
 	}
-	
-	public LessonGroup readByLessonGroupName(String lessonGroupName) {
-		//Change coachgroup into right one
-		CoachGroup cg = new CoachGroup();
-				
-		LessonGroup specificLessonGroup = cg.getLessonGroupByName(lessonGroupName);
-	
-		return specificLessonGroup;
+
+	public LessonGroup readByLessonGroupName(String lessonGroupName, String coachGroupName) {
+		CoachGroup specificCoachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupName);
+		if (specificCoachGroup == null) {
+			return null;
+		}
+		return specificCoachGroup.getLessonGroupByName(lessonGroupName);
 	}
-	
+
 }

@@ -17,11 +17,11 @@
             <div class="row" style="margin-bottom: 25px;">
                 <div class="col-md-12">
                     <h1 style="float: left; margin-right: 5px;">Studenten </h1>
-                    <h1 id="lessonGroupName" data-lessongroup-id="<s:property value="lessonGroupId"></s:property>"> <s:property value="name"></s:property></h1>
+                    <h1 id="lessonGroupName" data-lessongroup-name="<s:property value="lessonGroupName"></s:property>"> <s:property value="lessonGroupName"></s:property></h1>
                 	<br>
                 </div>
 				<h2 style="float: left; margin-right: 5px; margin-left: 15px; margin-top: 0;">Coachgroep </h2>
-				<h2 style="float: left; margin-top: 0;" id="lessonGroupCoachGroupName" data-coachgroup-id=""> A1</h2>
+				<h2 style="float: left; margin-top: 0;" id="lessonGroupCoachGroupName" data-coachgroup-name="<s:property value="coachGroupName"></s:property>"> <s:property value="coachGroupName"></s:property></h2>
             </div>
             
             <div class="row">
