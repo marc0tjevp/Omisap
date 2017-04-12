@@ -2,7 +2,9 @@ var fileName = "";
 
 $("#submitButton").on("click", function(){
 	
-	if($.trim($("#cohort").val())==0 || fileName == ""){
+	var reg = /^\d+$/;
+	
+	if($.trim($("#cohort").val())==0 || fileName == "" || reg.test($.trim($("cohort").val()))){
 		//TODO add message to display what the user is doing wrong
 		return false;
 	}
