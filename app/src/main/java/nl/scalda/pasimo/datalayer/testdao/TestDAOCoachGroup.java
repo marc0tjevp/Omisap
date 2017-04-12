@@ -30,6 +30,9 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 			c1.addLessonGroup(lessonGroup);
 		}
 		
+		coachGroups.add(c1);
+		coachGroups.add(c2);
+		
 /*        LessonGroup l1 = new LessonGroup("ICO43A");
         LessonGroup l2 = new LessonGroup("ICO42A");
         LessonGroup l3 = new LessonGroup("ICO41A");*/
