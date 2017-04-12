@@ -153,4 +153,8 @@ public class CoachGroup implements Comparable<CoachGroup> {
     public int compareTo(CoachGroup o) {
         return name.compareToIgnoreCase(o.getName());
     }
+    
+    public void load(){
+    	DAOFactory.getTheFactory().getDAOCoachGroup().read(this);
+    }
 }
