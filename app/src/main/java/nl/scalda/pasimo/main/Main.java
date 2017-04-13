@@ -18,26 +18,22 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.service.NoteService;
 import nl.scalda.pasimo.service.TeacherService;
 
-
 /**
  *
  * @author jeroe
  */
 public class Main {
 
-    public static void main(String args[]) {
-    	TreeSet<Note> noteList = new TreeSet<>();
-    	Student s = new Student(3, 1, "1", "1", "1", "1", 1, 1,noteList, 1, 1);
-    		Teacher teacher = new Teacher("GG", 666);
-    
-Note n = new Note();
-	
-		
+	public static void main(String args[]) {
+		TreeSet<Note> noteList = new TreeSet<>();
+		Student s = new Student(3, 1, "1", "1", "1", "1", 1, 1, noteList, 1, 1);
+		Teacher teacher = new Teacher("GG", 666);
 
 		Note n1 = NoteService.getInstance().readByID(2);
-		n1.setOvNumber(1251251);
-    	teacher.editNote(2);
-    		
-    }	
+		n1.setMessage("KEVIN'S asdf");
+		teacher.editNote(n1);
+
+
+	}
 
 }

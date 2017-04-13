@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.datalayer.mysqldao;
 
-import java.util.Date;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -9,12 +10,8 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.NativeQuery;
 
-import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.model.employeemanagement.Note;
-import nl.scalda.pasimo.model.employeemanagement.Person;
-import nl.scalda.pasimo.model.employeemanagement.Student;
-import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class MYSQLDAONote implements IDAONote {
 
@@ -70,7 +67,6 @@ public class MYSQLDAONote implements IDAONote {
 
 	@Override
 	public Note read(int id) {
-		System.out.println("read start");
 		Session session = factory.openSession();
 		Transaction tx = null;
 		Note n = new Note();
@@ -82,11 +78,12 @@ public class MYSQLDAONote implements IDAONote {
 					.setParameter("noteID", id).getSingleResult();
 			   n.setId(Integer.parseInt(String.valueOf(obj[0])));;
 				n.setOvNumber(Integer.parseInt(String.valueOf(obj[1])));;
-				n.setTitle(String.valueOf(obj[1]));;
-				n.setMessage(String.valueOf(obj[2]));;
+				n.setTitle(String.valueOf(obj[2]));;
+				n.setMessage(String.valueOf(obj[3]));;
 				n.setEmployeeNumber(Integer.parseInt(String.valueOf(obj[4])));
+				n.setCreationDate(Date.valueOf(String.valueOf(obj [5])));
+				n.setLastEdit(Date.valueOf(String.valueOf(obj [6])));
 			tx.commit();
-			System.out.println("tx.commit");
 		} catch (Exception e) {
 			if (tx != null)
 				tx.rollback();
@@ -94,36 +91,35 @@ public class MYSQLDAONote implements IDAONote {
 		} finally {
 			session.close();
 		}
-		System.out.println("einde van methode lees");
 		return n;
 	}
 
 	@Override
 	public Note update(Note note) {
-		System.out.println("update start");
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try {
-			System.out.println("Try functie");
 			tx = session.beginTransaction();
-			
-			NativeQuery query1 = session.createNativeQuery("SET foreign_key_checks = 0;");
-			NativeQuery query2 = session.createNativeQuery(
+			System.out.println(note.getId());
+			System.out.println(note.getTitle());
+			System.out.println(note.getMessage());
+			System.out.println(note.getEmployeeNumber());
+			System.out.println(note.getCreationDate());
+			System.out.println(note.getLastEdit());
+			System.out.println(note.getOvNumber());
+					NativeQuery query2 = session.createNativeQuery(
 					"UPDATE note SET ovNumber = :ovNumber, title = :title, message = :message, employeeNumber = :employeeNumber, creationDate = :creationDate, lastEdit = :lastEdit WHERE noteID = :noteID");
-			NativeQuery query3 = session.createNativeQuery("SET foreign_key_checks = 1;");
-			query2.setParameter("ovNumber", note.getAssignedTo().getStudentOV());
+			query2.setParameter("ovNumber", note.getOvNumber());
 			query2.setParameter("title", note.getTitle());
 			query2.setParameter("message", note.getMessage());
-			query2.setParameter("employeeNumber", note.getMadeBy().getEmployeeNumber());
+			query2.setParameter("employeeNumber", note.getEmployeeNumber());
 			query2.setParameter("creationDate", note.getCreationDate());
 			query2.setParameter("lastEdit", note.getLastEdit());
 			query2.setParameter("noteID", note.getId());
 			query2.executeUpdate();
-			System.out.println("TX.COMMIT");
 			tx.commit();
 		} finally {
-			System.out.println("Update einde");
-			return null;
+			return note;
 			
 		}
 	}

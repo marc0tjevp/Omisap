@@ -1,8 +1,7 @@
 package nl.scalda.pasimo.service;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
-import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
+import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 
@@ -19,10 +18,7 @@ public class NoteService {
     	return DAOFactory.getTheFactory().getDAONote().create(note);
     }
 
-    public Note update(int id) {
-    	System.out.println("readByID voor de edit");
-    	Note note = NoteService.getInstance().readByID(id);
-    	System.out.println("update na de read by id");
+    public Note update(Note note) {	
         return DAOFactory.getTheFactory().getDAONote().update(note);
     }
 
@@ -31,7 +27,7 @@ public class NoteService {
     }
     
     public Note readByID(int id){
-    	System.out.println("readById");
+    	DAOFactory n = DAOFactory.getTheFactory();
     	return DAOFactory.getTheFactory().getDAONote().read(id);
     }
     

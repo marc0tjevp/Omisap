@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import java.util.Date;
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
@@ -93,9 +95,9 @@ public class Teacher extends Person {
     	NoteService.getInstance().delete(id);
         }
     
-    public void editNote(int id){
-    	System.out.println("editNote");
-    	NoteService.getInstance().update(id);
+    public void editNote(Note note){
+    	note.setLastEdit(new Date());
+    	NoteService.getInstance().update(note);
         }
     /**
      * updates the teacher in the (test)datalayer.

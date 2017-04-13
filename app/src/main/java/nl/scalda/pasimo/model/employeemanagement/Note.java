@@ -43,22 +43,6 @@ public class Note implements Comparable<Note> {
         Service.getInstance().getNoteService().create(this, assignedTo);
     }
 
-    /**
-     * Edits the note, and updates the lastEdit timestamp
-     *
-     * @param title   title of the note
-     * @param message message of the note
-     * @return Note note returns a updated note
-     */
-    public Note editNote(String title, String message) {
-
-        this.title = title;
-        this.message = message;
-        this.lastEdit = new Date();
-        Service.getInstance().getNoteService().update(this.getId());
-        id = count.incrementAndGet();
-        return this;
-    }
     
  
     public int getId() {
