@@ -23,12 +23,13 @@
 
                         </div>
 
-                        <button href="educationTeam" class="btn btn-primary">Annuleren</button>
+                        
 
-                        <button type="submit" class="btn btn-primary pull-right">Aanmaken</button>
+                        <a href="http://localhost:8080/Pasimo/educationTeam" class="btn btn-primary pull-right">Aanmaken</a>
 
+                       <a href="http://localhost:8080/Pasimo/educationTeam" class="btn btn-primary">Annuleren</a>
+                                                 
                     </form>
-
                 </div>
             </div>
         </div>

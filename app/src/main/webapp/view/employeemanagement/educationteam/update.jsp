@@ -13,7 +13,7 @@
             <div>
                 <h1>Educatieteam bewerken</h1>
 
-                <form action="updateEducationTeam">
+                <form action="edit">
 
                     <div class="form-group">
                         <label class="control-label" for="name">Naam</label>
@@ -25,9 +25,10 @@
 
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Annuleren</button>
-
-                    <button type="submit" class="btn btn-primary pull-right">Opslaan</button>
+                    
+                     <a href="http://localhost:8080/Pasimo/educationTeam" class="btn btn-primary">Annuleren</a>
+                     
+                      <a href="http://localhost:8080/Pasimo/educationTeam" class="btn btn-primary pull-right">Opslaan</a>
 
                 </form>
             </div>

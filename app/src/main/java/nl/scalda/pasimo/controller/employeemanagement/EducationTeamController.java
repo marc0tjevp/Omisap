@@ -3,13 +3,25 @@ package nl.scalda.pasimo.controller.employeemanagement;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class EducationTeamController extends ActionSupport {
 
     private static final long serialVersionUID = 1L;
     public String name;
     public String abbreviation;
+    
+    public TreeSet<EducationTeam>educationteams = new TreeSet<>();
+    
 
+    public String addEducationTeam() {
+
+        EducationTeam d = new EducationTeam(name, abbreviation);
+
+        educationteams.add(d);
+
+        return SUCCESS;
+    }
     public String index() {
 
         return SUCCESS;
@@ -17,7 +29,6 @@ public class EducationTeamController extends ActionSupport {
     }
 
     public String create() {
-
         return SUCCESS;
     }
 
