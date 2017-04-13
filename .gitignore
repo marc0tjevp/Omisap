@@ -31,3 +31,6 @@ bin/*
 target/*
 log/*
 */target/
+
+#Classes in main package, so everyone can do what he wants without conflicts.
+*/src/main/java/nl/scalda/pasimo/main/
