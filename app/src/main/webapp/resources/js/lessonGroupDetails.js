@@ -88,8 +88,8 @@ $(document).ready(function () {
     $("#updateLessonGroupNameButton").on("click", function(event) {
     	//Incase the button does something by default    	
     	event.preventDefault();
-    	var lessonGroupName =  $("h1#lessonGroupName").attr("data-lessongroup-name");
-    	var newLessonGroupName = $("div#editLessonGroupName div.modal-body input#currentLessonGroup").val();
+    	var lessonGroupName =  $("h1#lessonGroupName").attr("data-lessongroup-name").trim();
+    	var newLessonGroupName = $("div#editLessonGroupName div.modal-body input#currentLessonGroup").val().trim();
     	
     	//If the input is not empty
     	if(newLessonGroupName) {    		
@@ -102,7 +102,13 @@ $(document).ready(function () {
    				 data : "newLessonGroupName=" + newLessonGroupName + "&lessonGroupName="+lessonGroupName + "&coachGroupName=" + coachGroupName,
    				 success: function(data) {
    					 $('div.modal#editLessonGroupName').modal('hide');
-   					 $("h1#lessonGroupName").text(" " + data['newLessonGroupName']);
+   					 $("h1#lessonGroupName").text(" " + data['newLessonGroupName'].trim());
+   					 $("h1#lessonGroupName").attr("data-lessongroup-name", data['newLessonGroupName'].trim());
+   					 
+   					 /*
+   					  * Set the URL parameters to the new lesson group name for later page reloads (add and delete students)
+   					  */
+   					 history.pushState(null, null, "/Pasimo/lessongroup/details?lessonGroupName=" + newLessonGroupName.trim() + "&coachGroupName="+coachGroupName);
    				 }
     		});
       	}
@@ -146,6 +152,9 @@ $(document).ready(function () {
 		var coachGroupName = $("h2#lessonGroupCoachGroupName").attr("data-coachgroup-name");
 
 
+		console.log(lessonGroupName);
+		console.log(coachGroupName);
+		
     	$("input[type=checkbox].selectedLessonGroupStudent").each(function() {
     		var studentRow = $(this).parent().parent().parent();
     		var studentOV = studentRow.attr("data-student-ov");
@@ -155,7 +164,7 @@ $(document).ready(function () {
     		     type: 'POST',	  
     			 url:"details/students/delete",
     		     dataType: 'json',
-   				 data: "studentId="+studentOV + "&lessonGroupName=" + lessonGroupName + "&coachGroupName=" + coachGroupName,
+   				 data: "studentId="+studentOV + "&lessonGroupName=" + lessonGroupName.trim() + "&coachGroupName=" + coachGroupName,
    				 success: function(data) {
    					//Reload the page to get all the new students into the table sorted
     				location.reload();

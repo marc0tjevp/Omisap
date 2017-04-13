@@ -6,6 +6,7 @@ import java.util.TreeSet;
 
 import com.mysql.jdbc.Connection;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOStudent;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
@@ -21,7 +22,6 @@ public class TestDAOStudent implements IDAOStudent {
 
 	private TestDAOStudent() {
 
-
 		TreeSet<Note> notelist = new TreeSet<>();
 
 		LessonGroup l1 = new LessonGroup(1, "it's dat lessongroup");
@@ -31,15 +31,16 @@ public class TestDAOStudent implements IDAOStudent {
 				notelist, 42069, 66669);
 		Student EdgeLord1 = new Student(622359, c1, l1, 435320, "you cadsafn't stop me", "klaudafs", "dase", "maasdn",
 				6636, 6663420, notelist, 4252069, 666169);
-		
-		Student s1 = new Student(1111, c1, l1, 2014, "email@example.com", "Bas", "van", "AChternaam", 321, 666999420, notelist, 42069, 66669);
-		Student s2 = new Student(2222, c1, l1, 2011, "emai1@example.com", "Baas", "van", "Wie",123, 6663420, notelist, 4252069, 666169);
+
+		Student s1 = new Student(1111, c1, l1, 2014, "email@example.com", "Bas", "van", "AChternaam", 321, 666999420,
+				notelist, 42069, 66669);
+		Student s2 = new Student(2222, c1, l1, 2011, "emai1@example.com", "Baas", "van", "Wie", 123, 6663420, notelist,
+				4252069, 666169);
 
 		students.add(EdgeLord);
 		students.add(EdgeLord1);
 		students.add(s1);
 		students.add(s2);
-	
 	}
 
 	public static TestDAOStudent getInstance() {
@@ -93,5 +94,19 @@ public class TestDAOStudent implements IDAOStudent {
 	@Override
 	public TreeSet<Student> readAll() {
 		return new TreeSet<Student>(students);
+	}
+
+	@Override
+	public TreeSet<Student> readAllByLessonGroup(LessonGroup lessonGroup) {
+		TreeSet<LessonGroup> lessonGroups = DAOFactory.getTheFactory().getDAOLessonGroup().readAll();
+
+		for (LessonGroup loopingLessonGroup : lessonGroups) {
+			if (lessonGroup != loopingLessonGroup) {
+				continue;
+			}
+			return loopingLessonGroup.getStudents();
+
+		}
+		return null;
 	}
 }

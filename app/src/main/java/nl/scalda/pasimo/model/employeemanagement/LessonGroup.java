@@ -128,7 +128,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	 */
 	public Student getStudentByOv(int ovNumber) {
 		if(this.students == null) {
-			//TODO Get students into here when they dont exist yet
+			this.students = DAOFactory.getTheFactory().getDAOStudent().readAllByLessonGroup(this);
 		}
 		
 		for(Student student : this.students) {

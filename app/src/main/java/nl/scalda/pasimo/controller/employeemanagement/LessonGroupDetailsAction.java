@@ -152,12 +152,26 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * @return
 	 */
 	public String deleteStudent() {
-		LessonGroup specificLessonGroup = LessonGroupService.getInstance().readByLessonGroupName(this.lessonGroupName,
-				this.coachGroupName);
+		/*
+		 * 
+		 */
+		LessonGroup specificLessonGroup =
+				LessonGroupService.getInstance().readByLessonGroupName(this.lessonGroupName, this.coachGroupName);
+		/*
+		 * Get specific student which we are going to delete
+		 */
 		Student specificStudent = specificLessonGroup.getStudentByOv(this.studentId);
+		
+		/*
+		 * Error checking if the lesson group or student doesn't exist
+		 */
 		if (specificLessonGroup == null || specificStudent == null) {
 			return ERROR;
 		}
+		
+		/*
+		 * Delete the student
+		 */
 		specificLessonGroup.deleteStudent(specificStudent);
 		specificLessonGroup.updateLessonGroup();
 		return SUCCESS;
