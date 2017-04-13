@@ -22,10 +22,10 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 		LessonGroup l2 = new LessonGroup("ICO42A");
 		LessonGroup l3 = new LessonGroup("ICO41A");
 		
-		Student s1 = new Student("email1");
-		Student s2 = new Student("email2");
-		Student s3 = new Student("email3");
-		
+		Student s1 = new Student(1111, null, null, 2014, "email@example.com", "Bas", "van", "AChternaam", 321, 666999420, null, 42069, 66669);
+		Student s2 = new Student(2222, null, null, 2011, "emai2@example.com", "Baas", "van", "Wie",123, 6663420, null, 4252069, 666169);
+		Student s3 = new Student(3333, null, null, 2011, "emai3@example.com", "Klaas", "van", "Wie",564, 6663420, null, 4252069, 666169);
+
 		l1.addStudent(s1);
 		l1.addStudent(s2);
 		l2.addStudent(s3);
