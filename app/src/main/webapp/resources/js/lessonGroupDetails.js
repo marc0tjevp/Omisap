@@ -142,7 +142,9 @@ $(document).ready(function () {
     	//Incase the button does something by default    	
     	event.preventDefault();
     
-		var lessonGroupId = $("h1#lessonGroupName").attr("data-lessongroup-id");
+		var lessonGroupName = $("h1#lessonGroupName").attr("data-lessongroup-name");
+		var coachGroupName = $("h2#lessonGroupCoachGroupName").attr("data-coachgroup-name");
+
 
     	$("input[type=checkbox].selectedLessonGroupStudent").each(function() {
     		var studentRow = $(this).parent().parent().parent();
@@ -153,7 +155,7 @@ $(document).ready(function () {
     		     type: 'POST',	  
     			 url:"details/students/delete",
     		     dataType: 'json',
-   				 data: "studentId="+studentOV + "&lessonGroupId=" + lessonGroupId,
+   				 data: "studentId="+studentOV + "&lessonGroupName=" + lessonGroupName + "&coachGroupName=" + coachGroupName,
    				 success: function(data) {
    					//Reload the page to get all the new students into the table sorted
     				location.reload();

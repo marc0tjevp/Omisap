@@ -121,6 +121,24 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	public void updateLessonGroup() {
 		DAOFactory.getTheFactory().getDAOLessonGroup().update(this);
 	}
+	
+	/**
+	 * 
+	 * @param ovNumber
+	 */
+	public Student getStudentByOv(int ovNumber) {
+		if(this.students == null) {
+			//TODO Get students into here when they dont exist yet
+		}
+		
+		for(Student student : this.students) {
+			if(student.getStudentOV() != ovNumber){
+				continue;
+			}
+			return student;
+		}
+		return null;
+	}
 
 	/**
 	 * 

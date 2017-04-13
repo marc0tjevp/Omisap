@@ -25,7 +25,7 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * 
 	 */
 	private String coachGroupName;
-	
+
 	/**
 	 * The lesson group name for updating it
 	 */
@@ -120,12 +120,12 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		LessonGroup specificLessonGroup = LessonGroupService.getInstance().readByLessonGroupName(this.lessonGroupName,
 				this.coachGroupName);
 
-		if(specificLessonGroup == null) {
+		if (specificLessonGroup == null) {
 			return ERROR;
 		}
 		specificLessonGroup.setName(this.newLessonGroupName);
 		specificLessonGroup.updateLessonGroup();
-		
+
 		return SUCCESS;
 	}
 
@@ -152,14 +152,14 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * @return
 	 */
 	public String deleteStudent() {
-		// LessonGroup specificLessonGroup =
-		// TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
-		LessonGroup specificLessonGroup = null;
-		Student specificStudent = TestDAOStudent.getInstance().readByOvNumber(this.studentId);
+		LessonGroup specificLessonGroup = LessonGroupService.getInstance().readByLessonGroupName(this.lessonGroupName,
+				this.coachGroupName);
+		Student specificStudent = specificLessonGroup.getStudentByOv(this.studentId);
 		if (specificLessonGroup == null || specificStudent == null) {
 			return ERROR;
 		}
 		specificLessonGroup.deleteStudent(specificStudent);
+		specificLessonGroup.updateLessonGroup();
 		return SUCCESS;
 	}
 
