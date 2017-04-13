@@ -66,25 +66,7 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		 *  - Not the students which are in the current lesson group
 		 *  - Students which are already in other lesson groups
 		 */
-		this.additionalStudents = LessonGroupService.getInstance().readAdditionalStudents();
-	
-		/*
-		 * Retrieve all the students from the student DAO and add them to the
-		 * array
-		 */
-		// this.additionalStudents = TestDAOStudent.getInstance().readAll();
-
-		/*
-		 * Filter out the students which are in the current lesson group
-		 */
-		/*
-		 * Iterator<Student> currentLessonGroupStudentsIterator =
-		 * additionalStudents.iterator(); while
-		 * (currentLessonGroupStudentsIterator.hasNext()) { Student
-		 * currentStudent = currentLessonGroupStudentsIterator.next(); if
-		 * (!students.contains(currentStudent)) { continue; }
-		 * currentLessonGroupStudentsIterator.remove(); }
-		 */
+		this.additionalStudents = LessonGroupService.getInstance().readAdditionalStudents(specificLessonGroup.getStudents());
 
 		/*
 		 * Get all lesson groups for filtering out students which are in other

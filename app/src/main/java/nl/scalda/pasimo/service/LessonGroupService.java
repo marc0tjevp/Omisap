@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.service;
 
+import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -8,6 +9,7 @@ import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.interfaces.ILessonGroupService;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.Student;
 
 public class LessonGroupService implements ILessonGroupService {
 
@@ -79,6 +81,57 @@ public class LessonGroupService implements ILessonGroupService {
 			return null;
 		}
 		return specificCoachGroup.getLessonGroupByName(lessonGroupName);
+	}
+
+	public TreeSet<Student> readAdditionalStudents(LessonGroup currentLessonGroup) {
+		/*
+		 * Retrieve all the students from the student DAO and add them to the
+		 * array
+		 */
+		TreeSet<Student> allStudents = new TreeSet<>(DAOFactory.getTheFactory().getDAOStudent().readAll());
+
+		/*
+		 * Filter out the students which are in the current lesson group
+		 */
+		Iterator<Student> currentLessonGroupStudentsIterator = allStudents.iterator();
+		while (currentLessonGroupStudentsIterator.hasNext()) {
+			Student currentStudent = currentLessonGroupStudentsIterator.next();
+			if (!currentLessonGroup.getStudents().contains(currentStudent)) {
+				continue;
+			}
+			currentLessonGroupStudentsIterator.remove();
+		}
+
+		/*
+		 * Get all lesson groups for filtering out students which are in other
+		 * lesson groups
+		 */
+		TreeSet<LessonGroup> allLessonGroups = 
+				new TreeSet<>(DAOFactory.getTheFactory().getDAOLessonGroup().readAll());
+
+		/*
+		 * Loop through all other lesson groups which are not this current
+		 * lesson group
+		 */
+
+		for (LessonGroup lessonGroup : allLessonGroups) {
+			if (lessonGroup == currentLessonGroup) {
+				continue;
+			}
+			TreeSet<Student> otherStudents = new TreeSet<>(lessonGroup.getStudents());
+			
+			/*
+			 * Filter out students which are in other lesson groups
+			 */
+			Iterator<Student> otherLessonGroupsStudentsIterator = otherStudents.iterator();
+			while (otherLessonGroupsStudentsIterator.hasNext()) {
+				Student otherLessonGroupStudent = otherLessonGroupsStudentsIterator.next();
+
+				allStudents.remove(otherLessonGroupStudent);
+			}
+		}
+
+		return allStudents;
 	}
 
 }

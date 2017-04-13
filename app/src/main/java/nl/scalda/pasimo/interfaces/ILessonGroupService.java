@@ -4,6 +4,7 @@ import java.util.TreeSet;
 
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.Student;
 
 public interface ILessonGroupService {
 
@@ -14,6 +15,8 @@ public interface ILessonGroupService {
     LessonGroup read(LessonGroup lessonGroup);
     
     LessonGroup readByLessonGroupName(String name, String coachGroupName );
+    
+    TreeSet<Student> readAdditionalStudents(LessonGroup currentLessonGroup);
 
     void update(LessonGroup newLessonGroup);
 
