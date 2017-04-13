@@ -9,15 +9,16 @@ import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import nl.scalda.pasimo.service.CoachGroupService;
 import nl.scalda.pasimo.service.LessonGroupService;
 
 public class LessonGroupListingAction extends ActionSupport {
-     
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3651415035371001870L;
-	
+
 	/**
 	 * All the coach groups with lesson groups in them
 	 */
@@ -27,6 +28,11 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * The name for adding or removing a lesson group
 	 */
 	private String lessonGroupName;
+	
+	/**
+	 * The coachgroup name for adding a lessongroup to it
+	 */
+	private String coachGroupName;
 
 	/**
 	 * Retrieves all the lesson groups and puts them in a list
@@ -45,39 +51,25 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * @return
 	 */
 	public String addLessonGroup() {
-    //this.lessonGroups = LessonGroupService.getInstance().create(lessonGroups);
-	
-	
-	
-	
+		//TODO Find coachgroup
+		CoachGroup coachGroup = CoachGroupService.getInstance().readCoachGroup(this.coachGroupName);
 		/*
 		 * When the lesson group name is not filled in or empty
 		 */
-/*		if (this.lessonGroupName == null || this.lessonGroupName.equals("")) {
+		if (this.lessonGroupName == null || this.lessonGroupName.equals("") || coachGroup == null) {
 			return ERROR;
-		}*/
-
-		/*
-		 * Add all the lesson groups to the action variable
-		 */
-/*		this.lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
-		LessonGroup previousLessonGroup = null;
-		if (!this.lessonGroups.isEmpty()) {
-			prleviousLessonGroup = this.lessonGroups.last();
-		}*/
+		}
 
 		/*
 		 * Create the new lesson group
 		 */
-		/*int newLessonGroupId = previousLessonGroup != null ? previousLessonGroup.getId() + 1 : 1;
-		LessonGroup lessonGroupToAdd = new LessonGroup(newLessonGroupId, this.lessonGroupName);
-*/
-		/*
-		 * Save the new lesson group in the DAO and in the action variable
-		 */
-/*		TestDAOLessonGroup.getInstance().create(lessonGroupToAdd);
-		this.lessonGroups.add(lessonGroupToAdd);*/
+		LessonGroup lessonGroupToAdd = new LessonGroup(this.lessonGroupName);
 
+		/*
+		 * Save the new lesson group in the coach group and update it in the DAO
+		 */
+		coachGroup.addLessonGroup(lessonGroupToAdd);
+		
 		return SUCCESS;
 	}
 
@@ -91,33 +83,32 @@ public class LessonGroupListingAction extends ActionSupport {
 		/*
 		 * Add all the lesson groups to the action variable
 		 */
-		//this.lessonGroups = TestDAOLessonGroup.getInstance().getLessongroups();
-		
+		// this.lessonGroups =
+		// TestDAOLessonGroup.getInstance().getLessongroups();
+
 		/*
 		 * Gets id from lesson group
 		 */
-		//LessonGroup lessonGroupToDelete = TestDAOLessonGroup.getInstance()
-		//		.readLessonGroupByID(deletelessongroupID);
+		// LessonGroup lessonGroupToDelete = TestDAOLessonGroup.getInstance()
+		// .readLessonGroupByID(deletelessongroupID);
 
 		/*
 		 * Checks if there is a lesson group to delete, If none is found return
 		 * ERROR
 		 */
-		//if (lessonGroupToDelete == null) {
-		//	return ERROR;
-		//}
+		// if (lessonGroupToDelete == null) {
+		// return ERROR;
+		// }
 		/*
 		 * Deletes the given ID from the DAO and from the lessongroups, In case
 		 * this succeeds, return SUCCESS
 		 */
-		//TestDAOLessonGroup.getInstance().delete(lessonGroupToDelete);
-		//this.lessonGroups.remove(lessonGroupToDelete);
+		// TestDAOLessonGroup.getInstance().delete(lessonGroupToDelete);
+		// this.lessonGroups.remove(lessonGroupToDelete);
 
 		return SUCCESS;
-		
 
 	}
-
 
 	/**
 	 * 
@@ -126,7 +117,7 @@ public class LessonGroupListingAction extends ActionSupport {
 	public TreeSet<CoachGroup> getCoachGroupsWithLessonGroups() {
 		return coachGroupsWithLessonGroups;
 	}
-	
+
 	/**
 	 * 
 	 * @param coachGroupsWithLessonGroups
@@ -134,7 +125,7 @@ public class LessonGroupListingAction extends ActionSupport {
 	public void setCoachGroupsWithLessonGroups(TreeSet<CoachGroup> coachGroupsWithLessonGroups) {
 		this.coachGroupsWithLessonGroups = coachGroupsWithLessonGroups;
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -149,6 +140,22 @@ public class LessonGroupListingAction extends ActionSupport {
 	 */
 	public void setLessonGroupName(String lessonGroupName) {
 		this.lessonGroupName = lessonGroupName;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getCoachGroupName() {
+		return this.coachGroupName;
+	}
+	
+	/**
+	 * 
+	 * @param coachGroupName
+	 */
+	public void setCoachGroupName(String coachGroupName) {
+		this.coachGroupName = coachGroupName;
 	}
 
 }
