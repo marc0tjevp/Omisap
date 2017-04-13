@@ -40,7 +40,7 @@ public class EducationTeam implements Comparable<EducationTeam>{
     private String name;
     
     public EducationTeam() {
-		loadCoachGroups();
+		
 	}
 
     public void addTeacher(Teacher t){

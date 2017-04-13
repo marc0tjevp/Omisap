@@ -170,4 +170,8 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	public void setEducationTeam(EducationTeam educationTeam) {
 		this.educationTeam = educationTeam;
 	}
+    
+    public void load(){
+    	DAOFactory.getTheFactory().getDAOCoachGroup().read(this);
+    }
 }
