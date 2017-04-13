@@ -12,7 +12,7 @@ import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOWorkBlock;
+
 
 public class MySQLDAOFactory extends DAOFactory {
 
@@ -65,16 +65,18 @@ public class MySQLDAOFactory extends DAOFactory {
         return null;
     }
 
-    @Override
-
-
-	public IDAOWorkBlock getDAOWorkBlock() {
-		
-		return MYSQLDAOWorkBlock.getInstance();
-	}
 	public IDAOEducationTeam getDAOEducationTeam() {
 		return MYSQLDAOEducationTeam.getInstance();
 
+	}
+
+	/* (non-Javadoc)
+	 * @see nl.scalda.pasimo.datalayer.factory.DAOFactory#getDAOWorkBlock()
+	 */
+	@Override
+	public IDAOWorkBlock getDAOWorkBlock() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
