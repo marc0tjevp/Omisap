@@ -100,10 +100,20 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		LessonGroup specificLessonGroup =
 				LessonGroupService.getInstance().readByLessonGroupName(this.lessonGroupName, this.coachGroupName);
 		/*
-		 * Get specific student which we are going to delete
+		 * Get specific student which we are going to add to the lesson group
+		 * 
+		 * TODO Refactor searching specific student by ov into student service
 		 */
-		Student specificStudent = specificLessonGroup.getStudentByOv(this.studentId);
-		
+		Student specificStudent = null;
+
+		TreeSet<Student> additionalStudents = LessonGroupService.getInstance().readAdditionalStudents(specificLessonGroup);
+		for(Student student : additionalStudents) {
+			if(student.getStudentOV() != this.studentId) {
+				continue;
+			}
+			specificStudent = student;
+		}
+			
 		/*
 		 * Error checking if the lesson group or student doesn't exist
 		 */
