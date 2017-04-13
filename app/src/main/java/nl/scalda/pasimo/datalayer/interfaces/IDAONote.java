@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.datalayer.interfaces;
 
 import nl.scalda.pasimo.model.employeemanagement.Note;
+import nl.scalda.pasimo.model.employeemanagement.Student;
 
 public interface IDAONote {
 
@@ -11,6 +12,9 @@ public interface IDAONote {
 	
 	public Note update(Note note);
 	
-	public void delete(Note note);
+	public void delete(int id);
+	
+	public void deleteAll();
+
 	
 }

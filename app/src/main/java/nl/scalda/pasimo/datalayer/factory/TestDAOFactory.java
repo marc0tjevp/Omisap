@@ -79,8 +79,9 @@ public class TestDAOFactory extends DAOFactory {
 
 	@Override
 	public IDAOWorkBlock getDAOWorkBlock() {
-	
 		return TestDAOWorkBlock.getInstance();
+	
+		
 	}
 
 

@@ -1,8 +1,11 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import java.util.Date;
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
+import nl.scalda.pasimo.service.NoteService;
 
 public class Teacher extends Person {
 
@@ -55,26 +58,6 @@ public class Teacher extends Person {
 		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.employeeNumber = employeeNumber;
 		setAbbreviation();
-	}
-
-    public String getAbbreviation() {
-        return abbreviation;
-    }
-
-    public void setAbbreviation() {
-        this.abbreviation = getLastName().substring(0, 4).toUpperCase() + getFirstName().substring(0, 2).toUpperCase();
-    }
-    
-    public void setAbbreviation(String abbreviation){
-    	this.abbreviation = abbreviation;
-    }
-
-    public int getEmployeeNumber() {
-        return employeeNumber;
-    }
-
-    public void setEmployeeNumber(int employeeNumber) {
-        this.employeeNumber = employeeNumber;
     }
     
     /**
@@ -84,17 +67,32 @@ public class Teacher extends Person {
     	DAOFactory.getTheFactory().getDAOTeacher().create(this, null);
     }
     
+    public void createNote(String title, String message, Student s){
+    Note n = new Note(title, message, s, this);
+    }
+    
+    public void deleteNoteByID(int id){
+    	NoteService.getInstance().delete(id);
+        }
+    
+    public void editNote(Note note){
+    	note.setLastEdit(new Date());
+    	NoteService.getInstance().update(note);
+        }
+    
+    public void deleteAllNotes(){
+    	NoteService.getInstance().deleteAll();
+    }
     /**
      * updates the teacher in the (test)datalayer.
      */
     public void update(){
-    	MYSQLDAOTeacher.getInstance().update(this);
+    	DAOFactory.getTheFactory().getDAOTeacher().update(this);
     }
     
     public void delete(){
     	DAOFactory.getTheFactory().getDAOTeacher().delete(this, null);
     }
-    
     
     /**
      * gets the coach group the teacher is currently in.
@@ -114,6 +112,27 @@ public class Teacher extends Person {
     public EducationTeam getEducationTeam(){
     	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
     	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentEducationTeamOfTeacher(this);
+    }
+	
+
+    public String getAbbreviation() {
+        return abbreviation;
+    }
+
+    public void setAbbreviation() {
+        this.abbreviation = getLastName().substring(0, 4).toUpperCase() + getFirstName().substring(0, 2).toUpperCase();
+    }
+    
+    public void setAbbreviation(String abbreviation){
+    	this.abbreviation = abbreviation;
+    }
+
+    public int getEmployeeNumber() {
+        return employeeNumber;
+    }
+
+    public void setEmployeeNumber(int employeeNumber) {
+        this.employeeNumber = employeeNumber;
     }
 
     @Override
