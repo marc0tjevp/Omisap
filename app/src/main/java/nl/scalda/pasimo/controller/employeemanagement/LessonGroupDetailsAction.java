@@ -51,7 +51,6 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		if(specificLessonGroup == null) {
 			return null;
 		}		
-		this.lessonGroupName = specificLessonGroup.getName();
 		this.students = specificLessonGroup.getStudents();
 
 		/*
