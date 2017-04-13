@@ -121,8 +121,9 @@ $(document).ready(function () {
     	//Incase the button does something by default    	
     	event.preventDefault();
     
-		var lessonGroupId = $("h1#lessonGroupName").attr("data-lessongroup-id");
-
+		var lessonGroupName = $("h1#lessonGroupName").attr("data-lessongroup-name");
+		var coachGroupName = $("h2#lessonGroupCoachGroupName").attr("data-coachgroup-name");
+		
     	$("input[type=checkbox].selectedLessonGroupStudentForAdding").each(function() {
     		var studentRow = $(this).parent().parent().parent();
     		var studentOV = studentRow.attr("data-additional-student-id");
@@ -132,7 +133,7 @@ $(document).ready(function () {
     		     type: 'POST',	  
     			 url:"details/students/add",
     		     dataType: 'json',
-   				 data: "studentId="+studentOV + "&lessonGroupId=" + lessonGroupId,
+   				 data: "studentId="+studentOV + "&lessonGroupName=" + lessonGroupName.trim() + "&coachGroupName=" + coachGroupName,
    				 success: function(data) {
    					//Reload the page to get all the new students into the table sorted
     				location.reload();

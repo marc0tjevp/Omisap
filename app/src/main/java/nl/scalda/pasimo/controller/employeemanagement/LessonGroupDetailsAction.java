@@ -94,14 +94,28 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * @return
 	 */
 	public String addStudent() {
-		// LessonGroup specificLessonGroup =
-		// TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
-		LessonGroup specificLessonGroup = null;
-		Student specificStudent = TestDAOStudent.getInstance().readByOvNumber(this.studentId);
+		/*
+		 * 
+		 */
+		LessonGroup specificLessonGroup =
+				LessonGroupService.getInstance().readByLessonGroupName(this.lessonGroupName, this.coachGroupName);
+		/*
+		 * Get specific student which we are going to delete
+		 */
+		Student specificStudent = specificLessonGroup.getStudentByOv(this.studentId);
+		
+		/*
+		 * Error checking if the lesson group or student doesn't exist
+		 */
 		if (specificLessonGroup == null || specificStudent == null) {
 			return ERROR;
 		}
+		
+		/*
+		 * Delete the student
+		 */
 		specificLessonGroup.addStudent(specificStudent);
+		specificLessonGroup.updateLessonGroup();
 		return SUCCESS;
 	}
 
