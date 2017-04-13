@@ -100,13 +100,6 @@ public class MYSQLDAONote implements IDAONote {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			System.out.println(note.getId());
-			System.out.println(note.getTitle());
-			System.out.println(note.getMessage());
-			System.out.println(note.getEmployeeNumber());
-			System.out.println(note.getCreationDate());
-			System.out.println(note.getLastEdit());
-			System.out.println(note.getOvNumber());
 					NativeQuery query2 = session.createNativeQuery(
 					"UPDATE note SET ovNumber = :ovNumber, title = :title, message = :message, employeeNumber = :employeeNumber, creationDate = :creationDate, lastEdit = :lastEdit WHERE noteID = :noteID");
 			query2.setParameter("ovNumber", note.getOvNumber());
