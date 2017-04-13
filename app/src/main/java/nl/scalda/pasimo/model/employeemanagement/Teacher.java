@@ -79,6 +79,10 @@ public class Teacher extends Person {
     	note.setLastEdit(new Date());
     	NoteService.getInstance().update(note);
         }
+    
+    public void deleteAll(){
+    	NoteService.getInstance().deleteAll();
+    }
     /**
      * updates the teacher in the (test)datalayer.
      */

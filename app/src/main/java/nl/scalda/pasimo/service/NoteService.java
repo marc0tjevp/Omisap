@@ -31,6 +31,10 @@ public class NoteService {
     	return DAOFactory.getTheFactory().getDAONote().read(id);
     }
     
+    public void deleteAll(){
+    	DAOFactory.getTheFactory().getDAONote().deleteAll();
+    }
+    
     public static NoteService getInstance() {
         if (instance == null) {
             instance = new NoteService();
