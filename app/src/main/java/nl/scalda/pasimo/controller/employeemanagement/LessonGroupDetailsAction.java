@@ -52,16 +52,22 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	public String execute() {
 		LessonGroup specificLessonGroup = LessonGroupService.getInstance().readByLessonGroupName(this.lessonGroupName,
 				this.coachGroupName);
-
-		if (specificLessonGroup == null) {
-			return ERROR;
-		}
+		
 		this.students = specificLessonGroup.getStudents();
 
-		if (this.students == null) {
+		if (specificLessonGroup == null || this.students == null) {
 			return ERROR;
 		}
 
+		/*
+		 * Read all the additional students which you can add to the current lesson group
+		 * 
+		 * These are:
+		 *  - Not the students which are in the current lesson group
+		 *  - Students which are already in other lesson groups
+		 */
+		this.additionalStudents = LessonGroupService.getInstance().readAdditionalStudents();
+	
 		/*
 		 * Retrieve all the students from the student DAO and add them to the
 		 * array
