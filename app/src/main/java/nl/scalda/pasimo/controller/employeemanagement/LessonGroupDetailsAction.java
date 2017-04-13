@@ -66,36 +66,7 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		 *  - Not the students which are in the current lesson group
 		 *  - Students which are already in other lesson groups
 		 */
-		this.additionalStudents = LessonGroupService.getInstance().readAdditionalStudents(specificLessonGroup.getStudents());
-
-		/*
-		 * Get all lesson groups for filtering out students which are in other
-		 * lesson groups
-		 */
-		TreeSet<LessonGroup> allLessonGroups = null;
-
-		/*
-		 * Loop through all other lesson groups which are not this current
-		 * lesson group
-		 */
-		/*
-		 * for (LessonGroup lessonGroup : allLessonGroups) { if (lessonGroup ==
-		 * specificLessonGroup) { continue; } TreeSet<Student> otherStudents =
-		 * new TreeSet<>(lessonGroup.getStudents());
-		 * 
-		 * 
-		 * Filter out students which are in other lesson groups
-		 * 
-		 * Iterator<Student> otherLessonGroupsStudentsIterator =
-		 * otherStudents.iterator(); while
-		 * (otherLessonGroupsStudentsIterator.hasNext()) { Student
-		 * otherLessonGroupStudent = otherLessonGroupsStudentsIterator.next();
-		 * 
-		 * this.additionalStudents.remove(otherLessonGroupStudent); } }
-		 * 
-		 * 
-		 * return SUCCESS; }
-		 */
+		this.additionalStudents = LessonGroupService.getInstance().readAdditionalStudents(specificLessonGroup);
 		return SUCCESS;
 	}
 
