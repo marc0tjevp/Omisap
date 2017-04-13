@@ -56,26 +56,6 @@ public class Teacher extends Person {
 		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.employeeNumber = employeeNumber;
 		setAbbreviation();
-	}
-
-    public String getAbbreviation() {
-        return abbreviation;
-    }
-
-    public void setAbbreviation() {
-        this.abbreviation = getLastName().substring(0, 4).toUpperCase() + getFirstName().substring(0, 2).toUpperCase();
-    }
-    
-    public void setAbbreviation(String abbreviation){
-    	this.abbreviation = abbreviation;
-    }
-
-    public int getEmployeeNumber() {
-        return employeeNumber;
-    }
-
-    public void setEmployeeNumber(int employeeNumber) {
-        this.employeeNumber = employeeNumber;
     }
     
     /**
@@ -126,6 +106,27 @@ public class Teacher extends Person {
     public EducationTeam getEducationTeam(){
     	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
     	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentEducationTeamOfTeacher(this);
+    }
+	
+
+    public String getAbbreviation() {
+        return abbreviation;
+    }
+
+    public void setAbbreviation() {
+        this.abbreviation = getLastName().substring(0, 4).toUpperCase() + getFirstName().substring(0, 2).toUpperCase();
+    }
+    
+    public void setAbbreviation(String abbreviation){
+    	this.abbreviation = abbreviation;
+    }
+
+    public int getEmployeeNumber() {
+        return employeeNumber;
+    }
+
+    public void setEmployeeNumber(int employeeNumber) {
+        this.employeeNumber = employeeNumber;
     }
 
     @Override
