@@ -24,7 +24,7 @@ public class Main {
 		Teacher teacher = new Teacher("GG", 666);
 
 		Note n1 = NoteService.getInstance().readByID(2);
-		n1.setMessage("KEVIN'S asdf");
+		n1.setMessage("KEVIN'S KAPSTER");
 		teacher.editNote(n1);
 
 
