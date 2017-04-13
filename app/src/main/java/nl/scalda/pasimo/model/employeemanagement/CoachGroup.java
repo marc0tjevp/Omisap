@@ -7,7 +7,6 @@ import javax.persistence.*;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
-import nl.scalda.pasimo.main.CSVReader;
 
 /**
  * @author Collin and ismet
