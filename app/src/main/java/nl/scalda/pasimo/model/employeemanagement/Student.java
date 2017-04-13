@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+
 public class Student extends Person {
 
 	private int noteListID;
@@ -17,8 +19,7 @@ public class Student extends Person {
 	private int dayOfBirth;
 
 	
-	public Student(String email){
-		this.email = email;
+	public Student(){
 	}
 	
 	public Student(int studentOV, int coachGroupID, int lessonGroupID, int cohort, String email, String firstName,
@@ -153,6 +154,9 @@ public class Student extends Person {
 	  @Override
 	    public int compareTo(Person o) {
 	        return email.compareTo(o.getEmail());
+	    }
+	    public void create(){
+	    	DAOFactory.getTheFactory().getDAOStudent().create(this);
 	    }
 	
 	@Override
