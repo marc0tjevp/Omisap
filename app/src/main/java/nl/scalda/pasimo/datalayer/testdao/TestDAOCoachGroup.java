@@ -68,7 +68,8 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 		for (CoachGroup ccg : coachGroups) {
 			try {
 				if (coachGroup.getName().equals(ccg.getName())) {
-					return ccg;
+					coachGroup.setName(ccg.getName());
+					coachGroup.setCoach(ccg.getCoach());
 				}
 			} catch (Exception ex) {
 			}

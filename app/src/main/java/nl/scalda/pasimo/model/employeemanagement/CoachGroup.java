@@ -145,22 +145,6 @@ public class CoachGroup implements Comparable<CoachGroup> {
 		this.lessonGroups = lessonGroups;
 	}
 	// </editor-fold>
-
-	@Override
-	public String toString() {
-		return "\n CoachGroup: name= " + name + ", coach= " + coach + ", lessongroup= " + lessonGroups;
-	}
-
-	/**
-	 * Sorts the lesson groups by name when adding a lesson group to a TreeSet
-	 * 
-	 * @param coachGroup
-	 */
-	@Override
-	public int compareTo(CoachGroup o) {
-
-		return name.compareToIgnoreCase(o.getName());
-	}
 	
 	/**
 	 * 
@@ -183,4 +167,29 @@ public class CoachGroup implements Comparable<CoachGroup> {
 		
 		
 	}
+
+//</editor-fold>
+
+    @Override
+    public String toString() {
+        return "\n CoachGroup: name= " +
+               name +
+               ", coach= " +
+               coach +
+               ", lessongroup= " +
+               lessonGroups;
+    }
+    /**
+     *   Sorts the lesson groups by name when adding a lesson group to a TreeSet
+     *   @param coachGroup
+     */
+    @Override
+    public int compareTo(CoachGroup o) {
+
+        return name.compareToIgnoreCase(o.getName());
+    }
+    
+    public void load(){
+    	DAOFactory.getTheFactory().getDAOCoachGroup().read(this);
+    }
 }
