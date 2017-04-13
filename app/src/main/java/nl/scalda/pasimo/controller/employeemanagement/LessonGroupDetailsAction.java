@@ -20,11 +20,16 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * The lesson group name for retreiving the actions
 	 */
 	private String lessonGroupName;
-	
+
 	/**
 	 * 
 	 */
 	private String coachGroupName;
+	
+	/**
+	 * The lesson group name for updating it
+	 */
+	private String newLessonGroupName;
 
 	/**
 	 * The students which are in this lesson group
@@ -45,31 +50,35 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * Retrieves all the students for the current lesson group
 	 */
 	public String execute() {
-		LessonGroup specificLessonGroup =
-				LessonGroupService.getInstance().readByLessonGroupName(this.lessonGroupName, this.coachGroupName);
-		
-		if(specificLessonGroup == null) {
-			return null;
-		}		
+		LessonGroup specificLessonGroup = LessonGroupService.getInstance().readByLessonGroupName(this.lessonGroupName,
+				this.coachGroupName);
+
+		if (specificLessonGroup == null) {
+			return ERROR;
+		}
 		this.students = specificLessonGroup.getStudents();
+
+		if (this.students == null) {
+			return ERROR;
+		}
 
 		/*
 		 * Retrieve all the students from the student DAO and add them to the
 		 * array
 		 */
-//		this.additionalStudents = TestDAOStudent.getInstance().readAll();
+		// this.additionalStudents = TestDAOStudent.getInstance().readAll();
 
 		/*
 		 * Filter out the students which are in the current lesson group
 		 */
-/*		Iterator<Student> currentLessonGroupStudentsIterator = additionalStudents.iterator();
-		while (currentLessonGroupStudentsIterator.hasNext()) {
-			Student currentStudent = currentLessonGroupStudentsIterator.next();
-			if (!students.contains(currentStudent)) {
-				continue;
-			}
-			currentLessonGroupStudentsIterator.remove();
-		}*/
+		/*
+		 * Iterator<Student> currentLessonGroupStudentsIterator =
+		 * additionalStudents.iterator(); while
+		 * (currentLessonGroupStudentsIterator.hasNext()) { Student
+		 * currentStudent = currentLessonGroupStudentsIterator.next(); if
+		 * (!students.contains(currentStudent)) { continue; }
+		 * currentLessonGroupStudentsIterator.remove(); }
+		 */
 
 		/*
 		 * Get all lesson groups for filtering out students which are in other
@@ -81,26 +90,24 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		 * Loop through all other lesson groups which are not this current
 		 * lesson group
 		 */
-/*		for (LessonGroup lessonGroup : allLessonGroups) {
-			if (lessonGroup == specificLessonGroup) {
-				continue;
-			}
-			TreeSet<Student> otherStudents = new TreeSet<>(lessonGroup.getStudents());
-
-			
-			 * Filter out students which are in other lesson groups
-			 
-			Iterator<Student> otherLessonGroupsStudentsIterator = otherStudents.iterator();
-			while (otherLessonGroupsStudentsIterator.hasNext()) {
-				Student otherLessonGroupStudent = otherLessonGroupsStudentsIterator.next();
-
-				this.additionalStudents.remove(otherLessonGroupStudent);
-			}
-		}
-
-		if (this.students == null) {
-			return ERROR;
-		}*/
+		/*
+		 * for (LessonGroup lessonGroup : allLessonGroups) { if (lessonGroup ==
+		 * specificLessonGroup) { continue; } TreeSet<Student> otherStudents =
+		 * new TreeSet<>(lessonGroup.getStudents());
+		 * 
+		 * 
+		 * Filter out students which are in other lesson groups
+		 * 
+		 * Iterator<Student> otherLessonGroupsStudentsIterator =
+		 * otherStudents.iterator(); while
+		 * (otherLessonGroupsStudentsIterator.hasNext()) { Student
+		 * otherLessonGroupStudent = otherLessonGroupsStudentsIterator.next();
+		 * 
+		 * this.additionalStudents.remove(otherLessonGroupStudent); } }
+		 * 
+		 * 
+		 * return SUCCESS; }
+		 */
 		return SUCCESS;
 	}
 
@@ -110,12 +117,15 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * @return
 	 */
 	public String updateLessonGroupName() {
-//		LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
-		LessonGroup specificLessonGroup = null;
-		if (specificLessonGroup == null) {
+		LessonGroup specificLessonGroup = LessonGroupService.getInstance().readByLessonGroupName(this.lessonGroupName,
+				this.coachGroupName);
+
+		if(specificLessonGroup == null) {
 			return ERROR;
 		}
-		specificLessonGroup.setName(this.lessonGroupName);
+		specificLessonGroup.setName(this.newLessonGroupName);
+		specificLessonGroup.updateLessonGroup();
+		
 		return SUCCESS;
 	}
 
@@ -125,7 +135,8 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * @return
 	 */
 	public String addStudent() {
-		//LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
+		// LessonGroup specificLessonGroup =
+		// TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
 		LessonGroup specificLessonGroup = null;
 		Student specificStudent = TestDAOStudent.getInstance().readByOvNumber(this.studentId);
 		if (specificLessonGroup == null || specificStudent == null) {
@@ -141,7 +152,8 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	 * @return
 	 */
 	public String deleteStudent() {
-		//LessonGroup specificLessonGroup = TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
+		// LessonGroup specificLessonGroup =
+		// TestDAOLessonGroup.getInstance().readLessonGroupByID(lessonGroupId);
 		LessonGroup specificLessonGroup = null;
 		Student specificStudent = TestDAOStudent.getInstance().readByOvNumber(this.studentId);
 		if (specificLessonGroup == null || specificStudent == null) {
@@ -222,5 +234,13 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	public void setCoachGroupName(String coachGroupName) {
 		this.coachGroupName = coachGroupName;
 	}
-	
+
+	public String getNewLessonGroupName() {
+		return newLessonGroupName;
+	}
+
+	public void setNewLessonGroupName(String newLessonGroupName) {
+		this.newLessonGroupName = newLessonGroupName;
+	}
+
 }

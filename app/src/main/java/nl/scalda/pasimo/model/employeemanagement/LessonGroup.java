@@ -114,7 +114,17 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	public void deleteStudent(Student student) {
 		this.students.remove(student);
 	}
+	
+	/**
+	 * Updates the lesson group in the DAO
+	 */
+	public void updateLessonGroup() {
+		DAOFactory.getTheFactory().getDAOLessonGroup().update(this);
+	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public String toString() {
 		return "LessonGroup: name= " + name + ", students= " + students;

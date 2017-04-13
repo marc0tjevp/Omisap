@@ -88,22 +88,21 @@ $(document).ready(function () {
     $("#updateLessonGroupNameButton").on("click", function(event) {
     	//Incase the button does something by default    	
     	event.preventDefault();
-    	var lessonGroupName = $("div#editLessonGroupName div.modal-body input#currentLessonGroup").val();
+    	var lessonGroupName =  $("h1#lessonGroupName").attr("data-lessongroup-name");
+    	var newLessonGroupName = $("div#editLessonGroupName div.modal-body input#currentLessonGroup").val();
     	
     	//If the input is not empty
-    	if(lessonGroupName) {
-    		//Retrieve lesson group id because it only got saved in GET variables of URL
-    		var lessonGroupId = $("h1#lessonGroupName").attr("data-lessongroup-id");
-    		
+    	if(newLessonGroupName) {    		
+    		var coachGroupName = $("h2#lessonGroupCoachGroupName").attr("data-coachgroup-name");
     		//POST AJAX request to update lesson group action
       		 $.ajax({
     		     type: 'POST',	  
     			 url:'details/updatename',
     		     dataType: 'json',
-   				 data : "lessonGroupId="+lessonGroupId + "&name="+lessonGroupName,
+   				 data : "newLessonGroupName=" + newLessonGroupName + "&lessonGroupName="+lessonGroupName + "&coachGroupName=" + coachGroupName,
    				 success: function(data) {
-   					$('div.modal#editLessonGroupName').modal('hide');
-   					 $("h1#lessonGroupName").text(" " + data['name']);
+   					 $('div.modal#editLessonGroupName').modal('hide');
+   					 $("h1#lessonGroupName").text(" " + data['newLessonGroupName']);
    				 }
     		});
       	}
