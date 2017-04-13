@@ -4,8 +4,6 @@ import javax.persistence.*;
 
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
-import nl.scalda.pasimo.main.CSVReader;
 
 @Entity
 @Table(name="teacher")

@@ -5,7 +5,7 @@ import java.util.TreeSet;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import nl.scalda.pasimo.main.CSVReader;
+import nl.scalda.pasimo.datalayer.CSVFactory.*;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
