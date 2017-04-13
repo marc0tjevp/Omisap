@@ -260,7 +260,7 @@
       	<tbody>
       
       <!-- TODO: zorgen dat de td appart wordne geplaatst en niet in de hele row  -->
-      <s:iterator value="WorkBlocks">
+      <s:iterator value="w">
       	<tr>	
 	      	<td class="cell-which-triggers-popup" data-toggle="modal"
 							data-target="#editModal">
