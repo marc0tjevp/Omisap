@@ -69,7 +69,7 @@ public class EducationTeam implements Comparable<EducationTeam> {
                 ct.setEmployeeNumber(teacher.getEmployeeNumber());
                 ct.setEmail(teacher.getEmail());
                 //               ct.setDateOfBirth(teacher.getDateOfBirth());
-                //				 ct.setNoteList(teacher.getNoteList());
+//                ct.setNoteList(teacher.getNoteList());
             }
         }
     }
