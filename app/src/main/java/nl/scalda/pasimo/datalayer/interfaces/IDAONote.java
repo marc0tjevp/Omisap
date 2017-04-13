@@ -12,7 +12,7 @@ public interface IDAONote {
 	
 	public Note update(Note note);
 	
-	public void delete(Note note);
+	public void delete(int id);
 	
 	public void deleteAll();
 

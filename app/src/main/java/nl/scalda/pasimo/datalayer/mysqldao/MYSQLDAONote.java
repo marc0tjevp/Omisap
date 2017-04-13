@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.datalayer.mysqldao;
 
+import java.util.Date;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -68,17 +70,23 @@ public class MYSQLDAONote implements IDAONote {
 
 	@Override
 	public Note read(int id) {
+		System.out.println("read start");
 		Session session = factory.openSession();
 		Transaction tx = null;
-		Note n = null;
+		Note n = new Note();
 		try {
 			tx = session.beginTransaction();
 			Object[] obj = (Object[]) session
 					.createNativeQuery(
-							"SELECT FROM teacher WHERE noteID = :noteID")
+							"SELECT * FROM note WHERE noteID = :noteID")
 					.setParameter("noteID", id).getSingleResult();
-			n = new Note(String.valueOf(obj[1]), String.valueOf(obj[2]),n.getAssignedTo(), n.getMadeBy());
+			   n.setId(Integer.parseInt(String.valueOf(obj[0])));;
+				n.setOvNumber(Integer.parseInt(String.valueOf(obj[1])));;
+				n.setTitle(String.valueOf(obj[1]));;
+				n.setMessage(String.valueOf(obj[2]));;
+				n.setEmployeeNumber(Integer.parseInt(String.valueOf(obj[4])));
 			tx.commit();
+			System.out.println("tx.commit");
 		} catch (Exception e) {
 			if (tx != null)
 				tx.rollback();
@@ -86,15 +94,19 @@ public class MYSQLDAONote implements IDAONote {
 		} finally {
 			session.close();
 		}
+		System.out.println("einde van methode lees");
 		return n;
 	}
 
 	@Override
 	public Note update(Note note) {
+		System.out.println("update start");
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try {
+			System.out.println("Try functie");
 			tx = session.beginTransaction();
+			
 			NativeQuery query1 = session.createNativeQuery("SET foreign_key_checks = 0;");
 			NativeQuery query2 = session.createNativeQuery(
 					"UPDATE note SET ovNumber = :ovNumber, title = :title, message = :message, employeeNumber = :employeeNumber, creationDate = :creationDate, lastEdit = :lastEdit WHERE noteID = :noteID");
@@ -107,19 +119,22 @@ public class MYSQLDAONote implements IDAONote {
 			query2.setParameter("lastEdit", note.getLastEdit());
 			query2.setParameter("noteID", note.getId());
 			query2.executeUpdate();
+			System.out.println("TX.COMMIT");
 			tx.commit();
 		} finally {
+			System.out.println("Update einde");
 			return null;
+			
 		}
 	}
 
 	@Override
-	public void delete(Note note) {
+	public void delete(int id) {
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			session.createNativeQuery("DELETE FROM note where noteID = :noteID").setParameter("noteID", note.getId()).executeUpdate();
+			session.createNativeQuery("DELETE FROM note where noteID = :noteID").setParameter("noteID", id).executeUpdate();
 			tx.commit();
 		} catch (HibernateException e) {
 			if (tx != null)

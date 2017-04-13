@@ -70,8 +70,12 @@ public class TestDAONote implements IDAONote {
 	}
 
 	@Override
-	public void delete(Note note) {
-		noteList.remove(note);
+	public void delete(int id) {
+		for(Note n : noteList){
+			if( id == n.getId()){
+				noteList.remove(n);
+			}
+		}
 	}
 
 	@Override

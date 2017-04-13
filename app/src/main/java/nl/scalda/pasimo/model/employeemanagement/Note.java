@@ -17,11 +17,20 @@ public class Note implements Comparable<Note> {
     private Teacher madeBy;
     private Date lastEdit;
     private Student assignedTo;
-    
+    private int ovNumber;
+    private int employeeNumber;
     /* empty constructor */
     public Note(){
     	id = count.incrementAndGet();
     }
+    
+    public Note(int noteID,int ovNumber, String title, String message, int employeeNumber){
+    	this.lastEdit = new Date();
+    	this.creationDate = new Date();
+    	this.employeeNumber = employeeNumber;
+    	this.ovNumber = ovNumber;
+    }
+    
     public Note(String title, String message, Student assignedTo, Teacher madeBy) {
 
         this.title = title;
@@ -30,6 +39,7 @@ public class Note implements Comparable<Note> {
         this.assignedTo = assignedTo;
         id = count.incrementAndGet();
         this.creationDate = new Date();
+        this.lastEdit = new Date();
         Service.getInstance().getNoteService().create(this, assignedTo);
     }
 
@@ -45,7 +55,7 @@ public class Note implements Comparable<Note> {
         this.title = title;
         this.message = message;
         this.lastEdit = new Date();
-        Service.getInstance().getNoteService().update(this);
+        Service.getInstance().getNoteService().update(this.getId());
         id = count.incrementAndGet();
         return this;
     }
@@ -105,6 +115,23 @@ public class Note implements Comparable<Note> {
 	public void setAssignedTo(Student student) {
 		this.assignedTo = student;
 	}
+	
+	public int getOvNumber() {
+		return ovNumber;
+	}
+
+	public void setOvNumber(int ovNumber) {
+		this.ovNumber = ovNumber;
+	}
+
+	public int getEmployeeNumber() {
+		return employeeNumber;
+	}
+
+	public void setEmployeeNumber(int employeeNumber) {
+		this.employeeNumber = employeeNumber;
+	}
+
 	@Override
     public int compareTo(Note o) {
         if (this.id == o.getId()) {
