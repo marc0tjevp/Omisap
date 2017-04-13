@@ -4,17 +4,17 @@ import java.util.GregorianCalendar;
 
 public class PasimoTime extends GregorianCalendar {
 	
-	public PasimoTime(int id, int startHour, int startMinute) {
+	public PasimoTime(int hour, int minute) {
 		super();
-		set(GregorianCalendar.HOUR, startHour);
-		set(GregorianCalendar.MINUTE, startMinute);
+		set(GregorianCalendar.HOUR, hour);
+		set(GregorianCalendar.MINUTE, minute);
 		
 	}
-	
-	public PasimoTime(int endHour, int endMinute){
-		super();
-		set(GregorianCalendar.HOUR, endHour);
-		set(GregorianCalendar.MINUTE, endMinute);
-	}
 
+
+	@Override
+	public String toString(){
+		return "time " + this.get(GregorianCalendar.HOUR)+ ":"+ this.get(GregorianCalendar.MINUTE);
+		
+	}
 }

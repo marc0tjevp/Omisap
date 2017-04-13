@@ -7,8 +7,8 @@ import javax.print.attribute.standard.DateTimeAtCompleted;
 public class WorkBlock implements Comparable<WorkBlock> {
 
 	private int id;
-	PasimoTime start;
-	PasimoTime end;
+	private PasimoTime start;
+	private PasimoTime end;
 
 	public WorkBlock() {
 

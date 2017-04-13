@@ -51,8 +51,8 @@ public class MYSQLDAOWorkBlock implements IDAOWorkBlock {
 			NativeQuery query = session.createNativeQuery(sql);
 
 			query.setParameter("id", workblock.getId());
-			query.setParameter("start", workblock.getStart());
-			query.setParameter("end", workblock.getEnd());
+			query.setParameter("start", workblock.getStart().getTime());
+			query.setParameter("end", workblock.getEnd().getTime());
 			query.executeUpdate();
 
 			tx.commit();
@@ -76,8 +76,8 @@ public class MYSQLDAOWorkBlock implements IDAOWorkBlock {
 			String sql = "INSERT INTO workblock(id, start, end) VALUES (:id, :start, :end)";
 			NativeQuery query = session.createNativeQuery(sql);
 			query.setParameter("id", workblock.getId());
-			query.setParameter("start", workblock.getStart());
-			query.setParameter("end", workblock.getEnd());
+			query.setParameter("start", workblock.getStart().getTime());
+			query.setParameter("end", workblock.getEnd().getTime());
 			query.executeUpdate();
 			tx.commit();
 
