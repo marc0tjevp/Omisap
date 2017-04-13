@@ -102,13 +102,13 @@ $(document).ready(function () {
    				 data : "newLessonGroupName=" + newLessonGroupName + "&lessonGroupName="+lessonGroupName + "&coachGroupName=" + coachGroupName,
    				 success: function(data) {
    					 $('div.modal#editLessonGroupName').modal('hide');
-   					 $("h1#lessonGroupName").text(" " + data['newLessonGroupName'].trim());
-   					 $("h1#lessonGroupName").attr("data-lessongroup-name", data['newLessonGroupName'].trim());
+   					 $("h1#lessonGroupName").text(" " + data['newLessonGroupName']);
+   					 $("h1#lessonGroupName").attr("data-lessongroup-name", data['newLessonGroupName']);
    					 
    					 /*
    					  * Set the URL parameters to the new lesson group name for later page reloads (add and delete students)
    					  */
-   					 history.pushState(null, null, "/Pasimo/lessongroup/details?lessonGroupName=" + newLessonGroupName.trim() + "&coachGroupName="+coachGroupName);
+   					 history.pushState(null, null, "/Pasimo/lessongroup/details?lessonGroupName=" + newLessonGroupName + "&coachGroupName="+coachGroupName);
    				 }
     		});
       	}
