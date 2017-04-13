@@ -80,7 +80,7 @@ public class Teacher extends Person {
     	NoteService.getInstance().update(note);
         }
     
-    public void deleteAll(){
+    public void deleteAllNotes(){
     	NoteService.getInstance().deleteAll();
     }
     /**

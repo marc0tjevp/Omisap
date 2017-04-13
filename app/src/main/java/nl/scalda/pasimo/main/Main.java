@@ -22,10 +22,10 @@ public class Main {
 		TreeSet<Note> noteList = new TreeSet<>();
 		Student s = new Student(3, 1, "1", "1", "1", "1", 1, 1, noteList, 1, 1);
 		Teacher teacher = new Teacher("GG", 666);
-
-		Note n1 = NoteService.getInstance().readByID(2);
-		n1.setMessage("KEVIN'S KAPSTER");
-		teacher.editNote(n1);
+		teacher.deleteAllNotes();
+//		Note n1 = NoteService.getInstance().readByID(2);
+//		n1.setMessage("KEVIN'S KAPSTER");
+//		teacher.editNote(n1);
 
 
 	}
