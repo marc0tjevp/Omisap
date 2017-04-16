@@ -11,9 +11,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <h1>Educatieteams
-                        
-                        <a href="educationTeam/delete" class="btn btn-primary pull-right"><i class="fa fa-trash"></i> Delete EducationTeam</a>
-                    <a href="educationTeam/edit" class="btn btn-primary pull-right"><i class="fa fa-minus"></i> EducationTeam Aanpassen</a>
+                       
                     <a href="educationTeam/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nieuw EducationTeam</a>
                     
                     </h1>
@@ -32,6 +30,9 @@
                             <tr>
                             <td>AO</td>
                             <td>ApplicatieOntwikkeling</td>
+                            <td>                      
+                              <a data-toggle="modal" data-target="#deleteConfirmation" class="btn btn-danger align-right"><i class="fa fa-trash"></i></a>
+                              <a href="educationTeam/edit" class="btn btn-primary aligh-right"><i class="fa fa-edit"></i></a></td>
                         </thead>
                         <tbody>
                             <s:iterator value="educationTeams">
