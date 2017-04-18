@@ -60,19 +60,23 @@
                 
                 $("#addLessonGroupButton").on("click", function() {
                 	if($("input[type=text]#lessonGroupName-input").val()) {
-                		console.log("Hallo!");
-                		console.log($("input[type=text]#lessonGroupName-input").val());
+                		
+                		var lessonGroupName = $("input[type=text]#lessonGroupName-input").val();
+                		
+                		var coachGroupSelectBox = document.getElementById("selectCoachGroupSelectBox");
+                		var coachGroupName =  coachGroupSelectBox.options[coachGroupSelectBox.selectedIndex].value;
+                		
                 		 $.ajax({
                 		 	type: 'POST',	  
-                			url:'lessongroup/add.action',
+                			url:'lessongroup/add',
                 		   	dataType: 'json',
-               				data : "lessonGroupName="+$("input[type=text]#lessonGroupName-input").val(),
+               				data : "lessonGroupName=" + lessonGroupName + "&coachGroupName=" + coachGroupName,
                				success: function(data) {
-               					console.log(data);
+								//Reload the page for listing the lesson groups sorted
                					location.reload();
                					
                				}
-                		});
+                		}); 
                 	}
                 });
                 
@@ -140,11 +144,10 @@
                                 <div class="form-group">
                                  <label for="selectCoachGroup-input" class="col-2 col-form-label">Selecteer Coach Group</label>
                                 	<div class="col-10">
-	                                	<select class="form-control">
-										    <option value="one">Coachgroep A1</option>
-										    <option value="two">Coachgroep A2</option>
-										    <option value="three">Coachgroep A3</option>
-										    <option value="four">Coachgroep A4</option>
+	                                	<select class="form-control" id="selectCoachGroupSelectBox">
+	                                		<s:iterator value="coachGroups">
+	                                			<option value="<s:property value="name"></s:property>"><s:property value="name"></s:property></option>
+	                                		</s:iterator>
 										</select>
                                     </div>
                                 </div>

@@ -20,6 +20,11 @@ public class LessonGroupListingAction extends ActionSupport {
 	private static final long serialVersionUID = 3651415035371001870L;
 
 	/**
+	 * All the available coach groups for adding lesson groups to them
+	 */
+	private TreeSet<CoachGroup> coachGroups;
+	
+	/**
 	 * All the coach groups with lesson groups in them
 	 */
 	private TreeSet<CoachGroup> coachGroupsWithLessonGroups;
@@ -30,7 +35,7 @@ public class LessonGroupListingAction extends ActionSupport {
 	private String lessonGroupName;
 	
 	/**
-	 * The coachgroup name for adding a lessongroup to it
+	 * The coach group name for adding a lesson group to it
 	 */
 	private String coachGroupName;
 
@@ -38,6 +43,7 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * Retrieves all the lesson groups and puts them in a list
 	 */
 	public String execute() {
+		this.coachGroups = CoachGroupService.getInstance().readAll();
 		this.coachGroupsWithLessonGroups = LessonGroupService.getInstance().readAll();
 		if (this.coachGroupsWithLessonGroups == null) {
 			return ERROR;
@@ -51,7 +57,6 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * @return
 	 */
 	public String addLessonGroup() {
-		//TODO Find coachgroup
 		CoachGroup coachGroup = CoachGroupService.getInstance().readCoachGroup(this.coachGroupName);
 		/*
 		 * When the lesson group name is not filled in or empty
@@ -156,6 +161,14 @@ public class LessonGroupListingAction extends ActionSupport {
 	 */
 	public void setCoachGroupName(String coachGroupName) {
 		this.coachGroupName = coachGroupName;
+	}
+
+	public TreeSet<CoachGroup> getCoachGroups() {
+		return coachGroups;
+	}
+
+	public void setCoachGroups(TreeSet<CoachGroup> coachGroups) {
+		this.coachGroups = coachGroups;
 	}
 
 }
