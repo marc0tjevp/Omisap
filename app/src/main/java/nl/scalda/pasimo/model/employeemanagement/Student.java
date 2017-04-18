@@ -1,10 +1,9 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
-<<<<<<< HEAD
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-=======
 import java.util.TreeSet;
->>>>>>> develop
+
 
 public class Student extends Person {
 
@@ -13,14 +12,14 @@ public class Student extends Person {
 	private int studentOV;
 	private int cohort;
 	private CoachGroup coachGroup;
+	private int dayOfBirth;
 
 	public Student(String email) {
+	}
 
-<<<<<<< HEAD
 	
 	public Student(){
-=======
->>>>>>> develop
+
 	}
 
 	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
@@ -75,8 +74,16 @@ public class Student extends Person {
 	public void setCoachGroup(CoachGroup coachGroup) {
 		this.coachGroup = coachGroup;
 	}
+	
+    public void update(){
+    	DAOFactory.getTheFactory().getDAOStudent().update(this);
+    }
+    
+    public void delete(){
+    	DAOFactory.getTheFactory().getDAOStudent().delete(this);
+    }
+    
 
-<<<<<<< HEAD
 	public void setDayOfBirth(int dayOfBirth) {
 		this.dayOfBirth = dayOfBirth;
 	}
@@ -90,16 +97,13 @@ public class Student extends Person {
 	    	DAOFactory.getTheFactory().getDAOStudent().create(this);
 	    }
 	
-=======
->>>>>>> develop
 	@Override
 	public String toString() {
 		return "Student [noteList=" + noteList + ", lessonGroup=" + lessonGroup + ", studentOV=" + studentOV
 				+ ", cohort=" + cohort + ", coachGroup=" + coachGroup + "]";
 	}
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> develop
+
+
+

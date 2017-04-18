@@ -8,18 +8,18 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.service.EducationTeamService;
+import nl.scalda.pasimo.service.LessonGroupService;
 import nl.scalda.pasimo.service.StudentService;
-
 
 public class StudentController extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
-	private static final String Lessongroup = null;
-	public Student Student = new Student();
+	public Student student = new Student();
 	public TreeSet<Student> Students = new TreeSet<>();
-	public TreeSet<LessonGroup> educationTeams = new TreeSet<>();
+	public TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
 	private File fileUpload;
 	private String fileUploadContentType;
 	private String fileUploadFileName;
@@ -42,9 +42,9 @@ public class StudentController extends ActionSupport {
 	 * @return String
 	 */
 	public String loadStudentInfo() {
-		Student.getCardID();
-		Student.getLessonGroupID();
-		Student.getCoachGroupID();
+		student.getCardID();
+		student.getLessonGroup();
+		student.getCoachGroup();
 		return SUCCESS;
 	}
 
@@ -56,9 +56,9 @@ public class StudentController extends ActionSupport {
 	 */
 	public String addStudent() {
 		setId(id);
-		Student.create();
-		LessonGroup et = getLessonGroupbyID(Lessongroup);
-		et.addStudent(Student);
+		student.create();
+		LessonGroup et = getLessonGroupByName(LessonGroup);
+		et.addStudent(student);
 		return SUCCESS;
 	}
 
@@ -82,16 +82,15 @@ public class StudentController extends ActionSupport {
 	 */
 	public String updateStudent() {
 		for (Student f : getStudents()) {
-			if (f.getEmployeeNumber() == Student.getEmployeeNumber()){
-				f.setFirstName(Student.getFirstName());
-				f.setAbbreviation();
-				f.setInsertion(Student.getInsertion());
-				f.setLastName(Student.getLastName());
-				f.setEmail(Student.getEmail());
-				f.setCardID(Student.getCardID());
-				if (!(getOldEducationTeam(f).getAbbreviation().equals(LessonGroup))){
-					getOldEducationTeam(f).deleteStudent(f);
-					getEducationTeamByAbbreviation(LessonGroup).addStudent(f);
+			if (f.getCardID() == student.getCardID()){
+				f.setFirstName(student.getFirstName());
+				f.setInsertion(student.getInsertion());
+				f.setLastName(student.getLastName());
+				f.setEmail(student.getEmail());
+				f.setCardID(student.getCardID());
+				if (!(getOldLessonGroup(f).getName().equals(LessonGroup))){
+					getOldLessonGroup(f).deleteStudent(f);
+					getLessonGroupByName(LessonGroup).addStudent(f);
 				}
 				f.update();
 			}
@@ -106,30 +105,26 @@ public class StudentController extends ActionSupport {
 	 * @return String
 	 */
 	public String removeStudent() {
-		Student = getStudentByCardID(id);
-		Student.deleteStudent(Student);
+		student = getStudentByCardID(id);
+		student.delete();
 		return SUCCESS;
 	}
 
 	/**
-	 * updates the Students educationteam.
+	 * updates the Students Lessongroup.
 	 * 
 	 * @param t
 	 * @param newTeam
 	 * @return String
 	 */
-	public String updateStudentEducationTeam(Student t, LessonGroup newTeam) {
-		if(!(getLessonGroup(t).equals(newTeam))){
-			(() getLessonGroup(t)).deleteStudent(t);
+	public String updateStudentLessonGroup(Student t, LessonGroup newTeam) {
+		if(!(getLessonGroup().equals(newTeam))){
+			getOldLessonGroup(t).deleteStudent(t);
 			newTeam.addStudent(t);
 		}
 		return SUCCESS;
 	}
 	
-	private Object getLessonGroup(nl.scalda.pasimo.model.employeemanagement.Student t) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	/**
 	 * Removes the Student from the old education team.
@@ -138,8 +133,8 @@ public class StudentController extends ActionSupport {
 	 * @param oldTeam
 	 * @return String
 	 */
-	public String removeStudentFromEducationTeam(Student t, EducationTeam oldTeam){
-		oldTeam.deleteStudent(t);
+	public String removeStudentFromLessonGroup(Student t, LessonGroup oldLessonGroup){
+		oldLessonGroup.deleteStudent(t);
 		return SUCCESS;
 	}
 	
@@ -149,9 +144,9 @@ public class StudentController extends ActionSupport {
 	 * @param t
 	 * @return EducationTeam
 	 */
-	public EducationTeam getOldEducationTeam(Student t){
+	public LessonGroup getOldLessonGroup(Student t){
 		try {
-			return t.getEducationTeam();
+			return t.getLessonGroup();
 		} catch(Exception e) {
 			return null;
 		}
@@ -183,48 +178,48 @@ public class StudentController extends ActionSupport {
 		} catch (Exception e){
 			return null;
 		}
+		
 	}
-	
-	/**
-	 * gets all education teams
-	 * 
-	 * @return TreeSet<EducationTeam>
-	 */
 	public TreeSet<LessonGroup> getLessonGroups() {
-		LessonGroup.addAll(EducationTeamService.getInstance().getEducationTeams());
-		return educationTeams;
+		lessonGroups.addAll(LessonGroupService.getInstance().getLessongroups());
+		return lessonGroups;
 	}
 	
+	
 	/**
-	 * gets the LessonGroup with the Card id that equals given ID
+	 * gets the LessonGroup with the Card id that equals given name
 	 * 
-	 * @param abbr
+	 * @param lessonGroup
 	 * @return EducationTeam
 	 */
-
+	
+	public LessonGroup getLessonGroupByName(String lessonGroup){
+		for(LessonGroup lg : getLessonGroups()){
+			if(lg.getName().equals(lessonGroup)){
+				return lg;
+			}
+		}
+		return null;
+	}
 	
 	public void setStudents(TreeSet<Student> Students) {
 		this.Students = Students;
 	}
 
 	public Student getStudent() {
-		return Student;
+		return student;
 	}
 
 	public void setStudent(Student Student) {
-		this.Student = Student;
+		this.student = Student;
 	}
 
-	public String getLessenGroup() {
-		return Lessongroup;
+	public String getLessonGroup() {
+		return LessonGroup;
 	}
 
 	public void setLessonGroup(String LessonGroup) {
 		this.LessonGroup = LessonGroup;
-	}
-
-	public void setEducationTeams(TreeSet<LessonGroup> educationTeams) {
-		this.educationTeams = educationTeams;
 	}
 
 	public String getFileUploadContentType() {
@@ -258,10 +253,5 @@ public class StudentController extends ActionSupport {
 	public void setId(int id) {
 		this.id = id;
 	}
-	private nl.scalda.pasimo.model.employeemanagement.LessonGroup getLessonGroupbyID(String lessongroup2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	private void delete
-	delete Student student();
+
 }

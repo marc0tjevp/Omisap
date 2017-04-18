@@ -29,6 +29,7 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 		return instance;
 	}
 
+	@Override
 	public TreeSet<LessonGroup> getLessongroups() {
 		return lessongroups;
 	}

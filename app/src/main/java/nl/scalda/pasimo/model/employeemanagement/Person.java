@@ -5,12 +5,12 @@ import java.util.TreeSet;
 
 public class Person implements Comparable<Person> {
 
-    private String email;
+    public String email;
     private int cardID;
     private String firstName;
     private String insertion;
     private String lastName;
-    private GregorianCalendar dateOfBirth;
+    protected GregorianCalendar dateOfBirth;
 
     /**
      * default constructor.

@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.service;
 
+import java.util.TreeSet;
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.interfaces.ILessonGroupService;
@@ -20,6 +22,11 @@ public class LessonGroupService implements ILessonGroupService {
         }
 
         return instance;
+    }
+    
+    @Override
+    public TreeSet<LessonGroup> getLessongroups() {
+        return DAOFactory.getTheFactory().getDAOLessonGroup().getLessongroups();
     }
 
     @Override

@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.datalayer.interfaces;
 
+import java.util.TreeSet;
+
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
 public interface IDAOLessonGroup {
@@ -11,5 +13,7 @@ public interface IDAOLessonGroup {
     void update(LessonGroup newLessonGroup);
 
     void delete(LessonGroup lessonGroup);
+
+    TreeSet<LessonGroup> getLessongroups();
 
 }
