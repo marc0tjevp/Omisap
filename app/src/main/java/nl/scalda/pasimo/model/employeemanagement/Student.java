@@ -2,6 +2,8 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import javax.persistence.*;
 
+import java.util.TreeSet;
+
 @Entity
 @Table(name="student")
 @DiscriminatorValue(value="Student")
@@ -11,6 +13,10 @@ public class Student extends Person {
 	private int noteListID;
 	private int lessonGroupID;
 	private int cardID;
+	
+	private TreeSet<Note> noteList = new TreeSet<>();
+	private LessonGroup lessonGroup;
+	private CoachGroup coachGroup;
 	
 	@Column(name="cohort")
 	private int cohort;
@@ -25,13 +31,10 @@ public class Student extends Person {
 		super(email);
 	}
 	
-	public Student(int studentOV, int coachGroupID, int lessonGroupID, int cohort, String email, String firstName,
-			String insertion, String lastName, int cardID, int yearOfBirth, int noteListID, int monthOfBirth,
-			int dayOfBirth) {
+	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
+			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth) {
 		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.studentOV = studentOV;
-		this.coachGroupID = coachGroupID;
-		this.lessonGroupID = lessonGroupID;
 		this.cohort = cohort;
 		this.cardID = cardID;
 	}
@@ -63,6 +66,20 @@ public class Student extends Person {
 
 	public void setCardID(int cardID) {
 		this.cardID = cardID;
+		this.noteList = noteList;
+	}
+	
+
+	public TreeSet<Note> getNoteList() {
+		return noteList;
+	}
+
+	public LessonGroup getLessonGroup() {
+		return lessonGroup;
+	}
+
+	public CoachGroup getCoachGroup() {
+		return coachGroup;
 	}
 
 	public int getCohort() {
@@ -71,14 +88,6 @@ public class Student extends Person {
 
 	public void setCohort(int cohort) {
 		this.cohort = cohort;
-	}
-
-	public int getCoachGroupID() {
-		return coachGroupID;
-	}
-
-	public void setCoachGroupID(int coachGroupID) {
-		this.coachGroupID = coachGroupID;
 	}
 
 	public int getStudentOV() {
@@ -93,13 +102,27 @@ public class Student extends Person {
 	public int compareTo(Person o) {
 	    return getEmail().compareTo(o.getEmail());
 	}
-	
+
+	public String getNameOfLessonGroup() {
+		return lessonGroup.getName();
+	}
+
+	public void setLessonGroup(LessonGroup lessonGroup) {
+		this.lessonGroup = lessonGroup;
+	}
+
+	public String getNameOfCoachGroup() {
+		return coachGroup.getName();
+	}
+
+	public void setCoachGroup(CoachGroup coachGroup) {
+		this.coachGroup = coachGroup;
+	}
+
 	@Override
 	public String toString() {
-		return "Student [noteListID=" + getNoteListID() + ", lessonGroupID=" + getLessonGroupID() + ", cardID=" + getCardID()
-				+ ", firstName=" + getFirstName() + ", insertion=" + getInsertion() + ", lastName=" + getLastName() + ", email="
-				+ getEmail() + ", cohort=" + getCohort() + ", coachGroupID=" + getCoachGroupID() + ", studentOV=" + getStudentOV()
-				+ "dateOfBirth=" + getDateOfBirthInString() + "]";
+		return "Student [noteList=" + noteList + ", lessonGroup=" + lessonGroup + ", studentOV=" + studentOV
+				+ ", cohort=" + cohort + ", coachGroup=" + coachGroup + "]";
 	}
 
 }

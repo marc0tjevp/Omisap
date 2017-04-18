@@ -17,7 +17,7 @@
       root
    </property>
    <property name="hibernate.connection.password">
-      West29stekel
+    skullcandy1
    </property>
    <property name="hibernate.hbm2ddl.auto">
       update

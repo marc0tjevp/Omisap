@@ -1,11 +1,14 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.persistence.*;
 
 import org.hibernate.annotations.Type;
 
+import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.service.Service;
 
 @Entity
@@ -15,6 +18,8 @@ public class Note implements Comparable<Note> {
 	@Id
 	@Column(name="noteID", nullable=false)
     private int id;
+	
+	static AtomicInteger count = new AtomicInteger(0);
 	
 	@Column(name="title")
     private String title;
@@ -30,38 +35,40 @@ public class Note implements Comparable<Note> {
 	
 	@Column(name="lastEdit")
     private Date lastEdit;
-	
-	public Note(){}
 
+    private Student assignedTo;
+    private int ovNumber;
+    private int employeeNumber;
+    
+    /* empty constructor */
+    public Note(){
+    	id = count.incrementAndGet();
+    }
+    
     public Note(String title, String message, Teacher madeBy) {
-
+    	
+    }
+    
+    public Note(int noteID,int ovNumber, String title, String message, int employeeNumber){
+    	this.lastEdit = new Date();
+    	this.creationDate = new Date();
+    	this.employeeNumber = employeeNumber;
+    	this.ovNumber = ovNumber;
+    }
+    
+    public Note(String title, String message, Student assignedTo, Teacher madeBy) {
         this.title = title;
         this.message = message;
         this.madeBy = madeBy;
-
+        this.assignedTo = assignedTo;
+        id = count.incrementAndGet();
         this.creationDate = new Date();
-        this.lastEdit = this.creationDate;
-        Note cNote = Service.getInstance().getNoteService().create(this);
-        this.id = cNote.getId();
-    }
-
-    /**
-     * Edits the note, and updates the lastEdit timestamp
-     *
-     * @param title   title of the note
-     * @param message message of the note
-     * @return Note note returns a updated note
-     */
-    public Note editNote(String title, String message) {
-
-        this.title = title;
-        this.message = message;
-
         this.lastEdit = new Date();
-        Service.getInstance().getNoteService().update(this);
-        return this;
+        Service.getInstance().getNoteService().create(this, assignedTo);
     }
 
+    
+ 
     public int getId() {
         return id;
     }
@@ -109,8 +116,31 @@ public class Note implements Comparable<Note> {
     public void setLastEdit(Date lastEdit) {
         this.lastEdit = lastEdit;
     }
+    
+    public Student getAssignedTo() {
+		return assignedTo;
+	}
+	public void setAssignedTo(Student student) {
+		this.assignedTo = student;
+	}
+	
+	public int getOvNumber() {
+		return ovNumber;
+	}
 
-    @Override
+	public void setOvNumber(int ovNumber) {
+		this.ovNumber = ovNumber;
+	}
+
+	public int getEmployeeNumber() {
+		return employeeNumber;
+	}
+
+	public void setEmployeeNumber(int employeeNumber) {
+		this.employeeNumber = employeeNumber;
+	}
+
+	@Override
     public int compareTo(Note o) {
         if (this.id == o.getId()) {
             return 0;
