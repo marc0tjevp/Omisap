@@ -6,9 +6,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAONote;
 import nl.scalda.pasimo.datalayer.testdao.TestDAONote;
-import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.Note;
+import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class NoteController extends ActionSupport {
@@ -17,7 +18,8 @@ public class NoteController extends ActionSupport {
 	private String madeBy;
 	private int id;
 
-
+	private Teacher teacher;
+	private Student student;
 	private String title;
 	private String message;
 
@@ -33,8 +35,8 @@ public class NoteController extends ActionSupport {
 	 */
 
 	public String noteOverview() {
-		noteList = TestDAONote.getInstance().getNoteList();
 
+		
 		return SUCCESS;
 	}
 
@@ -44,12 +46,7 @@ public class NoteController extends ActionSupport {
 	 */
 	public String noteAdd() {
 
-		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
-		TestDAONote dao = TestDAONote.getInstance();
-		
-		Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
-		Note note = new Note(message, title, teacher);
-		dao.create(note);
+		teacher.createNote("title", "message", student);
 
 		return SUCCESS;
 	}
@@ -60,10 +57,7 @@ public class NoteController extends ActionSupport {
 	 */
 	public String noteDelete(){
 		
-		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
-		TestDAONote dao = TestDAONote.getInstance();
-		
-		dao.delete(dao.read(id));
+		teacher.delete();
 		
 		return SUCCESS;
 		
@@ -73,18 +67,9 @@ public class NoteController extends ActionSupport {
 	 * Struts
 	 */
 	public String noteEdit(){
-		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
-		TestDAONote dao = TestDAONote.getInstance();
-		Note note = dao.read(id);
-		
-		for(Note a : getNoteList()){
-			if (a.getId() == note.getId()){
-				a.setTitle(note.getTitle());
-				a.setMessage(note.getMessage());
-				
-			}
-		}
 
+		
+			
 		return SUCCESS;
 	}
 	/*

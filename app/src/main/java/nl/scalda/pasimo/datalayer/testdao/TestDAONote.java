@@ -83,6 +83,12 @@ public class TestDAONote implements IDAONote {
 		noteList.clear();
 		
 	}
+
+	@Override
+	public TreeSet<Note> readAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }

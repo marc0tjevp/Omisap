@@ -1,7 +1,8 @@
 package nl.scalda.pasimo.datalayer.interfaces;
 
+import java.util.TreeSet;
+
 import nl.scalda.pasimo.model.employeemanagement.Note;
-import nl.scalda.pasimo.model.employeemanagement.Student;
 
 public interface IDAONote {
 
@@ -15,6 +16,8 @@ public interface IDAONote {
 	public void delete(int id);
 	
 	public void deleteAll();
+	
+	public TreeSet<Note> readAll();
 
 	
 }

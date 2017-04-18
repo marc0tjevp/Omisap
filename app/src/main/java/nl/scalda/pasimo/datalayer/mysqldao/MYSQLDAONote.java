@@ -1,7 +1,9 @@
 package nl.scalda.pasimo.datalayer.mysqldao;
 
 import java.sql.Date;
-import java.text.SimpleDateFormat;
+import java.util.Iterator;
+import java.util.List;
+import java.util.TreeSet;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -72,17 +74,19 @@ public class MYSQLDAONote implements IDAONote {
 		Note n = new Note();
 		try {
 			tx = session.beginTransaction();
-			Object[] obj = (Object[]) session
-					.createNativeQuery(
-							"SELECT * FROM note WHERE noteID = :noteID")
+			Object[] obj = (Object[]) session.createNativeQuery("SELECT * FROM note WHERE noteID = :noteID")
 					.setParameter("noteID", id).getSingleResult();
-			   n.setId(Integer.parseInt(String.valueOf(obj[0])));;
-				n.setOvNumber(Integer.parseInt(String.valueOf(obj[1])));;
-				n.setTitle(String.valueOf(obj[2]));;
-				n.setMessage(String.valueOf(obj[3]));;
-				n.setEmployeeNumber(Integer.parseInt(String.valueOf(obj[4])));
-				n.setCreationDate(Date.valueOf(String.valueOf(obj [5])));
-				n.setLastEdit(Date.valueOf(String.valueOf(obj [6])));
+			n.setId(Integer.parseInt(String.valueOf(obj[0])));
+			;
+			n.setOvNumber(Integer.parseInt(String.valueOf(obj[1])));
+			;
+			n.setTitle(String.valueOf(obj[2]));
+			;
+			n.setMessage(String.valueOf(obj[3]));
+			;
+			n.setEmployeeNumber(Integer.parseInt(String.valueOf(obj[4])));
+			n.setCreationDate(Date.valueOf(String.valueOf(obj[5])));
+			n.setLastEdit(Date.valueOf(String.valueOf(obj[6])));
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null)
@@ -100,7 +104,7 @@ public class MYSQLDAONote implements IDAONote {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-					NativeQuery query2 = session.createNativeQuery(
+			NativeQuery query2 = session.createNativeQuery(
 					"UPDATE note SET ovNumber = :ovNumber, title = :title, message = :message, employeeNumber = :employeeNumber, creationDate = :creationDate, lastEdit = :lastEdit WHERE noteID = :noteID");
 			query2.setParameter("ovNumber", note.getOvNumber());
 			query2.setParameter("title", note.getTitle());
@@ -113,7 +117,7 @@ public class MYSQLDAONote implements IDAONote {
 			tx.commit();
 		} finally {
 			return note;
-			
+
 		}
 	}
 
@@ -123,7 +127,8 @@ public class MYSQLDAONote implements IDAONote {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			session.createNativeQuery("DELETE FROM note where noteID = :noteID").setParameter("noteID", id).executeUpdate();
+			session.createNativeQuery("DELETE FROM note where noteID = :noteID").setParameter("noteID", id)
+					.executeUpdate();
 			tx.commit();
 		} catch (HibernateException e) {
 			if (tx != null)
@@ -134,23 +139,58 @@ public class MYSQLDAONote implements IDAONote {
 		}
 
 	}
+
 	@Override
 	public void deleteAll() {
 		Session session = factory.openSession();
 		Transaction tx = null;
-		try{
+		try {
 			tx = session.beginTransaction();
 			session.createNativeQuery("TRUNCATE note").executeUpdate();
 			tx.commit();
-		} catch(HibernateException e){
-			if( tx != null)
+		} catch (HibernateException e) {
+			if (tx != null)
 				tx.rollback();
 			e.printStackTrace();
-		} finally{
+		} finally {
 			session.close();
 		}
-		
+
 	}
-	
-	
+
+	@Override
+	public TreeSet<Note> readAll() {
+		Session session = factory.openSession();
+		Transaction tx = null;
+		TreeSet<Note> notes = new TreeSet<>();
+		try {
+			tx = session.beginTransaction();
+			List noteList = session.createNativeQuery("SELECT * FROM note;").getResultList();
+			for (Iterator iterator = noteList.iterator(); iterator.hasNext();) {
+				Object[] obj = (Object[]) iterator.next();
+				String[] creationDate = String.valueOf(obj[5]).split("-");
+				Note n = new Note();
+				String.valueOf(obj[0]);
+				String.valueOf(obj[1]);
+				String.valueOf(obj[2]);
+				String.valueOf(obj[3]);
+				String.valueOf(obj[4]);
+				String.valueOf(obj[6]);
+				Integer.parseInt(String.valueOf(creationDate[0]));
+				Integer.parseInt(String.valueOf(creationDate[1]));
+				Integer.parseInt(String.valueOf(creationDate[2]));
+				notes.add(n);
+			}
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		System.out.println(notes.size());
+		return notes;
+	}
+
 }
