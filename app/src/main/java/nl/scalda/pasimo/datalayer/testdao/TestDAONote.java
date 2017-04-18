@@ -4,6 +4,7 @@ import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.model.employeemanagement.Note;
+import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class TestDAONote implements IDAONote {
@@ -12,13 +13,21 @@ public class TestDAONote implements IDAONote {
 	
 	private TreeSet<Note> noteList;
 	
+	public static TestDAONote getInstance(){
+		if(instance == null){
+			instance = new TestDAONote();
+		}
+		return instance;
+	}
+	
 	private TestDAONote() {
 		Teacher tea1 = new Teacher();
+		Student s = new Student("test");
                 tea1.setFirstName("Bram");
 		noteList = new TreeSet<Note>();
-		Note note1 = new Note("Vertraging bus", "Lijn 660 had vertraging van 30 minuten", tea1);
-		Note note2 = new Note("Vertraging boot", "Boot had vertraging van 30 minuten", tea1);
-		Note note3 = new Note("Vertraging vliegtuig", "Vliegtuig had vertraging van 30 minuten", tea1);
+		Note note1 = new Note("Vertraging bus", "Lijn 660 had vertraging van 30 minuten",s, tea1);
+		Note note2 = new Note("Vertraging boot", "Boot had vertraging van 30 minuten",s, tea1);
+		Note note3 = new Note("Vertraging vliegtuig", "Vliegtuig had vertraging van 30 minuten",s, tea1);
 		
 		noteList.add(note1);
 		noteList.add(note2);
@@ -61,15 +70,19 @@ public class TestDAONote implements IDAONote {
 	}
 
 	@Override
-	public void delete(Note note) {
-		noteList.remove(note);
+	public void delete(int id) {
+		for(Note n : noteList){
+			if( id == n.getId()){
+				noteList.remove(n);
+			}
+		}
+	}
+
+	@Override
+	public void deleteAll() {
+		noteList.clear();
+		
 	}
 	
-	public static TestDAONote getInstance(){
-		if(instance == null){
-			instance = new TestDAONote();
-		}
-		return instance;
-	}
 
 }

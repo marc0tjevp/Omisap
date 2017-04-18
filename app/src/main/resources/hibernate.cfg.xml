@@ -19,7 +19,11 @@
       root
    </property>
    <property name="hibernate.connection.password">
+<<<<<<< HEAD
       Aardappel1
+=======
+    skullcandy1
+>>>>>>> 99d8fe085b5df925c3e2584b9f9bb49ff3fca3b9
    </property>
 
    <!-- List of XML mapping files -->
