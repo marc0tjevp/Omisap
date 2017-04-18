@@ -8,6 +8,7 @@ import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAONote;
 import nl.scalda.pasimo.datalayer.testdao.TestDAONote;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
@@ -36,6 +37,7 @@ public class NoteController extends ActionSupport {
 
 	public String noteOverview() {
 
+
 		
 		return SUCCESS;
 	}
@@ -46,7 +48,11 @@ public class NoteController extends ActionSupport {
 	 */
 	public String noteAdd() {
 
+
 		teacher.createNote("title", "message", student);
+
+		Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
+
 
 		return SUCCESS;
 	}
@@ -58,6 +64,8 @@ public class NoteController extends ActionSupport {
 	public String noteDelete(){
 		
 		teacher.delete();
+
+
 		
 		return SUCCESS;
 		

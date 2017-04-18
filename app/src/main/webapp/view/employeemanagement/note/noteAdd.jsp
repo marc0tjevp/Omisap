@@ -48,7 +48,7 @@
 				<div class="col col-md-12">
 					<h5>Titel:</h5>
 					<input id="noteTitle" class="input" type="text" name="title"
-										placeholder="DD-MM-YY / Studente naam"><br>
+										placeholder=""><br>
 				</div>
 			</div>
 			<div class="row">
