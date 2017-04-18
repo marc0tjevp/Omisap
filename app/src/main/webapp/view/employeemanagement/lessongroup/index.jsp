@@ -85,19 +85,21 @@
                 	
                 	$("input[type=checkbox].selectedLessonGroup").each(function() {
                 		var parentElement = $(this).parent().parent().parent();
-                		var lessonGroupId = parentElement.attr("id");
                 		
-	               		 $.ajax({
+                		var lessonGroupName = parentElement.attr("data-lessongroup-name");
+                		var coachGroupName = parentElement.children().last().text().trim();
+                		
+  	               		$.ajax({
 	            		     type: 'POST',	  
 	            			 url: 'lessongroup/delete',
 	            		     dataType: 'json',
-	           				 data: "deletelessongroupID="+lessonGroupId,
+	           				 data: "lessonGroupName="+lessonGroupName + "&coachGroupName=" + coachGroupName,
 	           				 success: function(data) {
-	           			     	console.log(data);
-	           			     $('input:checkbox').removeAttr('checked');
+	           			     	$('input:checkbox').removeAttr('checked');
+								//Reload the page for listing the lesson groups sorted
 	           			     	location.reload();
 	           				 }
-	           			});
+	           			}); 
 	            	});
                 }); 
 
@@ -202,7 +204,7 @@
                 <!-- Every lesson group -->
                     <s:iterator var="coachGroupWithLessonGroups" value="coachGroupsWithLessonGroups">
                     	<s:iterator var="lessonGroup" value="#coachGroupWithLessonGroups.lessonGroups">
-                    		<tr>
+                    		<tr data-lessongroup-name="<s:property value="name"></s:property>">
 	                    		<td>
 	                    			<label>
 	                    				<input type="checkbox">

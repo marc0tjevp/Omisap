@@ -23,7 +23,7 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * All the available coach groups for adding lesson groups to them
 	 */
 	private TreeSet<CoachGroup> coachGroups;
-	
+
 	/**
 	 * All the coach groups with lesson groups in them
 	 */
@@ -33,9 +33,9 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * The name for adding or removing a lesson group
 	 */
 	private String lessonGroupName;
-	
+
 	/**
-	 * The coach group name for adding a lesson group to it
+	 * The coach group name for adding or removing a lesson group
 	 */
 	private String coachGroupName;
 
@@ -74,7 +74,7 @@ public class LessonGroupListingAction extends ActionSupport {
 		 * Save the new lesson group in the coach group and update it in the DAO
 		 */
 		coachGroup.addLessonGroup(lessonGroupToAdd);
-		
+
 		return SUCCESS;
 	}
 
@@ -86,31 +86,28 @@ public class LessonGroupListingAction extends ActionSupport {
 	 */
 	public String deleteLessonGroup() {
 		/*
-		 * Add all the lesson groups to the action variable
+		 * Find the coach group the lesson group gets deleted from
 		 */
-		// this.lessonGroups =
-		// TestDAOLessonGroup.getInstance().getLessongroups();
+		CoachGroup coachGroup = CoachGroupService.getInstance().readCoachGroup(this.coachGroupName);
 
 		/*
-		 * Gets id from lesson group
+		 * Find the lesson group which gets deleted from the coach group
 		 */
-		// LessonGroup lessonGroupToDelete = TestDAOLessonGroup.getInstance()
-		// .readLessonGroupByID(deletelessongroupID);
+		LessonGroup lessonGroup = coachGroup.getLessonGroupByName(this.lessonGroupName);
 
 		/*
-		 * Checks if there is a lesson group to delete, If none is found return
+		 * Checks if the lesson group exists in the coach group, If it isn't found return
 		 * ERROR
 		 */
-		// if (lessonGroupToDelete == null) {
-		// return ERROR;
-		// }
-		/*
-		 * Deletes the given ID from the DAO and from the lessongroups, In case
-		 * this succeeds, return SUCCESS
-		 */
-		// TestDAOLessonGroup.getInstance().delete(lessonGroupToDelete);
-		// this.lessonGroups.remove(lessonGroupToDelete);
+		if (lessonGroup == null) {
+			return ERROR;
+		}
 
+		/*
+		 * Delete the lesson group
+		 */
+		coachGroup.deleteLessonGroup(lessonGroup);
+		
 		return SUCCESS;
 
 	}
@@ -146,7 +143,7 @@ public class LessonGroupListingAction extends ActionSupport {
 	public void setLessonGroupName(String lessonGroupName) {
 		this.lessonGroupName = lessonGroupName;
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -154,7 +151,7 @@ public class LessonGroupListingAction extends ActionSupport {
 	public String getCoachGroupName() {
 		return this.coachGroupName;
 	}
-	
+
 	/**
 	 * 
 	 * @param coachGroupName
