@@ -35,11 +35,13 @@ public class TimeController extends ActionSupport {
 		WorkBlock wq2 = new WorkBlock(3, new PasimoTime(11, 25), new PasimoTime(12, 05));
 		WorkBlock wq3 = new WorkBlock(4, new PasimoTime(12, 35), new PasimoTime(14, 15));
 		WorkBlock wq4 = new WorkBlock(5, new PasimoTime(14, 30), new PasimoTime(15, 20));
-		w.addWorkBlock(wq);
-		w.addWorkBlock(wq1);
-		w.addWorkBlock(wq2);
-		w.addWorkBlock(wq3);
-		w.addWorkBlock(wq4);
+		WorkBlock wq5 = new WorkBlock(6, new PasimoTime(22, 30), new PasimoTime(23, 20));
+//		w.addWorkBlock(wq);
+//		w.addWorkBlock(wq1);
+//		w.addWorkBlock(wq2);
+//		w.addWorkBlock(wq3);
+//		w.addWorkBlock(wq4);
+//		w.addWorkBlock(wq5);
 //		WorkBlocks.remove(wq);
 //		WorkBlocks.remove(wq1);
 //		WorkBlocks.remove(wq2);
@@ -47,12 +49,12 @@ public class TimeController extends ActionSupport {
 //		WorkBlocks.remove(wq4);
 		
 		
-//		WorkBlocks.add(wq);
-//		WorkBlocks.add(wq1);
-//		WorkBlocks.add(wq2);
-//		WorkBlocks.add(wq3);
-//		WorkBlocks.add(wq4);
-		
+		WorkBlocks.add(wq);
+		WorkBlocks.add(wq1);
+		WorkBlocks.add(wq2);
+		WorkBlocks.add(wq3);
+		WorkBlocks.add(wq4);
+		System.out.println(WorkBlocks);
 		return SUCCESS;
 	}
 
@@ -60,7 +62,8 @@ public class TimeController extends ActionSupport {
 		workblock.setId(0);
 		workblock.setStart(null);
 		workblock.setEnd(null);
-		w.addWorkBlock(workblock);
+//		w.addWorkBlock(workblock);
+		WorkBlocks.add(workblock);
 		return SUCCESS;
 
 	}
@@ -69,17 +72,22 @@ public class TimeController extends ActionSupport {
 		workblock.setId(0);
 		workblock.setStart(null);
 		workblock.setEnd(null);
-		w.updateWorkBlock(workblock);
+//		w.updateWorkBlock(workblock);
 		return SUCCESS;
 	}
 
 	public String removeWorkBlock(WorkBlock workblock) {
-		w.deleteWorkBlock(workblock);
-
+//		w.deleteWorkBlock(workblock);
+		workblock.getId();
+		WorkBlocks.remove(workblock);
+		System.out.println(WorkBlocks);
 		return SUCCESS;
 	}
 
-	public String readWorkBlock() {
+	public String readWorkBlock(WorkBlock workblock) {
+		workblock.getId();
+		workblock.getStart();
+		workblock.getEnd();
 		return SUCCESS;
 	}
 

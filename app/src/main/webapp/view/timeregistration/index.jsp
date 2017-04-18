@@ -256,42 +256,46 @@
       		<th>Vrijdag</th>
       		</tr>
       	</thead>
-      	
+    
       	<tbody>
-      
+  
       <!-- TODO: zorgen dat de td appart wordne geplaatst en niet in de hele row  -->
-      <s:iterator value="w">
+      <s:iterator value="WorkBlocks">
       	<tr>	
 	      	<td class="cell-which-triggers-popup" data-toggle="modal"
 							data-target="#editModal">
 	                     <div class="well well-sm">
-						<s:property value="startTime" /> - <s:property value="endTime" />
+						<s:property value="start" /> - <s:property value="end" />
 					</div>
         	</td>
 	      	<td class="cell-which-triggers-popup" data-toggle="modal"
 							data-target="#editModal">
 	                     <div class="well well-sm">
-						<s:property value="startTime" /> - <s:property value="endTime" />
+						<s:property value="start" /> - <s:property value="end" />
 					</div>
         	</td>
-        	<td>					</td>
+               		      	<td class="cell-which-triggers-popup" data-toggle="modal"
+							data-target="#editModal">
+	                     <div class="well well-sm">
+						<s:property value="start" /> - <s:property value="end" />
+					</div>
         		      	<td class="cell-which-triggers-popup" data-toggle="modal"
 							data-target="#editModal">
 	                     <div class="well well-sm">
-						<s:property value="startTime" /> - <s:property value="endTime" />
+						<s:property value="start" /> - <s:property value="end" />
 					</div>
         	</td>
               		      	<td class="cell-which-triggers-popup" data-toggle="modal"
 							data-target="#editModal">
 	                     <div class="well well-sm">
-						<s:property value="startTime" /> - <s:property value="endTime" />
+						<s:property value="start" /> - <s:property value="end" />
 					</div>
         	</td>
         	</tr>
       </s:iterator>
       
       </tbody>
-      
+  
       </table>
             </div>
          </div>
@@ -312,7 +316,7 @@
 		        Weet je zeker dat je zeker dat je dit les block wilt verwijderen?
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-">Verwijder</button>
+<a href="deleteWorkBlock" class="btn btn-">Verwijder</a>
 		      </div>
 		    </div>
 		  </div>
