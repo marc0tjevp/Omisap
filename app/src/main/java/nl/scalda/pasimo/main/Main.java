@@ -3,6 +3,7 @@
  */
 package nl.scalda.pasimo.main;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.timeregistration.PasimoTime;
 import nl.scalda.pasimo.model.timeregistration.WorkBlock;
 import nl.scalda.pasimo.model.timeregistration.WorkingDay;
@@ -18,15 +19,13 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		WorkingDay w = new WorkingDay("maandag");
+//		WorkingDay w = new WorkingDay("maandag");
 		
-		WorkBlock workblock = new WorkBlock(3, new PasimoTime(8, 30), new PasimoTime(10, 10));
+//		WorkBlock workblock = new WorkBlock(3, new PasimoTime(8, 30), new PasimoTime(10, 10));
 		
-		workblock.setEnd(new PasimoTime(10 , 11));
+		DAOFactory.getTheFactory().getDAOWorkBlock().read(2);
 		
-		w.updateWorkBlock(workblock);
-		
-		System.out.println(w);
+//		System.out.println(w);
 
 	}
 }

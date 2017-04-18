@@ -1,4 +1,6 @@
 package nl.scalda.pasimo.datalayer.mysqldao;
+import java.sql.Date;
+import java.sql.Time;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -11,6 +13,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.query.NativeQuery;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkBlock;
+import nl.scalda.pasimo.model.timeregistration.PasimoTime;
 import nl.scalda.pasimo.model.timeregistration.WorkBlock;
 
 public class MYSQLDAOWorkBlock implements IDAOWorkBlock {
@@ -144,9 +147,20 @@ public class MYSQLDAOWorkBlock implements IDAOWorkBlock {
 		Session session = factory.openSession();
 		Transaction tx = null;
 		Set<WorkBlock> workblock = new TreeSet<>();
+		WorkBlock w = new WorkBlock();
+		PasimoTime pt = new PasimoTime();
 		try {
 			tx = session.beginTransaction();
-			List WorkBlock = session.createNativeQuery("SELECT id, startTime, endtime FROM workblock;").getResultList();
+			Object[] obj = (Object[]) session.createNativeQuery("SELECT id, start, end FROM workblock WHERE id = " + id).getSingleResult();
+			w.setId(Integer.parseInt(String.valueOf(obj[0])));
+			Time t = (Time) obj[1];
+			pt.setTimeInMillis(t.getTime());
+			Time t1 = (Time) obj[2];
+			pt.setTimeInMillis(t1.getTime());
+			System.out.println(obj[0]);
+			System.out.println(obj[1]);
+			System.out.println(obj[2]);
+			
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null)
@@ -155,7 +169,7 @@ public class MYSQLDAOWorkBlock implements IDAOWorkBlock {
 		} finally {
 			session.close();
 		}
-		return read(id);
+		return null;
 	}
 
 }

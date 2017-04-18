@@ -4,6 +4,10 @@ import java.util.GregorianCalendar;
 
 public class PasimoTime extends GregorianCalendar {
 	
+	public PasimoTime() {
+		super();
+	}
+	
 	public PasimoTime(int hour, int minute) {
 		super();
 		set(GregorianCalendar.HOUR, hour);
@@ -17,4 +21,5 @@ public class PasimoTime extends GregorianCalendar {
 		return "time " + this.get(GregorianCalendar.HOUR)+ ":"+ this.get(GregorianCalendar.MINUTE);
 		
 	}
+	
 }
