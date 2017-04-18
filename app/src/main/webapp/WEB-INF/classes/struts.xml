@@ -83,13 +83,13 @@
 			<result name="success">/view/presenceregistration/index.jsp</result>
 		</action>
 		<action name="importStudent"
-			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
+			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
 			method="execute">
 			<result name="success">/view/employeemanagement/student/AddStudentWithCSV.jsp
 			</result>
 		</action>
 				<action name="StudentOverview"
-			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
+			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
 			method="execute">
 			<result name="success">/view/employeemanagement/student/index.jsp
 			</result>
