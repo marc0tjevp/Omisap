@@ -27,14 +27,14 @@ public class TestDAOStudent implements IDAOStudent {
 		LessonGroup l1 = new LessonGroup(1, "it's dat lessongroup");
 		CoachGroup c1 = new CoachGroup("it's dat boi");
 
-		Student EdgeLord = new Student(69, c1, l1, 420, "you can't stop me", "klaus", "de", "man", 666, 666999420,
+		Student EdgeLord = new Student(69,420, "you can't stop me", "klaus", "de", "man", 666, 666999420,
 				notelist, 42069, 66669);
-		Student EdgeLord1 = new Student(622359, c1, l1, 435320, "you cadsafn't stop me", "klaudafs", "dase", "maasdn",
+		Student EdgeLord1 = new Student(622359,435320, "you cadsafn't stop me", "klaudafs", "dase", "maasdn",
 				6636, 6663420, notelist, 4252069, 666169);
 
-		Student s1 = new Student(1111, c1, l1, 2014, "email@example.com", "Bas", "van", "AChternaam", 321, 666999420,
+		Student s1 = new Student(1111,2014, "email@example.com", "Bas", "van", "AChternaam", 321, 666999420,
 				notelist, 42069, 66669);
-		Student s2 = new Student(2222, c1, l1, 2011, "emai1@example.com", "Baas", "van", "Wie", 123, 6663420, notelist,
+		Student s2 = new Student(2222,2011, "emai1@example.com", "Baas", "van", "Wie", 123, 6663420, notelist,
 				4252069, 666169);
 
 		students.add(EdgeLord);
