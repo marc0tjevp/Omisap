@@ -83,6 +83,8 @@ public class TestDAONote implements IDAONote {
 		noteList.clear();
 		
 	}
+
+	
 	
 
 }

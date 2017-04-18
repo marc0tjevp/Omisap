@@ -33,7 +33,7 @@ public class NoteController extends ActionSupport {
 	 */
 
 	public String noteOverview() {
-		noteList = TestDAONote.getInstance().getNoteList();
+	
 
 		return SUCCESS;
 	}
@@ -43,13 +43,7 @@ public class NoteController extends ActionSupport {
 	 * Struts
 	 */
 	public String noteAdd() {
-
-		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
-		TestDAONote dao = TestDAONote.getInstance();
-		
 		Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
-		Note note = new Note(message, title, teacher);
-		dao.create(note);
 
 		return SUCCESS;
 	}
@@ -60,10 +54,7 @@ public class NoteController extends ActionSupport {
 	 */
 	public String noteDelete(){
 		
-		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
-		TestDAONote dao = TestDAONote.getInstance();
 		
-		dao.delete(dao.read(id));
 		
 		return SUCCESS;
 		
@@ -73,17 +64,7 @@ public class NoteController extends ActionSupport {
 	 * Struts
 	 */
 	public String noteEdit(){
-		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
-		TestDAONote dao = TestDAONote.getInstance();
-		Note note = dao.read(id);
 		
-		for(Note a : getNoteList()){
-			if (a.getId() == note.getId()){
-				a.setTitle(note.getTitle());
-				a.setMessage(note.getMessage());
-				
-			}
-		}
 
 		return SUCCESS;
 	}

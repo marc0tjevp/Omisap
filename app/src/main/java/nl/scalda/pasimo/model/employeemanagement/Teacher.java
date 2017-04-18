@@ -64,7 +64,7 @@ public class Teacher extends Person {
      * creates the teacher in the (test)datalayer.
      */
     public void create(){
-    	DAOFactory.getTheFactory().getDAOTeacher().create(this);
+    	DAOFactory.getTheFactory().getDAOTeacher().create(this, null);
     }
     
     public void createNote(String title, String message, Student s){
@@ -87,11 +87,11 @@ public class Teacher extends Person {
      * updates the teacher in the (test)datalayer.
      */
     public void update(){
-    	DAOFactory.getTheFactory().getDAOTeacher().update(this);
+    	DAOFactory.getTheFactory().getDAOTeacher().update(this, null);
     }
     
     public void delete(){
-    	DAOFactory.getTheFactory().getDAOTeacher().delete(this);
+    	DAOFactory.getTheFactory().getDAOTeacher().delete(this, null);
     }
     
     /**
