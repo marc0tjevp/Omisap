@@ -24,6 +24,7 @@ public class StudentController extends ActionSupport {
 	private String fileUploadContentType;
 	private String fileUploadFileName;
 	private int id;
+	private String LessonGroup;
 
 	/**
 	 * Default execution method.
@@ -41,8 +42,9 @@ public class StudentController extends ActionSupport {
 	 * @return String
 	 */
 	public String loadStudentInfo() {
-		Student = getStudentByEmployeeID(id);
-		setTeamAbbreviation(getOldEducationTeam(Student).getAbbreviation());
+		Student.getCardID();
+		Student.getLessonGroupID();
+		Student.getCoachGroupID();
 		return SUCCESS;
 	}
 
@@ -55,11 +57,10 @@ public class StudentController extends ActionSupport {
 	public String addStudent() {
 		setId(id);
 		Student.create();
-		EducationTeam et = getLessongroupbyID(Lessongroup);
+		LessonGroup et = getLessonGroupbyID(Lessongroup);
 		et.addStudent(Student);
 		return SUCCESS;
 	}
-
 
 
 	/**
@@ -88,9 +89,9 @@ public class StudentController extends ActionSupport {
 				f.setLastName(Student.getLastName());
 				f.setEmail(Student.getEmail());
 				f.setCardID(Student.getCardID());
-				if (!(getOldEducationTeam(f).getAbbreviation().equals(teamAbbreviation))){
+				if (!(getOldEducationTeam(f).getAbbreviation().equals(LessonGroup))){
 					getOldEducationTeam(f).deleteStudent(f);
-					getEducationTeamByAbbreviation(teamAbbreviation).addStudent(f);
+					getEducationTeamByAbbreviation(LessonGroup).addStudent(f);
 				}
 				f.update();
 			}
@@ -105,8 +106,8 @@ public class StudentController extends ActionSupport {
 	 * @return String
 	 */
 	public String removeStudent() {
-		Student = getStudentByEmployeeID(id);
-		Student.delete();
+		Student = getStudentByCardID(id);
+		Student.deleteStudent(Student);
 		return SUCCESS;
 	}
 
@@ -117,14 +118,19 @@ public class StudentController extends ActionSupport {
 	 * @param newTeam
 	 * @return String
 	 */
-	public String updateStudentEducationTeam(Student t, EducationTeam newTeam) {
-		if(!(getOldEducationTeam(t).equals(newTeam))){
-			getOldEducationTeam(t).deleteStudent(t);
+	public String updateStudentEducationTeam(Student t, LessonGroup newTeam) {
+		if(!(getLessonGroup(t).equals(newTeam))){
+			(() getLessonGroup(t)).deleteStudent(t);
 			newTeam.addStudent(t);
 		}
 		return SUCCESS;
 	}
 	
+	private Object getLessonGroup(nl.scalda.pasimo.model.employeemanagement.Student t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	/**
 	 * Removes the Student from the old education team.
 	 * 
@@ -157,7 +163,7 @@ public class StudentController extends ActionSupport {
 	 * @param id
 	 * @return Student
 	 */
-	private Student getStudentByEmployeeID(int id) {
+	private Student getStudentByCardID(int id) {
 		try {
 			return StudentService.getInstance().getStudentByEmployeeID(id);
 		} catch (Exception e) {
@@ -184,26 +190,19 @@ public class StudentController extends ActionSupport {
 	 * 
 	 * @return TreeSet<EducationTeam>
 	 */
-	public TreeSet<EducationTeam> getEducationTeams() {
-		educationTeams.addAll(EducationTeamService.getInstance().getEducationTeams());
+	public TreeSet<LessonGroup> getLessonGroups() {
+		LessonGroup.addAll(EducationTeamService.getInstance().getEducationTeams());
 		return educationTeams;
 	}
 	
 	/**
-	 * gets the educationteam with the abbreviation that equals given abbreviation
+	 * gets the LessonGroup with the Card id that equals given ID
 	 * 
 	 * @param abbr
 	 * @return EducationTeam
 	 */
-	public EducationTeam getEducationTeamByAbbreviation(String abbr){
-		for(EducationTeam et : getEducationTeams()){
-			if(et.getAbbreviation().equals(abbr)){
-				return et;
-			}
-		}
-		return null;
-	}
 
+	
 	public void setStudents(TreeSet<Student> Students) {
 		this.Students = Students;
 	}
@@ -216,15 +215,15 @@ public class StudentController extends ActionSupport {
 		this.Student = Student;
 	}
 
-	public String getTeamAbbreviation() {
-		return teamAbbreviation;
+	public String getLessenGroup() {
+		return Lessongroup;
 	}
 
-	public void setTeamAbbreviation(String teamAbbreviation) {
-		this.teamAbbreviation = teamAbbreviation;
+	public void setLessonGroup(String LessonGroup) {
+		this.LessonGroup = LessonGroup;
 	}
 
-	public void setEducationTeams(TreeSet<EducationTeam> educationTeams) {
+	public void setEducationTeams(TreeSet<LessonGroup> educationTeams) {
 		this.educationTeams = educationTeams;
 	}
 
@@ -259,4 +258,10 @@ public class StudentController extends ActionSupport {
 	public void setId(int id) {
 		this.id = id;
 	}
+	private nl.scalda.pasimo.model.employeemanagement.LessonGroup getLessonGroupbyID(String lessongroup2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	private void delete
+	delete Student student();
 }
