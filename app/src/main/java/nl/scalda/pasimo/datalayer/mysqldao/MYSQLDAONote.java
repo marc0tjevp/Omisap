@@ -177,9 +177,6 @@ public class MYSQLDAONote implements IDAONote {
 				String.valueOf(obj[3]);
 				String.valueOf(obj[4]);
 				String.valueOf(obj[6]);
-				Integer.parseInt(String.valueOf(creationDate[0]));
-				Integer.parseInt(String.valueOf(creationDate[1]));
-				Integer.parseInt(String.valueOf(creationDate[2]));
 				notes.add(n);
 			}
 			tx.commit();
