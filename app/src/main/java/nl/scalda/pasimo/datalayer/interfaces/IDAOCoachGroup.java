@@ -17,7 +17,7 @@ import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
  */
 public interface IDAOCoachGroup {
 
-    public void create(CoachGroup CoachGroup);
+    public void create(CoachGroup CoachGroup, EducationTeam educationteam);
 
     public CoachGroup read(CoachGroup CoachGroup);
     
@@ -28,4 +28,6 @@ public interface IDAOCoachGroup {
     public void update(CoachGroup coachGroup);
     
     public void delete(CoachGroup CoachGroup);
+
+
 }

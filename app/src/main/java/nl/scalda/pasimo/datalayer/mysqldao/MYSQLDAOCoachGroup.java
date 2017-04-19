@@ -19,7 +19,9 @@ import org.hibernate.query.NativeQuery;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.service.CoachGroupService;
+import nl.scalda.pasimo.service.TeacherService;
 
 /**
  *
@@ -44,7 +46,7 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 	}
 
 	@Override
-	public void create(CoachGroup CoachGroup) {
+	public void create(CoachGroup CoachGroup, EducationTeam edu) {
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try {
@@ -53,13 +55,12 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 			NativeQuery query = session.createNativeQuery(sql);
 			query.setParameter("name", CoachGroup.getName());
 			query.setParameter("teacher_employeenumber", CoachGroup.getCoach().getEmployeeNumber());
-			query.setParameter("educationTeam_educationTeamID",
-					CoachGroupService.getInstance().getEducationTeam(CoachGroup).getId());
+			query.setParameter("educationTeam_educationTeamID", edu.getId());
 			query.executeUpdate();
 
 			tx.commit();
 
-			System.out.println("created");
+			//System.out.println("created");
 		} catch (HibernateException e) {
 			if (tx != null)
 				tx.rollback();
@@ -145,18 +146,24 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 		Session session = factory.openSession();
 		Transaction tx = null;
 		TreeSet<CoachGroup> coach = new TreeSet<>();
+		CoachGroup cp = new CoachGroup();
 		try {
 			tx = session.beginTransaction();
-			String sql = "SELECT * from coachgroup where educationTeam_educationTeamID = :educationTeamID ;";
-			NativeQuery query = session.createNativeQuery(sql);
-			query.setParameter("educationTeamID", t.getId());
-			List CoachGroupList = query.getResultList();
+			List CoachGroupList = session.createNativeQuery("SELECT * from coachgroup where educationTeam_educationTeamID = :educationTeam_educationTeamID ;")
+					.setParameter("educationTeam_educationTeamID", t.getId())
+					
+					.getResultList();
+					
+			
 			
 			for(Iterator iterator = CoachGroupList.iterator();iterator.hasNext();){
 				 Object[] obj = (Object[]) iterator.next();
-	                CoachGroup cg = new CoachGroup(String.valueOf(obj[0]));
-	                coach.add(cg);
+				 
+				 CoachGroup cg = new CoachGroup(String.valueOf(obj[0]) , TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(String.valueOf(obj[1]))));
+				 coach.add(cg);
 			 }
+			tx.commit();
+			
 		 } catch (Exception e) {
 	            if (tx != null) {
 	                tx.rollback();
@@ -165,6 +172,7 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 	        } finally {
 	            session.close();
 	        }
+		System.out.println(coach);
 	        return coach;
 	}
 

@@ -23,7 +23,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	}
 
 	@Override
-	public void create(CoachGroup cg) {
+	public void create(CoachGroup cg, EducationTeam edu) {
 		try {
 			coachGroups.add(cg);
 			
