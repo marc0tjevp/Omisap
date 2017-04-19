@@ -18,7 +18,7 @@ public class NoteController extends ActionSupport {
 
 	private String madeBy;
 	private int id;
-
+	private Note note = new Note();
 	private Teacher teacher;
 	private Student student;
 	private String title;
@@ -31,75 +31,82 @@ public class NoteController extends ActionSupport {
 		return SUCCESS;
 	}
 	/*
-	 * Overview of all notes
-	 * Struts
+	 * Overview of all notes Struts
 	 */
 
 	public String noteOverview() {
 
+		teacher.readAllNotes();
 
-		
+		return SUCCESS;
+	}
+
+	public String readNote() {
+
+		getNoteList();
 		return SUCCESS;
 	}
 
 	/*
-	 * Add a note
-	 * Struts
+	 * Add a note Struts
 	 */
 	public String noteAdd() {
 
-
 		teacher.createNote("title", "message", student);
 
-		Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
-
+		// Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
 
 		return SUCCESS;
 	}
 
 	/*
-	 *  Deletes a note
-	 *  Struts
+	 * Deletes a note Struts
 	 */
-	public String noteDelete(){
-		
-		teacher.delete();
+	public String noteDelete() {
 
-
+		note = getId(id);
 		
+		
+
 		return SUCCESS;
-		
+
 	}
+
 	/*
-	 * Edit a note
-	 * Struts
+	 * Edit a note Struts
 	 */
-	public String noteEdit(){
+	public String noteEdit() {
+		for (Note n : getNoteList()) {
+			if (n.getId() == note.getId()) {
+				n.setOvNumber(note.getOvNumber());
+				n.setTitle(note.getTitle());
+				n.setMessage(note.getMessage());
+				n.setEmployeeNumber(note.getEmployeeNumber());
+				n.setCreationDate(note.getCreationDate());
+				n.setLastEdit(note.getCreationDate());
+				teacher.editNote(n);
+			}
+		}
+		return SUCCESS;
+	}
 
-		
-			
-		return SUCCESS;
-	}
 	/*
-	 * Deletes all notes in the note overview
-	 * Struts
+	 * Deletes all notes in the note overview Struts
 	 */
-	public String noteDeleteAll(){
-		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
-		TestDAONote dao = TestDAONote.getInstance();
-		
-		dao.deleteAll();
-		
+	public String noteDeleteAll() {
+		teacher.deleteAllNotes();
+
 		return SUCCESS;
 	}
+
 	public TreeSet<Note> getNoteList() {
 		return noteList;
 	}
-	
 
 	public void setNoteList(TreeSet<Note> noteList) {
 		this.noteList = noteList;
 	}
+
 	public int getId() {
 		return id;
 	}
@@ -123,6 +130,7 @@ public class NoteController extends ActionSupport {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+
 	public String getMadeBy() {
 		return madeBy;
 	}

@@ -42,6 +42,7 @@ public class MYSQLDAONote implements IDAONote {
 
 	@Override
 	public Note create(Note note) {
+		TreeSet <Note> notes = new TreeSet<>();
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try {
@@ -189,7 +190,7 @@ public class MYSQLDAONote implements IDAONote {
 		} finally {
 			session.close();
 		}
-		System.out.println(notes.size());
+		System.out.println("Notes total: " +notes.size());
 		return notes;
 	}
 

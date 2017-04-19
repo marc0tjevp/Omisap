@@ -121,7 +121,8 @@ public class Note implements Comparable<Note> {
         if (this.id == o.getId()) {
             return 0;
         }
-        return this.getCreationDate().before(o.getCreationDate()) ? -1 : 1;
+        return this.getId() == o.getId() ? -1 : 1;
+//        return this.getCreationDate().equals(o.getCreationDate()) ? -1 : 1;
     }
 
 }

@@ -52,6 +52,9 @@ public class Student extends Person {
 		this.monthOfBirth = monthOfBirth;
 		this.dayOfBirth = dayOfBirth;
 	}
+	public Student(){
+		// Test constructor
+	}
 
 	public boolean deleteStudent(Student s) {
 		s = null;
