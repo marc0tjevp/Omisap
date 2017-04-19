@@ -190,7 +190,7 @@ public class MYSQLDAONote implements IDAONote {
 		} finally {
 			session.close();
 		}
-		System.out.println("Notes total: " +notes.size());
+		System.out.println(notes);
 		return notes;
 	}
 

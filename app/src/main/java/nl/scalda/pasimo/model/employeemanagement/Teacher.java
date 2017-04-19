@@ -68,6 +68,7 @@ public class Teacher extends Person {
     }
     
     public void createNote(String title, String message, Student s){
+    	System.out.println("test");
     Note n = new Note(title, message, s, this);
     }
     

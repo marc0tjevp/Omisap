@@ -36,7 +36,7 @@ public class NoteController extends ActionSupport {
 
 	public String noteOverview() {
 
-		teacher.readAllNotes();
+		
 
 		return SUCCESS;
 	}
@@ -51,8 +51,8 @@ public class NoteController extends ActionSupport {
 	 * Add a note Struts
 	 */
 	public String noteAdd() {
-
-		teacher.createNote("title", "message", student);
+		System.out.println("gdfg");
+		teacher.createNote(title, message, student);
 
 		// Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
 
@@ -64,7 +64,7 @@ public class NoteController extends ActionSupport {
 	 */
 	public String noteDelete() {
 
-		note = getId(id);
+		
 		
 		
 
