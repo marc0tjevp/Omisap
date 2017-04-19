@@ -34,7 +34,7 @@
 				<div class="col col-md-12">
 					<h5>Titel:</h5>
 					<input id="noteTitle" class="input" type="text" name="title"
-										placeholder="DD-MM-YY / Name"><br>
+										placeholder="Titel"><br>
 				</div>
 			</div>
 			<div class="row">
