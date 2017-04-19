@@ -36,6 +36,8 @@ public class NoteController extends ActionSupport {
 
 	public String noteOverview() {
 
+		
+
 		return SUCCESS;
 	}
 
@@ -49,9 +51,8 @@ public class NoteController extends ActionSupport {
 	 * Add a note Struts
 	 */
 	public String noteAdd() {
-
-		Student s = new Student();
-		teacher.createNote(title , message, s);
+		System.out.println("gdfg");
+		teacher.createNote(title, message, student);
 
 		// Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
 
@@ -63,8 +64,12 @@ public class NoteController extends ActionSupport {
 	 */
 	public String noteDelete() {
 
-//		note = getId(id);
+		
+		
+		
+
 		return SUCCESS;
+
 	}
 
 	/*

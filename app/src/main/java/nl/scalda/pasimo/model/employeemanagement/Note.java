@@ -20,13 +20,11 @@ public class Note implements Comparable<Note> {
     private int ovNumber;
     private int employeeNumber;
     /* empty constructor */
- 
-    
     public Note(){
     	id = count.incrementAndGet();
     }
-
-	public Note(int noteID,int ovNumber, String title, String message, int employeeNumber){
+    
+    public Note(int noteID,int ovNumber, String title, String message, int employeeNumber){
     	this.lastEdit = new Date();
     	this.creationDate = new Date();
     	this.employeeNumber = employeeNumber;
@@ -124,6 +122,7 @@ public class Note implements Comparable<Note> {
             return 0;
         }
         return this.getId() == o.getId() ? -1 : 1;
+//       return this.getCreationDate().equals(o.getCreationDate()) ? -1 : 1;
     }
 
 }
