@@ -11,7 +11,7 @@ import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkingDay;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
-//import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAONote;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAONote;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
 
 
@@ -45,8 +45,7 @@ public class MySQLDAOFactory extends DAOFactory {
     //FIXME missing class: MYSQLDAONote
     @Override
     public IDAONote getDAONote() {
-    	return null;
-//      return MYSQLDAONote.getInstance();
+      return MYSQLDAONote.getInstance();
     }
 
     @Override
