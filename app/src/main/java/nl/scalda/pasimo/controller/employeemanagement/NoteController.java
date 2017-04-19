@@ -12,6 +12,7 @@ import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
+import nl.scalda.pasimo.service.NoteService;
 
 public class NoteController extends ActionSupport {
 	private static final long serialVersionUID = 1L;
@@ -19,7 +20,7 @@ public class NoteController extends ActionSupport {
 	private String madeBy;
 	private int id;
 	private Note note = new Note();
-	private Teacher teacher;
+	private Teacher teacher = new Teacher("test", 1);
 	private Student student;
 	private String title;
 	private String message;
@@ -35,9 +36,10 @@ public class NoteController extends ActionSupport {
 	 */
 
 	public String noteOverview() {
-
-		
-
+	
+		for( Note n : teacher.readAllNotes()){
+			noteList.add(n);
+		}
 		return SUCCESS;
 	}
 
@@ -51,8 +53,8 @@ public class NoteController extends ActionSupport {
 	 * Add a note Struts
 	 */
 	public String noteAdd() {
-		System.out.println("gdfg");
-		teacher.createNote(title, message, student);
+		Student s = new Student();
+		teacher.createNote("test", "test", s);
 
 		// Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
 
@@ -63,11 +65,7 @@ public class NoteController extends ActionSupport {
 	 * Deletes a note Struts
 	 */
 	public String noteDelete() {
-
 		
-		
-		
-
 		return SUCCESS;
 
 	}

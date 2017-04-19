@@ -1,11 +1,10 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
-import java.util.GregorianCalendar;
 import java.util.TreeSet;
 
 public class Student extends Person {
 
-	private int noteListID;
+
 	private int lessonGroupID;
 	private int cardID;
 	private String firstName;
@@ -18,7 +17,7 @@ public class Student extends Person {
 	private int yearOfBirth;
 	private int monthOfBirth;
 	private int dayOfBirth;
-
+	private TreeSet<Note> noteList = new TreeSet<>();
 
 	
 	public int getMonthOfBirth() {
@@ -48,7 +47,6 @@ public class Student extends Person {
 		this.lastName = lastName;
 		this.cardID = cardID;
 		this.yearOfBirth = yearOfBirth;
-		this.noteListID = noteListID;
 		this.monthOfBirth = monthOfBirth;
 		this.dayOfBirth = dayOfBirth;
 	}
@@ -61,12 +59,13 @@ public class Student extends Person {
 		return true;
 	}
 
-	public int getNoteListID() {
-		return noteListID;
+
+	public TreeSet<Note> getNoteList() {
+		return noteList;
 	}
 
-	public void setNoteListID(int noteListID) {
-		this.noteListID = noteListID;
+	public void setNoteList(TreeSet<Note> noteList) {
+		this.noteList = noteList;
 	}
 
 	public int getLessonGroupID() {
@@ -173,7 +172,7 @@ public class Student extends Person {
 	
 	@Override
 	public String toString() {
-		return "Student [noteListID=" + noteListID + ", lessonGroupID=" + lessonGroupID + ", cardID=" + cardID
+		return "Student [noteListID=" + noteList + ", lessonGroupID=" + lessonGroupID + ", cardID=" + cardID
 				+ ", firstName=" + firstName + ", insertion=" + insertion + ", lastName=" + lastName + ", email="
 				+ email + ", cohort=" + cohort + ", coachGroupID=" + coachGroupID + ", studentOV=" + studentOV
 				+ ", yearOfBirth=" + yearOfBirth + ", monthOfBirth=" + monthOfBirth + ", dayOfBirth=" + dayOfBirth

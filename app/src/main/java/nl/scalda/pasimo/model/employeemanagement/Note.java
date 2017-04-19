@@ -20,15 +20,9 @@ public class Note implements Comparable<Note> {
     private int ovNumber;
     private int employeeNumber;
     /* empty constructor */
+   
     public Note(){
     	id = count.incrementAndGet();
-    }
-    
-    public Note(int noteID,int ovNumber, String title, String message, int employeeNumber){
-    	this.lastEdit = new Date();
-    	this.creationDate = new Date();
-    	this.employeeNumber = employeeNumber;
-    	this.ovNumber = ovNumber;
     }
     
     public Note(String title, String message, Student assignedTo, Teacher madeBy) {
@@ -40,6 +34,7 @@ public class Note implements Comparable<Note> {
         id = count.incrementAndGet();
         this.creationDate = new Date();
         this.lastEdit = new Date();
+        assignedTo.getNoteList().add(this);
         Service.getInstance().getNoteService().create(this, assignedTo);
     }
 

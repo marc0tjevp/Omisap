@@ -1,7 +1,8 @@
 package nl.scalda.pasimo.service;
 
+import java.util.TreeSet;
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 
@@ -34,8 +35,8 @@ public class NoteService {
     public void deleteAll(){
     	DAOFactory.getTheFactory().getDAONote().deleteAll();
     }
-    public void readAll(){
-    	DAOFactory.getTheFactory().getDAONote().readAll();
+    public TreeSet<Note> readAll(){
+    	return DAOFactory.getTheFactory().getDAONote().readAll();
     }
     
     public static NoteService getInstance() {

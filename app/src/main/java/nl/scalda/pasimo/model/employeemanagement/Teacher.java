@@ -1,10 +1,10 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.Date;
+import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
 import nl.scalda.pasimo.service.NoteService;
 
 public class Teacher extends Person {
@@ -84,8 +84,8 @@ public class Teacher extends Person {
     public void deleteAllNotes(){
     	NoteService.getInstance().deleteAll();
     }
-    public void readAllNotes(){
-    	NoteService.getInstance().readAll();
+    public TreeSet<Note> readAllNotes(){
+    	return NoteService.getInstance().readAll();
     }
     /**
      * updates the teacher in the (test)datalayer.
