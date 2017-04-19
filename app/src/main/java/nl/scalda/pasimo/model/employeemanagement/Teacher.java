@@ -76,6 +76,10 @@ public class Teacher extends Person {
     	NoteService.getInstance().delete(id);
         }
     
+    public Note readNoteById(int id){
+    	return NoteService.getInstance().readByID(id);
+    }
+    
     public void editNote(Note note){
     	note.setLastEdit(new Date());
     	NoteService.getInstance().update(note);
