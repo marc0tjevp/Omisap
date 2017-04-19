@@ -16,8 +16,6 @@ public interface ILessonGroupService {
     
     LessonGroup readByLessonGroupName(String name, String coachGroupName );
     
-    TreeSet<Student> readAdditionalStudents(LessonGroup currentLessonGroup);
-
     void update(LessonGroup newLessonGroup);
 
     void delete(LessonGroup lessonGroup);
