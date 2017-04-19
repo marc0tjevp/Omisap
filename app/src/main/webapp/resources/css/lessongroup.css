@@ -2,6 +2,10 @@
     float: right;
 }
 
+.lessonGroupButtons.lessonGroupNameButton {
+    float: left;
+}
+
 /* .lessonGroupButtons button {
     font-size: 18px;
 } 

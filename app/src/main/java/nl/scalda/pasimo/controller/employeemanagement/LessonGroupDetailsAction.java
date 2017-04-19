@@ -32,41 +32,9 @@ public class LessonGroupDetailsAction extends ActionSupport {
 	private String newLessonGroupName;
 
 	/**
-	 * The students which are in this lesson group
-	 */
-	private TreeSet<Student> students;
-
-	/**
-	 * The additional students which are not in this lesson group
-	 */
-	private TreeSet<Student> additionalStudents;
-
-	/**
-	 * The ID of the student to add to this lesson group
-	 */
-	private int studentId;
-
-	/**
-	 * Retrieves all the students for the current lesson group
+	 * Lesson group details page
 	 */
 	public String execute() {
-		LessonGroup specificLessonGroup = LessonGroupService.getInstance().readByLessonGroupName(this.lessonGroupName,
-				this.coachGroupName);
-		
-		this.students = specificLessonGroup.getStudents();
-
-		if (specificLessonGroup == null || this.students == null) {
-			return ERROR;
-		}
-
-		/*
-		 * Read all the additional students which you can add to the current lesson group
-		 * 
-		 * These are:
-		 *  - Not the students which are in the current lesson group
-		 *  - Students which are already in other lesson groups
-		 */
-		this.additionalStudents = LessonGroupService.getInstance().readAdditionalStudents(specificLessonGroup);
 		return SUCCESS;
 	}
 
@@ -88,125 +56,8 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	/**
-	 * Adds a student to the current lesson group
-	 * 
-	 * @return
-	 */
-	public String addStudent() {
-		/*
-		 * 
-		 */
-		LessonGroup specificLessonGroup =
-				LessonGroupService.getInstance().readByLessonGroupName(this.lessonGroupName, this.coachGroupName);
-		/*
-		 * Get specific student which we are going to add to the lesson group
-		 * 
-		 * TODO Refactor searching specific student by ov into student service
-		 */
-		Student specificStudent = null;
 
-		TreeSet<Student> additionalStudents = LessonGroupService.getInstance().readAdditionalStudents(specificLessonGroup);
-		for(Student student : additionalStudents) {
-			if(student.getStudentOV() != this.studentId) {
-				continue;
-			}
-			specificStudent = student;
-		}
-			
-		/*
-		 * Error checking if the lesson group or student doesn't exist
-		 */
-		if (specificLessonGroup == null || specificStudent == null) {
-			return ERROR;
-		}
-		
-		/*
-		 * Delete the student
-		 */
-		specificLessonGroup.addStudent(specificStudent);
-		specificLessonGroup.updateLessonGroup();
-		return SUCCESS;
-	}
 
-	/**
-	 * Deletes one student from the current lesson group
-	 * 
-	 * @return
-	 */
-	public String deleteStudent() {
-		/*
-		 * 
-		 */
-		LessonGroup specificLessonGroup =
-				LessonGroupService.getInstance().readByLessonGroupName(this.lessonGroupName, this.coachGroupName);
-		/*
-		 * Get specific student which we are going to delete
-		 */
-		Student specificStudent = specificLessonGroup.getStudentByOv(this.studentId);
-		
-		/*
-		 * Error checking if the lesson group or student doesn't exist
-		 */
-		if (specificLessonGroup == null || specificStudent == null) {
-			return ERROR;
-		}
-		
-		/*
-		 * Delete the student
-		 */
-		specificLessonGroup.deleteStudent(specificStudent);
-		specificLessonGroup.updateLessonGroup();
-		return SUCCESS;
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public TreeSet<Student> getStudents() {
-		return this.students;
-	}
-
-	/**
-	 * 
-	 * @param students
-	 */
-	public void setStudents(TreeSet<Student> students) {
-		this.students = students;
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public TreeSet<Student> getAdditionalStudents() {
-		return additionalStudents;
-	}
-
-	/**
-	 * 
-	 * @param additionalStudents
-	 */
-	public void setAdditionalStudents(TreeSet<Student> additionalStudents) {
-		this.additionalStudents = additionalStudents;
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public int getStudentId() {
-		return this.studentId;
-	}
-
-	/**
-	 * 
-	 * @param studentId
-	 */
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
-	}
 
 	/**
 	 * 
