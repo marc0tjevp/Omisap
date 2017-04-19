@@ -15,8 +15,7 @@ public interface IDAOLessonGroup {
     
     TreeSet<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup);
    
-    LessonGroup read(LessonGroup lessonGroup);
-
+    
     void update(LessonGroup newLessonGroup);
 
     void delete(LessonGroup lessonGroup);
