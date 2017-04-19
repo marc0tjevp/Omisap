@@ -54,7 +54,8 @@ public class NoteController extends ActionSupport {
 	 */
 	public String noteAdd() {
 		Student s = new Student();
-		teacher.createNote("test", "test", s);
+		Note n = teacher.createNote("title", "message", s);
+		
 
 		// Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
 
@@ -65,6 +66,8 @@ public class NoteController extends ActionSupport {
 	 * Deletes a note Struts
 	 */
 	public String noteDelete() {
+		
+		teacher.deleteNoteByID();
 		
 		return SUCCESS;
 

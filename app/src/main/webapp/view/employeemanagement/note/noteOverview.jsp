@@ -56,10 +56,10 @@
 								data-target="#overviewModal">
 							<div class="row">
 							<div onClick=";" style="cursor: pointer;"
-										class="col-md-12 noteTitle">${a.getMessage()}</div>
+										class="col-md-12 noteTitle">Title: ${a.getTitle()}</div>
 							</div>
 							<div class="row">
-								<div class="col-md-12 noteMessage">${a.getTitle()}</div>
+								<div class="col-md-12 noteMessage">Message: ${a.getMessage()}</div>
 							</div>					
 							<div class="row">
 								<div class="col-md-12 noteMessage">Gemaakt door: ${a.getMadeBy().getFirstName()}</div>
