@@ -10,7 +10,6 @@ public class Person implements Comparable<Person> {
     private String firstName;
     private String insertion;
     private String lastName;
-    private TreeSet<Note> noteList;
     private GregorianCalendar dateOfBirth;
 
     /**
@@ -48,7 +47,6 @@ public class Person implements Comparable<Person> {
 		this.setLastName(lastName);
 		gc.set(yearOfBirth, monthOfBirth - 1, dayOfBirth);
 		this.dateOfBirth = gc;
-		this.noteList = new TreeSet<Note>();
 	}
 
     /**
@@ -57,19 +55,12 @@ public class Person implements Comparable<Person> {
      * @param Note note
      * @see Note
      */
-    public void addNote(Note note) {
-        this.noteList.add(note);
-    }
-
     /**
      * Removes a note from the person
      *
      * @param Note note
      * @see Note
      */
-    public void removeNote(Note note) {
-        this.noteList.remove(note);
-    }
 
     //getters and setters
     public String getEmail() {
@@ -131,14 +122,6 @@ public class Person implements Comparable<Person> {
             return this.getFirstName() + " " + this.getInsertion() + " " + this.getLastName();
         }
         return this.getFirstName() + " " + this.getLastName();
-    }
-
-    public TreeSet<Note> getNoteList() {
-        return noteList;
-    }
-
-    public void setNoteList(TreeSet<Note> noteList) {
-        this.noteList = noteList;
     }
     
     /**
