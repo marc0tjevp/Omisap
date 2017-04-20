@@ -15,13 +15,15 @@ public class Student extends Person {
 	private int cardID;
 	
 	private TreeSet<Note> noteList = new TreeSet<>();
+	
+	@ManyToOne
 	private LessonGroup lessonGroup;
+	
+	@ManyToOne
 	private CoachGroup coachGroup;
 	
 	@Column(name="cohort")
 	private int cohort;
-	
-	private int coachGroupID;
 
 	@Column(name="ovNumber", nullable=false)
 	private int studentOV;

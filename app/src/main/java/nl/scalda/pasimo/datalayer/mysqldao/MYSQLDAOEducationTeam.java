@@ -33,6 +33,10 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 			throw new ExceptionInInitializerError(ex);
 		}
 	}
+	
+	public MYSQLDAOEducationTeam(){
+		initialiseFactory();
+	}
 
 	/**
 	 * @param String abbr
@@ -206,7 +210,7 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
                     .getResultList();
             for (Iterator iterator = educationTeamList.iterator(); iterator.hasNext();) {
                 Object[] obj = (Object[]) iterator.next();
-                EducationTeam et = new EducationTeam(String.valueOf(obj[2]), String.valueOf(obj[1]), Integer.parseInt(String.valueOf(obj[0])));
+                EducationTeam et = new EducationTeam(String.valueOf(obj[1]), String.valueOf(obj[2]), Integer.parseInt(String.valueOf(obj[0])));
                 teams.add(et);
             }
             tx.commit();
