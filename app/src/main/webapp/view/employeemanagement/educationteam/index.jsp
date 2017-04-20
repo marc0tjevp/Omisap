@@ -10,55 +10,7 @@
 
             <div class="row">
                 <div class="col-sm-12">
-<<<<<<< HEAD
-                    <h1>EducationTeams
-                        <a href="educationTeam/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nieuw EducationTeam</a>
-                    </h1>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Afkorting</th>
-                                <th>Naam</th>
-                                <th>Acties</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <s:iterator value="educationTeams">
-                                <tr>
-                                    <td><s:property value="name"/></td>
-                                    <td><s:property value="abbreviation"/></td>
-                                    <td style="width: 10%;">
-                                        <a href="educationTeam/update" class="btn btn-primary align-right"><i class="fa fa-edit"></i></a>
-                                        <a data-toggle="modal" data-target="#deleteConfirmation" class="btn btn-danger align-right"><i class="fa fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                            </s:iterator>
-                        </tbody>
-
-                    </table>
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination">
-                            <li>
-                                <a href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li><a href="#">1</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-=======
                     <h1>Educatieteams
                        
                     <a href="educationTeam/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nieuw EducationTeam</a>
@@ -115,8 +67,6 @@
                     </nav>
                 </div>
             </div>
->>>>>>> develop
-        </div>
 
         <!-- Modal for Delete Confirmation -->
         <div id="deleteConfirmation" class="modal fade" role="dialog">
@@ -136,11 +86,5 @@
                 </div>
             </div>
         </div>
-
-<<<<<<< HEAD
-    </div>
-
-=======
->>>>>>> develop
 </jsp:attribute>
 </t:layout2>

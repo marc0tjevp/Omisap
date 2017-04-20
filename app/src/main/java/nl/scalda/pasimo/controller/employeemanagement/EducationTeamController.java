@@ -14,6 +14,11 @@ public class EducationTeamController extends ActionSupport {
     
     public TreeSet<EducationTeam>educationteams = new TreeSet<>();
     
+    
+    public String index(){
+    	
+    	return SUCCESS;
+    }
 
     public String addEducationTeam() {
 
