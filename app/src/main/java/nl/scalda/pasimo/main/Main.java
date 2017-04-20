@@ -26,14 +26,14 @@ static	WorkingDay w = new WorkingDay("Maandag");
 		
 		WorkingDay workingday = new WorkingDay("maandag");
 		
-		workingday.setName("Kutdag");
+		
 	
 		
 
 		
 		System.out.println(workingday);
 		
-		DAOFactory.getTheFactory().getDAOWorkingDay().read("maandag");
+		DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
 		
 
 	}

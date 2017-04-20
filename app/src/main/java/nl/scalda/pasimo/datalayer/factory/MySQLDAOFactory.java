@@ -15,6 +15,7 @@ import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAONote;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOWorkBlock;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOWorkWeek;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOWorkingDay;
 
 
@@ -81,8 +82,8 @@ public class MySQLDAOFactory extends DAOFactory {
 
 	@Override
 	public IDAOWorkWeek getDAOWorkWeek() {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return MYSQLDAOWorkWeek.getInstance();
 	}
 
 }
