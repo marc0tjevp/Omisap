@@ -137,7 +137,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- Optionally, you can add icons to the links -->
 
                         <li class="treeview">
-                            <a href="http://localhost:8080/Pasimo/lessongroup"><i class="fa fa-user"></i> <span>Les groepen</span> <i class="fa fa-angle-left pull-right"></i></a>
+                            <a href="/Pasimo/lessongroup"><i class="fa fa-user"></i> <span>Les groepen</span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
                                 <%--<li><a href="<c:url value="student"><c:param name="action" value="all"/></c:url>">Overview</a></li>--%>
                             </ul>
@@ -156,28 +156,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>--%> 
                             
                             <li class="treeview">
-                                <a href="http://localhost:8080/Pasimo/coachgroups"><i class="fa fa-user-plus"></i> <span>Coach Groepen</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <a href="/Pasimo/coachgroups"><i class="fa fa-user-plus"></i> <span>Coach Groepen</span> <i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
                                  &lt;%&ndash;   <li><a href="<c:url value="coachGroups"><c:param name="action" value="all"/></c:url>">Overview</a></li>
                                 &ndash;%&gt;</ul>
                             </li>
                             
                             <li class="treeview">
-                                <a href="http://localhost:8080/Pasimo/TeacherPresence"><i class="fa fa-user-plus"></i> <span>Aanwezigheid Docenten</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <a href="/Pasimo/TeacherPresence"><i class="fa fa-user-plus"></i> <span>Aanwezigheid Docenten</span> <i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
                                  &lt;%&ndash;   <li><a href="<c:url value="presenceregistration"><c:param name="action" value="all"/></c:url>">Overview</a></li>
                                 &ndash;%&gt;</ul>
                             </li>
                             
                             <li class="treeview">
-                                <a href="http://localhost:8080/Pasimo/view/timeregistration/index.jsp"><i class="fa fa-user-plus"></i> <span>School Tijden</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <a href="/Pasimo/view/timeregistration/index.jsp"><i class="fa fa-user-plus"></i> <span>School Tijden</span> <i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
                                  &lt;%&ndash;   <li><a href="<c:url value="SchoolTimes"><c:param name="action" value="all"/></c:url>">Overview</a></li>
                                 &ndash;%&gt;</ul>
                             </li>
                             
                             <li class="treeview">
-                                <a href="http://localhost:8080/Pasimo/educationTeam"><i class="fa fa-user-plus"></i> <span>Opleiding Teams</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <a href="/Pasimo/educationTeam"><i class="fa fa-user-plus"></i> <span>Opleiding Teams</span> <i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
                                  &lt;%&ndash;   <li><a href="<c:url value="Education Team"><c:param name="action" value="all"/></c:url>">Overview</a></li>
                                 &ndash;%&gt;</ul>

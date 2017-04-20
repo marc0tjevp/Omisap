@@ -176,7 +176,7 @@
                         </div>
                         <div class="modal-body">
                         
-                            <p>Weet je zeker dat je de les groep ICO41A wilt verwijderen met 123 studenten?</p>
+                            <p>Weet je zeker dat je de coach groep A1 wilt verwijderen met 123 studenten?</p>
                         </div>
                         <div class="modal-footer">
                         
@@ -253,7 +253,7 @@
                             </label>
                         </td>
 
-                        <td><a href='students'>ICOA41A</a>	</td>
+                        <td><a href='students'>A1</a>	</td>
                         <td>Bram	</td>
                         
                         <td> 12</td>
@@ -269,7 +269,7 @@
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
-						<td><a href='students'>ICOA41B</a></td>
+						<td><a href='students'>A2</a></td>
                         <td>Rens</td>
                         
                         <td> 12</td>
@@ -283,7 +283,7 @@
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
-						<td><a href='students'>ICOA41C</a></td>
+						<td><a href='students'>A3</a></td>
                         <td>Gino</td>
                         
                         <td> 12</td>
@@ -298,7 +298,7 @@
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
-						<td><a href='students'>ICOA41D</a></td>
+						<td><a href='students'>A4</a></td>
                         <td>Max</td>
                         
                         <td> 12</td>
@@ -313,7 +313,7 @@
                             </label>
                         </td>
 
-                        <td><a href='students'>ICO89E</a></td>
+                        <td><a href='students'>A5</a></td>
                         <td>Kees</td>
                         
                         <td> 12</td>
@@ -329,7 +329,7 @@
                             </label>
                         </td>
 
-                        <td><a href='students'>ICO33A </a> </td>
+                        <td><a href='students'>B1 </a> </td>
                         <td>Piet</td>
                         <td> 12</td>
                         
