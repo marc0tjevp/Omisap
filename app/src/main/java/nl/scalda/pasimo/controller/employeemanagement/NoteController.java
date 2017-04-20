@@ -1,18 +1,13 @@
 package nl.scalda.pasimo.controller.employeemanagement;
 
+import java.util.Date;
 import java.util.TreeSet;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAONote;
-import nl.scalda.pasimo.datalayer.testdao.TestDAONote;
-import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
-import nl.scalda.pasimo.service.NoteService;
 
 public class NoteController extends ActionSupport {
 	private static final long serialVersionUID = 1L;
@@ -44,7 +39,7 @@ public class NoteController extends ActionSupport {
 
 	public String readNote(Note note) {
 
-		teacher.readNoteById(note.getId());
+
 		return SUCCESS;
 	}
 
@@ -58,7 +53,7 @@ public class NoteController extends ActionSupport {
 	}
 
 	public String noteDelete() {
-		teacher.deleteNoteByID(this.getId());
+
 		return SUCCESS;
 
 	}
@@ -66,18 +61,15 @@ public class NoteController extends ActionSupport {
 
 	public String noteEdit(Note note) {
 		for (Note n : getNoteList()) {
-			if (n.getId() == note.getId()) {
-				n.setOvNumber(note.getOvNumber());
-				n.setTitle(note.getTitle());
-				n.setMessage(note.getMessage());
-				n.setEmployeeNumber(note.getEmployeeNumber());
-				n.setCreationDate(note.getCreationDate());
-				n.setLastEdit(note.getCreationDate());
+				n.setTitle(title);
+				n.setMessage(message);
+				n.setLastEdit(new Date());
 				teacher.editNote(n);
 			}
-		}
 		return SUCCESS;
-	}
+		}
+	
+	
 
 	public String noteDeleteAll() {
 		System.out.println("Deleteall");
