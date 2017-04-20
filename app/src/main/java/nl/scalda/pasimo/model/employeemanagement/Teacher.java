@@ -5,6 +5,7 @@ import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
 import nl.scalda.pasimo.service.NoteService;
 
 public class Teacher extends Person {
@@ -67,9 +68,10 @@ public class Teacher extends Person {
     	DAOFactory.getTheFactory().getDAOTeacher().create(this, null);
     }
     
-    public Note createNote(String title, String message, Student s){
+    public Note createNote(String title, String message, Student s, String madeBy){
     	System.out.println("test");
-    Note n = new Note(title, message, s, this);
+    	Note n = new Note(title, message, s, this);
+    
     return n;
     }
     

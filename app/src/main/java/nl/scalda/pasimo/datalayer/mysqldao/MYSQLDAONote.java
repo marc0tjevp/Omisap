@@ -169,14 +169,14 @@ public class MYSQLDAONote implements IDAONote {
 			List noteList = session.createNativeQuery("SELECT * FROM note;").getResultList();
 			for (Iterator iterator = noteList.iterator(); iterator.hasNext();) {
 				Object[] obj = (Object[]) iterator.next();
-				String[] creationDate = String.valueOf(obj[5]).split("-");
 				Note n = new Note();
 				n.setId(Integer.parseInt(String.valueOf(obj[0])));
 				n.setOvNumber(Integer.parseInt(String.valueOf(obj[1])));
 				n.setTitle(String.valueOf(obj [2]));
 				n.setMessage(String.valueOf(obj [3]));
-				String.valueOf(obj[4]);
-				String.valueOf(obj[6]);
+				n.setEmployeeNumber(Integer.parseInt(String.valueOf(obj[4])));
+				n.setCreationDate(Date.valueOf(String.valueOf(obj[5])));
+				
 				notes.add(n);
 			}
 			tx.commit();

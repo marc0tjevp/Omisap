@@ -5,6 +5,7 @@ import java.util.TreeSet;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
 import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
@@ -32,7 +33,7 @@ public class NoteController extends ActionSupport {
 			noteList.add(n);
 			System.out.println("ID: " + n.getId());
 			System.out.println("Notelist size: " + noteList.size());
-			System.out.println(n.getTitle());
+			System.out.println(n.getCreationDate());
 		}
 		return SUCCESS;
 	}
@@ -46,7 +47,8 @@ public class NoteController extends ActionSupport {
 
 	public String noteAdd() {
 		Student s = new Student();
-		teacher.createNote(title, message, s);
+		Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
+		teacher.createNote(title, message, s, madeBy);
 		// Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
 
 		return SUCCESS;
