@@ -36,7 +36,7 @@ public class TestDAOCheckIn {
 					ci = c;
 				}
 			} catch (Exception ex) {
-				System.out.println("Could not update, ended with Exception: " + ex.getMessage());
+				System.err.println("Could not update, ended with Exception: " + ex.getMessage());
 			}
 		}
 	}

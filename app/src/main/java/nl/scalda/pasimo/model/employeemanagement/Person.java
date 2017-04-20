@@ -25,6 +25,11 @@ public class Person implements Comparable<Person> {
 	public Person(String email) {
 		this.email = email;
     }
+	public Person(int cardID, String email, String firstName) {
+		this.cardID = cardID;
+		this.firstName = firstName;
+		this.email = email;
+    }
 	
 	public Person(String firstName, String insertion, String lastName) {
 		this.firstName = firstName;
@@ -125,7 +130,7 @@ public class Person implements Comparable<Person> {
      * @return String
      */
 	public String getFullName() {
-        if (this.insertion != "" && this.insertion != null) {
+        if (this.insertion != "null" && this.insertion != "" && this.insertion != null) {
             return this.getFirstName() + " " + this.getInsertion() + " " + this.getLastName();
         }
         return this.getFirstName() + " " + this.getLastName();

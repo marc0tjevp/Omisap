@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.datalayer.factory;
 
+import nl.scalda.pasimo.datalayer.interfaces.IDAOCheckIn;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
@@ -74,6 +75,11 @@ public class TestDAOFactory extends DAOFactory {
 		return TestDAOWorkBlock.getInstance();
 	
 		
+	}
+
+	@Override
+	public IDAOCheckIn getDAOCheckIn() {
+		return null;
 	}
 
 

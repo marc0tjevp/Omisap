@@ -192,7 +192,7 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.createNativeQuery("INSERT INTO teacher_education_team (teacher_employeeNumber, education_team_id) VALUES (:teacheremployeeNumber, :educationTeamID);")
+            session.createNativeQuery("INSERT INTO education_team_teacher (teacher_employeeNumber, education_team_id) VALUES (:teacheremployeeNumber, :educationTeamID);")
                     .setParameter("teacheremployeeNumber", teacher.getEmployeeNumber()).setParameter("educationTeamID", educationTeam.getId()).executeUpdate();
             tx.commit();
         } catch (Exception e) {
@@ -217,7 +217,7 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.createNativeQuery("DELETE FROM teacher_education_team WHERE teacher_employeeNumber = :employeeNumber")
+            session.createNativeQuery("DELETE FROM education_team_teacher WHERE teacher_employeeNumber = :employeeNumber")
                     .setParameter("employeeNumber", teacher.getEmployeeNumber()).executeUpdate();
             tx.commit();
         } catch (Exception e) {
