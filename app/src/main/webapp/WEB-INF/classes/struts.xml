@@ -116,6 +116,19 @@
 			<result name="success">/view/employeemanagement/educationteam/index.jsp
 			</result>
 		</action>
+                <action name="educationTeam/create"
+			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
+			method="create">
+			<result name="success">/view/employeemanagement/educationteam/create.jsp
+			</result>
+		</action>
+                <action name="educationTeam/edit"
+			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
+			method="update">
+			<result name="success">/view/employeemanagement/educationteam/update.jsp
+			</result>
+		</action>
+
 		<action name="readWorkBlock" class="nl.scalda.pasimo.controller.timeregistration.TimeController"
 		method="readWorkBlock">
 		<result name="success">/view/timeregistration.index.jsp</result>
