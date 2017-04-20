@@ -133,6 +133,18 @@
 			<result name="success">/view/employeemanagement/educationteam/index.jsp
 			</result>
 		</action>
+                <action name="educationTeam/create"
+			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
+			method="create">
+			<result name="success">/view/employeemanagement/educationteam/create.jsp
+			</result>
+		</action>
+                <action name="educationTeam/edit"
+			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
+			method="update">
+			<result name="success">/view/employeemanagement/educationteam/update.jsp
+			</result>
+		</action>
 
 	</package>
 </struts>
