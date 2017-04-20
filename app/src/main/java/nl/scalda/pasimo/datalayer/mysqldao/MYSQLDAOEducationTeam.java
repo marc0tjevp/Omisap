@@ -134,10 +134,13 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
      * @param String abbreviation
      */
     @Override
-    public EducationTeam read(String abbreviation) {
-        // TODO Auto-generated method stub
+    public EducationTeam read(int Id) {
+        EducationTeam bla = new EducationTeam();
+        bla.setAbbreviation("ICOAO");
+        bla.setId(1);
+        bla.setName("appy");
     	
-        return null;
+        return bla;
     }
 
     /**

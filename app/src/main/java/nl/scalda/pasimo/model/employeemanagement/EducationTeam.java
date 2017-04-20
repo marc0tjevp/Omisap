@@ -2,6 +2,7 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 
 import java.util.TreeSet;
@@ -50,14 +51,20 @@ public class EducationTeam implements Comparable<EducationTeam> {
     
     }
     
+    public void updateCoachGroup(CoachGroup cg , String oldname){
+    	MYSQLDAOCoachGroup.getInstance().update(cg, this, oldname);
+    	
+    }
+    
+    
     /**
      * Deletes a coachgroup from a EducationTeam and database
      * @param CoachGroup coach
      */
     public void deleteCoachGroup(CoachGroup cg){
     	this.coachGroups.remove(cg);
-    	//DAOFactory.getTheFactory().getDAOCoachGroup().create(coachGroup);
-    	TestDAOCoachGroup.getInstance().delete(cg);
+    	DAOFactory.getTheFactory().getDAOCoachGroup().delete(cg);
+    	//TestDAOCoachGroup.getInstance().delete(cg);
     }
     
     public void updateTeacher(Teacher teacher) {

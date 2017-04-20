@@ -25,7 +25,7 @@ public interface IDAOCoachGroup {
     
     public TreeSet<CoachGroup> readAllBYTeam(EducationTeam t);
 
-    public void update(CoachGroup coachGroup);
+    public void update(CoachGroup coachGroup, EducationTeam edu , String oldname);
     
     public void delete(CoachGroup CoachGroup);
 

@@ -91,8 +91,9 @@ public class CoachGroupService {
 	 * 
 	 * @param cg
 	 */
-	public void update(CoachGroup cg) {
-		cg.updateCoachGroup();
+	public void update(CoachGroup cg, EducationTeam eduId, String oldname) {
+			eduId.updateCoachGroup(cg, oldname);
+		//cg.updateCoachGroup();
 
 	}
 

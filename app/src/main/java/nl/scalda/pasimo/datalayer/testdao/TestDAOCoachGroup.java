@@ -60,7 +60,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	}
 
 	@Override
-	public void update(CoachGroup coachGroup) {
+	public void update(CoachGroup coachGroup, EducationTeam eduId , String oldname) {
 		try {
 			
 			for (CoachGroup ccg : coachGroups) {
