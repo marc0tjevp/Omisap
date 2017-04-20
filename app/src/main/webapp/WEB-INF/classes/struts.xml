@@ -116,6 +116,14 @@
 			<result name="success">/view/employeemanagement/educationteam/index.jsp
 			</result>
 		</action>
+		<action name="readWorkBlock" class="nl.scalda.pasimo.controller.timeregistration.TimeController"
+		method="readWorkBlock">
+		<result name="success">/view/timeregistration.index.jsp</result>
+		</action>
+		<action name="removeWorkBlock" class="nl.scalda.pasimo.controller.timeregistration.TimeController"
+	method="removeWorkBlock">
+	<result name="success" type="redirect">/view/timeregistration/index.jsp</result>
+	</action>
 	</package>
 </struts>
 

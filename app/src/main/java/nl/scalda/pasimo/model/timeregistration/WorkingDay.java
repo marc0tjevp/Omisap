@@ -42,7 +42,7 @@ public class WorkingDay implements Comparable<WorkingDay> {
 
 	public void addWorkBlock(WorkBlock workblock) {
 		this.workBlocks.add(workblock);
-		DAOFactory.getTheFactory().getDAOWorkBlock().create(workblock);
+//		DAOFactory.getTheFactory().getDAOWorkBlock().create(workblock);
 	} // deletes
 		// an
 		// workblock
@@ -60,7 +60,7 @@ public class WorkingDay implements Comparable<WorkingDay> {
 		workblock.setStart(workblock.getStart());
 		workblock.setEnd(workblock.getEnd());
 
-		DAOFactory.getTheFactory().getDAOWorkBlock().update(workblock);
+//		DAOFactory.getTheFactory().getDAOWorkBlock().update(workblock);
 
 	}
 

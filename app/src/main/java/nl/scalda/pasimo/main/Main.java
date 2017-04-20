@@ -15,7 +15,7 @@ import nl.scalda.pasimo.model.timeregistration.WorkingDay;
  * 12 apr. 2017
  */
 public class Main {
-
+static	WorkingDay w = new WorkingDay("Maandag");
 	/**
 	 * @param args
 	 */
