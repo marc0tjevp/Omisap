@@ -61,7 +61,7 @@ public class NoteController extends ActionSupport {
 	}
 
 
-	public String noteEdit(Note note) {
+	public String noteEdit() {
 		for (Note n : getNoteList()) {
 				n.setTitle(title);
 				n.setMessage(message);
@@ -74,9 +74,7 @@ public class NoteController extends ActionSupport {
 	
 
 	public String noteDeleteAll() {
-		System.out.println("Deleteall");
 		teacher.deleteAllNotes();
-
 		return SUCCESS;
 	}
 

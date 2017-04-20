@@ -59,7 +59,7 @@
 										class="col-md-12 noteTitle">Title: ${n.getTitle()}</div>
 							</div>
 							<div class="row">
-								<div class="col-md-12 noteMessage">Gemaakt door: ${n.getMadeBy().getFirstName()}</div>
+								<div class="col-md-12 noteMessage">Gemaakt door: ${n.getMadeBy()}</div>
 							</div>					
 							<div class="row">
 								<div class="col-md-12 noteMessage">Aanmaak datum: ${n.getCreationDate()}</div>
@@ -85,7 +85,7 @@
       	<div class="modal-body">
    	   	</div>
       <div class="modal-footer">
-        <a "type="button" class="btn btn-default" 
+        <a type="button" class="btn btn-default" 
 							id="noteDelete" href="noteDelete">Verwijderen</a>
         <a type="button" class="btn btn-default" href="noteEditView">Bewerken</a>
 

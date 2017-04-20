@@ -14,6 +14,7 @@ import org.hibernate.query.NativeQuery;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.model.employeemanagement.Note;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class MYSQLDAONote implements IDAONote {
 
@@ -170,13 +171,13 @@ public class MYSQLDAONote implements IDAONote {
 			for (Iterator iterator = noteList.iterator(); iterator.hasNext();) {
 				Object[] obj = (Object[]) iterator.next();
 				Note n = new Note();
+				Teacher t = new Teacher();
 				n.setId(Integer.parseInt(String.valueOf(obj[0])));
 				n.setOvNumber(Integer.parseInt(String.valueOf(obj[1])));
 				n.setTitle(String.valueOf(obj [2]));
 				n.setMessage(String.valueOf(obj [3]));
 				n.setEmployeeNumber(Integer.parseInt(String.valueOf(obj[4])));
-				n.setCreationDate(Date.valueOf(String.valueOf(obj[5])));
-				
+				n.setCreationDate(Date.valueOf(String.valueOf(obj [5])));
 				notes.add(n);
 			}
 			tx.commit();
