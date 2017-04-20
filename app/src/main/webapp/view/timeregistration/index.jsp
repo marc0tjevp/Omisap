@@ -316,7 +316,7 @@
 		        Weet je zeker dat je zeker dat je dit les block wilt verwijderen?
 		      </div>
 		      <div class="modal-footer">
-<a href="deleteWorkBlock" class="btn btn-">Verwijder</a>
+  <a href="removeWorkBlock" class="btn btn-">Verwijder</a>
 		      </div>
 		    </div>
 		  </div>
