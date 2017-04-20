@@ -78,10 +78,4 @@ public class TestDAOFactory extends DAOFactory {
 		
 	}
 
-	@Override
-	public IDAOStudent getDAOStudent() {
-		return TestDAOStudent.getInstance();
-	}
-
-
 }

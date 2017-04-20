@@ -70,18 +70,8 @@ public class MySQLDAOFactory extends DAOFactory {
 		return MYSQLDAOEducationTeam.getInstance();
 
 	}
-
-	/* (non-Javadoc)
-	 * @see nl.scalda.pasimo.datalayer.factory.DAOFactory#getDAOWorkBlock()
-	 */
 	@Override
 	public IDAOWorkBlock getDAOWorkBlock() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public IDAOStudent getDAOStudent() {
 		// TODO Auto-generated method stub
 		return null;
 	}

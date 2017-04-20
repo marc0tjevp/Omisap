@@ -31,8 +31,6 @@ public abstract class DAOFactory {
     public abstract IDAOLessonGroup getDAOLessonGroup();
 
     public abstract IDAONote getDAONote();
-    
-    public abstract IDAOStudent getDAOStudent();
 
     public abstract IDAOTeacher getDAOTeacher();
 
