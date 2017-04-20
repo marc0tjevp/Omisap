@@ -77,7 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <header class="main-header">
 
                 <!-- Logo -->
-                <a href="index2.html" class="logo">
+                <a href="/Pasimo" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini">AO</span>
                     <!-- logo for regular state and mobile devices -->
@@ -156,7 +156,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>--%> 
                             
                             <li class="treeview">
-                                <a href="http://localhost:8080/Pasimo/coachGroups"><i class="fa fa-user-plus"></i> <span>Coach Groepen</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <a href="http://localhost:8080/Pasimo/coachgroups"><i class="fa fa-user-plus"></i> <span>Coach Groepen</span> <i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
                                  &lt;%&ndash;   <li><a href="<c:url value="coachGroups"><c:param name="action" value="all"/></c:url>">Overview</a></li>
                                 &ndash;%&gt;</ul>
