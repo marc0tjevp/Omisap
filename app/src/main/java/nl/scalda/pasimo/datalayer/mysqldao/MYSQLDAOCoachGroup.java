@@ -57,7 +57,4 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 
 		return null;
 	}
-
-	
-
 }
