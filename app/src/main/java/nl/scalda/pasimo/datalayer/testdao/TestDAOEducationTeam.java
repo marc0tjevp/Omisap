@@ -18,6 +18,7 @@ public class TestDAOEducationTeam implements IDAOEducationTeam {
         this.educationTeams.add(new EducationTeam("AO", "Applicatieontwikkelaar"));
         this.educationTeams.add(new EducationTeam("SSC", "Shared Service Center"));
         this.educationTeams.add(new EducationTeam("MV", "Mediavormgeving"));
+        this.educationTeams.add(new EducationTeam("ICOb", "ICO41A", 1));
 
     }
 

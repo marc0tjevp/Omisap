@@ -114,8 +114,7 @@
 
 
   <!--
-		 <action name="coachGroup/delete.action" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController" 
-			method="ArrayCoach"> <result name="success" type="json"></result> </action> 
+		
 			-->
 
 	</package>
@@ -126,6 +125,10 @@
 			method="getThisCoach">
 		</action>
 		
+		 <action name="coachGroup/array" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController" 
+			method="ArrayCoach">
+		
+			</action> 
     </package>
 </struts>
 

@@ -2,6 +2,7 @@ package nl.scalda.pasimo.controller.employeemanagement;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.TreeSet;
 import com.opensymphony.xwork2.ActionSupport;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
@@ -21,39 +22,39 @@ public class CoachGroupController extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public TreeSet<Teacher> teacher = new TreeSet<>();
+	public TreeSet<Teacher> teacher =TeacherService.getInstance().readAll();
 
-	public TreeSet<EducationTeam> educationTeam = new TreeSet<>();
-	public TreeSet<CoachGroup> coachGroup = new TreeSet<>();
+
+	public Set<EducationTeam> educationTeam = EducationTeamService.getInstance().getEducationTeams();
+	public TreeSet<CoachGroup> coachGroup = CoachGroupService.getInstance().readAll();
 	CoachGroup coach = new CoachGroup();
 	public TreeSet<CoachGroup> deleteCoaches = new TreeSet<>();
-
 	public String s1;
 	public String s2;
 
 	public String execute() {
 		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
-	
-
+//	
+//
 		EducationTeam edu = new EducationTeam("ICOb", "ICO41A", 1);
-	
-		EducationTeam edu1 = new EducationTeam("ICOc", "ICO41B", 2);
-		EducationTeam edu2 = new EducationTeam("ICOd", "ICO41C", 3);
-		EducationTeam edu3 = new EducationTeam("ICOe", "ICO41D", 4);
-		EducationTeam edu4 = new EducationTeam("ICOf", "ICO41E", 5);
-		educationTeam.add(edu);
-		educationTeam.add(edu1);
-		educationTeam.add(edu2);
-		educationTeam.add(edu3);
-		educationTeam.add(edu4);
+//	
+//		EducationTeam edu1 = new EducationTeam("ICOc", "ICO41B", 2);
+//		EducationTeam edu2 = new EducationTeam("ICOd", "ICO41C", 3);
+//		EducationTeam edu3 = new EducationTeam("ICOe", "ICO41D", 4);
+//		EducationTeam edu4 = new EducationTeam("ICOf", "ICO41E", 5);
+//		educationTeam.add(edu);
+//		educationTeam.add(edu1);
+//		educationTeam.add(edu2);
+//		educationTeam.add(edu3);
+//		educationTeam.add(edu4);
 		CoachGroup cg = new CoachGroup("123",tc);
+		edu.getCoachGroups().add(cg);
 		coachGroup.add(cg);
+//		coachGroup.add(cg1);
 		teacher.add(tc);
-
-		//educationTeam = EducationTeamService.getInstance().getEducationTeams();
-		//coachGroup = CoachGroupService.getInstance().readAll();
-		// teacher = TeacherService.getInstance().readAll();
+	    educationTeam.add(edu);
 		return SUCCESS;
+		
 	}
 
 	public String readCoachGroup() {
@@ -88,22 +89,22 @@ public class CoachGroupController extends ActionSupport {
 		return SUCCESS;
 	}
 
-	public String ArrayCoach(){
+	public void ArrayCoach(){
 		
-		return SUCCESS;
+		deleteCoaches.add(CoachGroupService.getInstance().readCoachGroup(s1));
+		System.out.println(deleteCoaches);
 		}
 	
 	
 	public void getThisCoach(){
 		coach = CoachGroupService.getInstance().readCoachGroup(s1);
-		
 		}
 	
 	
 	public String deleteCoachGroup() {
-
-		CoachGroupService.getInstance().delete(coach);
-
+		for (CoachGroup cg : deleteCoaches) {
+		CoachGroupService.getInstance().delete(cg);
+		}
 		return SUCCESS;
 	}
 
@@ -115,12 +116,23 @@ public class CoachGroupController extends ActionSupport {
 		this.teacher = teacher;
 	}
 
-	public TreeSet<EducationTeam> getEducationTeam() {
+	
+	
+
+	public Set<EducationTeam> getEducationTeam() {
 		return educationTeam;
 	}
 
-	public void setEducationTeam(TreeSet<EducationTeam> educationTeam) {
+	public void setEducationTeam(Set<EducationTeam> educationTeam) {
 		this.educationTeam = educationTeam;
+	}
+
+	public TreeSet<CoachGroup> getDeleteCoaches() {
+		return deleteCoaches;
+	}
+
+	public void setDeleteCoaches(TreeSet<CoachGroup> deleteCoaches) {
+		this.deleteCoaches = deleteCoaches;
 	}
 
 	public CoachGroup getCoach() {

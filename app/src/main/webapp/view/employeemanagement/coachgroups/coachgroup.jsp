@@ -10,8 +10,9 @@
 
 	<jsp:attribute name="scripts">
         <script>
-            $(document).ready(function () {
-            	
+        $( window ).on( "load", function() { 
+            	 var closestTr = [];
+            	var openModal = [];
             	
             	 
                 $("#selectAllCoachGroups").on('click', function () {
@@ -35,9 +36,16 @@
             
                         });
                     }
+                    closestTr = [];
+                    $(':checkbox').each(function () {
+                        if(this.checked){
+                        	closestTr.push($(this).closest('tr').attr('id'));
+                        	console.log(closestTr);
+                        }
+                        });
                 });
                
-                var closestTr = [];
+               
                 
                 $(".coach-groups-table tbody td input[type=\"checkbox\"]").change(function () {
                 	
@@ -57,7 +65,7 @@
                    
                     $(':checkbox').each(function () {
                     if(this.checked){
-                    	closestTr = closestTr + $(this).closest('tr').attr('id');
+                    	closestTr.push($(this).closest('tr').attr('id'));
                     	console.log(closestTr);
                     }
                     });
@@ -85,30 +93,49 @@
                    
                 });
                 
-                
-                $('#coachGroupDeleteModal').on('show.bs.modal', function(e) {
+                $("#deleteButton").click(function(e){
                 	
-                });
-                
+                		$('#coachGroupDeleteModal').modal('show', function(e){
+                  	   });
+                		
              
- 				$('#coachGroupEditModal').on('show.bs.modal', function(e) {
- 					$.ajax({
+                	for (var i = 0, length = closestTr.length; i < length; i++) {
+                    	$.ajax({
+                		 	type: 'POST',	  
+                			url:'coachGroup/array',
+                		   	dataType: 'json',
+               				data : "s1=" + closestTr[i],
+                    	});
+                    	
+                	
+                }
+                });
+					
+                
+                $("#editButton").click(function(e){
+                	
+                		 $('#coachGroupEditModal').modal('show',function(e){
+                       		 
+                         });
+                	
+                	$.ajax({
             		 	type: 'POST',	  
             			url:'coachGroup/edit',
             		   	dataType: 'json',
            				data : "s1=" + closestTr,
            				
             		});
-
-               		
-                });
+                	 
+                	});
+                	
                 
+       
+                
+               
                 
                 $('.form-control')
                 .dropdown();
                
-                
-                
                 $('select').change(function() {
                     if ($(this).children('option:first-child').is(':selected')) {
                       $(this).addClass('placeholder');
@@ -132,14 +159,10 @@
 					id="addButton" data-toggle="modal"
 					data-target="#coachGroupAddModal">Coachgroup Aanmaken
                 </button>
-                <button class="btn btn-danger" id="deleteButton"
-					type="button" data-toggle="modal"
-					data-target="#coachGroupDeleteModal" disabled>Verwijderen
+                <button class="btn btn-danger" id="deleteButton" type="button" value="Submit" disabled>Verwijderen
                 </button>
                 
-                <button class="btn btn-primary" id="editButton"
-					type="button" data-toggle="modal"
-					data-target="#coachGroupEditModal" disabled>Wijzigen
+                <button class="btn btn-primary" id="editButton" type="button" value="submit" disabled>Wijzigen
                 </button>
             </div>
 
@@ -279,8 +302,7 @@
                                     <label for="coachGroupName-input"
 									class="col-2 col-form-label">Naam</label>
                                     <div class="col-10">
-										<s:textfield class="form-control" name="coach.name"
-										id="coachGroupName-input" />
+										<s:textfield class="form-control" name="coach.getName()" id="coachGroupName-input"   />
                                     </div>
                                     
                                     <label
@@ -288,14 +310,13 @@
                                     <div class="col-10">
                                         <select class="form-control" name="s1" id="coachGroupEducationTeamName-input">
                                         
+                                        <s:if test="%{#ed.getEmployeeNumber() == coach.getCoach().getEmployeeNumber() }">
+                                        
                                          <option value="">${CoachGroupService.getInstance().getEducationTeam(coach).getAbbreviation()}</option>
-                                         
-                                        <s:iterator value="educationTeam"
-											var="ed">
-                                        <s:if
-												test="%{#ed.getEmployeeNumber() =! coach.getCoach().getEmployeeNumber() }">
-                                        <option
-													value="${ed.employeeNumber}">${ed.abbreviation} </option>
+                                         </s:if>
+                                        <s:iterator value="${var a = closestTr}" var="ed">
+                                        <s:if test="%{#ed.getEmployeeNumber() =! coach.getCoach().getEmployeeNumber() }">
+                                        <option value="${ed.employeeNumber}">${ed.abbreviation} </option>
                                         </s:if>
                                         </s:iterator>
                                     </select>
@@ -310,12 +331,9 @@
                                         
                                          <option value="">${coach.getCoach().getEmployeeNumber()}</option>
                                          
-                                        <s:iterator value="teacher"
-											var="ed">
-                                        <s:if
-												test="%{#ed.getEmployeeNumber() =! coach.getCoach().getEmployeeNumber() }">
-                                        <option
-													value="${ed.employeeNumber}">${ed.abbreviation} </option>
+                                        <s:iterator value="teacher" var="ed">
+                                        <s:if test="%{#ed.getEmployeeNumber() =! coach.getCoach().getEmployeeNumber() }">
+                                        <option value="${ed.employeeNumber}">${ed.abbreviation} </option>
                                         </s:if>
                                         </s:iterator>
                                     </select>
@@ -364,14 +382,16 @@
                             </label>
                         </td>
 
-                        <td><a href='CoachLessonGroups'>ICOA41A</a>	</td>
+                        <td><a href='CoachLessonGroups'>${ed.getName()}</a>	</td>
                         <td>${ed.getCoach().getAbbreviation()}	</td>
                         <td>${ed.getLessonGroups().size()}</td>
-                        <td>${CoachGroupService.getInstance().getEducationTeam(ed)}</td>
-                        
-						
-                        
-                        
+                        <td>
+                        	<s:iterator  value="educationTeam" var="ed1">
+                        		<s:if test="ed1.getCoachGroups().contains(ed)">
+                         			${ed1.getAbbreviation()}
+                        		</s:if>
+                        	</s:iterator>
+                        </td>
                     </tr>
                                         
 			

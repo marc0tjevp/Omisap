@@ -17,9 +17,10 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
 
 	public TestDAOCoachGroup() {
-		coachGroups.add(new CoachGroup("A1"));
-		coachGroups.add(new CoachGroup("A2"));
-		coachGroups.add(new CoachGroup("A3"));
+		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
+		coachGroups.add(new CoachGroup("A1", tc));
+		coachGroups.add(new CoachGroup("A2", tc));
+		coachGroups.add(new CoachGroup("A3", tc));
 	}
 
 	@Override

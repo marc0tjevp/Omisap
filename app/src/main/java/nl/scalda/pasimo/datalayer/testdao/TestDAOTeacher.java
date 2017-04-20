@@ -51,6 +51,8 @@ public class TestDAOTeacher implements IDAOTeacher {
 	 */
 	@Override
 	public TreeSet<Teacher> readAll() {
+		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
+		teachers.add(tc);
 		return teachers;
 	}
 
