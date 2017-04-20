@@ -77,14 +77,10 @@ public class MYSQLDAONote implements IDAONote {
 			tx = session.beginTransaction();
 			Object[] obj = (Object[]) session.createNativeQuery("SELECT * FROM note WHERE noteID = :noteID")
 					.setParameter("noteID", id).getSingleResult();
-			n.setId(Integer.parseInt(String.valueOf(obj[0])));
-			;
-			n.setOvNumber(Integer.parseInt(String.valueOf(obj[1])));
-			;
-			n.setTitle(String.valueOf(obj[2]));
-			;
-			n.setMessage(String.valueOf(obj[3]));
-			;
+			n.setId(Integer.parseInt(String.valueOf(obj[0])));;
+			n.setOvNumber(Integer.parseInt(String.valueOf(obj[1])));;
+			n.setTitle(String.valueOf(obj[2]));;
+			n.setMessage(String.valueOf(obj[3]));;
 			n.setEmployeeNumber(Integer.parseInt(String.valueOf(obj[4])));
 			n.setCreationDate(Date.valueOf(String.valueOf(obj[5])));
 			n.setLastEdit(Date.valueOf(String.valueOf(obj[6])));
@@ -166,17 +162,17 @@ public class MYSQLDAONote implements IDAONote {
 		TreeSet<Note> notes = new TreeSet<>();
 		try {
 			tx = session.beginTransaction();
-			List noteList = session.createNativeQuery("SELECT * FROM note;").getResultList();
+			List noteList = session.createNativeQuery("SELECT * FROM note").getResultList();
 			for (Iterator iterator = noteList.iterator(); iterator.hasNext();) {
 				Object[] obj = (Object[]) iterator.next();
-				String[] creationDate = String.valueOf(obj[5]).split("-");
 				Note n = new Note();
-				String.valueOf(obj[0]);
-				String.valueOf(obj[1]);
-				String.valueOf(obj[2]);
-				String.valueOf(obj[3]);
-				String.valueOf(obj[4]);
-				String.valueOf(obj[6]);
+				n.setId(Integer.parseInt(String.valueOf(obj[0])));;
+				n.setOvNumber(Integer.parseInt(String.valueOf(obj[1])));
+				n.setTitle(String.valueOf(obj[2]));
+				n.setMessage(String.valueOf(obj[3]));
+				n.setEmployeeNumber(Integer.parseInt(String.valueOf(obj[4])));
+				n.setCreationDate(Date.valueOf(String.valueOf(obj[5])));
+				n.setLastEdit(Date.valueOf(String.valueOf(obj[6])));
 				notes.add(n);
 			}
 			tx.commit();

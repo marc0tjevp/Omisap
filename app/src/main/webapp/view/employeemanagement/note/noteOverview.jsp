@@ -55,11 +55,11 @@
 						<div class="note col-md-3" data-toggle="modal"
 								data-target="#overviewModal">
 							<div class="row">
-							<div onClick=";" style="cursor: pointer;"
-										class="col-md-12 noteTitle">${n.getMessage()}</div>
+							<div onClick="n.getId()" style="cursor: pointer;"
+										class="col-md-12 noteTitle">Google Méàxz? ${n.getMessage()}</div>
 							</div>
 							<div class="row">
-								<div class="col-md-12 noteMessage">${n.getTitle()}</div>
+								<div class="col-md-12 noteMessage">Google méàxz. ${n.getTitle()}</div>
 							</div>					
 							<div class="row">
 								<div class="col-md-12 noteMessage">Gemaakt door: ${n.getMadeBy().getFirstName()}</div>
