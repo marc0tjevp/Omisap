@@ -1,18 +1,23 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
-import nl.scalda.pasimo.interfaces.IEducationTeamDAO;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 import java.util.Set;
 import java.util.TreeSet;
 
-public class TestEducationTeamDAO implements IEducationTeamDAO {
-	
-	private static TestEducationTeamDAO instance = null;
 
+	
+	
+
+public class TestDAOEducationTeam implements IDAOEducationTeam {
+
+
+	private static TestDAOEducationTeam instance = null;
     private Set<EducationTeam> educationTeams;
 
-    private TestEducationTeamDAO() {
+    private TestDAOEducationTeam() {
         this.educationTeams = new TreeSet<EducationTeam>();
 
         // Test data
@@ -69,6 +74,7 @@ public class TestEducationTeamDAO implements IEducationTeamDAO {
         return this.educationTeams;
     }
 
+
     @Override
     public boolean exist(String abbreviation) {
 
@@ -79,15 +85,30 @@ public class TestEducationTeamDAO implements IEducationTeamDAO {
 
         return false;
     }
+    
 
     // --------------------------------------------------
     // Singleton
 
-    public static TestEducationTeamDAO getInstance() {
-		if(instance == null){
-			instance = new TestEducationTeamDAO();
-		}
-		return instance;
+
+
+    public static TestDAOEducationTeam getInstance(){
+        if (instance == null)
+            instance = new TestDAOEducationTeam();
+        return instance;
+    }
+    
+
+	@Override
+	public void addTeacherToEducationTeam(Teacher teacher, EducationTeam educationTeam) {
+		// TODO Auto-generated method stub
+		
 	}
 
-}
+	@Override
+	public void deleteTeacherFromEducationTeam(Teacher teacher, EducationTeam educationTeam) {
+		// TODO Auto-generated method stub
+		
+	}
+  }
+

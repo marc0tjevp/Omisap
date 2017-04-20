@@ -1,13 +1,21 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 
 import java.util.TreeSet;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
+
+
 public class EducationTeam implements Comparable<EducationTeam> {
 
-    private TreeSet<Teacher> teachers;
+	private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
+    private TreeSet<Teacher> teachers = new TreeSet<>();
+
 
     /**
      * Abbreviation of the EducationTeam; e.g. AO
@@ -17,13 +25,46 @@ public class EducationTeam implements Comparable<EducationTeam> {
      * Name of the EducationTeam; e.g. Applicatie Ontwikkelaar
      */
     private String name;
+    /**
+     *
+     * Id of the EducationTeam
+     */
+    private int id;
+    
+    public EducationTeam() {
+		
+	}
 
-    public void addTeacher(Teacher t) {
-        if (teachers.add(t)) {
-            //DAOFactory.getTheFactory().getDAOTeacher().create(t, this);
-        }
 
+    public void addTeacher(Teacher t){
+		if (teachers.add(t)) {
+			DAOFactory.getTheFactory().getDAOEducationTeam().addTeacherToEducationTeam(t, this);
+		}
+		
+	}
+    
+    /**
+     * Adds a coachgroup from a EducationTeam and database
+     * @param coachGroup
+     */
+    public void addCoachGroup(CoachGroup cg){
+    	cg.setName(this.abbreviation + cg.getName());
+    	this.coachGroups.add(cg);
+    	DAOFactory.getTheFactory().getDAOCoachGroup().create(cg);
+    	//TestDAOCoachGroup.getInstance().create(cg);
+    
     }
+    
+    /**
+     * Deletes a coachgroup from a EducationTeam and database
+     * @param CoachGroup coach
+     */
+    public void deleteCoachGroup(CoachGroup cg){
+    	this.coachGroups.remove(cg);
+    	//DAOFactory.getTheFactory().getDAOCoachGroup().create(coachGroup);
+    	TestDAOCoachGroup.getInstance().delete(cg);
+    }
+    
 
     public void updateTeacher(Teacher teacher) {
         for (Teacher ct : teachers) {
@@ -35,14 +76,18 @@ public class EducationTeam implements Comparable<EducationTeam> {
                 ct.setEmployeeNumber(teacher.getEmployeeNumber());
                 ct.setEmail(teacher.getEmail());
                 //               ct.setDateOfBirth(teacher.getDateOfBirth());
+
                 ct.setNoteList(teacher.getNoteList());
+
+
             }
         }
     }
 
     public void deleteTeacher(Teacher t) {
         if (teachers.remove(t)) {
-            //DAOFactory.getTheFactory().getDAOTeacher().delete(t, this);
+            DAOFactory.getTheFactory().getDAOEducationTeam().deleteTeacherFromEducationTeam(t, this);
+
         }
 
     }
@@ -55,6 +100,9 @@ public class EducationTeam implements Comparable<EducationTeam> {
         this.abbreviation = abbreviation;
         this.name = name;
     }
+
+    //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc="getters and setters">
 
     public String getAbbreviation() {
         return abbreviation;
@@ -72,6 +120,15 @@ public class EducationTeam implements Comparable<EducationTeam> {
         this.name = name;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    //</editor-fold>
     @Override
     public int compareTo(EducationTeam o) {
         return this.name.compareTo(o.getName());
@@ -80,7 +137,26 @@ public class EducationTeam implements Comparable<EducationTeam> {
 
     @Override
     public String toString() {
-        return "EducationTeam{" + "abbreviation='" + abbreviation + '\'' + ", name='" + name + '\'' + '}';
+        return "EducationTeam{"
+                + "abbreviation='" + abbreviation + '\''
+                + ", name='" + name + '\''
+                + '}';
     }
-  
+
+	public TreeSet<CoachGroup> getCoachGroups() {
+		if(coachGroups.isEmpty()){
+			loadCoachGroups();
+		}
+		return coachGroups;
+	}
+
+	public void setCoachGroups(TreeSet<CoachGroup> coachGroups) {
+		this.coachGroups = coachGroups;
+	}
+	
+	public void loadCoachGroups(){
+		this.coachGroups = 
+				DAOFactory.getTheFactory().getDAOCoachGroup().readAllBYTeam(this);
+	}
+	
 }

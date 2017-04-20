@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
 
-/**
- *
- * @author jeroe
- */
 public class LessonGroup implements Comparable<LessonGroup> {
 
     private int id;
@@ -36,7 +27,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
 
     public void updateStudent(Student s) {
         for (Student cs : this.students) {
-            if (cs.getName().equals(s.getName())) {
+            if (cs.getFirstName().equals(s.getFirstName())) {
                 cs.setLastName(s.getLastName());
                 cs.setEmail(s.getEmail());
                 cs.setCardID(s.getCardID());

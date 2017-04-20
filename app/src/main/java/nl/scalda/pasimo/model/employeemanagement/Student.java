@@ -5,37 +5,73 @@ import java.util.TreeSet;
 
 public class Student extends Person {
 
-    private String name;
-    private TreeSet<Note> noteList;
-    
-    public Student(){
-        
-    }
+	private TreeSet<Note> noteList = new TreeSet<>();
+	private LessonGroup lessonGroup;
+	private int studentOV;
+	private int cohort;
+	private CoachGroup coachGroup;
 
-    public Student(String name, TreeSet<Note> noteList) {
-        this.name = name;
-        this.noteList = noteList;
-    }
+	public Student(String email) {
 
-    public Student(String name, TreeSet<Note> noteList, String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth) {
-        super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
-        this.name = name;
-        this.noteList = noteList;
-    }
-    
-    
+	}
 
-    public Student(String name) {
-        this.name = name;
-        noteList = new TreeSet<>();
-    }
+	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
+			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth) {
+		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
+		this.studentOV = studentOV;
+		this.cohort = cohort;
+		this.noteList = noteList;
+	}
+	
 
-    public String getName() {
-        return this.name;
-    }
+	public TreeSet<Note> getNoteList() {
+		return noteList;
+	}
 
-    public TreeSet<Note> getNoteList() {
-        return this.noteList;
-    }
+	public LessonGroup getLessonGroup() {
+		return lessonGroup;
+	}
+
+	public CoachGroup getCoachGroup() {
+		return coachGroup;
+	}
+
+	public int getCohort() {
+		return cohort;
+	}
+
+	public void setCohort(int cohort) {
+		this.cohort = cohort;
+	}
+
+	public int getStudentOV() {
+		return studentOV;
+	}
+
+	public void setStudentOV(int studentOV) {
+		this.studentOV = studentOV;
+	}
+
+	public String getNameOfLessonGroup() {
+		return lessonGroup.getName();
+	}
+
+	public void setLessonGroup(LessonGroup lessonGroup) {
+		this.lessonGroup = lessonGroup;
+	}
+
+	public String getNameOfCoachGroup() {
+		return coachGroup.getName();
+	}
+
+	public void setCoachGroup(CoachGroup coachGroup) {
+		this.coachGroup = coachGroup;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [noteList=" + noteList + ", lessonGroup=" + lessonGroup + ", studentOV=" + studentOV
+				+ ", cohort=" + cohort + ", coachGroup=" + coachGroup + "]";
+	}
 
 }

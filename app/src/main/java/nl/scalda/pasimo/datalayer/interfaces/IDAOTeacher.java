@@ -2,21 +2,29 @@ package nl.scalda.pasimo.datalayer.interfaces;
 
 import java.util.TreeSet;
 
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public interface IDAOTeacher {
 	
-    public void add(Teacher teacher, EducationTeam team);
 
-    public void edit(Teacher t, EducationTeam team, String oldAbbr);
+    public void create(Teacher teacher);
 
-    public void delete(Teacher t, EducationTeam team);
+    public void update(Teacher t);
+
+    public void delete(Teacher t);
 
     public TreeSet<Teacher> readAll();
 
-    public Teacher readByAbbr(String id);
+    public Teacher readByEmployeeNumber(int employeeNumber);
 
     public TreeSet<Teacher> readAllForEducationTeam(EducationTeam t);
+
+	public Teacher readByAbbr(String abbreviation);
+	
+	public EducationTeam getCurrentEducationTeamOfTeacher(Teacher teacher);
+	
+	public CoachGroup getCurrentCoachGroup(Teacher teacher);
 
 }

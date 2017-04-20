@@ -14,8 +14,6 @@ public class Person implements Comparable<Person> {
     private GregorianCalendar dateOfBirth;
     private TreeSet<Note> noteList;
 
-    public Person() {
-    }
 
     public Person(String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth) {
         GregorianCalendar gc = new GregorianCalendar();
@@ -28,6 +26,32 @@ public class Person implements Comparable<Person> {
         this.dateOfBirth = gc;
         this.noteList = new TreeSet<Note>();
     }
+    /**
+     * default constructor.
+     */
+	public Person() {}
+	
+	/**
+	 * constructor with only email.
+	 * 
+	 * @param email
+	 */
+	public Person(String email) {
+		this.email = email;
+    }
+
+	/**
+	 * constructor with all variables.
+	 * 
+	 * @param email
+	 * @param cardID
+	 * @param firstName
+	 * @param insertion
+	 * @param lastName
+	 * @param yearOfBirth
+	 * @param monthOfBirth
+	 * @param dayOfBirth
+	 */
 
     /**
      * Adds a note to the teacher.
@@ -35,19 +59,12 @@ public class Person implements Comparable<Person> {
      * @param Note note
      * @see Note
      */
-    public void addNote(Note note) {
-        this.noteList.add(note);
-    }
-
     /**
      * Removes a note from the person
      *
      * @param Note note
      * @see Note
      */
-    public void removeNote(Note note) {
-        this.noteList.remove(note);
-    }
 
     //getters and setters
     public String getEmail() {
@@ -99,7 +116,13 @@ public class Person implements Comparable<Person> {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getFullName() {
+    /**
+     * returns the full name of the person.
+     * used for displaying purposes in the view.
+     * 
+     * @return String
+     */
+	public String getFullName() {
         if (this.insertion != "" && this.insertion != null) {
             return this.getFirstName() + " " + this.getInsertion() + " " + this.getLastName();
         }
@@ -114,8 +137,15 @@ public class Person implements Comparable<Person> {
         this.noteList = noteList;
     }
 
-    public String getDateOfBirthInString() {
-        return this.getDateOfBirth().get(GregorianCalendar.DAY_OF_MONTH) + "-" + (this.getDateOfBirth().get(GregorianCalendar.MONTH) + 1) + "-" + this.getDateOfBirth().get(GregorianCalendar.YEAR);
+
+    
+    /**
+     * returns the date of birth as readable string object.
+     * 
+     * @return String
+     */
+    public String getDateOfBirthInString(){
+    	return this.getDateOfBirth().get(GregorianCalendar.DAY_OF_MONTH) + "-" + (this.getDateOfBirth().get(GregorianCalendar.MONTH)+1) + "-" + this.getDateOfBirth().get(GregorianCalendar.YEAR);
     }
 
     @Override
