@@ -41,7 +41,7 @@ public class MYSQLDAONote implements IDAONote {
 	}
 
 	@Override
-	public Note create(Note note) {
+	public void create(Note note) {
 		TreeSet <Note> notes = new TreeSet<>();
 		Session session = factory.openSession();
 		Transaction tx = null;
@@ -65,7 +65,7 @@ public class MYSQLDAONote implements IDAONote {
 		} finally {
 			session.close();
 		}
-		return null;
+	
 	}
 
 	@Override
@@ -171,10 +171,10 @@ public class MYSQLDAONote implements IDAONote {
 				Object[] obj = (Object[]) iterator.next();
 				String[] creationDate = String.valueOf(obj[5]).split("-");
 				Note n = new Note();
-				String.valueOf(obj[0]);
-				String.valueOf(obj[1]);
-				String.valueOf(obj[2]);
-				String.valueOf(obj[3]);
+				n.setId(Integer.parseInt(String.valueOf(obj[0])));
+				n.setOvNumber(Integer.parseInt(String.valueOf(obj[1])));
+				n.setTitle(String.valueOf(obj [2]));
+				n.setMessage(String.valueOf(obj [3]));
 				String.valueOf(obj[4]);
 				String.valueOf(obj[6]);
 				notes.add(n);

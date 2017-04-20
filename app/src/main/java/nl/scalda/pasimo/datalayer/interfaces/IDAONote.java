@@ -7,7 +7,7 @@ import nl.scalda.pasimo.model.employeemanagement.Note;
 public interface IDAONote {
 
 	
-	public Note create(Note note);
+	public void create(Note note);
 	
 	public Note read(int id);
 	

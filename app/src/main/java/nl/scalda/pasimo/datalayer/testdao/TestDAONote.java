@@ -35,13 +35,13 @@ public class TestDAONote implements IDAONote {
 	}
 	
 	@Override
-	public Note create(Note note) {
+	public void create(Note note) {
 		int id = this.noteList.size();
 		note.setId(id);
 		if(this.noteList.add(note)){
-			return note;
+			//return note;
 		}else{
-			return this.update(note);
+			//return this.update(note);
 		}
 		
 	}

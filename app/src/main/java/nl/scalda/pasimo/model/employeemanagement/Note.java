@@ -22,7 +22,7 @@ public class Note implements Comparable<Note> {
     /* empty constructor */
    
     public Note(){
-    	id = count.incrementAndGet();
+    	
     }
     
     public Note(String title, String message, Student assignedTo, Teacher madeBy) {

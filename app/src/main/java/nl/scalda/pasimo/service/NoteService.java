@@ -14,9 +14,9 @@ public class NoteService {
 
     }
 
-    public Note create(Note note, Student s) {
+    public void create(Note note, Student s) {
     
-    	return DAOFactory.getTheFactory().getDAONote().create(note);
+    	DAOFactory.getTheFactory().getDAONote().create(note);
     }
 
     public Note update(Note note) {	

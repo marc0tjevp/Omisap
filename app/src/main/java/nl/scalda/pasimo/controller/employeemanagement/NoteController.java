@@ -19,7 +19,6 @@ public class NoteController extends ActionSupport {
 
 	private String madeBy;
 	private int id;
-	private Note note = new Note();
 	private Teacher teacher = new Teacher("test", 1);
 	private Student student;
 	private String title;
@@ -31,48 +30,41 @@ public class NoteController extends ActionSupport {
 
 		return SUCCESS;
 	}
-	/*
-	 * Overview of all notes Struts
-	 */
 
 	public String noteOverview() {
 	
 		for(Note n : teacher.readAllNotes()){
 			noteList.add(n);
+			System.out.println("ID: " + n.getId());
+			System.out.println("Notelist size: " + noteList.size());
+			System.out.println(n.getTitle());
 		}
 		return SUCCESS;
 	}
 
-	public String readNote() {
+	public String readNote(Note note) {
 
 		teacher.readNoteById(note.getId());
 		return SUCCESS;
 	}
 
-	/*
-	 * Add a note Struts
-	 */
+
 	public String noteAdd() {
 		Student s = new Student();
-		teacher.createNote("test", "test", s);
+		teacher.createNote(title, message, s);
 		// Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
 
 		return SUCCESS;
 	}
 
-	/*
-	 * Deletes a note Struts
-	 */
 	public String noteDelete() {
 		teacher.deleteNoteByID(this.getId());
 		return SUCCESS;
 
 	}
 
-	/*
-	 * Edit a note Struts
-	 */
-	public String noteEdit() {
+
+	public String noteEdit(Note note) {
 		for (Note n : getNoteList()) {
 			if (n.getId() == note.getId()) {
 				n.setOvNumber(note.getOvNumber());
@@ -87,10 +79,8 @@ public class NoteController extends ActionSupport {
 		return SUCCESS;
 	}
 
-	/*
-	 * Deletes all notes in the note overview Struts
-	 */
 	public String noteDeleteAll() {
+		System.out.println("Deleteall");
 		teacher.deleteAllNotes();
 
 		return SUCCESS;
