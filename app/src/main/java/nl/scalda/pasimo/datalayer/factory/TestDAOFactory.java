@@ -7,6 +7,7 @@ import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeam;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkBlock;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkWeek;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkingDay;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOEducationTeam;
@@ -74,6 +75,12 @@ public class TestDAOFactory extends DAOFactory {
 		return TestDAOWorkBlock.getInstance();
 	
 		
+	}
+
+	@Override
+	public IDAOWorkWeek getDAOWorkWeek() {
+		
+		return null;
 	}
 
 

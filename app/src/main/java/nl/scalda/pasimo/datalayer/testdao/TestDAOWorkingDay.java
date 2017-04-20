@@ -19,12 +19,13 @@ public class TestDAOWorkingDay implements IDAOWorkingDay {
 	}
 
 	@Override
-	public void read(String name) {
+	public WorkingDay read(String name) {
 		for (WorkingDay workingday : this.workingdays) {
 			if (workingday.getName() == (name)) {
 			}
 
 		}
+		return null;
 
 	}
 
@@ -36,6 +37,19 @@ public class TestDAOWorkingDay implements IDAOWorkingDay {
 
 		}
 		return instance;
+	}
+
+	@Override
+	public void create(WorkingDay workingday) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void delete(WorkingDay workingday) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

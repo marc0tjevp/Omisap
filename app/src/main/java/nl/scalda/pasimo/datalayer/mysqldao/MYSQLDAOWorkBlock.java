@@ -32,7 +32,7 @@ public class MYSQLDAOWorkBlock implements IDAOWorkBlock {
 
 	/**
 	 * initialises the configuration of hibernate. called once from
-	 * getInstance() methodsadsdfsadfsdf
+	 * getInstance() methods
 	 */
 
 	public static void initialiseFactory() {

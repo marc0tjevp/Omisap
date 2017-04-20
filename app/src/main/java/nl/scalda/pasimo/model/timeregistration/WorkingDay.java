@@ -17,8 +17,13 @@ import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 
 public class WorkingDay implements Comparable<WorkingDay> {
 
-	public String name;
+	private String oldName;
+	private String name;
 	private Set<WorkBlock> workBlocks;
+
+	public WorkingDay() {
+
+	}
 
 	public WorkingDay(String name) {
 		this(name, new TreeSet<WorkBlock>());
@@ -44,7 +49,7 @@ public class WorkingDay implements Comparable<WorkingDay> {
 
 	public void deleteWorkBlock(WorkBlock workblock) {
 		this.workBlocks.remove(workblock);
-	
+
 		DAOFactory.getTheFactory().getDAOWorkBlock().delete(workblock);
 	} // updates
 		// an
@@ -56,8 +61,6 @@ public class WorkingDay implements Comparable<WorkingDay> {
 		workblock.setEnd(workblock.getEnd());
 
 		DAOFactory.getTheFactory().getDAOWorkBlock().update(workblock);
-
-	
 
 	}
 
@@ -75,6 +78,14 @@ public class WorkingDay implements Comparable<WorkingDay> {
 
 	public void setWorkBlocks(Set<WorkBlock> workBlocks) {
 		this.workBlocks = workBlocks;
+	}
+
+	public String getOldName() {
+		return oldName;
+	}
+
+	public void setOldName(String oldName) {
+		this.oldName = oldName;
 	}
 
 	@Override
