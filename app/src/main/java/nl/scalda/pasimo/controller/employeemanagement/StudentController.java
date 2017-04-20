@@ -25,6 +25,7 @@ public class StudentController extends ActionSupport {
 	private String fileUploadFileName;
 	private int id;
 	private String LessonGroup;
+	private String CoachGroup;
 
 	/**
 	 * Default execution method.
