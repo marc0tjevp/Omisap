@@ -1,10 +1,12 @@
 package nl.scalda.pasimo.datalayer.interfaces;
 
+import java.util.TreeSet;
+
 import nl.scalda.pasimo.model.timeregistration.WorkingDay;
 
 public interface IDAOWorkingDay {
 
-	public WorkingDay read(String name);
+	public TreeSet workingdays(String name);
 	
 	public void create(WorkingDay workingday);
 	

@@ -1,6 +1,8 @@
 package nl.scalda.pasimo.datalayer.mysqldao;
 
 import java.sql.Time;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -11,6 +13,8 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.NativeQuery;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkingDay;
+import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.model.timeregistration.PasimoTime;
 import nl.scalda.pasimo.model.timeregistration.WorkBlock;
 import nl.scalda.pasimo.model.timeregistration.WorkingDay;
@@ -37,19 +41,48 @@ public class MYSQLDAOWorkingDay implements IDAOWorkingDay {
 		}
 	}
 
+//	@Override
+//	public WorkingDay read(String name) {
+//		Session session = factory.openSession();
+//		Transaction tx = null;
+//		WorkingDay wd = new WorkingDay();
+//
+//		try {
+//			tx = session.beginTransaction();
+//			Object[] obj = (Object[]) session.createNativeQuery("SELECT name FROM workingday WHERE name = " + name)
+//					.getSingleResult();
+//			wd.setName(String.valueOf(obj[0]));
+//			System.out.println(obj[0]);
+//
+//			tx.commit();
+//		} catch (Exception e) {
+//			if (tx != null)
+//				tx.rollback();
+//			e.printStackTrace();
+//		} finally {
+//			session.close();
+//		}
+//		return wd;
+//
+//	}
 	@Override
-	public WorkingDay read(String name) {
+	public TreeSet<WorkingDay> workingdays(String name) {
 		Session session = factory.openSession();
 		Transaction tx = null;
-		WorkingDay wd = new WorkingDay();
-
+		TreeSet<WorkingDay> workingdays = new TreeSet<>();
 		try {
 			tx = session.beginTransaction();
-			Object[] obj = (Object[]) session.createNativeQuery("SELECT name FROM workingday WHERE name = " + name)
-					.getSingleResult();
-			wd.setName(String.valueOf(obj[0]));
-			System.out.println(obj[0]);
+			List workingdayList = session.createNativeQuery("SELECT * FROM workingday WHERE name = name;")
+//					.setParameter("name", name.g)
+					.getResultList();
+			for (Iterator iterator = workingdayList.iterator(); iterator.hasNext();) {
 
+				Object[] obj = (Object[]) iterator.next();
+				WorkingDay workingday = new WorkingDay(String.valueOf(obj[0]));
+
+				workingdays.add(workingday);
+				System.out.println(workingdays);
+			}
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null)
@@ -58,8 +91,7 @@ public class MYSQLDAOWorkingDay implements IDAOWorkingDay {
 		} finally {
 			session.close();
 		}
-		return null;
-
+		return workingdays;
 	}
 
 	@Override
@@ -84,7 +116,6 @@ public class MYSQLDAOWorkingDay implements IDAOWorkingDay {
 		}
 
 	}
-
 
 	@Override
 	public void delete(WorkingDay workingday) {

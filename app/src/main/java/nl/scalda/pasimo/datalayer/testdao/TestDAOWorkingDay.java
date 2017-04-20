@@ -19,7 +19,7 @@ public class TestDAOWorkingDay implements IDAOWorkingDay {
 	}
 
 	@Override
-	public WorkingDay read(String name) {
+	public TreeSet <WorkingDay> workingdays(String name) {
 		for (WorkingDay workingday : this.workingdays) {
 			if (workingday.getName() == (name)) {
 			}
