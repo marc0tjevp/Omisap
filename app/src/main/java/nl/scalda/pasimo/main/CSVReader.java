@@ -28,7 +28,7 @@ public class CSVReader {
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
 
             while ((line = br.readLine()) != null) {
-                Student s = new Student();
+                Student s = new Student(cvsSplitBy);
                 if (iteration != 0) {
                     iteration++;
 

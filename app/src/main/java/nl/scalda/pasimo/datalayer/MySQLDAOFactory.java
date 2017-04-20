@@ -5,13 +5,15 @@ import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOTeam;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkBlock;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkingDay;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
 import nl.scalda.pasimo.interfaces.IDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
-import nl.scalda.pasimo.interfaces.IEducationTeamDAO;
-import nl.scalda.pasimo.interfaces.ITeamDAO;
+
 
 public class MySQLDAOFactory extends DAOFactory {
 
@@ -52,15 +54,29 @@ public class MySQLDAOFactory extends DAOFactory {
         return null;
     }
 
+
     @Override
-    public ITeamDAO getTeamDAO() {
-        // TODO Auto-generated method stub
+    public nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam getDAOEducationTeam() {
+    	MYSQLDAOEducationTeam.getInstance();
         return null;
     }
 
-    @Override
-    public IEducationTeamDAO getEducationTeamDAO() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+	@Override
+	public IDAOTeam getDAOTeam() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public IDAOWorkingDay getDAOWorkingDay() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IDAOWorkBlock getDAOWorkBlock() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

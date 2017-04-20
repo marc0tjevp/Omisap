@@ -4,106 +4,7 @@
    "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-<<<<<<< HEAD
-    <constant name="struts.devMode" value="true" />
-    <constant name="struts.enable.SlashesInActionNames" value="true" />
-    <constant name="struts.mapper.alwaysSelectFullNamespace"
-              value="false" />
 
-    <package name="alles" extends="struts-default">
-        <action name="pag1" class="nl.scalda.pasimo.controller.MainController"
-                method="execute">
-            <result name="success">/index.jsp</result>
-        </action>
-        <action name="pag2" class="nl.scalda.pasimo.controller.MainController"
-                method="execute">
-            <result name="success">/index2.jsp</result>
-        </action>
-
-        <action name="educationTeam"
-                class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
-                method="index">
-            <result name="success">/view/employeemanagement/educationteam/index.jsp
-            </result>
-        </action>
-
-        <action name="educationTeam/create"
-                class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
-                method="create">
-            <result name="success">/view/employeemanagement/educationteam/create.jsp
-            </result>
-        </action>
-
-        <action name="educationTeam/update"
-                class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
-                method="update">
-            <result name="success">/view/employeemanagement/educationteam/update.jsp
-            </result>
-        </action>
-
-        <action name="educationTeam/addEducationTeam"
-                class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
-                method="addEducationTeam">
-            <result name="success" type="redirect">/educationTeam</result>
-        </action>
-        
-        <action name="coachGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-                  method="execute">
-            <result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
-        </action>
-        
-        <action name="students" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-                method="execute">
-            <result name="success">/view/employeemanagement/coachgroups/student.jsp</result>
-        </action>
-        
-        
-        <action name="teacherOverview" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-                                method="readTeacher">
-            <result name="success">/view/employeemanagement/Teacher/teacherOverview.jsp</result>
-        </action>
-        <action name="addTeacherPage" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-                        method="execute">
-            <result name="success">/view/employeemanagement/Teacher/addTeacher.jsp</result>
-        </action>
-        <action name="addTeacher" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-                        method="addTeacher">
-            <result name="success"  type="redirect">teacherOverview</result>
-            <result name="input">/view/employeemanagement/Teacher/teacherOverview.jsp</result>
-        </action>
-        <action name="editTeacherPage" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-                        method="loadTeacherInfo">
-            <result name="success">/view/employeemanagement/Teacher/editTeacher.jsp</result>
-        </action>
-        <action name="editTeacher" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-                        method="updateTeacher">
-            <result name="success">/view/employeemanagement/Teacher/teacherOverview.jsp</result>
-            <result name="input">/view/employeemanagement/Teacher/teacherOverview.jsp</result>
-        </action>
-        <action name="removeTeacher" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-                        method="removeTeacher">
-            <result name="success" type="redirect">teacherOverview</result>
-        </action>
-        <action name="teacherInfo" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-                        method="loadTeacherInfo">
-            <result name="success">/view/employeemanagement/Teacher/TeacherInformation.jsp</result>
-        </action>
-	
-        <action name="educationTeam"
-                class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
-                method="execute">
-            <result name="success" type="redirect">view/employeemanagement/educationteam/index.jsp</result>
-        </action>
-        
-        <action name="educationTeam/editEducationTeam"
-                class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
-                method="editEducationTeam">
-            <result name="success" type="redirect">view/employeemanagement/educationteam/index.jsp</result>
-        </action>
-
-    </package>
-</struts>
-=======
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.enable.SlashesInActionNames" value="true" />
 	<constant name="struts.mapper.alwaysSelectFullNamespace"
@@ -204,4 +105,3 @@
 
 	</package>
 </struts>
->>>>>>> develop

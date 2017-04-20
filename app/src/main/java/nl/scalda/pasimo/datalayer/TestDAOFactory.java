@@ -5,11 +5,11 @@ import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAONote;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
 
-import nl.scalda.pasimo.datalayer.testdao.TestEducationTeamDAO;
 import nl.scalda.pasimo.interfaces.*;
 
 
@@ -50,7 +50,7 @@ public class TestDAOFactory extends DAOFactory {
 	@Override
 	public IDAOEducationTeam getDAOEducationTeam() {
 		// TODO Auto-generated method stub
-		return (IDAOEducationTeam) TestEducationTeamDAO.getInstance();
+		return (IDAOEducationTeam) TestDAOEducationTeam.getInstance();
 	}
 
 }
