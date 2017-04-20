@@ -50,7 +50,12 @@ public class EducationTeam implements Comparable<EducationTeam> {
     	//TestDAOCoachGroup.getInstance().create(cg);
     
     }
-    
+    /**
+     * updates coachgroup from an educationTeam and database
+     * 
+     * @param cg
+     * @param oldname
+     */
     public void updateCoachGroup(CoachGroup cg , String oldname){
     	MYSQLDAOCoachGroup.getInstance().update(cg, this, oldname);
     	

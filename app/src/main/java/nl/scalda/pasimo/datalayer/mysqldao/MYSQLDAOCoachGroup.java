@@ -5,6 +5,7 @@
  */
 package nl.scalda.pasimo.datalayer.mysqldao;
 
+import java.sql.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -20,6 +21,7 @@ import org.hibernate.query.NativeQuery;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.service.CoachGroupService;
 import nl.scalda.pasimo.service.EducationTeamService;
@@ -46,7 +48,13 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 			throw new ExceptionInInitializerError(ex);
 		}
 	}
-
+	
+	/**
+	 * Creates coachGroup  
+	 * CoachGroup gets added to the DataBase
+	 * @Param CoachGroup
+	 * @Param EducationTeam
+	 */
 	@Override
 	public void create(CoachGroup CoachGroup, EducationTeam edu) {
 		Session session = factory.openSession();
@@ -62,7 +70,6 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 
 			tx.commit();
 
-			//System.out.println("created");
 		} catch (HibernateException e) {
 			if (tx != null)
 				tx.rollback();
@@ -73,28 +80,59 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 
 	}
 
+	
+	/**
+	 * Reads from the exsiting coachgroups in th DataBase
+	 * @param CoachGroup
+	 */
 	@Override
-	public CoachGroup read(CoachGroup CoachGroup) {
-		return CoachGroup;
+	public void read(CoachGroup cg) {
+		Session session = factory.openSession();
+		Transaction tx = null;
+	
+		try {
+			tx = session.beginTransaction();
+			Object[] obj = (Object[]) session
+					.createNativeQuery( "SELECT * FROM coachgroup WHERE name = :name")
+					.setParameter("name", cg.getName()).getSingleResult();
+			   cg.setName(String.valueOf(obj[0]));
+				
+				cg.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(String.valueOf(obj[1]))));
+				EducationTeam bla =  EducationTeamService.getInstance().read(Integer.parseInt(String.valueOf(obj[2])));
+                bla.getCoachGroups().add(cg);
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
 	}
 
+	
+	/**
+	 * Updates choosen variables from coachgroup
+	 * @param CoachGroup
+	 * @param EducationTeam
+	 * @param String
+	 */
 	@Override
 	public void update(CoachGroup coachGroup, EducationTeam eduId, String Oldname) {
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			//NativeQuery query1 = session.createNativeQuery("SET foreign_key_checks = 0;");
+			
 			NativeQuery query2 = session.createNativeQuery("UPDATE coachgroup set name = :name, teacher_employeenumber = :teacher_employeenumber , educationTeam_educationTeamID= :educationTeam_educationTeamID where name = :oldname ;");
-			//NativeQuery query3 = session.createNativeQuery("SET foreign_key_checks = 1;");
-			//query1.executeUpdate();
+			
 			query2.setParameter("name", coachGroup.getName())
 			.setParameter("teacher_employeenumber", coachGroup.getCoach().getEmployeeNumber())
 			.setParameter("educationTeam_educationTeamID",  eduId.getId())
 			.setParameter("oldname", Oldname);
 	
 			query2.executeUpdate();
-			//query3.executeUpdate();
+			
 		} catch (HibernateException e) {
 			if (tx != null)
 				tx.rollback();
@@ -106,6 +144,10 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 
 	}
 
+	/**
+	 * deletes the chosen coachgroup from the DataBase
+	 * @param CoachGroup
+	 */
 	@Override
 	public void delete(CoachGroup CoachGroup) {
 		Session session = factory.openSession();
@@ -129,6 +171,10 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 
 	}
 
+	/**
+	 * Reads all exsisting coachgroups from the DataBase
+	 * 
+	 */
 	@Override
 	public TreeSet<CoachGroup> readAll() {
 		Session session = factory.openSession();
@@ -154,10 +200,14 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
         } finally {
             session.close();
         }
-        System.out.println("Read");
+      
         return coachGroups;
     }
 	
+	/**
+	 * Reads all the EducationTeam ids from the Database
+	 * @param EducationTeam
+	 */
 	@Override
 	public TreeSet<CoachGroup> readAllBYTeam(EducationTeam t) {
 		Session session = factory.openSession();
@@ -189,7 +239,7 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 	        } finally {
 	            session.close();
 	        }
-		System.out.println(coach);
+	
 	        return coach;
 	}
 

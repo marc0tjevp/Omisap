@@ -89,7 +89,9 @@ public class CoachGroupService {
 	/**
 	 * updates a CoachGroup
 	 * 
-	 * @param cg
+	 * String oldname so the DataBase can find the CoachGroup in the DAO so it can be updated
+	 * @param EducationTeam
+	 * @param String oldname
 	 */
 	public void update(CoachGroup cg, EducationTeam eduId, String oldname) {
 			eduId.updateCoachGroup(cg, oldname);
@@ -101,7 +103,6 @@ public class CoachGroupService {
 	 * Sends CoachGroup to EducationTeam to delete
 	 * 
 	 * @param cg
-	 * @param edu
 	 */
 	public void delete(CoachGroup cg) {
 		for (EducationTeam edu : EducationTeamService.getInstance().getEducationTeams()) {

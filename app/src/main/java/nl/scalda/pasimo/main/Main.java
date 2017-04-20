@@ -17,31 +17,30 @@ public class Main {
 	public static void main(String args[]) {
 
 		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
-		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 		Teacher teacher = new Teacher("han", 215950, "im@student.nl");
 		CoachGroup cg = new CoachGroup("abc", teacher);
+		CoachGroup bla = new CoachGroup("abc");
 		EducationTeam ed = new EducationTeam("appy", "ICOAO", 1);
-		
-		
-		//ed.addCoachGroup(cg);
-		//ed.loadCoachGroups();
-		//System.out.println(ed.getCoachGroups());
-		System.out.println(MYSQLDAOTeacher.getInstance().readByEmployeeNumber(215950));
-	
-	 //   EducationTeamService.getInstance().getEducationTeams();
-		//TestDAOEducationTeam.getInstance().create(ed);
-		
-//		System.out.println(DAOFactory.getTheFactory().getDAOCoachGroup().readAllBYTeam(ed));
-//		Delete
-//		CoachGroupService.getInstance().delete(cg);
-
-// 		ReadbyTeam
-//		System.out.println(MYSQLDAOCoachGroup.getInstance().readAllBYTeam(ed));
-		
+		Teacher t = new Teacher("kslahfb", 82365, "habg@slakbg.nl");
+		String oldname = cg.getName();		
+		cg.setName("klaas");
+		cg.setCoach(teacher);
+		bla.load();
+		System.out.println(bla);
 //		CREATE
 //		cg.setCoach(teacher);
 //		EducationTeamService.getInstance().getEducationTeams().add(ed);
 //		CoachGroupService.getInstance().create(cg, ed);
+		
+//		UPDATE
+//		CoachGroupService.getInstance().update(cg, ed, oldname);
+		
+		
+//		DELETE		
+//		CoachGroupService.getInstance().delete(cg);
+
+//		ReadByTeam
+//		System.out.println(CoachGroupService.getInstance().readAll());
 
 	}
 }
