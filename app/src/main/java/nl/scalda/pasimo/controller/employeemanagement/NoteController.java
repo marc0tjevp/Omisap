@@ -13,6 +13,7 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 public class NoteController extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
+	private String employeeFirstName;
 	private String madeBy;
 	private int id;
 	private Teacher teacher = new Teacher("test", 1);
@@ -123,4 +124,13 @@ public class NoteController extends ActionSupport {
 		return serialVersionUID;
 	}
 
+	public String getEmployeeFirstName() {
+		return employeeFirstName;
+	}
+
+	public void setEmployeeFirstName(String employeeFirstName) {
+		this.employeeFirstName = employeeFirstName;
+	}
+
+	
 }
