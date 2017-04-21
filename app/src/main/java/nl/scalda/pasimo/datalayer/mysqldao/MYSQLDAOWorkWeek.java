@@ -10,6 +10,7 @@ import org.hibernate.cfg.Configuration;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkWeek;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
+import nl.scalda.pasimo.model.timeregistration.WorkBlock;
 import nl.scalda.pasimo.model.timeregistration.WorkWeek;
 
 public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
@@ -58,7 +59,6 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 			for (Iterator iterator = weekList.iterator(); iterator.hasNext();) {
 				Object[] obj = (Object[]) iterator.next();
 				WorkWeek workweek = new WorkWeek(Integer.parseInt(String.valueOf(obj[0])));
-
 				workweeks.add(workweek);
 		
 			}
@@ -69,8 +69,11 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 			e.printStackTrace();
 		} finally {
 			System.out.println(workweeks);
+	
 			session.close();
 		}
 		return workweeks;
 	}
+
+
 }
