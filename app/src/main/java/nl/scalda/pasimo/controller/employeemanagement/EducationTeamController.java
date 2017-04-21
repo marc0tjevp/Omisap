@@ -2,15 +2,18 @@ package nl.scalda.pasimo.controller.employeemanagement;
 
 
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.service.EducationTeamService;
+
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class EducationTeamController extends ActionSupport {
 
-
+    public EducationTeam educationTeam = new EducationTeam();
     public String name;
     public String abbreviation;
+    private int id;
     
     public TreeSet<EducationTeam>educationteams = new TreeSet<>();
     
@@ -19,47 +22,51 @@ public class EducationTeamController extends ActionSupport {
     	
     	return SUCCESS;
     }
-
-    public String addEducationTeam() {
-
-        EducationTeam d = new EducationTeam(name, abbreviation);
-
-        educationteams.add(d);
+    
+    public String create(){
 
         return SUCCESS;
     }
+    
+    public String addEducationTeam(){
+        educationTeam.getAbbreviation();
+        EducationTeam e = getEducationTeamID(id);
+        e.addEducationTeam(educationTeam);
+        	
+    	return SUCCESS;
+    }
 
-    public String editEducationTeam() {
-        // Executed when educationTeam edit form is submitted
-    	EducationTeam EducationTeam = null;
-    	
-   if(EducationTeam.class.equals(name))
-	   EducationTeam = new EducationTeam(name, abbreviation);
-    else {
-	    EducationTeam = new EducationTeam(name, abbreviation);
-   }
-   
-        return SUCCESS;
+    
+    public String delete(){
 
+    	return SUCCESS;
     }
 
     public String deleteEducationTeam() {
-        // Executed when educationTeam edit form is submitted
-         
-    	if(EducationTeam.class.equals(name))
-    		this.deleteEducationTeam();
-    else{
-            return null;
-    }
-		return SUCCESS;
-    }
+      	 educationTeam = getEducationTeamID(id);
+      	 educationTeam.removeEducationTeam(educationTeam);
 
-    public String getEducationTeams() {
-        EducationTeamController team = null;
-		return team.getEducationTeams();
-    }
+   		return null;
+       }
+        
+    
+    public String edit(){
+
+        return SUCCESS;
+  }
 
 
+
+
+    
+
+    private EducationTeam getEducationTeamID(int id) {
+    	try{
+    		return (EducationTeam) EducationTeamService.getInstance().getEducationTeams(id);
+    	}catch(Exception e){
+    		return null;
+    	}
+    }
 
     public String getName() {
         return name;
@@ -76,5 +83,4 @@ public class EducationTeamController extends ActionSupport {
     public void setAbbreviation(String abbreviation) {
         this.abbreviation = abbreviation;
     }
-
 }

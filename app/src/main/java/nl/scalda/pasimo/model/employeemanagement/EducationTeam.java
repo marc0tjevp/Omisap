@@ -4,6 +4,7 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 
+import java.util.Set;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
@@ -15,7 +16,7 @@ public class EducationTeam implements Comparable<EducationTeam> {
 
 	private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
     private TreeSet<Teacher> teachers = new TreeSet<>();
-
+    private Set<EducationTeam> educationTeams;
 
     /**
      * Abbreviation of the EducationTeam; e.g. AO
@@ -99,6 +100,18 @@ public class EducationTeam implements Comparable<EducationTeam> {
     public EducationTeam(String abbreviation, String name) {
         this.abbreviation = abbreviation;
         this.name = name;
+    }
+    public void removeEducationTeam(EducationTeam educationTeam) {
+        this.educationTeams.remove(educationTeam);
+        DAOFactory.getTheFactory().getDAOEducationTeam().delete(educationTeam);
+    }
+    
+    public void addEducationTeam(EducationTeam educationTeam) {
+        this.educationTeams.add(educationTeam);
+        DAOFactory.getTheFactory().getDAOEducationTeam().create(educationTeam);
+   
+        
+        
     }
 
     //</editor-fold>

@@ -34,7 +34,7 @@
                             <td>ApplicatieOntwikkeling</td>
                             <td>                      
                               <a data-toggle="modal" data-target="#deleteConfirmation" class="btn btn-danger align-right"><i class="fa fa-trash"></i></a>
-                              <a href="educationTeam/edit" class="btn btn-primary aligh-right"><i class="fa fa-edit"></i></a></td>
+                              <a href="educationTeam/update" class="btn btn-primary aligh-right"><i class="fa fa-edit"></i></a></td>
                         </thead>
                         <tbody>
                             <s:iterator value="educationTeams">
@@ -69,15 +69,17 @@
             </div>
 
         <!-- Modal for Delete Confirmation -->
+       
         <div id="deleteConfirmation" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
+                    <form action="deleteEducationTeam"></form>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Verwijderen</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Weet u zeker dat u "name goes here" wilt verwijderen?</p>
+                        <p>Weet u zeker dat u deze wilt verwijderen?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Annuleren</button>

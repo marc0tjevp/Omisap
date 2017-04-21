@@ -15,7 +15,7 @@ public class EducationTeamService {
         educationTeams = DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
     }
 
-    public Set<EducationTeam> getEducationTeams() {
+    public Set<EducationTeam> getEducationTeams(int id) {
         return educationTeams;
     }
 
@@ -33,5 +33,7 @@ public class EducationTeamService {
         }
         return instance;
     }
-
+ public Set<EducationTeam> readAll(){
+	 return DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
+ }
 }

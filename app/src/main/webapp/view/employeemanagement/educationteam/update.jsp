@@ -7,14 +7,13 @@
 <t:layout2>
     <jsp:attribute name="content">
 
-<<<<<<< HEAD
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <div>
                         <h1>Edit EducationTeam</h1>
 
-                        <form action="editEducationTeam">
+                        <form action="update">
 
                             <div class="form-group">
                                 <label class="control-label" for="name">Name</label>

@@ -95,10 +95,11 @@
 			method="create">
 			<result name="success">/view/employeemanagement/educationteam/create.jsp
 			</result>
+
 		</action>
-                <action name="educationTeam/edit"
+                <action name="educationTeam/update"
 			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
-			method="update">
+			method="edit">
 			<result name="success">/view/employeemanagement/educationteam/update.jsp
 			</result>
 		</action>

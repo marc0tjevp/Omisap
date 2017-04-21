@@ -180,7 +180,7 @@ public class TeacherController extends ActionSupport {
 	 * @return TreeSet<EducationTeam>
 	 */
 	public TreeSet<EducationTeam> getEducationTeams() {
-		educationTeams.addAll(EducationTeamService.getInstance().getEducationTeams());
+		educationTeams.addAll(EducationTeamService.getInstance().getEducationTeams(id));
 		return educationTeams;
 	}
 	

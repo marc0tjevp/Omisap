@@ -39,7 +39,7 @@ public class CoachGroupService {
      * @return cg
      */
     public CoachGroup readCoachGroup(String name) {
-    	for(EducationTeam edu: EducationTeamService.getInstance().getEducationTeams() ){
+    	for(EducationTeam edu: EducationTeamService.getInstance().getEducationTeams(0) ){
     		  for(CoachGroup cg :edu.getCoachGroups()){
     			  if(cg.getName().equals(name)){
     				  return cg;
@@ -56,7 +56,7 @@ public class CoachGroupService {
      * @return edu
      */
     public EducationTeam getEducationTeam(CoachGroup cg) {
-    	for(EducationTeam edu: EducationTeamService.getInstance().getEducationTeams() ){
+    	for(EducationTeam edu: EducationTeamService.getInstance().getEducationTeams(0) ){
     			  if(edu.getCoachGroups().contains(cg)){
     				  return edu;
     		  }
@@ -70,7 +70,7 @@ public class CoachGroupService {
      */
     public TreeSet<CoachGroup> readAll() {
     	TreeSet<CoachGroup> AllCoachGroups = new TreeSet<>();
-    	for(EducationTeam edu: EducationTeamService.getInstance().getEducationTeams() ){
+    	for(EducationTeam edu: EducationTeamService.getInstance().getEducationTeams(0) ){
     		AllCoachGroups.addAll(edu.getCoachGroups());
     		}
     	return AllCoachGroups;
@@ -91,7 +91,7 @@ public class CoachGroupService {
      * @param edu
      */
     public void delete(CoachGroup cg) {
-    	for(EducationTeam edu: EducationTeamService.getInstance().getEducationTeams() ){
+    	for(EducationTeam edu: EducationTeamService.getInstance().getEducationTeams(0) ){
     		if(edu.getCoachGroups().contains(cg)){
     		  edu.deleteCoachGroup(cg);
     		  }
