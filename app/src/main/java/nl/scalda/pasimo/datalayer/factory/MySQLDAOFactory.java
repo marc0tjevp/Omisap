@@ -73,7 +73,6 @@ public class MySQLDAOFactory extends DAOFactory {
 		return MYSQLDAOEducationTeam.getInstance();
 
 	}
-
 	@Override
 	public IDAOWorkBlock getDAOWorkBlock() {
 		
