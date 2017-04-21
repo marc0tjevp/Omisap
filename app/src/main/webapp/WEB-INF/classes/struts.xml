@@ -76,17 +76,10 @@
 			method="loadTeacherInfo">
 			<result name="success">/view/employeemanagement/teacher/TeacherInformation.jsp</result>
 		</action>		
-		<action name="deleteWorkBlock"
-			class="nl.scalda.pasimo.controller.timeregistration.TimeController"
-			method="removeWorkBlock">
-			<result name="success" type="redirect">/view/timeregistration/index.jsp
-			</result>
-		</action>
 		<action name="addWorkBlock"
 		class="nl.scalda.pasimo.controller.timeregistration.TimeController"
 		method="createWorkBlock">
-		<result name="success" type="redirect">/view/timeregistration/index.jsp
-		</result>
+		<result name="success" type="redirect">TimeRegistration</result>
 		</action>
 		<action name="TeacherPresence" class="nl.scalda.pasimo.controller.presenceregistration.PresenceController"
                 method="execute">
@@ -135,7 +128,7 @@
 		</action>
 		<action name="removeWorkBlock" class="nl.scalda.pasimo.controller.timeregistration.TimeController"
 	method="removeWorkBlock">
-	<result name="success" type="redirect">/view/timeregistration/index.jsp</result>
+	<result name="success" type="redirect">TimeRegistration</result>
 	</action>
 	</package>
 </struts>

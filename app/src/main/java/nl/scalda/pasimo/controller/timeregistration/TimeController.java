@@ -20,7 +20,14 @@ public class TimeController extends ActionSupport {
 	 public TreeSet<WorkBlock> WorkBlocks = new TreeSet<>();
 
 	WorkingDay w = new WorkingDay("Maandag");
+	WorkBlock wq  = new WorkBlock(1, new PasimoTime(8, 30), new PasimoTime(10, 10));
+	WorkBlock wq1 = new WorkBlock(2, new PasimoTime(10, 25), new PasimoTime(11, 15));
+	WorkBlock wq2 = new WorkBlock(3, new PasimoTime(11, 25), new PasimoTime(12, 05));
+	WorkBlock wq3 = new WorkBlock(4, new PasimoTime(12, 35), new PasimoTime(14, 15));
+	WorkBlock wq4 = new WorkBlock(5, new PasimoTime(14, 30), new PasimoTime(15, 20));
+	WorkBlock wq5 = new WorkBlock(6, new PasimoTime(22, 30), new PasimoTime(23, 20));
 
+	private Object workblock;
 	public String SSC() {
 
 		return SUCCESS;
@@ -30,12 +37,7 @@ public class TimeController extends ActionSupport {
 
 	public String execute() {
 
-		WorkBlock wq  = new WorkBlock(1, new PasimoTime(8, 30), new PasimoTime(10, 10));
-		WorkBlock wq1 = new WorkBlock(2, new PasimoTime(10, 25), new PasimoTime(11, 15));
-		WorkBlock wq2 = new WorkBlock(3, new PasimoTime(11, 25), new PasimoTime(12, 05));
-		WorkBlock wq3 = new WorkBlock(4, new PasimoTime(12, 35), new PasimoTime(14, 15));
-		WorkBlock wq4 = new WorkBlock(5, new PasimoTime(14, 30), new PasimoTime(15, 20));
-		WorkBlock wq5 = new WorkBlock(6, new PasimoTime(22, 30), new PasimoTime(23, 20));
+
 //		w.addWorkBlock(wq);
 //		w.addWorkBlock(wq1);
 //		w.addWorkBlock(wq2);
@@ -54,42 +56,43 @@ public class TimeController extends ActionSupport {
 		WorkBlocks.add(wq2);
 		WorkBlocks.add(wq3);
 		WorkBlocks.add(wq4);
+		WorkBlocks.remove(wq1);
+		
 		System.out.println(WorkBlocks);
 		return SUCCESS;
 	}
 
-	public String createWorkBlock(WorkBlock workblock) {
-		workblock.setId(0);
-		workblock.setStart(null);
-		workblock.setEnd(null);
-//		w.addWorkBlock(workblock);
-		WorkBlocks.add(workblock);
-		return SUCCESS;
-
-	}
-
-	public String updateWorkBlock(WorkBlock workblock) {
-		workblock.setId(0);
-		workblock.setStart(null);
-		workblock.setEnd(null);
-//		w.updateWorkBlock(workblock);
-		return SUCCESS;
-	}
-
-	public String removeWorkBlock(WorkBlock workblock) {
+//	public String createWorkBlock(WorkBlock workblock) {
+//		workblock.setId(0);
+//		workblock.setStart(null);
+//		workblock.setEnd(null);
+////		w.addWorkBlock(workblock);
+//		WorkBlocks.add(workblock);
+//		return SUCCESS;
+//
+//	}
+//
+//	public String updateWorkBlock(WorkBlock workblock) {
+//		workblock.setId(0);
+//		workblock.setStart(null);
+//		workblock.setEnd(null);
+////		w.updateWorkBlock(workblock);
+//		return SUCCESS;
+//	}
+//
+	public String removeWorkBlock() {
 //		w.deleteWorkBlock(workblock);
-		workblock.getId();
-		WorkBlocks.remove(workblock);
-		System.out.println(WorkBlocks);
+		
+		WorkBlocks.remove(wq1);
 		return SUCCESS;
 	}
-
-	public String readWorkBlock(WorkBlock workblock) {
-		workblock.getId();
-		workblock.getStart();
-		workblock.getEnd();
-		return SUCCESS;
-	}
-
-
+//
+//	public String readWorkBlock(WorkBlock workblock) {
+//		workblock.getId();
+//		workblock.getStart();
+//		workblock.getEnd();
+//		return SUCCESS;
+//	}
+//
+//
 }
