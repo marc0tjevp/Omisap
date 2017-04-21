@@ -48,7 +48,8 @@ public class NoteController extends ActionSupport {
 	public String noteAdd() {
 		Student s = new Student();
 		Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
-		teacher.createNote(title, message, s, madeBy);
+		teacher.createNote(title, message, s, teacher);
+
 		// Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
 
 		return SUCCESS;

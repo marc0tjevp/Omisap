@@ -59,7 +59,7 @@
 										class="col-md-12 noteTitle">Title: ${n.getTitle()}</div>
 							</div>
 							<div class="row">
-								<div class="col-md-12 noteMessage">Gemaakt door: ${n.getMadeBy()}</div>
+								<div class="col-md-12 noteMessage">Gemaakt door: ${n.note.getMadeBy().getFirstName()}</div>
 							</div>					
 							<div class="row">
 								<div class="col-md-12 noteMessage">Aanmaak datum: ${n.getCreationDate()}</div>

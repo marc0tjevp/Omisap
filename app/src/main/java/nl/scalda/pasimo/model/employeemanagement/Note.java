@@ -18,7 +18,7 @@ public class Note implements Comparable<Note> {
     private Date lastEdit;
     private Student assignedTo;
     private int ovNumber;
-    private int employeeNumber;
+    private String employeeAbbreviation;
     /* empty constructor */
    
     public Note(){
@@ -36,6 +36,7 @@ public class Note implements Comparable<Note> {
         this.lastEdit = new Date();
         assignedTo.getNoteList().add(this);
         Service.getInstance().getNoteService().create(this, assignedTo);
+        System.out.println(this.getMadeBy().getFirstName());
     }
 
     
@@ -103,12 +104,14 @@ public class Note implements Comparable<Note> {
 		this.ovNumber = ovNumber;
 	}
 
-	public int getEmployeeNumber() {
-		return employeeNumber;
+
+
+	public String getEmployeeAbbreviation() {
+		return employeeAbbreviation;
 	}
 
-	public void setEmployeeNumber(int employeeNumber) {
-		this.employeeNumber = employeeNumber;
+	public void setEmployeeAbbreviation(String employeeAbbreviation) {
+		this.employeeAbbreviation = employeeAbbreviation;
 	}
 
 	@Override

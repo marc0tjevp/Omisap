@@ -68,10 +68,10 @@ public class Teacher extends Person {
     	DAOFactory.getTheFactory().getDAOTeacher().create(this, null);
     }
     
-    public Note createNote(String title, String message, Student s, String madeBy){
+    public Note createNote(String title, String message, Student s, Teacher madeBy){
     	System.out.println("test");
-    	Note n = new Note(title, message, s, this);
-    
+    	Note n = new Note(title, message, s, madeBy);
+    	
     return n;
     }
     
