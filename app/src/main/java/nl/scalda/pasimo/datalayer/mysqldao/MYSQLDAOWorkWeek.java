@@ -11,10 +11,7 @@ import org.hibernate.cfg.Configuration;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkWeek;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
-<<<<<<< HEAD
-=======
 import nl.scalda.pasimo.model.timeregistration.PasimoTime;
->>>>>>> 519781b6aa36e7b66a5c2094c74fa441f908ca4a
 import nl.scalda.pasimo.model.timeregistration.WorkBlock;
 import nl.scalda.pasimo.model.timeregistration.WorkWeek;
 import nl.scalda.pasimo.model.timeregistration.WorkingDay;
