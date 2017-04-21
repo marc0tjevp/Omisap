@@ -11,6 +11,7 @@ import org.apache.struts2.components.Set;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.timeregistration.PasimoTime;
 import nl.scalda.pasimo.model.timeregistration.WorkBlock;
 import nl.scalda.pasimo.model.timeregistration.WorkingDay;
@@ -36,63 +37,47 @@ public class TimeController extends ActionSupport {
 
 
 	public String execute() {
-
-
-//		w.addWorkBlock(wq);
-//		w.addWorkBlock(wq1);
-//		w.addWorkBlock(wq2);
-//		w.addWorkBlock(wq3);
-//		w.addWorkBlock(wq4);
-//		w.addWorkBlock(wq5);
-//		WorkBlocks.remove(wq);
-//		WorkBlocks.remove(wq1);
-//		WorkBlocks.remove(wq2);
-//		WorkBlocks.remove(wq3);
-//		WorkBlocks.remove(wq4);
-		
+//		DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
 		
 		WorkBlocks.add(wq);
 		WorkBlocks.add(wq1);
 		WorkBlocks.add(wq2);
 		WorkBlocks.add(wq3);
 		WorkBlocks.add(wq4);
-		WorkBlocks.remove(wq1);
+		WorkBlocks.add(wq5);
 		
 		System.out.println(WorkBlocks);
 		return SUCCESS;
 	}
 
-//	public String createWorkBlock(WorkBlock workblock) {
+	public String createWorkBlock(WorkBlock workblock) {
+		workblock.setId(0);
+		workblock.setStart(null);
+		workblock.setEnd(null);
+	    w.addWorkBlock(workblock);
+		return SUCCESS;
+
+	}
+
+	public String updateWorkBlock(WorkBlock workblock) {
 //		workblock.setId(0);
 //		workblock.setStart(null);
 //		workblock.setEnd(null);
-////		w.addWorkBlock(workblock);
-//		WorkBlocks.add(workblock);
-//		return SUCCESS;
-//
-//	}
-//
-//	public String updateWorkBlock(WorkBlock workblock) {
-//		workblock.setId(0);
-//		workblock.setStart(null);
-//		workblock.setEnd(null);
-////		w.updateWorkBlock(workblock);
-//		return SUCCESS;
-//	}
-//
-	public String removeWorkBlock() {
-//		w.deleteWorkBlock(workblock);
-		
-		WorkBlocks.remove(wq1);
+//		w.updateWorkBlock(workblock);
 		return SUCCESS;
 	}
-//
-//	public String readWorkBlock(WorkBlock workblock) {
-//		workblock.getId();
-//		workblock.getStart();
-//		workblock.getEnd();
-//		return SUCCESS;
-//	}
-//
-//
+
+	public String removeWorkBlock(WorkBlock workblock) {
+//		w.deleteWorkBlock(workblock);
+		return SUCCESS;
+	}
+
+	public String readWorkBlock(WorkBlock workblock) {
+		workblock.getId();
+		workblock.getStart();
+		workblock.getEnd();
+		return SUCCESS;
+	}
+
+
 }

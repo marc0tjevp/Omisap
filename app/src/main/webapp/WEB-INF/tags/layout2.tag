@@ -161,7 +161,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                  &lt;%&ndash;   <li><a href="<c:url value="coachGroups"><c:param name="action" value="all"/></c:url>">Overview</a></li>
                                 &ndash;%&gt;</ul>
                             </li>
-                            
+                             <li class="treeview">
+                                <a href="TimeRegistration"><i class="fa fa-user-plus"></i> <span>School Tijden</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <ul class="treeview-menu">
+                                 &lt;%&ndash;   <li><a href="<c:url value="TimeRegistration"><c:param name="action" value="all"/></c:url>">Overview</a></li>
+                                &ndash;%&gt;</ul>
+                            </li>
                             <li class="treeview">
                                 <a href="TeacherPresence"><i class="fa fa-user-plus"></i> <span>Aanwezigheid Docenten</span> <i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">

@@ -128,7 +128,7 @@
 		</action>
 		<action name="removeWorkBlock" class="nl.scalda.pasimo.controller.timeregistration.TimeController"
 	method="removeWorkBlock">
-	<result name="success" type="redirect">TimeRegistration</result>
+	<result name="success" type="redirect">/TimeRegistration</result>
 	</action>
 	</package>
 </struts>
