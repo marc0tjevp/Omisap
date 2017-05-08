@@ -1,6 +1,8 @@
 package nl.scalda.pasimo.controller.employeemanagement;
 
 
+import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.service.EducationTeamService;
 
@@ -32,6 +34,8 @@ public class EducationTeamController extends ActionSupport {
         educationTeam.getAbbreviation();
         EducationTeam e = getEducationTeamID(id);
         e.addEducationTeam(educationTeam);
+        MYSQLDAOEducationTeam.getInstance().create(e);
+        
         	
     	return SUCCESS;
     }

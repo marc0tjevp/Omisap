@@ -13,7 +13,7 @@
                     <div>
                         <h1>Edit EducationTeam</h1>
 
-                        <form action="update">
+                        <form action="edit">
 
                             <div class="form-group">
                                 <label class="control-label" for="name">Name</label>

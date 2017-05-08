@@ -97,6 +97,12 @@
 			</result>
 
 		</action>
+		    <action name="educationTeam/addEducationTeam"
+			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
+			method="create">
+			<result name="success" type="redirect">/educationTeam</result>
+		</action>
+		
                 <action name="educationTeam/update"
 			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
 			method="edit">
