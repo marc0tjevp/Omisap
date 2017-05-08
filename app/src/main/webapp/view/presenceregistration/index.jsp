@@ -20,53 +20,50 @@ table {
 }
 
 td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
+    border: 3px solid #dddddd;
+    text-align: center;
     padding: 8px;
 }
 
-tr:nth-child(odd) {
-    background-color: #dddddd;
-}
 .aTableAvailability{
 	font-weight: bold;
 }
 </style>
 
-<h1>Aanwezigheid Docenten</h1>
+
+
+<h1>Beschikbaarheid Docenten</h1>
 <div class="row">
-	<div class="col-md-2 col-lg-2 col-sm-2"></div>
-	<div class="col-md-8 col-lg-8 col-sm-8">
+	<div class="col-md-3 col-lg-3 col-sm-3"></div>
+	<div class="col-md-6 col-lg-6 col-sm-6">
 		<table>
 			<tr>
-				<th width="70%">Naam</th>
-				<th width="30%">Aanwezigheid</th>
+				<th style="background-color: #e6e6e6;" width="50%">Aanwezig</th>
+				<th style="background-color: #e6e6e6;" width="50%">Afwezig</th>
 			</tr>
-			<tr>
-				<td>Bram van Huele</td>
-				<td style="color:green" class="aTableAvailability">Aanwezig</td>
-			</tr>
-			<tr>
-				<td>Rens Brandon</td>
-				<td style="color:orange" class="aTableAvailability">Niet Bekend</td>
-			</tr>
-			<tr>
-				<td>Cees Schipper</td>
-				<td style="color:red" class="aTableAvailability">Afwezig</td>
-			</tr>
-			<tr>
-				<td>Maxim Schoonen</td>
-				<td style="color:green" class="aTableAvailability">Aanwezig</td>
-			</tr>
-			<tr>
-				<td>Gino Palo</td>
-				<td style="color:green" class="aTableAvailability">Aanwezig</td>
-			</tr>
+			
+			<s:set value="checkedInTeacher" var="c"/>
+			
+			<s:iterator value="teacher" var="t">
+				<tr>
+				<s:if test="%{t in c}">
+					<td><s:property value="getFullName()"/></td>
+					<td>testingif</td>
+				</s:if>
+				
+				<s:else>
+
+					<td>testingelse</td>
+					<td><s:property value="getFullName()"/></td>
+				</s:else>
+					
+					
+				</tr>
+			</s:iterator>
 		</table>
+		
 	</div>
-	<div class="col-md-2 col-lg-2 col-sm-2"></div>
-</div>
-<div class="row">
+	<div class="col-md-3 col-lg-3 col-sm-3"></div>
 </div>
 
 

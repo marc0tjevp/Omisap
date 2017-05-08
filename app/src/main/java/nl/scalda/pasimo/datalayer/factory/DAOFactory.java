@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.datalayer.factory;
 
+import nl.scalda.pasimo.datalayer.interfaces.IDAOCheckIn;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
@@ -36,5 +37,7 @@ public abstract class DAOFactory {
     public abstract IDAOWorkingDay getDAOWorkingDay();
 
     public abstract IDAOWorkBlock getDAOWorkBlock();
+    
+    public abstract IDAOCheckIn getDAOCheckIn();
 
 }

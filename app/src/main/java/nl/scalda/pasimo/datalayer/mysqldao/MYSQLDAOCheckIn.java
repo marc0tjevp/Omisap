@@ -1,6 +1,9 @@
 package nl.scalda.pasimo.datalayer.mysqldao;
 
 import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.TreeSet;
 
@@ -36,22 +39,25 @@ public class MYSQLDAOCheckIn implements IDAOCheckIn {
 		TreeSet<CheckIn> Checkin = new TreeSet<>();
 		try {
 		   tx = session.beginTransaction();
-		 List checkInList = session.createNativeQuery("SELECT c.cardID, c.date, p.email, p.name FROM card_log AS c INNER JOIN person AS p ON c.cardID = p.cardID INNER JOIN teacher AS t ON p.email = t.person_email;").getResultList();
-		   System.out.println(checkInList);
+		 List checkInList = session.createNativeQuery("SELECT c.cardID, c.date, p.email, p.firstName FROM card_log AS c INNER JOIN person AS p ON c.cardID = p.card_log_cardID INNER JOIN teacher AS t ON p.email = t.person_email;").getResultList();
+
+		   
 		 for(Iterator iterator = checkInList.iterator();iterator.hasNext();){
-			   /*
-			    * obj[0] = person.firstName
-			    * obj[1] = person.insertion
-			    * obj[2] = person.lastName
-			    */
+
 			   Object[] obj = (Object[]) iterator.next();
+			   String dateString = String.valueOf(obj[1]);
+			   SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			   GregorianCalendar dt = new GregorianCalendar();
+			   dt.setTime(sdf.parse(dateString));
+
 			   CheckIn checkin = new CheckIn(
-					   String.valueOf(obj[0]),
-					   String.valueOf(obj[1]),
-					   String.valueOf(obj[2]));
+					   Integer.parseInt(String.valueOf(obj[0])),
+					   dt,
+					   String.valueOf(obj[2]),
+					   String.valueOf(obj[3]));
+			   
 			   
 			   Checkin.add(checkin);
-			   System.out.println(checkInList);
 		   }
 		   tx.commit();
 		}

@@ -88,6 +88,11 @@
 			<result name="success">/view/employeemanagement/educationteam/index.jsp
 			</result>
 		</action>
+		<action name="TeacherAvailability"
+			class="nl.scalda.pasimo.controller.presenceregistration.PresenceController"
+			method="loadCheckedInTeachers">
+			<result name="success">/view/presenceregistration/index.jsp</result>
+		</action>
 
 	</package>
 </struts>

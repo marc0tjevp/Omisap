@@ -128,7 +128,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		Transaction tx = null;
 		try{
 			tx = session.beginTransaction();
-			session.createNativeQuery("DELETE FROM teacher_education_team WHERE teacher_employeeNumber = :employeeNumber").setParameter("employeeNumber", t.getEmployeeNumber()).executeUpdate();
+			session.createNativeQuery("DELETE FROM education_team_teacher WHERE teacher_employeeNumber = :employeeNumber").setParameter("employeeNumber", t.getEmployeeNumber()).executeUpdate();
 			session.delete(t);
 			Person p = new Person(t.getEmail());
 			session.delete(p);
@@ -153,7 +153,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		TreeSet<Teacher> teachers = new TreeSet<>();
 		try {
 		   tx = session.beginTransaction();
-		   List teachersList = session.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email INNER JOIN teacher_education_team ON teacher_education_team.teacher_employeeNumber = teacher.employeeNumber ;")
+		   List teachersList = session.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email INNER JOIN education_team_teacher ON education_team_teacher.teacher_employeeNumber = teacher.employeeNumber ;")
 				   .getResultList();
 		   for(Iterator iterator = teachersList.iterator();iterator.hasNext();){
 			   /*
@@ -220,7 +220,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			 * obj[9] = person.dateOfBirth
 			 */
 			Object[] obj = (Object[]) session
-					.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email INNER JOIN teacher_education_team ON teacher_education_team.teacher_employeeNumber = teacher.employeeNumber WHERE employeeNumber=:employeeNumber")
+					.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email INNER JOIN education_team_teacher ON education_team_teacher.teacher_employeeNumber = teacher.employeeNumber WHERE employeeNumber=:employeeNumber")
 					.setParameter("employeeNumber", employeeNumber).getSingleResult();
 			String[] dateOfBirth = String.valueOf(obj[9]).split("-");
 			teacher = new Teacher(Integer.parseInt(String.valueOf(obj[0])),
@@ -256,13 +256,13 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		TreeSet<Teacher> teachers = new TreeSet<>();
 		try {
 		   tx = session.beginTransaction();
-		   List teachersList = session.createNativeQuery("SELECT * FROM teacher_education_team INNER JOIN teacher ON teacher_employeeNumber = teacher.employeeNumber INNER JOIN person ON teacher.person_email = person.email WHERE education_team_id=:educationTeamID ;")
+		   List teachersList = session.createNativeQuery("SELECT * FROM education_team_teacher INNER JOIN teacher ON person_teacher_email = teacher.person_email INNER JOIN person ON teacher.person_email = person.email WHERE EducationTeam_educationTeamID=:educationTeamID ;")
 				   .setParameter("educationTeamID", t.getId())
 				   .getResultList();
 		   for(Iterator iterator = teachersList.iterator();iterator.hasNext();){
 			   /*
-			    * obj[0] = teacher_education_team.teacher_employeeNumber
-			    * obj[1] = teacher_education_team.education_team_id
+			    * obj[0] = education_team_teacher.teacher_employeeNumber
+			    * obj[1] = education_team_teacher.EducationTeam_educationTeamID
 			    * obj[2] = teacher.employeeNumber
 			    * obj[3] = teacher.abbreviation
 			    * obj[4] = teacher.person_email
@@ -275,13 +275,13 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			    * obj[11] = person.dateOfBirth
 			    */
 			   Object[] obj = (Object[]) iterator.next();
-			   String[] dateOfBirth = String.valueOf(obj[11]).split("-");
+			   String[] dateOfBirth = String.valueOf(obj[10]).split("-");
 			   Teacher teacher = new Teacher(Integer.parseInt(String.valueOf(obj[2])),
 					   String.valueOf(obj[6]),
-					   Integer.parseInt(String.valueOf(obj[7])),
+					   Integer.parseInt(String.valueOf(obj[5])),
+					   String.valueOf(obj[7]),
 					   String.valueOf(obj[8]),
 					   String.valueOf(obj[9]),
-					   String.valueOf(obj[10]),
 					   Integer.parseInt(String.valueOf(dateOfBirth[0])),
 					   Integer.parseInt(String.valueOf(dateOfBirth[1])),
 					   Integer.parseInt(String.valueOf(dateOfBirth[2])));
@@ -324,7 +324,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			 * obj[9] = person.dateOfBirth
 			 */
 			Object[] obj = (Object[]) session
-					.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email INNER JOIN teacher_education_team ON teacher_education_team.teacher_employeeNumber = teacher.employeeNumber WHERE abbreviation=:abbreviation")
+					.createNativeQuery("SELECT * FROM teacher INNER JOIN person ON teacher.person_email=person.email INNER JOIN education_team_teacher ON education_team_teacher.teacher_employeeNumber = teacher.employeeNumber WHERE abbreviation=:abbreviation")
 					.setParameter("abbreviation", abbreviation).getSingleResult();
 			String[] dateOfBirth = String.valueOf(obj[9]).split("-");
 			teacher = new Teacher(Integer.parseInt(String.valueOf(obj[0])),
@@ -388,7 +388,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		try{
 			tx = session.beginTransaction();
 			Object[] obj = (Object[]) session
-					.createNativeQuery("SELECT * FROM education_team WHERE educationTeamID = (SELECT education_team_id FROM teacher_education_team WHERE teacher_employeeNumber = :employeeNumber)")
+					.createNativeQuery("SELECT * FROM education_team WHERE educationTeamID = (SELECT EducationTeam_educationTeamID FROM education_team_teacher WHERE teacher_employeeNumber = :employeeNumber)")
 					.setParameter("employeeNumber", teacher.getEmployeeNumber()).getSingleResult();
 			educationTeam = new EducationTeam(String.valueOf(obj[2]),
 					String.valueOf(obj[1]),

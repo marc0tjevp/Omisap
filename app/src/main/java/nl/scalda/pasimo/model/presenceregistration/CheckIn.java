@@ -13,6 +13,11 @@ public class CheckIn extends Person {
 		super(firstName, insertion, lastName);
 	}
 	
+	public CheckIn(int cardID, GregorianCalendar date, String email, String firstName){
+		super(cardID, email, firstName);
+		this.setDate(date);
+	}
+	
 	public CheckIn(int logID, String cardID, int yearOfCheckIn, int monthOfCheckIn, int dayOfCheckIn, int hourOfCheckIn, int minuteOfCheckIn, int secondOfCheckIn){
 		super(cardID);
 		GregorianCalendar gc = new GregorianCalendar();
@@ -38,7 +43,10 @@ public class CheckIn extends Person {
 	}
 	
     public String toString() {
-        return "CheckIn [DAY=" + this.getDate().get(GregorianCalendar.DAY_OF_MONTH) + 
+        return "CheckIn [CardID=" + this.getCardID() +
+        		", Name=" + this.getFirstName() +
+        		", Email=" + this.getEmail() +
+        		", DAY=" + this.getDate().get(GregorianCalendar.DAY_OF_MONTH) + 
         		", Month=" + (this.getDate().get(GregorianCalendar.MONTH)+1) +
                 ", Year=" + this.getDate().get(GregorianCalendar.YEAR) + 
                 ", Hour=" + this.getDate().get(GregorianCalendar.HOUR_OF_DAY) +

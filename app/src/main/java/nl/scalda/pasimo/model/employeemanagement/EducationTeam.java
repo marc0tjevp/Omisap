@@ -82,8 +82,13 @@ public class EducationTeam implements Comparable<EducationTeam> {
     }
 
     public TreeSet<Teacher> getTeachers() {
+    	if(teachers.isEmpty()) {
+    		teachers.addAll(DAOFactory.getTheFactory().getDAOTeacher().readAllForEducationTeam(this));
+    	}
         return teachers;
     }
+    
+    
 
     public EducationTeam(int id, String name) {
         this.setId(id);
