@@ -56,9 +56,9 @@ public class CSVReader {
 				String[] YearsMonthsDays = student[5].split(date);
 
 //				}
-				Student a = new Student(Integer.parseInt(student[0]), 0, 0, 1, student[4], student[1], student[2], student[3], 0, Integer.parseInt(YearsMonthsDays[2]), 123, Integer.parseInt(YearsMonthsDays[1]), Integer.parseInt(YearsMonthsDays[0]));
-			    students.add(a);
-			    a.createStudent();
+				//Student a = new Student(Integer.parseInt(student[0]), 0, 0, 1, student[4], student[1], student[2], student[3], 0, Integer.parseInt(YearsMonthsDays[2]), 123, Integer.parseInt(YearsMonthsDays[1]), Integer.parseInt(YearsMonthsDays[0]));
+			    //students.add(a);
+			    //a.createStudent();
 			    
 			    
 			    
