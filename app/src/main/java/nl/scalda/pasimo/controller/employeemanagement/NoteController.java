@@ -59,7 +59,6 @@ public class NoteController extends ActionSupport {
 	public String noteDelete() {
 
 		return SUCCESS;
-
 	}
 
 
