@@ -9,8 +9,7 @@
 	</jsp:attribute>
 	<jsp:attribute name="content">
 
-	<div class="container" style="
-    max-width: 600px;">
+	<div class="container" style="max-width: 600px;">
 		<div class="row">
 			<div class="col-md-12 all">	
 		
@@ -20,15 +19,15 @@
 						</div>
 					
 					<div class="col-md-3 button2">
-					<a class="btn btn-primary" type="button" 
-								href="noteDeleteAll">Alles Verwijderen</a>
+					<a class="btn btn-primary" type="button" data-toggle="modal"
+								data-target="#overviewDeleteAll">Alles Verwijderen</a>
 					</div>
 					
 					<div class="col-md-3 button2" id="buttonseperator">
 					<a class="btn btn-primary" href="noteView"> Nieuw Aanmaken</a>
 					</div>
 				</div>
-				<div id="myModal" class="modal fade" role="dialog">
+	<div id="overviewDeleteAll" class="modal fade" role="dialog">
 	<div class="modal-dialog">
       <div class="modal-content">
     
@@ -39,8 +38,8 @@
       	<div class="modal-body">
    	   	</div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default"
-										data-dismiss="modal" id="noteDeleteAll">Alles verwijderen</button>
+        <a type="button" class="btn btn-default" id="noteDeleteAll"
+										href="noteDeleteAll">Alles verwijderen</a>
         <button type="button" class="btn btn-default"
 										data-dismiss="modal">Annuleren</button>
 
@@ -85,8 +84,8 @@
       	<div class="modal-body">
    	   	</div>
       <div class="modal-footer">
-        <a type="button" class="btn btn-default" 
-							id="noteDelete" href="noteDelete">Verwijderen</a>
+        <a type="button" class="btn btn-default" id="noteDelete"
+							href="noteDelete">Verwijderen</a>
         <a type="button" class="btn btn-default" href="noteEditView">Bewerken</a>
 
       </div>

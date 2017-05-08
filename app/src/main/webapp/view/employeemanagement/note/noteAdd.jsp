@@ -35,10 +35,10 @@
 <div class="form-group">
   <label for="sel1">Gemaakt door docent:	</label>
   <select name="madeBy" class="form-control" id="sel1">
-    <option value="Ma">Máéksz</option>
-    <option value="Re">Rens</option>
-    <option value="Br">Bram</option>
-    <option value="Gi">Gino</option>
+    <option value="Max">Máéksz</option>
+    <option value="Rens">Rens</option>
+    <option value="Bram">Bram</option>
+    <option value="Gino">Gino</option>
   </select>
 </div>
 				</div>
