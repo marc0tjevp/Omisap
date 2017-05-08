@@ -15,7 +15,17 @@
 			method="addLessonGroup">
 			<result name="success" type="json"></result>
 		</action>
+		
+		<action name="coachGroup/edit"
+			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+			method="getThisCoach">
+		</action>
 
+		<action name="coachGroup/array"
+			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+			method="ArrayCoach">
+
+		</action>
 		<!-- Updating a lesson group name -->
 		<action name="lessongroup/details/updatename"
 			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupDetailsAction"
@@ -168,18 +178,20 @@
 		</action>
 
 
-                <action name="educationTeam/create"
+		<action name="educationTeam/create"
 			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
 			method="create">
 			<result name="success">/view/employeemanagement/educationteam/create.jsp
 			</result>
 		</action>
-                <action name="educationTeam/edit"
+		<action name="educationTeam/edit"
 			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
 			method="update">
 			<result name="success">/view/employeemanagement/educationteam/update.jsp
 			</result>
 		</action>
+
     </package>
+
 </struts>
 

@@ -20,12 +20,12 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
 
 	public TestDAOCoachGroup() {
-<<<<<<< HEAD
+
 		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
 		coachGroups.add(new CoachGroup("A1", tc));
 		coachGroups.add(new CoachGroup("A2", tc));
 		coachGroups.add(new CoachGroup("A3", tc));
-=======
+
     	CoachGroup c1 = new CoachGroup("B1");
 		CoachGroup c2 = new CoachGroup("B2");
 		
@@ -58,7 +58,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 		coachGroups.add(new CoachGroup("A1"));
 		coachGroups.add(new CoachGroup("A2"));
 		coachGroups.add(new CoachGroup("A3"));
->>>>>>> cb74bd81699c256a6f60371c10c38929fd19e0bb
+
 	}
 
 	@Override
