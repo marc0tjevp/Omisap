@@ -63,16 +63,16 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 							"SELECT * FROM workweek INNER JOIN workingday ON workweek_id = workweek.id  INNER JOIN workblock ON workingday_name = workingday.name;")
 					.getResultList();
 			
-			System.out.println(weekList.get(0).getClass());
-			Object[] o = (Object[]) weekList.get(0);
-			System.out.println(o[4]);
+//			System.out.println(weekList.get(0).getClass());
+//			Object[] o = (Object[]) weekList.get(2);
+//			System.out.println(o[4]);
 			for (Iterator iterator = weekList.iterator(); iterator.hasNext();) {
 				
 				Object[] obj = (Object[]) iterator.next();
 				WorkWeek workweek = new WorkWeek(Integer.parseInt(String.valueOf(obj[0])));
 				workweeks.add(workweek);
 		
-				
+		  		
 //	
 //				Object[] obj = (Object[]) iterator.next();
 //				WorkWeek workweek = new WorkWeek(Integer.parseInt(String.valueOf(obj[0])));
