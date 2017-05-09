@@ -5,6 +5,7 @@ import java.util.TreeSet;
 
 public class Student extends Person {
 
+
 	private TreeSet<Note> noteList = new TreeSet<>();
 	private LessonGroup lessonGroup;
 	private int studentOV;
@@ -12,7 +13,7 @@ public class Student extends Person {
 	private CoachGroup coachGroup;
 
 	public Student(String email) {
-
+		this.setEmail(email);
 	}
 
 	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
@@ -21,11 +22,18 @@ public class Student extends Person {
 		this.studentOV = studentOV;
 		this.cohort = cohort;
 		this.noteList = noteList;
-	}
+
 	
+
+	
+	}
 
 	public TreeSet<Note> getNoteList() {
 		return noteList;
+	}
+
+	public void setNoteList(TreeSet<Note> noteList) {
+		this.noteList = noteList;
 	}
 
 	public LessonGroup getLessonGroup() {
@@ -75,3 +83,4 @@ public class Student extends Person {
 	}
 
 }
+
