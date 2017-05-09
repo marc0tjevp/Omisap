@@ -74,14 +74,12 @@ public class TestDAOFactory extends DAOFactory {
 	public IDAOWorkBlock getDAOWorkBlock() {
 		return TestDAOWorkBlock.getInstance();
 	
-		
-	}
+			}
 
 	@Override
 	public IDAOStudent getDAOStudent() {
 		// TODO Auto-generated method stub
+	
 		return null;
 	}
-
-
 }

@@ -1,9 +1,7 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
-
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import java.util.TreeSet;
-
 
 public class Student extends Person {
 
@@ -15,11 +13,12 @@ public class Student extends Person {
 	private int dayOfBirth;
 
 	public Student(String email) {
+
 	}
 
-	
-	public Student(){
+	public Student() {
 
+		this.setEmail(email);
 	}
 
 	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
@@ -28,11 +27,15 @@ public class Student extends Person {
 		this.studentOV = studentOV;
 		this.cohort = cohort;
 		this.noteList = noteList;
+
 	}
-	
 
 	public TreeSet<Note> getNoteList() {
 		return noteList;
+	}
+
+	public void setNoteList(TreeSet<Note> noteList) {
+		this.noteList = noteList;
 	}
 
 	public LessonGroup getLessonGroup() {
@@ -74,36 +77,32 @@ public class Student extends Person {
 	public void setCoachGroup(CoachGroup coachGroup) {
 		this.coachGroup = coachGroup;
 	}
-	
-    public void update(){
-    	DAOFactory.getTheFactory().getDAOStudent().update(this);
-    }
-    
-    public void delete(){
-    	DAOFactory.getTheFactory().getDAOStudent().delete(this);
-    }
-    
+
+	public void update() {
+		DAOFactory.getTheFactory().getDAOStudent().update(this);
+	}
+
+	public void delete() {
+		DAOFactory.getTheFactory().getDAOStudent().delete(this);
+	}
 
 	public void setDayOfBirth(int dayOfBirth) {
 		this.dayOfBirth = dayOfBirth;
 	}
-	
 
-	  @Override
-	    public int compareTo(Person o) {
-	        return email.compareTo(o.getEmail());
-	    }
-	    public void create(){
-	    	DAOFactory.getTheFactory().getDAOStudent().create(this);
-	    }
-	
+	@Override
+	public int compareTo(Person o) {
+		return email.compareTo(o.getEmail());
+	}
+
+	public void create() {
+		DAOFactory.getTheFactory().getDAOStudent().create(this);
+	}
+
 	@Override
 	public String toString() {
 		return "Student [noteList=" + noteList + ", lessonGroup=" + lessonGroup + ", studentOV=" + studentOV
 				+ ", cohort=" + cohort + ", coachGroup=" + coachGroup + "]";
+
 	}
-
 }
-
-
-

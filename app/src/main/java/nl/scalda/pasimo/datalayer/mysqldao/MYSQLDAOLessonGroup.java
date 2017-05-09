@@ -5,9 +5,11 @@
  */
 package nl.scalda.pasimo.datalayer.mysqldao;
 
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
 /**
@@ -16,37 +18,57 @@ import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
  */
 public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
 
-    private static MYSQLDAOLessonGroup instance = null;
-
-    @Override
-    public void create(LessonGroup LessonGroup) {
-
-    }
-
-    @Override
-    public LessonGroup read(LessonGroup LessonGroup) {
-        return LessonGroup;
-    }
-
-    @Override
-    public void update(LessonGroup lessonGroup) {
-
-    }
-
-    @Override
-    public void delete(LessonGroup LessonGroup) {
-
-    }
-
-    public static MYSQLDAOLessonGroup getInstance() {
-        if (instance == null) {
-            instance = new MYSQLDAOLessonGroup();
-        }
-        return instance;
-    }
+	private static MYSQLDAOLessonGroup instance = null;
 
 	@Override
+	public void create(LessonGroup LessonGroup) {
+
+	}
+
+	@Override
+	public void update(LessonGroup lessonGroup) {
+
+	}
+
+	@Override
+	public void delete(LessonGroup LessonGroup) {
+
+	}
+
+	public static MYSQLDAOLessonGroup getInstance() {
+		if (instance == null) {
+			instance = new MYSQLDAOLessonGroup();
+		}
+		return instance;
+	}
+
+	@Override
+
 	public TreeSet<LessonGroup> getLessongroups() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LessonGroup read(LessonGroup lessonGroup) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TreeSet<LessonGroup> readAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TreeSet<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LessonGroup readLessonGroupByName(String lessonGroupName) {
 		// TODO Auto-generated method stub
 		return null;
 	}

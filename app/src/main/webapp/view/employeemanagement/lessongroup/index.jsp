@@ -57,10 +57,56 @@
                         $("#deleteButton").removeAttr("disabled");
                     }
                 });
+                
+                $("#addLessonGroupButton").on("click", function() {
+                	if($("input[type=text]#lessonGroupName-input").val()) {
+                		
+                		var lessonGroupName = $("input[type=text]#lessonGroupName-input").val();
+                		
+                		var coachGroupSelectBox = document.getElementById("selectCoachGroupSelectBox");
+                		var coachGroupName =  coachGroupSelectBox.options[coachGroupSelectBox.selectedIndex].value;
+                		
+                		 $.ajax({
+                		 	type: 'POST',	  
+                			url:'lessongroup/add',
+                		   	dataType: 'json',
+               				data : "lessonGroupName=" + lessonGroupName + "&coachGroupName=" + coachGroupName,
+               				success: function(data) {
+								//Reload the page for listing the lesson groups sorted
+               					location.reload();
+               					
+               				}
+                		}); 
+                	}
+                });
+                
+                $("#confirmDeleteLessonGroupButton").on("click", function(event) {
+                	event.preventDefault();
+                	
+                	$("input[type=checkbox].selectedLessonGroup").each(function() {
+                		var parentElement = $(this).parent().parent().parent();
+                		
+                		var lessonGroupName = parentElement.attr("data-lessongroup-name");
+                		var coachGroupName = parentElement.children().last().text().trim();
+                		
+  	               		$.ajax({
+	            		     type: 'POST',	  
+	            			 url: 'lessongroup/delete',
+	            		     dataType: 'json',
+	           				 data: "lessonGroupName="+lessonGroupName + "&coachGroupName=" + coachGroupName,
+	           				 success: function(data) {
+	           			     	$('input:checkbox').removeAttr('checked');
+								//Reload the page for listing the lesson groups sorted
+	           			     	location.reload();
+	           				 }
+	           			}); 
+	            	});
+                }); 
 
 
             });
         </script>
+        
     </jsp:attribute>
     <jsp:attribute name="content">
 
@@ -97,11 +143,21 @@
                                         <input class="form-control" type="text" value="" id="lessonGroupName-input">
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                 <label for="selectCoachGroup-input" class="col-2 col-form-label">Selecteer Coach Group</label>
+                                	<div class="col-10">
+	                                	<select class="form-control" id="selectCoachGroupSelectBox">
+	                                		<s:iterator value="coachGroups">
+	                                			<option value="<s:property value="name"></s:property>"><s:property value="name"></s:property></option>
+	                                		</s:iterator>
+										</select>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluiten</button>
-                            <button type="button" class="btn btn-primary">Toevoegen</button>
+                            <button id="addLessonGroupButton" type="button" class="btn btn-primary">Toevoegen</button>
                         </div>
                     </div>
                 </div>
@@ -113,17 +169,17 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="lessonGroupDeleteModalLabel">Les groep verwijderen</h5>
+                            <h5 class="modal-title" id="lessonGroupDeleteModalLabel">Geseleteerde les groepen verwijderen</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>Weet je zeker dat je de les groep ICO41A wilt verwijderen met 123 studenten?</p>
+                            <p>Weet je zeker dat je de geselecteerde les groepen wilt verwijderen?</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluiten</button>
-                            <button type="button" class="btn btn-danger">Verwijderen</button>
+                            <button type="button" id="confirmDeleteLessonGroupButton" class="btn btn-danger">Verwijderen</button>
                         </div>
                     </div>
                 </div>
@@ -140,78 +196,40 @@
                         </th>
                         <th>Naam (klik om te openen)</th>
                         <th>Aantal studenten</th>
+                        <th>Coachgroep</th>
                     </tr>
                
                 </thead>
                 <tbody>
                 <!-- Every lesson group -->
-                    <tr>
-                        <td>
-                            <label>
-                                <input type="checkbox">
-                            </label>
-                        </td>
-
-                        <td><a href="/Pasimo/lessongroup/details">ICO41A</a></td>
-                        <td>3</td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <label>
-                                <input type="checkbox">
-                            </label>
-                        </td>
-
-                        <td><a href="/Pasimo/lessongroup/details">ICO41B</a></td>
-                        <td>8</td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <label>
-                                <input type="checkbox">
-                            </label>
-                        </td>
-
-                        <td><a href="/Pasimo/lessongroup/details">ICO45E</a></td>
-                        <td>16</td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <label>
-                                <input type="checkbox">
-                            </label>
-                        </td>
-
-                        <td><a href="/Pasimo/lessongroup/details">ICO56T</a></td>
-                        <td>42</td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <label>
-                                <input type="checkbox">
-                            </label>
-                        </td>
-
-                        <td><a href="/Pasimo/lessongroup/details">ICO89E</a></td>
-                        <td>2</td>
-                    </tr>
-
-
-                    <tr>
-                        <td>
-                            <label>
-                                <input type="checkbox">
-                            </label>
-                        </td>
-
-                        <td><a href="/Pasimo/lessongroup/details">ICO33A</a></td>
-                        <td>12</td>
-                    </tr>
+                    <s:iterator var="coachGroupWithLessonGroups" value="coachGroupsWithLessonGroups">
+                    	<s:iterator var="lessonGroup" value="#coachGroupWithLessonGroups.lessonGroups">
+                    		<tr data-lessongroup-name="<s:property value="name"></s:property>">
+	                    		<td>
+	                    			<label>
+	                    				<input type="checkbox">
+	                    			</label>
+	                    		</td>
+	                    		
+	                    		<td>
+	                   				<a href="/Pasimo/lessongroup/details?lessonGroupName=<s:property value="name"></s:property>&coachGroupName=<s:property value="#coachGroupWithLessonGroups.name"></s:property>">
+	                   					<s:property value="name"></s:property>
+	                   				</a>
+	                    		</td>
+	                    		
+	                    		<td>
+	                    			<s:property value="students.size()"></s:property>
+	                    		</td>
+	                    		
+	                    		<td>
+	                    			<s:property value="#coachGroupWithLessonGroups.name"></s:property>
+	                    		</td>
+                    		</tr>
+                    	</s:iterator>
+                    </s:iterator> 
+                   
                 </tbody>
+
             </table>
         </div>
 

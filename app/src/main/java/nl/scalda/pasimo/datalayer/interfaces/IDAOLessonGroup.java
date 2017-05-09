@@ -2,12 +2,22 @@ package nl.scalda.pasimo.datalayer.interfaces;
 
 import java.util.TreeSet;
 
+
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
 public interface IDAOLessonGroup {
 
     void create(LessonGroup lessonGroup);
 
+    TreeSet<LessonGroup> readAll();
+    
+    TreeSet<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup);
+   
     LessonGroup read(LessonGroup lessonGroup);
 
     void update(LessonGroup newLessonGroup);
@@ -15,5 +25,8 @@ public interface IDAOLessonGroup {
     void delete(LessonGroup lessonGroup);
 
     TreeSet<LessonGroup> getLessongroups();
+
+
+    LessonGroup readLessonGroupByName(String lessonGroupName);
 
 }
