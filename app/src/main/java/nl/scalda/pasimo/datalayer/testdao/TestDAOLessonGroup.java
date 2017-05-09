@@ -1,13 +1,16 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
-
-import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
-import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
-
+import java.util.Random;
+import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.UUID;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.Note;
+import nl.scalda.pasimo.model.employeemanagement.Student;
 
 public class TestDAOLessonGroup implements IDAOLessonGroup {
 
@@ -15,15 +18,15 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 	private TreeSet<LessonGroup> lessongroups = new TreeSet<>();
 
 	private TestDAOLessonGroup() {
+		LessonGroup l1 = new LessonGroup("ICO43A");
+		LessonGroup l2 = new LessonGroup("ICO42A");
+		LessonGroup l3 = new LessonGroup("ICO41A");
 
-		LessonGroup l1 = new LessonGroup(1, "ICO43A");
-		LessonGroup l2 = new LessonGroup(2, "ICO42A");
-		LessonGroup l3 = new LessonGroup(3, "ICO41A");
 
-		lessongroups.add(l1);
-		lessongroups.add(l2);
-		lessongroups.add(l3);
 
+		this.lessongroups.add(l1);
+		this.lessongroups.add(l2);
+		this.lessongroups.add(l3);
 	}
 
 	public static TestDAOLessonGroup getInstance() {
@@ -33,25 +36,18 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 		return instance;
 	}
 
-	public TreeSet<LessonGroup> getLessongroups() {
-		return lessongroups;
-	}
-
 	@Override
 	public void create(LessonGroup lessonGroup) {
 		this.lessongroups.add(lessonGroup);
 	}
 
-	@Override
-	public LessonGroup read(LessonGroup lessonGroup) {
-
-		for (LessonGroup eachLessonGroup : this.lessongroups) {
-			if (lessonGroup != eachLessonGroup) {
+	public LessonGroup readLessonGroupByName(String lessonGroupName) {
+		for (LessonGroup lessonGroup : this.lessongroups) {
+			if (lessonGroupName != lessonGroup.getName()) {
 				continue;
 			}
-			return eachLessonGroup;
+			return lessonGroup;
 		}
-
 		return null;
 	}
 
@@ -63,7 +59,6 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 				continue;
 			}
 			lessonGroup.setName(newLessonGroup.getName());
-			lessonGroup.setId(newLessonGroup.getId());
 			lessonGroup.setStudents(newLessonGroup.getStudents());
 		}
 
@@ -72,6 +67,39 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 	@Override
 	public void delete(LessonGroup lessonGroup) {
 		this.lessongroups.remove(lessonGroup);
+	}
+
+	public static void setInstance(TestDAOLessonGroup instance) {
+		TestDAOLessonGroup.instance = instance;
+	}
+
+	public void setLessongroups(TreeSet<LessonGroup> lessongroups) {
+		this.lessongroups = lessongroups;
+	}
+
+	@Override
+	public TreeSet<LessonGroup> readAll() {
+		return this.lessongroups;
+	}
+
+	@Override
+	public LessonGroup read(LessonGroup lessonGroup) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TreeSet<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup) {
+		TreeSet<CoachGroup> coachGroups = DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
+
+		for (CoachGroup loopingCoachGroup : coachGroups) {
+			if (coachGroup != loopingCoachGroup) {
+				continue;
+			}
+			return loopingCoachGroup.getLessonGroups();
+
+		}
+		return null;
 	}
 
 }
