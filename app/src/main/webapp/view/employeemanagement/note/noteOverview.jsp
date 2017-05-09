@@ -52,7 +52,7 @@
 			 	<div class="row">
 					<c:forEach var="n" items="${noteList}">
 						<div class="note col-md-3" data-toggle="modal"
-								data-target="#overviewModal">
+								data-target="#overviewModal" >
 							<div class="row">
 							<div onClick=";" style="cursor: pointer;"
 										class="col-md-12 noteTitle">Title: ${n.getTitle()}</div>
@@ -63,6 +63,10 @@
 							<div class="row">
 								<div class="col-md-12 noteMessage">Aanmaak datum: ${n.getCreationDate()}</div>
 							</div>		
+							<div class="row">
+								<div class="col-md-12 noteMessage">ID: ${n.getId()}</div>
+							</div>
+								
 						</div>
 						
 					</c:forEach>				
@@ -97,3 +101,4 @@
 		
 	</jsp:attribute>
 </t:layout2>
+
