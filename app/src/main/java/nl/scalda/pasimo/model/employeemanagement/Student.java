@@ -11,13 +11,15 @@ public class Student extends Person {
 	private String insertion;
 	private String lastName;
 	private String email;
+	private TreeSet<Note> noteList = new TreeSet<>();
+	private LessonGroup lessonGroup;
+	private int studentOV;
 	private int cohort;
 	private int coachGroupID;
-	private int studentOV;
 	private int yearOfBirth;
 	private int monthOfBirth;
 	private int dayOfBirth;
-	private TreeSet<Note> noteList = new TreeSet<>();
+
 
 	
 	public int getMonthOfBirth() {
@@ -27,7 +29,6 @@ public class Student extends Person {
 	public void setMonthOfBirth(int monthOfBirth) {
 		this.monthOfBirth = monthOfBirth;
 	}
-
 
 	public Student(String email){
 		this.email = email;
@@ -67,6 +68,7 @@ public class Student extends Person {
 	public void setNoteList(TreeSet<Note> noteList) {
 		this.noteList = noteList;
 	}
+
 
 	public int getLessonGroupID() {
 		return lessonGroupID;
@@ -110,6 +112,11 @@ public class Student extends Person {
 
 	public String getLastName() {
 		return lastName;
+	}
+
+	public LessonGroup getLessonGroup() {
+		return lessonGroup;
+
 	}
 
 	public void setLastName(String lastName) {
@@ -179,7 +186,12 @@ public class Student extends Person {
 				+ "]";
 	}
 
+
 	
 	
 
 }
+
+
+
+
