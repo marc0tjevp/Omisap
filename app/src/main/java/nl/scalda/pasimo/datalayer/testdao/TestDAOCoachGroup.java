@@ -2,14 +2,19 @@ package nl.scalda.pasimo.datalayer.testdao;
 
 import java.util.TreeSet;
 
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 /**
@@ -22,6 +27,35 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
 
 	public TestDAOCoachGroup() {
+    	CoachGroup c1 = new CoachGroup("B1");
+		CoachGroup c2 = new CoachGroup("B2");
+		
+		TreeSet<LessonGroup> lessonGroups = 
+				DAOFactory.getTheFactory().getDAOLessonGroup().readAll();
+		
+		for(LessonGroup lessonGroup : lessonGroups) {
+			c1.addLessonGroup(lessonGroup);
+		}
+		
+		coachGroups.add(c1);
+		coachGroups.add(c2);
+		
+/*        LessonGroup l1 = new LessonGroup("ICO43A");
+        LessonGroup l2 = new LessonGroup("ICO42A");
+        LessonGroup l3 = new LessonGroup("ICO41A");*/
+        
+/*        c1.addLessonGroup(l1);
+        c1.addLessonGroup(l2);
+        c2.addLessonGroup(l3);*/
+        
+/*        TreeSet<Student> students = TestDAOStudent.getInstance().readAll();
+
+        for(Student s : students) {
+        	if(s == students.first()) {
+        		l2.addStudent(s);
+        	}
+        }*/
+        
 		coachGroups.add(new CoachGroup("A1"));
 		coachGroups.add(new CoachGroup("A2"));
 		coachGroups.add(new CoachGroup("A3"));
