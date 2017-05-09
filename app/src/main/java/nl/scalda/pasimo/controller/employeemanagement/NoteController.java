@@ -64,11 +64,13 @@ public class NoteController extends ActionSupport {
 
 	public String noteEdit() {
 		for (Note n : getNoteList()) {
+			if (n.getId() == id){
 				n.setTitle(title);
 				n.setMessage(message);
 				n.setLastEdit(new Date());
 				teacher.editNote(n);
 			}
+		}
 		return SUCCESS;
 		}
 	

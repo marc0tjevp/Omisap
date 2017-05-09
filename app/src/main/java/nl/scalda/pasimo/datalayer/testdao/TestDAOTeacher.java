@@ -20,19 +20,19 @@ public class TestDAOTeacher implements IDAOTeacher {
 		Teacher ma = new Teacher();
 		ma.setFirstName("Max");
 		ma.setEmail("max email");
-		ma.setAbbreviation("Max");
+		ma.setAbbreviation("Ma");
 		Teacher re = new Teacher();
 		re.setFirstName("Rens");
 		re.setEmail("rens email");
-		re.setAbbreviation("Rens");
+		re.setAbbreviation("Re");
 		Teacher gi = new Teacher();
 		gi.setFirstName("Gino");
 		gi.setEmail("gino email");
-		gi.setAbbreviation("Gino");
+		gi.setAbbreviation("Gi");
 		Teacher br = new Teacher();
 		br.setFirstName("Bram");
 		br.setEmail("bram email");
-		br.setAbbreviation("Bram");
+		br.setAbbreviation("Br");
 		
 		teachers.add(ma);
 		teachers.add(re);
