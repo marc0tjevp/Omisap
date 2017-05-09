@@ -32,10 +32,6 @@ public class EducationTeam implements Comparable<EducationTeam>{
      */
     @Column(name="name", length=64)
     private String name;
-    /**
-     *
-     * Id of the EducationTeam
-     */
     
     public EducationTeam() {
 		
