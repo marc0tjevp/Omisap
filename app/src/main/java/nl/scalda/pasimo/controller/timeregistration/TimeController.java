@@ -14,11 +14,13 @@ import com.opensymphony.xwork2.ActionSupport;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.timeregistration.PasimoTime;
 import nl.scalda.pasimo.model.timeregistration.WorkBlock;
+import nl.scalda.pasimo.model.timeregistration.WorkWeek;
 import nl.scalda.pasimo.model.timeregistration.WorkingDay;
 
 public class TimeController extends ActionSupport {
 
 	 public TreeSet<WorkBlock> WorkBlocks = new TreeSet<>();
+	 private TreeSet<WorkWeek> workweeks = new TreeSet<>();
 
 	WorkingDay w = new WorkingDay("Maandag");
 	WorkBlock wq  = new WorkBlock(1, new PasimoTime(8, 30), new PasimoTime(10, 10));
@@ -37,16 +39,16 @@ public class TimeController extends ActionSupport {
 
 
 	public String execute() {
-//		DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
-		
-		WorkBlocks.add(wq);
-		WorkBlocks.add(wq1);
-		WorkBlocks.add(wq2);
-		WorkBlocks.add(wq3);
-		WorkBlocks.add(wq4);
-		WorkBlocks.add(wq5);
-		
-		System.out.println(WorkBlocks);
+		DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+
+//		WorkBlocks.add(wq);
+//		WorkBlocks.add(wq1);
+//		WorkBlocks.add(wq2);
+//		WorkBlocks.add(wq3);
+//		WorkBlocks.add(wq4);
+//		WorkBlocks.add(wq5);
+//		
+//		System.out.println(WorkBlocks);
 		return SUCCESS;
 	}
 

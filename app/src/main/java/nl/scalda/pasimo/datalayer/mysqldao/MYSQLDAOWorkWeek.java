@@ -11,7 +11,7 @@ import org.hibernate.cfg.Configuration;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkWeek;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
-import nl.scalda.pasimo.model.timeregistration.PasimoTime;
+import nl.scalda.pasimo.model.timeregistration.PasimoTime;    
 import nl.scalda.pasimo.model.timeregistration.WorkBlock;
 import nl.scalda.pasimo.model.timeregistration.WorkWeek;
 import nl.scalda.pasimo.model.timeregistration.WorkingDay;
@@ -61,11 +61,16 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 			List weekList = session
 					.createNativeQuery(
 							"SELECT * FROM workweek INNER JOIN workingday ON workweek_id = workweek.id  INNER JOIN workblock ON workingday_name = workingday.name;")
-					.getResultList();
+					
+							.getResultList();
 			
 			System.out.println(weekList.get(0).getClass());
+			System.out.println(weekList.get(1).getClass());
 			Object[] o = (Object[]) weekList.get(0);
+			
 			System.out.println(o[4]);
+			System.out.println(o[5]);
+			System.out.println(o[6]);
 			for (Iterator iterator = weekList.iterator(); iterator.hasNext();) {
 				
 				Object[] obj = (Object[]) iterator.next();
@@ -103,6 +108,7 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 	
 //			System.out.println(workweeks);
 //			System.out.println(workingdays);
+
 
 			session.close();
 		}
