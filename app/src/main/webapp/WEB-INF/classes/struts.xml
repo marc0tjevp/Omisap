@@ -90,12 +90,11 @@
 			</result>
 		</action>
 
-		<action name="coachgroups"
-			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-			method="execute">
-			<result name="success">/view/employeemanagement/coachgroups/Coachgroups.jsp
-			</result>
-		</action>
+		<action name="coachGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+                method="execute">
+            <result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
+        </action>
+        
 		<action name="students"
 			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
 			method="execute">
@@ -178,7 +177,10 @@
 		</action>
 
 
+
+
 		<action name="educationTeam/create"
+
 			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
 			method="create">
 			<result name="success">/view/employeemanagement/educationteam/create.jsp
@@ -191,7 +193,9 @@
 			</result>
 		</action>
 
-    </package>
+
+
+	</package>
 
 </struts>
 

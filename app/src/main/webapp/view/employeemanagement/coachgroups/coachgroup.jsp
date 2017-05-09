@@ -93,11 +93,9 @@
                    
                 });
                 
-                $("#deleteButton").click(function(e){
+                $("#deleteButton2").click(function(e){
                 	
-                		$('#coachGroupDeleteModal').modal('show', function(e){
-                  	   });
-                		
+               
              
                 	for (var i = 0, length = closestTr.length; i < length; i++) {
                     	$.ajax({
@@ -159,7 +157,8 @@
 					id="addButton" data-toggle="modal"
 					data-target="#coachGroupAddModal">Coachgroup Aanmaken
                 </button>
-                <button class="btn btn-danger" id="deleteButton" type="button" value="Submit" disabled>Verwijderen
+                <button class="btn btn-danger" id="deleteButton" type="button" data-toggle="modal"
+                        data-target="#coachGroupDeleteModal" disabled>Verwijderen
                 </button>
                 
                 <button class="btn btn-primary" id="editButton" type="button" value="submit" disabled>Wijzigen
@@ -270,9 +269,8 @@
                        
                             <button type="button"
 									class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
-                            <input type="submit" value="Verwijderen"
-									class="btn btn-danger">
-                            </div>
+                            <button type="submit" value="Verwijderen"
+									class="btn btn-danger" id="deleteButton2">Verwijderen</button>
                             </s:form>
                             
                         </div>
@@ -314,7 +312,7 @@
                                         
                                          <option value="">${CoachGroupService.getInstance().getEducationTeam(coach).getAbbreviation()}</option>
                                          </s:if>
-                                        <s:iterator value="${var a = closestTr}" var="ed">
+                                        <s:iterator value="" var="ed">
                                         <s:if test="%{#ed.getEmployeeNumber() =! coach.getCoach().getEmployeeNumber() }">
                                         <option value="${ed.employeeNumber}">${ed.abbreviation} </option>
                                         </s:if>
@@ -387,7 +385,7 @@
                         <td>${ed.getLessonGroups().size()}</td>
                         <td>
                         	<s:iterator  value="educationTeam" var="ed1">
-                        		<s:if test="ed1.getCoachGroups().contains(ed)">
+                        		<s:if test="%{ed1.getCoachGroups().contains(#ed)}">
                          			${ed1.getAbbreviation()}
                         		</s:if>
                         	</s:iterator>
