@@ -73,7 +73,6 @@ public class Person implements Comparable<Person>, Serializable {
 		this.setLastName(lastName);
 		gc.set(yearOfBirth, monthOfBirth - 1, dayOfBirth);
 		this.dateOfBirth = gc;
-		this.noteList = new TreeSet<Note>();
 	}
 
     /**
@@ -82,19 +81,12 @@ public class Person implements Comparable<Person>, Serializable {
      * @param Note note
      * @see Note
      */
-    public void addNote(Note note) {
-        this.noteList.add(note);
-    }
-
     /**
      * Removes a note from the person
      *
      * @param Note note
      * @see Note
      */
-    public void removeNote(Note note) {
-        this.noteList.remove(note);
-    }
 
     //getters and setters
     public String getEmail() {
@@ -156,14 +148,6 @@ public class Person implements Comparable<Person>, Serializable {
             return this.getFirstName() + " " + this.getInsertion() + " " + this.getLastName();
         }
         return this.getFirstName() + " " + this.getLastName();
-    }
-
-    public TreeSet<Note> getNoteList() {
-        return noteList;
-    }
-
-    public void setNoteList(TreeSet<Note> noteList) {
-        this.noteList = noteList;
     }
     
     /**
