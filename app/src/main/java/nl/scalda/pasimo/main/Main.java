@@ -1,4 +1,3 @@
-
 package nl.scalda.pasimo.main;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;

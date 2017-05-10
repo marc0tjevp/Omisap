@@ -135,12 +135,9 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
      */
     @Override
     public EducationTeam read(int Id) {
-        EducationTeam bla = new EducationTeam();
-        bla.setAbbreviation("ICOAO");
-        bla.setId(1);
-        bla.setName("appy");
+      
     	
-        return bla;
+        return null;
     }
 
     /**
