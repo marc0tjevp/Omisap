@@ -253,8 +253,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                         <s:form id="deleteCoachGroup"
-							action="deleteCoachGroup" role="form" method="post">
+              
                         <div class="modal-body">
                         <p>Weet u zeker dat u deze CoachGroupen wilt verwijderen?</p>
                           <s:iterator value="deleteCoaches" var="ed">
@@ -263,7 +262,7 @@
                            
                           
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer"> 
                         
                         
                        
@@ -271,12 +270,12 @@
 									class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
                             <button type="submit" value="Verwijderen"
 									class="btn btn-danger" id="deleteButton2">Verwijderen</button>
-                            </s:form>
-                            
+                           </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>	
+            
             
             <!-- Modal for Editing an Coach group -->
             <div class="modal fade" id="coachGroupEditModal"
@@ -385,7 +384,7 @@
                         <td>${ed.getLessonGroups().size()}</td>
                         <td>
                         	<s:iterator  value="educationTeam" var="ed1">
-                        		<s:if test="%{ed1.getCoachGroups().contains(#ed)}">
+                        		<s:if test="ed in ed1">
                          			${ed1.getAbbreviation()}
                         		</s:if>
                         	</s:iterator>
