@@ -11,7 +11,9 @@
             <div class="row">
                 <div class="col-sm-12">
                     <h1>Educatieteams
-                        <a href="educationTeam/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nieuw EducationTeam</a>
+                       
+                    <a href="educationTeam/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nieuw EducationTeam</a>
+                    
                     </h1>
                 </div>
             </div>
@@ -25,6 +27,13 @@
                                 <th>Naam</th>
                                 <th>Acties</th>
                             </tr>
+                            <tr>
+                            
+                            <td><input class="btn btn-primary pull-left" type="checkbox">    AO</td>
+                            <td>ApplicatieOntwikkeling</td>
+                            <td>                      
+                              <a data-toggle="modal" data-target="#deleteConfirmation" class="btn btn-danger align-right"><i class="fa fa-trash"></i></a>
+                              <a href="educationTeam/edit" class="btn btn-primary aligh-right"><i class="fa fa-edit"></i></a></td>
                         </thead>
                         <tbody>
                             <s:iterator value="educationTeams">
@@ -77,8 +86,6 @@
                 </div>
             </div>
         </div>
-
-    </div>
 
 </jsp:attribute>
 </t:layout2>

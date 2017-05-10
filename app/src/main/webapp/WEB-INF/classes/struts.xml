@@ -8,75 +8,42 @@
 	<constant name="struts.mapper.alwaysSelectFullNamespace"
 		value="false" />
 
+	<package name="json" extends="json-default">
+		<!-- Adding a lesson group -->
+		<action name="lessongroup/add"
+			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
+			method="addLessonGroup">
+			<result name="success" type="json"></result>
+		</action>
 
-    <package name="alles" extends="struts-default">
-        <!--        <action name="pag1" class="nl.scalda.pasimo.controller.MainController"
-                        method="execute">
-                    <result name="success">/index.jsp</result>
-                </action>
-                <action name="pag2" class="nl.scalda.pasimo.controller.MainController"
-                        method="execute">
-                    <result name="success">/index2.jsp</result>
-                </action>-->
-        <action name="lessongroup" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
-                method="execute">
-            <result name="success">/view/employeemanagement/lessongroup/index.jsp</result>
-        </action>
-        <action name="lessongroup/details" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
-                method="execute">
-            <result name="success">/view/employeemanagement/lessongroup/details.jsp</result>
-        </action>
-        <action name="coachGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-                method="execute">
-            <result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
-        </action>
+		<!-- Updating a lesson group name -->
+		<action name="lessongroup/details/updatename"
+			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupDetailsAction"
+			method="updateLessonGroupName">
+			<result name="success" type="json"></result>
+		</action>
 
-        
-        <action name="addCoachGroup" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController" 
-        		method="addCoachGroup">
-        		<result name="success" type="redirect">coachGroups</result>
-        		<result name="input">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
-        </action>
-     	
-        
-        <action name="deleteCoachGroup" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-        		method="deleteCoachGroup">
-        		<result name="success" type="redirect">coachGroups</result>
-        		<result name="input">/view/employeemanagement/coachgroups.jsp</result>
-        </action>
-        
-        <action name="updateCoachGroup" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-        		method="updateCoachGroup">
-        		<result name="success" type="redirect">coachGroups</result>
-        		<result name="input">/view/employeemanagement/coachgroups.jsp</result>
-        </action>
-        
-        
-         <!--   <action name="coachGroup/add.action" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-                method="CheckCoach">
-            <result name="success" type="json"></result>
-        </action> -->
-        
+		<!-- Adding students to a lesson group -->
+		<action name="lessongroup/details/students/add"
+			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupDetailsAction"
+			method="addStudent">
+			<result name="success" type="json"></result>
+		</action>
 
-        <action name="CoachLessonGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+		<!-- Deleting students from a lesson group -->
+		<action name="lessongroup/details/students/delete"
+			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupDetailsAction"
+			method="deleteStudent">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- Deleting a lesson group -->
+		<action name="lessongroup/delete"
+			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
+			method="deleteLessonGroup">
+			<result name="success" type="json"></result>
+		</action>
 
-                method="execute">
-            <result name="success">/view/employeemanagement/coachgroups/coachGroupLessonGroups.jsp</result>
-        </action>
-
-      <action name="createLessonGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupLessonGroupsController" 
-      			method="addLessonGroup">
-      	<result name="success" type="redirect">LessonGroups</result>
-		<result name="success">/view/employeemanagement/coachgroups/coachGroupLessonGroups.jsp</result>      
-      </action>
-        
-        <action name="deleteLessonGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupLessonGroupsController" 
-      			method="deleteLessonGroup">
-      	<result name="success" type="redirect">LessonGroups</result>
-		<result name="success">/view/employeemanagement/coachgroups/coachGroupLessonGroups.jsp</result>      
-      </action>
-        </package>
-
+	</package>
 
 	<package name="alles" extends="struts-default">
 		<!-- <action name="pag1" class="nl.scalda.pasimo.controller.MainController" 
@@ -84,25 +51,38 @@
 			name="pag2" class="nl.scalda.pasimo.controller.MainController" method="execute"> 
 			<result name="success">/index2.jsp</result> </action> -->
 		<action name="lessongroup"
-			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
+			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
 			method="execute">
 			<result name="success">/view/employeemanagement/lessongroup/index.jsp
 			</result>
 		</action>
 		<action name="lessongroup/details"
-			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
+			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupDetailsAction"
 			method="execute">
 			<result name="success">/view/employeemanagement/lessongroup/details.jsp
 			</result>
 		</action>
+
 		<action name="coachGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
                 method="execute">
             <result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
         </action>
+
+
+
+		<action name="Lessongroup/delete"
+			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
+			method="deleteLessonGroup">
+			<result name="success">/view/employeemanagement/lessongroup/index.jsp
+			</result>
+		</action>
+
+		
+
 		<action name="students"
 			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
 			method="execute">
-			<result name="success">/view/employeemanagement/coachgroups/student.jsp
+			<result name="success">/view/employeemanagement/coachgroups/students.jsp
 			</result>
 		</action>
 		<action name="teacherOverview"
@@ -155,6 +135,18 @@
 			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
 			method="index">
 			<result name="success">/view/employeemanagement/educationteam/index.jsp
+			</result>
+		</action>
+                <action name="educationTeam/create"
+			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
+			method="create">
+			<result name="success">/view/employeemanagement/educationteam/create.jsp
+			</result>
+		</action>
+                <action name="educationTeam/edit"
+			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
+			method="update">
+			<result name="success">/view/employeemanagement/educationteam/update.jsp
 			</result>
 		</action>
 
