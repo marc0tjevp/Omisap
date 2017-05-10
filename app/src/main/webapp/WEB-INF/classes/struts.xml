@@ -76,11 +76,6 @@
 		<result name="success">/view/employeemanagement/coachgroups/coachGroupLessonGroups.jsp</result>      
       </action>
         </package>
-        
-
-
-        
-        
 
 
 	<package name="alles" extends="struts-default">
@@ -100,12 +95,10 @@
 			<result name="success">/view/employeemanagement/lessongroup/details.jsp
 			</result>
 		</action>
-		<action name="coachGroups"
-			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-			method="execute">
-			<result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp
-			</result>
-		</action>
+		<action name="coachGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+                method="execute">
+            <result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
+        </action>
 		<action name="students"
 			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
 			method="execute">
