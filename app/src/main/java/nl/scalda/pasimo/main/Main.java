@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package nl.scalda.pasimo.main;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
@@ -44,26 +44,4 @@ public class Main {
 //		System.out.println(CoachGroupService.getInstance().readAll());
 
 	}
-=======
-/**
- * 
- */
-package nl.scalda.pasimo.main;
-
-/**
- * @author Bram van Huele
- * Pasimo
- * 12 apr. 2017
- */
-public class Main {
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
->>>>>>> cb74bd81699c256a6f60371c10c38929fd19e0bb
 }

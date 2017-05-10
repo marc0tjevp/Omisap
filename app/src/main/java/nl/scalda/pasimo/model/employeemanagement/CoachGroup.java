@@ -84,18 +84,6 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	/**
 	 * Sends coachgroup naar de DAO to update
 	 */
-<<<<<<< HEAD
-	public void updateCoachGroup(){
-//		DAOFactory.getTheFactory().getDAOCoachGroup().update(this);
-		//TestDAOFactory.getTheFactory().getDAOCoachGroup().update(this);
-	
-=======
-	public void updateCoachGroup() {
-		DAOFactory.getTheFactory().getDAOCoachGroup().update(this);
-		// TestDAOFactory.getTheFactory().getDAOCoachGroup().update(this);
-
->>>>>>> cb74bd81699c256a6f60371c10c38929fd19e0bb
-	}
 
 	public void loadLessonGroups() {
 		this.lessonGroups = DAOFactory.getTheFactory().getDAOLessonGroup().readAllByCoachGroup(this);
