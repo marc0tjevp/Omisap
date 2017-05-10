@@ -7,6 +7,10 @@
 	<jsp:attribute name="css">
 		<link rel="stylesheet" href="<c:url value="/resources/css/note.css"/>" />
 	</jsp:attribute>
+	<jsp:attribute name="scripts">
+		<script type="text/javascript"
+		src="<c:url value="resources/js/note.js/"/>"></script>
+	</jsp:attribute>
 	<jsp:attribute name="content">
 
 	<div class="container" style="max-width: 600px;">
@@ -52,7 +56,7 @@
 			 	<div class="row">
 					<c:forEach var="n" items="${noteList}">
 						<div class="note col-md-3" data-toggle="modal"
-								data-target="#overviewModal" >
+								data-target="#overviewModal" data-id="${n.getId()}" >
 							<div class="row">
 							<div onClick=";" style="cursor: pointer;"
 										class="col-md-12 noteTitle">Title: ${n.getTitle()}</div>
@@ -64,15 +68,13 @@
 								<div class="col-md-12 noteMessage">Aanmaak datum: ${n.getCreationDate()}</div>
 							</div>		
 							<div class="row">
-								<div class="col-md-12 noteMessage">ID: ${n.getId()}</div>
+								<div class="col-md-12 noteMessage"> </div>
 							</div>
 								
 						</div>
 						
 					</c:forEach>				
-				</div>
-				
-				
+				</div>	
 				
 			</div>
 		</div>
@@ -86,6 +88,7 @@
         	<h4 class="modal-title">Wilt u de notitie verwijderen of bewerken?	</h4>
       	</div>
       	<div class="modal-body">
+      	<input type="text" name="bookId" id="bookId" value=""/>
    	   	</div>
       <div class="modal-footer">
         <a type="button" class="btn btn-default" id="noteDelete"
