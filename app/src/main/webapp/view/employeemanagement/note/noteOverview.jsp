@@ -88,7 +88,7 @@
         	<h4 class="modal-title">Wilt u de notitie verwijderen of bewerken?	</h4>
       	</div>
       	<div class="modal-body">
-      	<input type="text" name="bookId" id="bookId" value=""/>
+      	
    	   	</div>
       <div class="modal-footer">
         <a type="button" class="btn btn-default" id="noteDelete"
