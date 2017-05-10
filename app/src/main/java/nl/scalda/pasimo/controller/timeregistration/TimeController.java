@@ -19,7 +19,7 @@ import nl.scalda.pasimo.model.timeregistration.WorkingDay;
 
 public class TimeController extends ActionSupport {
 
-	 public TreeSet<WorkBlock> WorkBlocks = new TreeSet<>();
+	 private TreeSet<WorkBlock> WorkBlocks = new TreeSet<>();
 	 private TreeSet<WorkWeek> workweeks = new TreeSet<>();
 
 	WorkingDay w = new WorkingDay("Maandag");
@@ -40,6 +40,8 @@ public class TimeController extends ActionSupport {
 
 	public String execute() {
 		DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+		if(workweeks.isEmpty());
+
 
 //		WorkBlocks.add(wq);
 //		WorkBlocks.add(wq1);
