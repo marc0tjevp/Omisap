@@ -79,11 +79,11 @@ public class CoachGroupController extends ActionSupport {
 	public String updateCoachGroup() {
 		for (CoachGroup cg : coachGroup) {
 			if (cg.getName().equals(coach.getName())) {
+				String b = cg.getName();
+				cg.setName(coach.getName());
 				cg.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s1)));
-				cg.setCoach(coach.getCoach());
-				CoachGroupService.getInstance().update(cg);
-			}
-
+				CoachGroupService.getInstance().update(cg, EducationTeamService.getInstance().read(Integer.parseInt(s2)), b);
+		}
 		}
 		return SUCCESS;
 	}

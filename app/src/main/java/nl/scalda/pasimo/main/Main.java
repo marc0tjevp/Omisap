@@ -3,6 +3,7 @@ package nl.scalda.pasimo.main;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
@@ -47,6 +48,8 @@ public class Main {
 //		System.out.println(bla);
 
 =======
+=======
+>>>>>>> 28b512722b24a672006cbdb282fbf336bfc03f70
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
@@ -60,7 +63,11 @@ import nl.scalda.pasimo.service.EducationTeamService;
 public class Main {
 
 	public static void main(String args[]) {
+<<<<<<< HEAD
 >>>>>>> 6fddc386ba3dfe96be4afed04f2d3f2a14a9ecb7
+=======
+
+>>>>>>> 28b512722b24a672006cbdb282fbf336bfc03f70
 
 		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 		Teacher teacher = new Teacher("han", 215950, "im@student.nl");
