@@ -180,7 +180,7 @@
                         </div>
                         <div class="modal-footer">
                         
-                        <form id="subscribe-email-form" action="/notifications/subscribe/" method="post">
+                        <form id="subscribe-email-form" action="" method="post">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
                             <button type="submit" value= "SUBMIT" class="btn btn-danger">Verwijderen</button>
                             </form>
@@ -253,7 +253,7 @@
                             </label>
                         </td>
 
-                        <td><a href='students'>A1</a>	</td>
+                        <td><a href='#'>A1</a>	</td>
                         <td>Bram	</td>
                         
                         <td> 12</td>
@@ -269,7 +269,7 @@
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
-						<td><a href='students'>A2</a></td>
+						<td><a href='#'>A2</a></td>
                         <td>Rens</td>
                         
                         <td> 12</td>
@@ -283,7 +283,7 @@
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
-						<td><a href='students'>A3</a></td>
+						<td><a href='#'>A3</a></td>
                         <td>Gino</td>
                         
                         <td> 12</td>
@@ -298,7 +298,7 @@
                                  <input id="selectedCoachGroup" type="checkbox">
                             </label>
                         </td>
-						<td><a href='students'>A4</a></td>
+						<td><a href='#'>A4</a></td>
                         <td>Max</td>
                         
                         <td> 12</td>
@@ -313,7 +313,7 @@
                             </label>
                         </td>
 
-                        <td><a href='students'>A5</a></td>
+                        <td><a href='#'>A5</a></td>
                         <td>Kees</td>
                         
                         <td> 12</td>
@@ -329,7 +329,7 @@
                             </label>
                         </td>
 
-                        <td><a href='students'>B1 </a> </td>
+                        <td><a href='#'>B1 </a> </td>
                         <td>Piet</td>
                         <td> 12</td>
                         

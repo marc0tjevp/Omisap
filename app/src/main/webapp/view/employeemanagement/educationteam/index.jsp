@@ -10,7 +10,7 @@
 
             <div class="row">
                 <div class="col-sm-12">
-                    <h1>Educatieteams
+                    <h1>Opleiding teams
                        
                     <a href="educationTeam/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nieuw EducationTeam</a>
                     

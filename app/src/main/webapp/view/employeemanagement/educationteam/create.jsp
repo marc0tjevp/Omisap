@@ -25,9 +25,9 @@
 
                         
 
-                        <a href="http://localhost:8080/Pasimo/educationTeam" class="btn btn-primary pull-right">Aanmaken</a>
+                        <a href="http://pasimo.delphinity.nl/Pasimo/educationTeam" class="btn btn-primary pull-right">Aanmaken</a>
 
-                       <a href="http://localhost:8080/Pasimo/educationTeam" class="btn btn-primary">Annuleren</a>
+                       <a href="http://pasimo.delphinity.nl/Pasimo/educationTeam" class="btn btn-primary">Annuleren</a>
                                                  
                     </form>
                 </div>
