@@ -17,20 +17,23 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		LessonGroup lg = new LessonGroup("LessonGroupName");
-		CoachGroup cg = new CoachGroup("CoachGroupName1");
-		LessonGroup lg2 = new LessonGroup("Working");
-		LessonGroup lg3 = new LessonGroup("bas");
+		LessonGroup lg = new LessonGroup("LessonGroupName5");
+		LessonGroup lg4 = new LessonGroup("LessonGroupWhatEver");
+		CoachGroup cg = new CoachGroup("CoachGroupName1");         
+		LessonGroup lg2 = new LessonGroup("Working");                   
+		LessonGroup lg3 = new LessonGroup("basvd");
 		
-		cg.addLessonGroup(lg3);
+		//cg.addLessonGroup(lg3);
 		
-		cg.addLessonGroup(lg2);
+		//cg.addLessonGroup(lg2);
 
-		cg.addLessonGroup(lg);
+		//cg.addLessonGroup(lg);
 		
-		System.out.println(cg);
+	//	System.out.println(cg);
 		
-		cg.deleteLessonGroup(lg2);
+		//cg.deleteLessonGroup(lg2);
+		
+		
 		
 		}
 

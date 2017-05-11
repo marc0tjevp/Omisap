@@ -59,7 +59,6 @@ public class LessonGroupService implements ILessonGroupService {
 	public void delete(LessonGroup lessonGroup) {
 		DAOFactory.getTheFactory().getDAOLessonGroup().delete(lessonGroup);
 	}
-
 	@Override
 	public TreeSet<CoachGroup> readAll() {
 		TreeSet<CoachGroup> coachGroupsWithLessonGroups = new TreeSet<>();

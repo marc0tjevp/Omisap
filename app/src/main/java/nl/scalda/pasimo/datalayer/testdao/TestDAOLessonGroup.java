@@ -21,12 +21,6 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 		LessonGroup l1 = new LessonGroup("ICO43A");
 		LessonGroup l2 = new LessonGroup("ICO42A");
 		LessonGroup l3 = new LessonGroup("ICO41A");
-
-
-
-		this.lessongroups.add(l1);
-		this.lessongroups.add(l2);
-		this.lessongroups.add(l3);
 	}
 
 	public static TestDAOLessonGroup getInstance() {
