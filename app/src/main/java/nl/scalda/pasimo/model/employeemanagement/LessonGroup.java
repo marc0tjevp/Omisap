@@ -1,20 +1,21 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
-
 import javax.persistence.*;
 
+
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 @Entity
 @Table(name="lesson_group")
 public class LessonGroup implements Comparable<LessonGroup> {
 
 	/**
-	 * The index of this lesson group
+	 * 
 	 */
 	@Id
 	@Column(name="lessonGroupID", length=11, nullable=false)
 	private int id;
-
+	
 	/**
 	 * The name of this lesson group
 	 * <p>
@@ -29,49 +30,38 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	private TreeSet<Student> students;
 
 	/**
-	 * @param id
-	 *            The index of this lesson group
-	 * @param name
-	 *            The name of this lesson group
+	 * @param name The name of this lesson group
 	 */
-	public LessonGroup(int id, String name) {
-		this.id = id;
+	public LessonGroup(String name) {
 		this.name = name;
 		this.students = new TreeSet<>();
 	}
 
 	/**
-	 * @param id
-	 *            The index of this lesson group
 	 * @param name
 	 *            The name of this lesson group
-	 * @param students
-	 *            The {@link Student}'s who are in this lesson group
 	 */
-	public LessonGroup(int id, String name, TreeSet<Student> students) {
-		this(id, name);
-		this.students = students;
+	public LessonGroup(int id, String name) {
+		this(name);
+		this.id = id;
 	}
 
 	/**
-	 * Retrieves the index of this lesson group
-	 *
-	 * @return The index of this lesson group
+	 * 
+	 * @return
 	 */
 	public int getId() {
-		return this.id;
+		return id;
 	}
-
+	
 	/**
-	 * Sets the index of this lesson group
-	 *
+	 * 
 	 * @param id
-	 *            The index of this lesson group to set
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	
 	/**
 	 * Retrieves the index of this lesson group
 	 *
@@ -118,6 +108,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	 */
 	public void addStudent(Student student) {
 		this.students.add(student);
+		
 	}
 
 	/**
@@ -129,10 +120,17 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	public void deleteStudent(Student student) {
 		this.students.remove(student);
 	}
-
+	
+	/**
+	 * Updates the lesson group in the DAO
+	 */
+	public void updateLessonGroup() {
+		DAOFactory.getTheFactory().getDAOLessonGroup().update(this);
+	}
+	
 	@Override
 	public String toString() {
-		return "LessonGroup: id= " + id + ", name= " + name + ", students= " + students;
+		return "LessonGroup: name= " + name + ", students= " + students;
 	}
 
 	/**

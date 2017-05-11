@@ -87,8 +87,8 @@ public class StudentController extends ActionSupport {
 
 	public TreeSet<CoachGroup> getCoachGroups() {
 		if(coachGroups.isEmpty()){
-			coachGroups.add(new CoachGroup(0, "test"));
-			coachGroups.add(new CoachGroup(1, "test1"));
+			coachGroups.add(new CoachGroup("test"));
+			coachGroups.add(new CoachGroup("test1"));
 		}
 		return coachGroups;
 	}

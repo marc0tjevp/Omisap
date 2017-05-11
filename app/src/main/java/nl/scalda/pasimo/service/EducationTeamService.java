@@ -10,12 +10,6 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 public class EducationTeamService {
 	
 	private static EducationTeamService instance;
-	public TreeSet<EducationTeam> edu = new TreeSet<>();
-	public EducationTeamService(){}
-	
-	public TreeSet<EducationTeam> getEducationTeams(){
-		return this.edu;
-	}
 	
 	public static EducationTeamService getInstance() {
 		if (instance == null) {
@@ -52,5 +46,23 @@ public class EducationTeamService {
 			return null;
 		}
 	}
+
+    private Set<EducationTeam> educationTeams;
+
+    public EducationTeamService() {
+        educationTeams = DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
+    }
+
+    public Set<EducationTeam> getEducationTeams() {
+        return educationTeams;
+    }
+
+    public void saveEducationTeam(EducationTeam e) throws Exception {
+        if (educationTeams.add(e)) {
+            DAOFactory.getTheFactory().getDAOEducationTeam().save(e);
+        } else {
+            throw new Exception("Cannot save educationTeam");
+        }
+    }
 
 }
