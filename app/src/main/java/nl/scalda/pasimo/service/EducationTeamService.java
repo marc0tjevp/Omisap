@@ -4,19 +4,13 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class EducationTeamService {
 	
 	private static EducationTeamService instance;
-	
-	public static EducationTeamService getInstance() {
-		if (instance == null) {
-			instance = new EducationTeamService();
-		}
-		return instance;
-	}
 	
 	/**
 	 * gets the educationteam with the abbreviation that equals given abbreviation
@@ -64,4 +58,17 @@ public class EducationTeamService {
             throw new Exception("Cannot save educationTeam");
         }
     }
+    public EducationTeam read(int Id){
+    	return MYSQLDAOEducationTeam.getInstance().read(Id);
+    	
+    }
+    
+
+    public static EducationTeamService getInstance() {
+        if (instance == null) {
+            instance = new EducationTeamService();
+        }
+        return instance;
+    }
+
 }
