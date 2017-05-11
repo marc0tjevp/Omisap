@@ -39,10 +39,7 @@ public class EducationTeamController extends ActionSupport {
     }
     
     public String execute() {
-    	
-    	DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
-		return SUCCESS;
-    	
+   		return SUCCESS; 	
     }
     
     public String create(){
