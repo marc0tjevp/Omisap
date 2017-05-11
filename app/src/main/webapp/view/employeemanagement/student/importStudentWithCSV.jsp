@@ -7,20 +7,20 @@
 <t:layout2>
 	<jsp:attribute name="content">
     <div class="container">
-      <h1>Add Student with CSV</h1>
+      <h1>Studenten toevoegen met een CSV</h1>
       <br>
       <form action="AddStudentWithCSV" class=""
 				enctype="multipart/form-data" method="post"
 				id="AddStudentWithCSVForm">
           <div class="form-group row">
-            <label class="col-2 col-form-label">coachGroupID</label>
+            <label class="col-2 col-form-label">coachgroep</label>
             <div class="col-10">
               <s:textfield id="studentCoachGroupID" style="width: 50%;"
 							class="form-control" type="text" />
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-2 col-form-label">lessonGroupID</label>
+            <label class="col-2 col-form-label">lesgroep</label>
             <div class="col-10">
               <s:textfield id="studentlessonGroupID" style="width: 50%;"
 							class="form-control" type="text" />
@@ -43,10 +43,10 @@
             <div class="form-group row">
               <button type="button" class="btn btn-primary"
 						data-toggle="button" aria-pressed="false">
-  		   Cancel</button>
+  		   Annuleren</button>
               <button type="button" class="btn btn-primary"
 						data-toggle="button" aria-pressed="false">
-  		   Add</button>
+  		   Toevoegen</button>
 			</div>
       </form>
     </div>

@@ -5,6 +5,6 @@
 <t:layout2>
     <jsp:attribute name="content">
         <h1>Student!</h1>
-        <a href="importStudent">import Student With CSV</a>
+        <a href="importStudent">Student toevoegen met een CSV</a>
     </jsp:attribute>
 </t:layout2>
