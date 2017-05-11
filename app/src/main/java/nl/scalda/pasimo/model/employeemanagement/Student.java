@@ -3,10 +3,11 @@ package nl.scalda.pasimo.model.employeemanagement;
 import javax.persistence.*;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.service.CoachGroupService;
+
 import java.util.TreeSet;
 @Entity
 @Table(name="student")
-//@PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
 public class Student extends Person {
 
 	private static final long serialVersionUID = 1L;
@@ -18,11 +19,7 @@ public class Student extends Person {
 	private CoachGroup coachGroup;
 	@Column(name="cohort")
 	private int cohort;
-	
-	private int coachGroupID;
-	
-	//FIXME this needs to be the pk of student table
-	//@Id
+
 	@Column(name="ovNumber")
 	private int studentOV;
 	
@@ -30,13 +27,39 @@ public class Student extends Person {
 		super(email);
 	}
 
-
 	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
 			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth) {
 		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.studentOV = studentOV;
 		this.cohort = cohort;
 		this.cardID = cardID;
+	}
+	
+	/**
+	 * full constructor with coachgroup id.
+	 * 
+	 * @param studentOV
+	 * @param cohort
+	 * @param email
+	 * @param firstName
+	 * @param insertion
+	 * @param lastName
+	 * @param cardID
+	 * @param yearOfBirth
+	 * @param noteList
+	 * @param monthOfBirth
+	 * @param dayOfBirth
+	 * @param coachGroupID
+	 */
+	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
+		int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName) {
+		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
+		this.studentOV = studentOV;
+		this.cohort = cohort;
+		this.cardID = cardID;
+		
+		//this is null because coachGroupService readcoachgroup does use hardcoded coachgroups.
+		this.coachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupName);
 	}
 
 	public void createStudent(){
@@ -70,11 +93,7 @@ public class Student extends Person {
 
 	public void setCardID(int cardID) {
 		this.cardID = cardID;
-		this.noteList = noteList;
-
-	
-
-	
+		//this.noteList = noteList;
 	}
 
 	public TreeSet<Note> getNoteList() {

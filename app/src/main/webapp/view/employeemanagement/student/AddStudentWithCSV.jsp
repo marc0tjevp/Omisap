@@ -12,9 +12,9 @@
 				enctype="multipart/form-data" method="post"
 				id="AddStudentWithCSVForm">
           <div class="form-group row">
-            <label class="col-2 col-form-label">coachGroupID</label>
+            <label class="col-2 col-form-label">coachGroup</label>
             <div class="col-10">
-              <s:select class="form-control" style="width: 50%;" name="coachGroupID" list="coachGroups" listKey="id" listValue="name"></s:select>
+              <s:select class="form-control" style="width: 50%;" name="coachGroup" list="coachGroups" listKey="name" listValue="name"></s:select>
             </div>
           </div>
           <div class="form-group row">

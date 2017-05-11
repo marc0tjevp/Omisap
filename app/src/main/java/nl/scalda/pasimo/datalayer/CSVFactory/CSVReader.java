@@ -38,7 +38,7 @@ public class CSVReader {
     	
     }
     
-    public TreeSet<Student> readFile(File file, int coachGroupID, int lessonGroupID, int cohort) {
+    public TreeSet<Student> readFile(File file, String coachGroupName, int lessonGroupID, int cohort) {
        	// format that the csv file is: Nummer;Roepnaam;Voorvoegsel;Achternaam;Email school;Geboortedatum;
         BufferedReader br = null;
         String line = "";
@@ -56,7 +56,7 @@ public class CSVReader {
 				String[] student = line.split(cvsSplitBy);
 				String[] YearsMonthsDays = student[5].split(date);
 
-				Student a = new Student(Integer.parseInt(student[0]), 0, String.valueOf(student[3]), String.valueOf(student[1]), String.valueOf(student[2]), String.valueOf(student[3]), 0, Integer.parseInt(YearsMonthsDays[2]), null, Integer.parseInt(YearsMonthsDays[1]), Integer.parseInt(YearsMonthsDays[0]));
+				Student a = new Student(Integer.parseInt(student[0]), 0, String.valueOf(student[3]), String.valueOf(student[1]), String.valueOf(student[2]), String.valueOf(student[3]), 0, Integer.parseInt(YearsMonthsDays[2]), null, Integer.parseInt(YearsMonthsDays[1]), Integer.parseInt(YearsMonthsDays[0]),coachGroupName);
 				students.add(a);
 				
 				//TODO create method in IDAOStudent to add all students in one session.

@@ -18,7 +18,7 @@ public class StudentController extends ActionSupport {
 	public File csvFile;
 	public int cohort;
 	public int lessonGroupID;
-	public int coachGroupID;
+	public String coachGroupName;
 	
 	public String execute(){
 		return SUCCESS;
@@ -26,7 +26,7 @@ public class StudentController extends ActionSupport {
 	
 	public String AddStudentWithCSV(){
 		try {
-			c.readFile(csvFile,coachGroupID,lessonGroupID,cohort);
+			c.readFile(csvFile,coachGroupName,lessonGroupID,cohort);
 			return SUCCESS;
 		} catch (Exception e) {
 			return ERROR;
@@ -65,12 +65,12 @@ public class StudentController extends ActionSupport {
 		this.lessonGroupID = lessonGroupID;
 	}
 
-	public int getCoachGroupID() {
-		return coachGroupID;
+	public String getCoachGroupName() {
+		return coachGroupName;
 	}
 
-	public void setCoachGroupID(int coachGroupID) {
-		this.coachGroupID = coachGroupID;
+	public void setCoachGroupName(String coachGroupName) {
+		this.coachGroupName = coachGroupName;
 	}
 
 	public TreeSet<LessonGroup> getLessonGroups() {
