@@ -62,7 +62,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	}
 
 	@Override
-	public void create(CoachGroup cg) {
+	public void create(CoachGroup cg, EducationTeam edu) {
 		try {
 			coachGroups.add(cg);
 			
@@ -71,7 +71,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	}
 
 	@Override
-	public CoachGroup read(CoachGroup coachGroup) {
+	public void read(CoachGroup coachGroup) {
 		for (CoachGroup ccg : coachGroups) {
 			try {
 				if (coachGroup.getName().equals(ccg.getName())) {
@@ -81,7 +81,6 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 			} catch (Exception ex) {
 			}
 		}
-		return null;
 	}
 	
 	@Override
@@ -99,7 +98,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	}
 
 	@Override
-	public void update(CoachGroup coachGroup) {
+	public void update(CoachGroup coachGroup, EducationTeam eduId , String oldname) {
 		try {
 			
 			for (CoachGroup ccg : coachGroups) {
