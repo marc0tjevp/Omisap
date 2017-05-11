@@ -17,15 +17,17 @@ import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
  */
 public interface IDAOCoachGroup {
 
-    public void create(CoachGroup CoachGroup);
+    public void create(CoachGroup CoachGroup, EducationTeam educationteam);
 
-    public CoachGroup read(CoachGroup CoachGroup);
+    public void read(CoachGroup CoachGroup);
     
     public TreeSet<CoachGroup> readAll();
     
     public TreeSet<CoachGroup> readAllBYTeam(EducationTeam t);
 
-    public void update(CoachGroup coachGroup);
+    public void update(CoachGroup coachGroup, EducationTeam edu , String oldname);
     
     public void delete(CoachGroup CoachGroup);
+
+
 }
