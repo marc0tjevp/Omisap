@@ -31,7 +31,7 @@ public interface IDAOEducationTeam {
      * @return - The requested EducationTeam if one exist with that
      * abbreviation. Null otherwise.
      */
-    EducationTeam read(String abbreviation);
+    EducationTeam read(int Id);
 
     /**
      * @return - All education teams.
