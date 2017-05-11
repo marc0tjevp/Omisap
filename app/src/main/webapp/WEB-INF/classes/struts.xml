@@ -24,8 +24,15 @@
 		<action name="coachGroup/array"
 			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
 			method="ArrayCoach">
-
 		</action>
+		
+		<action name="coachGroup/delete"
+			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+			method="deleteCoachGroup">
+			<result name="success" type="redirect">coachGroups</result>
+			<result name="input">/view/employeemanagement/coachgroups.jsp</result>
+		</action>
+		
 		<!-- Updating a lesson group name -->
 		<action name="lessongroup/details/updatename"
 			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupDetailsAction"
@@ -57,9 +64,10 @@
 			method="getThisCoach">
 		</action>
 		
-		 <action name="coachGroup/array" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController" 
+		 <action name="coachGroup/array" 
+		 	class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController" 
 			method="ArrayCoach">
-		
+		    <result name="success" type="json"></result>
 			</action> 
 
 	</package>

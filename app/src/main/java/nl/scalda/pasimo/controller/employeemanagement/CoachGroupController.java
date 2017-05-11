@@ -88,21 +88,21 @@ public class CoachGroupController extends ActionSupport {
 		return SUCCESS;
 	}
 
-	public void ArrayCoach() {
-
-		deleteCoaches.add(CoachGroupService.getInstance().readCoachGroup(s1));
-		System.out.println(deleteCoaches);
+	public String ArrayCoach() {
+		String[] parts = s1.split("\\,");
+		
+		for (String cg : parts){
+			if(!cg.equals("")){
+			//coachGroup.remove(cg);
+			//CoachGroupService.getInstance().delete(CoachGroupService.getInstance().readCoachGroup(cg));
+			}
+		}
+		return SUCCESS;
+		
 	}
 
 	public void getThisCoach() {
 		coach = CoachGroupService.getInstance().readCoachGroup(s1);
-	}
-
-	public String deleteCoachGroup() {
-		for (CoachGroup cg : deleteCoaches) {
-			CoachGroupService.getInstance().delete(cg);
-		}
-		return SUCCESS;
 	}
 
 	public void setTeacher(TreeSet<Teacher> teacher) {

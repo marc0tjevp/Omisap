@@ -93,20 +93,22 @@
                    
                 });
                 
+                
                 $("#deleteButton2").click(function(e){
                 	
-               
-             
-                	for (var i = 0, length = closestTr.length; i < length; i++) {
+                	
                     	$.ajax({
                 		 	type: 'POST',	  
                 			url:'coachGroup/array',
                 		   	dataType: 'json',
-               				data : "s1=" + closestTr[i],
+               				data : "s1=" + closestTr,
+               				success: function(data) {
+	           			     	location.reload();
+	           				 }
                     	});
-                    	
+                 
+                  							
                 	
-                }
                 });
 					
                 
@@ -268,7 +270,7 @@
                        
                             <button type="button"
 									class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
-                            <button type="submit" value="Verwijderen"
+                            <button type="button" value="Verwijderen"
 									class="btn btn-danger" id="deleteButton2">Verwijderen</button>
                            </div> 
                             </div>
@@ -277,7 +279,7 @@
                 </div>
             
             
-            <!-- Modal for Editing an Coach group -->
+            <!-- Modal for Editing an Coach group 
             <div class="modal fade" id="coachGroupEditModal"
 			tabindex="-1" role="dialog"
 			aria-labelledby="coachGroupEditModalLabel" aria-hidden="true">
@@ -350,7 +352,7 @@
                     </div>
                 </div>
             </div>	
-
+-->
             <table class="table coach-groups-table table-responsive">
                 <thead>
                     <tr>

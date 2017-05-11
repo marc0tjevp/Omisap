@@ -69,7 +69,6 @@ public class EducationTeam implements Comparable<EducationTeam> {
     public void deleteCoachGroup(CoachGroup cg){
     	this.coachGroups.remove(cg);
     	DAOFactory.getTheFactory().getDAOCoachGroup().delete(cg);
-    	//TestDAOCoachGroup.getInstance().delete(cg);
     }
     
     public void updateTeacher(Teacher teacher) {
