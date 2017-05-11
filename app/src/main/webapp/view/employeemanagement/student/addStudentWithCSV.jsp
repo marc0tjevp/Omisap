@@ -40,7 +40,7 @@
 							accept="text/csv" />
           </div>
           </div>
-            <div align="left">
+            <div class="form-group row">
               <button type="button" class="btn btn-primary"
 						data-toggle="button" aria-pressed="false">
   		   Cancel</button>
