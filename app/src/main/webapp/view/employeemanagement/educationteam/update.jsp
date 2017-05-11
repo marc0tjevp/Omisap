@@ -28,7 +28,7 @@
                     
                      <a href="http://localhost:8080/Pasimo/educationTeam" class="btn btn-primary">Annuleren</a>
                      
-                      <a href="http://localhost:8080/Pasimo/educationTeam" class="btn btn-primary pull-right">Opslaan</a>
+                      <button type="submit" value="Submit" name="Opslaan" class="btn btn-primary pull-right">Opslaan</button>
 
                         </form>
                     </div>

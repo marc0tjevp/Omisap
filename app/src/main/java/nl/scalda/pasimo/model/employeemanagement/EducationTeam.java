@@ -10,6 +10,7 @@ import java.util.TreeSet;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
+import nl.scalda.pasimo.service.EducationTeamService;
 
 
 public class EducationTeam implements Comparable<EducationTeam> {
@@ -108,8 +109,13 @@ public class EducationTeam implements Comparable<EducationTeam> {
     
     public void addEducationTeam(EducationTeam educationTeam) {
         this.educationTeams.add(educationTeam);
-        DAOFactory.getTheFactory().getDAOEducationTeam().create(educationTeam);
-   
+        EducationTeamService.getInstance().create(educationTeam);
+  
+    }
+    public void updateEducationTeam(EducationTeam educationTeam) {
+        educationTeam.setAbbreviation(educationTeam.getAbbreviation());
+        educationTeam.setName(educationTeam.getName());
+        DAOFactory.getTheFactory().getDAOEducationTeam().update(educationTeam);
         
         
     }

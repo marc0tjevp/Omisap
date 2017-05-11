@@ -4,9 +4,10 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.interfaces.IDAOEducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 
-public class EducationTeamService {
+public class EducationTeamService implements IDAOEducationTeam{
 
     private static EducationTeamService instance;
     private Set<EducationTeam> educationTeams;
@@ -36,4 +37,25 @@ public class EducationTeamService {
  public Set<EducationTeam> readAll(){
 	 return DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
  }
+
+@Override
+public void create(EducationTeam EducationTeam) {
+	
+}
+
+@Override
+public EducationTeam read(EducationTeam EducationTeam) {
+
+	return null;
+}
+
+@Override
+public void update(EducationTeam EducationTeam) {
+	DAOFactory.getTheFactory().getDAOEducationTeam().update(EducationTeam);
+}
+
+@Override
+public void delete(EducationTeam EducationTeam) {
+	DAOFactory.getTheFactory().getDAOEducationTeam().delete(EducationTeam);
+}
 }

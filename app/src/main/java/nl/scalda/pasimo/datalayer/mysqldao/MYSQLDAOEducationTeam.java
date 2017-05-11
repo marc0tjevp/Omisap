@@ -154,7 +154,7 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
         Set<EducationTeam> teams = new TreeSet<>();
         try {
             tx = session.beginTransaction();
-            List educationTeamList = session.createNativeQuery("SELECT * FROM education_team;")
+            List educationTeamList = session.createNativeQuery("SELECT * FROM educationteam;")
                     .getResultList();
             for (Iterator iterator = educationTeamList.iterator(); iterator.hasNext();) {
                 Object[] obj = (Object[]) iterator.next();

@@ -5,6 +5,8 @@
  */
 package nl.scalda.pasimo.main;
 
+import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.Team;
 
 //import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 //import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
@@ -30,6 +32,22 @@ public class Main {
 //        c1.addLessonGroup(l2);
 //        c1.addLessonGroup(l3);
 
-    }
+//	EducationTeam e = new EducationTeam("MAX","M");
+//
+//	Team t = new Team("","");
 
+
+    
+//	t.addEducationTeam(e);
+
+//	e.setId(346);
+//	t.removeEducationTeam(e);
+//
+//	e.setId(349);
+//	e.setName("W2S");
+//	e.setAbbreviation("2");
+//	t.updateEducationTeam(e);
+    
+    
+}
 }

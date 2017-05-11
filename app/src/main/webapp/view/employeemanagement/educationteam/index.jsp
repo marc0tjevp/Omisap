@@ -24,13 +24,15 @@
                     <table class="table">
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>Afkorting</th>
                                 <th>Naam</th>
                                 <th>Acties</th>
                             </tr>
                             <tr>
                             
-                            <td><input class="btn btn-primary pull-left" type="checkbox">    AO</td>
+                            <td><input class="btn btn-primary" type="checkbox">    
+                            <td>AO</td>
                             <td>ApplicatieOntwikkeling</td>
                             <td>                      
                               <a data-toggle="modal" data-target="#deleteConfirmation" class="btn btn-danger align-right"><i class="fa fa-trash"></i></a>

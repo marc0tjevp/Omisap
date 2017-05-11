@@ -154,6 +154,12 @@
 			<result name="success">/view/employeemanagement/educationteam/update.jsp
 			</result>
 		</action>
+				    <action name="educationTeam/edit"
+			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
+			method="edit">
+			<result name="success" type="redirect">/educationTeam</result>
+		</action>
+		
 
 	</package>
 </struts>

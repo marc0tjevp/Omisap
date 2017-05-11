@@ -27,7 +27,7 @@
                   
 
                         
-                         <button type="submit" value="Submit" name="Aanmaken" class="btn btn-primary pull-right">Aanmaken</button>
+                         <button type="submit" value="Submit" name="index" class="btn btn-primary pull-right">Aanmaken</button>
 
                        <a href="http://localhost:8080/Pasimo/educationTeam" class="btn btn-primary">Annuleren</a>
                                                  

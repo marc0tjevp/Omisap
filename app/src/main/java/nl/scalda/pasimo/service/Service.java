@@ -25,5 +25,8 @@ public class Service {
     public LessonGroupService getLessonGroupService() {
         return LessonGroupService.getInstance();
     }
+    public EducationTeamService geEducationTeamService() {
+    	return EducationTeamService.getInstance();
+    }
 
 }
