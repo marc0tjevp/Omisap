@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.interfaces.IDAOEducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 
@@ -27,6 +28,11 @@ public class EducationTeamService implements IDAOEducationTeam{
             throw new Exception("Cannot save educationTeam");
         }
     }
+    public EducationTeam read(int Id){
+    	return MYSQLDAOEducationTeam.getInstance().read(Id);
+    	
+    }
+    
 
     public static EducationTeamService getInstance() {
         if (instance == null) {

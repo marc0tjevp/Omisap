@@ -68,22 +68,18 @@ public class CoachGroupService {
      * Reads all CoachGroups
      * @return TreeSet<CoachGroup>
      */
-    public TreeSet<CoachGroup> readAll() {
-    	TreeSet<CoachGroup> AllCoachGroups = new TreeSet<>();
-    	for(EducationTeam edu: EducationTeamService.getInstance().getEducationTeams(0) ){
-    		AllCoachGroups.addAll(edu.getCoachGroups());
-    		}
-    	return AllCoachGroups;
-    }
+	
+	
+	private CoachGroupService() {
+		// TODO Auto-generated constructor stub
+	}
 
-    /**
-     * updates a CoachGroup
-     * @param cg
-     */
-    public void update(CoachGroup cg) {
-    	cg.updateCoachGroup();
-        
-    }
+	/**
+	 * Sends CoachGroup to EducationTeam to create
+	 * 
+	 * @param cg
+	 * @param edu
+	 */
 
     /**
      * Sends CoachGroup to EducationTeam to delete
@@ -98,10 +94,43 @@ public class CoachGroupService {
     		}
     }
 
-    public static CoachGroupService getInstance() {
-        if (instance == null) {
-            instance = new CoachGroupService();
-        }
-        return instance;
-    }
+
+	/**
+	 * Reads all CoachGroups
+	 * 
+	 * @return TreeSet<CoachGroup>
+	 */
+	public TreeSet<CoachGroup> readAll() {
+		TreeSet<CoachGroup> AllCoachGroups = new TreeSet<>();
+		for (EducationTeam edu : EducationTeamService.getInstance().getEducationTeams(0)) {
+			AllCoachGroups.addAll(edu.getCoachGroups());
+		}
+		return AllCoachGroups;
+	}
+
+	/**
+	 * updates a CoachGroup
+	 * 
+	 * String oldname so the DataBase can find the CoachGroup in the DAO so it can be updated
+	 * @param EducationTeam
+	 * @param String oldname
+	 */
+	public void update(CoachGroup cg, EducationTeam eduId, String oldname) {
+			eduId.updateCoachGroup(cg, oldname);
+		//cg.updateCoachGroup();
+
+	}
+
+	/**
+	 * Sends CoachGroup to EducationTeam to delete
+	 * 
+	 * @param cg
+	 */
+
+	public static CoachGroupService getInstance() {
+		if (instance == null) {
+			instance = new CoachGroupService();
+		}
+		return instance;
+	}
 }
