@@ -44,6 +44,7 @@
 		</action>
 
 	</package>
+
 	<package name="alles" extends="struts-default">
 		<!-- <action name="pag1" class="nl.scalda.pasimo.controller.MainController" 
 			method="execute"> <result name="success">/index.jsp</result> </action> <action 
@@ -62,6 +63,12 @@
 			</result>
 		</action>
 
+		<action name="coachGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+                method="execute">
+            <result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
+        </action>
+
+
 
 		<action name="Lessongroup/delete"
 			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
@@ -70,12 +77,8 @@
 			</result>
 		</action>
 
-		<action name="coachgroups"
-			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-			method="execute">
-			<result name="success">/view/employeemanagement/coachgroups/Coachgroups.jsp
-			</result>
-		</action>
+		
+
 		<action name="students"
 			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
 			method="execute">
@@ -84,6 +87,7 @@
 		</action>
 		<action name="teacherOverview"
 			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
+
 			method="readTeacher">
 			<result name="success">/view/employeemanagement/teacher/teacherOverview.jsp
 			</result>
@@ -147,4 +151,5 @@
 		</action>
 
 	</package>
+
 </struts>

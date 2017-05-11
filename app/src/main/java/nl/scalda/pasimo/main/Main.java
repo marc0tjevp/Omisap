@@ -1,10 +1,12 @@
-/**
- * 
- */
 package nl.scalda.pasimo.main;
 
+
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 /**
  * @author Bram van Huele
@@ -16,25 +18,33 @@ public class Main {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		LessonGroup lg = new LessonGroup("LessonGroupName5");
-		LessonGroup lg4 = new LessonGroup("LessonGroupWhatEver");
-		CoachGroup cg = new CoachGroup("CoachGroupName1");         
-		LessonGroup lg2 = new LessonGroup("Working");                   
-		LessonGroup lg3 = new LessonGroup("basvd");
-		
-		//cg.addLessonGroup(lg3);
-		
-		//cg.addLessonGroup(lg2);
+	public static void main(String args[]) {
 
-		//cg.addLessonGroup(lg);
+		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+		Teacher teacher = new Teacher("han", 215950, "im@student.nl");
+		CoachGroup cg = new CoachGroup("abc", teacher);
+		CoachGroup bla = new CoachGroup("abc");
+		EducationTeam ed = new EducationTeam("appy", "ICOAO", 1);
+		Teacher t = new Teacher("kslahfb", 82365, "habg@slakbg.nl");
+		String oldname = cg.getName();		
+		cg.setName("klaas");
+		cg.setCoach(teacher);
+		bla.load();
+		System.out.println(bla);;
+//		CREATE
+//		cg.setCoach(teacher);
+//		EducationTeamService.getInstance().getEducationTeams().add(ed);
+//		CoachGroupService.getInstance().create(cg, ed);
 		
-	//	System.out.println(cg);
-		
-		//cg.deleteLessonGroup(lg2);
-		
+//		UPDATE
+//		CoachGroupService.getInstance().update(cg, ed, oldname);
 		
 		
-		}
+//		DELETE		
+//		CoachGroupService.getInstance().delete(cg);
 
+//		ReadByTeam
+//		System.out.println(CoachGroupService.getInstance().readAll());
+
+	}
 }
