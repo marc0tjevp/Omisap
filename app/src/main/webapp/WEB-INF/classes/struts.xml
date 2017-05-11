@@ -94,6 +94,12 @@
                 method="execute">
             <result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
         </action>
+       
+        <action name="CoachGroupEdit"
+        class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+        		method="execute">
+        <result name="success">/view/employeemanagement/coachgroups/coachGroupEdit.jsp</result>        
+        </action>
         
 		<action name="students"
 			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
