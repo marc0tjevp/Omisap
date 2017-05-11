@@ -35,9 +35,14 @@ public class CoachGroupController extends ActionSupport {
 	public String execute() {
 		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
 		//
-		//
 		EducationTeam edu = new EducationTeam("ICOb", "ICO41A", 1);
 		//
+		coach = new CoachGroup("ICO41A", tc);
+		edu.getCoachGroups().add(coach);
+		coachGroup.add(coach);
+		// coachGroup.add(cg1);
+		teacher.add(tc);
+		educationTeam.add(edu);
 		// EducationTeam edu1 = new EducationTeam("ICOc", "ICO41B", 2);
 		// EducationTeam edu2 = new EducationTeam("ICOd", "ICO41C", 3);
 		// EducationTeam edu3 = new EducationTeam("ICOe", "ICO41D", 4);
@@ -47,12 +52,6 @@ public class CoachGroupController extends ActionSupport {
 		// educationTeam.add(edu2);
 		// educationTeam.add(edu3);
 		// educationTeam.add(edu4);
-		CoachGroup cg = new CoachGroup("123", tc);
-		edu.getCoachGroups().add(cg);
-		coachGroup.add(cg);
-		// coachGroup.add(cg1);
-		teacher.add(tc);
-		educationTeam.add(edu);
 		return SUCCESS;
 
 	}

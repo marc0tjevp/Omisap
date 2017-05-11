@@ -25,19 +25,16 @@
                                     <label for="coachGroupName-input"
 									class="col-2 col-form-label">Naam</label>
                                     <div class="col-10">
-										<s:textfield class="form-control" name="coach.getName()" id="coachGroupName-input"   />
+										<input class="form-control" name="coachname" placeholder="${coach.getName()}" id="coachGroupName-input"   />
                                     </div>
-                                    
+                                   
                                     <label
 									for="coachGroupEducationTeamName-input" class="col-2 col-form-label">EducationTeam</label>
                                     <div class="col-10">
                                         <select class="form-control" name="s1" id="coachGroupEducationTeamName-input">
-                                        
-                                        <s:if test="%{#ed.getEmployeeNumber() == coach.getCoach().getEmployeeNumber() }">
-                                        
-                                         <option value="">${CoachGroupService.getInstance().getEducationTeam(coach).getAbbreviation()}</option>
-                                         </s:if>
-                                        <s:iterator value="" var="ed">
+                                        <option value="">${CoachGroupService.getInstance().getEducationTeam().getAbbriviation()}</option>
+                                         
+                                        <s:iterator value="EducationTeam" var="ed">
                                         <s:if test="%{#ed.getEmployeeNumber() =! coach.getCoach().getEmployeeNumber() }">
                                         <option value="${ed.employeeNumber}">${ed.abbreviation} </option>
                                         </s:if>
