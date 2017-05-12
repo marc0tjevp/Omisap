@@ -149,6 +149,47 @@
 			<result name="success">/view/employeemanagement/educationteam/update.jsp
 			</result>
 		</action>
+		                <action name="noteDeleteAll"
+            class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
+            method="noteDeleteAll">
+            <result name="success" type="redirectAction">noteOverview
+		</result>
+		</action>
+		            <action name="noteEdit"
+            class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
+            method="noteEdit">
+            <result name="success" type="redirectAction">noteOverview
+            </result>
+        </action>        
+        <action name="noteDelete"
+            class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
+            method="noteDelete">
+            <result name="success" type="redirectAction">noteOverview
+		</result>
+		</action>
+		            <action name="noteEditView"
+            class="nl.scalda.pasimo.controller.employeemanagement.NoteController">
+            <result name="success">/view/employeemanagement/note/noteEdit.jsp
+		</result>
+		</action>
+		        <action name="noteAdd"
+            class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
+            method="noteAdd">
+            <result name="success" type="redirect">noteOverview
+            </result>
+        </action>
+            <action name="noteView"
+            class="nl.scalda.pasimo.controller.employeemanagement.NoteController">
+            <result name="success">/view/employeemanagement/note/noteAdd.jsp
+            </result>
+        </action>
+        <action name="noteOverview"
+            class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
+            method="noteOverview">
+            <result name="success">/view/employeemanagement/note/noteOverview.jsp
+            </result>
+		</action>
+		
 
 	</package>
 
