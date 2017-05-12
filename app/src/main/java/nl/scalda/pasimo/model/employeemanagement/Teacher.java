@@ -1,17 +1,22 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
-import java.util.Date;
-import java.util.TreeSet;
+import javax.persistence.*;
+
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
-import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
+import java.util.Date;
 import nl.scalda.pasimo.service.NoteService;
 
+@Entity
+@Table(name="teacher")
 public class Teacher extends Person {
 
+	private static final long serialVersionUID = 1L;
+	@Column(name="employeeNumber", length=6, nullable=false)
+	private int employeeNumber;
+	
+	@Column(name="abbreviation", length=6)
     private String abbreviation;
-    private int employeeNumber;
     
     /**
      * default constructor.
@@ -65,23 +70,17 @@ public class Teacher extends Person {
      * creates the teacher in the (test)datalayer.
      */
     public void create(){
-    	DAOFactory.getTheFactory().getDAOTeacher().create(this, null);
+    	DAOFactory.getTheFactory().getDAOTeacher().create(this);
     }
     
-    public Note createNote(String title, String message, Student s, Teacher madeBy){
-    	System.out.println("test");
-    	Note n = new Note(title, message, s, madeBy);
-    	
-    return n;
+    //TODO variable n is never used.
+    public void createNote(String title, String message, Student s){
+    Note n = new Note(title, message, s, this);
     }
     
     public void deleteNoteByID(int id){
     	NoteService.getInstance().delete(id);
         }
-    
-    public Note readNoteById(int id){
-    	return NoteService.getInstance().readByID(id);
-    }
     
     public void editNote(Note note){
     	note.setLastEdit(new Date());
@@ -91,18 +90,15 @@ public class Teacher extends Person {
     public void deleteAllNotes(){
     	NoteService.getInstance().deleteAll();
     }
-    public TreeSet<Note> readAllNotes(){
-    	return NoteService.getInstance().readAll();
-    }
     /**
      * updates the teacher in the (test)datalayer.
      */
     public void update(){
-    	DAOFactory.getTheFactory().getDAOTeacher().update(this, null);
+    	DAOFactory.getTheFactory().getDAOTeacher().update(this);
     }
     
     public void delete(){
-    	DAOFactory.getTheFactory().getDAOTeacher().delete(this, null);
+    	DAOFactory.getTheFactory().getDAOTeacher().delete(this);
     }
     
     /**
@@ -111,7 +107,6 @@ public class Teacher extends Person {
      * @return CoachGroup
      */
     public CoachGroup getCoachGroup(){
-    	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
     	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentCoachGroup(this);
     }
     
@@ -121,7 +116,6 @@ public class Teacher extends Person {
      * @return EducationTeam
      */
     public EducationTeam getEducationTeam(){
-    	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
     	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentEducationTeamOfTeacher(this);
     }
 	
@@ -146,6 +140,8 @@ public class Teacher extends Person {
         this.employeeNumber = employeeNumber;
     }
 
+   
+    
     @Override
     public String toString() {
         return "Teacher [abbreviation=" + abbreviation + ", employeeNumber=" + employeeNumber
