@@ -31,7 +31,7 @@ public class TestDAOEducationTeam implements IDAOEducationTeam {
     @Override
     public void update(EducationTeam educationTeam) {
 
-        EducationTeam target = this.read(educationTeam.getAbbreviation());
+        EducationTeam target = this.read(educationTeam.getId());
 
         target.setAbbreviation(educationTeam.getAbbreviation());
         target.setName(educationTeam.getName());
@@ -55,10 +55,10 @@ public class TestDAOEducationTeam implements IDAOEducationTeam {
     }
 
     @Override
-    public EducationTeam read(String abbreviation) {
+    public EducationTeam read(int Id) {
 
         for (EducationTeam educationTeam : this.educationTeams) {
-            if (educationTeam.getAbbreviation().equals(abbreviation))
+            if (educationTeam.getAbbreviation().equals(Id))
                 return educationTeam;
         }
 

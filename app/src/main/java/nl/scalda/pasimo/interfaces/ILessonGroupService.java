@@ -1,16 +1,21 @@
 package nl.scalda.pasimo.interfaces;
 
-import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import java.util.TreeSet;
 
-/**
- * Created by Gebruiker on 25-1-2017.
- */
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.Student;
+
 public interface ILessonGroupService {
 
     void create(LessonGroup lessonGroup);
-
+    
+    TreeSet<CoachGroup> readAll();
+    
     LessonGroup read(LessonGroup lessonGroup);
-
+    
+    LessonGroup readByLessonGroupName(String name, String coachGroupName );
+    
     void update(LessonGroup newLessonGroup);
 
     void delete(LessonGroup lessonGroup);

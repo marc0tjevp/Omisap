@@ -4,6 +4,8 @@ import javax.persistence.*;
 
 import java.util.TreeSet;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+
 @Entity
 @Table(name="student")
 @DiscriminatorValue(value="Student")
@@ -25,14 +27,14 @@ public class Student extends Person {
 	@Column(name="cohort")
 	private int cohort;
 
-	@Column(name="ovNumber", nullable=false)
+	@Column(name="ovNumber")
 	private int studentOV;
 
 	
 	public Student(String email){
 		super(email);
 	}
-	
+
 	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
 			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth) {
 		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
@@ -41,6 +43,10 @@ public class Student extends Person {
 		this.cardID = cardID;
 	}
 
+	public void createStudent(){
+		DAOFactory.getTheFactory().getDAOStudent().create(this);
+	}
+	
 	public boolean deleteStudent(Student s) {
 		s = null;
 		return true;
@@ -68,12 +74,15 @@ public class Student extends Person {
 
 	public void setCardID(int cardID) {
 		this.cardID = cardID;
-		this.noteList = noteList;
+		//this.noteList = noteList;
 	}
-	
 
 	public TreeSet<Note> getNoteList() {
 		return noteList;
+	}
+
+	public void setNoteList(TreeSet<Note> noteList) {
+		this.noteList = noteList;
 	}
 
 	public LessonGroup getLessonGroup() {

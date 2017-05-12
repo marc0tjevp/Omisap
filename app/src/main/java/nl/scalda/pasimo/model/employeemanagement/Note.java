@@ -7,8 +7,6 @@ import javax.persistence.*;
 
 import org.hibernate.annotations.Type;
 
-import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
-import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.service.Service;
 
 @Entity

@@ -188,8 +188,8 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
      * @param String abbreviation
      */
     @Override
-    public EducationTeam read(String abbreviation) {
-        // TODO Auto-generated method stub
+    public EducationTeam read(int Id) {
+      
     	
         return null;
     }

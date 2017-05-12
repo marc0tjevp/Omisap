@@ -12,7 +12,7 @@ import nl.scalda.pasimo.service.NoteService;
 public class Teacher extends Person {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Column(name="employeeNumber", length=6, nullable=false)
 	private int employeeNumber;
 	
@@ -74,6 +74,7 @@ public class Teacher extends Person {
     	DAOFactory.getTheFactory().getDAOTeacher().create(this);
     }
     
+    //TODO variable n is never used.
     public void createNote(String title, String message, Student s){
     Note n = new Note(title, message, s, this);
     }
@@ -140,6 +141,8 @@ public class Teacher extends Person {
         this.employeeNumber = employeeNumber;
     }
 
+   
+    
     @Override
     public String toString() {
         return "Teacher [abbreviation=" + abbreviation + ", employeeNumber=" + employeeNumber
