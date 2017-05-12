@@ -11,6 +11,12 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 public class EducationTeamService {
 	
 	private static EducationTeamService instance;
+
+	private Set<EducationTeam> educationTeams;
+	
+	public EducationTeamService() {
+        educationTeams = DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
+    }
 	
 	/**
 	 * gets the educationteam with the abbreviation that equals given abbreviation
@@ -41,11 +47,6 @@ public class EducationTeamService {
 		}
 	}
 
-    private Set<EducationTeam> educationTeams;
-
-    public EducationTeamService() {
-        educationTeams = DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
-    }
 
     public Set<EducationTeam> getEducationTeams() {
         return educationTeams;

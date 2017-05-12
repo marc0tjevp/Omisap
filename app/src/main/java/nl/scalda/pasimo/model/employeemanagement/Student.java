@@ -1,16 +1,8 @@
 package nl.scalda.pasimo.model.employeemanagement;
-
+import java.util.TreeSet;
 import javax.persistence.*;
-
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 
-
-//@PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
-
-
-	
-
-import java.util.TreeSet;
 @Entity
 @Table(name="student")
 public class Student extends Person {
@@ -21,27 +13,20 @@ public class Student extends Person {
 	
 	@Column(name="cohort")
 	private int cohort;
-	
-	private int coachGroupID;
-	
-	//FIXME this needs to be the pk of student table
-	//@Id
+
 	@Column(name="ovNumber")
 	private int studentOV;
-
 	private TreeSet<Note> noteList = new TreeSet<>();
 	private LessonGroup lessonGroup;
 	private CoachGroup coachGroup;
 
-
-
-	public Student(int studentOV, int cohort,int coachGroupID, String email, String firstName, String insertion, String lastName,
+	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
 			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth) {
 		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.studentOV = studentOV;
 		this.cohort = cohort;
 		this.cardID = cardID;
-		this.coachGroupID = coachGroupID;
+		//this.coachGroupID = coachGroupID;
 	}
 	public Student(String email) {
 		super(email);
@@ -78,10 +63,6 @@ public class Student extends Person {
 
 	public void setCardID(int cardID) {
 		this.cardID = cardID;
-
-	
-
-	
 	}
 
 	public TreeSet<Note> getNoteList() {
@@ -120,9 +101,6 @@ public class Student extends Person {
 	public int compareTo(Person o) {
 	    return getEmail().compareTo(o.getEmail());
 	}
-
-
-
 	public String getNameOfLessonGroup() {
 		return lessonGroup.getName();
 	}

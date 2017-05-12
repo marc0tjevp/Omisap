@@ -75,8 +75,6 @@ public class MySQLDAOFactory extends DAOFactory {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 	@Override
 	public IDAOStudent getDAOStudent() {
 		// TODO Auto-generated method stub

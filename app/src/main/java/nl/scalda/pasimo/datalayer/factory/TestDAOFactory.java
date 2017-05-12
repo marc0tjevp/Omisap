@@ -67,20 +67,15 @@ public class TestDAOFactory extends DAOFactory {
 
 	@Override
 	public IDAOWorkingDay getDAOWorkingDay() {
-
 		return TestDAOWorkingDay.getInstance();
 	}
 
 	@Override
 	public IDAOWorkBlock getDAOWorkBlock() {
 		return TestDAOWorkBlock.getInstance();
-	
-		
 	}
-
 	@Override
 	public IDAOStudent getDAOStudent() {
 		return TestDAOStudent.getInstance();
 	}
-
 }
