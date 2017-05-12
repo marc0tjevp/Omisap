@@ -1,17 +1,26 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+
 import java.util.Date;
 import java.util.TreeSet;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
-import nl.scalda.pasimo.datalayer.testdao.TestDAOTeacher;
 import nl.scalda.pasimo.service.NoteService;
 
+@Entity
+@Table(name="teacher")
 public class Teacher extends Person {
 
+	private static final long serialVersionUID = 1L;
+	@Column(name="employeeNumber", length=6, nullable=false)
+	private int employeeNumber;
+	
+	@Column(name="abbreviation", length=6)
     private String abbreviation;
-    private int employeeNumber;
     
     /**
      * default constructor.
@@ -68,13 +77,14 @@ public class Teacher extends Person {
     	DAOFactory.getTheFactory().getDAOTeacher().create(this, null);
     }
     
+
     public Note createNote(String title, String message, Student s, Teacher madeBy){
     	System.out.println("test");
     	Note n = new Note(title, message, s, madeBy);
     	
     return n;
     }
-    
+   
     public void deleteNoteByID(int id){
     	NoteService.getInstance().delete(id);
         }
@@ -111,7 +121,6 @@ public class Teacher extends Person {
      * @return CoachGroup
      */
     public CoachGroup getCoachGroup(){
-    	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
     	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentCoachGroup(this);
     }
     
@@ -121,7 +130,6 @@ public class Teacher extends Person {
      * @return EducationTeam
      */
     public EducationTeam getEducationTeam(){
-    	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
     	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentEducationTeamOfTeacher(this);
     }
 	
@@ -146,6 +154,8 @@ public class Teacher extends Person {
         this.employeeNumber = employeeNumber;
     }
 
+   
+    
     @Override
     public String toString() {
         return "Teacher [abbreviation=" + abbreviation + ", employeeNumber=" + employeeNumber
