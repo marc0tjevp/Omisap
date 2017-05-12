@@ -1,24 +1,17 @@
 package nl.scalda.pasimo.model.employeemanagement;
+
 import javax.persistence.*;
 
-
-import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import java.util.Date;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
 import nl.scalda.pasimo.service.NoteService;
-
 
 @Entity
 @Table(name="teacher")
-//@PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
 public class Teacher extends Person {
 
 	private static final long serialVersionUID = 1L;
-	//this needs to be the pk of teacher table
-	//@Id
 	@Column(name="employeeNumber", length=6, nullable=false)
 	private int employeeNumber;
 	
@@ -80,6 +73,7 @@ public class Teacher extends Person {
     	DAOFactory.getTheFactory().getDAOTeacher().create(this);
     }
     
+    //TODO variable n is never used.
     public void createNote(String title, String message, Student s){
     Note n = new Note(title, message, s, this);
     }

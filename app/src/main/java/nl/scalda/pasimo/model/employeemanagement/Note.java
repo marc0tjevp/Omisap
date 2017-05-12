@@ -5,8 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import javax.persistence.*;
 
 import org.hibernate.annotations.Type;
-import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
-import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
+
 import nl.scalda.pasimo.service.Service;
 
 @Entity
@@ -17,9 +16,9 @@ public class Note implements Comparable<Note> {
 	@Column(name="noteID", nullable=false)
     private int id;
 	
-	@Column(name="title")
 	static AtomicInteger count = new AtomicInteger(0);
-
+	
+	@Column(name="title")
     private String title;
 	
 	@Column(name="creationDate", updatable=false)
@@ -36,6 +35,7 @@ public class Note implements Comparable<Note> {
     private Student assignedTo;
     private int ovNumber;
     private int employeeNumber;
+    
     /* empty constructor */
     public Note(){
     	id = count.incrementAndGet();
@@ -59,8 +59,6 @@ public class Note implements Comparable<Note> {
         this.lastEdit = new Date();
         Service.getInstance().getNoteService().create(this, assignedTo);
     }
-
-    
  
     public int getId() {
         return id;

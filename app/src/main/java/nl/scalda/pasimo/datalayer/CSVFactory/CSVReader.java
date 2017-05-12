@@ -12,10 +12,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.TreeSet;
 
-import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.Student;
-import nl.scalda.pasimo.model.employeemanagement.Teacher;
 /**
  *
  * @author jeroe
@@ -37,7 +34,7 @@ public class CSVReader {
     public CSVReader(){
     	
     }
-    
+
     public TreeSet<Student> readFile(File file, String coachGroupName, int lessonGroupID, int cohort) {
        	// format that the csv file is: Nummer;Roepnaam;Voorvoegsel;Achternaam;Email school;Geboortedatum;
         BufferedReader br = null;

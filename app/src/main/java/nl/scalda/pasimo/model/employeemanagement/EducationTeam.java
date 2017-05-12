@@ -1,12 +1,9 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
-import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 
 import java.util.TreeSet;
-
 import javax.persistence.*;
 
 @Entity
@@ -33,10 +30,6 @@ public class EducationTeam implements Comparable<EducationTeam>{
      */
     @Column(name="name", length=64)
     private String name;
-    /**
-     *
-     * Id of the EducationTeam
-     */
     
     public EducationTeam() {
 		
@@ -46,7 +39,6 @@ public class EducationTeam implements Comparable<EducationTeam>{
 		if (teachers.add(t)) {
 			DAOFactory.getTheFactory().getDAOEducationTeam().addTeacherToEducationTeam(t, this);
 		}
-		
 	}
     
     /**

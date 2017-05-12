@@ -3,8 +3,8 @@ package nl.scalda.pasimo.model.employeemanagement;
 import java.util.TreeSet;
 import javax.persistence.*;
 
-
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+
 @Entity
 @Table(name="lesson_group")
 public class LessonGroup implements Comparable<LessonGroup> {

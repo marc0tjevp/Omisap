@@ -12,12 +12,11 @@ public class EducationTeamService {
 	
 	private static EducationTeamService instance;
 	
-	public static EducationTeamService getInstance() {
-		if (instance == null) {
-			instance = new EducationTeamService();
-		}
-		return instance;
-	}
+	private Set<EducationTeam> educationTeams;
+	
+	public EducationTeamService() {
+        educationTeams = DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
+    }
 	
 	/**
 	 * gets the educationteam with the abbreviation that equals given abbreviation
@@ -48,12 +47,6 @@ public class EducationTeamService {
 		}
 	}
 
-    private Set<EducationTeam> educationTeams;
-
-    public EducationTeamService() {
-        educationTeams = DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
-    }
-
     public Set<EducationTeam> getEducationTeams() {
         return educationTeams;
     }
@@ -70,5 +63,11 @@ public class EducationTeamService {
     	
     }
     
+    public static EducationTeamService getInstance() {
+        if (instance == null) {
+            instance = new EducationTeamService();
+        }
+        return instance;
+    }
 
 }

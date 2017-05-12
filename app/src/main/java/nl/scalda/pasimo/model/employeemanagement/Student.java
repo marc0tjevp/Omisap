@@ -1,11 +1,12 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import java.util.TreeSet;
+
 import javax.persistence.*;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.service.CoachGroupService;
 
-import java.util.TreeSet;
 @Entity
 @Table(name="student")
 public class Student extends Person {
@@ -156,4 +157,3 @@ public class Student extends Person {
 	}
 
 }
-
