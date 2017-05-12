@@ -2,29 +2,74 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
 
+import javax.persistence.*;
+
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+
+@Entity
+@Table(name="student")
+//@PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
 public class Student extends Person {
 
+	private static final long serialVersionUID = 1L;
+	private int noteListID;
+	private int lessonGroupID;
+	private int cardID;
+	
+	@Column(name="cohort")
+	private int cohort;
+
+	@Column(name="ovNumber")
+	private int studentOV;
+
+	
+	public Student(String email){
+		super(email);
+	}
 
 	private TreeSet<Note> noteList = new TreeSet<>();
 	private LessonGroup lessonGroup;
-	private int studentOV;
-	private int cohort;
 	private CoachGroup coachGroup;
-
-	public Student(String email) {
-		this.setEmail(email);
-	}
 
 	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
 			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth) {
 		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.studentOV = studentOV;
 		this.cohort = cohort;
-		this.noteList = noteList;
+		this.cardID = cardID;
+	}
 
+	public void createStudent(){
+		DAOFactory.getTheFactory().getDAOStudent().create(this);
+	}
 	
+	public boolean deleteStudent(Student s) {
+		s = null;
+		return true;
+	}
 
-	
+	public int getNoteListID() {
+		return noteListID;
+	}
+
+	public void setNoteListID(int noteListID) {
+		this.noteListID = noteListID;
+	}
+
+	public int getLessonGroupID() {
+		return lessonGroupID;
+	}
+
+	public void setLessonGroupID(int lessonGroupID) {
+		this.lessonGroupID = lessonGroupID;
+	}
+
+	public int getCardID() {
+		return cardID;
+	}
+
+	public void setCardID(int cardID) {
+		this.cardID = cardID;
 	}
 
 	public TreeSet<Note> getNoteList() {
@@ -59,6 +104,11 @@ public class Student extends Person {
 		this.studentOV = studentOV;
 	}
 
+	@Override
+	public int compareTo(Person o) {
+	    return getEmail().compareTo(o.getEmail());
+	}
+
 	public String getNameOfLessonGroup() {
 		return lessonGroup.getName();
 	}
@@ -82,4 +132,3 @@ public class Student extends Person {
 	}
 
 }
-
