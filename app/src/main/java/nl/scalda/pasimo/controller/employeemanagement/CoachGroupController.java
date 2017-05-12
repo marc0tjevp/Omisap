@@ -35,14 +35,21 @@ public class CoachGroupController extends ActionSupport {
 	public String execute() {
 		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
 		//
+		
+		EducationTeam edu1 = new EducationTeam("ICOa", "ICO41b", 2);
+		EducationTeam edu2 = new EducationTeam("ICOc", "ICO41c", 3);
 		EducationTeam edu = new EducationTeam("ICOb", "ICO41A", 1);
 		//
 		coach = new CoachGroup("ICO41A", tc);
+		coach = new CoachGroup("ICO41B", tc);
+		coach = new CoachGroup("ICO41C", tc);
 		edu.getCoachGroups().add(coach);
 		coachGroup.add(coach);
-		// coachGroup.add(cg1);
+		 //coachGroup.add(cg1);
 		teacher.add(tc);
 		educationTeam.add(edu);
+		educationTeam.add(edu1);
+		educationTeam.add(edu2);
 		// EducationTeam edu1 = new EducationTeam("ICOc", "ICO41B", 2);
 		// EducationTeam edu2 = new EducationTeam("ICOd", "ICO41C", 3);
 		// EducationTeam edu3 = new EducationTeam("ICOe", "ICO41D", 4);
@@ -101,8 +108,9 @@ public class CoachGroupController extends ActionSupport {
 		
 	}
 
-	public void getThisCoach() {
+	public String getThisCoach() {
 		coach = CoachGroupService.getInstance().readCoachGroup(s1);
+		return SUCCESS;
 	}
 
 	public void setTeacher(TreeSet<Teacher> teacher) {

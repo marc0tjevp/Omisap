@@ -114,17 +114,19 @@
                 
                 $("#editButton").click(function(e){
                 	
-                		 $('#coachGroupEditModal').modal('show',function(e){
-                       		 
-                         });
-                	
+                		                	
                 	$.ajax({
             		 	type: 'POST',	  
             			url:'coachGroup/edit',
             		   	dataType: 'json',
            				data : "s1=" + closestTr,
-           				
+
+           				success: function(data){
+           					window.location.replace(window.location.href+"/CoachGroupEdit");
+           				}
             		});
+                	
+                
                 	 
                 	});
                 	

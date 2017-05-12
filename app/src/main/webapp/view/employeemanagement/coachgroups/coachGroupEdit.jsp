@@ -32,12 +32,11 @@
 									for="coachGroupEducationTeamName-input" class="col-2 col-form-label">EducationTeam</label>
                                     <div class="col-10">
                                         <select class="form-control" name="s1" id="coachGroupEducationTeamName-input">
-                                        <option value="">${CoachGroupService.getInstance().getEducationTeam().getAbbriviation()}</option>
-                                         
+                                        
                                         <s:iterator value="EducationTeam" var="ed">
-                                        <s:if test="%{#ed.getEmployeeNumber() =! coach.getCoach().getEmployeeNumber() }">
-                                        <option value="${ed.employeeNumber}">${ed.abbreviation} </option>
-                                        </s:if>
+                                      
+                                        <option value="${ed.id}">${ed.getAbbreviation()}</option>
+                                      
                                         </s:iterator>
                                     </select>
                                      
