@@ -38,7 +38,7 @@
           </div>
             <div align="left">
               <button type="button" class="btn btn-primary"
-						data-toggle="button" aria-pressed="false">
+						data-toggle="button" aria-pressed="false" onclick="window.location.replace('/Pasimo/StudentOverview')">
   		   Cancel</button>
               <button type="button" id="submitButton" class="btn btn-primary"
 						data-toggle="button" aria-pressed="false">
