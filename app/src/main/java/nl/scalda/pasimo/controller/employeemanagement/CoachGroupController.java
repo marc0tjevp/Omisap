@@ -42,9 +42,7 @@ public class CoachGroupController extends ActionSupport {
 		EducationTeam edu2 = new EducationTeam("ICOc", "ICO41c", 3);
 		EducationTeam edu = new EducationTeam("ICOb", "ICO41A", 1);
 		//
-		coach = new CoachGroup("ICO41A", tc);
-		coach = new CoachGroup("ICO41B", tc);
-		coach = new CoachGroup("ICO41C", tc);
+		
 		edu.getCoachGroups().add(coach);
 		coachGroup.add(coach);
 		 //coachGroup.add(cg1);
@@ -63,6 +61,9 @@ public class CoachGroupController extends ActionSupport {
 		// educationTeam.add(edu2);
 		// educationTeam.add(edu3);
 		// educationTeam.add(edu4);
+		if(!s1.isEmpty()){
+		coach = CoachGroupService.getInstance().readCoachGroup(s1);
+		}
 		return SUCCESS;
 
 	}
