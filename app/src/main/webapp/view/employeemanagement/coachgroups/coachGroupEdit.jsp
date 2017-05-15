@@ -7,7 +7,27 @@
          <link type="text/css" rel="stylesheet"
 			href="<c:url value="/resources/css/coachgroups.css"/>" />
     </jsp:attribute>
-
+<jsp:attribute name="scripts">
+        <script>
+        $( window ).on( "load", function() { 
+        	
+        $("#AnnulerenButton").click(function(e){
+        		window.location.replace(window.location.href+"/coachGroup");
+        	});
+        
+        $('.form-control')
+        .dropdown();
+       
+        $('select').change(function() {
+            if ($(this).children('option:first-child').is(':selected')) {
+              $(this).addClass('placeholder');
+            } else {
+             $(this).removeClass('placeholder');
+            }
+           });
+    });
+        </script>
+        </jsp:attribute>
 	<jsp:attribute name="content">
 	                <form id="updateCoachGroup"
 						action="updateCoachGroup" role="form" method="post">
@@ -62,8 +82,8 @@
                            
                         
                         <div class="modal-footer">
-                            <button type="button"
-								class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
+                         <button type="button" value="Annuleren"
+									class="btn btn-secondary" id="AnnulerenButton>Annuleren</button>
                             <input type="submit" value="Wijzigen"
 								class="btn btn-danger">
                            

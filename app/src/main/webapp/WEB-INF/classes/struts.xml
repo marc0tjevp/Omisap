@@ -92,6 +92,12 @@
             <result type="redirect">coachGroups</result>
         </action>
 
+ <action name="coachGroups/CoachGroupEdit/coachGroup" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+                method="execute">
+            <result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
+            <result type="redirect">coachGroups</result>
+        </action>
+
 		<action name="Lessongroup/delete"
 			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
 			method="deleteLessonGroup">

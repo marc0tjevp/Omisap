@@ -27,13 +27,15 @@ public class CoachGroupController extends ActionSupport {
 
 	public Set<EducationTeam> educationTeam = EducationTeamService.getInstance().getEducationTeams();
 	public TreeSet<CoachGroup> coachGroup = CoachGroupService.getInstance().readAll();
-	CoachGroup coach = new CoachGroup();
+ CoachGroup coach = new CoachGroup();
 	public TreeSet<CoachGroup> deleteCoaches = new TreeSet<>();
 	public String s1;
 	public String s2;
 
 	public String execute() {
 		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
+		Teacher tc1 = new Teacher(12456, "k@k.com", 21595, "hallo", "vanerg", "klaas", 1999, 9, 15);
+		Teacher tc2 = new Teacher(1245, "k@k.com", 2159, "hallo", "vanerg", "klaas", 1999, 9, 15);
 		//
 		
 		EducationTeam edu1 = new EducationTeam("ICOa", "ICO41b", 2);
@@ -46,6 +48,8 @@ public class CoachGroupController extends ActionSupport {
 		edu.getCoachGroups().add(coach);
 		coachGroup.add(coach);
 		 //coachGroup.add(cg1);
+		teacher.add(tc);
+		teacher.add(tc1);
 		teacher.add(tc);
 		educationTeam.add(edu);
 		educationTeam.add(edu1);
@@ -79,7 +83,6 @@ public class CoachGroupController extends ActionSupport {
 			}
 
 		}
-
 		return SUCCESS;
 	}
 
@@ -133,12 +136,25 @@ public class CoachGroupController extends ActionSupport {
 		this.deleteCoaches = deleteCoaches;
 	}
 
+
 	public CoachGroup getCoach() {
 		return coach;
 	}
 
 	public void setCoach(CoachGroup coach) {
 		this.coach = coach;
+	}
+
+	public String getS2() {
+		return s2;
+	}
+
+	public void setS2(String s2) {
+		this.s2 = s2;
+	}
+
+	public void setS1(String s1) {
+		this.s1 = s1;
 	}
 
 	public TreeSet<CoachGroup> getCoachGroup() {

@@ -22,7 +22,7 @@
                             this.checked = true;
                             $(this).addClass("selectedCoachGroup");
                             $("#deleteButton").removeAttr("disabled");
-                            
+                            $("#editButton").attr("disabled", true);
                             
                            
                         });
