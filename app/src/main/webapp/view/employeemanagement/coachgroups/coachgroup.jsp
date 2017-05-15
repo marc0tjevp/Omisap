@@ -113,20 +113,10 @@
 					
                 
                 $("#editButton").click(function(e){
+             
+           					window.location.replace(window.location.href+ "/CoachGroupEdit?s1=" + closestTr);
+           				
                 	
-                		                	
-                	$.ajax({
-            		 	type: 'POST',	  
-            			url:'coachGroup/edit',
-            		   	dataType: 'json',
-           				data : "s1=" + closestTr,
-
-           				success: function(data){
-           					window.location.replace(window.location.href+"/CoachGroupEdit");
-           				}
-            		});
-                	
-                
                 	 
                 	});
                 	
