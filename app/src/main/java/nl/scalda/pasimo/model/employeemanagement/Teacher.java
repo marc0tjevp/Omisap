@@ -7,6 +7,7 @@ import java.util.Date;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.service.NoteService;
 
+
 @Entity
 @Table(name="teacher")
 public class Teacher extends Person {

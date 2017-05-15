@@ -7,47 +7,48 @@
 <t:layout2>
 	<jsp:attribute name="content">
     <div class="container">
-      <h1>Add Student with CSV</h1>
-      <form action="AddStudentWithCSV"
+      <h1>Studenten toevoegen met een CSV</h1>
+      <br>
+      <form action="AddStudentWithCSV" class=""
 				enctype="multipart/form-data" method="post"
 				id="AddStudentWithCSVForm">
           <div class="form-group row">
-            <label class="col-2 col-form-label">coachGroup</label>
+            <label class="col-2 col-form-label">coachgroep</label>
             <div class="col-10">
-              <s:select class="form-control" style="width: 50%;" name="coachGroup" list="coachGroups" listKey="name" listValue="name"></s:select>
+              <s:textfield id="studentCoachGroupID" style="width: 50%;"
+							class="form-control" type="text" />
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-2 col-form-label">lessonGroupID</label>
+            <label class="col-2 col-form-label">lesgroep</label>
             <div class="col-10">
-              <s:select class="form-control" style="width: 50%;" name="lessonGroupID" list="lessonGroups" listKey="id" listValue="name"></s:select>
+              <s:textfield id="studentlessonGroupID" style="width: 50%;"
+							class="form-control" type="text" />
             </div>
           </div>
           <div class="form-group row">
             <label class="col-2 col-form-label">cohort</label>
             <div class="col-10">
-              <s:textfield id="cohort" style="width: 50%;" type="number"
-							class="form-control" name="cohort" value="0" />
+              <s:textfield id="studentCohort" style="width: 50%;"
+							class="form-control" type="text" />
             </div>
           </div>
           <div class="form-group row">
           <label class="col-2 col-form-label">upload CSV</label>
           <div class="col-10">
-          <s:file class="fileUploadbutton" accept="text/csv" name="csvFile" />
+          <s:file name="importedFile" class="fileUploadbutton"
+							accept="text/csv" />
           </div>
           </div>
-            <div align="left">
+            <div class="form-group row">
               <button type="button" class="btn btn-primary"
-						data-toggle="button" aria-pressed="false" onclick="window.location.replace('/Pasimo/StudentOverview')">
-  		   Cancel</button>
-              <button type="button" id="submitButton" class="btn btn-primary"
 						data-toggle="button" aria-pressed="false">
-  		   Add</button>
-			</div> 
-			</form>
+  		   Annuleren</button>
+              <button type="button" class="btn btn-primary"
+						data-toggle="button" aria-pressed="false">
+  		   Toevoegen</button>
 			</div>
+      </form>
+    </div>
   </jsp:attribute>
-  <jsp:attribute name="scripts">
-  <script type="text/javascript" src="resources/js/importStudent.js"></script>
-</jsp:attribute>
 </t:layout2>

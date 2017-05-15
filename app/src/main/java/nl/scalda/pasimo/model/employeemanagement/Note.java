@@ -3,9 +3,7 @@ package nl.scalda.pasimo.model.employeemanagement;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.persistence.*;
-
 import org.hibernate.annotations.Type;
-
 import nl.scalda.pasimo.service.Service;
 
 @Entity
@@ -15,7 +13,6 @@ public class Note implements Comparable<Note> {
 	@Id
 	@Column(name="noteID", nullable=false)
     private int id;
-	
 	static AtomicInteger count = new AtomicInteger(0);
 	
 	@Column(name="title")

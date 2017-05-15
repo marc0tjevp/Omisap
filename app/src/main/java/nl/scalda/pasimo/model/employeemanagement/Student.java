@@ -1,32 +1,23 @@
 package nl.scalda.pasimo.model.employeemanagement;
-
 import java.util.TreeSet;
-
 import javax.persistence.*;
-
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.service.CoachGroupService;
 
 @Entity
 @Table(name="student")
 public class Student extends Person {
-
 	private static final long serialVersionUID = 1L;
 	private int noteListID;
 	private int lessonGroupID;
 	private int cardID;
+	@Column(name="cohort")
+	private int cohort;
+	@Column(name="ovNumber")
+	private int studentOV;
 	private TreeSet<Note> noteList = new TreeSet<>();
 	private LessonGroup lessonGroup;
 	private CoachGroup coachGroup;
-	@Column(name="cohort")
-	private int cohort;
-
-	@Column(name="ovNumber")
-	private int studentOV;
-	
-	public Student(String email){
-		super(email);
-	}
 
 	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
 			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth) {
@@ -34,6 +25,10 @@ public class Student extends Person {
 		this.studentOV = studentOV;
 		this.cohort = cohort;
 		this.cardID = cardID;
+		//this.coachGroupID = coachGroupID;
+	}
+	public Student(String email) {
+		super(email);
 	}
 	
 	/**
@@ -133,7 +128,6 @@ public class Student extends Person {
 	public int compareTo(Person o) {
 	    return getEmail().compareTo(o.getEmail());
 	}
-
 	public String getNameOfLessonGroup() {
 		return lessonGroup.getName();
 	}
@@ -149,7 +143,7 @@ public class Student extends Person {
 	public void setCoachGroup(CoachGroup coachGroup) {
 		this.coachGroup = coachGroup;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Student [noteList=" + noteList + ", lessonGroup=" + lessonGroup + ", studentOV=" + studentOV

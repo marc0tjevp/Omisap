@@ -68,14 +68,18 @@
 			<result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp
 			</result>
 		</action>
-		<action name="coachGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-                method="execute">
-            <result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
-        </action>
 		<action name="Lessongroup/delete"
 			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
 			method="deleteLessonGroup">
 			<result name="success">/view/employeemanagement/lessongroup/index.jsp
+			</result>
+		</action>
+
+		<action name="coachgroups"
+			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+			method="execute">
+			<result name="success">/view/employeemanagement/coachgroups/Coachgroups.jsp
+
 			</result>
 		</action>
 		<action name="students"
@@ -138,7 +142,7 @@
 		<action name="importStudent"
 			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
 			method="execute">
-			<result name="success">/view/employeemanagement/student/ImportStudentWithCSV.jsp
+			<result name="success">/view/employeemanagement/student/importStudentWithCSV.jsp
 			</result>
 		</action>
 		<action name="StudentOverview"

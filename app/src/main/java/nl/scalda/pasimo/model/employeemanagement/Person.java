@@ -33,8 +33,6 @@ public class Person implements Comparable<Person>, Serializable {
 	@Column(name="lastName", length=255)
     private String lastName;
 	
-    private TreeSet<Note> noteList;
-    
     @Column(name="dateOfBirth")
     private GregorianCalendar dateOfBirth;
 
