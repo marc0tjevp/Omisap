@@ -109,7 +109,12 @@ public class Teacher extends Person {
      * @return CoachGroup
      */
     public CoachGroup getCoachGroup(){
-    	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentCoachGroup(this);
+    	try{
+    		return DAOFactory.getTheFactory().getDAOTeacher().getCurrentCoachGroup(this);
+    	} catch(Exception e){
+    		return null;
+    	}
+    	
     }
     
     /**
@@ -118,10 +123,13 @@ public class Teacher extends Person {
      * @return EducationTeam
      */
     public EducationTeam getEducationTeam(){
-    	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentEducationTeamOfTeacher(this);
+    	try{
+        	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentEducationTeamOfTeacher(this);
+    	} catch(Exception e){
+    		return null;
+    	}
     }
 	
-
     public String getAbbreviation() {
         return abbreviation;
     }
@@ -141,8 +149,6 @@ public class Teacher extends Person {
     public void setEmployeeNumber(int employeeNumber) {
         this.employeeNumber = employeeNumber;
     }
-
-   
     
     @Override
     public String toString() {
