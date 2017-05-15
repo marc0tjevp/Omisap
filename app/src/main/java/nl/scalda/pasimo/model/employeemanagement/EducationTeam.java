@@ -1,7 +1,6 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 
@@ -57,7 +56,6 @@ public class EducationTeam implements Comparable<EducationTeam>{
     public void addCoachGroup(CoachGroup cg){
     	cg.setName(this.abbreviation + cg.getName());
     	this.coachGroups.add(cg);
-    	System.out.println(this.getCoachGroups());
     	DAOFactory.getTheFactory().getDAOCoachGroup().create(cg, this);
     	//TestDAOCoachGroup.getInstance().create(cg);
     
@@ -69,6 +67,8 @@ public class EducationTeam implements Comparable<EducationTeam>{
      * @param oldname
      */
     public void updateCoachGroup(CoachGroup cg , String oldname){
+    	
+    	//FIXME use DAOFactory.
     	MYSQLDAOCoachGroup.getInstance().update(cg, this, oldname);
     	
     }

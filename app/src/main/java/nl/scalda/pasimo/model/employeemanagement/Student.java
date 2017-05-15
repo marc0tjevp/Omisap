@@ -1,7 +1,6 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import javax.persistence.*;
-
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
@@ -10,7 +9,6 @@ import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 @Table(name="student")
 @DiscriminatorValue(value="Student")
 public class Student extends Person {
-
 	private static final long serialVersionUID = 1L;
 	private int noteListID;
 	private int lessonGroupID;
@@ -41,6 +39,7 @@ public class Student extends Person {
 		this.studentOV = studentOV;
 		this.cohort = cohort;
 		this.cardID = cardID;
+		//this.coachGroupID = coachGroupID;
 	}
 
 	public void createStudent(){
@@ -113,7 +112,6 @@ public class Student extends Person {
 	public int compareTo(Person o) {
 	    return getEmail().compareTo(o.getEmail());
 	}
-
 	public String getNameOfLessonGroup() {
 		return lessonGroup.getName();
 	}
@@ -129,7 +127,7 @@ public class Student extends Person {
 	public void setCoachGroup(CoachGroup coachGroup) {
 		this.coachGroup = coachGroup;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Student [noteList=" + noteList + ", lessonGroup=" + lessonGroup + ", studentOV=" + studentOV

@@ -28,7 +28,6 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 */
 	@Column(name="name", length=64)
     private String name;
-	
 	/**
      * The Teacher of this CoachGroup
      */
