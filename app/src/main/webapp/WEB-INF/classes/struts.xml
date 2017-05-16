@@ -170,6 +170,7 @@
         <action name="noteDelete"
             class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
             method="noteDelete">
+            <param name="id">${id}</param>
             <result name="success" type="redirectAction">noteOverview
             </result>
         </action>

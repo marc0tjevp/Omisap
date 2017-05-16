@@ -57,7 +57,7 @@ public class NoteController extends ActionSupport {
 	}
 
 	public String noteDelete() {
-
+		teacher.deleteNoteByID(id);
 		return SUCCESS;
 	}
 
