@@ -58,7 +58,7 @@ public class EducationTeamService {
         }
     }
     public EducationTeam read(int Id){
-    	return MYSQLDAOEducationTeam.getInstance().read(Id);
+    	return DAOFactory.getTheFactory().getDAOEducationTeam().read(Id);
     	
     }
     

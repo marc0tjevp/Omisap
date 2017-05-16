@@ -189,7 +189,7 @@
 			<result name="input">/view/employeemanagement/coachgroups.jsp</result>
 		</action>
 
-		<action name="updateCoachGroup"
+		<action name="coachGroups/updateCoachGroup"
 			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
 			method="updateCoachGroup">
 			<result name="success" type="redirect">coachGroups</result>

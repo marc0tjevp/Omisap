@@ -62,7 +62,8 @@ public class EducationTeam implements Comparable<EducationTeam>{
      * @param oldname
      */
     public void updateCoachGroup(CoachGroup cg , String oldname){
-    	MYSQLDAOCoachGroup.getInstance().update(cg, this, oldname);
+
+    	DAOFactory.getTheFactory().getDAOCoachGroup().update(cg, this, oldname);
     	
     }
     

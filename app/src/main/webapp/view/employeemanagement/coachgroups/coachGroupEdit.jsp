@@ -45,7 +45,7 @@
                                     <label for="coachGroupName-input"
 									class="col-2 col-form-label">Naam</label>
                                     <div class="col-10">
-										<input class="form-control" name="coachname" placeholder="${coach.getName()}" id="coachGroupName-input"   />
+										<input class="form-control" value="${coach.getName()}" name="coach.name" placeholder="${coach.getName()}" id="coachGroupName-input"   />
                                     </div>
                                    
                                     <label
@@ -68,7 +68,7 @@
                                     <div class="col-10">
                                          <select class="form-control" name="s2" id="coachGroupTeacherName-input">
                                         
-                                         <option value="">${coach.getCoach().getEmployeeNumber()}</option>
+                                         <option value="${coach.getCoach().employeeNumber}">${coach.getCoach().getAbbreviation()}</option>
                                          
                                         <s:iterator value="teacher" var="ed">
                                         <s:if test="%{#ed.getEmployeeNumber() =! coach.getCoach().getEmployeeNumber() }">
