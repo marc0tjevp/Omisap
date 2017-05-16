@@ -47,7 +47,7 @@ public class NoteController extends ActionSupport {
 
 
 	public String noteAdd() {
-		Student s = new Student();
+		Student s = new Student("push it to the limit");
 		Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
 		teacher.createNote(title, message, s, teacher);
 
