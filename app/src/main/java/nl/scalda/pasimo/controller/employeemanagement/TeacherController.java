@@ -39,7 +39,7 @@ public class TeacherController extends ActionSupport {
 	 */
 	public String loadTeacherInfo() {
 		teacher = getTeacherByEmployeeID(id);
-		setTeamAbbreviation(getOldEducationTeam(teacher).getAbbreviation());
+		setTeamAbbreviation(EducationTeamService.getInstance().getOldEducationTeam(teacher).getAbbreviation());
 		return SUCCESS;
 	}
 
@@ -52,7 +52,7 @@ public class TeacherController extends ActionSupport {
 	public String addTeacher() {
 		teacher.setAbbreviation();
 		teacher.create();
-		EducationTeam et = getEducationTeamByAbbreviation(teamAbbreviation);
+		EducationTeam et = EducationTeamService.getInstance().getEducationTeamByAbbreviation(teamAbbreviation);
 		et.addTeacher(teacher);
 		return SUCCESS;
 	}
@@ -83,9 +83,9 @@ public class TeacherController extends ActionSupport {
 				f.setLastName(teacher.getLastName());
 				f.setEmail(teacher.getEmail());
 				f.setCardID(teacher.getCardID());
-				if (!(getOldEducationTeam(f).getAbbreviation().equals(teamAbbreviation))){
-					getOldEducationTeam(f).deleteTeacher(f);
-					getEducationTeamByAbbreviation(teamAbbreviation).addTeacher(f);
+				if (!(EducationTeamService.getInstance().getOldEducationTeam(f).getAbbreviation().equals(teamAbbreviation))){
+					EducationTeamService.getInstance().getOldEducationTeam(f).deleteTeacher(f);
+					EducationTeamService.getInstance().getEducationTeamByAbbreviation(teamAbbreviation).addTeacher(f);
 				}
 				f.update();
 			}
@@ -103,47 +103,6 @@ public class TeacherController extends ActionSupport {
 		teacher = getTeacherByEmployeeID(id);
 		teacher.delete();
 		return SUCCESS;
-	}
-
-	/**
-	 * updates the teachers educationteam.
-	 * 
-	 * @param t
-	 * @param newTeam
-	 * @return String
-	 */
-	public String updateTeacherEducationTeam(Teacher t, EducationTeam newTeam) {
-		if(!(getOldEducationTeam(t).equals(newTeam))){
-			getOldEducationTeam(t).deleteTeacher(t);
-			newTeam.addTeacher(t);
-		}
-		return SUCCESS;
-	}
-	
-	/**
-	 * Removes the teacher from the old education team.
-	 * 
-	 * @param t
-	 * @param oldTeam
-	 * @return String
-	 */
-	public String removeTeacherFromEducationTeam(Teacher t, EducationTeam oldTeam){
-		oldTeam.deleteTeacher(t);
-		return SUCCESS;
-	}
-	
-	/**
-	 * returns the education team the teacher is currently in.
-	 * 
-	 * @param t
-	 * @return EducationTeam
-	 */
-	public EducationTeam getOldEducationTeam(Teacher t){
-		try {
-			return t.getEducationTeam();
-		} catch(Exception e) {
-			return null;
-		}
 	}
 	
 	/**
@@ -182,21 +141,6 @@ public class TeacherController extends ActionSupport {
 	public TreeSet<EducationTeam> getEducationTeams() {
 		educationTeams.addAll(EducationTeamService.getInstance().getEducationTeams());
 		return educationTeams;
-	}
-	
-	/**
-	 * gets the educationteam with the abbreviation that equals given abbreviation
-	 * 
-	 * @param abbr
-	 * @return EducationTeam
-	 */
-	public EducationTeam getEducationTeamByAbbreviation(String abbr){
-		for(EducationTeam et : getEducationTeams()){
-			if(et.getAbbreviation().equals(abbr)){
-				return et;
-			}
-		}
-		return null;
 	}
 
 	public void setTeachers(TreeSet<Teacher> teachers) {

@@ -2,6 +2,8 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.TreeSet;
 
+import javax.persistence.*;
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
@@ -10,16 +12,20 @@ import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 /**
  * @author Collin and ismet
  */
+@Entity
+@Table(name="coach_group")
 public class CoachGroup implements Comparable<CoachGroup> {
-
 	/**
 	 * The name of this Coach group
 	 */
-	private String name;
+	@Column(name="name", length=64)
+    private String name;
 	/**
 	 * The Teacher of this CoachGroup
 	 */
-	private Teacher coach;
+	@OneToOne
+    private Teacher coach;
+
 	/**
 	 * The {@link LessonGroups}'s who are in this CoachGroup
 	 */
@@ -174,6 +180,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
                ", lessongroup= " +
                lessonGroups;
     }
+
     /**
      *   Sorts the lesson groups by name when adding a lesson group to a TreeSet
      *   @param coachGroup
