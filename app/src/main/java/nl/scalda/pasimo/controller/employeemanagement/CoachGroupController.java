@@ -27,41 +27,41 @@ public class CoachGroupController extends ActionSupport {
 
 	public Set<EducationTeam> educationTeam = EducationTeamService.getInstance().getEducationTeams();
 	public TreeSet<CoachGroup> coachGroup = CoachGroupService.getInstance().readAll();
- CoachGroup coach = new CoachGroup();
+    CoachGroup coach = new CoachGroup();
 	public TreeSet<CoachGroup> deleteCoaches = new TreeSet<>();
 	public String s1;
 	public String s2;
 
 	public String execute() {
-		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
-		Teacher tc1 = new Teacher(12456, "k@k.com", 21595, "hallo", "vanerg", "klaas", 1999, 9, 15);
-		Teacher tc2 = new Teacher(1245, "k@k.com", 2159, "hallo", "vanerg", "klaas", 1999, 9, 15);
-		//
-		
-		EducationTeam edu1 = new EducationTeam("ICOa", "ICO41b", 2);
-		EducationTeam edu2 = new EducationTeam("ICOc", "ICO41c", 3);
-		EducationTeam edu = new EducationTeam("ICOb", "ICO41A", 1);
-		//
-		
-		edu.getCoachGroups().add(coach);
-		coachGroup.add(coach);
-		 //coachGroup.add(cg1);
-		teacher.add(tc);
-		teacher.add(tc1);
-		teacher.add(tc);
-		educationTeam.add(edu);
-		educationTeam.add(edu1);
-		educationTeam.add(edu2);
-		// EducationTeam edu1 = new EducationTeam("ICOc", "ICO41B", 2);
-		// EducationTeam edu2 = new EducationTeam("ICOd", "ICO41C", 3);
-		// EducationTeam edu3 = new EducationTeam("ICOe", "ICO41D", 4);
-		// EducationTeam edu4 = new EducationTeam("ICOf", "ICO41E", 5);
-		// educationTeam.add(edu);
-		// educationTeam.add(edu1);
-		// educationTeam.add(edu2);
-		// educationTeam.add(edu3);
-		// educationTeam.add(edu4);
-		if(!s1.isEmpty()){
+//		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
+//		Teacher tc1 = new Teacher(12456, "k@k.com", 21595, "hallo", "vanerg", "klaas", 1999, 9, 15);
+//		Teacher tc2 = new Teacher(1245, "k@k.com", 2159, "hallo", "vanerg", "klaas", 1999, 9, 15);
+//		//
+//		
+//		EducationTeam edu1 = new EducationTeam("ICOa", "ICO41b", 2);
+//		EducationTeam edu2 = new EducationTeam("ICOc", "ICO41c", 3);
+//		EducationTeam edu = new EducationTeam("ICOb", "ICO41A", 1);
+//		//
+//		
+//		edu.getCoachGroups().add(coach);
+//		coachGroup.add(coach);
+//		 //coachGroup.add(cg1);
+//		teacher.add(tc);
+//		teacher.add(tc1);
+//		teacher.add(tc);
+//		educationTeam.add(edu);
+//		educationTeam.add(edu1);
+//		educationTeam.add(edu2);
+//		// EducationTeam edu1 = new EducationTeam("ICOc", "ICO41B", 2);
+//		// EducationTeam edu2 = new EducationTeam("ICOd", "ICO41C", 3);
+//		// EducationTeam edu3 = new EducationTeam("ICOe", "ICO41D", 4);
+//		// EducationTeam edu4 = new EducationTeam("ICOf", "ICO41E", 5);
+//		// educationTeam.add(edu);
+//		// educationTeam.add(edu1);
+//		// educationTeam.add(edu2);
+//		// educationTeam.add(edu3);
+//		// educationTeam.add(edu4);
+		if(s1 != null){
 		coach = CoachGroupService.getInstance().readCoachGroup(s1);
 		}
 		return SUCCESS;
@@ -77,7 +77,6 @@ public class CoachGroupController extends ActionSupport {
 
 		for (EducationTeam o : educationTeam) {
 			if (o.getId() == Integer.parseInt(s1)) {
-				coach.setName(coach.getName());
 				coach.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s2)));
 				CoachGroupService.getInstance().create(coach, o);
 				break;
@@ -103,9 +102,8 @@ public class CoachGroupController extends ActionSupport {
 		String[] parts = s1.split("\\,");
 		
 		for (String cg : parts){
-			if(!cg.equals("")){
-			//coachGroup.remove(cg);
-			//CoachGroupService.getInstance().delete(CoachGroupService.getInstance().readCoachGroup(cg));
+			if(cg != ""){
+			CoachGroupService.getInstance().delete(CoachGroupService.getInstance().readCoachGroup(cg));
 			}
 		}
 		return SUCCESS;

@@ -21,24 +21,24 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 
 	public TestDAOCoachGroup() {
 
-		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
-		coachGroups.add(new CoachGroup("A1", tc));
-		coachGroups.add(new CoachGroup("A2", tc));
-		coachGroups.add(new CoachGroup("A3", tc));
-
-    	CoachGroup c1 = new CoachGroup("B1");
-		CoachGroup c2 = new CoachGroup("B2");
-		
-		TreeSet<LessonGroup> lessonGroups = 
-				DAOFactory.getTheFactory().getDAOLessonGroup().readAll();
-		
-		for(LessonGroup lessonGroup : lessonGroups) {
-			c1.addLessonGroup(lessonGroup);
-		}
-		
-		coachGroups.add(c1);
-		coachGroups.add(c2);
-		
+//		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
+//		coachGroups.add(new CoachGroup("A1", tc));
+//		coachGroups.add(new CoachGroup("A2", tc));
+//		coachGroups.add(new CoachGroup("A3", tc));
+//
+//    	CoachGroup c1 = new CoachGroup("B1");
+//		CoachGroup c2 = new CoachGroup("B2");
+//		
+//		TreeSet<LessonGroup> lessonGroups = 
+//				DAOFactory.getTheFactory().getDAOLessonGroup().readAll();
+//		
+//		for(LessonGroup lessonGroup : lessonGroups) {
+//			c1.addLessonGroup(lessonGroup);
+//		}
+//		
+//		coachGroups.add(c1);
+//		coachGroups.add(c2);
+//		
 /*        LessonGroup l1 = new LessonGroup("ICO43A");
         LessonGroup l2 = new LessonGroup("ICO42A");
         LessonGroup l3 = new LessonGroup("ICO41A");*/
@@ -55,9 +55,9 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
         	}
         }*/
         
-		coachGroups.add(new CoachGroup("A1"));
-		coachGroups.add(new CoachGroup("A2"));
-		coachGroups.add(new CoachGroup("A3"));
+//		coachGroups.add(new CoachGroup("A1"));
+//		coachGroups.add(new CoachGroup("A2"));
+//		coachGroups.add(new CoachGroup("A3"));
 
 	}
 

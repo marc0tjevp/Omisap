@@ -83,7 +83,7 @@
                         
                         <div class="modal-footer">
                          <button type="button" value="Annuleren"
-									class="btn btn-secondary" id="AnnulerenButton>Annuleren</button>
+									class="btn btn-secondary" id="AnnulerenButton">Annuleren</button>
                             <input type="submit" value="Wijzigen"
 								class="btn btn-danger">
                            
