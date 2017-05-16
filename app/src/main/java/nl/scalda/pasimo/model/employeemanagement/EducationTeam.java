@@ -50,7 +50,6 @@ public class EducationTeam implements Comparable<EducationTeam>{
     public void addCoachGroup(CoachGroup cg){
     	cg.setName(this.abbreviation + cg.getName());
     	this.coachGroups.add(cg);
-    	System.out.println(this.getCoachGroups());
     	DAOFactory.getTheFactory().getDAOCoachGroup().create(cg, this);
     	//TestDAOCoachGroup.getInstance().create(cg);
     
@@ -63,7 +62,7 @@ public class EducationTeam implements Comparable<EducationTeam>{
      */
     public void updateCoachGroup(CoachGroup cg , String oldname){
 
-    	DAOFactory.getTheFactory().getDAOCoachGroup().update(cg, this, oldname);
+    	DAOFactory.getTheFactory().getDAOCoachGroup().update(cg, oldname);
     	
     }
     

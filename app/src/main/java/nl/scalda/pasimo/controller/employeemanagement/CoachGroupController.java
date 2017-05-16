@@ -31,6 +31,8 @@ public class CoachGroupController extends ActionSupport {
 	public TreeSet<CoachGroup> deleteCoaches = new TreeSet<>();
 	public String s1;
 	public String s2;
+	public String s3;
+
 
 	public String execute() {
 //		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
@@ -89,11 +91,11 @@ public class CoachGroupController extends ActionSupport {
 
 	public String updateCoachGroup() {
 		for (CoachGroup cg : coachGroup) {
-			if (cg.getName().equals(coach.getName())) {
+			if (cg.getName().equals(s1)) {
 				String b = cg.getName();
-				cg.setName(coach.getName());
-				cg.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s1)));
-				CoachGroupService.getInstance().update(cg, EducationTeamService.getInstance().read(Integer.parseInt(s2)), b);
+				cg.setName(s3);
+				cg.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s2)));
+				CoachGroupService.getInstance().update(cg, b);
 		}
 		}
 		return SUCCESS;

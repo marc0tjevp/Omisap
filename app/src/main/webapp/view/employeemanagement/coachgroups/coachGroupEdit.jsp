@@ -12,7 +12,7 @@
         $( window ).on( "load", function() { 
         	
         $("#AnnulerenButton").click(function(e){
-        		window.location.replace(window.location.href+"/coachGroup");
+        		window.location.replace("/Pasimo/coachGroups");
         	});
         
         $('.form-control')
@@ -30,39 +30,19 @@
         </jsp:attribute>
 	<jsp:attribute name="content">
 	                <form id="updateCoachGroup"
-						action="updateCoachGroup" role="form" method="post">
-                        <div class="modal-header">
-                            <h5 class="modal-title"
-								id="coachGroupEditModalLabel">Coach groep wijzigen</h5>
-                            <button type="button" class="close"
-								data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
+						action="/Pasimo/coachGroups/updateCoachGroup" role="form" method="post">
+                        
                      
+                             <input type="hidden" name="s1" value="${coach.getName()}">
                              
                                 <div class="form-group">
                                     <label for="coachGroupName-input"
 									class="col-2 col-form-label">Naam</label>
                                     <div class="col-10">
-										<input class="form-control" value="${coach.getName()}" name="coach.name" placeholder="${coach.getName()}" id="coachGroupName-input"   />
+										<input class="form-control" value="${coach.getName()}" name="s3" placeholder="${coach.getName()}" id="coachGroupName-input"   />
                                     </div>
+                                   </div>
                                    
-                                    <label
-									for="coachGroupEducationTeamName-input" class="col-2 col-form-label">EducationTeam</label>
-                                    <div class="col-10">
-                                        <select class="form-control" name="s1" id="coachGroupEducationTeamName-input">
-                                        
-                                        <s:iterator value="EducationTeam" var="ed">
-                                      
-                                        <option value="${ed.id}">${ed.getAbbreviation()}</option>
-                                      
-                                        </s:iterator>
-                                    </select>
-                                     
-                                     
-                                </div>
-                                  
                                     <label
 									for="coachGroupTeacherName-input" class="col-2 col-form-label">Teacher</label>
                                     <div class="col-10">
@@ -78,7 +58,9 @@
                                     </select>
                                      
                                 </div>
-                                </div>
+                                
+                                   
+                               
                            
                         
                         <div class="modal-footer">

@@ -15,9 +15,9 @@ public class TestDAOEducationTeam implements IDAOEducationTeam {
         this.educationTeams = new TreeSet<EducationTeam>();
 
         // Test data
-        this.educationTeams.add(new EducationTeam("AO", "Applicatieontwikkelaar"));
-        this.educationTeams.add(new EducationTeam("SSC", "Shared Service Center"));
-        this.educationTeams.add(new EducationTeam("MV", "Mediavormgeving"));
+        this.educationTeams.add(new EducationTeam("AO", "Applicatieontwikkelaar",4));
+        this.educationTeams.add(new EducationTeam("SSC", "Shared Service Center",3));
+        this.educationTeams.add(new EducationTeam("MV", "Mediavormgeving", 2));
         this.educationTeams.add(new EducationTeam("ICOb", "ICO41A", 1));
 
     }
@@ -57,7 +57,7 @@ public class TestDAOEducationTeam implements IDAOEducationTeam {
     public EducationTeam read(int Id) {
 
         for (EducationTeam educationTeam : this.educationTeams) {
-            if (educationTeam.getAbbreviation().equals(Id))
+            if (educationTeam.getId() == Id)
                 return educationTeam;
         }
 
