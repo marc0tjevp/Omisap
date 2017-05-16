@@ -7,7 +7,7 @@
 	<constant name="struts.enable.SlashesInActionNames" value="true" />
 	<constant name="struts.mapper.alwaysSelectFullNamespace"
 		value="false" />
-		
+
 	<package name="json" extends="json-default">
 		<!-- Adding a lesson group -->
 		<action name="lessongroup/add"
@@ -61,10 +61,12 @@
 		</action>
 
 
-		<action name="coachGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-                method="execute">
-            <result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
-        </action>
+		<action name="coachGroups"
+			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+			method="execute">
+			<result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp
+			</result>
+		</action>
 
 
 
@@ -75,7 +77,7 @@
 			</result>
 		</action>
 
-		
+
 
 		<action name="students"
 			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
@@ -90,27 +92,37 @@
 			method="readTeacher">
 			<result name="success">/view/employeemanagement/teacher/teacherOverview.jsp
 			</result>
-			</action>
+		</action>
 
-        <action name="lessongroup" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
-                method="execute">
-            <result name="success">/view/employeemanagement/lessongroup/index.jsp</result>
-        </action>
-        <action name="lessongroup/details" class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
-                method="execute">
-            <result name="success">/view/employeemanagement/lessongroup/details.jsp</result>
-        </action>
-        <action name="coachGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-                method="execute">
-            <result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
-        </action>
-        <action name="students" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-                method="execute">
-            <result name="success">/view/employeemanagement/coachgroups/student.jsp</result>
-        </action>
-        <action name="teacherOverview" class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
+		<action name="lessongroup"
+			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
+			method="execute">
+			<result name="success">/view/employeemanagement/lessongroup/index.jsp
+			</result>
+		</action>
+		<action name="lessongroup/details"
+			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
+			method="execute">
+			<result name="success">/view/employeemanagement/lessongroup/details.jsp
+			</result>
+		</action>
+		<action name="coachGroups"
+			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+			method="execute">
+			<result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp
+			</result>
+		</action>
+		<action name="students"
+			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+			method="execute">
+			<result name="success">/view/employeemanagement/coachgroups/student.jsp
+			</result>
+		</action>
+		<action name="teacherOverview"
+			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="readTeacher">
-			<result name="success">/view/employeemanagement/teacher/teacherOverview.jsp</result>
+			<result name="success">/view/employeemanagement/teacher/teacherOverview.jsp
+			</result>
 
 		</action>
 		<action name="addTeacherPage"
@@ -120,7 +132,8 @@
 			<result name="success">/view/employeemanagement/teacher/addTeacher.jsp
 			</result>
 
-			<result name="success">/view/employeemanagement/teacher/addTeacher.jsp</result>
+			<result name="success">/view/employeemanagement/teacher/addTeacher.jsp
+			</result>
 
 		</action>
 		<action name="addTeacher"
@@ -139,7 +152,8 @@
 			<result name="success">/view/employeemanagement/teacher/editTeacher.jsp
 			</result>
 
-			<result name="success">/view/employeemanagement/teacher/editTeacher.jsp</result>
+			<result name="success">/view/employeemanagement/teacher/editTeacher.jsp
+			</result>
 
 		</action>
 		<action name="editTeacher"
@@ -163,12 +177,8 @@
 		<action name="teacherInfo"
 			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="loadTeacherInfo">
-
 			<result name="success">/view/employeemanagement/teacher/TeacherInformation.jsp
 			</result>
-
-			<result name="success">/view/employeemanagement/teacher/TeacherInformation.jsp</result>
-
 		</action>
 		<action name="noteAdd"
 			class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
@@ -176,7 +186,7 @@
 			<result name="success" type="redirect">noteOverview
 			</result>
 		</action>
-			<action name="noteView"
+		<action name="noteView"
 			class="nl.scalda.pasimo.controller.employeemanagement.NoteController">
 			<result name="success">/view/employeemanagement/note/noteAdd.jsp
 			</result>
@@ -187,31 +197,31 @@
 			<result name="success">/view/employeemanagement/note/noteOverview.jsp
 			</result>
 		</action>
-			<action name="noteEditView"
+		<action name="noteEditView"
 			class="nl.scalda.pasimo.controller.employeemanagement.NoteController">
 			<result name="success">/view/employeemanagement/note/noteEdit.jsp
 			</result>
 		</action>
-			<action name="noteEdit"
+		<action name="noteEdit"
 			class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
 			method="noteEdit">
 			<result name="success" type="redirectAction">noteOverview
 			</result>
-		</action>		
+		</action>
 		<action name="noteDelete"
 			class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
 			method="noteDelete">
 			<result name="success" type="redirectAction">noteOverview
 			</result>
 		</action>
-				<action name="noteDeleteAll"
+		<action name="noteDeleteAll"
 			class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
 			method="noteDeleteAll">
 			<result name="success" type="redirectAction">noteOverview
 			</result>
 		</action>
 
-</package>
+	</package>
 
 </struts>
 

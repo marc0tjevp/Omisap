@@ -9,7 +9,7 @@
 	</jsp:attribute>
 	<jsp:attribute name="scripts">
 		<script type="text/javascript"
-		src="<c:url value="resources/js/note.js/"/>"></script>
+		src="<c:url value="resources/js/note.js"/>"></script>
 	</jsp:attribute>
 	<jsp:attribute name="content">
 
@@ -56,7 +56,7 @@
 			 	<div class="row">
 					<c:forEach var="n" items="${noteList}">
 						<div class="note col-md-3" data-toggle="modal"
-								data-target="#overviewModal" data-id="${n.getId()}" >
+								data-target="#overviewModal" id="${n.getId()}" data-message="${n.getMessage()}">
 							<div class="row">
 							<div onClick=";" style="cursor: pointer;"
 										class="col-md-12 noteTitle">Title: ${n.getTitle()}</div>
