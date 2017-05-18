@@ -20,6 +20,7 @@ public class NoteController extends ActionSupport {
 	private Student student;
 	private String title;
 	private String message;
+	private Note note;
 
 	private TreeSet<Note> noteList = new TreeSet<>();
 
@@ -62,19 +63,15 @@ public class NoteController extends ActionSupport {
 	}
 
 
-	public String noteEdit() {
-		for (Note n : getNoteList()) {
-			if (n.getId() == id){
-				n.setTitle(title);
-				n.setMessage(message);
-				n.setLastEdit(new Date());
-				teacher.editNote(n);
-			}
-		}
+	public String noteEditView() {
+		note = teacher.readNoteById(id);
 		return SUCCESS;
-		}
+	}
 	
-	
+	public String noteEdit(){
+		
+		return SUCCESS;
+	}
 
 	public String noteDeleteAll() {
 		teacher.deleteAllNotes();
@@ -131,6 +128,14 @@ public class NoteController extends ActionSupport {
 
 	public void setEmployeeFirstName(String employeeFirstName) {
 		this.employeeFirstName = employeeFirstName;
+	}
+
+	public Note getNote() {
+		return note;
+	}
+
+	public void setNote(Note note) {
+		this.note = note;
 	}
 
 	

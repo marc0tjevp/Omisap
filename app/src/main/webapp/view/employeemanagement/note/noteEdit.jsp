@@ -13,8 +13,6 @@
 		<link rel="stylesheet" href="<c:url value="/resources/css/note.css"/>" />
 	</jsp:attribute>
 	<jsp:attribute name="content">
-	
-
 <!-- note imput -->	
 
 <form action="noteAdd" class="" enctype="multipart/form-data"
@@ -34,7 +32,7 @@
 				<div class="col col-md-12">
 					<h5>Titel:</h5>
 					<input id="noteTitle" class="input" type="text" name="title"
-										placeholder="Titel"><br>
+										placeholder="${note.getTitle()}"><br>
 				</div>
 			</div>
 			<div class="row">
@@ -44,26 +42,18 @@
 				</div>
 				<div class="col col-md-12">
 					<textarea id="noteMessage" class="textarea" name="message"
-										rows="10" placeholder="Notitie"></textarea>
-									
-				
-				</div>
-				
+										rows="10">${note.getMessage()} </textarea>
+				</div>	
 			</div>
-			
 			<div class="row">
 				<div class="col col-md-6">
-				
 				</div>
-		
-	
-			
 				<div class="col col-md-3">
 				<button class="btn btn-primary" type="button" data-toggle="modal"
 										data-target="#myModal">Bewerken</button>
 				</div>
 				<div class="col col-md-3">
-				<a class="btn btn-primary"href="noteOverview">Annuleren</a>
+				<a class="btn btn-primary" href="noteOverview">Annuleren</a>
 				</div>
 				
 				
@@ -89,8 +79,8 @@
       	<div class="modal-body">
    	   	</div>
       <div class="modal-footer">
-        <a type="button" class="btn btn-default"
-							href="noteEdit" >Bewerken</a>
+        <a type="button" class="btn btn-default" href="noteEdit"
+							id="noteEdit">Bewerken</a>
         <button type="button" class="btn btn-default"
 							data-dismiss="modal">Annuleren</button>
 
