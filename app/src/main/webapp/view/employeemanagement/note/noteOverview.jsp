@@ -93,7 +93,7 @@
       <div class="modal-footer">
         <a type="button" class="btn btn-default" id="noteDelete"
 							href="noteDelete">Verwijderen</a>
-        <a type="button" class="btn btn-default" href="noteEditView">Bewerken</a>
+        <a type="button" class="btn btn-default" id="noteEditView" href="noteEditView">Bewerken</a>
 
       </div>
     </div>
