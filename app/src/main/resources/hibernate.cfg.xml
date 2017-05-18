@@ -11,7 +11,7 @@
       com.mysql.jdbc.Driver
    </property>
    <property name="hibernate.connection.url">
-      jdbc:mysql://localhost/pasimo?createDatabaseIfNotExist=true
+      jdbc:mysql://localhost/pasimo_coachgroup?createDatabaseIfNotExist=true
    </property>
    <property name="hibernate.connection.username">
       root
@@ -20,14 +20,7 @@
    Theblackarrow
    </property>
    <property name="hibernate.hbm2ddl.auto">
-      create
+      update
    </property>
-   <mapping class="nl.scalda.pasimo.model.employeemanagement.Person" />
-   <mapping class="nl.scalda.pasimo.model.employeemanagement.EducationTeam" />
-   <mapping class="nl.scalda.pasimo.model.employeemanagement.LessonGroup" />
-   <mapping class="nl.scalda.pasimo.model.employeemanagement.CoachGroup" />
-   <mapping class="nl.scalda.pasimo.model.employeemanagement.Teacher" />
-   <mapping class="nl.scalda.pasimo.model.employeemanagement.Note" />
-   <mapping class="nl.scalda.pasimo.model.employeemanagement.Student" />
 </session-factory>
 </hibernate-configuration>

@@ -6,14 +6,14 @@ import javax.persistence.*;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 
 @Entity
-@Table(name="lesson_group")
+@Table(name="lessongroup")
 public class LessonGroup implements Comparable<LessonGroup> {
 
 	/**
 	 * 
 	 */
 	@Id
-	@Column(name="lessonGroupID", length=11, nullable=false)
+	@Column(name="lessongroupId", length=11, nullable=false)
 	private int id;
 	
 	/**
@@ -21,9 +21,10 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	 * <p>
 	 * e.g. ICO41A, ICO42B
 	 */
-	@Column(name="name", length=64)
+	@Column(name="lessonGroupName", length=64)
 	private String name;
-
+	
+	
 	/**
 	 * The {@link Student}'s who are in this lesson group
 	 */
