@@ -221,7 +221,15 @@
 			<result name="success">/view/employeemanagement/educationteam/update.jsp
 			</result>
 		</action>
-		<action name="lessongroup/add"
+		
+		
+		
+		
+		
+		
+		
+
+			<action name="lessongroup/add"
 			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
 			method="addLessonGroup">
 			<result name="success" type="json"></result>
@@ -253,14 +261,12 @@
 			method="deleteLessonGroup">
 			<result name="success" type="json"></result>
 		</action>
-
-	</package>
-
-	<package name="alles" extends="struts-default">
-		<!-- <action name="pag1" class="nl.scalda.pasimo.controller.MainController" 
-			method="execute"> <result name="success">/index.jsp</result> </action> <action 
-			name="pag2" class="nl.scalda.pasimo.controller.MainController" method="execute"> 
-			<result name="success">/index2.jsp</result> </action> -->
+		
+		
+		
+		
+		
+		
 		<action name="lessongroup"
 			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
 			method="execute">
