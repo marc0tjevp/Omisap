@@ -30,6 +30,7 @@ public class TestDAOStudent implements IDAOStudent {
 	}
 
 	public void setStudents(TreeSet<Student> students) {
+		
 		this.students = students;
 	}
 	

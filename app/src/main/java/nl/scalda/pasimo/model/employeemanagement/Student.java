@@ -8,8 +8,6 @@ import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 public class Student extends Person {
 	private static final long serialVersionUID = 1L;
 	private int noteListID;
-	private int lessonGroupID;
-	private int cardID;
 	
 	@Column(name="cohort")
 	private int cohort;
