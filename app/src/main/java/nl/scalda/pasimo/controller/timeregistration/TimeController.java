@@ -22,7 +22,7 @@ public class TimeController extends ActionSupport {
 	 private TreeSet<WorkBlock> WorkBlocks = new TreeSet<>();
 	 private TreeSet<WorkWeek> workweeks = new TreeSet<>();
 
-	WorkingDay w = new WorkingDay("Maandag");
+	WorkingDay w = new WorkingDay(1, "Maandag");
 	WorkBlock wq  = new WorkBlock(1, new PasimoTime(8, 30), new PasimoTime(10, 10));
 	WorkBlock wq1 = new WorkBlock(2, new PasimoTime(10, 25), new PasimoTime(11, 15));
 	WorkBlock wq2 = new WorkBlock(3, new PasimoTime(11, 25), new PasimoTime(12, 05));

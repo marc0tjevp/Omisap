@@ -7,7 +7,7 @@ import nl.scalda.pasimo.model.timeregistration.WorkWeek;
 import nl.scalda.pasimo.model.timeregistration.WorkingDay;
 
 public class Main {
-    static    WorkingDay w = new WorkingDay("Maandag");
+    static    WorkingDay w = new WorkingDay(1, "Maandag");
 
    public static void main(String[] args) {
 	   
@@ -16,7 +16,7 @@ public class Main {
        WorkWeek week = new WorkWeek(1);
 
        
-       WorkingDay workingday = new WorkingDay("maandag");
+       WorkingDay workingday = new WorkingDay(1, "maandag");
         System.out.println(workingday);
 
        
