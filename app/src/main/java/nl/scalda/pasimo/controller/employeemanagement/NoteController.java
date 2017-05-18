@@ -69,7 +69,8 @@ public class NoteController extends ActionSupport {
 	}
 	
 	public String noteEdit(){
-		
+		note = teacher.readNoteById(id);
+		teacher.editNote(note);
 		return SUCCESS;
 	}
 

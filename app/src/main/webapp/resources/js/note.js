@@ -12,5 +12,5 @@ $('#overviewModal').on('show.bs.modal', function (e) {
 })
 
 $('#myModal').on('show.bs.modal', function (e) {
-    $(this).find('#noteEditView').attr("href", "noteEdit?id=" + e.relatedTarget.id);
+    $(this).find('#noteEdit').attr("href", "noteEdit?id=" + e.relatedTarget.id);
 })

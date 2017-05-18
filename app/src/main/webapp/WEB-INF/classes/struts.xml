@@ -181,6 +181,7 @@
 		<action name="noteEdit"
 			class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
 			method="noteEdit">
+			<param name="id">${id}</param>
 			<result name="success" type="redirectAction">noteOverview
 			</result>
 		</action>
