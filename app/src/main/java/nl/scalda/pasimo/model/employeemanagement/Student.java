@@ -1,6 +1,10 @@
 package nl.scalda.pasimo.model.employeemanagement;
 import java.util.TreeSet;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 
 @Entity
