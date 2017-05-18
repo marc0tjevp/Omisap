@@ -260,12 +260,12 @@
       	<tbody>
   
       <!-- TODO: zorgen dat de td appart wordne geplaatst en niet in de hele row  -->
-      <s:iterator value="workweeks">
+      <s:iterator value="workweeks" var="ed">
       	<tr>	
 	      	<td class="cell-which-triggers-popup" data-toggle="modal"
 							data-target="#editModal">
 	                     <div class="well well-sm">
-						<s:property value="start" /> - <s:property value="end" />
+						<s:property value="ed.start" /> - <s:property value="ed.end" />
 					</div>
         	</td>
 	      	<td class="cell-which-triggers-popup" data-toggle="modal"

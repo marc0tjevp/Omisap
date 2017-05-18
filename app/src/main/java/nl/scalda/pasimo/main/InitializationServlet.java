@@ -11,8 +11,8 @@ import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 public class InitializationServlet extends HttpServlet {
 	
 	 public void init() throws ServletException {
-	          //DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
-		 		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
+	          DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+//		 		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 	     }
 	 
 }
