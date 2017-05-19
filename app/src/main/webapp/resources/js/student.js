@@ -5,7 +5,6 @@
  */
 $(document).ready(function () {
 	$('#submitId').on('click', function(){
-		console.log("script started");
 		if(
     			$.trim($("#coachGroupName").val())!==''&&
     			$.trim($("#lessonGroupID").val())!==''&&
@@ -15,10 +14,8 @@ $(document).ready(function () {
     				console.log($("#coachGroupName"));
     				$('#AddStudentWithCSVForm').submit();
     	} 	else if ($('#importedFile').get(0).files.length === 0) {
-    	    console.log("No files selected.");
     	}else{ 
     		//TODO add notAllFieldsContainCorrectValues message for x seconds
-    		console.log("importfile faild");
     		return false;
     	}
     });

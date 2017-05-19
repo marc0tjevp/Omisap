@@ -65,7 +65,6 @@ public class CSVReader {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-        System.out.println("all students: "+TestDAOStudent.getInstance().readAll());
 		return students;
     }
 
