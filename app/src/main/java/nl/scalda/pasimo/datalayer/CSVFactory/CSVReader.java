@@ -12,6 +12,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.TreeSet;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOStudent;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 /**
  *
@@ -53,7 +56,7 @@ public class CSVReader {
 				String[] student = line.split(cvsSplitBy);
 				String[] YearsMonthsDays = student[5].split(date);
 
-				Student a = new Student(Integer.parseInt(student[0]), 0, String.valueOf(student[3]), String.valueOf(student[1]), String.valueOf(student[2]), String.valueOf(student[3]), 0, Integer.parseInt(YearsMonthsDays[2]), null, Integer.parseInt(YearsMonthsDays[1]), Integer.parseInt(YearsMonthsDays[0]),coachGroupName);
+				Student a = new Student(Integer.parseInt(student[0]), cohort, String.valueOf(student[3]), String.valueOf(student[1]), String.valueOf(student[2]), String.valueOf(student[3]), 123456789, Integer.parseInt(YearsMonthsDays[2]), null, Integer.parseInt(YearsMonthsDays[1]), Integer.parseInt(YearsMonthsDays[0]), coachGroupName, lessonGroupID);
 				students.add(a);
 				
 				//TODO create method in IDAOStudent to add all students in one session.
@@ -62,6 +65,7 @@ public class CSVReader {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+        System.out.println("all students: "+TestDAOStudent.getInstance().readAll());
 		return students;
     }
 

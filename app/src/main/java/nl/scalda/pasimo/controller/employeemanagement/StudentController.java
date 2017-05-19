@@ -6,6 +6,7 @@ import java.util.TreeSet;
 import com.opensymphony.xwork2.ActionSupport;
 
 import nl.scalda.pasimo.datalayer.CSVFactory.*;
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
@@ -75,8 +76,7 @@ public class StudentController extends ActionSupport {
 
 	public TreeSet<LessonGroup> getLessonGroups() {
 		if(lessonGroups.isEmpty()){
-			lessonGroups.add(new LessonGroup(0, "test"));
-			lessonGroups.add(new LessonGroup(1, "test1"));
+			lessonGroups.addAll(DAOFactory.getTheFactory().getDAOLessonGroup().readAll());
 		}
 		return lessonGroups;
 	}
@@ -87,9 +87,9 @@ public class StudentController extends ActionSupport {
 
 	public TreeSet<CoachGroup> getCoachGroups() {
 		if(coachGroups.isEmpty()){
-			coachGroups.add(new CoachGroup("test"));
-			coachGroups.add(new CoachGroup("test1"));
+			coachGroups.addAll(DAOFactory.getTheFactory().getDAOCoachGroup().readAll());
 		}
+		System.out.println("the coach groups = "+coachGroups);
 		return coachGroups;
 	}
 
