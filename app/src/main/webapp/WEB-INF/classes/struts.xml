@@ -161,6 +161,13 @@
 			<result name="success">/view/employeemanagement/educationteam/update.jsp
 			</result>
 		</action>
+		   <action name="studentDetails"
+			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
+			method="execute">
+			<result name="success">/view/employeemanagement/student/studentDetails.jsp
+			</result>
+		</action>
+		
 
 	</package>
 

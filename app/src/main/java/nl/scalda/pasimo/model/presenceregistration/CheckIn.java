@@ -5,14 +5,14 @@ import java.util.GregorianCalendar;
 public class CheckIn {
 
 	private int logID;
-	private String cardID;
+	private int cardID;
 	private GregorianCalendar date;
 	
 	public CheckIn(){
 		
 	}
 	
-	public CheckIn(int logID, String cardID, int yearOfCheckIn, int monthOfCheckIn, int dayOfCheckIn, int hourOfCheckIn, int minuteOfCheckIn, int secondOfCheckIn){
+	public CheckIn(int logID, int cardID, int yearOfCheckIn, int monthOfCheckIn, int dayOfCheckIn, int hourOfCheckIn, int minuteOfCheckIn, int secondOfCheckIn){
 		GregorianCalendar gc = new GregorianCalendar();
 		gc.set(yearOfCheckIn, monthOfCheckIn - 1, dayOfCheckIn, hourOfCheckIn, minuteOfCheckIn, secondOfCheckIn);
 		this.date = gc;
@@ -20,8 +20,6 @@ public class CheckIn {
 		this.setCardID(cardID);
 		
 	}
-	
-
 	
 	public GregorianCalendar getDate() {
 		return date;
@@ -35,10 +33,10 @@ public class CheckIn {
 	public void setLogID(int logID) {
 		this.logID = logID;
 	}
-	public String getCardID() {
+	public int getCardID() {
 		return cardID;
 	}
-	public void setCardID(String cardID) {
+	public void setCardID(int cardID) {
 		this.cardID = cardID;
 	}
 	

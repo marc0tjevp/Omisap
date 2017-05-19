@@ -1,12 +1,17 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import javax.persistence.*;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 
 @Entity
 @Table(name="student")
 public class Student extends Person {
+	public TreeMap<String, GregorianCalendar>studentCheckIns = new TreeMap<>();
 	private static final long serialVersionUID = 1L;
 	private int noteListID;
 	private int lessonGroupID;
@@ -29,6 +34,7 @@ public class Student extends Person {
 		this.cardID = cardID;
 		//this.coachGroupID = coachGroupID;
 	}
+	
 	public Student(String email) {
 		super(email);
 	}
@@ -41,6 +47,7 @@ public class Student extends Person {
 		s = null;
 		return true;
 	}
+
 
 	public int getNoteListID() {
 		return noteListID;
