@@ -2,7 +2,7 @@ package nl.scalda.pasimo.model.presenceregistration;
 
 import java.util.GregorianCalendar;
 
-public class CheckIn {
+public class CheckIn implements Comparable<CheckIn>{
 
 	private int logID;
 	private int cardID;
@@ -19,6 +19,17 @@ public class CheckIn {
 		this.setLogID(logID);
 		this.setCardID(cardID);
 		
+	}
+	public String getFormattedTime(){
+		return String.valueOf(getDate().get(GregorianCalendar.HOUR_OF_DAY))	+ ":" + String.valueOf(getDate().get(GregorianCalendar.MINUTE));
+	}
+	
+	
+	public String getFormattedDate(){
+		
+		return String.valueOf(getDate().get(GregorianCalendar.DAY_OF_MONTH)) + "-" 
+				+ String.valueOf(getDate().get(GregorianCalendar.MONTH)) + "-" + String.valueOf(getDate().get(GregorianCalendar.YEAR));
+				
 	}
 	
 	public GregorianCalendar getDate() {
@@ -49,5 +60,10 @@ public class CheckIn {
                 ", Second=" + this.getDate().get(GregorianCalendar.SECOND) + "]";
     }
 
+	@Override
+	public int compareTo(CheckIn o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }

@@ -11,7 +11,8 @@ import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 @Entity
 @Table(name="student")
 public class Student extends Person {
-	public TreeMap<String, GregorianCalendar>studentCheckIns = new TreeMap<>();
+	public TreeSet<CheckIn> studentCheckIns;
+
 	private static final long serialVersionUID = 1L;
 	private int noteListID;
 	private int lessonGroupID;
@@ -32,11 +33,13 @@ public class Student extends Person {
 		this.studentOV = studentOV;
 		this.cohort = cohort;
 		this.cardID = cardID;
+		studentCheckIns = new TreeSet<>();
 		//this.coachGroupID = coachGroupID;
 	}
 	
 	public Student(String email) {
 		super(email);
+		studentCheckIns = new TreeSet<>();
 	}
 
 	public void createStudent(){
@@ -124,6 +127,15 @@ public class Student extends Person {
 	public void setCoachGroup(CoachGroup coachGroup) {
 		this.coachGroup = coachGroup;
 	}
+	
+	public TreeSet<CheckIn> getStudentCheckIns() {
+		return studentCheckIns;
+	}
+
+	public void setStudentCheckIns(TreeSet<CheckIn> studentCheckIns) {
+		this.studentCheckIns = studentCheckIns;
+	}
+
 	
 	@Override
 	public String toString() {

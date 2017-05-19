@@ -9,10 +9,10 @@
     <h1>Details van Student</h1>
   
   		<body>
-        <header><h2>Check-in/out Times</h2></header>
-        <table class="table">
-        <s:iterator value="#studentCheckinz" var="checkIn">
-        <td><s:property value="#checkIn.value"/></td>
+        <header><h2>Inklok tijden van vandaag:</h2></header>
+        <table class="table" style="width:50%; align:left;">
+        <s:iterator value="studentCheckinz" var="checkIn">
+        <tr><td></td><td><s:property value="getFormattedTime()"/></td><td><s:property value="getFormattedDate()"/></td></tr>
         </s:iterator>
         </table>
         </body>
