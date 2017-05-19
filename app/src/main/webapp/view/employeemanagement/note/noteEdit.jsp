@@ -50,7 +50,7 @@
 				</div>
 				<div class="col col-md-3">
 				<button class="btn btn-primary" type="button" data-toggle="modal"
-										data-target="#myModal">Bewerken</button>
+										data-target="#myModal" id="${note.getId() }">Bewerken</button>
 				</div>
 				<div class="col col-md-3">
 				<a class="btn btn-primary" href="noteOverview">Annuleren</a>
