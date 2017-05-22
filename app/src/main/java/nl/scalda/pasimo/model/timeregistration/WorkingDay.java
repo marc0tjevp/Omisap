@@ -20,19 +20,21 @@ public class WorkingDay implements Comparable<WorkingDay> {
 	private String oldName;
 	private String name;
 	private Set<WorkBlock> workBlocks;
+	private int workingdayID;
 
 	public WorkingDay() {
 
 	}
 
-	public WorkingDay(String name) {
-		this(name, new TreeSet<WorkBlock>());
+	public WorkingDay(int workingdayID, String name) {
+		this(workingdayID, name,  new TreeSet<WorkBlock>());
 
 	}
 
-	public WorkingDay(String name, Set<WorkBlock> workBlocks) {
+	public WorkingDay(int workingdayID, String name, Set<WorkBlock> workBlocks) {
 		this.name = name;
 		this.workBlocks = workBlocks;
+		this.workingdayID = workingdayID;
 	} // adds
 		// an
 		// workblock

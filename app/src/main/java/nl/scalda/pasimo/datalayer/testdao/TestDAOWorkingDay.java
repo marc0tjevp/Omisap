@@ -14,7 +14,7 @@ public class TestDAOWorkingDay implements IDAOWorkingDay {
 	public TestDAOWorkingDay() {
 		this.workingdays = new TreeSet<WorkingDay>();
 
-		this.workingdays.add(new WorkingDay("Maandag"));
+		this.workingdays.add(new WorkingDay(1, "Maandag"));
 
 	}
 

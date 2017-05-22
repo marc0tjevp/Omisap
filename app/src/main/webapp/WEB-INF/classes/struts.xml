@@ -13,218 +13,6 @@
 			method="execute"> <result name="success">/index.jsp</result> </action> <action 
 			name="pag2" class="nl.scalda.pasimo.controller.MainController" method="execute"> 
 			<result name="success">/index2.jsp</result> </action> -->
-		<action name="lessongroup"
-			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
-			method="execute">
-			<result name="success">/view/employeemanagement/lessongroup/index.jsp
-			</result>
-		</action>
-		<action name="lessongroup/details"
-			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
-			method="execute">
-			<result name="success">/view/employeemanagement/lessongroup/details.jsp
-			</result>
-		</action>
-		<action name="coachGroups"
-			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-			method="execute">
-			<result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp
-			</result>
-		</action>
-		<action name="students"
-			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-			method="execute">
-			<result name="success">/view/employeemanagement/coachgroups/student.jsp
-			</result>
-		</action>
-		<action name="teacherOverview"
-			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-			method="readTeacher">
-			<result name="success">/view/employeemanagement/teacher/teacherOverview.jsp
-			</result>
-		</action>
-		<action name="addTeacherPage"
-			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-			method="execute">
-			<result name="success">/view/employeemanagement/teacher/addTeacher.jsp
-			</result>
-		</action>
-		<action name="addTeacher"
-			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-			method="addTeacher">
-			<result name="success" type="redirect">teacherOverview</result>
-		</action>
-		<action name="editTeacherPage"
-			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-			method="loadTeacherInfo">
-			<result name="success">/view/employeemanagement/teacher/editTeacher.jsp
-			</result>
-		</action>
-		<action name="editTeacher"
-			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-			method="updateTeacher">
-			<result name="success" type="redirect">teacherOverview</result>
-			<result name="input" type="redirect">teacherOverview</result>
-		</action>
-		<action name="removeTeacher"
-			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-			method="removeTeacher">
-			<result name="success" type="redirect">teacherOverview</result>
-		</action>
-		<action name="teacherInfo"
-			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-			method="loadTeacherInfo">
-			<result name="success">/view/employeemanagement/teacher/TeacherInformation.jsp</result>
-		</action>		
-		<action name="addWorkBlock"
-		class="nl.scalda.pasimo.controller.timeregistration.TimeController"
-		method="createWorkBlock">
-		<result name="success" type="redirect">TimeRegistration</result>
-		</action>
-		<action name="TeacherPresence" class="nl.scalda.pasimo.controller.presenceregistration.PresenceController"
-                method="execute">
-            <result name="success">/view/presenceregistration/index.jsp</result>
-        </action>
-        
-        
-        <action name="TimeRegistration" class="nl.scalda.pasimo.controller.timeregistration.TimeController"
-                method="execute">
-            <result name="success">/view/timeregistration/index.jsp</result>
-        </action>
-        
-        
-                <action name="TimeRegistrationSSC"
-                 class="nl.scalda.pasimo.controller.timeregistration.TimeController"
-                method="SSC">
-            <result name="success">/view/timeregistration/SSC.jsp</result>
-        </action>
-		<action name="TeacherPresence"
-			class="nl.scalda.pasimo.controller.presenceregistration.PresenceController"
-			method="execute">
-			<result name="success">/view/presenceregistration/index.jsp</result>
-		</action>
-		<action name="educationTeam"
-			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
-			method="index">
-			<result name="success">/view/employeemanagement/educationteam/index.jsp
-			</result>
-		</action>
-                <action name="educationTeam/create"
-			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
-			method="create">
-			<result name="success">/view/employeemanagement/educationteam/create.jsp
-			</result>
-		</action>
-                <action name="educationTeam/edit"
-			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
-			method="update">
-			<result name="success">/view/employeemanagement/educationteam/update.jsp
-			</result>
-		</action>
-
-		<action name="readWorkBlock" class="nl.scalda.pasimo.controller.timeregistration.TimeController"
-		method="readWorkBlock">
-		<result name="success">/view/timeregistration.index.jsp</result>
-		</action>
-		<action name="removeWorkBlock" class="nl.scalda.pasimo.controller.timeregistration.TimeController"
-	method="removeWorkBlock">
-	<result name="success" type="redirect">/TimeRegistration</result>
-	</action>
-		<!-- <action name="pag1" class="nl.scalda.pasimo.controller.MainController" 
-			method="execute"> <result name="success">/index.jsp</result> </action> <action 
-			name="pag2" class="nl.scalda.pasimo.controller.MainController" method="execute"> 
-			<result name="success">/index2.jsp</result> </action> -->
-		<action name="lessongroup"
-			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
-			method="execute">
-			<result name="success">/view/employeemanagement/lessongroup/index.jsp
-			</result>
-		</action>
-		<action name="lessongroup/details"
-			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupController"
-			method="execute">
-			<result name="success">/view/employeemanagement/lessongroup/details.jsp
-			</result>
-		</action>
-		<action name="coachGroups"
-			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-			method="execute">
-			<result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp
-			</result>
-		</action>
-		<action name="students"
-			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-			method="execute">
-			<result name="success">/view/employeemanagement/coachgroups/student.jsp
-			</result>
-		</action>
-		<action name="teacherOverview"
-			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-			method="readTeacher">
-			<result name="success">/view/employeemanagement/teacher/teacherOverview.jsp
-			</result>
-		</action>
-		<action name="addTeacherPage"
-			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-			method="execute">
-			<result name="success">/view/employeemanagement/teacher/addTeacher.jsp
-			</result>
-		</action>
-		<action name="addTeacher"
-			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-			method="addTeacher">
-			<result name="success" type="redirect">teacherOverview</result>
-		</action>
-		<action name="editTeacherPage"
-			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-			method="loadTeacherInfo">
-			<result name="success">/view/employeemanagement/teacher/editTeacher.jsp
-			</result>
-		</action>
-		<action name="editTeacher"
-			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-			method="updateTeacher">
-			<result name="success" type="redirect">teacherOverview</result>
-			<result name="input" type="redirect">teacherOverview</result>
-		</action>
-		<action name="removeTeacher"
-			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-			method="removeTeacher">
-			<result name="success" type="redirect">teacherOverview</result>
-		</action>
-		<action name="teacherInfo"
-			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
-			method="loadTeacherInfo">
-			<result name="success">/view/employeemanagement/teacher/TeacherInformation.jsp
-			</result>
-		</action>
-		<action name="TeacherPresence"
-			class="nl.scalda.pasimo.controller.presenceregistration.PresenceController"
-			method="execute">
-			<result name="success">/view/presenceregistration/index.jsp</result>
-		</action>
-		<action name="educationTeam"
-			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
-			method="index">
-			<result name="success">/view/employeemanagement/educationteam/index.jsp
-			</result>
-		</action>
-                <action name="educationTeam/create"
-			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
-			method="create">
-			<result name="success">/view/employeemanagement/educationteam/create.jsp
-			</result>
-		</action>
-                <action name="educationTeam/edit"
-			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
-			method="update">
-			<result name="success">/view/employeemanagement/educationteam/update.jsp
-			</result>
-		</action>
-		
-		
-		
-		
 		
 		<action name="lessongroup"
 			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
@@ -238,10 +26,12 @@
 			<result name="success">/view/employeemanagement/lessongroup/details.jsp
 			</result>
 		</action>
-		<action name="coachGroups" class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
-                method="execute">
-            <result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
-        </action>
+		<action name="coachGroups"
+			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
+			method="execute">
+			<result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp
+			</result>
+		</action>
 		<action name="Lessongroup/delete"
 			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
 			method="deleteLessonGroup">
@@ -325,13 +115,13 @@
 			<result name="success">/view/employeemanagement/educationteam/index.jsp
 			</result>
 		</action>
-        <action name="educationTeam/create"
+		<action name="educationTeam/create"
 			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
 			method="create">
 			<result name="success">/view/employeemanagement/educationteam/create.jsp
 			</result>
 		</action>
-        <action name="educationTeam/edit"
+		<action name="educationTeam/edit"
 			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
 			method="update">
 			<result name="success">/view/employeemanagement/educationteam/update.jsp

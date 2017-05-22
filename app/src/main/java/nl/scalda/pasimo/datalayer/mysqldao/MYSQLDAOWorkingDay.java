@@ -78,7 +78,7 @@ public class MYSQLDAOWorkingDay implements IDAOWorkingDay {
 			for (Iterator iterator = workingdayList.iterator(); iterator.hasNext();) {
 
 				Object[] obj = (Object[]) iterator.next();
-				WorkingDay workingday = new WorkingDay(String.valueOf(obj[0]));
+				WorkingDay workingday = new WorkingDay(Integer.valueOf(String.valueOf(1)), String.valueOf(obj[0]));
 
 				workingdays.add(workingday);
 				System.out.println(workingdays);

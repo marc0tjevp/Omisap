@@ -10,7 +10,6 @@ import nl.scalda.pasimo.model.timeregistration.WorkingDay;
 
 
 public class Main {
-//	static    WorkingDay w = new WorkingDay("Maandag");
 
     public static void main(String[] args) {
 
@@ -20,7 +19,10 @@ DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 //        WorkingDay workingday = new WorkingDay("maandag");
 //        System.out.println(workingday);
 
+
 TreeSet<WorkWeek> workweeks =  DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+
+       
 
 for(WorkWeek bla :workweeks){
 	System.out.println(bla);
