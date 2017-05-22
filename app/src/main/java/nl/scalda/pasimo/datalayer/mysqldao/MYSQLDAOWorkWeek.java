@@ -59,7 +59,7 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 		try {
 			tx = session.beginTransaction();
 			List weekList = session.createNativeQuery(
-					"SELECT * FROM workweek INNER JOIN workingday ON workweek_id = workweek.id  INNER JOIN workblock ON workingday_name = workingday.name;")
+					"SELECT * FROM workweek INNER JOIN workingday ON workweek_id = workweek.id  INNER JOIN workblock ON workingday_name = workingday.name ORDER BY workingdayID ASC;")
 
 					.getResultList();
 
@@ -69,12 +69,7 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 				// WorkWeek workweek = new
 				// WorkWeek(Integer.parseInt(String.valueOf(obj[0])));
 				// workweeks.add(workweek);
-//				System.out.println(o[0]);
-//				System.out.println(o[1]);
-//				System.out.println(o[2]);
-//				System.out.println(o[3]);
-//				System.out.println(o[4]);
-//				System.out.println(o[5]);
+
 
 			}
 			tx.commit();
