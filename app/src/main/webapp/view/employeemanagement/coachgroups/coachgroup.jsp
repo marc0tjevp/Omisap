@@ -289,37 +289,30 @@
                     </tr>
 
                 </thead>
-             
-                 <s:iterator value="coachGroup" var="ed">
-                                          <tbody>
-                    <tr id="${ed.getName()}">
+                <tbody>
+                <s:iterator value="coachGroup" var="cg">
+                    <tr id="${cg.getName()}">
                         <td>
                             <label>
                                  <input id="selectedCoachGroup"
 								type="checkbox">
                             </label>
                         </td>
-
-                        <td><a href='CoachLessonGroups'>${ed.getName()}</a>	</td>
-                        <td>${ed.getCoach().getAbbreviation()}	</td>
-                        <td>${ed.getLessonGroups().size()}</td>
+                        <td><a href='CoachLessonGroups'>${cg.getName()}</a>	</td>
+                        <td>${cg.getCoach().getAbbreviation()}	</td>
+                        <td>${cg.getLessonGroups().size()}</td>
                         <td>
                         	<s:iterator  value="educationTeam" var="ed1">
-                        		<s:if test="ed in ed1">
-                         			${ed1.getAbbreviation()}
-                        		</s:if>
-                        	</s:iterator>
+                        	
+                        	<s:set var="flag">${ed1.getCoachGroups().contains(cg)}</s:set>
+								<s:if test="#flag">
+									<s:property value="#ed1.abbreviation"></s:property>
+								</s:if>
+							</s:iterator>
                         </td>
-                    </tr>
-                                        
-			
-			</s:iterator>
-                                        
-             
-
-                   
+                    </tr>        
+				</s:iterator>  
+				</tbody>  
             </table>
-       
-
     </jsp:attribute>
 </t:layout2>

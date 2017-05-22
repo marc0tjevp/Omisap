@@ -196,7 +196,20 @@ public class CoachGroup implements Comparable<CoachGroup> {
         return name.compareToIgnoreCase(o.getName());
     }
     
-    public void load(){
+    
+    
+//    @Override
+//	public boolean equals(Object obj) {
+//    	
+//		return  name.equalsIgnoreCase(((CoachGroup) obj).getName());
+//	}
+//
+//	@Override
+//	public int hashCode() {
+//		return name.hashCode();
+//	}
+
+	public void load(){
     	DAOFactory.getTheFactory().getDAOCoachGroup().read(this);
     }
 }

@@ -63,10 +63,13 @@ public class CoachGroupController extends ActionSupport {
 //		// educationTeam.add(edu2);
 //		// educationTeam.add(edu3);
 //		// educationTeam.add(edu4);
-		if(s1 != null){
-		coach = CoachGroupService.getInstance().readCoachGroup(s1);
+//		if(s1 != null){
+//		coach = CoachGroupService.getInstance().readCoachGroup(s1);
 		
-		}
+//		}
+//		for(EducationTeam ed:educationTeam){
+//			ed.getCoachGroups();
+//		}
 		return SUCCESS;
 
 	}
@@ -80,6 +83,7 @@ public class CoachGroupController extends ActionSupport {
 
 		for (EducationTeam o : educationTeam) {
 			if (o.getId() == Integer.parseInt(s1)) {
+				
 				coach.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s2)));
 				CoachGroupService.getInstance().create(coach, o);
 				break;

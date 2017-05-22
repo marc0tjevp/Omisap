@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
+import java.util.ArrayList;
+import java.util.Map;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
@@ -18,9 +20,16 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 
 	private static TestDAOCoachGroup instance = null;
 	private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
+ 	
+	private static Map<EducationTeam, TreeSet<CoachGroup>> eduCoachGroups;
+	
+	
 
-	public TestDAOCoachGroup() {
-
+	private TestDAOCoachGroup() {
+		
+		
+	
+		
 //		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
 //		coachGroups.add(new CoachGroup("A1", tc));
 //		coachGroups.add(new CoachGroup("A2", tc));
@@ -60,15 +69,18 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 //		coachGroups.add(new CoachGroup("A3"));
 
 	}
-
+//
 	@Override
 	public void create(CoachGroup cg, EducationTeam edu) {
+		
+		
 		try {
+			eduCoachGroups.get(edu).add(cg);
 			coachGroups.add(cg);
 			
 		} catch (Exception ex) {
 		}
-	}
+		}
 
 	@Override
 	public void read(CoachGroup coachGroup) {
@@ -83,10 +95,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 		}
 	}
 	
-	@Override
-	public TreeSet<CoachGroup> readAll() {
-		return coachGroups;
-	}
+
 
 	@Override
 	public void delete(CoachGroup coachGroup) {
@@ -120,17 +129,29 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	public static TestDAOCoachGroup getInstance() {
 		if (instance == null) {
 			instance = new TestDAOCoachGroup();
+			
+//			CoachGroup cg = new CoachGroup("ICO41asd");
+//			EducationTeam edu = new EducationTeam("ICO", "ICO41B");
+//			edu.addCoachGroup(cg);	
+//			eduCoachGroups.put(edu, edu.getCoachGroups());
 		}
 		return instance;
 	}
 
-	public TreeSet<CoachGroup> getCoachGroups() {
-		return coachGroups;
-	}
 
 	@Override
 	public TreeSet<CoachGroup> readAllBYTeam(EducationTeam t) {
-		return coachGroups;
+		if( eduCoachGroups == null){
+			return coachGroups;
+		}else{
+			return  eduCoachGroups.get(t);
+		}
+		
+	}
+	@Override
+	public TreeSet<CoachGroup> readAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
