@@ -2,21 +2,18 @@ package nl.scalda.pasimo.model.presenceregistration;
 
 import java.util.GregorianCalendar;
 
-public class CheckIn implements Comparable<CheckIn>
-{
+public class CheckIn implements Comparable<CheckIn> {
 
 	private int logID;
 	private int cardID;
 	private GregorianCalendar date;
 
-	public CheckIn()
-	{
+	public CheckIn() {
 
 	}
 
 	public CheckIn(int logID, int cardID, int yearOfCheckIn, int monthOfCheckIn, int dayOfCheckIn, int hourOfCheckIn,
-			int minuteOfCheckIn, int secondOfCheckIn)
-	{
+			int minuteOfCheckIn, int secondOfCheckIn) {
 		GregorianCalendar gc = new GregorianCalendar();
 		gc.set(yearOfCheckIn, monthOfCheckIn - 1, dayOfCheckIn, hourOfCheckIn, minuteOfCheckIn, secondOfCheckIn);
 		this.date = gc;
@@ -25,14 +22,21 @@ public class CheckIn implements Comparable<CheckIn>
 
 	}
 
-	public String getFormattedTime()
-	{
-		return String.valueOf(getDate().get(GregorianCalendar.HOUR_OF_DAY)) + ":"
-				+ String.valueOf(getDate().get(GregorianCalendar.MINUTE));
+	public String getFormattedTime() {
+		String formattedHour = String.valueOf(getDate().get(GregorianCalendar.HOUR_OF_DAY)) + ":";
+		String formattedMinutes;
+		
+		if (String.valueOf(getDate().get(GregorianCalendar.MINUTE)).length() != 2) {
+			formattedMinutes = "0" + String.valueOf(getDate().get(GregorianCalendar.MINUTE));
+		} else {
+			formattedMinutes = String.valueOf(getDate().get(GregorianCalendar.MINUTE));
+		}
+
+		return formattedHour + formattedMinutes;
+			
 	}
 
-	public String getFormattedDate()
-	{
+	public String getFormattedDate() {
 
 		return String.valueOf(getDate().get(GregorianCalendar.DAY_OF_MONTH)) + "-"
 				+ String.valueOf(getDate().get(GregorianCalendar.MONTH)) + "-"
@@ -40,38 +44,31 @@ public class CheckIn implements Comparable<CheckIn>
 
 	}
 
-	public GregorianCalendar getDate()
-	{
+	public GregorianCalendar getDate() {
 		return date;
 	}
 
-	public void setDate(GregorianCalendar date)
-	{
+	public void setDate(GregorianCalendar date) {
 		this.date = date;
 	}
 
-	public int getLogID()
-	{
+	public int getLogID() {
 		return logID;
 	}
 
-	public void setLogID(int logID)
-	{
+	public void setLogID(int logID) {
 		this.logID = logID;
 	}
 
-	public int getCardID()
-	{
+	public int getCardID() {
 		return cardID;
 	}
 
-	public void setCardID(int cardID)
-	{
+	public void setCardID(int cardID) {
 		this.cardID = cardID;
 	}
 
-	public String toString()
-	{
+	public String toString() {
 		return "CheckIn [DAY=" + this.getDate().get(GregorianCalendar.DAY_OF_MONTH) + ", Month="
 				+ (this.getDate().get(GregorianCalendar.MONTH) + 1) + ", Year="
 				+ this.getDate().get(GregorianCalendar.YEAR) + ", Hour="
@@ -81,8 +78,7 @@ public class CheckIn implements Comparable<CheckIn>
 	}
 
 	@Override
-	public int compareTo(CheckIn o)
-	{
+	public int compareTo(CheckIn o) {
 		return o.getDate().compareTo(this.date);
 
 	}
