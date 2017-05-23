@@ -12,17 +12,13 @@ public class StudentService
 	public void checkInData(Student z)
 	{
 
-		int a = 5;
-		String.format("%05d", a);
 		ArrayList<CheckIn> tempCheckIns = new ArrayList<>();
 		CheckIn c = new CheckIn(0, 211543, 2017, 05, 13, 8, 30, 43);
-		CheckIn d = new CheckIn(0, 211543, 2017, 05, 16, 9, a, 11);
+		CheckIn d = new CheckIn(0, 211543, 2017, 05, 16, 9, 05, 11);
 		tempCheckIns.add(c);
 		tempCheckIns.add(d);
 
 		z.getStudentCheckIns().addAll(tempCheckIns);
-		System.out.println(z.studentCheckIns);
-		System.out.println(tempCheckIns);
 	}
 
 	public static StudentService getInstance()
