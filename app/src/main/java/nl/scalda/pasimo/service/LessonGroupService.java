@@ -49,16 +49,16 @@ public class LessonGroupService implements ILessonGroupService {
 		return null;
 	}
 
-	// TODO Get rid of these DAO's
-	@Override
-	public void update(LessonGroup newLessonGroup) {
-		DAOFactory.getTheFactory().getDAOLessonGroup().update(newLessonGroup);
-	}
-
-	@Override
-	public void delete(LessonGroup lessonGroup) {
-		DAOFactory.getTheFactory().getDAOLessonGroup().delete(lessonGroup);
-	}
+//	// TODO Get rid of these DAO's
+//	@Override
+//	public void update(LessonGroup newLessonGroup) {
+//		DAOFactory.getTheFactory().getDAOLessonGroup().update(newLessonGroup);
+//	}
+//
+//	@Override
+//	public void delete(LessonGroup lessonGroup) {
+//		DAOFactory.getTheFactory().getDAOLessonGroup().delete(lessonGroup);
+//	}
 	@Override
 	public TreeSet<CoachGroup> readAll() {
 		TreeSet<CoachGroup> coachGroupsWithLessonGroups = new TreeSet<>();
@@ -80,5 +80,17 @@ public class LessonGroupService implements ILessonGroupService {
 			return null;
 		}
 		return specificCoachGroup.getLessonGroupByName(lessonGroupName);
+	}
+
+	@Override
+	public void update(LessonGroup newLessonGroup) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(LessonGroup lessonGroup) {
+		// TODO Auto-generated method stub
+		
 	}
 }

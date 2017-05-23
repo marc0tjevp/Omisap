@@ -152,38 +152,39 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
 
 	@Override
 	public TreeSet<LessonGroup> readAll() {
-		//TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
-		//return lessonGroups;
-		 Session session = factory.openSession();
-		 Transaction tx = null;
-		 Set<LessonGroup> lessonGroups = new TreeSet<>();
-		 try {
-		 tx = session.beginTransaction();
-		 List LessonGroupList = session.createNativeQuery("SELECT * FROM lessongroups;").getResultList();
-		 for (Iterator iterator = LessonGroupList.iterator();
-		 iterator.hasNext();) {
-		 Object[] obj = (Object[]) iterator.next();
-		
-		 String coachGroupName = String.valueOf(obj[1]);
-		 CoachGroup coachGroup =
-		 CoachGroupService.getInstance().readCoachGroup(coachGroupName);
-		
-		 LessonGroup lg = new LessonGroup(String.valueOf(obj[0]));
-		 coachGroup.addLessonGroup(lg);
-		
-		
-		 lessonGroups.add(lg);
-		 }
-		 tx.commit();
-		 } catch (Exception e) {
-		 if (tx != null) {
-		 tx.rollback();
-		 }
-		 e.printStackTrace();
-		 } finally {
-		 session.close();
-		 }
-		 return (TreeSet<LessonGroup>) lessonGroups;
+		TreeSet<LessonGroup> LessonGroups = new TreeSet<>();
+		return LessonGroups;
+
+//		 Session session = factory.openSession();
+//		 Transaction tx = null;
+//		 Set<LessonGroup> lessonGroups = new TreeSet<>();
+//		 try {
+//		 tx = session.beginTransaction();
+//		 List LessonGroupList = session.createNativeQuery("SELECT * FROM lessongroups;").getResultList();
+//		 for (Iterator iterator = LessonGroupList.iterator();
+//		 iterator.hasNext();) {
+//		 Object[] obj = (Object[]) iterator.next();
+//		
+//		 String coachGroupName = String.valueOf(obj[1]);
+//		 CoachGroup coachGroup =
+//		 CoachGroupService.getInstance().readCoachGroup(coachGroupName);
+//		
+//		 LessonGroup lg = new LessonGroup(String.valueOf(obj[0]));
+//		 coachGroup.addLessonGroup(lg);
+//		
+//		
+//		 lessonGroups.add(lg);
+//		 }
+//		 tx.commit();
+//		 } catch (Exception e) {
+//		 if (tx != null) {
+//		 tx.rollback();
+//		 }
+//		 e.printStackTrace();
+//		 } finally {
+//		 session.close();
+//		 }
+//		 return (TreeSet<LessonGroup>) LessonGroups;
 
 	}
 
