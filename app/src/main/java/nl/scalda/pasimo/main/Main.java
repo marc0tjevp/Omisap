@@ -31,31 +31,24 @@ public class Main {
 
 	public static void main(String args[]) {
 
-//		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
-//		Teacher teacher = new Teacher("han", 215950, "im@student.nl");
-//		CoachGroup cg = new CoachGroup("abc", teacher);
-//		CoachGroup bla = new CoachGroup("abc");
-//		EducationTeam ed = new EducationTeam("appy", "ICOAO", 1);
-//		Teacher t = new Teacher("kslahfb", 82365, "habg@slakbg.nl");
-//		String oldname = cg.getName();		
-//		cg.setName("klaas");
-//		cg.setCoach(teacher);
-//		bla.load();
-//		System.out.println(bla);
-//		CREATE
-//		cg.setCoach(teacher);
-//		EducationTeamService.getInstance().getEducationTeams().add(ed);
-//		CoachGroupService.getInstance().create(cg, ed);
-		
-//		UPDATE
-//		CoachGroupService.getInstance().update(cg, ed, oldname);
-		
-		
-//		DELETE		
-//		CoachGroupService.getInstance().delete(cg);
+    	EducationTeam e = new EducationTeam("O","O");
 
-//		ReadByTeam
-//		System.out.println(CoachGroupService.getInstance().readAll());
+    	Team t = new Team("","");
+
+
+        
+//    	t.addEducationTeam(e);
+//
+//    	e.setId(999);
+//    	t.removeEducationTeam(e);
+//
+//    	e.setId(999);
+//    	e.setName("POEP");
+//    	e.setAbbreviation("P");
+//    	t.updateEducationTeam(e);
+    	
+    	
+    	DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
 
 	}
 
