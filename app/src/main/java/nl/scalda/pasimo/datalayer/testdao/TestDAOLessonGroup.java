@@ -24,10 +24,9 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 	private TreeSet<LessonGroup> lessongroups = new TreeSet<>();
 
 	private TestDAOLessonGroup() {
-		LessonGroup l1 = new LessonGroup("ICO43A");
-		LessonGroup l2 = new LessonGroup("ICO42A");
-		LessonGroup l3 = new LessonGroup("ICO41A");
-
+		LessonGroup l1 = new LessonGroup(3, "ICO43A");
+		LessonGroup l2 = new LessonGroup(2, "ICO42A");
+		LessonGroup l3 = new LessonGroup(1, "ICO41A");
 
 
 		this.lessongroups.add(l1);
