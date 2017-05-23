@@ -27,8 +27,7 @@ public class Student extends Person {
 		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.studentOV = studentOV;
 		this.cohort = cohort;
-		this.cardID = cardID;
-		//this.coachGroupID = coachGroupID;
+		
 	}
 	public Student(String email) {
 		super(email);
@@ -51,21 +50,6 @@ public class Student extends Person {
 		this.noteListID = noteListID;
 	}
 
-	public int getLessonGroupID() {
-		return lessonGroupID;
-	}
-
-	public void setLessonGroupID(int lessonGroupID) {
-		this.lessonGroupID = lessonGroupID;
-	}
-
-	public int getCardID() {
-		return cardID;
-	}
-
-	public void setCardID(int cardID) {
-		this.cardID = cardID;
-	}
 
 	public TreeSet<Note> getNoteList() {
 		return noteList;
@@ -121,8 +105,7 @@ public class Student extends Person {
 	
 	@Override
 	public String toString() {
-		return "Student [noteList=" + noteList + ", lessonGroup=" + lessonGroup + ", studentOV=" + studentOV
-				+ ", cohort=" + cohort + ", coachGroup=" + coachGroup + "]";
+		return getStudentOV()+ " "+super.toString();
 	}
 
 }

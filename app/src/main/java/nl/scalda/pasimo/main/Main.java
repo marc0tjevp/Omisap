@@ -1,46 +1,53 @@
 package nl.scalda.pasimo.main;
 
+import java.util.TreeSet;
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
-import nl.scalda.pasimo.datalayer.testdao.TestDAOEducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
-import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
-import nl.scalda.pasimo.model.employeemanagement.Teacher;
-import nl.scalda.pasimo.service.CoachGroupService;
-import nl.scalda.pasimo.service.EducationTeamService;
+import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.Student;
+
 
 public class Main {
 
 	public static void main(String args[]) {
 
-		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
-		Teacher teacher = new Teacher("han", 215950, "im@student.nl");
-		CoachGroup cg = new CoachGroup("abc", teacher);
-		CoachGroup bla = new CoachGroup("abc");
-		EducationTeam ed = new EducationTeam("appy", "ICOAO", 1);
-		Teacher t = new Teacher("kslahfb", 82365, "habg@slakbg.nl");
-		String oldname = cg.getName();		
-		cg.setName("klaas");
-		cg.setCoach(teacher);
-		bla.load();
-		System.out.println(bla);
-//		CREATE
-//		cg.setCoach(teacher);
-//		EducationTeamService.getInstance().getEducationTeams().add(ed);
-//		CoachGroupService.getInstance().create(cg, ed);
+		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 		
-//		UPDATE
-//		CoachGroupService.getInstance().update(cg, ed, oldname);
+		TreeSet<LessonGroup> lessonGroups = DAOFactory.getTheFactory().getDAOLessonGroup().readAll();
 		
+		TreeSet<CoachGroup> coachGroups = DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
 		
-//		DELETE		
-//		CoachGroupService.getInstance().delete(cg);
+		System.out.println(coachGroups);
 
-//		ReadByTeam
-//		System.out.println(CoachGroupService.getInstance().readAll());
-
+		LessonGroup lg = lessonGroups.first();
+		
+		
+		
+		Student s = new Student("regimio@hotmail.com");
+		Student d = new Student("swegg@hotmail.com");
+		
+		s.setStudentOV(123456);
+		s.setFirstName("Regimio");
+		d.setStudentOV(666);
+		d.setFirstName("Bram");
+		
+		lg.addStudent(d);
+		lg.addStudent(s);
+		
+		System.out.println(lg.getStudents());
+		
+//		s.setCardID(12);
+//		s.setFirstName("bram");
+//		s.setLastName("brand");
+//		s.setCohort(2017);
+		
+//		LessonGroup.first().addStudent(s);
+//		System.out.println(LessonGroup);
+//		LessonGroup.first().deleteStudent(s);
+//		System.out.println(LessonGroup);
+//		LessonGroup.first().addStudent(s);
+		
 	}
 }

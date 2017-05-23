@@ -162,4 +162,12 @@ public class Person implements Comparable<Person>, Serializable {
         return email.compareTo(o.getEmail());
     }
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getFullName();
+	}
+    
+    
+
 }
