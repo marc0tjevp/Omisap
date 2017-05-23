@@ -60,8 +60,6 @@ public class Note implements Comparable<Note> {
         this.lastEdit = new Date();
         Service.getInstance().getNoteService().create(this, assignedTo);
     }
-
-    
  
     public int getId() {
         return id;

@@ -5,8 +5,6 @@ import java.util.TreeSet;
 import javax.persistence.*;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
-import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 
 /**
@@ -20,9 +18,8 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 * The index of this lesson group
 	 */
 	@Id
-	@Column(name="coachGroupID", length=64, nullable=false)
-    private int id;
-	
+	@Column(name="coachGroupID", length=64)
+    private int coachGroupID;
 	/**
 	 * The name of this Coach group
 	 */
