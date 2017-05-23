@@ -187,32 +187,34 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		TreeSet<Teacher> teachers = new TreeSet<>();
 		try {
 		   tx = session.beginTransaction();
-		   List teachersList = session.createNativeQuery("SELECT * FROM education_team_teacher INNER JOIN teacher ON teachers_email = teacher.email INNER JOIN person ON teacher.email = person.email WHERE education_team_id=:educationTeamID ;")
+		   List teachersList = session.createNativeQuery("SELECT * FROM education_team_teacher INNER JOIN teacher ON teachers_bsn = teacher.bsn INNER JOIN person ON teacher.bsn = person.bsn WHERE EducationTeam_educationTeamID=:educationTeamID ;")
 				   .setParameter("educationTeamID", t.getId())
 				   .getResultList();
 		   for(Iterator iterator = teachersList.iterator();iterator.hasNext();){
 			   /*
-			    * obj[0] = education_team_teacher.teachers_email
-			    * obj[1] = education_team_teacher.education_team_id
-			    * obj[2] = teacher.email
-			    * obj[3] = teacher.abbreviation
-			    * obj[4] = teacher.email
-			    * obj[5] = coach_group.coachGroupID
-			    * obj[6] = person.email
-			    * obj[7] = person.cardID
-			    * obj[8] = person.firstName
-			    * obj[9] = person.insertion
-			    * obj[10] = person.lastName
-			    * obj[11] = person.dateOfBirth
+			    * obj[0] = EducationTeam_educationTeamID
+			    * obj[1] = teachers_bsn
+			    * obj[2] = abbreviation
+			    * obj[3] = employeeNumber
+			    * obj[4] = teacher.bsn
+			    * obj[5] = PERSON_TYPE
+			    * obj[6] = person.bsn
+			    * obj[7] = cardID
+			    * obj[8] = dateOfBirth
+			    * obj[9] = email
+			    * obj[10] = firstName
+			    * obj[11] = insertion
+			    * obj[12] = lastName
 			    */
 			   Object[] obj = (Object[]) iterator.next();
-			   String[] dateOfBirth = String.valueOf(obj[11]).split("-");
-			   Teacher teacher = new Teacher(Integer.parseInt(String.valueOf(obj[2])),
-					   String.valueOf(obj[6]),
-					   Integer.parseInt(String.valueOf(obj[7])),
-					   String.valueOf(obj[8]),
+			   String[] dateOfBirth = String.valueOf(obj[8]).split("-");
+			   //employeeNumber email cardID firstName insertion lastName yearOfBirth monthOfBirth dayOfBirth 
+			   Teacher teacher = new Teacher(Integer.parseInt(String.valueOf(obj[1])),Integer.parseInt(String.valueOf(obj[3])),
 					   String.valueOf(obj[9]),
+					   Integer.parseInt(String.valueOf(obj[7])),
 					   String.valueOf(obj[10]),
+					   String.valueOf(obj[11]),
+					   String.valueOf(obj[12]),
 					   Integer.parseInt(String.valueOf(dateOfBirth[0])),
 					   Integer.parseInt(String.valueOf(dateOfBirth[1])),
 					   Integer.parseInt(String.valueOf(dateOfBirth[2])));
@@ -242,8 +244,8 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		CoachGroup coachGroup = null;
 		try{
 			tx = session.beginTransaction();
-			coachGroup = (CoachGroup) session.createNativeQuery("SELECT * FROM coach_group WHERE coach_email = :teachers_email", CoachGroup.class)
-					.setParameter("teachers_email", teacher.getEmail()).getSingleResult();
+			coachGroup = (CoachGroup) session.createNativeQuery("SELECT * FROM coach_group WHERE coach_bsn = :teachers_bsn", CoachGroup.class)
+					.setParameter("teachers_bsn", teacher.getBsn()).getSingleResult();
 			tx.commit();
 		}
 		catch (Exception e) {
@@ -268,8 +270,8 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		try{
 			tx = session.beginTransaction();
 			Object[] obj = (Object[]) session
-					.createNativeQuery("SELECT * FROM education_team WHERE educationTeamID = (SELECT EducationTeam_educationTeamID FROM education_team_teacher WHERE teachers_email = :teachers_email)")
-					.setParameter("teachers_email", teacher.getEmail()).getSingleResult();
+					.createNativeQuery("SELECT * FROM education_team WHERE educationTeamID = (SELECT EducationTeam_educationTeamID FROM education_team_teacher WHERE teachers_bsn = :teachers_bsn)")
+					.setParameter("teachers_bsn", teacher.getBsn()).getSingleResult();
 			educationTeam = new EducationTeam(String.valueOf(obj[2]),
 					String.valueOf(obj[1]),
 					Integer.parseInt(String.valueOf(obj[0])));

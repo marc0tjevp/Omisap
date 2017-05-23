@@ -25,7 +25,7 @@ public class EducationTeam implements Comparable<EducationTeam>{
 	private Set<CoachGroup> coachGroups = new TreeSet<>();
 	
 	@ManyToMany(cascade=CascadeType.ALL, targetEntity=Teacher.class, fetch=FetchType.EAGER)
-	@JoinColumn(name="email")
+	@JoinColumn(name="bsn")
     private Set<Teacher> teachers = new TreeSet<>();
 
     /**

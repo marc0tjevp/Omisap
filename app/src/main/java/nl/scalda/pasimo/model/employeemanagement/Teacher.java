@@ -43,8 +43,8 @@ public class Teacher extends Person {
      * @param employeeNumber
      * @param email
      */
-    public Teacher(String abbreviation, int employeeNumber, String email) {
-    	super(email);
+    public Teacher(String abbreviation, int employeeNumber, int bsn) {
+    	super(bsn);
         this.abbreviation = abbreviation;
         this.employeeNumber = employeeNumber;
     }
@@ -62,8 +62,8 @@ public class Teacher extends Person {
      * @param monthOfBirth
      * @param dayOfBirth
      */
-    public Teacher(int employeeNumber, String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
-		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
+    public Teacher(int bsn, int employeeNumber, String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
+		super(bsn, email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.employeeNumber = employeeNumber;
 		setAbbreviation();
     }

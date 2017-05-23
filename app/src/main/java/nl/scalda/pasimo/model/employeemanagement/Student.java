@@ -29,13 +29,13 @@ public class Student extends Person {
 	private int studentOV;
 
 	
-	public Student(String email){
-		super(email);
+	public Student(int bsn){
+		super(bsn);
 	}
 
-	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
+	public Student(int bsn, int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
 			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth) {
-		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
+		super(bsn, email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.studentOV = studentOV;
 		this.cohort = cohort;
 		this.cardID = cardID;

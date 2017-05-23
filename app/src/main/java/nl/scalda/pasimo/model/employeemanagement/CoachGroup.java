@@ -40,7 +40,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
     private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
     
     @ManyToOne(cascade=CascadeType.ALL, targetEntity=EducationTeam.class)
-    @JoinColumn(name="id")
+    @JoinColumn(name="educationTeam_id")
     private EducationTeam educationTeam;
 
 	/**
