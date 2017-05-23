@@ -166,7 +166,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 								href="<c:url value="teacher"><c:param name="action" value="all"/></c:url>">Overview</a></li>
 							&ndash;%&gt;
 						</ul></li>
-
 					<li class="treeview"><a href="StudentOverview"><i
 							class="fa fa-user-plus"></i> <span>Students</span> <i
 							class="fa fa-angle-left pull-right"></i></a>

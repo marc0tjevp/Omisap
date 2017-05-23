@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
+import java.util.Set;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOStudent;
@@ -24,6 +25,11 @@ public class TestDAOStudent implements IDAOStudent {
 		students.add(s);
 		
 	}
+	
+	@Override
+	public Set<Student> readAll() {
+		return students;
+	}
 
 	public TreeSet<Student> getStudents() {
 		return students;
@@ -32,5 +38,5 @@ public class TestDAOStudent implements IDAOStudent {
 	public void setStudents(TreeSet<Student> students) {
 		this.students = students;
 	}
-	
+
 }
