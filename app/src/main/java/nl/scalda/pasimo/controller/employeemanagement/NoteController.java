@@ -49,6 +49,7 @@ public class NoteController extends ActionSupport {
 
 	public String noteAdd() {
 		Student s = new Student("push it to the limit");
+		s.setStudentOV(125);
 		Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
 		teacher.createNote(title, message, s, teacher);
 
@@ -70,6 +71,7 @@ public class NoteController extends ActionSupport {
 	
 	public String noteEdit(){
 		note = teacher.readNoteById(id);
+		note.setTitle(title);
 		teacher.editNote(note);
 		return SUCCESS;
 	}
