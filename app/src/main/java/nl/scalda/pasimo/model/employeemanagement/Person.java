@@ -1,15 +1,39 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 import java.util.TreeSet;
 
-public class Person implements Comparable<Person> {
+import javax.persistence.*;
 
+import org.hibernate.annotations.Polymorphism;
+import org.hibernate.annotations.PolymorphismType;
+
+@Entity
+@Polymorphism(type=PolymorphismType.EXPLICIT)
+@Table(name="person")
+@Inheritance(strategy=InheritanceType.JOINED)
+public class Person implements Comparable<Person>, Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@Column(name="email", length=64, nullable=false)
     private String email;
+	
+	@Column(name="cardID", length=11)
     private int cardID;
+	
+	@Column(name="firstName", length=255)
     private String firstName;
+	
+	@Column(name="insertion", length=255)
     private String insertion;
+	
+	@Column(name="lastName", length=255)
     private String lastName;
+	
+    @Column(name="dateOfBirth")
     private GregorianCalendar dateOfBirth;
 
     /**

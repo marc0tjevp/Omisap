@@ -1,30 +1,34 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
-import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
-
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
 import java.util.TreeSet;
+import javax.persistence.*;
 
-public class EducationTeam implements Comparable<EducationTeam> {
-
-
+@Entity
+@Table(name="education_team")
+public class EducationTeam implements Comparable<EducationTeam>{
+	
+	/**
+     * 
+     * Id of the EducationTeam
+     */
+	@Id
+	@Column(name="educationTeamID", length=11, nullable=false)
+    private int id;
 	private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
     private TreeSet<Teacher> teachers = new TreeSet<>();
 
     /**
      * Abbreviation of the EducationTeam; e.g. AO
      */
+    @Column(name="abbreviation", length=64)
     private String abbreviation;
     /**
      * Name of the EducationTeam; e.g. Applicatie Ontwikkelaar
      */
+    @Column(name="name", length=64)
     private String name;
-    /**
-     *
-     * Id of the EducationTeam
-     */
-    private int id;
     
     public EducationTeam() {
 		
@@ -34,7 +38,6 @@ public class EducationTeam implements Comparable<EducationTeam> {
 		if (teachers.add(t)) {
 			DAOFactory.getTheFactory().getDAOEducationTeam().addTeacherToEducationTeam(t, this);
 		}
-		
 	}
     
     /**
@@ -44,10 +47,22 @@ public class EducationTeam implements Comparable<EducationTeam> {
     public void addCoachGroup(CoachGroup cg){
     	cg.setName(this.abbreviation + cg.getName());
     	this.coachGroups.add(cg);
-    	DAOFactory.getTheFactory().getDAOCoachGroup().create(cg);
+    	System.out.println(this.getCoachGroups());
+    	DAOFactory.getTheFactory().getDAOCoachGroup().create(cg, this);
     	//TestDAOCoachGroup.getInstance().create(cg);
     
     }
+    /**
+     * updates coachgroup from an educationTeam and database
+     * 
+     * @param cg
+     * @param oldname
+     */
+    public void updateCoachGroup(CoachGroup cg , String oldname){
+    	MYSQLDAOCoachGroup.getInstance().update(cg, this, oldname);
+    	
+    }
+    
     
     /**
      * Deletes a coachgroup from a EducationTeam and database
@@ -55,8 +70,8 @@ public class EducationTeam implements Comparable<EducationTeam> {
      */
     public void deleteCoachGroup(CoachGroup cg){
     	this.coachGroups.remove(cg);
-    	//DAOFactory.getTheFactory().getDAOCoachGroup().create(coachGroup);
-    	TestDAOCoachGroup.getInstance().delete(cg);
+    	DAOFactory.getTheFactory().getDAOCoachGroup().delete(cg);
+    	//TestDAOCoachGroup.getInstance().delete(cg);
     }
     
     public void updateTeacher(Teacher teacher) {

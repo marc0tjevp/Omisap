@@ -2,23 +2,37 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
-import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
+import javax.persistence.*;
+import org.hibernate.annotations.Type;
 import nl.scalda.pasimo.service.Service;
 
+@Entity
+@Table(name="note")
 public class Note implements Comparable<Note> {
+
+	@Id
+	@Column(name="noteID", nullable=false)
+    private int id;
 	static AtomicInteger count = new AtomicInteger(0);
 	
-	private int id;
+	@Column(name="title")
     private String title;
+	
+	@Column(name="creationDate", updatable=false)
     private Date creationDate;
+	
+	@Column(name="message")
     private String message;
+	
+	@Type(type="java.lang.String")
     private Teacher madeBy;
+	
+	@Column(name="lastEdit")
     private Date lastEdit;
     private Student assignedTo;
     private int ovNumber;
     private int employeeNumber;
+    
     /* empty constructor */
     public Note(){
     	id = count.incrementAndGet();
@@ -42,8 +56,6 @@ public class Note implements Comparable<Note> {
         this.lastEdit = new Date();
         Service.getInstance().getNoteService().create(this, assignedTo);
     }
-
-    
  
     public int getId() {
         return id;
