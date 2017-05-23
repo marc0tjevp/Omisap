@@ -12,7 +12,7 @@ public class InitializationServlet extends HttpServlet {
 	
 	 public void init() throws ServletException {
 	          //DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
-		 		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
+		 	  DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 	     }
 	 
 }
