@@ -57,6 +57,7 @@ public class TestDAOCheckIn implements IDAOCheckIn {
 	}
 
 	public void addTestData(){
+		if(checkIn.isEmpty()){	
 		CheckIn c = new CheckIn(0, "211543", 2017, 05, 24, 8, 30, 43);
 		CheckIn d = new CheckIn(0, "211543", 2017, 05, 24, 12, 05, 11);
 		CheckIn e = new CheckIn(0, "211543", 2017, 05, 24, 12, 35, 43);
@@ -65,7 +66,7 @@ public class TestDAOCheckIn implements IDAOCheckIn {
 		checkIn.add(e);
 		checkIn.add(d);
 		checkIn.add(c);
-
+		}
 	}
 
 	@Override

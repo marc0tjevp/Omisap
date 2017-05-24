@@ -141,7 +141,6 @@ public class Person implements Comparable<Person>, Serializable {
     }
     
     public Set<CheckIn> getCheckInsOfToday() {
-    	System.out.println(checkInsOfToday);
 		return checkInsOfToday;
 	}
 
