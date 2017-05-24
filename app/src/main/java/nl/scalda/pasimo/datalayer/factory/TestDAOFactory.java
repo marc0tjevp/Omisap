@@ -55,26 +55,15 @@ public class TestDAOFactory extends DAOFactory {
     public IDAONote getDAONote() {
         return TestDAONote.getInstance();
     }
-
-    public static TestDAOFactory getInstance() {
-        if (instance == null) {
-            instance = new TestDAOFactory();
-        }
-        return instance;
-    }
-
-
+    
 	@Override
 	public IDAOWorkingDay getDAOWorkingDay() {
-
 		return TestDAOWorkingDay.getInstance();
 	}
 
 	@Override
 	public IDAOWorkBlock getDAOWorkBlock() {
 		return TestDAOWorkBlock.getInstance();
-	
-		
 	}
 
 	@Override
@@ -82,5 +71,10 @@ public class TestDAOFactory extends DAOFactory {
 		return null;
 	}
 
-
+	public static TestDAOFactory getInstance() {
+        if (instance == null) {
+            instance = new TestDAOFactory();
+        }
+        return instance;
+    }
 }
