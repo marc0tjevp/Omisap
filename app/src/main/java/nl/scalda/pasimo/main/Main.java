@@ -19,14 +19,8 @@ DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 //        WorkingDay workingday = new WorkingDay("maandag");
 //        System.out.println(workingday);
 
-<<<<<<< Updated upstream
 
 TreeSet<WorkWeek> workweeks =  DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
-=======
-       
-//       WorkingDay workingday = new WorkingDay(1, "maandag");
-//        System.out.println(workingday);
->>>>>>> Stashed changes
 
        
 
