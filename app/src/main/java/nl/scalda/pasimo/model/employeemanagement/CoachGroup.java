@@ -15,6 +15,9 @@ import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 @Entity
 @Table(name="coach_group")
 public class CoachGroup implements Comparable<CoachGroup> {
+	@Id
+	@Column(name="coachGroupID", length=64)
+    private int coachGroupID;
 	/**
 	 * The name of this Coach group
 	 */
