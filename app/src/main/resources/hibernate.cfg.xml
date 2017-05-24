@@ -11,13 +11,13 @@
       com.mysql.jdbc.Driver
    </property>
    <property name="hibernate.connection.url">
-      jdbc:mysql://localhost/pasimo_coachgroup?createDatabaseIfNotExist=true
+      jdbc:mysql://localhost/Pasimo_final
    </property>
    <property name="hibernate.connection.username">
       root
    </property>
    <property name="hibernate.connection.password">
-   Theblackarrow
+   theblackarrow
    </property>
    <property name="hibernate.hbm2ddl.auto">
       update
