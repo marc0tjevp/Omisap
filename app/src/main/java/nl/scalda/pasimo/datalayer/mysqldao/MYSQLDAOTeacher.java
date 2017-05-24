@@ -172,7 +172,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			   String[] dateOfBirth = String.valueOf(obj[9]).split("-");
 			   Teacher teacher = new Teacher(Integer.parseInt(String.valueOf(obj[0])),
 					   String.valueOf(obj[4]),
-					   Integer.parseInt(String.valueOf(obj[5])),
+					   String.valueOf(obj[5]),
 					   String.valueOf(obj[6]),
 					   String.valueOf(obj[7]),
 					   String.valueOf(obj[8]),
@@ -225,7 +225,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			String[] dateOfBirth = String.valueOf(obj[9]).split("-");
 			teacher = new Teacher(Integer.parseInt(String.valueOf(obj[0])),
 					   String.valueOf(obj[4]),
-					   Integer.parseInt(String.valueOf(obj[5])),
+					   String.valueOf(obj[5]),
 					   String.valueOf(obj[6]),
 					   String.valueOf(obj[7]),
 					   String.valueOf(obj[8]),
@@ -278,7 +278,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			   String[] dateOfBirth = String.valueOf(obj[11]).split("-");
 			   Teacher teacher = new Teacher(Integer.parseInt(String.valueOf(obj[2])),
 					   String.valueOf(obj[6]),
-					   Integer.parseInt(String.valueOf(obj[7])),
+					   String.valueOf(obj[7]),
 					   String.valueOf(obj[8]),
 					   String.valueOf(obj[9]),
 					   String.valueOf(obj[10]),
@@ -329,7 +329,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			String[] dateOfBirth = String.valueOf(obj[9]).split("-");
 			teacher = new Teacher(Integer.parseInt(String.valueOf(obj[0])),
 					   String.valueOf(obj[4]),
-					   Integer.parseInt(String.valueOf(obj[5])),
+					   String.valueOf(obj[5]),
 					   String.valueOf(obj[6]),
 					   String.valueOf(obj[7]),
 					   String.valueOf(obj[8]),

@@ -175,6 +175,13 @@
 			<result name="success">/view/employeemanagement/student/studentDetails.jsp
 			</result>
 		</action>
+	    <action name="studentCheckInRegistration"
+			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
+			method="getCheckInsForStudent">
+			<result name="success">/view/employeemanagement/student/studentCheckInRegistration.jsp
+			</result>
+		</action>
+		
 		
 
 	</package>

@@ -18,7 +18,7 @@ public class Student extends Person {
 
 	private static final long serialVersionUID = 1L;
 	private int noteListID;
-	private int cardID;
+	private String cardID;
 	@Column(name="cohort")
 	private int cohort;
 	@Column(name="ovNumber")
@@ -30,7 +30,7 @@ public class Student extends Person {
 	private CoachGroup coachGroup;
 
 	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
-			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth) {
+			String cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth) {
 		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.studentOV = studentOV;
 		this.cohort = cohort;
@@ -40,7 +40,7 @@ public class Student extends Person {
 	}
 
 	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
-			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName, int lessonGroupID) {
+			String cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName, int lessonGroupID) {
 			super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 			this.studentOV = studentOV;
 			this.cohort = cohort;
@@ -72,7 +72,7 @@ public class Student extends Person {
 	 * @param coachGroupID
 	 */
 	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
-		int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName) {
+			String cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName) {
 		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.studentOV = studentOV;
 		this.cohort = cohort;
@@ -99,11 +99,11 @@ public class Student extends Person {
 		this.noteListID = noteListID;
 	}
 
-	public int getCardID() {
+	public String getCardID() {
 		return cardID;
 	}
 
-	public void setCardID(int cardID) {
+	public void setCardID(String cardID) {
 		this.cardID = cardID;
 		//this.noteList = noteList;
 	}

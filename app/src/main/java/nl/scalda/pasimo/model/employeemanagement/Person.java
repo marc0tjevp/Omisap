@@ -2,12 +2,15 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import java.io.Serializable;
 import java.util.GregorianCalendar;
+import java.util.Set;
 import java.util.TreeSet;
 
 import javax.persistence.*;
 
 import org.hibernate.annotations.Polymorphism;
 import org.hibernate.annotations.PolymorphismType;
+
+import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 
 @Entity
 @Polymorphism(type=PolymorphismType.EXPLICIT)
@@ -21,8 +24,8 @@ public class Person implements Comparable<Person>, Serializable {
 	@Column(name="email", length=64, nullable=false)
     private String email;
 	
-	@Column(name="cardID", length=11)
-    private int cardID;
+	@Column(name="cardID", length=45)
+    private String cardID;
 	
 	@Column(name="firstName", length=255)
     private String firstName;
@@ -35,8 +38,10 @@ public class Person implements Comparable<Person>, Serializable {
 	
     @Column(name="dateOfBirth")
     private GregorianCalendar dateOfBirth;
+    
+    private Set<CheckIn> checkInsOfToday; 
 
-    /**
+	/**
      * default constructor.
      */
 	public Person() {}
@@ -62,7 +67,7 @@ public class Person implements Comparable<Person>, Serializable {
 	 * @param monthOfBirth
 	 * @param dayOfBirth
 	 */
-    public Person(String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
+    public Person(String email, String cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
 		GregorianCalendar gc = new GregorianCalendar();
 		this.setEmail(email);
 		this.setCardID(cardID);
@@ -95,11 +100,11 @@ public class Person implements Comparable<Person>, Serializable {
         this.email = email;
     }
 
-    public int getCardID() {
+    public String getCardID() {
         return cardID;
     }
 
-    public void setCardID(int cardID) {
+    public void setCardID(String cardID) {
         this.cardID = cardID;
     }
 
@@ -134,6 +139,16 @@ public class Person implements Comparable<Person>, Serializable {
     public void setDateOfBirth(GregorianCalendar dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+    
+    public Set<CheckIn> getCheckInsOfToday() {
+    	System.out.println(checkInsOfToday);
+		return checkInsOfToday;
+	}
+
+	public void setCheckInsOfToday(Set<CheckIn> checkInsOfToday) {
+		this.checkInsOfToday = checkInsOfToday;
+	}
+
 
     /**
      * returns the full name of the person.

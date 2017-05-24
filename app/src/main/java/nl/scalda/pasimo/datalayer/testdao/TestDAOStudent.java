@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOStudent;
+import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 
 public class TestDAOStudent implements IDAOStudent {
@@ -19,6 +20,26 @@ public class TestDAOStudent implements IDAOStudent {
         }
         return instance;
     }
+    
+	
+	public void addStudentTestData(){
+		
+		TreeSet<Note>note = new TreeSet<>();
+		Student s = new Student(215443, 2016, "student@email.com", "klaas", "", "vaak", "211543", 1998, note, 05, 12);	
+		create(s);	
+	}
+    
+	public Student getStudentByCardID(String cardID){
+		
+		Set<Student>studentList = readAll();	
+		
+		for(Student s : studentList){
+			if(s.getCardID().equals(cardID)){
+				return s;
+			}
+		} 
+		return null;	
+	}
 
 	@Override
 	public void create(Student s) {

@@ -5,14 +5,14 @@ import java.util.GregorianCalendar;
 public class CheckIn implements Comparable<CheckIn> {
 
 	private int logID;
-	private int cardID;
+	private String cardID;
 	private GregorianCalendar date;
 
 	public CheckIn() {
 
 	}
 
-	public CheckIn(int logID, int cardID, int yearOfCheckIn, int monthOfCheckIn, int dayOfCheckIn, int hourOfCheckIn,
+	public CheckIn(int logID, String cardID, int yearOfCheckIn, int monthOfCheckIn, int dayOfCheckIn, int hourOfCheckIn,
 			int minuteOfCheckIn, int secondOfCheckIn) {
 		GregorianCalendar gc = new GregorianCalendar();
 		gc.set(yearOfCheckIn, monthOfCheckIn - 1, dayOfCheckIn, hourOfCheckIn, minuteOfCheckIn, secondOfCheckIn);
@@ -60,11 +60,11 @@ public class CheckIn implements Comparable<CheckIn> {
 		this.logID = logID;
 	}
 
-	public int getCardID() {
+	public String getCardID() {
 		return cardID;
 	}
 
-	public void setCardID(int cardID) {
+	public void setCardID(String cardID) {
 		this.cardID = cardID;
 	}
 

@@ -1,37 +1,41 @@
 package nl.scalda.pasimo.service;
 
-import java.util.ArrayList;
+import java.util.Set;
+import java.util.TreeSet;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOCheckIn;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOStudent;
+import nl.scalda.pasimo.model.employeemanagement.Person;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 
-public class StudentService
-{
+public class StudentService {
 	private static StudentService instance = null;
 
-	public void checkInData(Student z)
-	{
-
-		ArrayList<CheckIn> tempCheckIns = new ArrayList<>();
-		CheckIn c = new CheckIn(0, 211543, 2017, 05, 13, 8, 30, 43);
-		CheckIn d = new CheckIn(0, 211543, 2017, 05, 16, 9, 05, 11);
-		tempCheckIns.add(c);
-		tempCheckIns.add(d);
-
-		z.getStudentCheckIns().addAll(tempCheckIns);
+	public TreeSet<CheckIn> getCheckInByStudent(Student z) {
+	 z.getStudentCheckIns().addAll(TestDAOCheckIn.getInstance().getCheckInsByCardId(z.getCardID()));
+	 return z.studentCheckIns;
+	}
+	
+	public TreeSet<CheckIn> getCheckInsOfToday(Person p){
+		return DAOFactory.getTheFactory().getDAOCheckIn().readAllCheckInsForTodayByPerson(p);
+		
+	}
+	
+	public Set<Student> getAllStudents(){
+		return TestDAOStudent.getInstance().readAll();
 	}
 
-	public static StudentService getInstance()
-	{
-		if (instance == null)
-		{
+	public static StudentService getInstance() {
+		if (instance == null) {
 			instance = new StudentService();
 		}
 		return instance;
 	}
 
-	public static void setInstance(StudentService instance)
-	{
+	public static void setInstance(StudentService instance) {
 		StudentService.instance = instance;
 	}
 
