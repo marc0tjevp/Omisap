@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
@@ -15,11 +16,15 @@ public class TestDAOEducationTeam implements IDAOEducationTeam {
         this.educationTeams = new TreeSet<EducationTeam>();
 
         // Test data
+        
+      
         this.educationTeams.add(new EducationTeam("AO", "Applicatieontwikkelaar",4));
         this.educationTeams.add(new EducationTeam("SSC", "Shared Service Center",3));
         this.educationTeams.add(new EducationTeam("MV", "Mediavormgeving", 2));
         this.educationTeams.add(new EducationTeam("ICOb", "ICO41A", 1));
-
+        
+        
+        
     }
 
     @Override

@@ -75,7 +75,9 @@ public class CoachGroupService {
 	public TreeSet<CoachGroup> readAll() {
 		TreeSet<CoachGroup> AllCoachGroups = new TreeSet<>();
 		for (EducationTeam edu : EducationTeamService.getInstance().getEducationTeams()) {
+			if(edu.getCoachGroups() != null){
 			AllCoachGroups.addAll(edu.getCoachGroups());
+			}
 		}
 		return AllCoachGroups;
 	}
