@@ -51,6 +51,7 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 		Session session = factory.openSession();
 		Transaction tx = null;
 		TreeSet<WorkWeek> workweeks = new TreeSet<>();
+		TreeSet<WorkingDay> workingdays = new TreeSet<>();
 		PasimoTime pt = new PasimoTime();
 		try {
 			tx = session.beginTransaction();
@@ -64,8 +65,14 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 				Object[] o = (Object[]) iterator.next();
 				 WorkWeek workweek = new
 				 WorkWeek(Integer.parseInt(String.valueOf(o[0])));
-				workweeks.add(workweek);
-				
+				 workweeks.add(workweek);
+				for(Iterator it = weekList.iterator(); it.hasNext();){
+					Object[] ob = (Object[]) it.next();
+					WorkingDay workingday = new
+					WorkingDay(Integer.parseInt(String.valueOf(ob[0])), String.valueOf(ob[1]));	
+					workingdays.add(workingday);
+					
+				}
 
 			}
 			tx.commit();
@@ -76,6 +83,8 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 		} finally {
 
 			System.out.println(workweeks);
+			System.out.println(workingdays);
+			
 
 
 
