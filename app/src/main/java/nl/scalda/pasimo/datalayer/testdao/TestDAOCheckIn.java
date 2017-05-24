@@ -66,6 +66,16 @@ public class TestDAOCheckIn implements IDAOCheckIn {
 		checkIn.add(e);
 		checkIn.add(d);
 		checkIn.add(c);
+		
+		//possible bug
+		CheckIn y = new CheckIn(0, "211544", 2017, 05, 24, 8, 29, 43);
+		CheckIn u = new CheckIn(0, "211544", 2017, 05, 24, 12, 05, 11);
+		CheckIn i = new CheckIn(0, "211544", 2017, 05, 24, 12, 37, 43);
+		CheckIn o = new CheckIn(0, "211544", 2017, 05, 24, 14, 13, 11);
+		checkIn.add(y);
+		checkIn.add(u);
+		checkIn.add(i);
+		checkIn.add(o);
 		}
 	}
 

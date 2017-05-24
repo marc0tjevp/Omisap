@@ -14,26 +14,32 @@
   
   		<body>
         <header>
-				<h2>Inklok tijden van vandaag:</h2>
+				<h2 id="dateTime"></h2>
 			</header>
-        <table class="table" style="width: 50%; align: left;">
+        <table class="table" >
                 <thead>
                 <th>Leerlingnummer</th>
 				<th>Naam</th>
-				<th>Check In</th>
-				<th>Check Out</th>
-				<th>Check In</th>
-				<th>Check Out</th>
+				<th>Tussenvoegsel</th>
+				<th>Achternaam</th>
+				<th style="color:blue;">Check In</th>
+				<th style="color:blue;">Check Out</th>
+				<th style="color:red;">Check In</th>
+				<th style="color:red;">Check Out</th>
 				</thead>
 				<tbody>
 		<tr>
 		<s:iterator value="allStudents" var="student">
+		<tr>
         				<td><s:property value="getStudentOV()" /></td>
 						<td><s:property value="getFirstName()" /></td>
+						<td><s:property value="getInsertion()" /></td>
+						<td><s:property value="getLastName()" /></td>
 							
 			<s:iterator value="getCheckInsOfToday()" var="checkIn">
 						<td><s:property value="getFormattedTime()" /></td>
         	</s:iterator>
+        	</tr>
 		</s:iterator>
 
 
@@ -41,6 +47,9 @@
 		</tbody>
         </table>
         </body>
-        	
+        <script>
+        var d = new Date();
+        document.getElementById("dateTime").innerHTML = "Inklok tijden van: " + d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear() + "";
+		</script>
     </jsp:attribute>
 </t:layout2>

@@ -9,9 +9,9 @@ import nl.scalda.pasimo.model.employeemanagement.Student;
 
 public class TestDAOStudent implements IDAOStudent {
 	private static TestDAOStudent instance;
-	public TreeSet<Student> students = new TreeSet<>();
+	public TreeSet<Student> students;
 	public TestDAOStudent(){
-		
+		students = new TreeSet<>();
 	}
 	
     public static TestDAOStudent getInstance() {
@@ -25,8 +25,10 @@ public class TestDAOStudent implements IDAOStudent {
 	public void addStudentTestData(){
 		
 		TreeSet<Note>note = new TreeSet<>();
-		Student s = new Student(215443, 2016, "student@email.com", "klaas", "", "vaak", "211543", 1998, note, 05, 12);	
+		Student s = new Student(215443, 2016, "student@email.com", "klaas", "", "vaak", "211543", 1998, note, 05, 12);
+		Student z = new Student(215444, 2016, "student4@email.com", "sjaak", "de", "bonenstaak", "211544", 1998, note, 05, 12);
 		create(s);	
+		create(z);
 	}
     
 	public Student getStudentByCardID(String cardID){
@@ -44,6 +46,7 @@ public class TestDAOStudent implements IDAOStudent {
 	@Override
 	public void create(Student s) {
 		students.add(s);
+		System.out.println(students.size());
 		
 	}
 	
