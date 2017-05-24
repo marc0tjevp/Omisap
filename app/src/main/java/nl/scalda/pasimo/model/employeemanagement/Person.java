@@ -1,10 +1,7 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
 import java.util.GregorianCalendar;
-import java.util.Set;
 import java.util.TreeSet;
-
-import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 
 public class Person implements Comparable<Person> {
 
@@ -14,9 +11,7 @@ public class Person implements Comparable<Person> {
     private String insertion;
     private String lastName;
     private GregorianCalendar dateOfBirth;
-    
-    
-    
+
     /**
      * default constructor.
      */
@@ -78,14 +73,13 @@ public class Person implements Comparable<Person> {
      * @param Note note
      * @see Note
      */
-    
 
     //getters and setters
     public String getEmail() {
         return email;
     }
 
-	public void setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -155,12 +149,5 @@ public class Person implements Comparable<Person> {
     public int compareTo(Person o) {
         return email.compareTo(o.getEmail());
     }
-    
-    public boolean isAvailable(){
-    	
-    	
-    }
-    
-    
 
 }
