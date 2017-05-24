@@ -40,8 +40,7 @@ public class MYSQLDAOCheckIn implements IDAOCheckIn {
 		try {
 		   tx = session.beginTransaction();
 		 List checkInList = session.createNativeQuery("SELECT c.cardID, c.date, p.email, p.firstName FROM card_log AS c INNER JOIN person AS p ON c.cardID = p.card_log_cardID INNER JOIN teacher AS t ON p.email = t.person_email;").getResultList();
-
-		   
+		 
 		 for(Iterator iterator = checkInList.iterator();iterator.hasNext();){
 
 			   Object[] obj = (Object[]) iterator.next();
@@ -50,14 +49,22 @@ public class MYSQLDAOCheckIn implements IDAOCheckIn {
 			   GregorianCalendar dt = new GregorianCalendar();
 			   dt.setTime(sdf.parse(dateString));
 
-			   CheckIn checkin = new CheckIn(
-					   Integer.parseInt(String.valueOf(obj[0])),
-					   dt,
-					   String.valueOf(obj[2]),
-					   String.valueOf(obj[3]));
+//			   CheckIn checkin = new CheckIn(
+//					   Integer.parseInt(String.valueOf(obj[0])),
+//					   dt,
+//					   String.valueOf(obj[2]),
+//					   String.valueOf(obj[3]));
 			   
+			   	List checkInWithCardID = session.createNativeQuery("select card_log.cardID FROM card_log WHERE cardID = :cardID").setParameter("cardID",String.valueOf(obj[0])).getResultList();
+			   	
+//			   if((checkInWithCardID.size()%2) != 1){
+//				   checkin.setIsCheckIn(false);
+//			   }else{
+//				   checkin.setIsCheckIn(true);
+//			   }
+//
+//			   Checkin.add(checkin);
 			   
-			   Checkin.add(checkin);
 		   }
 		   tx.commit();
 		}
