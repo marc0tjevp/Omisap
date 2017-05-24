@@ -17,7 +17,8 @@ public class WorkWeek implements Comparable<WorkWeek> {
 		this.id = id;
 		this.workingdays = new TreeSet<WorkingDay>();
 	}
-	
+
+
 	public static WorkWeek getInstance(){
 		if(instance == null){
 			instance = new WorkWeek(1);
