@@ -9,137 +9,7 @@
     </jsp:attribute>
 
 	<jsp:attribute name="scripts">
-        <script>
-        $( window ).on( "load", function() { 
-            	 var closestTr = [];
-            	var openModal = [];
-            	
-            	 
-                $("#selectAllCoachGroups").on('click', function () {
-                    if (this.checked) {
-                        // Iterate each checkbox
-                        $(':checkbox').each(function () {
-                            this.checked = true;
-                            $(this).addClass("selectedCoachGroup");
-                            $("#deleteButton").removeAttr("disabled");
-                            $("#editButton").attr("disabled", true);
-                            
-                           
-                        });
-                    }
-                    else {
-                        $(':checkbox').each(function () {
-                            this.checked = false;
-                            $(this).removeClass("selectedCoachGroup");
-                            $("#deleteButton").attr("disabled", true);
-                            
-            
-                        });
-                    }
-                    closestTr = [];
-                    $(':checkbox').each(function () {
-                        if(this.checked){
-                        	closestTr.push($(this).closest('tr').attr('id'));
-                        	console.log(closestTr);
-                        }
-                        });
-                });
-               
-               
-                
-                $(".coach-groups-table tbody td input[type=\"checkbox\"]").change(function () {
-                	
-                    if (this.checked) {
-                    	
-                    	
-                        $(this).addClass("selectedCoachGroup");
-        
-                        
-                        
-                    } else {
-                        $(this).removeClass("selectedCoachGroup");
-                    }
-                    
-					
-                    closestTr = [];
-                   
-                    $(':checkbox').each(function () {
-                    if(this.checked){
-                    	closestTr.push($(this).closest('tr').attr('id'));
-                    	console.log(closestTr);
-                    }
-                    });
-                   
-
-                    
-                    var selectedCoachGroup = $(".selectedCoachGroup").length;
-                    if (selectedCoachGroup == 0) {
-                        $("#deleteButton").attr("disabled", true);
-                        
-                        $("#editButton").attr("disabled", true);
-                    }
-
-                    if (selectedCoachGroup == 1) {
-                        $("#deleteButton").removeAttr("disabled");
-                        
-                        $("#editButton").removeAttr("disabled");
-                    }
-                    if(selectedCoachGroup >= 2) {
-                        $("#deleteButton").removeAttr("disabled");
-                        
-                        $("#editButton").attr("disabled", true);
-                    }
-                    
-                   
-                });
-                
-                
-                $("#deleteButton2").click(function(e){
-                	
-                	
-                    	$.ajax({
-                		 	type: 'POST',	  
-                			url:'coachGroup/array',
-                		   	dataType: 'json',
-               				data : "s1=" + closestTr,
-               				success: function(data) {
-	           			     	location.reload();
-	           				 }
-                    	});
-                 
-                  							
-                	
-                });
-					
-                
-                $("#editButton").click(function(e){
-             
-           					window.location.replace(window.location.href+ "/CoachGroupEdit?s1=" + closestTr);
-           				
-                	
-                	 
-                	});
-                	
-                
-       
-                
-               
-                
-                $('.form-control')
-                .dropdown();
-               
-                $('select').change(function() {
-                    if ($(this).children('option:first-child').is(':selected')) {
-                      $(this).addClass('placeholder');
-                    } else {
-                     $(this).removeClass('placeholder');
-                    }
-                   });
-            });
-            
-            
-            
-        </script>
+       <script type="text/javascript" src="<c:url value="/resources/js/coachGroup.js"/>"></script>
     </jsp:attribute>
 	<jsp:attribute name="content">
 
@@ -202,18 +72,16 @@
 											id="coachGroupName-input" />
                                         
                                     </div>
-                                    <label
-										for="coachGroupTeacherName-input" class="col-2 col-form-label">Teacher</label>
+                                    <!-- Adds a Teacher to a coachGroup -->
+                                    <label for="coachGroupTeacherName-input" class="col-2 col-form-label">Teacher</label>
                                     <div class="col-10">
      
                                     
                                     <select class="form-control"
 											name="s2" id="coachGroupTeacherName-input">
                                         <option value="">Select Teacher</option>
-                                        <s:iterator value="teacher"
-												var="ed">
-                                        <option
-													value="${ed.employeeNumber}">${ed.abbreviation} </option>
+                                        <s:iterator value="teacher" var="ed">
+                                        <option value="${ed.employeeNumber}">${ed.abbreviation} </option>
                                         </s:iterator>
                                         </select>
                                     </div>
@@ -250,16 +118,8 @@
               
                         <div class="modal-body">
                         <p>Weet u zeker dat u deze CoachGroupen wilt verwijderen?</p>
-                          <s:iterator value="deleteCoaches" var="ed">
-                                        <p>${ed.getName},</p>
-                          </s:iterator>
-                           
-                          
                         </div>
                         <div class="modal-footer"> 
-                        
-                        
-                       
                             <button type="button"
 									class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
                             <button type="button" value="Verwijderen"
@@ -269,9 +129,8 @@
                         </div>
                     </div>
                 </div>
-            
-            
-           
+         
+           <!-- Tabel for a CoachGroup -->
             <table class="table coach-groups-table table-responsive">
                 <thead>
                     <tr>

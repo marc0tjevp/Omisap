@@ -4,29 +4,12 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <t:layout2>
 	<jsp:attribute name="css">
-         <link type="text/css" rel="stylesheet"
-			href="<c:url value="/resources/css/coachgroups.css"/>" />
+         <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/coachgroups.css"/>" />
+			
     </jsp:attribute>
+    
 <jsp:attribute name="scripts">
-        <script>
-        $( window ).on( "load", function() { 
-        	
-        $("#AnnulerenButton").click(function(e){
-        		window.location.replace("/Pasimo/coachGroups");
-        	});
-        
-        $('.form-control')
-        .dropdown();
-       
-        $('select').change(function() {
-            if ($(this).children('option:first-child').is(':selected')) {
-              $(this).addClass('placeholder');
-            } else {
-             $(this).removeClass('placeholder');
-            }
-           });
-    });
-        </script>
+ <script type="text/javascript" src="<c:url value="/resources/js/coachGroupEdit.js"/>"></script>
         </jsp:attribute>
 	<jsp:attribute name="content">
 	                <form id="updateCoachGroup"
@@ -51,7 +34,8 @@
                                          <option value="${coach.getCoach().employeeNumber}">${coach.getCoach().getAbbreviation()}</option>
                                          
                                         <s:iterator value="teacher" var="ed">
-                                        <s:if test="%{#ed.getEmployeeNumber() =! coach.getCoach().getEmployeeNumber() }">
+                                        
+                                        <s:if test="%{#ed.getEmployeeNumber() != coach.getCoach().getEmployeeNumber() }">
                                         <option value="${ed.employeeNumber}">${ed.abbreviation} </option>
                                         </s:if>
                                         </s:iterator>
