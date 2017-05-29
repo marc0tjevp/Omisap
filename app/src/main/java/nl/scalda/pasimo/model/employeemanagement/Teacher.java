@@ -2,10 +2,11 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import javax.persistence.*;
 
+import java.util.Date;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import java.util.Date;
 import nl.scalda.pasimo.service.NoteService;
+
 
 @Entity
 @Table(name="teacher")

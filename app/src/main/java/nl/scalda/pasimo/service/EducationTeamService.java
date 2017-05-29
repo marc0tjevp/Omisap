@@ -48,6 +48,7 @@ public class EducationTeamService {
         }
     }
 
+
     public Set<EducationTeam> getEducationTeams() {
         return educationTeams;
     }

@@ -1,34 +1,24 @@
 package nl.scalda.pasimo.model.employeemanagement;
-
 import java.util.TreeSet;
-
 import javax.persistence.*;
-
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.service.CoachGroupService;
+import nl.scalda.pasimo.service.LessonGroupService;
 
 @Entity
 @Table(name="student")
-//@PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
 public class Student extends Person {
-
 	private static final long serialVersionUID = 1L;
 	private int noteListID;
-	private int lessonGroupID;
 	private int cardID;
-	
 	@Column(name="cohort")
 	private int cohort;
-
 	@Column(name="ovNumber")
 	private int studentOV;
-
-	
-	public Student(String email){
-		super(email);
-	}
-
 	private TreeSet<Note> noteList = new TreeSet<>();
+	@ManyToOne
 	private LessonGroup lessonGroup;
+	@ManyToOne
 	private CoachGroup coachGroup;
 
 	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
@@ -37,6 +27,47 @@ public class Student extends Person {
 		this.studentOV = studentOV;
 		this.cohort = cohort;
 		this.cardID = cardID;
+		//this.coachGroupID = coachGroupID;
+	}
+	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
+			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName, int lessonGroupID) {
+			super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
+			this.studentOV = studentOV;
+			this.cohort = cohort;
+			this.cardID = cardID;
+			this.lessonGroup = LessonGroupService.getInstance().read(lessonGroupID);
+			lessonGroup.addStudent(this);
+			//this is null because coachGroupService readcoachgroup does use hardcoded coachgroups.
+			this.coachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupName);
+		}
+	public Student(String email) {
+		super(email);
+	}
+	
+	/**
+	 * full constructor with coachgroup id.
+	 * 
+	 * @param studentOV
+	 * @param cohort
+	 * @param email
+	 * @param firstName
+	 * @param insertion
+	 * @param lastName
+	 * @param cardID
+	 * @param yearOfBirth
+	 * @param noteList
+	 * @param monthOfBirth
+	 * @param dayOfBirth
+	 * @param coachGroupID
+	 */
+	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
+		int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName) {
+		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
+		this.studentOV = studentOV;
+		this.cohort = cohort;
+		this.cardID = cardID;
+		//this is null because coachGroupService readcoachgroup does use hardcoded coachgroups.
+		this.coachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupName);
 	}
 
 	public void createStudent(){
@@ -56,20 +87,13 @@ public class Student extends Person {
 		this.noteListID = noteListID;
 	}
 
-	public int getLessonGroupID() {
-		return lessonGroupID;
-	}
-
-	public void setLessonGroupID(int lessonGroupID) {
-		this.lessonGroupID = lessonGroupID;
-	}
-
 	public int getCardID() {
 		return cardID;
 	}
 
 	public void setCardID(int cardID) {
 		this.cardID = cardID;
+		//this.noteList = noteList;
 	}
 
 	public TreeSet<Note> getNoteList() {
@@ -108,7 +132,6 @@ public class Student extends Person {
 	public int compareTo(Person o) {
 	    return getEmail().compareTo(o.getEmail());
 	}
-
 	public String getNameOfLessonGroup() {
 		return lessonGroup.getName();
 	}
@@ -124,11 +147,11 @@ public class Student extends Person {
 	public void setCoachGroup(CoachGroup coachGroup) {
 		this.coachGroup = coachGroup;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "Student [noteList=" + noteList + ", lessonGroup=" + lessonGroup + ", studentOV=" + studentOV
-				+ ", cohort=" + cohort + ", coachGroup=" + coachGroup + "]";
+		return "Student [noteList=" + noteList + ", lessonGroup=" + lessonGroup.getName() + ", studentOV=" + studentOV
+				+ ", cohort=" + cohort + ", coachGroup=" + coachGroup.getName()+ "]";
 	}
 
 }

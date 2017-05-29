@@ -2,10 +2,7 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import java.io.Serializable;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
-import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
-
 import java.util.TreeSet;
 import javax.persistence.*;
 
@@ -171,6 +168,7 @@ public class EducationTeam implements Comparable<EducationTeam>, Serializable {
                 + '}';
     }
 
+
     public TreeSet<CoachGroup> getCoachGroups() {
         if (coachGroups == null) {
             
@@ -216,4 +214,7 @@ public class EducationTeam implements Comparable<EducationTeam>, Serializable {
     
     
 
+
+	
 }
+
