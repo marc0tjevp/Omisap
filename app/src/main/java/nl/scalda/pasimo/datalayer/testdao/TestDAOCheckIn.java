@@ -58,20 +58,21 @@ public class TestDAOCheckIn implements IDAOCheckIn {
 
 	public void addTestData(){
 		if(checkIn.isEmpty()){	
-		CheckIn c = new CheckIn(0, "211543", 2017, 05, 24, 8, 30, 43);
-		CheckIn d = new CheckIn(0, "211543", 2017, 05, 24, 12, 05, 11);
-		CheckIn e = new CheckIn(0, "211543", 2017, 05, 24, 12, 35, 43);
-		CheckIn f = new CheckIn(0, "211543", 2017, 05, 24, 14, 15, 11);
+			
+		CheckIn c = new CheckIn(0, "211543", 2017, 05, 29, 8, 30, 43);
+		CheckIn d = new CheckIn(0, "211543", 2017, 05, 29, 12, 06, 11);
+		CheckIn e = new CheckIn(0, "211543", 2017, 05, 29, 12, 35, 43);
+		CheckIn f = new CheckIn(0, "211543", 2017, 05, 29, 14, 15, 11);
+		
+		CheckIn y = new CheckIn(0, "211544", 2017, 05, 29, 8, 29, 43);
+		CheckIn u = new CheckIn(0, "211544", 2017, 05, 29, 12, 05, 11);
+		CheckIn i = new CheckIn(0, "211544", 2017, 05, 29, 12, 37, 43);
+		CheckIn o = new CheckIn(0, "211544", 2017, 05, 29, 14, 13, 11);
+		
 		checkIn.add(f);
 		checkIn.add(e);
 		checkIn.add(d);
 		checkIn.add(c);
-		
-		//possible bug
-		CheckIn y = new CheckIn(0, "211544", 2017, 05, 24, 8, 29, 43);
-		CheckIn u = new CheckIn(0, "211544", 2017, 05, 24, 12, 05, 11);
-		CheckIn i = new CheckIn(0, "211544", 2017, 05, 24, 12, 37, 43);
-		CheckIn o = new CheckIn(0, "211544", 2017, 05, 24, 14, 13, 11);
 		checkIn.add(y);
 		checkIn.add(u);
 		checkIn.add(i);
@@ -108,9 +109,11 @@ public class TestDAOCheckIn implements IDAOCheckIn {
 		TreeSet<CheckIn> checkInsToday = new TreeSet<>( Collections.reverseOrder() );
 		GregorianCalendar date = new GregorianCalendar();
 		for(CheckIn c : checkIn){
+			if(p.getCardID().equals(c.getCardID())){
 			if(c.getDate().get(GregorianCalendar.DAY_OF_YEAR) + c.getDate().get(GregorianCalendar.YEAR) == (date.get(GregorianCalendar.DAY_OF_YEAR) + date.get(GregorianCalendar.YEAR))){
 				checkInsToday.add(c);
 			}
+		}
 		}
 		return checkInsToday;
 	}

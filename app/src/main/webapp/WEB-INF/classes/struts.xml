@@ -177,7 +177,7 @@
 		</action>
 	    <action name="studentCheckInRegistration"
 			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
-			method="getCheckInsForStudent">
+			method="getDailyCheckInsForStudents">
 			<result name="success">/view/employeemanagement/student/studentCheckInRegistration.jsp
 			</result>
 		</action>

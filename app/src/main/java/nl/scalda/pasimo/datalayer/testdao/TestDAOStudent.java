@@ -26,7 +26,7 @@ public class TestDAOStudent implements IDAOStudent {
 		
 		TreeSet<Note>note = new TreeSet<>();
 		Student s = new Student(215443, 2016, "student@email.com", "klaas", "", "vaak", "211543", 1998, note, 05, 12);
-		Student z = new Student(215444, 2016, "student4@email.com", "sjaak", "de", "bonenstaak", "211544", 1998, note, 05, 12);
+		Student z = new Student(215444, 2016, "student0@email.com", "null", "de", "nullpointer", "211544", 1998, note, 05, 12);
 		create(s);	
 		create(z);
 	}
@@ -46,7 +46,6 @@ public class TestDAOStudent implements IDAOStudent {
 	@Override
 	public void create(Student s) {
 		students.add(s);
-		System.out.println(students.size());
 		
 	}
 	

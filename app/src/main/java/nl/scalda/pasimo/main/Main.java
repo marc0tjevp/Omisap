@@ -48,15 +48,6 @@ public class Main {
 
 //		ReadByTeam
 //		System.out.println(CoachGroupService.getInstance().readAll());
-		CheckIn c = new CheckIn(0, "211543", 2017, 05, 13, 8, 30, 43);
-		CheckIn d = new CheckIn(0, "211543", 2017, 05, 16, 9, 05, 11);
-		TestDAOCheckIn.getInstance().add(c);
-		TestDAOCheckIn.getInstance().add(d);
-		
-		TreeSet<Note>note = new TreeSet<>();
-		Student s = new Student(215443, 2016, "student@email.com", "klaas", "", "vaak", "211543", 1998, note, 05, 12);	
-		TestDAOStudent.getInstance().create(s);
-
 
 	}
 }

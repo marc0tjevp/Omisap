@@ -32,22 +32,17 @@ public class StudentController extends ActionSupport {
 		return SUCCESS;
 	}
 	
-	public String getCheckInsForStudent(){
-		//Haal per student voor hun cardID alle checkIns op en voeg deze toe aan de ArrayList checkins van de student zelf. 
-		
+	public String getDailyCheckInsForStudents(){
+		//Haal per student voor hun cardID alle checkIns op en voeg deze toe aan de ArrayList checkins van de student zelf. 	
 		TestDAOStudent.getInstance().addStudentTestData();
 		TestDAOCheckIn.getInstance().addTestData();
 		allStudents = TestDAOStudent.getInstance().readAll();
 	
-	
 		for(Student s : allStudents){		
-//			checkInsOfStudent = StudentService.getInstance().getCheckInByStudent(s);
-//			s.getStudentCheckIns().addAll(checkInsOfStudent);
 			s.setCheckInsOfToday(StudentService.getInstance().getCheckInsOfToday(s));
 		}
 		return SUCCESS;
 
-		
 	}
 	
 	public String AddStudentWithCSV(){
