@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import java.io.Serializable;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
@@ -9,80 +10,101 @@ import java.util.TreeSet;
 import javax.persistence.*;
 
 @Entity
-@Table(name="education_team")
-public class EducationTeam implements Comparable<EducationTeam>{
-	
-	/**
-     * 
+@Table(name = "education_team")
+public class EducationTeam implements Comparable<EducationTeam>, Serializable {
+
+    /**
+     *
      * Id of the EducationTeam
      */
-	@Id
-	@Column(name="educationTeamID", length=11, nullable=false)
+    @Id
+    @Column(name = "educationTeamID", length = 11, nullable = false)
     private int id;
-	private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
+    private TreeSet<CoachGroup> coachGroups;
     private TreeSet<Teacher> teachers = new TreeSet<>();
 
     /**
      * Abbreviation of the EducationTeam; e.g. AO
      */
-    @Column(name="abbreviation", length=64)
+    @Column(name = "abbreviation", length = 64)
     private String abbreviation;
     /**
      * Name of the EducationTeam; e.g. Applicatie Ontwikkelaar
      */
-    @Column(name="name", length=64)
+    @Column(name = "name", length = 64)
     private String name;
-    
-    public EducationTeam() {
-		this.coachGroups = new TreeSet<>();
-	}
 
-    public void addTeacher(Teacher t){
-		if (teachers.add(t)) {
-			DAOFactory.getTheFactory().getDAOEducationTeam().addTeacherToEducationTeam(t, this);
-		}
-	}
-    
+    public EducationTeam() {
+        this.coachGroups = new TreeSet<>();
+    }
+
+    public EducationTeam(int id, String name) {
+        this.setId(id);
+        this.setName(name);
+        this.coachGroups = new TreeSet<>();
+
+    }
+
+    public EducationTeam(String abbreviation, String name) {
+        this.abbreviation = abbreviation;
+        this.name = name;
+        this.coachGroups = new TreeSet<>();
+
+    }
+
+    public EducationTeam(String abbreviation, String name, int id) {
+        this.setId(id);
+        this.abbreviation = abbreviation;
+        this.name = name;
+        this.coachGroups = new TreeSet<>();
+
+    }
+
+    public void addTeacher(Teacher t) {
+        if (teachers.add(t)) {
+            DAOFactory.getTheFactory().getDAOEducationTeam().addTeacherToEducationTeam(t, this);
+        }
+    }
+
     /**
      * Adds a coachgroup from a EducationTeam and database
+     *
      * @param coachGroup
      */
-    public void addCoachGroup(CoachGroup cg){
-    	cg.setName(this.abbreviation + cg.getName());
-    	System.out.println(this.getCoachGroups());
-    	this.coachGroups.add(cg);
-    	DAOFactory.getTheFactory().getDAOCoachGroup().create(cg, this);
-    	
-    	
-    	
+    public void addCoachGroup(CoachGroup cg) {
+        cg.setName(this.abbreviation + cg.getName());
+        System.out.println(this.getCoachGroups());
+        this.coachGroups.add(cg);
+        DAOFactory.getTheFactory().getDAOCoachGroup().create(cg, this);
+
 //    	cg.setName(this.abbreviation + cg.getName());
 //    	this.coachGroups.add(cg);
 //    	DAOFactory.getTheFactory().getDAOCoachGroup().create(cg, this);
-    	//TestDAOCoachGroup.getInstance().create(cg, this);
-    
+        //TestDAOCoachGroup.getInstance().create(cg, this);
     }
+
     /**
      * updates coachgroup from an educationTeam and database
-     * 
+     *
      * @param cg
      * @param oldname
      */
-    public void updateCoachGroup(CoachGroup cg , String oldname){
+    public void updateCoachGroup(CoachGroup cg, String oldname) {
 
-    	DAOFactory.getTheFactory().getDAOCoachGroup().update(cg, oldname);
-    	
+        DAOFactory.getTheFactory().getDAOCoachGroup().update(cg, oldname);
+
     }
-    
-    
+
     /**
      * Deletes a coachgroup from a EducationTeam and database
+     *
      * @param CoachGroup coach
      */
-    public void deleteCoachGroup(CoachGroup cg){
-    	this.coachGroups.remove(cg);
-    	DAOFactory.getTheFactory().getDAOCoachGroup().delete(cg);
+    public void deleteCoachGroup(CoachGroup cg) {
+        this.coachGroups.remove(cg);
+        DAOFactory.getTheFactory().getDAOCoachGroup().delete(cg);
     }
-    
+
     public void updateTeacher(Teacher teacher) {
         for (Teacher ct : teachers) {
             if (teacher.getAbbreviation().equals(ct.getAbbreviation())) {
@@ -107,22 +129,6 @@ public class EducationTeam implements Comparable<EducationTeam>{
 
     public TreeSet<Teacher> getTeachers() {
         return teachers;
-    }
-
-    public EducationTeam(int id, String name) {
-        this.setId(id);
-        this.setName(name);
-    }
-
-    public EducationTeam(String abbreviation, String name) {
-        this.abbreviation = abbreviation;
-        this.name = name;
-    }
-
-    public EducationTeam(String abbreviation, String name, int id) {
-        this.setId(id);
-        this.abbreviation = abbreviation;
-        this.name = name;
     }
 
     //</editor-fold>
@@ -165,20 +171,49 @@ public class EducationTeam implements Comparable<EducationTeam>{
                 + '}';
     }
 
-	public TreeSet<CoachGroup> getCoachGroups() {
-		if(coachGroups == null || coachGroups.isEmpty()){
-			loadCoachGroups();
-		}
-		return coachGroups;
-	}
+    public TreeSet<CoachGroup> getCoachGroups() {
+        if (coachGroups == null) {
+            
+            loadCoachGroups();
+        }
+        return coachGroups;
+    }
 
-	public void setCoachGroups(TreeSet<CoachGroup> coachGroups) {
-		this.coachGroups = coachGroups;
-	}
-	
-	public void loadCoachGroups(){
-		this.coachGroups = 
-				DAOFactory.getTheFactory().getDAOCoachGroup().readAllBYTeam(this);
-	}
-	
+    public void setCoachGroups(TreeSet<CoachGroup> coachGroups) {
+        this.coachGroups = coachGroups;
+    }
+
+    public void loadCoachGroups() {
+        this.coachGroups
+                = DAOFactory.getTheFactory().getDAOCoachGroup().readAllBYTeam(this);
+        System.out.println(" test test");
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 17 * hash + this.id;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final EducationTeam other = (EducationTeam) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+
 }
