@@ -20,6 +20,9 @@ public class Student extends Person {
 	private LessonGroup lessonGroup;
 	@ManyToOne
 	private CoachGroup coachGroup;
+	private int DayOfBirth;
+	private int MonthOfBirth;
+	private int YearOfBirth;
 
 	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
 			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth) {
@@ -27,6 +30,10 @@ public class Student extends Person {
 		this.studentOV = studentOV;
 		this.cohort = cohort;
 		this.cardID = cardID;
+		this.DayOfBirth = dayOfBirth;
+		this.MonthOfBirth = monthOfBirth;
+		this.YearOfBirth = yearOfBirth;
+		
 		//this.coachGroupID = coachGroupID;
 	}
 	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
@@ -40,9 +47,6 @@ public class Student extends Person {
 			//this is null because coachGroupService readcoachgroup does use hardcoded coachgroups.
 			this.coachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupName);
 		}
-	public Student(String email) {
-		super(email);
-	}
 	
 	/**
 	 * full constructor with coachgroup id.
@@ -59,6 +63,7 @@ public class Student extends Person {
 	 * @param monthOfBirth
 	 * @param dayOfBirth
 	 * @param coachGroupID
+	 * @param lessonGroupID
 	 */
 	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
 		int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName) {
@@ -70,6 +75,7 @@ public class Student extends Person {
 		this.coachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupName);
 	}
 
+	
 	public void createStudent(){
 		DAOFactory.getTheFactory().getDAOStudent().create(this);
 	}
@@ -148,10 +154,34 @@ public class Student extends Person {
 		this.coachGroup = coachGroup;
 	}
 	
+	public int getDayOfBirth() {
+		return DayOfBirth;
+	}
+	public void setDayOfBirth(int dayOfBirth) {
+		DayOfBirth = dayOfBirth;
+	}
+	public int getMonthOfBirth() {
+		return MonthOfBirth;
+	}
+	public void setMonthOfBirth(int monthOfBirth) {
+		MonthOfBirth = monthOfBirth;
+	}
+	public int getYearOfBirth() {
+		return YearOfBirth;
+	}
+	public void setYearOfBirth(int yearOfBirth) {
+		YearOfBirth = yearOfBirth;
+	}
+
+	
 	@Override
 	public String toString() {
 		return "Student [noteList=" + noteList + ", lessonGroup=" + lessonGroup.getName() + ", studentOV=" + studentOV
 				+ ", cohort=" + cohort + ", coachGroup=" + coachGroup.getName()+ "]";
 	}
+	
+
+		
+	
 
 }
