@@ -16,13 +16,13 @@
 						action="/Pasimo/coachGroups/updateCoachGroup" role="form" method="post">
                         
                      
-                             <input type="hidden" name="s1" value="${coach.getName()}">
+                             <input type="hidden" name="s1" value="${cgp.getName()}">
                              
                                 <div class="form-group">
                                     <label for="coachGroupName-input"
 									class="col-2 col-form-label">Naam</label>
                                     <div class="col-10">
-										<input class="form-control" value="${coach.getName()}" name="s3" placeholder="${coach.getName()}" id="coachGroupName-input"   />
+										<input class="form-control" value="${cgp.getName()}" name="s3" placeholder="${cgp.getName()}" id="coachGroupName-input"   />
                                     </div>
                                    </div>
                                    
@@ -31,11 +31,11 @@
                                     <div class="col-10">
                                          <select class="form-control" name="s2" id="coachGroupTeacherName-input">
                                         
-                                         <option value="${coach.getCoach().employeeNumber}">${coach.getCoach().getAbbreviation()}</option>
+                                         <option value="${cgp.getCoach().employeeNumber}">${cgp.getCoach().getAbbreviation()}</option>
                                          
                                         <s:iterator value="teacher" var="ed">
                                         
-                                        <s:if test="%{#ed.getEmployeeNumber() != coach.getCoach().getEmployeeNumber() }">
+                                        <s:if test="%{#ed.getEmployeeNumber() != cgp.getCoach().getEmployeeNumber() }">
                                         <option value="${ed.employeeNumber}">${ed.abbreviation} </option>
                                         </s:if>
                                         </s:iterator>

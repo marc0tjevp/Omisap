@@ -47,6 +47,7 @@
 							action="addCoachGroup" role="form" method="post">
                           <div class="modal-body">
                             
+                            <!-- adds a educationTeam to a coachGroup -->
                                 <div class="form-group">
                                 <label for="educationTeam-input"
 										class="col-2 col-form-label">EducationTeam</label>
@@ -63,12 +64,13 @@
                                         </select>
                                     </div>
                                     
+                                    <!-- Adds a name to a coachGroup -->
                                    <label for="coachGroupName-input"
 										class="col-2 col-form-label">Naam</label>
                                     <div class="col-10">
                                         
                                         <s:textfield
-											class="form-control" name="coach.name"
+											class="form-control" name="cgp.name"
 											id="coachGroupName-input" />
                                         
                                     </div>
@@ -80,7 +82,7 @@
                                     <select class="form-control"
 											name="s2" id="coachGroupTeacherName-input">
                                         <option value="">Select Teacher</option>
-                                        <s:iterator value="teacher" var="ed">
+                                        <s:iterator value="coaches" var="ed">
                                         <option value="${ed.employeeNumber}">${ed.abbreviation} </option>
                                         </s:iterator>
                                         </select>
@@ -129,8 +131,9 @@
                         </div>
                     </div>
                 </div>
-         
-           <!-- Tabel for a CoachGroup -->
+            
+
+     
             <table class="table coach-groups-table table-responsive">
                 <thead>
                     <tr>

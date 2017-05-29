@@ -26,11 +26,11 @@ public class CoachGroupController extends ActionSupport {
      */
     private static final long serialVersionUID = 1L;
 
-    public TreeSet<Teacher> teacher = TeacherService.getInstance().readAll();
+    public TreeSet<Teacher> coaches = TeacherService.getInstance().readAll();
 
     public Set<EducationTeam> educationTeam = EducationTeamService.getInstance().getEducationTeams();
     public TreeSet<CoachGroup> coachGroup = CoachGroupService.getInstance().readAll();
-    CoachGroup coach = new CoachGroup();
+    CoachGroup cgp = new CoachGroup();
     public TreeSet<CoachGroup> deleteCoaches = new TreeSet<>();
     public String s1;
     public String s2;
@@ -74,7 +74,7 @@ public class CoachGroupController extends ActionSupport {
 //		 educationTeam.add(edu3);
 //		 educationTeam.add(edu4);
 		if(s1 != null){
-		coach = CoachGroupService.getInstance().readCoachGroup(s1);
+		cgp = CoachGroupService.getInstance().readCoachGroup(s1);
 		}
 //		for(EducationTeam ed:educationTeam){
 //			ed.getCoachGroups();
@@ -93,8 +93,8 @@ public class CoachGroupController extends ActionSupport {
         for (EducationTeam o : educationTeam) {
             if (o.getId() == Integer.parseInt(s1)) {
 
-                coach.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s2)));
-                CoachGroupService.getInstance().create(coach, o);
+                cgp.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(s2)));
+                CoachGroupService.getInstance().create(cgp, o);
                 break;
             }
 
@@ -127,15 +127,20 @@ public class CoachGroupController extends ActionSupport {
     }
 
     public String getThisCoach() {
-        coach = CoachGroupService.getInstance().readCoachGroup(s1);
+        cgp = CoachGroupService.getInstance().readCoachGroup(s1);
         return SUCCESS;
     }
 
-    public void setTeacher(TreeSet<Teacher> teacher) {
-        this.teacher = teacher;
-    }
 
-    public Set<EducationTeam> getEducationTeam() {
+    public TreeSet<Teacher> getCoaches() {
+		return coaches;
+	}
+
+	public void setCoaches(TreeSet<Teacher> coaches) {
+		this.coaches = coaches;
+	}
+
+	public Set<EducationTeam> getEducationTeam() {
         return educationTeam;
     }
 
@@ -151,15 +156,23 @@ public class CoachGroupController extends ActionSupport {
         this.deleteCoaches = deleteCoaches;
     }
 
-    public CoachGroup getCoach() {
-        return coach;
-    }
+    public CoachGroup getCgp() {
+		return cgp;
+	}
 
-    public void setCoach(CoachGroup coach) {
-        this.coach = coach;
-    }
+	public void setCgp(CoachGroup cgp) {
+		this.cgp = cgp;
+	}
 
-    public String getS2() {
+	public String getS3() {
+		return s3;
+	}
+
+	public void setS3(String s3) {
+		this.s3 = s3;
+	}
+
+	public String getS2() {
         return s2;
     }
 
@@ -191,9 +204,6 @@ public class CoachGroupController extends ActionSupport {
         return s1;
     }
 
-    public TreeSet<Teacher> getTeacher() {
-        return teacher;
-    }
 
     public static long getSerialversionuid() {
         return serialVersionUID;
