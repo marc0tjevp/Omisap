@@ -70,14 +70,8 @@ public class EducationTeam implements Comparable<EducationTeam>, Serializable {
      */
     public void addCoachGroup(CoachGroup cg) {
         cg.setName(this.abbreviation + cg.getName());
-        System.out.println(this.getCoachGroups());
         this.coachGroups.add(cg);
         DAOFactory.getTheFactory().getDAOCoachGroup().create(cg, this);
-
-//    	cg.setName(this.abbreviation + cg.getName());
-//    	this.coachGroups.add(cg);
-//    	DAOFactory.getTheFactory().getDAOCoachGroup().create(cg, this);
-        //TestDAOCoachGroup.getInstance().create(cg, this);
     }
 
     /**
@@ -211,10 +205,6 @@ public class EducationTeam implements Comparable<EducationTeam>, Serializable {
         }
         return true;
     }
-    
-    
 
-
-	
 }
 
