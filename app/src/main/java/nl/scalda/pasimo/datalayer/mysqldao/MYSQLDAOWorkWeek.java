@@ -1,6 +1,5 @@
 package nl.scalda.pasimo.datalayer.mysqldao;
 
-
 import java.util.Iterator;
 import java.util.List;
 import java.util.TreeSet;
@@ -52,6 +51,7 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 		Transaction tx = null;
 		TreeSet<WorkWeek> workweeks = new TreeSet<>();
 		TreeSet<WorkingDay> workingdays = new TreeSet<>();
+		TreeSet<WorkBlock> workblocks = new TreeSet<>();
 		PasimoTime pt = new PasimoTime();
 		try {
 			tx = session.beginTransaction();
@@ -63,15 +63,23 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 			for (Iterator iterator = weekList.iterator(); iterator.hasNext();) {
 
 				Object[] o = (Object[]) iterator.next();
-				 WorkWeek workweek = new
-				 WorkWeek(Integer.parseInt(String.valueOf(o[0])));
-				 workweeks.add(workweek);
-				for(Iterator it = weekList.iterator(); it.hasNext();){
+				WorkWeek workweek = new WorkWeek(Integer.parseInt(String.valueOf(o[0])));
+				workweeks.add(workweek);
+				for (Iterator it = weekList.iterator(); it.hasNext();) {
 					Object[] ob = (Object[]) it.next();
-					WorkingDay workingday = new
-					WorkingDay(Integer.parseInt(String.valueOf(ob[0])), String.valueOf(ob[1]));	
+					WorkingDay workingday = new WorkingDay(Integer.parseInt(String.valueOf(ob[1])),
+							String.valueOf(ob[2]));
 					workingdays.add(workingday);
-					
+					for (Iterator i = weekList.iterator(); i.hasNext();) {
+						Object[] obj = (Object[]) i.next();
+						WorkBlock workblock = new WorkBlock(Integer.parseInt(String.valueOf(obj[4])),
+								new PasimoTime(Integer.parseInt(String.valueOf(obj[5])),
+										Integer.parseInt(String.valueOf(obj[5]))),
+								new PasimoTime(Integer.parseInt(String.valueOf(obj[6])),
+										Integer.parseInt(String.valueOf(obj[6]))));
+						workblocks.add(workblock);
+					}
+
 				}
 
 			}
@@ -84,9 +92,7 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 
 			System.out.println(workweeks);
 			System.out.println(workingdays);
-			
-
-
+			System.out.println(workblocks);
 
 			session.close();
 		}
