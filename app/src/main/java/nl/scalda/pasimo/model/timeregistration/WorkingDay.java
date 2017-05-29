@@ -92,11 +92,11 @@ public class WorkingDay implements Comparable<WorkingDay> {
 
 	@Override
 	public String toString() {
-		return "WorkingDay{" + "name='" + name + '\'' + "workBlocks='" + workBlocks + '\'' + '}';
+		return "WorkingDay{" + "id='" + workingdayID + '\''  +  "name='" + name + '\'' + "workBlocks='" + workBlocks + '\'' + '}';
 	}
 
 	@Override
 	public int compareTo(WorkingDay w) {
-		return this.name.compareTo(w.getName());
+		return this.workingdayID;
 	}
 }

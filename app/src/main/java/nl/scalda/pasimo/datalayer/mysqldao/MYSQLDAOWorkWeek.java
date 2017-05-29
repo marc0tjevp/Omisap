@@ -1,6 +1,5 @@
 package nl.scalda.pasimo.datalayer.mysqldao;
 
-import java.sql.Time;
 import java.util.Iterator;
 import java.util.List;
 import java.util.TreeSet;
@@ -8,9 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-
 import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkWeek;
-import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.model.timeregistration.PasimoTime;
 import nl.scalda.pasimo.model.timeregistration.WorkBlock;
 import nl.scalda.pasimo.model.timeregistration.WorkWeek;
@@ -66,10 +63,24 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 			for (Iterator iterator = weekList.iterator(); iterator.hasNext();) {
 
 				Object[] o = (Object[]) iterator.next();
-				// WorkWeek workweek = new
-				// WorkWeek(Integer.parseInt(String.valueOf(obj[0])));
-				// workweeks.add(workweek);
+				WorkWeek workweek = new WorkWeek(Integer.parseInt(String.valueOf(o[0])));
+				workweeks.add(workweek);
+				for (Iterator it = weekList.iterator(); it.hasNext();) {
+					Object[] ob = (Object[]) it.next();
+					WorkingDay workingday = new WorkingDay(Integer.parseInt(String.valueOf(ob[1])),
+							String.valueOf(ob[2]));
+					workingdays.add(workingday);
+					for (Iterator i = weekList.iterator(); i.hasNext();) {
+						Object[] obj = (Object[]) i.next();
+						WorkBlock workblock = new WorkBlock(Integer.parseInt(String.valueOf(obj[4])),
+								new PasimoTime(Integer.parseInt(String.valueOf(obj[5])),
+										Integer.parseInt(String.valueOf(obj[5]))),
+								new PasimoTime(Integer.parseInt(String.valueOf(obj[6])),
+										Integer.parseInt(String.valueOf(obj[6]))));
+						workblocks.add(workblock);
+					}
 
+				}
 
 			}
 			tx.commit();
@@ -79,10 +90,9 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 			e.printStackTrace();
 		} finally {
 
-//			System.out.println(workweeks);
-
-			// System.out.println(workweeks);
-			// System.out.println(workingdays);
+			System.out.println(workweeks);
+			System.out.println(workingdays);
+			System.out.println(workblocks);
 
 			session.close();
 		}

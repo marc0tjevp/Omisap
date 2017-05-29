@@ -14,6 +14,11 @@ public class PasimoTime extends GregorianCalendar {
 		set(GregorianCalendar.MINUTE, minute);
 		
 	}
+	
+	public PasimoTime(String date){
+		super();
+		
+	}
 
 
 	@Override

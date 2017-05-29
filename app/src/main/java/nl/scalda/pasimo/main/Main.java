@@ -14,10 +14,11 @@ public class Main {
     public static void main(String[] args) {
 
 //        WorkWeek week = new WorkWeek(1);
-DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+    	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
         
 //        WorkingDay workingday = new WorkingDay("maandag");
 //        System.out.println(workingday);
+<<<<<<< HEAD
 
 
 TreeSet<WorkWeek> workweeks =  DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
@@ -32,4 +33,19 @@ for(WorkWeek bla :workweeks){
   System.out.println(henk.size());
   
     }
+=======
+
+
+//TreeSet<WorkWeek> workweeks =  DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+//
+//       
+//
+//for(WorkWeek bla :workweeks){
+//	System.out.println(bla);
+//}
+//     System.out.println("Workweek readall");   
+//
+		DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+  }
+>>>>>>> 5379477395d726347cdde9e7fc9f7be688e43547
 }

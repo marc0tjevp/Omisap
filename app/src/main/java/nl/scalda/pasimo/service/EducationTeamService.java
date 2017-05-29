@@ -11,7 +11,6 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 public class EducationTeamService {
 	
 	private static EducationTeamService instance;
-
 	private Set<EducationTeam> educationTeams;
 	
 	public EducationTeamService() {
@@ -64,7 +63,6 @@ public class EducationTeamService {
     	
     }
     
-
     public static EducationTeamService getInstance() {
         if (instance == null) {
             instance = new EducationTeamService();
