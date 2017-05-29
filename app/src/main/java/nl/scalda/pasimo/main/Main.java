@@ -27,7 +27,9 @@ TreeSet<WorkWeek> workweeks =  DAOFactory.getTheFactory().getDAOWorkWeek().readA
 for(WorkWeek bla :workweeks){
 	System.out.println(bla);
 }
-     System.out.println("Workweek readall");   DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
-
+     System.out.println("Workweek readall");
+     TreeSet<WorkWeek> henk = DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+  System.out.println(henk.size());
+  
     }
 }
