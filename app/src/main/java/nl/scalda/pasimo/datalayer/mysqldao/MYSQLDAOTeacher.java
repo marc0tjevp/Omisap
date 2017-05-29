@@ -204,46 +204,44 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 	 */
 	@Override
 	public Teacher readByEmployeeNumber(int employeeNumber) {
-//		Session session = factory.openSession();
-//		Transaction tx = null;
-//		Teacher teacher = null;
-//		try{
-//			tx = session.beginTransaction();
-//			/*
-//			 * obj[0] = teacher.employeeNumber
-//			 * obj[1] = teacher.abbreviation
-//			 * obj[2] = teacher.person_email
-//			 * obj[3] = coach_group.coachGroupID
-//			 * obj[4] = person.email
-//			 * obj[5] = person.cardID
-//			 * obj[6] = person.firstName
-//			 * obj[7] = person.insertion
-//			 * obj[8] = person.lastName
-//			 * obj[9] = person.dateOfBirth
-//			 */
-//			Object[] obj = (Object[]) session
-//					.createNativeQuery("SELECT * FROM person INNER JOIN teacher ON teacher.person_email=person.email LEFT JOIN education_team_teacher ON education_team_teacher.teacher_person_email = teacher.person_email WHERE employeeNumber = :employeeNumber ; ")
-//					.setParameter("employeeNumber", employeeNumber).getSingleResult();
-//			String[] dateOfBirth = String.valueOf(obj[9]).split("-");
-//			teacher = new Teacher(Integer.parseInt(String.valueOf(obj[0])),
-//					   String.valueOf(obj[4]),
-//					   Integer.parseInt(String.valueOf(obj[5])),
-//					   String.valueOf(obj[6]),
-//					   String.valueOf(obj[7]),
-//					   String.valueOf(obj[8]),
-//					   Integer.parseInt(String.valueOf(dateOfBirth[0])),
-//					   Integer.parseInt(String.valueOf(dateOfBirth[1])),
-//					   Integer.parseInt(String.valueOf(dateOfBirth[2])));
-//			tx.commit();
-//		}
-//		catch (NoResultException nre) {
-//		   if (tx!=null) tx.rollback();
-//		   nre.printStackTrace(); 
-//		}finally {
-//		   session.close();
-//		}
-		
-		Teacher teacher = new Teacher("han", 215950, "im@student.nl");
+		Session session = factory.openSession();
+		Transaction tx = null;
+		Teacher teacher = null;
+		try{
+			tx = session.beginTransaction();
+			/*
+			 * obj[0] = teacher.employeeNumber
+			 * obj[1] = teacher.abbreviation
+			 * obj[2] = teacher.person_email
+			 * obj[3] = coach_group.coachGroupID
+			 * obj[4] = person.email
+			 * obj[5] = person.cardID
+			 * obj[6] = person.firstName
+			 * obj[7] = person.insertion
+			 * obj[8] = person.lastName
+			 * obj[9] = person.dateOfBirth
+			 */
+			Object[] obj = (Object[]) session
+					.createNativeQuery("SELECT * FROM person INNER JOIN teacher ON teacher.person_email=person.email LEFT JOIN education_team_teacher ON education_team_teacher.teacher_person_email = teacher.person_email WHERE employeeNumber = :employeeNumber ; ")
+					.setParameter("employeeNumber", employeeNumber).getSingleResult();
+			String[] dateOfBirth = String.valueOf(obj[9]).split("-");
+			teacher = new Teacher(Integer.parseInt(String.valueOf(obj[0])),
+					   String.valueOf(obj[4]),
+					   Integer.parseInt(String.valueOf(obj[5])),
+					   String.valueOf(obj[6]),
+					   String.valueOf(obj[7]),
+					   String.valueOf(obj[8]),
+					   Integer.parseInt(String.valueOf(dateOfBirth[0])),
+					   Integer.parseInt(String.valueOf(dateOfBirth[1])),
+					   Integer.parseInt(String.valueOf(dateOfBirth[2])));
+			tx.commit();
+		}
+		catch (NoResultException nre) {
+		   if (tx!=null) tx.rollback();
+		   nre.printStackTrace(); 
+		}finally {
+		   session.close();
+		}
 		return teacher;
 	}
 	
