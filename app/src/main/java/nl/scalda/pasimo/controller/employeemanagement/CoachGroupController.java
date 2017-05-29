@@ -73,9 +73,9 @@ public class CoachGroupController extends ActionSupport {
 //		 educationTeam.add(edu2);
 //		 educationTeam.add(edu3);
 //		 educationTeam.add(edu4);
-//		if(s1 != null){
-//		coach = CoachGroupService.getInstance().readCoachGroup(s1);
-//		}
+		if(s1 != null){
+		coach = CoachGroupService.getInstance().readCoachGroup(s1);
+		}
 //		for(EducationTeam ed:educationTeam){
 //			ed.getCoachGroups();
 //		}
