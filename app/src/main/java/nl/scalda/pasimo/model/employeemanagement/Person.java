@@ -3,6 +3,8 @@ package nl.scalda.pasimo.model.employeemanagement;
 import java.util.GregorianCalendar;
 import java.util.TreeSet;
 
+import nl.scalda.pasimo.model.presenceregistration.CheckIn;
+
 public class Person implements Comparable<Person> {
 
     private String email;
@@ -148,6 +150,22 @@ public class Person implements Comparable<Person> {
     @Override
     public int compareTo(Person o) {
         return email.compareTo(o.getEmail());
+    }
+    
+    public boolean isAvailable(){
+    	if(){
+    		
+    	}else{
+    		
+    	}
+//      if((checkInWithCardID.size()%2) != 1){
+//      checkin.setIsCheckIn(false);
+//  }else{
+//      checkin.setIsCheckIn(true);
+//  }
+
+		return false;
+    	
     }
 
 }

@@ -13,9 +13,9 @@ public class TeacherService {
 	private TeacherService() {
 	}
 
-	public TreeSet<CheckIn> readAllCheckedIn(){
-		return DAOFactory.getTheFactory().getDAOCheckIn().readAll();
-	}
+//	public TreeSet<CheckIn> readAllCheckedIn(){
+//		return DAOFactory.getTheFactory().getDAOCheckIn().readAll();
+//	}
 	
 	public TreeSet<Teacher> readAll(){
 		return null;

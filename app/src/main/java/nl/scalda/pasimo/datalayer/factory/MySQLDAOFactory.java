@@ -79,7 +79,13 @@ public class MySQLDAOFactory extends DAOFactory {
 
 	@Override
 	public IDAOCheckIn getDAOCheckIn() {
-		return MYSQLDAOCheckIn.getInstance();
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+//	@Override
+//	public IDAOCheckIn getDAOCheckIn() {
+//		return MYSQLDAOCheckIn.getInstance();
+//	}
 
 }

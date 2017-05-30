@@ -21,65 +21,65 @@ import nl.scalda.pasimo.service.TeacherService;
  */
 public class PresenceController extends ActionSupport {
 	
-	private static final long serialVersionUID = 1L;
-
-	public TreeSet<Teacher> teacher = new TreeSet<>();
-	public TreeSet<Teacher> checkedInTeacher = new TreeSet<>();
-	public String id;
-	
-	public String loadCheckedInTeachers(){
-		getCheckedInTeacher();
-		return SUCCESS;
-	}
-	
-	public TreeSet<Teacher> getTeacher() {
-		if(teacher.isEmpty()){
-			for(EducationTeam team : EducationTeamService.getInstance().getEducationTeams()){
-				if(team.getId() == Integer.parseInt(id)){
-					teacher.addAll(team.getTeachers());
-				}
-			}
-		}
-		return teacher;
-	}
-
-	public TreeSet<Teacher> getCheckedInTeacher() {
-		if(checkedInTeacher.isEmpty()){
-			TreeSet<CheckIn> checkIn = TeacherService.getInstance().readAllCheckedIn();
-			for(Teacher t : teacher){
-				for(CheckIn c : checkIn){
-					if(c.getEmail().equals(t.getEmail())){
-						checkedInTeacher.add(t);
-
-					}
-				}
-			}
-
-		}
-		return checkedInTeacher;
-	}
-	
-
-	public void setCheckedInTeacher(TreeSet<Teacher> checkedInTeacher) {
-		this.checkedInTeacher = checkedInTeacher;
-	}
-
-	public void setTeacher(TreeSet<Teacher> teacher) {
-		this.teacher = teacher;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-
-
-	public String execute() {
-        return SUCCESS;
-    }
+//	private static final long serialVersionUID = 1L;
+//
+//	public TreeSet<Teacher> teacher = new TreeSet<>();
+//	public TreeSet<Teacher> checkedInTeacher = new TreeSet<>();
+//	public String id;
+//	
+//	public String loadCheckedInTeachers(){
+//		getCheckedInTeacher();
+//		return SUCCESS;
+//	}
+//	
+//	public TreeSet<Teacher> getTeacher() {
+//		if(teacher.isEmpty()){
+//			for(EducationTeam team : EducationTeamService.getInstance().getEducationTeams()){
+//				if(team.getId() == Integer.parseInt(id)){
+//					teacher.addAll(team.getTeachers());
+//				}
+//			}
+//		}
+//		return teacher;
+//	}
+//
+//	public TreeSet<Teacher> getCheckedInTeacher() {
+//		if(checkedInTeacher.isEmpty()){
+//			TreeSet<CheckIn> checkIn = TeacherService.getInstance().readAllCheckedIn();
+//			for(Teacher t : teacher){
+//				for(CheckIn c : checkIn){
+//					if(c.getEmail().equals(t.getEmail())){
+//						checkedInTeacher.add(t);
+//
+//					}
+//				}
+//			}
+//
+//		}
+//		return checkedInTeacher;
+//	}
+//	
+//
+//	public void setCheckedInTeacher(TreeSet<Teacher> checkedInTeacher) {
+//		this.checkedInTeacher = checkedInTeacher;
+//	}
+//
+//	public void setTeacher(TreeSet<Teacher> teacher) {
+//		this.teacher = teacher;
+//	}
+//
+//	public String getId() {
+//		return id;
+//	}
+//
+//	public void setId(String id) {
+//		this.id = id;
+//	}
+//
+//
+//
+//	public String execute() {
+//        return SUCCESS;
+//    }
 
 }

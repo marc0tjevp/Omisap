@@ -3,6 +3,9 @@
  */
 package nl.scalda.pasimo.main;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOCheckIn;
+
 /**
  * @author Bram van Huele
  * Pasimo
@@ -14,7 +17,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	TestDAOCheckIn.getInstance().readAll();
 
 	}
 
