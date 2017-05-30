@@ -10,7 +10,7 @@
   
   		<body>
         <header>
-				<h2>Inklok tijden van vandaag:</h2>
+				<h2>Inklok tijden:</h2>
 			</header>
         <table class="table" style="width: 50%; align: left;">
         <s:iterator value="studentCheckinz" var="checkIn">

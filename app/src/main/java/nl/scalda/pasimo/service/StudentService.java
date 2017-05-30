@@ -19,6 +19,10 @@ public class StudentService {
 	 return z.studentCheckIns;
 	}
 	
+	public TreeSet<CheckIn> getCheckInsByCardID(String cardId){
+		return TestDAOCheckIn.getInstance().getCheckInsByCardId(cardId);
+	}
+	
 	public TreeSet<CheckIn> getCheckInsOfToday(Person p){
 		return DAOFactory.getTheFactory().getDAOCheckIn().readAllCheckInsForTodayByPerson(p);
 		

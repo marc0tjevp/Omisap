@@ -40,16 +40,16 @@ public class TestDAOCheckIn implements IDAOCheckIn {
 		}
 	}
 	
-	public ArrayList<CheckIn> getCheckInsByCardId(String cardID){
+	public TreeSet<CheckIn> getCheckInsByCardId(String cardID){
 		
-		ArrayList<CheckIn> filteredIDList = new ArrayList<>();
+		TreeSet<CheckIn> filteredCheckInList = new TreeSet<>(Collections.reverseOrder());
 		
 		for(CheckIn c : checkIn){
 			if(c.getCardID().equals(cardID)){
-				filteredIDList.add(c);
+				filteredCheckInList.add(c);
 			}			
 		}
-		return filteredIDList;
+		return filteredCheckInList;
 	}
 	
 	public void add(CheckIn c){
@@ -59,15 +59,15 @@ public class TestDAOCheckIn implements IDAOCheckIn {
 	public void addTestData(){
 		if(checkIn.isEmpty()){	
 			
-		CheckIn c = new CheckIn(0, "211543", 2017, 05, 29, 8, 30, 43);
-		CheckIn d = new CheckIn(0, "211543", 2017, 05, 29, 12, 06, 11);
-		CheckIn e = new CheckIn(0, "211543", 2017, 05, 29, 12, 35, 43);
-		CheckIn f = new CheckIn(0, "211543", 2017, 05, 29, 14, 15, 11);
+		CheckIn c = new CheckIn(0, "211543", 2017, 05, 30, 8, 30, 43);
+		CheckIn d = new CheckIn(0, "211543", 2017, 05, 30, 12, 06, 11);
+		CheckIn e = new CheckIn(0, "211543", 2017, 05, 30, 12, 35, 43);
+		CheckIn f = new CheckIn(0, "211543", 2017, 05, 30, 14, 15, 11);
 		
-		CheckIn y = new CheckIn(0, "211544", 2017, 05, 29, 8, 29, 43);
-		CheckIn u = new CheckIn(0, "211544", 2017, 05, 29, 12, 05, 11);
-		CheckIn i = new CheckIn(0, "211544", 2017, 05, 29, 12, 37, 43);
-		CheckIn o = new CheckIn(0, "211544", 2017, 05, 29, 14, 13, 11);
+		CheckIn y = new CheckIn(0, "211544", 2017, 05, 30, 8, 29, 43);
+		CheckIn u = new CheckIn(0, "211544", 2017, 05, 30, 12, 05, 11);
+		CheckIn i = new CheckIn(0, "211544", 2017, 05, 30, 12, 37, 43);
+		CheckIn o = new CheckIn(0, "211544", 2017, 05, 30, 14, 13, 11);
 		
 		checkIn.add(f);
 		checkIn.add(e);

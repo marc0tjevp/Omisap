@@ -27,8 +27,14 @@ public class StudentController extends ActionSupport {
 	public int cohort;
 	public int lessonGroupID;
 	public String coachGroupName;
+	public String cardId;
 	
 	public String execute() {
+		return SUCCESS;
+	}
+	
+	public String getAllCheckInsForStudent(){
+		StudentService.getInstance().getCheckInsByCardID(cardId);
 		return SUCCESS;
 	}
 	
@@ -134,6 +140,14 @@ public class StudentController extends ActionSupport {
 
 	public void setAllStudents(Set<Student> allStudents) {
 		this.allStudents = allStudents;
+	}
+
+	public String getCardId() {
+		return cardId;
+	}
+
+	public void setCardId(String cardId) {
+		this.cardId = cardId;
 	}
 
 }

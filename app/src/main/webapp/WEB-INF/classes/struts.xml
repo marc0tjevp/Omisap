@@ -42,7 +42,6 @@
 			method="deleteLessonGroup">
 			<result name="success" type="json"></result>
 		</action>
-
 	</package>
 
 	<package name="alles" extends="struts-default">
@@ -169,21 +168,19 @@
 			<result name="success">/view/employeemanagement/educationteam/update.jsp
 			</result>
 		</action>
-		   <action name="studentDetails"
-			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
-			method="execute">
-			<result name="success">/view/employeemanagement/student/studentDetails.jsp
-			</result>
-		</action>
-	    <action name="studentCheckInRegistration"
+		<action name="studentCheckInRegistration"
 			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
 			method="getDailyCheckInsForStudents">
 			<result name="success">/view/employeemanagement/student/studentCheckInRegistration.jsp
 			</result>
 		</action>
-		
-		
-
+		<action name="studentCheckInRegistration/studentDetails"
+			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
+			method="getAllCheckInsForStudent">
+			<param name="cardId">${cardId}</param>
+			<result name="success">/view/employeemanagement/student/studentDetails.jsp
+			</result>
+		</action>
 	</package>
 
 </struts>
