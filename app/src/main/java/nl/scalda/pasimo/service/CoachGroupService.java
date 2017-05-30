@@ -75,7 +75,9 @@ public class CoachGroupService {
 	public TreeSet<CoachGroup> readAll() {
 		TreeSet<CoachGroup> AllCoachGroups = new TreeSet<>();
 		for (EducationTeam edu : EducationTeamService.getInstance().getEducationTeams()) {
+			if(edu.getCoachGroups() != null){
 			AllCoachGroups.addAll(edu.getCoachGroups());
+			}
 		}
 		return AllCoachGroups;
 	}
@@ -84,11 +86,10 @@ public class CoachGroupService {
 	 * updates a CoachGroup
 	 * 
 	 * String oldname so the DataBase can find the CoachGroup in the DAO so it can be updated
-	 * @param EducationTeam
 	 * @param String oldname
 	 */
-	public void update(CoachGroup cg, EducationTeam eduId, String oldname) {
-			eduId.updateCoachGroup(cg, oldname);
+	public void update(CoachGroup cg ,String oldname) {
+		this.getEducationTeam(cg).updateCoachGroup(cg, oldname);
 		//cg.updateCoachGroup();
 
 	}

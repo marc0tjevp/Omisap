@@ -58,7 +58,7 @@ public class TestDAOEducationTeam implements IDAOEducationTeam {
     public EducationTeam read(int Id) {
 
         for (EducationTeam educationTeam : this.educationTeams) {
-            if (educationTeam.getAbbreviation().equals(Id))
+            if (educationTeam.getId() == Id)
                 return educationTeam;
         }
 
