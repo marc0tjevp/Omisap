@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.datalayer.interfaces;
 
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -11,9 +12,9 @@ public interface IDAOLessonGroup {
 
     void create(LessonGroup lessonGroup);
 
-    TreeSet<LessonGroup> readAll();
+    Set<LessonGroup> readAll();
     
-    TreeSet<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup);
+    Set<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup);
    
     LessonGroup read(LessonGroup lessonGroup);
 

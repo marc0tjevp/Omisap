@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
+import java.util.Set;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
@@ -23,7 +24,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
     	CoachGroup c1 = new CoachGroup("B1");
 		CoachGroup c2 = new CoachGroup("B2");
 		
-		TreeSet<LessonGroup> lessonGroups = 
+		Set<LessonGroup> lessonGroups = 
 				DAOFactory.getTheFactory().getDAOLessonGroup().readAll();
 		
 		for(LessonGroup lessonGroup : lessonGroups) {

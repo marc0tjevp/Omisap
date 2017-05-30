@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import java.util.Set;
 import java.util.TreeSet;
 
 import javax.persistence.*;
@@ -32,7 +33,8 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	/**
 	 * The {@link LessonGroups}'s who are in this CoachGroup
 	 */
-	private TreeSet<LessonGroup> lessonGroups = new TreeSet<>() ;
+	@OneToMany
+	private Set<LessonGroup> lessonGroups = new TreeSet<>() ;
 
 	/**
 	 * Default constructor
@@ -135,7 +137,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 *
 	 * @return The index of this lesson group
 	 */
-	public TreeSet<LessonGroup> getLessonGroups() {
+	public Set<LessonGroup> getLessonGroups() {
 		return lessonGroups;
 	}
 
@@ -145,7 +147,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 * @param {@link
 	 * 			LessonGroups}'s
 	 */
-	public void setLessonGroups(TreeSet<LessonGroup> lessonGroups) {
+	public void setLessonGroups(Set<LessonGroup> lessonGroups) {
 		this.lessonGroups = lessonGroups;
 	}
 	// </editor-fold>

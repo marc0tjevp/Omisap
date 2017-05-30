@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
 import java.util.Random;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.UUID;
@@ -88,8 +89,8 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 	}
 
 	@Override
-	public TreeSet<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup) {
-		TreeSet<CoachGroup> coachGroups = DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
+	public Set<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup) {
+		Set<CoachGroup> coachGroups = DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
 
 		for (CoachGroup loopingCoachGroup : coachGroups) {
 			if (coachGroup != loopingCoachGroup) {
