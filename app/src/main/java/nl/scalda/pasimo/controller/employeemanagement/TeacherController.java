@@ -86,7 +86,7 @@ public class TeacherController extends ActionSupport {
 				if (!(EducationTeamService.getInstance().getOldEducationTeam(f).getAbbreviation().equals(teamAbbreviation))){
 					EducationTeamService.getInstance().getOldEducationTeam(f).deleteTeacher(f);
 					EducationTeamService.getInstance().getEducationTeamByAbbreviation(teamAbbreviation).addTeacher(f);
-				}
+				} 
 				f.update();
 			}
 		}

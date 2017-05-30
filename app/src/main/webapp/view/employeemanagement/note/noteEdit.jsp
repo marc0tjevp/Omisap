@@ -15,8 +15,8 @@
 	<jsp:attribute name="content">
 <!-- note imput -->	
 
-<form action="noteAdd" class="" enctype="multipart/form-data"
-			method="post" id="noteForm">		
+<form action="noteEdit" class="" enctype="multipart/form-data"
+			method="post" id="noteFormEdit">		
 			<s:bean name="nl.scalda.pasimo.model.employeemanagement.Note"
 				var="note">					
 <div class="container kader">

@@ -53,8 +53,6 @@ public class NoteController extends ActionSupport {
 		Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
 		teacher.createNote(title, message, s, teacher);
 
-		 
-
 		return SUCCESS;
 	}
 
@@ -65,14 +63,24 @@ public class NoteController extends ActionSupport {
 
 
 	public String noteEditView() {
+		System.out.println("noteeditview");
 		note = teacher.readNoteById(id);
 		return SUCCESS;
 	}
 	
 	public String noteEdit(){
+		System.out.println("notedit");
 		note = teacher.readNoteById(id);
-		note.setTitle(title);
-		teacher.editNote(note);
+		noteList.add(note);
+		for(Note n : getNoteList()){
+			System.out.println("notedit2");
+			System.out.println("title : " + note.getTitle());
+			n.setTitle(note.getTitle());
+			System.out.println("title : " +  n.getTitle());
+			n.setMessage(note.getMessage());
+			teacher.editNote(note);
+		}
+	
 		return SUCCESS;
 	}
 
