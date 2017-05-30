@@ -17,11 +17,28 @@
 		</action>
 
 		
+		<action name="addStudent"
+			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
+			method="addStudent">
+			<result name="success" type="redirect">studentOverview</result>
+		</action>
+		
+		
 		<action name="addStudentPage"
 			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
 			method="execute">
 			<result name="success">/view/employeemanagement/student/addStudent.jsp
 			</result></action>
+			
+			
+			<action name="studentOverview"
+			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
+			method="execute">
+			<result name="success">/view/employeemanagement/student/StudentOverview.jsp
+			</result></action>
+			
+			
+			
 	<!-- <action name="addStudentPage" class="nl.scalda.pasimo.controller.employeemanagement.StudentController" method="execute">
 	<result name="success">/view/employeemanagement/student/addstudent.jsp</result></action>
 	-->

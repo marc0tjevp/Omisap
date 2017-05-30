@@ -8,6 +8,8 @@
   <jsp:attribute name="content">
     <div class="container">
       <h1>Student add</h1>
+      <h1>Overzicht van Student <a href="addStudent.jsp" class="btn btn-primary pull-right">Toevoegen</a></h1>
+      
       <br>
       <form action="addStudent" class="" enctype="multipart/form-data" method="post" id="addStudentForm">
         <s:bean name="nl.scalda.pasimo.model.employeemanagement.Student" var="student">
