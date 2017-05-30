@@ -164,7 +164,6 @@ public class Person implements Comparable<Person>, Serializable {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return getFullName();
 	}
     

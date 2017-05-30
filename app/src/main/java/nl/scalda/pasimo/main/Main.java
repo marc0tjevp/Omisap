@@ -38,11 +38,11 @@ public class Main {
 		
 		System.out.println(lg.getStudents());
 		
-//		s.setCardID(12);
-//		s.setFirstName("bram");
-//		s.setLastName("brand");
-//		s.setCohort(2017);
-		
+		s.setCardID(12);
+		s.setFirstName("bram");
+		s.setLastName("brand");
+		s.setCohort(2017);
+//		
 //		LessonGroup.first().addStudent(s);
 //		System.out.println(LessonGroup);
 //		LessonGroup.first().deleteStudent(s);
