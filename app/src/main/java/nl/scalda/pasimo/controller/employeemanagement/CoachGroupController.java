@@ -35,7 +35,12 @@ public class CoachGroupController extends ActionSupport {
     public String s1;
     public String s2;
     public String s3;
-
+    
+    
+    /**
+     * Loads the CoachGroup in the Edit Page
+     * 
+     */
     public String execute() {
 
 		if(s1 != null){
@@ -45,11 +50,22 @@ public class CoachGroupController extends ActionSupport {
 
     }
 
+    /**
+     * Gets all existing CoachGroups
+     * 
+     * @return
+     */
     public String readCoachGroup() {
         getCoachGroup();
         return SUCCESS;
     }
 
+    /**
+     * Adds a CoachGroup
+     * 
+     * @return
+     */
+    
     public String addCoachGroup() {
         
         for (EducationTeam o : educationTeam) {
@@ -64,6 +80,10 @@ public class CoachGroupController extends ActionSupport {
         return SUCCESS;
     }
 
+    /**
+     * Updates CoachGroup
+     * @return
+     */
     public String updateCoachGroup() {
         for (CoachGroup cg : coachGroup) {
             if (cg.getName().equals(s1)) {
@@ -76,6 +96,12 @@ public class CoachGroupController extends ActionSupport {
         return SUCCESS;
     }
 
+    
+    /**
+     * Delete CoachGroup
+     * 
+     * @return
+     */
     public String ArrayCoach() {
         String[] parts = s1.split("\\,");
 
@@ -87,6 +113,11 @@ public class CoachGroupController extends ActionSupport {
         return SUCCESS;
 
     }
+    
+    /**
+     * Getters and Setters
+     * 
+     */
 
     public String getThisCoach() {
         cgp = CoachGroupService.getInstance().readCoachGroup(s1);
