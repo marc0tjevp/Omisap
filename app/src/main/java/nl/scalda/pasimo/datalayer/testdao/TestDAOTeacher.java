@@ -95,8 +95,8 @@ public class TestDAOTeacher implements IDAOTeacher {
 	 */
 	@Override
 	public Teacher readByEmployeeNumber(int employeeNumber) {
-		// TODO Auto-generated method stub
-		return null;
+		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
+		return tc;
 	}
 
 	/**
