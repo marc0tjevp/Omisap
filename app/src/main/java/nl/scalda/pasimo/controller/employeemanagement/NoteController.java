@@ -36,6 +36,7 @@ public class NoteController extends ActionSupport {
 			System.out.println("ID: " + n.getId());
 			System.out.println("Notelist size: " + noteList.size());
 			System.out.println(n.getCreationDate());
+			test
 		}
 		return SUCCESS;
 	}
