@@ -52,7 +52,7 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String sql = "INSERT INTO EducationTeam (educationTeamID, name, abbreviation) VALUES (:educationTeamID, :name, :abbreviation );";
+            String sql = "INSERT INTO educationTeam (educationTeamID, name, abbreviation) VALUES (:educationTeamID, :name, :abbreviation );";
             NativeQuery query = session.createNativeQuery(sql);
             query.setParameter("educationTeamID", thiseducationTeam.getId());
             query.setParameter("name", thiseducationTeam.getName());
@@ -152,7 +152,7 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
         Set<EducationTeam> teams = new TreeSet<>();
         try {
             tx = session.beginTransaction();
-            List educationTeamList = session.createNativeQuery("SELECT * FROM education_team;")
+            List educationTeamList = session.createNativeQuery("SELECT * FROM educationTeam;")
                     .getResultList();
             for (Iterator iterator = educationTeamList.iterator(); iterator.hasNext();) {
                 Object[] obj = (Object[]) iterator.next();
@@ -192,7 +192,7 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.createNativeQuery("INSERT INTO teacher_education_team (teacher_employeeNumber, education_team_id) VALUES (:teacheremployeeNumber, :educationTeamID);")
+            session.createNativeQuery("INSERT INTO teacher_educationTeam (teacher_employeeNumber, education_team_id) VALUES (:teacheremployeeNumber, :educationTeamID);")
                     .setParameter("teacheremployeeNumber", teacher.getEmployeeNumber()).setParameter("educationTeamID", educationTeam.getId()).executeUpdate();
             tx.commit();
         } catch (Exception e) {
@@ -217,7 +217,7 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.createNativeQuery("DELETE FROM teacher_education_team WHERE teacher_employeeNumber = :employeeNumber")
+            session.createNativeQuery("DELETE FROM teacher_educationTeam WHERE teacher_employeeNumber = :employeeNumber")
                     .setParameter("employeeNumber", teacher.getEmployeeNumber()).executeUpdate();
             tx.commit();
         } catch (Exception e) {
