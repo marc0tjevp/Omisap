@@ -104,7 +104,9 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			tx = session.beginTransaction();
 			EducationTeam et = t.getEducationTeam();
 			et.deleteTeacher(t);
+			session.createNativeQuery("SET foreign_key_checks = 0;").executeUpdate();
 			session.delete(t);
+			session.createNativeQuery("SET foreign_key_checks = 1;").executeUpdate();
 			tx.commit();
 		} catch(HibernateException e) {
 			if(tx!=null)tx.rollback();
@@ -275,6 +277,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 			educationTeam = new EducationTeam(String.valueOf(obj[2]),
 					String.valueOf(obj[1]),
 					Integer.parseInt(String.valueOf(obj[0])));
+			educationTeam.getTeachers().add(teacher);
 			tx.commit();
 		}
 		catch (Exception e) {
