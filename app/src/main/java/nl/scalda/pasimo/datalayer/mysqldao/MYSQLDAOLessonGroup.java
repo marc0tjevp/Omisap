@@ -65,18 +65,18 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
 			String sql = "SET FOREIGN_KEY_CHECKS=0;";
 			String sqlinsert = "INSERT INTO `lessongroup` (lessonGroupID, lessonGroupName, coachGroup_CoachGroupName) VALUES (NULL, :lessonGroupName, :coachgroup_name);";
 			String foreignkeyclose = "SET FOREIGN_KEY_CHECKS=1;";
-			
+
 			NativeQuery query = session.createNativeQuery(sql);
 			NativeQuery insertquery = session.createNativeQuery(sqlinsert);
 			NativeQuery foreignkeychecks = session.createNativeQuery(foreignkeyclose);
-			
+
 			query.executeUpdate();
-			
+
 			insertquery.setParameter("lessonGroupName", LessonGroup.getName());
 			insertquery.setParameter("coachgroup_name", coachGroup.getName());
 			insertquery.executeUpdate();
-			foreignkeychecks.executeUpdate(); 
-			
+			foreignkeychecks.executeUpdate();
+
 			tx.commit();
 			System.out.println("Created succesfully");
 		} catch (HibernateException s) {
@@ -93,22 +93,25 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
 	 * Updates the lessongroup by updating the name and/or coachgroup inside the
 	 * lessongroup table
 	 */
+	/*
+	 * Updates the lessongroup by updating the name and/or coachgroup inside the
+	 * lessongroup table
+	 */
 	@Override
 	public void update(LessonGroup LessonGroup) {
 		Session session = factory.openSession();
-		Transaction tx = null;  
+		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			String sql = "UPDATE lessongroup set name = :name, lessonGroupName :lessonGroupName;";
+			String sql = "UPDATE `lessongroup` SET `lessongroup`.`lessonGroupName` = :lessonGroupName WHERE `lessongroup`.`lessonGroupID` = :lessonGroupId";
+
 			NativeQuery query = session.createNativeQuery(sql);
 
 			query.setParameter("lessonGroupName", LessonGroup.getName());
-			// query.setParameter("CoachGroup",
-			// CoachGroupService.getInstance().readAll());
+			query.setParameter("lessonGroupId", LessonGroup.getId());
+						
 			query.executeUpdate();
-
 			tx.commit();
-
 		} catch (HibernateException e) {
 			if (tx != null) {
 				tx.rollback();
@@ -117,7 +120,6 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
 		} finally {
 			session.close();
 		}
-
 	}
 	/*
 	 * Deletes the lessongroup from the table where the name equals the selected
@@ -175,8 +177,7 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
 			List LessonGroupList = session
 					.createNativeQuery(
 							"SELECT * FROM `lessongroup` WHERE `coachGroup_CoachGroupName` = :coachGroupName")
-					.setParameter("coachGroupName", coachGroup.getName())
-					.getResultList();
+					.setParameter("coachGroupName", coachGroup.getName()).getResultList();
 
 			for (Iterator iterator = LessonGroupList.iterator(); iterator.hasNext();) {
 				Object[] obj = (Object[]) iterator.next();
@@ -192,17 +193,18 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
 				String coachGroupNameResult = String.valueOf(obj[2]);
 
 				/*
-				 * Search the coachgroup by name and if it doesn´t match with the current coachgroup
-				 * were searching lesson groups in just continue
+				 * Search the coachgroup by name and if it doesn´t match with
+				 * the current coachgroup were searching lesson groups in just
+				 * continue
 				 */
 				CoachGroup coachGroupObject = CoachGroupService.getInstance().readCoachGroup(coachGroupNameResult);
 				LessonGroup lessonGroup = new LessonGroup(lessonGroupName);
 				lessonGroup.setId(lessonGroupId);
-				
-				//Add the lesson group to the coachgroup
+
+				// Add the lesson group to the coachgroup
 				coachGroupObject.addLessonGroup(lessonGroup, false);
-				
-				//Add the lesson group to the list
+
+				// Add the lesson group to the list
 				specificLessonGroupsByCoachGroup.add(lessonGroup);
 			}
 			tx.commit();
