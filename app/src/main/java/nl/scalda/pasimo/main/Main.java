@@ -20,7 +20,8 @@ public class Main {
 //        System.out.println(workingday);
 
 
-TreeSet<WorkWeek> workweeks =  DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+
+//TreeSet<WorkWeek> workweeks =  DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
 
        
 
@@ -31,6 +32,31 @@ for(WorkWeek bla :workweeks){
      TreeSet<WorkWeek> henk = DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
   System.out.println(henk.size());
   
+    }
+=======
+
+
+//TreeSet<WorkWeek> workweeks =  DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+//
+//       
+//
+//for(WorkWeek bla :workweeks){
+//	System.out.println(bla);
+//}
+//     System.out.println("Workweek readall");   
+//
+		DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
   }
 
 }
+//for(WorkWeek bla :workweeks){
+//	System.out.println(bla);
+//}
+//     System.out.println("Workweek readall");
+//     TreeSet<WorkWeek> henk = DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+//  System.out.println(henk.size());
+//  
+//    }
+
+
+		DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
