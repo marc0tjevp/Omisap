@@ -57,18 +57,26 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
 	 * Method needed to create lessongroup with name and the coachgroup it's in
 	 */
 	@Override
-	public void create(LessonGroup LessonGroup) {
+	public void create(LessonGroup LessonGroup, CoachGroup coachGroup) {
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			String sql = "INSERT INTO lessongroups (lessonGroupName, coachgroup_name) VALUES (:lessonGroupName, :coachgroup_name);";
+			String sql = "SET FOREIGN_KEY_CHECKS=0;";
+			String sqlinsert = "INSERT INTO `lessongroup` (lessonGroupID, lessonGroupName, coachGroup_CoachGroupName) VALUES (NULL, :lessonGroupName, :coachgroup_name);";
+			String foreignkeyclose = "SET FOREIGN_KEY_CHECKS=1;";
+			
 			NativeQuery query = session.createNativeQuery(sql);
-			query.setParameter("lessonGroupName", LessonGroup.getName());
-			// query.setParameter("CoachGroup",
-			// CoachGroupService.getInstance().readAll());
+			NativeQuery insertquery = session.createNativeQuery(sqlinsert);
+			NativeQuery foreignkeychecks = session.createNativeQuery(foreignkeyclose);
+			
 			query.executeUpdate();
-
+			
+			insertquery.setParameter("lessonGroupName", LessonGroup.getName());
+			insertquery.setParameter("coachgroup_name", coachGroup.getName());
+			insertquery.executeUpdate();
+			foreignkeychecks.executeUpdate(); 
+			
 			tx.commit();
 			System.out.println("Created succesfully");
 		} catch (HibernateException s) {
@@ -88,7 +96,7 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
 	@Override
 	public void update(LessonGroup LessonGroup) {
 		Session session = factory.openSession();
-		Transaction tx = null;
+		Transaction tx = null;  
 		try {
 			tx = session.beginTransaction();
 			String sql = "UPDATE lessongroup set name = :name, lessonGroupName :lessonGroupName;";

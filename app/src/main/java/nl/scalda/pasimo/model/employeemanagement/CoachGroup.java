@@ -4,6 +4,8 @@ import java.util.TreeSet;
 
 import javax.persistence.*;
 
+import org.hibernate.dialect.MySQL57InnoDBDialect;
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
@@ -78,7 +80,9 @@ public class CoachGroup implements Comparable<CoachGroup> {
 		this.lessonGroups.add(lg);
 		
 		if(shouldAddTODB) {
-			DAOFactory.getTheFactory().getDAOLessonGroup().create(lg);
+			DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+			DAOFactory.getTheFactory().getDAOLessonGroup().create(lg, this);
+			DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 		}
 	}
 

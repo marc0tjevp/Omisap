@@ -36,7 +36,7 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 	}
 
 	@Override
-	public void create(LessonGroup lessonGroup) {
+	public void create(LessonGroup lessonGroup, CoachGroup coachGroup) {
 		this.lessongroups.add(lessonGroup);
 	}
 
