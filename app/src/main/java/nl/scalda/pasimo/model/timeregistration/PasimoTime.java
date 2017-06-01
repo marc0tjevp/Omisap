@@ -15,7 +15,7 @@ public class PasimoTime extends GregorianCalendar {
 		
 	}
 	
-	public PasimoTime(String date){
+	public PasimoTime(PasimoTime pt){
 		super();
 		
 	}

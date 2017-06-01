@@ -17,15 +17,23 @@ public class TimeController extends ActionSupport {
 //   private TreeSet<WorkWeek> workweeks = new TreeSet<>();
 private TreeSet<WorkWeek> workweeks =  DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
     WorkingDay w = new WorkingDay(1, "Maandag");
-    WorkBlock wq  = new WorkBlock(1, new PasimoTime(8, 30), new PasimoTime(10, 10));
-    WorkBlock wq1 = new WorkBlock(2, new PasimoTime(10, 25), new PasimoTime(11, 15));
-    WorkBlock wq2 = new WorkBlock(3, new PasimoTime(11, 25), new PasimoTime(12, 05));
-    WorkBlock wq3 = new WorkBlock(4, new PasimoTime(12, 35), new PasimoTime(14, 15));
-    WorkBlock wq4 = new WorkBlock(5, new PasimoTime(14, 30), new PasimoTime(15, 20));
-    WorkBlock wq5 = new WorkBlock(6, new PasimoTime(22, 30), new PasimoTime(23, 20));
+//    WorkBlock wq  = new WorkBlock(1, new PasimoTime(8, 30), new PasimoTime(10, 10));
+//    WorkBlock wq1 = new WorkBlock(2, new PasimoTime(10, 25), new PasimoTime(11, 15));
+//    WorkBlock wq2 = new WorkBlock(3, new PasimoTime(11, 25), new PasimoTime(12, 05));
+//    WorkBlock wq3 = new WorkBlock(4, new PasimoTime(12, 35), new PasimoTime(14, 15));
+//    WorkBlock wq4 = new WorkBlock(5, new PasimoTime(14, 30), new PasimoTime(15, 20));
+//    WorkBlock wq5 = new WorkBlock(6, new PasimoTime(22, 30), new PasimoTime(23, 20));
     private Object workblock;
     public String SSC() {
         return SUCCESS;
+    }
+    
+    
+    public TreeSet<WorkWeek> getWorkWeek() {
+        if (workweeks.isEmpty());
+        workweeks.addAll(DAOFactory.getTheFactory().getDAOWorkWeek().readAll());
+
+        return workweeks;
     }
     
     public String execute() {
