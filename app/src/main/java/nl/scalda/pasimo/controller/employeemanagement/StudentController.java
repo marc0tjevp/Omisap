@@ -1,7 +1,10 @@
 package nl.scalda.pasimo.controller.employeemanagement;
 
 import java.io.File;
+import java.util.Collections;
+import java.util.GregorianCalendar;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import com.opensymphony.xwork2.ActionSupport;
 import nl.scalda.pasimo.model.employeemanagement.Student;
@@ -22,19 +25,23 @@ public class StudentController extends ActionSupport {
 	public TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
 	public TreeSet<CoachGroup> coachGroups = new TreeSet<>();
 	public TreeSet<CheckIn>checkInsOfStudent = new TreeSet<>();
+	public TreeSet<CheckIn>checkInsByDate = new TreeSet<>();
+	public TreeSet<CheckIn> studentCheckInHistory = new TreeSet<>(Collections.reverseOrder());
 	public Set<Student>allStudents = new TreeSet<>();
 	public File csvFile;
 	public int cohort;
 	public int lessonGroupID;
 	public String coachGroupName;
 	public String cardId;
+	public GregorianCalendar searchDate;
 	
 	public String execute() {
 		return SUCCESS;
 	}
 	
 	public String getAllCheckInsForStudent(){
-		StudentService.getInstance().getCheckInsByCardID(cardId);
+		studentCheckInHistory.clear();
+		studentCheckInHistory = StudentService.getInstance().getCheckInsByCardID(cardId);
 		return SUCCESS;
 	}
 	
@@ -49,6 +56,11 @@ public class StudentController extends ActionSupport {
 		}
 		return SUCCESS;
 
+	}
+	
+	public TreeMap<GregorianCalendar, TreeSet<CheckIn>>getCheckInsByDateForCardId(){
+		//geselecteerde seachdate uit calendar hier
+		return TestDAOCheckIn.getInstance().getCheckInsByDateForCardId(searchDate, cardId);
 	}
 	
 	public String AddStudentWithCSV(){
@@ -150,5 +162,29 @@ public class StudentController extends ActionSupport {
 		this.cardId = cardId;
 	}
 
+	public TreeSet<CheckIn> getCheckInsByDate() {
+		return checkInsByDate;
+	}
+
+	public void setCheckInsByDate(TreeSet<CheckIn> checkInsByDate) {
+		this.checkInsByDate = checkInsByDate;
+	}
+
+	public TreeSet<CheckIn> getStudentCheckInHistory() {
+		return studentCheckInHistory;
+	}
+
+	public void setStudentCheckInHistory(TreeSet<CheckIn> studentCheckInHistory) {
+		this.studentCheckInHistory = studentCheckInHistory;
+	}
+
+	public GregorianCalendar getSearchDate() {
+		return searchDate;
+	}
+
+	public void setSearchDate(GregorianCalendar searchDate) {
+		this.searchDate = searchDate;
+	}
+	
 }
 

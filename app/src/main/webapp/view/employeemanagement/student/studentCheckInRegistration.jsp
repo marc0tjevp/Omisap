@@ -8,7 +8,7 @@
 <t:layout2>
 
 	<jsp:attribute name="content">
-    <h1>Check-Ins van alle studenten<s:property value="lessongroupname" /></h1>
+    <h1>Check-Ins van alle studenten</h1>
   	
   		<body>
         <header>
@@ -18,8 +18,6 @@
                 <thead>
                 <th>Leerlingnummer</th>
 				<th>Naam</th>
-				<th>Tussenvoegsel</th>
-				<th>Achternaam</th>
 				<th style="color:blue;">Check In</th>
 				<th style="color:blue;">Check Out</th>
 				<th style="color:red;">Check In</th>
@@ -31,9 +29,7 @@
 		<s:iterator value="allStudents" var="student">
 				<tr class="studentDetails" data-card-id="<s:property value="getCardID()"/>">
         				<td><s:property value="getStudentOV()" /></td>
-						<td><s:property value="getFirstName()" /></td>
-						<td><s:property value="getInsertion()" /></td>
-						<td><s:property value="getLastName()" /></td>
+						<td><s:property value="getFullName()" /></td>
 					<s:iterator value="getCheckInsOfToday()" var="checkIn">
 						<td><s:property value="getFormattedTime()" /></td>
         			</s:iterator>	
