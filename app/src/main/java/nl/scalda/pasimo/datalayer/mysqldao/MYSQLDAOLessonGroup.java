@@ -99,12 +99,13 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
 		Transaction tx = null;  
 		try {
 			tx = session.beginTransaction();
-			String sql = "UPDATE lessongroup set name = :name, lessonGroupName :lessonGroupName;";
+			String sql = "UPDATE lessongroup SET lessonGroupName = :lessonGroupName WHERE lessonGroupID = :lessonGroupID;";
+			
 			NativeQuery query = session.createNativeQuery(sql);
-
+			
 			query.setParameter("lessonGroupName", LessonGroup.getName());
-			// query.setParameter("CoachGroup",
-			// CoachGroupService.getInstance().readAll());
+			query.setParameter("lessonGroupID", LessonGroup.getId());
+			
 			query.executeUpdate();
 
 			tx.commit();
