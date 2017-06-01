@@ -6,6 +6,7 @@
 package nl.scalda.pasimo.service;
 
 import java.util.Objects;
+import java.util.Set;
 import java.util.TreeSet;
 
 import javassist.compiler.ast.Pair;
@@ -78,7 +79,7 @@ public class CoachGroupService {
 	 * 
 	 * @return TreeSet<CoachGroup>
 	 */
-	public TreeSet<CoachGroup> readAll() {
+	public Set<CoachGroup> readAll() {
 		TreeSet<CoachGroup> AllCoachGroups = new TreeSet<>();
 		for (EducationTeam edu : EducationTeamService.getInstance().getEducationTeams()) {
 			AllCoachGroups.addAll(edu.getCoachGroups());

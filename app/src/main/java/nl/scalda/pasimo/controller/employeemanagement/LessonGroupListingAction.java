@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.controller.employeemanagement;
 
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -22,12 +23,12 @@ public class LessonGroupListingAction extends ActionSupport {
 	/**
 	 * All the available coach groups for adding lesson groups to them
 	 */
-	private TreeSet<CoachGroup> coachGroups;
+	private Set<CoachGroup> coachGroups;
 
 	/**
 	 * All the coach groups with lesson groups in them
 	 */
-	private TreeSet<CoachGroup> coachGroupsWithLessonGroups;
+	private Set<CoachGroup> coachGroupsWithLessonGroups;
 
 	/**
 	 * The name for adding or removing a lesson group
@@ -116,7 +117,7 @@ public class LessonGroupListingAction extends ActionSupport {
 	 * 
 	 * @return
 	 */
-	public TreeSet<CoachGroup> getCoachGroupsWithLessonGroups() {
+	public Set<CoachGroup> getCoachGroupsWithLessonGroups() {
 		return coachGroupsWithLessonGroups;
 	}
 
@@ -160,7 +161,7 @@ public class LessonGroupListingAction extends ActionSupport {
 		this.coachGroupName = coachGroupName;
 	}
 
-	public TreeSet<CoachGroup> getCoachGroups() {
+	public Set<CoachGroup> getCoachGroups() {
 		return coachGroups;
 	}
 

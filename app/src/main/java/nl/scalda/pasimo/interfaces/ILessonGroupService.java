@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.interfaces;
 
+import java.util.Set;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
@@ -10,7 +11,7 @@ public interface ILessonGroupService {
 
     void create(LessonGroup lessonGroup);
     
-    TreeSet<CoachGroup> readAll();
+    Set<CoachGroup> readAll();
     
     LessonGroup read(LessonGroup lessonGroup);
     

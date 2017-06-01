@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.controller.employeemanagement;
 
 import java.io.File;
+import java.util.Set;
 import java.util.TreeSet;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -14,8 +15,8 @@ public class StudentController extends ActionSupport {
 	
 	private static final long serialVersionUID = 1L;
 	private CSVReader c = CSVReader.getInstance();
-	public TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
-	public TreeSet<CoachGroup> coachGroups = new TreeSet<>();
+	public Set<LessonGroup> lessonGroups = new TreeSet<>();
+	public Set<CoachGroup> coachGroups = new TreeSet<>();
 	public File csvFile;
 	public int cohort;
 	public int lessonGroupID;
@@ -74,18 +75,18 @@ public class StudentController extends ActionSupport {
 		this.coachGroupName = coachGroupName;
 	}
 
-	public TreeSet<LessonGroup> getLessonGroups() {
+	public Set<LessonGroup> getLessonGroups() {
 		if(lessonGroups.isEmpty()){
 			lessonGroups.addAll(DAOFactory.getTheFactory().getDAOLessonGroup().readAll());
 		}
 		return lessonGroups;
 	}
 
-	public void setLessonGroups(TreeSet<LessonGroup> lessonGroups) {
+	public void setLessonGroups(Set<LessonGroup> lessonGroups) {
 		this.lessonGroups = lessonGroups;
 	}
 
-	public TreeSet<CoachGroup> getCoachGroups() {
+	public Set<CoachGroup> getCoachGroups() {
 		if(coachGroups.isEmpty()){
 			coachGroups.addAll(DAOFactory.getTheFactory().getDAOCoachGroup().readAll());
 		}
@@ -93,7 +94,7 @@ public class StudentController extends ActionSupport {
 		return coachGroups;
 	}
 
-	public void setCoachGroups(TreeSet<CoachGroup> coachGroups) {
+	public void setCoachGroups(Set<CoachGroup> coachGroups) {
 		this.coachGroups = coachGroups;
 	}
 	

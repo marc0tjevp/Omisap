@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.service;
 
 import java.util.Iterator;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -61,8 +62,8 @@ public class LessonGroupService implements ILessonGroupService {
 	}
 
 	@Override
-	public TreeSet<CoachGroup> readAll() {
-		TreeSet<CoachGroup> coachGroupsWithLessonGroups = new TreeSet<>();
+	public Set<CoachGroup> readAll() {
+		Set<CoachGroup> coachGroupsWithLessonGroups = new TreeSet<>();
 
 		for (CoachGroup coachGroup : CoachGroupService.getInstance().readAll()) {
 			coachGroup.loadLessonGroups();

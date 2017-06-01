@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import java.util.Set;
 import java.util.TreeSet;
 import javax.persistence.*;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
@@ -26,7 +27,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	/**
 	 * The {@link Student}'s who are in this lesson group
 	 */
-	private TreeSet<Student> students;
+	private Set<Student> students;
 
 	/**
 	 * @param name The name of this lesson group
@@ -85,7 +86,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	 *
 	 * @return The {@link Student}'s who are in this lesson group
 	 */
-	public TreeSet<Student> getStudents() {
+	public Set<Student> getStudents() {
 		return this.students;
 	}
 
@@ -95,7 +96,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	 * @param students
 	 *            The {@link Student}s to set who are in this lesson group
 	 */
-	public void setStudents(TreeSet<Student> students) {
+	public void setStudents(Set<Student> students) {
 		this.students = students;
 	}
 
