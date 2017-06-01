@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Set;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
@@ -33,7 +34,7 @@ public class CSVReader {
      *
      *
      */
-    private TreeSet<Student> students = new TreeSet<>();
+    private Set<Student> students = new TreeSet<>();
     private static CSVReader instance;
 
 
@@ -48,7 +49,7 @@ public class CSVReader {
      * @param cohort
      * @return
      */
-    public TreeSet<Student> readFile(File file, String coachGroupName, int lessonGroupID, int cohort) {
+    public Set<Student> readFile(File file, String coachGroupName, int lessonGroupID, int cohort) {
         // format that the csv file is: Nummer;Roepnaam;Voorvoegsel;Achternaam;Email school;Geboortedatum;
         BufferedReader br = null;
         String line = "";
@@ -76,7 +77,7 @@ public class CSVReader {
         return students;
     }
 
-    public TreeSet<Student> getStudents() {
+    public Set<Student> getStudents() {
         return students;
     }
 

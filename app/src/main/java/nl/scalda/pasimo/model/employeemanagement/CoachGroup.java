@@ -64,7 +64,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 * @param {@link
 	 * 			LessonGroups} The LessonGroups of this Coach group
 	 */
-	public CoachGroup(String name, Teacher coach, TreeSet<LessonGroup> lessonGroups) {
+	public CoachGroup(String name, Teacher coach, Set<LessonGroup> lessonGroups) {
 		this.name = name;
 		this.coach = coach;
 		this.lessonGroups = lessonGroups;
