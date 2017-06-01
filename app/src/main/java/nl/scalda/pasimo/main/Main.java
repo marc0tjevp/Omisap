@@ -16,39 +16,12 @@ public class Main {
 //        WorkWeek week = new WorkWeek(1);
     	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
         
-//        WorkingDay workingday = new WorkingDay("maandag");
-//        System.out.println(workingday);
 
-
-
-//TreeSet<WorkWeek> workweeks =  DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
-
-       
-
-for(WorkWeek bla :workweeks){
-	System.out.println(bla);
-}
-     System.out.println("Workweek readall");
-     TreeSet<WorkWeek> henk = DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
-  System.out.println(henk.size());
-  
-    }
-=======
-
-
-//TreeSet<WorkWeek> workweeks =  DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
-//
-//       
-//
-//for(WorkWeek bla :workweeks){
-//	System.out.println(bla);
-//}
-//     System.out.println("Workweek readall");   
-//
 		DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
   }
-
 }
+
+//}
 //for(WorkWeek bla :workweeks){
 //	System.out.println(bla);
 //}
@@ -59,4 +32,4 @@ for(WorkWeek bla :workweeks){
 //    }
 
 
-		DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+

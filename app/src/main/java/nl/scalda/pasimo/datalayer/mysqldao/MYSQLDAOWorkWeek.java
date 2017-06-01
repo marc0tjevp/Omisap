@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.datalayer.mysqldao;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
@@ -19,7 +20,6 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 
 	private SessionFactory factory;
 	private static MYSQLDAOWorkWeek instance = null;
-
 
 	public MYSQLDAOWorkWeek() {
 		initialiseFactory();
@@ -47,7 +47,7 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 	public WorkWeek read(int id) {
 		return null;
 	}
-	
+
 	@Override
 	public TreeSet<WorkWeek> readAll() {
 		Session session = factory.openSession();
@@ -55,7 +55,6 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 		TreeSet<WorkWeek> workweeks = new TreeSet<>();
 		TreeSet<WorkingDay> workingdays = new TreeSet<>();
 		TreeSet<WorkBlock> workblocks = new TreeSet<>();
-
 
 		try {
 			tx = session.beginTransaction();
@@ -66,7 +65,6 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 
 			for (Iterator iterator = weekList.iterator(); iterator.hasNext();) {
 
-		        
 				Object[] o = (Object[]) iterator.next();
 				WorkWeek workweek = new WorkWeek(Integer.parseInt(String.valueOf(o[0])));
 				workweeks.add(workweek);
@@ -77,18 +75,18 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 					workingdays.add(workingday);
 					for (Iterator i = weekList.iterator(); i.hasNext();) {
 						Object[] obj = (Object[]) i.next();
-						
+
 						PasimoTime pt = new PasimoTime();
-						String dateString = (String.valueOf(obj[5]));
+						Time dateString = (Time) obj[5];
+						pt.setTimeInMillis(dateString.getTime());
 						PasimoTime pt1 = new PasimoTime();
-						String dateString1 = (String.valueOf(obj[6]));
-				        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-				        pt.setTime(sdf.parse(dateString));
-				        pt1.setTime(sdf.parse(dateString1));
-				        
-						WorkBlock workblock = new WorkBlock(Integer.parseInt(String.valueOf(obj[4])),
-								new PasimoTime(pt),
-								new PasimoTime(pt1));
+						Time dateString1 = (Time) obj[6];
+						pt1.setTimeInMillis(dateString1.getTime());
+						SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+
+						WorkBlock workblock = new WorkBlock(Integer.parseInt(String.valueOf(obj[4])), 
+								pt,
+								pt1);
 						workblocks.add(workblock);
 					}
 
