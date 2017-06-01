@@ -106,7 +106,7 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
 			String sql = "UPDATE `lessongroup` SET `lessongroup`.`lessonGroupName` = :lessonGroupName WHERE `lessongroup`.`lessonGroupID` = :lessonGroupId";
 
 			NativeQuery query = session.createNativeQuery(sql);
-
+			
 			query.setParameter("lessonGroupName", LessonGroup.getName());
 			query.setParameter("lessonGroupId", LessonGroup.getId());
 						
