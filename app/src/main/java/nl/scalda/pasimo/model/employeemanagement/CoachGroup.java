@@ -92,10 +92,10 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 * @param LessonGroup
 	 */
 	public void deleteLessonGroup(LessonGroup lg) {
-
 		lessonGroups.remove(lg);
-		TestDAOLessonGroup.getInstance().delete(lg);
-
+		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+		DAOFactory.getTheFactory().getDAOLessonGroup().delete(lg);
+		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 	}
 
 	/**

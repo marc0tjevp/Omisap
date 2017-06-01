@@ -128,24 +128,30 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
 
 	@Override
 	public void delete(LessonGroup LessonGroup) {
-		Session session = factory.openSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			session.createNativeQuery("DELETE FROM lessongroups WHERE (lessonGroupName) = (:lessonGroupName")
-					.setParameter("lessonGroupName", LessonGroup.getName()).executeUpdate();
-			session.delete(LessonGroup);
-			tx.commit();
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            
+			NativeQuery foreignKeyChecksOff = session.createNativeQuery("SET FOREIGN_KEY_CHECKS=0;");
+			foreignKeyChecksOff.executeUpdate();
+			
+            NativeQuery deleteQuery = session.createNativeQuery("DELETE FROM `lessongroup` WHERE `lessongroup`.`lessonGroupID` = :lessonGroupId");
+            deleteQuery.setParameter("lessonGroupId", LessonGroup.getId());
+            deleteQuery.executeUpdate();
+            
+			NativeQuery foreignKeyChecksOn = session.createNativeQuery("SET FOREIGN_KEY_CHECKS=1;");
+			foreignKeyChecksOn.executeUpdate();
 
-		} catch (HibernateException e) {
-			if (tx != null) {
-				tx.rollback();
-			}
-
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
 	}
 
 	public static MYSQLDAOLessonGroup getInstance() {
