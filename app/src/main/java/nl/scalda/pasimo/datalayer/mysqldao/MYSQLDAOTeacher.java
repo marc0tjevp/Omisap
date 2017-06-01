@@ -361,7 +361,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		try{
 			tx = session.beginTransaction();
 			Object[] obj = (Object[]) session
-					.createNativeQuery("SELECT * FROM coach_group WHERE coachGroupID = (SELECT coach_group_coachGroupID FROM teacher WHERE employeeNumber = :employeeNumber)")
+					.createNativeQuery("SELECT * FROM coachgroup WHERE coachGroupID = (SELECT coach_group_coachGroupID FROM teacher WHERE employeeNumber = :employeeNumber)")
 					.setParameter("employeeNumber", teacher.getEmployeeNumber()).getSingleResult();
 			coachGroup = new CoachGroup(String.valueOf(obj[1]), teacher);
 			tx.commit();

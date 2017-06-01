@@ -73,7 +73,7 @@ public class LessonGroupListingAction extends ActionSupport {
 		/*
 		 * Save the new lesson group in the coach group and update it in the DAO
 		 */
-		coachGroup.addLessonGroup(lessonGroupToAdd);
+		coachGroup.addLessonGroup(lessonGroupToAdd, true);
 
 		return SUCCESS;
 	}

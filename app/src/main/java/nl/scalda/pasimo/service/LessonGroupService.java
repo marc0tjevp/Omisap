@@ -16,7 +16,7 @@ public class LessonGroupService implements ILessonGroupService {
 	private static LessonGroupService instance = null;
 
 	private LessonGroupService() {
-		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
+//		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 	}
 
 	public static LessonGroupService getInstance() {

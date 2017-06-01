@@ -22,13 +22,11 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 	public TestDAOCoachGroup() {
     	CoachGroup c1 = new CoachGroup("B1");
 		CoachGroup c2 = new CoachGroup("B2");
+	
 		
-		TreeSet<LessonGroup> lessonGroups = 
-				DAOFactory.getTheFactory().getDAOLessonGroup().readAll();
-		
-		for(LessonGroup lessonGroup : lessonGroups) {
-			c1.addLessonGroup(lessonGroup);
-		}
+//		for(LessonGroup lessonGroup : lessonGroups) {
+//			c1.addLessonGroup(lessonGroup, true);
+//		}
 		
 		coachGroups.add(c1);
 		coachGroups.add(c2);
@@ -48,10 +46,6 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
         		l2.addStudent(s);
         	}
         }*/
-        
-		coachGroups.add(new CoachGroup("A1"));
-		coachGroups.add(new CoachGroup("A2"));
-		coachGroups.add(new CoachGroup("A3"));
 	}
 
 	@Override
