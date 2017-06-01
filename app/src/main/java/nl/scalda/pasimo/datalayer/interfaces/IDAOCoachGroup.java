@@ -11,6 +11,7 @@ import java.util.TreeSet;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 
+
 /**
  *
  * @author jeroe
@@ -25,7 +26,7 @@ public interface IDAOCoachGroup {
     
     public TreeSet<CoachGroup> readAllBYTeam(EducationTeam t);
 
-    public void update(CoachGroup coachGroup, EducationTeam edu , String oldname);
+    public void update(CoachGroup coachGroup, String oldname);
     
     public void delete(CoachGroup CoachGroup);
 
