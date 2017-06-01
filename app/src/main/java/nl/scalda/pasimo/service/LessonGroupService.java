@@ -65,7 +65,7 @@ public class LessonGroupService implements ILessonGroupService {
 
 		for (CoachGroup coachGroup : CoachGroupService.getInstance().readAll()) {
 			coachGroup.loadLessonGroups();
-			if (coachGroup.getLessonGroups().size() <= 0) {
+			if (coachGroup.getLessonGroups().size() <= 0) { 
 				continue;
 			}
 			coachGroupsWithLessonGroups.add(coachGroup);

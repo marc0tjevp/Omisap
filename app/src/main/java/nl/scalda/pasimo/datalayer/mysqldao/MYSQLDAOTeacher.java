@@ -128,7 +128,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		Transaction tx = null;
 		try{
 			tx = session.beginTransaction();
-			session.createNativeQuery("DELETE FROM teacher_education_team WHERE teacher_employeeNumber = :employeeNumber").setParameter("employeeNumber", t.getEmployeeNumber()).executeUpdate();
+			session.createNativeQuery("DELETE FROM teacher_educationTeam WHERE teacher_employeeNumber = :employeeNumber").setParameter("employeeNumber", t.getEmployeeNumber()).executeUpdate();
 			session.delete(t);
 			Person p = new Person(t.getEmail());
 			session.delete(p);
@@ -256,7 +256,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		TreeSet<Teacher> teachers = new TreeSet<>();
 		try {
 		   tx = session.beginTransaction();
-		   List teachersList = session.createNativeQuery("SELECT * FROM teacher_education_team INNER JOIN teacher ON teacher_employeeNumber = teacher.employeeNumber INNER JOIN person ON teacher.person_email = person.email WHERE education_team_id=:educationTeamID ;")
+		   List teachersList = session.createNativeQuery("SELECT * FROM teacher_educationTeam INNER JOIN teacher ON teacher_employeeNumber = teacher.employeeNumber INNER JOIN person ON teacher.person_email = person.email WHERE education_team_id=:educationTeamID ;")
 				   .setParameter("educationTeamID", t.getId())
 				   .getResultList();
 		   for(Iterator iterator = teachersList.iterator();iterator.hasNext();){
@@ -388,7 +388,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		try{
 			tx = session.beginTransaction();
 			Object[] obj = (Object[]) session
-					.createNativeQuery("SELECT * FROM education_team WHERE educationTeamID = (SELECT education_team_id FROM teacher_education_team WHERE teacher_employeeNumber = :employeeNumber)")
+					.createNativeQuery("SELECT * FROM educationTeam WHERE educationTeamID = (SELECT education_team_id FROM teacher_education_team WHERE teacher_employeeNumber = :employeeNumber)")
 					.setParameter("employeeNumber", teacher.getEmployeeNumber()).getSingleResult();
 			educationTeam = new EducationTeam(String.valueOf(obj[2]),
 					String.valueOf(obj[1]),
