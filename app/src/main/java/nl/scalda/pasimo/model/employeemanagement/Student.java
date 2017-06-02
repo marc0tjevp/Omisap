@@ -9,13 +9,12 @@ import nl.scalda.pasimo.service.LessonGroupService;
 @Table(name="student")
 public class Student extends Person {
 	private static final long serialVersionUID = 1L;
-	private int noteListID;
+	
 	private int cardID;
 	@Column(name="cohort")
 	private int cohort;
 	@Column(name="ovNumber")
 	private int studentOV;
-	private TreeSet<Note> noteList = new TreeSet<>();
 	@ManyToOne
 	private LessonGroup lessonGroup;
 	@ManyToOne
@@ -23,21 +22,11 @@ public class Student extends Person {
 	private int DayOfBirth;
 	private int MonthOfBirth;
 	private int YearOfBirth;
+	private TreeSet<Note> noteList;
 
+	
 	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
-			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth) {
-		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
-		this.studentOV = studentOV;
-		this.cohort = cohort;
-		this.cardID = cardID;
-		this.DayOfBirth = dayOfBirth;
-		this.MonthOfBirth = monthOfBirth;
-		this.YearOfBirth = yearOfBirth;
-		
-		//this.coachGroupID = coachGroupID;
-	}
-	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
-			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName, int lessonGroupID) {
+			int cardID, int yearOfBirth, int monthOfBirth, int dayOfBirth, String coachGroupID, int lessonGroupID, int noteListID) {
 			super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 			this.studentOV = studentOV;
 			this.cohort = cohort;
@@ -45,9 +34,13 @@ public class Student extends Person {
 			this.lessonGroup = LessonGroupService.getInstance().read(lessonGroupID);
 			lessonGroup.addStudent(this);
 			//this is null because coachGroupService readcoachgroup does use hardcoded coachgroups.
-			this.coachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupName);
+			this.coachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupID);
 		}
 	
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * full constructor with coachgroup id.
 	 * 
@@ -65,15 +58,7 @@ public class Student extends Person {
 	 * @param coachGroupID
 	 * @param lessonGroupID
 	 */
-	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
-		int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName) {
-		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
-		this.studentOV = studentOV;
-		this.cohort = cohort;
-		this.cardID = cardID;
-		//this is null because coachGroupService readcoachgroup does use hardcoded coachgroups.
-		this.coachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupName);
-	}
+	
 
 	
 	public void createStudent(){
@@ -83,14 +68,6 @@ public class Student extends Person {
 	public boolean deleteStudent(Student s) {
 		s = null;
 		return true;
-	}
-
-	public int getNoteListID() {
-		return noteListID;
-	}
-
-	public void setNoteListID(int noteListID) {
-		this.noteListID = noteListID;
 	}
 
 	public int getCardID() {

@@ -11,13 +11,13 @@
       com.mysql.jdbc.Driver
    </property>
    <property name="hibernate.connection.url">
-      jdbc:mysql://localhost/pasimo?createDatabaseIfNotExist=true
+      jdbc:mysql://localhost/pasimo
    </property>
    <property name="hibernate.connection.username">
       root
    </property>
    <property name="hibernate.connection.password">
-    Aardapple1
+    Shanief7
    </property>
    <property name="hibernate.hbm2ddl.auto">
       create
