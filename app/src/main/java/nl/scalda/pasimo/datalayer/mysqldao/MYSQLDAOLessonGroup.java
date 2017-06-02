@@ -78,7 +78,6 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
 			foreignkeychecks.executeUpdate();
 
 			tx.commit();
-			System.out.println("Created succesfully");
 		} catch (HibernateException s) {
 			if (tx != null) {
 				tx.rollback();
