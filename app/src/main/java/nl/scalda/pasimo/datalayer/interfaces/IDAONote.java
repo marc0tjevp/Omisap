@@ -16,5 +16,7 @@ public interface IDAONote {
 	
 	public void deleteAll();
 
+	void delete(Note note);
+
 	
 }

@@ -64,6 +64,34 @@
 	</package>
 
 	<package name="alles" extends="struts-default">
+	<action name="noteAdd"
+                class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
+                method="noteAdd">
+            <result name="success" type="redirect">noteOverview
+            </result>
+        </action>
+        <action name="noteView"
+                class="nl.scalda.pasimo.controller.employeemanagement.NoteController">
+            <result name="success">/view/employeemanagement/note/noteAdd.jsp
+            </result>
+        </action>
+        <action name="noteOverview"
+                class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
+                method="noteOverview">
+            <result name="success">/view/employeemanagement/note/noteOverview.jsp
+            </result>
+        </action>
+        <action name="noteEditView"
+                class="nl.scalda.pasimo.controller.employeemanagement.NoteController">
+            <result name="success">/view/employeemanagement/note/noteEdit.jsp
+            </result>
+        </action>
+        <action name="noteEdit"
+                class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
+                method="noteEdit">
+            <result name="success">/view/employeemanagement/note/noteEdit.jsp
+            </result>
+        </action>
 		<!-- <action name="pag1" class="nl.scalda.pasimo.controller.MainController" 
 			method="execute"> <result name="success">/index.jsp</result> </action> <action 
 			name="pag2" class="nl.scalda.pasimo.controller.MainController" method="execute"> 

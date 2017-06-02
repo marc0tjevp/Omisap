@@ -151,6 +151,12 @@ public class MYSQLDAONote implements IDAONote {
 		}
 		
 	}
+
+	@Override
+	public void delete(Note note) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }
