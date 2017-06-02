@@ -12,7 +12,6 @@
 		src="<c:url value="resources/js/note.js"/>"></script>
 	</jsp:attribute>
 	<jsp:attribute name="content">
-
 	<div class="container" style="max-width: 600px;">
 		<div class="row">
 			<div class="col-md-12 all">	
@@ -88,8 +87,7 @@
         	<h4 class="modal-title">Wilt u de notitie verwijderen of bewerken?	</h4>
       	</div>
       	<div class="modal-body">
-
-   	   	</div>
+       </div>
       <div class="modal-footer">
         <a type="button" class="btn btn-default" id="noteDelete"
 							href="noteDelete">Verwijderen</a>

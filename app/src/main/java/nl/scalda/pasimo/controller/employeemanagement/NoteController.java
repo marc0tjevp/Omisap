@@ -36,7 +36,6 @@ public class NoteController extends ActionSupport {
 			System.out.println("ID: " + n.getId());
 			System.out.println("Notelist size: " + noteList.size());
 			System.out.println(n.getCreationDate());
-			test
 		}
 		return SUCCESS;
 	}
@@ -50,10 +49,9 @@ public class NoteController extends ActionSupport {
 
 	public String noteAdd() {
 		Student s = new Student("push it to the limit");
-		s.setStudentOV(125);
+		s.setStudentOV(124);
 		Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
 		teacher.createNote(title, message, s, teacher);
-
 		return SUCCESS;
 	}
 
@@ -70,18 +68,21 @@ public class NoteController extends ActionSupport {
 	}
 	
 	public String noteEdit(){
-		System.out.println("notedit");
-		note = teacher.readNoteById(id);
-		noteList.add(note);
-		for(Note n : getNoteList()){
-			System.out.println("notedit2");
-			System.out.println("title : " + note.getTitle());
-			n.setTitle(note.getTitle());
-			System.out.println("title : " +  n.getTitle());
-			n.setMessage(note.getMessage());
-			teacher.editNote(note);
+		if(title == null){
+			System.out.println("title is null");
 		}
-	
+		if(message == null){
+			System.out.println("message is null");
+		}
+		
+		System.out.println("notedit");
+		System.out.println("Notelist size: " + teacher.readAllNotes().toString());
+		for(Note n : teacher.readAllNotes()){
+			if(n.getId() == id){
+			
+			teacher.editNote(n);
+			}
+		}
 		return SUCCESS;
 	}
 
