@@ -195,6 +195,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 								href="<c:url value="presenceregistration"><c:param name="action" value="all"/></c:url>">Overview</a></li>
 							&ndash;%&gt;
 						</ul></li>
+						
+						<li class="treeview"><a href="educationTeam"><i
+							class="fa fa-user-plus"></i> <span>educationTeam</span> <i
+							class="fa fa-angle-left pull-right"></i></a>
+						<ul class="treeview-menu">
+							&lt;%&ndash;
+							<li><a
+								href="<c:url value="educationTeam"><c:param name="action" value="all"/></c:url>">Overview</a></li>
+							&ndash;%&gt;
+						</ul></li>
+						
+						
 					<%--<li class="treeview">
                             <li class="treeview">
                                 <a href="teacherOverview"><i class="fa fa-user-plus"></i> <span>Teachers</span> <i class="fa fa-angle-left pull-right"></i></a>

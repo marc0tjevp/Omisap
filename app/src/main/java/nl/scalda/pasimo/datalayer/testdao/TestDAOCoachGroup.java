@@ -111,7 +111,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
         if (eduCoachGroups == null) {
             return coachGroups;
         } else {
-            return eduCoachGroups.get(coachGroups);
+            return coachGroups;
         }
     }
 
