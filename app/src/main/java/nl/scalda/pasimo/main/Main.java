@@ -4,6 +4,7 @@
 package nl.scalda.pasimo.main;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCheckIn;
 
 /**
@@ -17,8 +18,8 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-	TestDAOCheckIn.getInstance().readAll();
-
+	
+	System.out.println(TestDAOFactory.getTheFactory().getDAOCheckIn().readAll());
 	}
 
 }

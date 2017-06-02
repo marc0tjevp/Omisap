@@ -3,6 +3,7 @@ package nl.scalda.pasimo.model.employeemanagement;
 import java.util.GregorianCalendar;
 import java.util.TreeSet;
 
+import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 
 public class Person implements Comparable<Person> {
@@ -13,6 +14,7 @@ public class Person implements Comparable<Person> {
     private String insertion;
     private String lastName;
     private GregorianCalendar dateOfBirth;
+    
 
     /**
      * default constructor.
@@ -152,20 +154,18 @@ public class Person implements Comparable<Person> {
         return email.compareTo(o.getEmail());
     }
     
-    public boolean isAvailable(){
-    	if(){
-    		
-    	}else{
-    		
-    	}
-//      if((checkInWithCardID.size()%2) != 1){
-//      checkin.setIsCheckIn(false);
-//  }else{
-//      checkin.setIsCheckIn(true);
-//  }
+//    public boolean isAvailable(){
+//    	if(DAOFactory.getTheFactory().getDAOCheckIn().readAll().size()){
+//    		
+//    	}else{
+//    		
+//    	}
+//		return false;
+//    }
 
-		return false;
-    	
-    }
-
+//  if((checkInWithCardID.size()%2) != 1){
+//  checkin.setIsCheckIn(false);
+//}else{
+//  checkin.setIsCheckIn(true);
+//}
 }

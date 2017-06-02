@@ -10,8 +10,10 @@ public class CheckIn implements Comparable<CheckIn> {
 	private GregorianCalendar date;
 	private boolean isCheckIn;
 	
-	public CheckIn(){
-		
+	public CheckIn(GregorianCalendar date, int logID, boolean isCheckIn){
+		this.setLogID(logID);
+		this.setDate(date);
+		this.setIsCheckIn(isCheckIn);
 	}
 	
 	public Boolean getIsCheckIn(){

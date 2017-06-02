@@ -1,12 +1,11 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
-import java.util.ArrayList;
+
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCheckIn;
-import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+
 import nl.scalda.pasimo.model.employeemanagement.Person;
-import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 
 
 public class TestDAOCheckIn implements IDAOCheckIn {
