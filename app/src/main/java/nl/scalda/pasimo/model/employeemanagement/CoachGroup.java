@@ -11,7 +11,7 @@ import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
  * @author Collin and ismet
  */
 @Entity
-@Table(name="coach_group")
+@Table(name="coachGroup")
 public class CoachGroup implements Comparable<CoachGroup> {
 
 	/**

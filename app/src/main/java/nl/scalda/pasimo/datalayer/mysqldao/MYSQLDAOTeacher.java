@@ -189,7 +189,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		TreeSet<Teacher> teachers = new TreeSet<>();
 		try {
 		   tx = session.beginTransaction();
-		   List teachersList = session.createNativeQuery("SELECT * FROM education_team_teacher INNER JOIN teacher ON teachers_bsn = teacher.bsn INNER JOIN person ON teacher.bsn = person.bsn WHERE EducationTeam_educationTeamID=:educationTeamID ;")
+		   List teachersList = session.createNativeQuery("SELECT * FROM educationTeam_teacher INNER JOIN teacher ON teachers_bsn = teacher.bsn INNER JOIN person ON teacher.bsn = person.bsn WHERE EducationTeam_educationTeamID=:educationTeamID ;")
 				   .setParameter("educationTeamID", t.getId())
 				   .getResultList();
 		   for(Iterator iterator = teachersList.iterator();iterator.hasNext();){
@@ -246,7 +246,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		CoachGroup coachGroup = null;
 		try{
 			tx = session.beginTransaction();
-			coachGroup = (CoachGroup) session.createNativeQuery("SELECT * FROM coach_group WHERE coach_bsn = :teachers_bsn", CoachGroup.class)
+			coachGroup = (CoachGroup) session.createNativeQuery("SELECT * FROM coachGroup WHERE coach_bsn = :teachers_bsn", CoachGroup.class)
 					.setParameter("teachers_bsn", teacher.getBsn()).getSingleResult();
 			tx.commit();
 		}
@@ -272,7 +272,7 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		try{
 			tx = session.beginTransaction();
 			Object[] obj = (Object[]) session
-					.createNativeQuery("SELECT * FROM education_team WHERE educationTeamID = (SELECT EducationTeam_educationTeamID FROM education_team_teacher WHERE teachers_bsn = :teachers_bsn)")
+					.createNativeQuery("SELECT * FROM educationTeam WHERE educationTeamID = (SELECT EducationTeam_educationTeamID FROM educationTeam_teacher WHERE teachers_bsn = :teachers_bsn)")
 					.setParameter("teachers_bsn", teacher.getBsn()).getSingleResult();
 			educationTeam = new EducationTeam(String.valueOf(obj[2]),
 					String.valueOf(obj[1]),

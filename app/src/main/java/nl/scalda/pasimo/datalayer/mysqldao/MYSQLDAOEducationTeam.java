@@ -59,7 +59,7 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 		Transaction tx = null;
 		try {
 		   tx = session.beginTransaction();
-		   session.createNativeQuery("INSERT INTO education_team_teacher (teachers_bsn, EducationTeam_educationTeamID) VALUES (:teacherBsn, :educationTeamID);")
+		   session.createNativeQuery("INSERT INTO educationTeam_teacher (teachers_bsn, EducationTeam_educationTeamID) VALUES (:teacherBsn, :educationTeamID);")
 				   .setParameter("teacherBsn", teacher.getBsn()).setParameter("educationTeamID", educationTeam.getId()).executeUpdate();
 		   tx.commit();
 		}
@@ -83,7 +83,7 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
 		Transaction tx = null;
 		try{
 			tx = session.beginTransaction();
-			session.createNativeQuery("DELETE FROM education_team_teacher WHERE teachers_bsn = :teachers_bsn")
+			session.createNativeQuery("DELETE FROM educationTeam_teacher WHERE teachers_bsn = :teachers_bsn")
 				.setParameter("teachers_bsn", teacher.getBsn()).executeUpdate();
 			tx.commit();
 		}
@@ -206,7 +206,7 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
         Set<EducationTeam> teams = new TreeSet<>();
         try {
             tx = session.beginTransaction();
-            List educationTeamList = session.createNativeQuery("SELECT * FROM education_team;")
+            List educationTeamList = session.createNativeQuery("SELECT * FROM educationTeam;")
                     .getResultList();
             for (Iterator iterator = educationTeamList.iterator(); iterator.hasNext();) {
                 Object[] obj = (Object[]) iterator.next();
