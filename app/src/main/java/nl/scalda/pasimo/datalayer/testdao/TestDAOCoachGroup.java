@@ -27,6 +27,10 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 
         CoachGroup c1 = new CoachGroup("asdasd");
         EducationTeam edu = new EducationTeam("ICOb", "ICO41A", 1);
+        CoachGroup B1 = new CoachGroup("B1");
+        CoachGroup B2 = new CoachGroup("B2");
+        
+        
 
         coachGroups.add(c1);
 
@@ -110,7 +114,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
         if (eduCoachGroups == null) {
             return coachGroups;
         } else {
-            return eduCoachGroups.get(coachGroups);
+            return coachGroups;
         }
     }
 
