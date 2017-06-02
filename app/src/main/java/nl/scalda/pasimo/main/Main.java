@@ -18,18 +18,22 @@ public class Main {
         
 
 		DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
-  }
-}
+  
 
+ 
 //}
-//for(WorkWeek bla :workweeks){
-//	System.out.println(bla);
-//}
-//     System.out.println("Workweek readall");
-//     TreeSet<WorkWeek> henk = DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
-//  System.out.println(henk.size());
-//  
-//    }
+		TreeSet<WorkWeek> workweeks = DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+
+		TreeSet<WorkWeek> henk = DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+
+for(WorkWeek bla :workweeks){
+	System.out.println(bla);
+}
+     System.out.println("Workweek readall");
+     
+  System.out.println(henk.size());
+  
+    }}
 
 
 

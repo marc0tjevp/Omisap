@@ -100,9 +100,9 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 			e.printStackTrace();
 		} finally {
 
-			System.out.println(workweeks);
-			System.out.println(workingdays);
-			System.out.println(workblocks);
+//			System.out.println(workweeks);
+//			System.out.println(workingdays);
+//			System.out.println(workblocks);
 
 			session.close();
 		}

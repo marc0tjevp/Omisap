@@ -16,7 +16,15 @@ public class TimeController extends ActionSupport {
      private TreeSet<WorkBlock> WorkBlocks = new TreeSet<>();
 //   private TreeSet<WorkWeek> workweeks = new TreeSet<>();
 private TreeSet<WorkWeek> workweeks =  DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
-    WorkingDay w = new WorkingDay(1, "Maandag");
+    public TreeSet<WorkWeek> getWorkweeks() {
+	return workweeks;
+}
+
+
+public void setWorkweeks(TreeSet<WorkWeek> workweeks) {
+	this.workweeks = workweeks;
+}
+	WorkingDay w = new WorkingDay(1, "Maandag");
 //    WorkBlock wq  = new WorkBlock(1, new PasimoTime(8, 30), new PasimoTime(10, 10));
 //    WorkBlock wq1 = new WorkBlock(2, new PasimoTime(10, 25), new PasimoTime(11, 15));
 //    WorkBlock wq2 = new WorkBlock(3, new PasimoTime(11, 25), new PasimoTime(12, 05));
@@ -38,16 +46,8 @@ private TreeSet<WorkWeek> workweeks =  DAOFactory.getTheFactory().getDAOWorkWeek
     
     public String execute() {
 //      DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
-//       DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
-//      WorkBlocks.add(wq);
-//      WorkBlocks.add(wq1);
-//      WorkBlocks.add(wq2);
-//      WorkBlocks.add(wq3);
-//      WorkBlocks.add(wq4);
-//      WorkBlocks.add(wq5);
-//      
-//      System.out.println(WorkBlocks);
-    	DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+    	workweeks =  DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+System.out.println(workweeks);
         return SUCCESS;
     }
     public String createWorkBlock(WorkBlock workblock) {
