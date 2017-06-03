@@ -8,7 +8,7 @@ import java.util.TreeSet;
 import javax.persistence.*;
 
 @Entity
-@Table(name="education_team")
+@Table(name="educationteam")
 public class EducationTeam implements Comparable<EducationTeam>{
 	
 	/**

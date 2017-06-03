@@ -17,7 +17,7 @@
       root
    </property>
    <property name="hibernate.connection.password">
-    Aardapple1
+    SlEorX5lypdeqKY9yQrO
    </property>
    <property name="hibernate.hbm2ddl.auto">
       create

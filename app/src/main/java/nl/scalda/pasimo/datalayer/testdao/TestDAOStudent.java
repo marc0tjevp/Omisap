@@ -39,4 +39,10 @@ public class TestDAOStudent implements IDAOStudent {
 		this.students = students;
 	}
 
+	@Override
+	public void createAll(Set<Student> student) {
+		students.addAll(student);
+		
+	}
+
 }

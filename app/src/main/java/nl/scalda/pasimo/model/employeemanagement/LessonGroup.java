@@ -6,7 +6,7 @@ import javax.persistence.*;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 
 @Entity
-@Table(name="lesson_group")
+@Table(name="lessongroup")
 public class LessonGroup implements Comparable<LessonGroup> {
 
 	/**
@@ -27,6 +27,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	/**
 	 * The {@link Student}'s who are in this lesson group
 	 */
+	@Transient
 	private Set<Student> students;
 
 	/**

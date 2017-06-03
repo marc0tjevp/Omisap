@@ -6,6 +6,7 @@
 package nl.scalda.pasimo.datalayer.interfaces;
 
 
+import java.util.Set;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
@@ -21,9 +22,9 @@ public interface IDAOCoachGroup {
 
     public void read(CoachGroup CoachGroup);
     
-    public TreeSet<CoachGroup> readAll();
+    public Set<CoachGroup> readAll();
     
-    public TreeSet<CoachGroup> readAllBYTeam(EducationTeam t);
+    public Set<CoachGroup> readAllBYTeam(EducationTeam t);
 
     public void update(CoachGroup coachGroup, EducationTeam edu , String oldname);
     

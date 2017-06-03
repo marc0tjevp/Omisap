@@ -8,8 +8,11 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import nl.scalda.pasimo.datalayer.CSVFactory.*;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import nl.scalda.pasimo.service.StudentService;
 
 public class StudentController extends ActionSupport {
 	
@@ -25,10 +28,10 @@ public class StudentController extends ActionSupport {
 	public String execute(){
 		return SUCCESS;
 	}
-	
+
 	public String AddStudentWithCSV(){
 		try {
-			c.readFile(csvFile,coachGroupName,lessonGroupID,cohort);
+			StudentService.getInstance().createAll(c.readFile(csvFile,coachGroupName,lessonGroupID,cohort));
 			return SUCCESS;
 		} catch (Exception e) {
 			return ERROR;

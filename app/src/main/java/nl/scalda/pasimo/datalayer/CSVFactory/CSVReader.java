@@ -69,7 +69,6 @@ public class CSVReader {
                    Student a = new Student(Integer.parseInt(student[0]), cohort, String.valueOf(student[4]), String.valueOf(student[1]), String.valueOf(student[2]), String.valueOf(student[3]), 123456789, Integer.parseInt(YearsMonthsDays[2]), null, Integer.parseInt(YearsMonthsDays[1]), Integer.parseInt(YearsMonthsDays[0]), coachGroupName, lessonGroupID);
                     students.add(a);
                     //TODO create method in IDAOStudent to add all students in one session.
-                    a.createStudent();
             }
         } catch (IOException e) {
             e.printStackTrace();
