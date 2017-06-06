@@ -7,7 +7,7 @@
 <t:layout2>
   <jsp:attribute name="content">
     <div class="container">
-      <h1>Student add</h1>
+      <h1>add Student</h1>
       <br>
       <form action="addStudent" class="" enctype="multipart/form-data" method="post" id="addStudentForm">
         <s:bean name="nl.scalda.pasimo.model.employeemanagement.Student" var="student">
@@ -20,13 +20,13 @@
           <div class="form-group row">
             <label class="col-2 col-form-label">Tussenvoegsel</label>
             <div class="col-10">
-              <s:textfield id="StudentInsertion" style="width: 50%;" class="form-control" name="Student.insertion" type="text" />
+              <s:textfield id="StudentInsertion" style="width: 50%;" class="form-control" name="student.insertion" type="text" />
             </div>
           </div>
           <div class="form-group row">
             <label class="col-2 col-form-label">Achternaam</label>
             <div class="col-10">
-              <s:textfield id="StudentLastName" style="width: 50%;" class="form-control" name="Student.lastName" type="text" />
+              <s:textfield id="StudentLastName" style="width: 50%;" class="form-control" name="student.lastName" type="text" />
             </div>
           </div>
           <div class="form-group row">
@@ -48,10 +48,11 @@
             </div>
           </div>
         </s:bean>
+        <input type="submit" value="Toevoegen">
       </form>
     </div>
   </jsp:attribute>
   <jsp:attribute name="scripts">
-  <script type="text/javascript" src="resources/js/teacher.js"></script>
+  <script type="text/javascript" src="resources/js/student.js"></script>
 </jsp:attribute>
 </t:layout2>

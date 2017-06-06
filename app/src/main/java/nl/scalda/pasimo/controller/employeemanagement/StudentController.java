@@ -8,30 +8,46 @@ import com.opensymphony.xwork2.ActionSupport;
 import nl.scalda.pasimo.datalayer.CSVFactory.*;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
+import nl.scalda.pasimo.model.employeemanagement.Student;
+import nl.scalda.pasimo.service.EducationTeamService;
 
 public class StudentController extends ActionSupport {
-	
+
 	private static final long serialVersionUID = 1L;
 	private CSVReader c = CSVReader.getInstance();
+	public Student student = new Student();
 	public TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
 	public TreeSet<CoachGroup> coachGroups = new TreeSet<>();
 	public File csvFile;
 	public int cohort;
 	public int lessonGroupID;
 	public String coachGroupName;
-	
-	public String execute(){
+
+	public String execute() {
 		return SUCCESS;
 	}
-	
-	public String AddStudentWithCSV(){
+
+	public String AddStudentWithCSV() {
 		try {
-			c.readFile(csvFile,coachGroupName,lessonGroupID,cohort);
+			c.readFile(csvFile, coachGroupName, lessonGroupID, cohort);
 			return SUCCESS;
 		} catch (Exception e) {
 			return ERROR;
 		}
+	}
+
+	public String editStudentView() {
+		return SUCCESS;
+	}
+
+	public void updateStudent() {
+	}
+
+	public String addStudent() {
+
+		return SUCCESS;
 	}
 
 	public CSVReader getC() {
@@ -75,7 +91,7 @@ public class StudentController extends ActionSupport {
 	}
 
 	public TreeSet<LessonGroup> getLessonGroups() {
-		if(lessonGroups.isEmpty()){
+		if (lessonGroups.isEmpty()) {
 			lessonGroups.addAll(DAOFactory.getTheFactory().getDAOLessonGroup().readAll());
 		}
 		return lessonGroups;
@@ -86,16 +102,15 @@ public class StudentController extends ActionSupport {
 	}
 
 	public TreeSet<CoachGroup> getCoachGroups() {
-		if(coachGroups.isEmpty()){
+		if (coachGroups.isEmpty()) {
 			coachGroups.addAll(DAOFactory.getTheFactory().getDAOCoachGroup().readAll());
 		}
-		System.out.println("the coach groups = "+coachGroups);
+		System.out.println("the coach groups = " + coachGroups);
 		return coachGroups;
 	}
 
 	public void setCoachGroups(TreeSet<CoachGroup> coachGroups) {
 		this.coachGroups = coachGroups;
 	}
-	
-}
 
+}

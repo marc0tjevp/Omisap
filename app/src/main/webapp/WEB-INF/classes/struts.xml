@@ -16,16 +16,24 @@
 			<result name="success" type="json"></result>
 		</action>
 
-		
 		<action name="addStudentPage"
 			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
 			method="execute">
 			<result name="success">/view/employeemanagement/student/addStudent.jsp
-			</result></action>
-	<!-- <action name="addStudentPage" class="nl.scalda.pasimo.controller.employeemanagement.StudentController" method="execute">
-	<result name="success">/view/employeemanagement/student/addstudent.jsp</result></action>
-	-->
-	
+			</result>
+		</action>
+
+
+
+		<action name="addStudentPage"
+			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
+			method="execute">
+			<result name="success">/view/employeemanagement/student/addStudent.jsp
+			</result>
+		</action>
+		<!-- <action name="addStudentPage" class="nl.scalda.pasimo.controller.employeemanagement.StudentController" 
+			method="execute"> <result name="success">/view/employeemanagement/student/addstudent.jsp</result></action> -->
+
 		<!-- Updating a lesson group name -->
 		<action name="lessongroup/details/updatename"
 			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupDetailsAction"
@@ -60,6 +68,18 @@
 			method="execute"> <result name="success">/index.jsp</result> </action> <action 
 			name="pag2" class="nl.scalda.pasimo.controller.MainController" method="execute"> 
 			<result name="success">/index2.jsp</result> </action> -->
+			
+		<action name="editStudent"
+			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
+			method="updateStudent">
+			<result name="success" type="redirect">studentOverview</result>
+			<result name="input" type="redirect">studentOverview</result>
+		</action>
+		<action name="editStudentView"
+			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
+			method="editStudentView">
+			<result name="success">/view/employeemanagement/student/editStudent.jsp</result>
+		</action>
 		<action name="lessongroup"
 			class="nl.scalda.pasimo.controller.employeemanagement.LessonGroupListingAction"
 			method="execute">
@@ -89,7 +109,6 @@
 			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
 			method="execute">
 			<result name="success">/view/employeemanagement/coachgroups/Coachgroups.jsp
-
 			</result>
 		</action>
 		<action name="students"
@@ -98,6 +117,7 @@
 			<result name="success">/view/employeemanagement/coachgroups/student.jsp
 			</result>
 		</action>
+
 		<action name="teacherOverview"
 			class="nl.scalda.pasimo.controller.employeemanagement.TeacherController"
 			method="readTeacher">
@@ -158,8 +178,13 @@
 		<action name="StudentOverview"
 			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
 			method="execute">
-			<result name="success">/view/employeemanagement/student/index.jsp
+			<result name="success">/view/employeemanagement/student/StudentOverview.jsp
 			</result>
+		</action>
+		<action name="addStudent"
+			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
+			method="addStudent">
+			<result name="success" type="redirect">StudentOverview</result>
 		</action>
 		<action name="educationTeam"
 			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
@@ -167,13 +192,13 @@
 			<result name="success">/view/employeemanagement/educationteam/index.jsp
 			</result>
 		</action>
-        <action name="educationTeam/create"
+		<action name="educationTeam/create"
 			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
 			method="create">
 			<result name="success">/view/employeemanagement/educationteam/create.jsp
 			</result>
 		</action>
-        <action name="educationTeam/edit"
+		<action name="educationTeam/edit"
 			class="nl.scalda.pasimo.controller.employeemanagement.EducationTeamController"
 			method="update">
 			<result name="success">/view/employeemanagement/educationteam/update.jsp
