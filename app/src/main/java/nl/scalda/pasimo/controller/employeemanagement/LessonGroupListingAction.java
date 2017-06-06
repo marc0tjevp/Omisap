@@ -48,7 +48,7 @@ public class LessonGroupListingAction extends ActionSupport {
 		if (this.coachGroupsWithLessonGroups == null) {
 			return ERROR;
 		}
-		else return SUCCESS;
+		return SUCCESS;
 	}
 
 	/**
