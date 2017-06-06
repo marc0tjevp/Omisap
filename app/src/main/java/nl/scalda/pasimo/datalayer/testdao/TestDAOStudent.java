@@ -4,6 +4,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOStudent;
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
+import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 
 public class TestDAOStudent implements IDAOStudent {
@@ -27,7 +29,7 @@ public class TestDAOStudent implements IDAOStudent {
 	}
 	
 	@Override
-	public Set<Student> readAll() {
+	public TreeSet<Student> readAll() {
 		return students;
 	}
 
@@ -38,6 +40,42 @@ public class TestDAOStudent implements IDAOStudent {
 	public void setStudents(TreeSet<Student> students) {
 		
 		this.students = students;
+	}
+
+	@Override
+	public void update(Student s) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Student s) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Student readByStudentOV(int StudentOV) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TreeSet<Student> readAllForEducationTeam(EducationTeam t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public EducationTeam getCurrentEducationTeamOfStudent(Student Student) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CoachGroup getCurrentCoachGroup(Student Student) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
