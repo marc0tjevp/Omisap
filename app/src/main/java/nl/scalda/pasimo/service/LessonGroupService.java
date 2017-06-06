@@ -63,7 +63,9 @@ public class LessonGroupService implements ILessonGroupService {
 	public TreeSet<CoachGroup> readAll() {
 		TreeSet<CoachGroup> coachGroupsWithLessonGroups = new TreeSet<>();
 
-		for (CoachGroup coachGroup : CoachGroupService.getInstance().readAll()) {
+		TreeSet<CoachGroup> allCoachGroups = CoachGroupService.getInstance().readAll();
+		
+		for (CoachGroup coachGroup : allCoachGroups) {
 			coachGroup.loadLessonGroups();
 			if (coachGroup.getLessonGroups().size() <= 0) { 
 				continue;
