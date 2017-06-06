@@ -27,7 +27,7 @@
                 background-color: #6BBAAB;    
             }
         </style>
-      <h1>Time Registration</h1>
+      <h1>School uren</h1>
       <div class="container">
 	      <div class="col-sm-12">
 	                      <div class="div-inline">

@@ -4,6 +4,6 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:layout2>
     <jsp:attribute name="content">
-        <h1>Welcome bij Pasimo</h1>
+        <h1>Welkom bij Pasimo</h1>
     </jsp:attribute>
 </t:layout2>

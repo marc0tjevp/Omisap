@@ -176,7 +176,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							&ndash;%&gt;
 						</ul></li>
 						<li class="treeview">
-                                <a href="view/timeregistration/"><i class="fa fa-clock-o"></i> <span>Schooluren</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <a href="view/timeregistration/"><i class="fa fa-user-plus"></i> <span>Schooluren</span> <i class="fa fa-angle-left pull-right"></i></a>
                             </li>
 
 					<li class="treeview"><a href="coachGroups"><i
@@ -195,7 +195,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						<ul class="treeview-menu">
 							&lt;%&ndash;
 							<li><a
-								href="<c:url value="presenceregistration"><c:param name="action" value="all"/></c:url>">Overview</a></li>
+								href="<c:url value="/Pasimo/presenceregistration"><c:param name="action" value="all"/></c:url>">Overview</a></li>
 							&ndash;%&gt;
 						</ul></li>
 						
