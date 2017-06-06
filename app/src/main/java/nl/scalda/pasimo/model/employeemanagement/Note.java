@@ -29,6 +29,7 @@ public class Note implements Comparable<Note> {
 	
 	@Column(name="lastEdit")
     private Date lastEdit;
+
     private Student assignedTo;
     private int ovNumber;
     private int employeeNumber;
@@ -36,6 +37,10 @@ public class Note implements Comparable<Note> {
     /* empty constructor */
     public Note(){
     	id = count.incrementAndGet();
+    }
+    
+    public Note(String title, String message, Teacher madeBy) {
+    	
     }
     
     public Note(int noteID,int ovNumber, String title, String message, int employeeNumber){
@@ -46,7 +51,6 @@ public class Note implements Comparable<Note> {
     }
     
     public Note(String title, String message, Student assignedTo, Teacher madeBy) {
-
         this.title = title;
         this.message = message;
         this.madeBy = madeBy;
