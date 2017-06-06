@@ -260,7 +260,8 @@
       	<tbody>
   
       <!-- TODO: zorgen dat de td appart wordne geplaatst en niet in de hele row  -->
-      <s:iterator value="workweeks">
+      <s:iterator value="WorkingDay">
+      <s:iterator value="WorkBlock">
       	<tr>	
 	      	<td class="cell-which-triggers-popup" data-toggle="modal"
 							data-target="#editModal">
@@ -293,7 +294,7 @@
         	</td>
         	</tr>
       </s:iterator>
-      
+      </s:iterator>
       </tbody>
   
       </table>
