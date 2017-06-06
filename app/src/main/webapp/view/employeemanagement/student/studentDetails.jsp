@@ -10,7 +10,7 @@
 <t:layout2>
 	<jsp:attribute name="content">
    
-    <h1>Details van <s:property value="getFullName()"/></h1>
+    <h1>Details van <b>${param.cardId}</b></h1>
   		
 		<form action="studentCheckInRegistration/studentDetails/date" class="" enctype="multipart/form-data" method="post" id="searchDate">
          <div class="form-group row">

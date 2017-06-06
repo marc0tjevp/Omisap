@@ -181,7 +181,7 @@
 			<result name="success">/view/employeemanagement/student/studentDetails.jsp
 			</result>
 		</action>
-		<action name="studentCheckInRegistration/studentDetails/date"
+		<action name="/Pasimo/studentDetails/date"
 			class="nl.scalda.pasimo.controller.employeemanagement.StudentController"
 			method="getCheckInsByDateForCardId">
 			<param name="searchDate">${searchDate}</param>

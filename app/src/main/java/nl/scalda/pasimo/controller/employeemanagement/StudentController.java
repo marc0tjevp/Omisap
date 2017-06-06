@@ -59,7 +59,7 @@ public class StudentController extends ActionSupport {
 	}
 	
 	public TreeMap<GregorianCalendar, TreeSet<CheckIn>>getCheckInsByDateForCardId(){
-		//geselecteerde seachdate uit calendar hier
+		//TODO geselecteerde seachdate uit calendar hier
 		return TestDAOCheckIn.getInstance().getCheckInsByDateForCardId(searchDate, cardId);
 	}
 	
