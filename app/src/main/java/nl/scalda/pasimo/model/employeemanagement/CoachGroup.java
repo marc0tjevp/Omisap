@@ -33,7 +33,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	/**
 	 * The {@link LessonGroups}'s who are in this CoachGroup
 	 */
-	@OneToMany
+	@Column(columnDefinition = "BLOB")
 	private Set<LessonGroup> lessonGroups = new TreeSet<>() ;
 
 	/**
