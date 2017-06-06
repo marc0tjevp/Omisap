@@ -1,33 +1,37 @@
-.button{
+.button {
 	font-size: 18px;
 	width: 100%;
-    background-color: #307096;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+	background-color: #307096;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
-
-
-.row{
+.row {
 	position: static;
-	
-	}
-	
-.panel-title{
-text-align: justify;	
-	
 }
 
-.panel panel-default{
-	width: 20000px;
+.panel-title {
+	text-align: justify;
 }
 
+.panel panel-default {
 
-.panel-body{
-	heigth: 500px;
-	width: 600px;
+	width: auto;
+}
+
+.panel-body {
+	height: xpx;
+	width: xpx;
+}
+.forgotpw{
+	cursor: pointer;
+	color: blue;
+	text-decoration: underline;
+	border: 0;
+	background-color: window;
+	float: right;
 }

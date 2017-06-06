@@ -110,9 +110,18 @@
 			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
 			method="execute">
 			<result name="success">/view/employeemanagement/coachgroups/Coachgroups.jsp
-
 			</result>
 		</action>
+		<action name="login"
+				class="nl.scalda.pasimo.controller.employeemanagement.LoginController"	
+				method="login">
+					<result name="success" type="redirect">CoachGroup</result>
+				<result name="success">/view/employeemanagement/coachgroups/coachgroup.jsp</result>
+			
+		
+		</action>
+		
+		
 		<action name="students"
 			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
 			method="execute">
