@@ -158,7 +158,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </ul>
                             </li>--%>
 					<li class="treeview"><a href="teacherOverview"><i
-							class="fa fa-user-plus"></i> <span>Teachers</span> <i
+							class="fa fa-user-plus"></i> <span>Docenten</span> <i
 							class="fa fa-angle-left pull-right"></i></a>
 						<ul class="treeview-menu">
 							&lt;%&ndash;
@@ -167,7 +167,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							&ndash;%&gt;
 						</ul></li>
 					<li class="treeview"><a href="StudentOverview"><i
-							class="fa fa-user-plus"></i> <span>Students</span> <i
+							class="fa fa-user-plus"></i> <span>Studenten</span> <i
 							class="fa fa-angle-left pull-right"></i></a>
 						<ul class="treeview-menu">
 							&lt;%&ndash;
@@ -177,7 +177,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						</ul></li>
 
 					<li class="treeview"><a href="coachGroups"><i
-							class="fa fa-user-plus"></i> <span>CoachGroups</span> <i
+							class="fa fa-user-plus"></i> <span>Coach groepen</span> <i
 							class="fa fa-angle-left pull-right"></i></a>
 						<ul class="treeview-menu">
 							&lt;%&ndash;
@@ -197,7 +197,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						</ul></li>
 						
 						<li class="treeview"><a href="educationTeam"><i
-							class="fa fa-user-plus"></i> <span>educationTeam</span> <i
+							class="fa fa-user-plus"></i> <span>Opleidings Teams</span> <i
 							class="fa fa-angle-left pull-right"></i></a>
 						<ul class="treeview-menu">
 							&lt;%&ndash;
