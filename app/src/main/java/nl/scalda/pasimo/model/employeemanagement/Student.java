@@ -1,12 +1,16 @@
+
 package nl.scalda.pasimo.model.employeemanagement;
-import java.util.TreeSet;
+
 import javax.persistence.*;
+import java.util.TreeSet;
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.service.CoachGroupService;
 import nl.scalda.pasimo.service.LessonGroupService;
 
 @Entity
 @Table(name="student")
+@DiscriminatorValue(value="Student")
 public class Student extends Person {
 	private static final long serialVersionUID = 1L;
 	private int noteListID;
@@ -20,18 +24,23 @@ public class Student extends Person {
 	private LessonGroup lessonGroup;
 	@ManyToOne
 	private CoachGroup coachGroup;
+	
+	public Student(int bsn){
+		super(bsn);
+	}
 
-	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
+	public Student(int bsn, int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
 			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth) {
-		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
+		super(bsn, email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.studentOV = studentOV;
 		this.cohort = cohort;
 		this.cardID = cardID;
 		//this.coachGroupID = coachGroupID;
 	}
-	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
+	
+	public Student(int bsn, int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
 			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName, int lessonGroupID) {
-			super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
+			super(bsn, email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 			this.studentOV = studentOV;
 			this.cohort = cohort;
 			this.cardID = cardID;
@@ -40,9 +49,6 @@ public class Student extends Person {
 			//this is null because coachGroupService readcoachgroup does use hardcoded coachgroups.
 			this.coachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupName);
 		}
-	public Student(String email) {
-		super(email);
-	}
 	
 	/**
 	 * full constructor with coachgroup id.
@@ -60,9 +66,9 @@ public class Student extends Person {
 	 * @param dayOfBirth
 	 * @param coachGroupID
 	 */
-	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
+	public Student(int bsn, int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
 		int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName) {
-		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
+		super(bsn, email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.studentOV = studentOV;
 		this.cohort = cohort;
 		this.cardID = cardID;

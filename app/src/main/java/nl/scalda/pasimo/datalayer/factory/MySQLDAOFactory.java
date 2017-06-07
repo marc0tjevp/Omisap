@@ -44,6 +44,7 @@ public class MySQLDAOFactory extends DAOFactory {
         return MYSQLDAOLessonGroup.getInstance();
     }
 
+    //FIXME missing class: MYSQLDAONote
     @Override
     public IDAONote getDAONote() {
       return MYSQLDAONote.getInstance();

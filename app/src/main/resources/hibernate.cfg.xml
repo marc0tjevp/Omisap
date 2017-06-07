@@ -20,7 +20,7 @@
     SlEorX5lypdeqKY9yQrO
    </property>
    <property name="hibernate.hbm2ddl.auto">
-      create
+      update
    </property>
    <mapping class="nl.scalda.pasimo.model.employeemanagement.Person" />
    <mapping class="nl.scalda.pasimo.model.employeemanagement.EducationTeam" />

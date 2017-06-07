@@ -2,7 +2,7 @@ package nl.scalda.pasimo.model.employeemanagement;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
-
+import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
 import java.util.Set;
 import java.util.TreeSet;
 import javax.persistence.*;
@@ -13,6 +13,13 @@ public class EducationTeam implements Comparable<EducationTeam>{
 	
 	/**
      * 
+=======
+@Table(name = "educationTeam")
+public class EducationTeam implements Comparable<EducationTeam>, Serializable {
+
+    /**
+     *
+>>>>>>> develop
      * Id of the EducationTeam
      */
 	@Id
@@ -21,8 +28,9 @@ public class EducationTeam implements Comparable<EducationTeam>{
 	@OneToMany(cascade=CascadeType.ALL, targetEntity=CoachGroup.class)
     @JoinColumn(name="id")
 	private Set<CoachGroup> coachGroups = new TreeSet<>();
-    private TreeSet<Teacher> teachers = new TreeSet<>();
-
+	@ManyToMany(cascade=CascadeType.ALL, targetEntity=Teacher.class, fetch=FetchType.EAGER)
+	@JoinColumn(name="bsn")
+    private Set<Teacher> teachers = new TreeSet<>();
     /**
      * Abbreviation of the EducationTeam; e.g. AO
      */
@@ -62,9 +70,13 @@ public class EducationTeam implements Comparable<EducationTeam>{
      * @param cg
      * @param oldname
      */
-    public void updateCoachGroup(CoachGroup cg , String oldname){
-    	MYSQLDAOCoachGroup.getInstance().update(cg, this, oldname);
-    	
+//<<<<<<< HEAD
+//    public void updateCoachGroup(CoachGroup cg , String oldname){
+//    	MYSQLDAOCoachGroup.getInstance().update(cg, this, oldname);
+//    	
+//=======
+    public void updateCoachGroup(CoachGroup cg, String oldname) {
+        DAOFactory.getTheFactory().getDAOCoachGroup().update(cg,this, oldname);
     }
     
     
@@ -97,10 +109,9 @@ public class EducationTeam implements Comparable<EducationTeam>{
         if (teachers.remove(t)) {
             DAOFactory.getTheFactory().getDAOEducationTeam().deleteTeacherFromEducationTeam(t, this);
         }
-
     }
 
-    public TreeSet<Teacher> getTeachers() {
+    public Set<Teacher> getTeachers() {
         return teachers;
     }
 
@@ -172,8 +183,32 @@ public class EducationTeam implements Comparable<EducationTeam>{
 	}
 	
 	public void loadCoachGroups(){
-		this.coachGroups = 
-				DAOFactory.getTheFactory().getDAOCoachGroup().readAllBYTeam(this);
+		this.coachGroups = DAOFactory.getTheFactory().getDAOCoachGroup().readAllBYTeam(this);
 	}
-	
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 17 * hash + this.id;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final EducationTeam other = (EducationTeam) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        return true;
+    }
+
 }

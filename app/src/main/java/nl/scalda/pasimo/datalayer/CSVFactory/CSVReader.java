@@ -66,7 +66,8 @@ public class CSVReader {
             while ((line = br.readLine()) != null) {
                 String[] student = line.split(cvsSplitBy);
                 String[] YearsMonthsDays = student[5].split(date);
-                   Student a = new Student(Integer.parseInt(student[0]), cohort, String.valueOf(student[4]), String.valueOf(student[1]), String.valueOf(student[2]), String.valueOf(student[3]), 123456789, Integer.parseInt(YearsMonthsDays[2]), null, Integer.parseInt(YearsMonthsDays[1]), Integer.parseInt(YearsMonthsDays[0]), coachGroupName, lessonGroupID);
+                   //hardcoded bsn number needed to be changed before merge with develop!!!
+                   Student a = new Student(123,Integer.parseInt(student[0]), cohort, String.valueOf(student[4]), String.valueOf(student[1]), String.valueOf(student[2]), String.valueOf(student[3]), 123456789, Integer.parseInt(YearsMonthsDays[2]), null, Integer.parseInt(YearsMonthsDays[1]), Integer.parseInt(YearsMonthsDays[0]), coachGroupName, lessonGroupID);
                     students.add(a);
                     //TODO create method in IDAOStudent to add all students in one session.
             }
