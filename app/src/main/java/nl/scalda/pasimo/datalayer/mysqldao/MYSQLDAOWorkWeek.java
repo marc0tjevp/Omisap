@@ -16,14 +16,22 @@ import nl.scalda.pasimo.model.timeregistration.WorkBlock;
 import nl.scalda.pasimo.model.timeregistration.WorkWeek;
 import nl.scalda.pasimo.model.timeregistration.WorkingDay;
 
+/**
+ * @author Wesley
+ *
+ */
 public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 
 	private SessionFactory factory;
 	private static MYSQLDAOWorkWeek instance = null;
+	TreeSet<WorkWeek> workweeks = new TreeSet<>();
 
+	
 	public MYSQLDAOWorkWeek() {
 		initialiseFactory();
 	}
+
+
 
 	private void initialiseFactory() {
 		try {
@@ -52,9 +60,7 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 	public TreeSet<WorkWeek> readAll() {
 		Session session = factory.openSession();
 		Transaction tx = null;
-		TreeSet<WorkWeek> workweeks = new TreeSet<>();
-		TreeSet<WorkingDay> workingdays = new TreeSet<>();
-		TreeSet<WorkBlock> workblocks = new TreeSet<>();
+
 
 		try {
 			tx = session.beginTransaction();
@@ -72,7 +78,7 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 					Object[] ob = (Object[]) it.next();
 					WorkingDay workingday = new WorkingDay(Integer.parseInt(String.valueOf(ob[1])),
 							String.valueOf(ob[2]));
-					workingdays.add(workingday);
+					workweek.getWorkingdays().add(workingday);
 					for (Iterator i = weekList.iterator(); i.hasNext();) {
 						Object[] obj = (Object[]) i.next();
 
@@ -87,7 +93,7 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 						WorkBlock workblock = new WorkBlock(Integer.parseInt(String.valueOf(obj[4])), 
 								pt,
 								pt1);
-						workblocks.add(workblock);
+						workingday.getWorkblocks().add(workblock);
 					}
 
 				}
@@ -100,7 +106,7 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 			e.printStackTrace();
 		} finally {
 
-//			System.out.println(workweeks);
+			System.out.println(workweeks);
 //			System.out.println(workingdays);
 //			System.out.println(workblocks);
 

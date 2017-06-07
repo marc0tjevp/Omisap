@@ -7,10 +7,10 @@ import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 
 public class WorkWeek implements Comparable<WorkWeek> {
 	
-	
+	 
 	private static WorkWeek instance = null;
 	private int id;
-	private Set <WorkingDay> workingdays;
+	private TreeSet <WorkingDay> workingdays;
 
 	
 	public WorkWeek(int id){
@@ -24,6 +24,16 @@ public class WorkWeek implements Comparable<WorkWeek> {
 			instance = new WorkWeek(1);
 		}
 		return instance;
+	}
+
+
+	public TreeSet<WorkingDay> getWorkingdays() {
+		return workingdays;
+	}
+
+
+	public void setWorkingdays(TreeSet<WorkingDay> workingdays) {
+		this.workingdays = workingdays;
 	}
 
 

@@ -236,8 +236,10 @@
                      <span class="caret"></span>
 					</button>
                      <ul class="dropdown-menu">
-                        <li><a href="http://localhost:8080/Pasimo/TimeRegistration">Applicatie Ontwikkeling</a></li>
-                        <li><a href="http://localhost:8080/Pasimo/TimeRegistrationSSC">SSC</a></li>
+                        <li><a
+							href="http://localhost:8080/Pasimo/TimeRegistration">Applicatie Ontwikkeling</a></li>
+                        <li><a
+							href="http://localhost:8080/Pasimo/TimeRegistrationSSC">SSC</a></li>
                      </ul>
                   </div>
 	      </div>
@@ -260,41 +262,48 @@
       	<tbody>
   
       <!-- TODO: zorgen dat de td appart wordne geplaatst en niet in de hele row  -->
-      <s:iterator value="WorkingDay">
-      <s:iterator value="WorkBlock">
-      	<tr>	
+      <s:iterator var="ww" value="workweeks">
+      ${ww.workingdays}
+      <s:iterator var="wd" value="%{ww.workingdays}">
+	  ${wd.name}
+      <s:iterator value="%wd.workblocks">
+      3
+    </s:iterator>
+  </s:iterator>
+ <!--       	<tr>	
 	      	<td class="cell-which-triggers-popup" data-toggle="modal"
-							data-target="#editModal">
+										data-target="#editModal">
 	                     <div class="well well-sm">
 						<s:property value="start" /> - <s:property value="end" />
 					</div>
         	</td>
 	      	<td class="cell-which-triggers-popup" data-toggle="modal"
-							data-target="#editModal">
+										data-target="#editModal">
 	                     <div class="well well-sm">
 						<s:property value="start" /> - <s:property value="end" />
 					</div>
         	</td>
-               		      	<td class="cell-which-triggers-popup" data-toggle="modal"
-							data-target="#editModal">
+               		      	<td class="cell-which-triggers-popup"
+										data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">
-						<s:property value="id" /> - <s:property value="end" />
+						<s:property value="start" /> - <s:property value="end" />
 					</div>
-        		      	<td class="cell-which-triggers-popup" data-toggle="modal"
-							data-target="#editModal">
+        		      	
+									<td class="cell-which-triggers-popup" data-toggle="modal"
+										data-target="#editModal">
 	                     <div class="well well-sm">
 						<s:property value="start" /> - <s:property value="end" />
 					</div>
         	</td>
-              		      	<td class="cell-which-triggers-popup" data-toggle="modal"
-							data-target="#editModal">
+              		      	<td class="cell-which-triggers-popup"
+										data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">
 						<s:property value="start" /> - <s:property value="end" />
 					</div>
         	</td>
-        	</tr>
+        	</tr>-->
       </s:iterator>
-      </s:iterator>
+      
       </tbody>
   
       </table>

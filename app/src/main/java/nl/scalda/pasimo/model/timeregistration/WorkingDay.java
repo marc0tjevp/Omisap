@@ -19,7 +19,7 @@ public class WorkingDay implements Comparable<WorkingDay> {
 
 	private String oldName;
 	private String name;
-	private Set<WorkBlock> workBlocks;
+	private TreeSet<WorkBlock> workblocks;
 	private int workingdayID;
 
 	public WorkingDay() {
@@ -31,9 +31,9 @@ public class WorkingDay implements Comparable<WorkingDay> {
 
 	}
 
-	public WorkingDay(int workingdayID, String name, Set<WorkBlock> workBlocks) {
+	public WorkingDay(int workingdayID, String name, TreeSet<WorkBlock> workblocks) {
 		this.name = name;
-		this.workBlocks = workBlocks;
+		this.workblocks = workblocks;
 		this.workingdayID = workingdayID;
 	} // adds
 		// an
@@ -43,14 +43,14 @@ public class WorkingDay implements Comparable<WorkingDay> {
 		// workingday
 
 	public void addWorkBlock(WorkBlock workblock) {
-		this.workBlocks.add(workblock);
+		this.workblocks.add(workblock);
 //		DAOFactory.getTheFactory().getDAOWorkBlock().create(workblock);
 	} // deletes
 		// an
 		// workblock
 
 	public void deleteWorkBlock(WorkBlock workblock) {
-		this.workBlocks.remove(workblock);
+		this.workblocks.remove(workblock);
 
 		DAOFactory.getTheFactory().getDAOWorkBlock().delete(workblock);
 	} // updates
@@ -74,12 +74,12 @@ public class WorkingDay implements Comparable<WorkingDay> {
 		this.name = name;
 	}
 
-	public Set<WorkBlock> getWorkBlocks() {
-		return workBlocks;
+	public Set<WorkBlock> getWorkblocks() {
+		return workblocks;
 	}
 
-	public void setWorkBlocks(Set<WorkBlock> workBlocks) {
-		this.workBlocks = workBlocks;
+	public void setWorkblocks(TreeSet<WorkBlock> workblocks) {
+		this.workblocks = workblocks;
 	}
 
 	public String getOldName() {
@@ -92,7 +92,7 @@ public class WorkingDay implements Comparable<WorkingDay> {
 
 	@Override
 	public String toString() {
-		return "WorkingDay{" + "id='" + workingdayID + '\''  +  "name='" + name + '\'' + "workBlocks='" + workBlocks + '\'' + '}';
+		return "WorkingDay{" + "id='" + workingdayID + '\''  +  "name='" + name + '\'' + "workBlocks='" + workblocks + '\'' + '}';
 	}
 
 	@Override
