@@ -41,12 +41,17 @@ public class MYSQLDAOCheckIn implements IDAOCheckIn {
 		 for(Iterator iterator = checkInList.iterator();iterator.hasNext();){
 			 Object[] obj = (Object[]) iterator.next();
 			 
+			   String dateString = String.valueOf(obj[1]);
+			   SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			   GregorianCalendar dt = new GregorianCalendar();
+			   dt.setTime(sdf.parse(dateString));
+			 
 			 CheckIn checkin = new CheckIn(
-					 0, 
-					 0, 
-					 0, 
-					 0, 
-					 false);
+					 Integer.parseInt(String.valueOf(obj[0])), 		//logID
+					 0, 		//hourOfCheckIn
+					 0, 		//minuteOfCheckIn
+					 0, 		//secondOfCheckIn
+					 false); 	//isCheckIn
 			 Checkin.add(checkin);
 		   }
 		   tx.commit();
