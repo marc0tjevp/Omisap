@@ -29,20 +29,6 @@ public class Student extends Person {
 		this.cardID = cardID;
 		//this.coachGroupID = coachGroupID;
 	}
-	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
-			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName, int lessonGroupID) {
-			super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
-			this.studentOV = studentOV;
-			this.cohort = cohort;
-			this.cardID = cardID;
-			this.lessonGroup = LessonGroupService.getInstance().read(lessonGroupID);
-			lessonGroup.addStudent(this);
-			//this is null because coachGroupService readcoachgroup does use hardcoded coachgroups.
-			this.coachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupName);
-		}
-	public Student(String email) {
-		super(email);
-	}
 	
 	/**
 	 * full constructor with coachgroup id.
@@ -60,15 +46,7 @@ public class Student extends Person {
 	 * @param dayOfBirth
 	 * @param coachGroupID
 	 */
-	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
-		int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName) {
-		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
-		this.studentOV = studentOV;
-		this.cohort = cohort;
-		this.cardID = cardID;
-		//this is null because coachGroupService readcoachgroup does use hardcoded coachgroups.
-		this.coachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupName);
-	}
+	
 
 	public void createStudent(){
 		DAOFactory.getTheFactory().getDAOStudent().create(this);
@@ -150,8 +128,8 @@ public class Student extends Person {
 	
 	@Override
 	public String toString() {
-		return "Student [noteList=" + noteList + ", lessonGroup=" + lessonGroup.getName() + ", studentOV=" + studentOV
-				+ ", cohort=" + cohort + ", coachGroup=" + coachGroup.getName()+ "]";
+		return "Student [studentOV=" + studentOV
+				+ ", cohort=" + cohort + "]";
 	}
 
 }

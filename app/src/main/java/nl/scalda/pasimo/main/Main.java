@@ -9,6 +9,7 @@ import nl.scalda.pasimo.datalayer.testdao.TestDAOEducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
+import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.service.CoachGroupService;
 import nl.scalda.pasimo.service.EducationTeamService;
 
@@ -16,8 +17,17 @@ public class Main {
 
 	public static void main(String args[]) {
 
+		
+		
+		
 		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 		Teacher teacher = new Teacher("han", 215950, "im@student.nl");
+	
+		Student a = new Student(56780, 0, null, null, null, null, 0, 0, null, 0, 0);
+		a.toString();
+		
+		
+		
 		CoachGroup cg = new CoachGroup("abc", teacher);
 		CoachGroup bla = new CoachGroup("abc");
 		EducationTeam ed = new EducationTeam("appy", "ICOAO", 1);
