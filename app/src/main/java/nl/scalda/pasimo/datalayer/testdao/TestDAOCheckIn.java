@@ -59,17 +59,24 @@ public class TestDAOCheckIn implements IDAOCheckIn{
 		for(CheckIn c : allCheckIns)
 		{
 			//kijk of datum van de checkin gelijk is aan de searchdate
-			if(c.getDate().equals(searchDate))
+			if(c.getFormattedDate().contentEquals(formatSearchDate(searchDate)))
 			{
-				//zo ja voeg de checkin toe aan de Treeset<ChecKin>
+				//zo ja voeg de checkin toe aan de Treeset<CheckIn>
+				System.out.println("CheckIn added to selectedCheckIns");
 				selectedCheckIns.add(c);
 			}
 			dateCheckins.put(searchDate, selectedCheckIns);
 		}
-		System.out.println(dateCheckins);
 		return dateCheckins;	
 	}
 	
+	public String formatSearchDate(GregorianCalendar date) {
+
+		return String.valueOf(date.get(GregorianCalendar.DAY_OF_MONTH)) + "-"
+				+ String.valueOf(date.get(GregorianCalendar.MONTH)) + "-"
+				+ String.valueOf(date.get(GregorianCalendar.YEAR));
+	}
+
 	
 	public void add(CheckIn c){
 		checkIn.add(c);
@@ -78,15 +85,15 @@ public class TestDAOCheckIn implements IDAOCheckIn{
 	public void addTestData(){
 		if(checkIn.isEmpty()){	
 			
-		CheckIn c = new CheckIn(0, "211543", 2017, 06, 06, 8, 30, 43);
-		CheckIn d = new CheckIn(0, "211543", 2017, 06, 06, 12, 06, 11);
-		CheckIn e = new CheckIn(0, "211543", 2017, 06, 06, 12, 35, 43);
-		CheckIn f = new CheckIn(0, "211543", 2017, 06, 06, 14, 15, 11);
+		CheckIn c = new CheckIn(0, "211543", 2017, 06, 07, 8, 30, 43);
+		CheckIn d = new CheckIn(0, "211543", 2017, 06, 07, 12, 06, 11);
+		CheckIn e = new CheckIn(0, "211543", 2017, 06, 07, 12, 35, 43);
+		CheckIn f = new CheckIn(0, "211543", 2017, 06, 07, 14, 15, 11);
 		
-		CheckIn y = new CheckIn(0, "211544", 2017, 06, 06, 8, 29, 43);
-		CheckIn u = new CheckIn(0, "211544", 2017, 06, 06, 12, 05, 11);
-		CheckIn i = new CheckIn(0, "211544", 2017, 06, 06, 12, 37, 43);
-		CheckIn o = new CheckIn(0, "211544", 2017, 06, 06, 14, 13, 11);
+		CheckIn y = new CheckIn(0, "211544", 2017, 06, 07, 8, 29, 43);
+		CheckIn u = new CheckIn(0, "211544", 2017, 06, 07, 12, 05, 11);
+		CheckIn i = new CheckIn(0, "211544", 2017, 06, 07, 12, 37, 43);
+		CheckIn o = new CheckIn(0, "211544", 2017, 06, 07, 14, 13, 11);
 		
 		checkIn.add(f);
 		checkIn.add(e);

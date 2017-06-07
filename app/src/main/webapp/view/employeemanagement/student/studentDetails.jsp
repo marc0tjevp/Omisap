@@ -12,7 +12,7 @@
    
     <h1>Details van <b>${param.cardId}</b></h1>
   		
-		<form action="studentCheckInRegistration/studentDetails/date" class="" enctype="multipart/form-data" method="post" id="searchDate">
+		<form action="/Pasimo/studentCheckInRegistration/studentDetails/date?cardId=${param.cardId}" class="" enctype="multipart/form-data" method="post" id="searchDate">
          <div class="form-group row">
             <label class="col-2 col-form-label">Selecteer een datum:</label>
             <div class="col-10">

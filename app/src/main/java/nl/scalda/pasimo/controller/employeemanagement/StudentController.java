@@ -1,11 +1,15 @@
 package nl.scalda.pasimo.controller.employeemanagement;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+
+import org.apache.http.HttpRequest;
+
 import com.opensymphony.xwork2.ActionSupport;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.presenceregistration.CheckIn;
@@ -26,7 +30,7 @@ public class StudentController extends ActionSupport {
 	public TreeSet<CoachGroup> coachGroups = new TreeSet<>();
 	public TreeSet<CheckIn>checkInsOfStudent = new TreeSet<>();
 	public TreeSet<CheckIn>checkInsByDate = new TreeSet<>();
-	public TreeSet<CheckIn> studentCheckInHistory = new TreeSet<>(Collections.reverseOrder());
+	public TreeSet<CheckIn>studentCheckInHistory = new TreeSet<>(Collections.reverseOrder());
 	public Set<Student>allStudents = new TreeSet<>();
 	public File csvFile;
 	public int cohort;
@@ -58,10 +62,27 @@ public class StudentController extends ActionSupport {
 
 	}
 	
+	public String getStudentCheckInsForDate(){
+		//TODO add key(searchdate) and value(TreeMap<CheckIn>) to studentCheckInHistory
+		try{
+			TreeSet<CheckIn> check = getCheckInsByDate();
+		
+			studentCheckInHistory.add((CheckIn) getCheckInsByDateForCardId().values());
+			System.out.println(studentCheckInHistory);
+			}
+		catch(Exception e){
+			e.printStackTrace();
+			return ERROR;
+		}
+		
+		return SUCCESS;
+	}
+	
 	public TreeMap<GregorianCalendar, TreeSet<CheckIn>>getCheckInsByDateForCardId(){
-		//TODO geselecteerde seachdate uit calendar hier
+		
 		return TestDAOCheckIn.getInstance().getCheckInsByDateForCardId(searchDate, cardId);
 	}
+	
 	
 	public String AddStudentWithCSV(){
 		try {
