@@ -1,4 +1,4 @@
-package nl.scalda.pasimo.controller.employeemanagement;
+package nl.scalda.pasimo.controller.security;
 
 import com.opensymphony.xwork2.ActionSupport;
 
