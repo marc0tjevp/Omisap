@@ -36,7 +36,6 @@ public class NoteController extends ActionSupport {
 			System.out.println("ID: " + n.getId());
 			System.out.println("Notelist size: " + noteList.size());
 			System.out.println(n.getCreationDate());
-			test
 		}
 		return SUCCESS;
 	}
@@ -74,12 +73,14 @@ public class NoteController extends ActionSupport {
 		note = teacher.readNoteById(id);
 		noteList.add(note);
 		for(Note n : getNoteList()){
+			if(n.getId() == note.getId()){
 			System.out.println("notedit2");
-			System.out.println("title : " + note.getTitle());
 			n.setTitle(note.getTitle());
-			System.out.println("title : " +  n.getTitle());
+			System.out.println(note.getTitle());
+			System.out.println(n.getTitle());
 			n.setMessage(note.getMessage());
-			teacher.editNote(note);
+			teacher.editNote(n);
+			}
 		}
 	
 		return SUCCESS;
