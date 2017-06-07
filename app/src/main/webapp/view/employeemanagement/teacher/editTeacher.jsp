@@ -28,15 +28,9 @@
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-2 col-form-label">Email</label>
-          <div class="col-10">
-            <s:textfield id="teacherEmail" style="width: 50%;" class="form-control" name="teacher.email" type="text" />
-          </div>
-        </div>
-        <div class="form-group row">
           <label class="col-2 col-form-label">Kaartnummer</label>
           <div class="col-10">
-            <s:textfield id="teacherCardID" style="width: 50%;" class="form-control" name="teacher.cardID" type="text" />
+            <s:textfield id="teacherCardID" style="width: 50%;" class="form-control" name="teacher.cardID" type="number" />
           </div>
         </div>
         <s:textfield id="employeeNumber" style="width: 0%; display: none" class="form-control" name="teacher.employeeNumber" type="hidden" />
