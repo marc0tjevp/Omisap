@@ -272,31 +272,31 @@
   </s:iterator>
  <!--       	<tr>	
 	      	<td class="cell-which-triggers-popup" data-toggle="modal"
-										data-target="#editModal">
+											data-target="#editModal">
 	                     <div class="well well-sm">
 						<s:property value="start" /> - <s:property value="end" />
 					</div>
         	</td>
 	      	<td class="cell-which-triggers-popup" data-toggle="modal"
-										data-target="#editModal">
+											data-target="#editModal">
 	                     <div class="well well-sm">
 						<s:property value="start" /> - <s:property value="end" />
 					</div>
         	</td>
                		      	<td class="cell-which-triggers-popup"
-										data-toggle="modal" data-target="#editModal">
+											data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">
 						<s:property value="start" /> - <s:property value="end" />
 					</div>
         		      	
-									<td class="cell-which-triggers-popup" data-toggle="modal"
-										data-target="#editModal">
+										<td class="cell-which-triggers-popup" data-toggle="modal"
+											data-target="#editModal">
 	                     <div class="well well-sm">
 						<s:property value="start" /> - <s:property value="end" />
 					</div>
         	</td>
               		      	<td class="cell-which-triggers-popup"
-										data-toggle="modal" data-target="#editModal">
+											data-toggle="modal" data-target="#editModal">
 	                     <div class="well well-sm">
 						<s:property value="start" /> - <s:property value="end" />
 					</div>
