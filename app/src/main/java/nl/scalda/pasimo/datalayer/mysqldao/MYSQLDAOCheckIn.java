@@ -31,8 +31,34 @@ public class MYSQLDAOCheckIn implements IDAOCheckIn {
 	
 	@Override
 	public TreeSet<CheckIn> readAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = factory.openSession();
+		Transaction tx = null;
+		TreeSet<CheckIn> Checkin = new TreeSet<>();
+		try {
+		   tx = session.beginTransaction();
+		 List checkInList = session.createNativeQuery("SELECT c.cardID, c.date, p.email, p.firstName FROM card_log AS c INNER JOIN person AS p ON c.cardID = p.card_log_cardID INNER JOIN teacher AS t ON p.email = t.person_email;").getResultList();
+
+		 for(Iterator iterator = checkInList.iterator();iterator.hasNext();){
+			 Object[] obj = (Object[]) iterator.next();
+			 
+			 CheckIn checkin = new CheckIn(
+					 0, 
+					 0, 
+					 0, 
+					 0, 
+					 false);
+			 Checkin.add(checkin);
+		   }
+		   tx.commit();
+		}
+		catch (Exception e) {
+		   if (tx!=null) tx.rollback();
+		   e.printStackTrace(); 
+		}finally {
+		   session.close();
+		}
+		
+		return Checkin;
 	}
 
 

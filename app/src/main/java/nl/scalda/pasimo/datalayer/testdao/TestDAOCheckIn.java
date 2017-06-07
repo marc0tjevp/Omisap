@@ -17,21 +17,11 @@ public class TestDAOCheckIn implements IDAOCheckIn {
 	
 	private TestDAOCheckIn(){
 		
-//	    Person a = new Person(100, "Bram@scalda.nl", "Bram");
-//	    Person b = new Person(101, "Rens@scalda.nl", "Rens");
-//	    Person c = new Person(102, "Max@scalda.nl", "Max");
-//	    Person d = new Person(103, "Gino@scalda.nl", "Gino");
-//	    Person e = new Person(104, "Dragan@scalda.nl", "Dragan");
-//	    Person f = new Person(105, "Jordy@scalda.nl", "Jordy");
-//
-//	    cardLogs.add(a);
-//	    cardLogs.add(b);
-//	    cardLogs.add(c);
-//	    cardLogs.add(d);
-//	    cardLogs.add(e);
-//	    cardLogs.add(f);
+
+		//CheckIn(logID, hourOfCheckIn, minuteOfCheckIn, secondOfCheckIn, isCheckIn)
 		CheckIn a = new CheckIn(10, 5, 55, 55, true);
 		cardLogs.add(a);
+
 
 	}
 	
