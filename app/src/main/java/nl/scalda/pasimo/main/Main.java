@@ -19,7 +19,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 	
-	System.out.println(TestDAOFactory.getTheFactory().getDAOCheckIn().readAll());
+	System.out.println(TestDAOCheckIn.getInstance().read(10));
 	}
 
 }

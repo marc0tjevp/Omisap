@@ -2,7 +2,6 @@ package nl.scalda.pasimo.model.presenceregistration;
 
 import java.util.GregorianCalendar;
 
-import nl.scalda.pasimo.model.employeemanagement.Person;
 
 public class CheckIn implements Comparable<CheckIn> {
 
@@ -10,9 +9,11 @@ public class CheckIn implements Comparable<CheckIn> {
 	private GregorianCalendar date;
 	private boolean isCheckIn;
 	
-	public CheckIn(GregorianCalendar date, int logID, boolean isCheckIn){
+	public CheckIn(int logID, int hourOfCheckIn, int minuteOfCheckIn, int secondOfCheckIn, boolean isCheckIn){
 		this.setLogID(logID);
-		this.setDate(date);
+		GregorianCalendar gc = new GregorianCalendar();
+		gc.set(hourOfCheckIn, minuteOfCheckIn, secondOfCheckIn);
+		this.date = gc;
 		this.setIsCheckIn(isCheckIn);
 	}
 	

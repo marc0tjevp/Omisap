@@ -13,6 +13,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCheckIn;
+import nl.scalda.pasimo.model.employeemanagement.Note;
 import nl.scalda.pasimo.model.employeemanagement.Person;
 import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 
@@ -29,7 +30,20 @@ public class MYSQLDAOCheckIn implements IDAOCheckIn {
 	
 	
 	@Override
-	public TreeSet<Person> readAll() {
+	public TreeSet<CheckIn> readAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
+
+
+
+
+	@Override
+	public CheckIn read(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

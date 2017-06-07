@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="nl.scalda.pasimo.model.presenceregistration.CheckIn" table="CheckIn">
+      <meta attribute="class-description">
+         This class contains the cardlogs. 
+      </meta>
+      <id name="cardLogID" type="int" column="cardLogID">
+      </id>
+      <property name="cardID" column="cardID" type="string"/>
+      <property name="date" column="date" type="calendar"/>
+   </class>
+</hibernate-mapping>
