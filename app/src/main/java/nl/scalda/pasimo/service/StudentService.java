@@ -28,6 +28,10 @@ public class StudentService {
 		
 	}
 	
+	public void addStudentTestData(){
+	TestDAOStudent.getInstance().addStudentTestData();
+	}
+	
 	public Set<Student> getAllStudents(){
 		return TestDAOStudent.getInstance().readAll();
 	}

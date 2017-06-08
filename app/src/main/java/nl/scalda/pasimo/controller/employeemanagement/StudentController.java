@@ -13,6 +13,7 @@ import org.apache.http.HttpRequest;
 import com.opensymphony.xwork2.ActionSupport;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.model.presenceregistration.CheckIn;
+import nl.scalda.pasimo.service.CheckInService;
 import nl.scalda.pasimo.service.StudentService;
 
 import nl.scalda.pasimo.datalayer.CSVFactory.*;
@@ -51,9 +52,9 @@ public class StudentController extends ActionSupport {
 	
 	public String getDailyCheckInsForStudents(){
 		//Haal per student voor hun cardID alle checkIns op en voeg deze toe aan de ArrayList checkins van de student zelf. 	
-		TestDAOStudent.getInstance().addStudentTestData();
-		TestDAOCheckIn.getInstance().addTestData();
-		allStudents = TestDAOStudent.getInstance().readAll();
+		StudentService.getInstance().addStudentTestData();
+		CheckInService.getInstance().addCheckInTestData();
+		allStudents = StudentService.getInstance().getAllStudents();
 	
 		for(Student s : allStudents){		
 			s.setCheckInsOfToday(StudentService.getInstance().getCheckInsOfToday(s));
@@ -80,7 +81,7 @@ public class StudentController extends ActionSupport {
 	
 	public TreeMap<GregorianCalendar, TreeSet<CheckIn>>getCheckInsByDateForCardId(){
 		
-		return TestDAOCheckIn.getInstance().getCheckInsByDateForCardId(searchDate, cardId);
+		return CheckInService.getInstance().getCheckInsByDateForCardId(searchDate, cardId);
 	}
 	
 	

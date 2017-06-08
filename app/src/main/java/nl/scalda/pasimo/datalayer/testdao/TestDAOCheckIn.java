@@ -85,15 +85,15 @@ public class TestDAOCheckIn implements IDAOCheckIn{
 	public void addTestData(){
 		if(checkIn.isEmpty()){	
 			
-		CheckIn c = new CheckIn(0, "211543", 2017, 06, 07, 8, 30, 43);
-		CheckIn d = new CheckIn(0, "211543", 2017, 06, 07, 12, 06, 11);
-		CheckIn e = new CheckIn(0, "211543", 2017, 06, 07, 12, 35, 43);
-		CheckIn f = new CheckIn(0, "211543", 2017, 06, 07, 14, 15, 11);
+		CheckIn c = new CheckIn(0, "211543", 2017, 06, 8, 8, 30, 43);
+		CheckIn d = new CheckIn(0, "211543", 2017, 06, 8, 12, 06, 11);
+		CheckIn e = new CheckIn(0, "211543", 2017, 06, 8, 12, 35, 43);
+		CheckIn f = new CheckIn(0, "211543", 2017, 06, 8, 14, 15, 11);
 		
-		CheckIn y = new CheckIn(0, "211544", 2017, 06, 07, 8, 29, 43);
-		CheckIn u = new CheckIn(0, "211544", 2017, 06, 07, 12, 05, 11);
-		CheckIn i = new CheckIn(0, "211544", 2017, 06, 07, 12, 37, 43);
-		CheckIn o = new CheckIn(0, "211544", 2017, 06, 07, 14, 13, 11);
+		CheckIn y = new CheckIn(0, "211544", 2017, 06, 8, 8, 29, 43);
+		CheckIn u = new CheckIn(0, "211544", 2017, 06, 8, 12, 05, 11);
+		CheckIn i = new CheckIn(0, "211544", 2017, 06, 8, 12, 37, 43);
+		CheckIn o = new CheckIn(0, "211544", 2017, 06, 8, 14, 13, 11);
 		
 		checkIn.add(f);
 		checkIn.add(e);
