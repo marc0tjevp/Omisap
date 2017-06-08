@@ -263,14 +263,21 @@
   
       <!-- TODO: zorgen dat de td appart wordne geplaatst en niet in de hele row  -->
       <s:iterator var="ww" value="workweeks">
-      ${ww.workingdays}
+      <td>
+      <!--  ${ww.workingdays} -->
+      
       <s:iterator var="wd" value="%{ww.workingdays}">
-	  ${wd.name}
+	  ${wd.name} 
+
+	  <td>
       <s:iterator value="%wd.workblocks">
       3
+       
     </s:iterator>
+    </td>
   </s:iterator>
- <!--       	<tr>	
+  </td>
+      	<tr>	
 	      	<td class="cell-which-triggers-popup" data-toggle="modal"
 										data-target="#editModal">
 	                     <div class="well well-sm">
@@ -289,6 +296,10 @@
 						<s:property value="start" /> - <s:property value="end" />
 					</div>
         		      	
+									
+									
+									
+									
 									<td class="cell-which-triggers-popup" data-toggle="modal"
 										data-target="#editModal">
 	                     <div class="well well-sm">
@@ -301,7 +312,8 @@
 						<s:property value="start" /> - <s:property value="end" />
 					</div>
         	</td>
-        	</tr>-->
+        	</tr>
+        	
       </s:iterator>
       
       </tbody>

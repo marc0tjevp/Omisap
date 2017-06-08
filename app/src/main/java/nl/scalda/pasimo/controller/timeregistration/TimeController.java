@@ -63,7 +63,7 @@ public class TimeController extends ActionSupport {
 
 	public String createWorkBlock(WorkBlock workblock) {
 		workblock.setId(0);
-		workblock.setStart(null);
+		workblock.setStart(null); 
 		workblock.setEnd(null);
 		w.addWorkBlock(workblock);
 		return SUCCESS;
