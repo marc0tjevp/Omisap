@@ -32,7 +32,7 @@
       <td><a href="teacherInfo?id=<s:property value="employeeNumber"></s:property>" class="noStyleAnchorTag"><s:property value="insertion"></s:property></a></td>
       <td><a href="teacherInfo?id=<s:property value="employeeNumber"></s:property>" class="noStyleAnchorTag"><s:property value="lastName"></s:property></a></td>
       <td>
-        <a name="edit" href="editTeacherPage?id=<s:property value="employeeNumber"></s:property>">
+        <a name="edit" >
           <span class="fa fa-pencil"></span></a>
       </td>
       <td><a href="removeTeacher?id=<s:property value="employeeNumber"></s:property>" onclick="if(confirm('Weet u zeker dat u deze leraar wilt verwijderen?')){return true}else{return false}"><span class="fa fa-trash"></span></a></td>

@@ -157,16 +157,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 &lt;%&ndash;<li><a href="<c:url value="student"><c:param name="action" value="all"/></c:url>">Overview</a></li>&ndash;%&gt;
                                 </ul>
                             </li>--%>
-					<li class="treeview"><a href="teacherOverview"><i
+					<li class="treeview"><a href="/Pasimo/teacherOverview"><i
 							class="fa fa-user-plus"></i> <span>Docenten</span> <i
 							class="fa fa-angle-left pull-right"></i></a>
 						<ul class="treeview-menu">
 							&lt;%&ndash;
 							<li><a
-								href="<c:url value="teacher"><c:param name="action" value="all"/></c:url>">Overview</a></li>
+								href="<c:url value="/Pasimo/teacher"><c:param name="action" value="all"/></c:url>">Overview</a></li>
 							&ndash;%&gt;
 						</ul></li>
-					<li class="treeview"><a href="StudentOverview"><i
+					<li class="treeview"><a href="/Pasimo/StudentOverview"><i
 							class="fa fa-user-plus"></i> <span>Studenten</span> <i
 							class="fa fa-angle-left pull-right"></i></a>
 						<ul class="treeview-menu">
@@ -176,20 +176,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							&ndash;%&gt;
 						</ul></li>
 						<li class="treeview">
-                                <a href="view/timeregistration/"><i class="fa fa-user-plus"></i> <span>Schooluren</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <a href="/Pasimo/view/timeregistration/"><i class="fa fa-user-plus"></i> <span>Schooluren</span> <i class="fa fa-angle-left pull-right"></i></a>
                             </li>
 
-					<li class="treeview"><a href="coachGroups"><i
+					<li class="treeview"><a href="/Pasimo/coachGroups"><i
 							class="fa fa-user-plus"></i> <span>Coach groepen</span> <i
 							class="fa fa-angle-left pull-right"></i></a>
 						<ul class="treeview-menu">
 							&lt;%&ndash;
 							<li><a
-								href="<c:url value="coachGroups"><c:param name="action" value="all"/></c:url>">Overview</a></li>
+								href="<c:url value="/Pasimo/coachGroups"><c:param name="action" value="all"/></c:url>">Overview</a></li>
 							&ndash;%&gt;
 						</ul></li>
 
-					<li class="treeview"><a href="TeacherPresence"><i
+					<li class="treeview"><a href="/Pasimo/TeacherPresence"><i
 							class="fa fa-user-plus"></i> <span>Aanwezigheid Docenten</span> <i
 							class="fa fa-angle-left pull-right"></i></a>
 						<ul class="treeview-menu">
@@ -199,13 +199,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							&ndash;%&gt;
 						</ul></li>
 						
-						<li class="treeview"><a href="educationTeam"><i
+						<li class="treeview"><a href="/Pasimo/educationTeam"><i
 							class="fa fa-user-plus"></i> <span>Opleidings Teams</span> <i
 							class="fa fa-angle-left pull-right"></i></a>
 						<ul class="treeview-menu">
 							&lt;%&ndash;
 							<li><a
-								href="<c:url value="educationTeam"><c:param name="action" value="all"/></c:url>">Overview</a></li>
+								href="<c:url value="/Pasimo/educationTeam"><c:param name="action" value="all"/></c:url>">Overview</a></li>
 							&ndash;%&gt;
 						</ul></li>
 						

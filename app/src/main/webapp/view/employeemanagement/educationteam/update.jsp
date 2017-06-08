@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div>
-                <h1>Educatieteam bewerken</h1>
+                <h1>Opleiding Team bewerken</h1>
 
                 <form action="edit">
 

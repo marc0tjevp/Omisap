@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h1>Nieuw Educatieteam</h1>
+                    <h1>Nieuwe Opleiding Team</h1>
 
                     <form action="addEducationTeam">
 

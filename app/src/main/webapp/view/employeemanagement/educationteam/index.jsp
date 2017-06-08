@@ -12,7 +12,7 @@
                 <div class="col-sm-12">
                     <h1>Opleiding Teams
                        
-                    <a href="educationTeam/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nieuw EducationTeam</a>
+                    <a href="educationTeam/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Niewe Opleiding Team</a>
                     
                     </h1>
                 </div>

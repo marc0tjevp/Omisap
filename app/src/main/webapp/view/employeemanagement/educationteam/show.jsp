@@ -6,7 +6,7 @@
 
 <t:layout2>
     <jsp:attribute name="content">
-        <h1>EducationTeam</h1>
+        <h1>Opleiding Team</h1>
     <div class="container">
         <div class="row">
             <div class="col-sm-12">

@@ -160,7 +160,7 @@
 								type="checkbox">
                             </label>
                         </td>
-                        <td><a href='CoachLessonGroups'>${cg.getName()}</a>	</td>
+                        <td><a href='/Pasimo/StudentOverview'>${cg.getName()}</a>	</td>
                         <td>${cg.getCoach().getAbbreviation()}	</td>
                         <td>${cg.getLessonGroups().size()}</td>
                         <td>
