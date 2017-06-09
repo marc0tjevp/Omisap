@@ -5,14 +5,15 @@ We use [Slack](https://pasimo.slack.com/) for internal communication and announc
 
 #### Documentation
 Most of Pasimo's documentation can be found on [SharePoint](https://scalda365.sharepoint.com/sites/pasimo/Gedeelde%20%20documenten/Forms/AllItems.aspx]). Contact [Rens Brandon](mailto:rbrandon@scalda.nl) to get access.
+
 All models, diagrams and mockups can be found on [Lucidchart](https://www.lucidchart.com/invitations/accept/002e459d-980b-4f9f-9c08-38c7577ba46b).
 
 #### Planning
 Sprints and their user stories can be found on [Jira](http://82.176.177.105:8080/secure/Dashboard.jspa).
 
 #### Must Read
-[Product Vision Board](https://scalda365.sharepoint.com/sites/pasimo/_layouts/15/guestaccess.aspx?guestaccesstoken=XyYw%2fz62khuLXblzP4pieYZXyT2RCMCab6lv%2bemMw1s%3d&docid=2_047a9ebe4ee434fbdbc2e95e351279b19&rev=1)
-[Code Conventions](https://scalda365.sharepoint.com/sites/pasimo/_layouts/15/WopiFrame.aspx?sourcedoc=%7B1E7E484E-09D8-4E8D-82B9-1C8B1F803EF0%7D&file=Programmeer%20Conventies.docx&action=default)
+* [Product Vision Board](https://scalda365.sharepoint.com/sites/pasimo/_layouts/15/guestaccess.aspx?guestaccesstoken=XyYw%2fz62khuLXblzP4pieYZXyT2RCMCab6lv%2bemMw1s%3d&docid=2_047a9ebe4ee434fbdbc2e95e351279b19&rev=1)
+* [Code Conventions](https://scalda365.sharepoint.com/sites/pasimo/_layouts/15/WopiFrame.aspx?sourcedoc=%7B1E7E484E-09D8-4E8D-82B9-1C8B1F803EF0%7D&file=Programmeer%20Conventies.docx&action=default)
 
 ## Cloning the Project
 ---
