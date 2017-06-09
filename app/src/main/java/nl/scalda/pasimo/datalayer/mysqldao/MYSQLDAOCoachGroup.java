@@ -64,8 +64,7 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 			String sql = "INSERT INTO coachGroup (name, coach_bsn, educationTeam_educationTeamID)values(:name , :coach_bsn , :educationTeam_educationTeamID );";
 			NativeQuery query = session.createNativeQuery(sql);
 			query.setParameter("name", CoachGroup.getName());
-			//TODO when bsn is in teacher can do it
-			//query.setParameter("coach_bsn", CoachGroup.getCoach().);
+			query.setParameter("coach_bsn", CoachGroup.getCoach().getBsn());
 			query.setParameter("educationTeam_educationTeamID", edu.getId());
 			query.executeUpdate();
 
@@ -97,8 +96,7 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 					.createNativeQuery( "SELECT * FROM coachGroup WHERE name = :name")
 					.setParameter("name", cg.getName()).getSingleResult();
 			   cg.setName(String.valueOf(obj[0]));
-				//TODO  when bsn is in teacher set in in here
-				//cg.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(String.valueOf(obj[1]))));
+				cg.setCoach(TeacherService.getInstance().getTeacherByBSN(Integer.parseInt(String.valueOf(obj[1]))));
 				EducationTeam bla =  EducationTeamService.getInstance().read(Integer.parseInt(String.valueOf(obj[2])));
                 bla.getCoachGroups().add(cg);
 			tx.commit();
@@ -128,7 +126,7 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 			
 			query2.setParameter("name", coachGroup.getName())
 			//TODO when is changed from teacher employeenumber to bsn
-			//.setParameter("coach_bsn", coachGroup.getCoach().getEmployeeNumber())
+			.setParameter("coach_bsn", coachGroup.getCoach().getBsn())
 			.setParameter("oldname", Oldname);
 	
 			query2.executeUpdate();
@@ -186,11 +184,10 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
                     .getResultList();
             for (Iterator iterator = coachGroupList.iterator(); iterator.hasNext();) {
                 Object[] obj = (Object[]) iterator.next();
-                //TODO when is changed from teacher employeenumber to bsn
-               // CoachGroup cg = new CoachGroup(String.valueOf(obj[0]) , TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(String.valueOf(obj[1]))));
+                CoachGroup cg = new CoachGroup(String.valueOf(obj[0]) , TeacherService.getInstance().getTeacherByBSN(Integer.parseInt(String.valueOf(obj[1]))));
                 EducationTeam bla =  EducationTeamService.getInstance().read(Integer.parseInt(String.valueOf(obj[2])));
-                //bla.getCoachGroups().add(cg);
-                //coachGroups.add(cg);
+                bla.getCoachGroups().add(cg);
+                coachGroups.add(cg);
             }
             tx.commit();
         } catch (Exception e) {
@@ -226,9 +223,8 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 			
 			for(Iterator iterator = CoachGroupList.iterator();iterator.hasNext();){
 				 Object[] obj = (Object[]) iterator.next();
-				 //TODO when is changed from teacher employeenumber to bsn
-//				 CoachGroup cg = new CoachGroup(String.valueOf(obj[0]) , TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(String.valueOf(obj[1]))));
-//				 coach.add(cg);
+			 CoachGroup cg = new CoachGroup(String.valueOf(obj[0]) , TeacherService.getInstance().getTeacherByBSN(Integer.parseInt(String.valueOf(obj[1]))));
+			 coach.add(cg);
 			 }
 			tx.commit();
 			
