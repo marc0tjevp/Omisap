@@ -100,8 +100,9 @@ public class MYSQLDAOWorkingDay implements IDAOWorkingDay {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			String sql = "INSERT INTO workingday(name) VALUES (:name)";
+			String sql = "INSERT INTO workingday(workingdayID, name) VALUES (:workingdayID, :name)";
 			NativeQuery query = session.createNativeQuery(sql);
+			query.setParameter("workingdayID", workingday.getWorkingdayID());
 			query.setParameter("name", workingday.getName());
 
 			query.executeUpdate();
@@ -123,8 +124,8 @@ public class MYSQLDAOWorkingDay implements IDAOWorkingDay {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			session.createNativeQuery("DELETE FROM workingday where name = :name")
-					.setParameter("name", workingday.getName()).executeUpdate();
+			session.createNativeQuery("DELETE FROM workingday where workingdayID = :workingdayID")
+					.setParameter("workingdayID", workingday.getWorkingdayID()).executeUpdate();
 			session.delete(workingday);
 			tx.commit();
 

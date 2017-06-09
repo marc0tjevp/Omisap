@@ -266,10 +266,10 @@
       <s:iterator var="ww" value="workweeks">
       <td>
       <!--  ${ww.workingdays} -->
-      
+      1
       <s:iterator var="wd" value="%{ww.workingdays}">
-	  ${wd.name} 
-
+	
+		2
 	  <td>
       <s:iterator value="%wd.workblocks">
       3

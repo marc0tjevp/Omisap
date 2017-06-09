@@ -89,6 +89,14 @@ public class WorkingDay implements Comparable<WorkingDay> {
 	public void setOldName(String oldName) {
 		this.oldName = oldName;
 	}
+	
+	public int getWorkingdayID(){
+		return workingdayID;
+	}
+	
+	public void setWorkingdayID(int workingdayID){
+		this.workingdayID = workingdayID;
+	}
 
 	@Override
 	public String toString() {
