@@ -1,7 +1,7 @@
 package nl.scalda.pasimo.service;
 
+import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
@@ -9,14 +9,13 @@ import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class EducationTeamService {
-
-    private static EducationTeamService instance;
-    private Set<EducationTeam> educationTeams;
-
-    public EducationTeamService() {
-        educationTeams = DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
-        System.out.println("a");
-    }
+	
+	private static EducationTeamService instance;
+	private Set<EducationTeam> educationTeams;
+	
+	public EducationTeamService(){
+		educationTeams = DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
+	}
 
     /**
      * gets the educationteam with the abbreviation that equals given
@@ -48,7 +47,6 @@ public class EducationTeamService {
         }
     }
 
-
     public Set<EducationTeam> getEducationTeams() {
         return educationTeams;
     }
@@ -63,7 +61,6 @@ public class EducationTeamService {
 
     public EducationTeam read(int Id) {
         return DAOFactory.getTheFactory().getDAOEducationTeam().read(Id);
-
     }
 
     public static EducationTeamService getInstance() {
