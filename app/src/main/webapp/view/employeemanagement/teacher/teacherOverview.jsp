@@ -11,7 +11,7 @@
     <tr>
       <th>Werknemersnummer</th>
       <th>Afkorting</th>
-       <th>Kaartnummer</th>
+      <th>Kaartnummer</th>
       <th>Email</th>
       <th>Voornaam</th>
       <th>Tussenvoegsel</th>

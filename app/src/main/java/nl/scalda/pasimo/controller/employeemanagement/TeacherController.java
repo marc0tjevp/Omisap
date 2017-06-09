@@ -38,8 +38,12 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String loadTeacherInfo() {
-		teacher = getTeacherByEmployeeID(id);
-		setTeamAbbreviation(EducationTeamService.getInstance().getOldEducationTeam(teacher).getAbbreviation());
+		try{
+			teacher = getTeacherByEmployeeID(id);
+			setTeamAbbreviation(EducationTeamService.getInstance().getOldEducationTeam(teacher).getAbbreviation());
+		} catch(java.lang.NullPointerException e){
+			return ERROR;
+		}
 		return SUCCESS;
 	}
 
@@ -50,10 +54,21 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String addTeacher() {
-		teacher.setAbbreviation();
+		try{
+			teacher.setAbbreviation();
+		} catch(java.lang.StringIndexOutOfBoundsException e){
+			return INPUT;
+		}
+		if(teacher.getBsn() == 0 || teacher.getEmail() == null || teacher.getEmployeeNumber() == 0 || teacher.getFirstName() == null || teacher.getLastName() == null){
+			return INPUT;
+		}
 		teacher.create();
-		EducationTeam et = EducationTeamService.getInstance().getEducationTeamByAbbreviation(teamAbbreviation);
-		et.addTeacher(teacher);
+		try{
+			EducationTeam et = EducationTeamService.getInstance().getEducationTeamByAbbreviation(teamAbbreviation);
+			et.addTeacher(teacher);
+		} catch(java.lang.NullPointerException e){
+			return INPUT;
+		}
 		return SUCCESS;
 	}
 
@@ -64,7 +79,12 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String readTeacher() {
-		getTeachers();
+		try{
+			getTeachers();
+		} catch(java.lang.NullPointerException e){
+			return ERROR;
+		}
+		
 		return SUCCESS;
 	}
 
@@ -78,14 +98,21 @@ public class TeacherController extends ActionSupport {
 		for (Teacher f : getTeachers()) {
 			if (f.getEmployeeNumber() == teacher.getEmployeeNumber()){
 				f.setFirstName(teacher.getFirstName());
-				f.setAbbreviation();
+				try{
+					f.setAbbreviation();
+				} catch(java.lang.StringIndexOutOfBoundsException e){
+					return INPUT;
+				}
 				f.setInsertion(teacher.getInsertion());
 				f.setLastName(teacher.getLastName());
-				f.setEmail(teacher.getEmail());
 				f.setCardID(teacher.getCardID());
-				if (!(EducationTeamService.getInstance().getOldEducationTeam(f).getAbbreviation().equals(teamAbbreviation))){
-					EducationTeamService.getInstance().getOldEducationTeam(f).deleteTeacher(f);
-					EducationTeamService.getInstance().getEducationTeamByAbbreviation(teamAbbreviation).addTeacher(f);
+				try{
+					if (!(EducationTeamService.getInstance().getOldEducationTeam(f).getAbbreviation().equals(teamAbbreviation))){
+						EducationTeamService.getInstance().getOldEducationTeam(f).deleteTeacher(f);
+						EducationTeamService.getInstance().getEducationTeamByAbbreviation(teamAbbreviation).addTeacher(f);
+					}
+				} catch(java.lang.NullPointerException e){
+					return INPUT;
 				}
 				f.update();
 			}
@@ -100,7 +127,11 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String removeTeacher() {
-		teacher = getTeacherByEmployeeID(id);
+		try{
+			teacher = getTeacherByEmployeeID(id);
+		} catch(java.lang.NullPointerException e){
+			return ERROR;
+		}
 		teacher.delete();
 		return SUCCESS;
 	}
@@ -126,7 +157,9 @@ public class TeacherController extends ActionSupport {
 	 */
 	public TreeSet<Teacher> getTeachers() {
 		try {
-			teachers.addAll(TeacherService.getInstance().readAll());
+			if(teachers.isEmpty()){
+				teachers.addAll(TeacherService.getInstance().readAll());
+			}
 			return teachers;
 		} catch (Exception e){
 			return null;
@@ -139,7 +172,9 @@ public class TeacherController extends ActionSupport {
 	 * @return TreeSet<EducationTeam>
 	 */
 	public TreeSet<EducationTeam> getEducationTeams() {
-		educationTeams.addAll(EducationTeamService.getInstance().getEducationTeams());
+		if(educationTeams.isEmpty()){
+			educationTeams.addAll(EducationTeamService.getInstance().getEducationTeams());
+		}
 		return educationTeams;
 	}
 
