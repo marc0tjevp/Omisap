@@ -12,6 +12,7 @@ import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 import nl.scalda.pasimo.service.EducationTeamService;
+import nl.scalda.pasimo.service.LessonGroupService;
 
 public class StudentController extends ActionSupport {
 
@@ -46,7 +47,11 @@ public class StudentController extends ActionSupport {
 	}
 
 	public String addStudent() {
-
+		student.setCardID(12);
+		student.setStudentOV(23);
+		student.createStudent();
+		
+		
 		return SUCCESS;
 	}
 
