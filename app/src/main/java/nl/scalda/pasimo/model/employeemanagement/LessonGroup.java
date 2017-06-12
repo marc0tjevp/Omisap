@@ -6,7 +6,7 @@ import javax.persistence.*;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 
 @Entity
-@Table(name="lessonGroup")
+@Table(name="lessongroup")
 public class LessonGroup implements Comparable<LessonGroup> {
 
 	/**
