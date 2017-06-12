@@ -21,6 +21,11 @@ public class TeacherService {
 		return DAOFactory.getTheFactory().getDAOTeacher().readByEmployeeNumber(id);
 	}
 	
+	public Teacher getTeacherByBSN(int bsn) {
+		//TODO must work trough dao
+		return null;
+	}
+	
 	public static TeacherService getInstance() {
 		if (instance == null) {
 			instance = new TeacherService();
