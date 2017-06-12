@@ -12,10 +12,6 @@ RemoteSystemsTempFiles/*
 Server/*
 .recommenders/*
 Servers/*
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 
 # IntelliJ
 .idea/
@@ -33,7 +29,7 @@ bin/*
 # Maven
 target/*
 log/*
-<<<<<<< HEAD
+
 */target/
 
 #Classes in main package, so everyone can do what he wants without conflicts.
@@ -41,4 +37,3 @@ log/*
 app/bin/
 =======
 */target/
->>>>>>> master
