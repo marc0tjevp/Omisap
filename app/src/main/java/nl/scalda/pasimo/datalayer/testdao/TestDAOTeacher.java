@@ -1,5 +1,7 @@
 package nl.scalda.pasimo.datalayer.testdao;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
@@ -13,7 +15,7 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
 public class TestDAOTeacher implements IDAOTeacher {
 
 	private static TestDAOTeacher instance = null;
-	private TreeSet<Teacher> teachers = new TreeSet<>();
+	private List<Teacher> teachers = new ArrayList<Teacher>();
 
 
 	private TestDAOTeacher() {
@@ -60,28 +62,12 @@ public class TestDAOTeacher implements IDAOTeacher {
 	}
 
 	/**
-	 * returns the teacher that has the given abbreviation.
-	 * 
-	 * @param String abbreviation
-	 * @return Teacher
-	 */
-	@Override
-	public Teacher readByAbbr(String abbreviation) {
-		for (Teacher ca : teachers) {
-			if (ca.getAbbreviation().equals(abbreviation)) {
-				return ca;
-			}
-		}
-		return null;
-	}
-
-	/**
 	 * returns all teachers.
 	 * 
 	 * @return TreeSet<Teacher>
 	 */
 	@Override
-	public TreeSet<Teacher> readAll() {
+	public List<Teacher> readAll() {
 		return teachers;
 	}
 
@@ -93,7 +79,11 @@ public class TestDAOTeacher implements IDAOTeacher {
 	 */
 	@Override
 	public TreeSet<Teacher> readAllForEducationTeam(EducationTeam t) {
-		return null;
+		TreeSet<Teacher> teachers = new TreeSet<>();
+		for(Teacher te : t.getTeachers()){
+			teachers.add(te);
+		}
+		return teachers;
 	}
 
 	/**
@@ -114,8 +104,7 @@ public class TestDAOTeacher implements IDAOTeacher {
 	 */
 
 	public void update(Teacher t) {
-		// TODO implement this method
-
+		//no need for an update method.
 		}
 
 	/**
@@ -126,8 +115,12 @@ public class TestDAOTeacher implements IDAOTeacher {
 	 */
 	@Override
 	public Teacher readByEmployeeNumber(int employeeNumber) {
-		Teacher tc = new Teacher(124564, "k@k.com", 215950, "hallo", "vanerg", "klaas", 1999, 9, 15);
-		return tc;
+		for(Teacher t : teachers){
+			if(t.getEmployeeNumber() == employeeNumber){
+				return t;
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -138,7 +131,7 @@ public class TestDAOTeacher implements IDAOTeacher {
 	 */
 
 	public EducationTeam getCurrentEducationTeamOfTeacher(Teacher teacher) {
-		// TODO Auto-generated method stub
+		//TODO need collection of all educationteams before this method can be written
 		return null;
 	}
 
@@ -150,7 +143,7 @@ public class TestDAOTeacher implements IDAOTeacher {
 	 */
 
 	public CoachGroup getCurrentCoachGroup(Teacher teacher) {
-		// TODO Auto-generated method stub
+		// TODO need collection of all coachgroups before this method can be written
 		return null;
 	}
 	

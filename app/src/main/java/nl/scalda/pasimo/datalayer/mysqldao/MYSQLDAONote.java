@@ -96,51 +96,51 @@ public class MYSQLDAONote implements IDAONote {
 		return n;
 	}
 
-	@Override
-	public Note update(Note note) {
-		Session session = factory.openSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			NativeQuery query2 = session.createNativeQuery(
-					"UPDATE note SET ovNumber = :ovNumber, title = :title, message = :message, employeeAbbreviation = :employeeAbbreviation, creationDate = :creationDate, lastEdit = :lastEdit WHERE noteID = :noteID");
-			query2.setParameter("ovNumber", note.getOvNumber());
-			query2.setParameter("title", note.getTitle());
-			query2.setParameter("message", note.getMessage());
-			query2.setParameter("employeeAbbreviation", note.getEmployeeAbbreviation());
-			query2.setParameter("creationDate", note.getCreationDate());
-			query2.setParameter("lastEdit", note.getLastEdit());
-			query2.setParameter("noteID", note.getId());
-			query2.executeUpdate();
-			tx.commit();
-		} finally {
-			return note;
-
-		}
-	}
-//	public Note update(Note n) {
+//	@Override
+//	public Note update(Note note) {
 //		Session session = factory.openSession();
 //		Transaction tx = null;
-//		try{
+//		try {
 //			tx = session.beginTransaction();
-//			session.createNativeQuery("UPDATE note SET ovNumber = :ovNumber, title = :title, message = :message, employeeAbbreviation = :employeeAbbreviation, creationDate = :creationDate, lastEdit = :lastEdit WHERE noteID = :noteID")
-//			.setParameter("ovNumber", n.getOvNumber())
-//			.setParameter("title", n.getTitle())
-//			.setParameter("message", n.getMessage())
-//			.setParameter("employeeAbbreviation", n.getEmployeeAbbreviation())
-//			.setParameter("creationDate", n.getCreationDate())
-//			.setParameter("lastEdit", n.getLastEdit())
-//			.setParameter("noteID", n.getId())
-//			.executeUpdate();
+//			NativeQuery query2 = session.createNativeQuery(
+//					"UPDATE note SET ovNumber = :ovNumber, title = :title, message = :message, employeeAbbreviation = :employeeAbbreviation, creationDate = :creationDate, lastEdit = :lastEdit WHERE noteID = :noteID");
+//			query2.setParameter("ovNumber", note.getOvNumber());
+//			query2.setParameter("title", note.getTitle());
+//			query2.setParameter("message", note.getMessage());
+//			query2.setParameter("employeeAbbreviation", note.getEmployeeAbbreviation());
+//			query2.setParameter("creationDate", note.getCreationDate());
+//			query2.setParameter("lastEdit", note.getLastEdit());
+//			query2.setParameter("noteID", note.getId());
+//			query2.executeUpdate();
 //			tx.commit();
-//		} catch(HibernateException e) {
-//			if(tx!=null) tx.rollback();
-//			e.printStackTrace();
 //		} finally {
-//			session.close();
+//			return note;
+//
 //		}
-//		return n;
 //	}
+	public Note update(Note n) {
+		Session session = factory.openSession();
+		Transaction tx = null;
+		try{
+			tx = session.beginTransaction();
+			session.createNativeQuery("UPDATE note SET ovNumber = :ovNumber, title = :title, message = :message, employeeAbbreviation = :employeeAbbreviation, creationDate = :creationDate, lastEdit = :lastEdit WHERE noteID = :noteID")
+			.setParameter("ovNumber", n.getOvNumber())
+			.setParameter("title", n.getTitle())
+			.setParameter("message", n.getMessage())
+			.setParameter("employeeAbbreviation", n.getEmployeeAbbreviation())
+			.setParameter("creationDate", n.getCreationDate())
+			.setParameter("lastEdit", n.getLastEdit())
+			.setParameter("noteID", n.getId())
+			.executeUpdate();
+			tx.commit();
+		} catch(HibernateException e) {
+			if(tx!=null) tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return n;
+	}
 	@Override
 	public void delete(int id) {
 		Session session = factory.openSession();

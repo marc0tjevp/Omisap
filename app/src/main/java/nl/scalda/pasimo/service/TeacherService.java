@@ -1,5 +1,6 @@
 package nl.scalda.pasimo.service;
 
+import java.util.List;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
@@ -12,7 +13,7 @@ public class TeacherService {
 	private TeacherService() {
 	}
 
-	public TreeSet<Teacher> readAll(){
+	public List<Teacher> readAll(){
 		return DAOFactory.getTheFactory().getDAOTeacher().readAll();
 	}
 	
