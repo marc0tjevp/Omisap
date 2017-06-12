@@ -110,9 +110,21 @@
 			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
 			method="execute">
 			<result name="success">/view/employeemanagement/coachgroups/Coachgroups.jsp
-
 			</result>
 		</action>
+		<action name="login" class="nl.scalda.pasimo.controller.security.LoginController"	
+				method="login">
+			<result name="success" type="redirect">CoachGroup</result>
+			<result name="success">/index2.jsp</result>	
+		</action>
+		<action name="forgotPassword" class="nl.scalda.pasimo.controller.security.LoginController"	
+				method="execute">
+				<result name="success" type="redirect">wachtwoordVergeten</result>
+				<result name="success">/view/security/login/ForgotPassword.jsp</result>
+				
+		</action>
+		
+		
 		<action name="students"
 			class="nl.scalda.pasimo.controller.employeemanagement.CoachGroupController"
 			method="execute">
