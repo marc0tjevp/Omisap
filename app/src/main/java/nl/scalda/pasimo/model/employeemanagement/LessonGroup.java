@@ -31,6 +31,8 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	 */
 	private TreeSet<Student> students;
 
+	public LessonGroup(){}
+	
 	/**
 	 * @param name The name of this lesson group
 	 */

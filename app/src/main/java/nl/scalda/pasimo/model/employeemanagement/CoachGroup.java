@@ -4,20 +4,20 @@ import java.util.TreeSet;
 
 import javax.persistence.*;
 
-import org.hibernate.dialect.MySQL57InnoDBDialect;
-
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
-import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
-import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
 
 /**
  * @author Collin and ismet
  */
 @Entity
-@Table(name="coach_group")
+@Table(name="coachGroup")
 public class CoachGroup implements Comparable<CoachGroup> {
+
+	/**
+	 * The index of this lesson group
+	 */
 	@Id
 	@Column(name="coachGroupID", length=64)
     private int coachGroupID;
@@ -27,15 +27,19 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	@Column(name="name", length=64)
     private String name;
 	/**
-	 * The Teacher of this CoachGroup
-	 */
+     * The Teacher of this CoachGroup
+     */
 	@OneToOne
     private Teacher coach;
-
-	/**
+    
+    /**
 	 * The {@link LessonGroups}'s who are in this CoachGroup
 	 */
-	private TreeSet<LessonGroup> lessonGroups = new TreeSet<>() ;
+    private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
+    
+    @ManyToOne(cascade=CascadeType.ALL, targetEntity=EducationTeam.class)
+    @JoinColumn(name="educationTeam_id")
+    private EducationTeam educationTeam;
 
 	/**
 	 * Default constructor
@@ -45,13 +49,12 @@ public class CoachGroup implements Comparable<CoachGroup> {
 
 	/**
 	 * @param name
-	 *            The name of this Coach group
+	 * The name of this Coach group
 	 */
-	public CoachGroup(String name) {
-		this.name = name;
-	}
+    public CoachGroup( String name) {
+        this.name = name;
+    }
 
-	// TODO is only used for MYSQLDAOTeacher needs to be fixed
 	public CoachGroup(String name, Teacher coach) {
 		this.name = name;
 		this.coach = coach;
@@ -206,6 +209,14 @@ public class CoachGroup implements Comparable<CoachGroup> {
 
         return name.compareToIgnoreCase(o.getName());
     }
+
+	public EducationTeam getEducationTeam() {
+		return educationTeam;
+	}
+
+	public void setEducationTeam(EducationTeam educationTeam) {
+		this.educationTeam = educationTeam;
+	}
     
     public void load(){
     	DAOFactory.getTheFactory().getDAOCoachGroup().read(this);

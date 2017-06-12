@@ -2,6 +2,7 @@ package nl.scalda.pasimo.controller.employeemanagement;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -28,7 +29,7 @@ public class CoachGroupController extends ActionSupport {
      */
     private static final long serialVersionUID = 1L;
 
-    public TreeSet<Teacher> coaches = TeacherService.getInstance().readAll();
+    public List<Teacher> coaches = TeacherService.getInstance().readAll();
 
     public Set<EducationTeam> educationTeam = EducationTeamService.getInstance().getEducationTeams();
     public TreeSet<CoachGroup> coachGroup = CoachGroupService.getInstance().readAll();
@@ -127,11 +128,11 @@ public class CoachGroupController extends ActionSupport {
     }
 
 
-    public TreeSet<Teacher> getCoaches() {
+    public List<Teacher> getCoaches() {
 		return coaches;
 	}
 
-	public void setCoaches(TreeSet<Teacher> coaches) {
+	public void setCoaches(List<Teacher> coaches) {
 		this.coaches = coaches;
 	}
 
