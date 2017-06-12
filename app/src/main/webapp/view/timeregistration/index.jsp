@@ -264,20 +264,20 @@
   
       <!-- TODO: zorgen dat de td appart wordne geplaatst en niet in de hele row  -->
       <s:iterator var="ww" value="workweeks">
-      <td>
+     1
       <!--  ${ww.workingdays} -->
       
       <s:iterator var="wd" value="%{ww.workingdays}">
 	  ${wd.name} 
-
-	  <td>
+ 
+	  
       <s:iterator value="%wd.workblocks">
       3
        
     </s:iterator>
-    </td>
+    
   </s:iterator>
-  </td>
+  
       	<tr>	
 	      	<td class="cell-which-triggers-popup" data-toggle="modal"
 										data-target="#editModal">

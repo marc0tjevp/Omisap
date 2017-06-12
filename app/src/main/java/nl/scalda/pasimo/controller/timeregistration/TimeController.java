@@ -23,13 +23,12 @@ public class TimeController extends ActionSupport {
 
 	public TreeSet<WorkWeek> getWorkweeks() {
 		if (workweeks == null || workweeks.isEmpty());
-		
-		workweeks = new TreeSet<>();
-		workweeks.addAll(DAOFactory.getTheFactory().getDAOWorkWeek().readAll());
-		
+
+		workweeks = DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+		System.out.println(workweeks);
 		return workweeks;
 	}
-
+	
 	public void setWorkweeks(TreeSet<WorkWeek> workweeks) {
 		this.workweeks = workweeks;
 	}
@@ -57,7 +56,7 @@ public class TimeController extends ActionSupport {
 	public String execute() {
 		// DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 		getWorkweeks();
-		System.out.println(workweeks.first().getWorkingdays().first().getName());
+	//	System.out.println(workweeks.first().getWorkingdays().first().getName());
 		return SUCCESS;
 	}
 
