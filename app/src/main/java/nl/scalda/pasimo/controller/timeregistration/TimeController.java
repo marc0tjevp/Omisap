@@ -18,7 +18,7 @@ public class TimeController extends ActionSupport {
 
 	WorkWeek ww = new WorkWeek(1);
 	
-	private TreeSet<WorkBlock> WorkBlocks = new TreeSet<>();
+
 	// private TreeSet<WorkWeek> workweeks = new TreeSet<>();
 
 	private TreeSet<WorkWeek> workweeks;
@@ -35,7 +35,7 @@ public class TimeController extends ActionSupport {
 		this.workweeks = workweeks;
 	}
 
-	WorkingDay w = new WorkingDay(1, "Maandag");
+	WorkingDay w = new WorkingDay();
 	private Object workblock;
 
 	public String SSC() {
@@ -70,7 +70,7 @@ public class TimeController extends ActionSupport {
 	}
 
 	public String readWorkBlock(WorkBlock workblock) {
-		workblock.getId();
+		workblock.getworkblockId();
 		workblock.getStart();
 		workblock.getEnd();
 		return SUCCESS;
@@ -78,6 +78,10 @@ public class TimeController extends ActionSupport {
 	
 	public String getWorkingDays(){
 		ww.getWorkingdays();
+		return SUCCESS;
+	}
+	public String getWorkblocks(){
+		w.getWorkblocks();
 		return SUCCESS;
 	}
 	

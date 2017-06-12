@@ -58,7 +58,7 @@ public class WorkingDay implements Comparable<WorkingDay> {
 		// workblock
 
 	public void updateWorkBlock(WorkBlock workblock) {
-		workblock.setId(workblock.getId());
+		workblock.setId(workblock.getworkblockId());
 		workblock.setStart(workblock.getStart());
 		workblock.setEnd(workblock.getEnd());
 
@@ -100,7 +100,7 @@ public class WorkingDay implements Comparable<WorkingDay> {
 
 	@Override
 	public String toString() {
-		return "WorkingDay{" + "id='" + workingdayID + '\''  +  "name='" + name + '\'' + "workBlocks='" + workblocks + '\'' + '}';
+		return "WorkingDay{" + "workblockId='" + workingdayID + '\''  +  "name='" + name + '\'' + "workBlocks='" + workblocks + '\'' + '}';
 	}
 
 	@Override

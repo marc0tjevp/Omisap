@@ -270,7 +270,7 @@
       <s:iterator var="wd" value="%{ww.workingdays}">
 	  ${wd.name} 
  
-	  
+	  2
       <s:iterator value="%wd.workblocks">
       3
        

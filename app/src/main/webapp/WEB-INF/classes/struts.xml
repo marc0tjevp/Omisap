@@ -244,5 +244,10 @@
 			method="getWorkingDays">
 			<result name="success">/view/timeregistration/index.jsp</result>
 		</action>
+				<action name="getWorkblocks"
+			class="nl.scalda.pasimo.controller.timeregistration.TimeController"
+			method="getWorkblocks">
+			<result name="success">/view/timeregistration/index.jsp</result>
+		</action>
 	</package>
 </struts>

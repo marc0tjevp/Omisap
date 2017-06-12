@@ -6,7 +6,7 @@ import javax.print.attribute.standard.DateTimeAtCompleted;
 
 public class WorkBlock implements Comparable<WorkBlock> {
 
-	private int id;
+	private int workblockId;
 	private PasimoTime start;
 	private PasimoTime end;
 
@@ -14,18 +14,18 @@ public class WorkBlock implements Comparable<WorkBlock> {
 
 	}
 
-	public WorkBlock(int id, PasimoTime start, PasimoTime end) {
+	public WorkBlock(int workblockId, PasimoTime start, PasimoTime end) {
 		this.start = start;
 		this.end = end;
-		this.id = id;
+		this.workblockId = workblockId;
 	}
 
-	public int getId() {
-		return id;
+	public int getworkblockId() {
+		return workblockId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int workblockId) {
+		this.workblockId = workblockId;
 	}
 
 
@@ -49,7 +49,7 @@ public class WorkBlock implements Comparable<WorkBlock> {
 	@Override
 	public String toString() {
         return "WorkBlock{" +
-        		"id='" + id + '\'' +
+        		"workblockId='" + workblockId + '\'' +
                 "start='" + start + '\'' +               ", end='" + end + '\'' +
                 '}';
    }

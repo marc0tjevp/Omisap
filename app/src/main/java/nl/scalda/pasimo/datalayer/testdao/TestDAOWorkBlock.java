@@ -42,7 +42,7 @@ public class TestDAOWorkBlock implements IDAOWorkBlock {
 
 	@Override
 	public void update(WorkBlock workblock) {
-		workblock.setId(workblock.getId());
+		workblock.setId(workblock.getworkblockId());
 		workblock.setStart(workblock.getStart());
 		workblock.setEnd(workblock.getEnd());
 
@@ -67,9 +67,9 @@ public class TestDAOWorkBlock implements IDAOWorkBlock {
 	}
 
 	@Override
-	public WorkBlock read(int id) {
+	public WorkBlock read(int workblockId) {
 
-		return read(id);
+		return read(workblockId);
 	}
 
 }

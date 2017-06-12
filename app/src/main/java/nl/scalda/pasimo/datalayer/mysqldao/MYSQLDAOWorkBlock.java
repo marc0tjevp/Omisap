@@ -50,10 +50,10 @@ public class MYSQLDAOWorkBlock implements IDAOWorkBlock {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			String sql = "UPDATE workblock SET id = :id , start = :start , end = :end     WHERE id = :id ;";
+			String sql = "UPDATE workblock SET workblockId = :workblockId , start = :start , end = :end     WHERE workblockId = :workblockId ;";
 			NativeQuery query = session.createNativeQuery(sql);
 
-			query.setParameter("id", workblock.getId());
+			query.setParameter("workblockId", workblock.getworkblockId());
 			query.setParameter("start", workblock.getStart().getTime());
 			query.setParameter("end", workblock.getEnd().getTime());
 			query.executeUpdate();
@@ -76,9 +76,9 @@ public class MYSQLDAOWorkBlock implements IDAOWorkBlock {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			String sql = "INSERT INTO workblock(id, start, end) VALUES (:id, :start, :end)";
+			String sql = "INSERT INTO workblock(workblockId, start, end) VALUES (:workblockId, :start, :end)";
 			NativeQuery query = session.createNativeQuery(sql);
-			query.setParameter("id", workblock.getId());
+			query.setParameter("workblockId", workblock.getworkblockId());
 			query.setParameter("start", workblock.getStart().getTime());
 			query.setParameter("end", workblock.getEnd().getTime());
 			query.executeUpdate();
@@ -101,7 +101,7 @@ public class MYSQLDAOWorkBlock implements IDAOWorkBlock {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			session.createNativeQuery("DELETE FROM workblock where id = :id").setParameter("id", workblock.getId())
+			session.createNativeQuery("DELETE FROM workblock where workblockId = :workblockId").setParameter("workblockId", workblock.getworkblockId())
 					.executeUpdate();
 			session.delete(workblock);
 			tx.commit();
@@ -143,7 +143,7 @@ public class MYSQLDAOWorkBlock implements IDAOWorkBlock {
 	}
 
 	@Override
-	public WorkBlock read(int id) {
+	public WorkBlock read(int workblockId) {
 		Session session = factory.openSession();
 		Transaction tx = null;
 		Set<WorkBlock> workblock = new TreeSet<>();
@@ -151,7 +151,7 @@ public class MYSQLDAOWorkBlock implements IDAOWorkBlock {
 		PasimoTime pt = new PasimoTime();
 		try {
 			tx = session.beginTransaction();
-			Object[] obj = (Object[]) session.createNativeQuery("SELECT id, start, end FROM workblock WHERE id = " + id).getSingleResult();
+			Object[] obj = (Object[]) session.createNativeQuery("SELECT workblockId, start, end FROM workblock WHERE workblockId = " + workblockId).getSingleResult();
 			w.setId(Integer.parseInt(String.valueOf(obj[0])));
 			Time t = (Time) obj[1];
 			pt.setTimeInMillis(t.getTime());
