@@ -65,7 +65,7 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 		try {
 			tx = session.beginTransaction();
 			List weekList = session.createNativeQuery(
-					"SELECT * FROM workweek INNER JOIN workingday ON workweek_id = workweek.id  INNER JOIN workblock ON workingday_name = workingday.name ORDER BY workingdayID ASC;")
+					"SELECT * FROM workweek INNER JOIN workingday ON workweek_id = workweek.id  INNER JOIN workblock ON workingday_workingdayID = workingday.workingdayID ORDER BY workblock.id;")
 
 					.getResultList();
 

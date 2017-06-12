@@ -16,6 +16,8 @@ import nl.scalda.pasimo.model.timeregistration.WorkingDay;
 
 public class TimeController extends ActionSupport {
 
+	WorkWeek ww = new WorkWeek(1);
+	
 	private TreeSet<WorkBlock> WorkBlocks = new TreeSet<>();
 	// private TreeSet<WorkWeek> workweeks = new TreeSet<>();
 
@@ -34,18 +36,6 @@ public class TimeController extends ActionSupport {
 	}
 
 	WorkingDay w = new WorkingDay(1, "Maandag");
-	// WorkBlock wq = new WorkBlock(1, new PasimoTime(8, 30), new PasimoTime(10,
-	// 10));
-	// WorkBlock wq1 = new WorkBlock(2, new PasimoTime(10, 25), new
-	// PasimoTime(11, 15));
-	// WorkBlock wq2 = new WorkBlock(3, new PasimoTime(11, 25), new
-	// PasimoTime(12, 05));
-	// WorkBlock wq3 = new WorkBlock(4, new PasimoTime(12, 35), new
-	// PasimoTime(14, 15));
-	// WorkBlock wq4 = new WorkBlock(5, new PasimoTime(14, 30), new
-	// PasimoTime(15, 20));
-	// WorkBlock wq5 = new WorkBlock(6, new PasimoTime(22, 30), new
-	// PasimoTime(23, 20));
 	private Object workblock;
 
 	public String SSC() {
@@ -54,9 +44,7 @@ public class TimeController extends ActionSupport {
 
 
 	public String execute() {
-		// DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 		getWorkweeks();
-	//	System.out.println(workweeks.first().getWorkingdays().first().getName());
 		return SUCCESS;
 	}
 
@@ -87,4 +75,10 @@ public class TimeController extends ActionSupport {
 		workblock.getEnd();
 		return SUCCESS;
 	}
+	
+	public String getWorkingDays(){
+		ww.getWorkingdays();
+		return SUCCESS;
+	}
+	
 }
