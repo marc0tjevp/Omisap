@@ -6,7 +6,7 @@ import org.mindrot.jbcrypt.BCrypt;
 /**
 	  * Original Author: Ian Gallagher <igallagher@securityinnovation.com>
 	  * Current Author: Collin Knuit
-	  * From https://github.com/defuse/password-hashing
+	  * From https://gist.github.com/craSH/5217757
 	  * This code utilizes jBCrypt, which you need installed to use.
 	  * jBCrypt: http://www.mindrot.org/projects/jBCrypt/
 	  */
@@ -61,7 +61,7 @@ import org.mindrot.jbcrypt.BCrypt;
 		 * The bcrypt workload is specified in the above static variable, a value from 10 to 31.
 		 * A workload of 12 is a very reasonable safe default as of 2013.
 		 * This automatically handles secure 128-bit salt generation and storage within the hash.
-		 * @return String - a string of length 60 that is the bcrypt hashed password in crypt(3) format.
+		 * @return String[] - A array of a string of length 60 that is the bcrypt hashed password in crypt(3) format and the random String.
 		 */
 		public static String[] forgotPassword (){
 			String salt = BCrypt.gensalt(workload);
@@ -72,7 +72,7 @@ import org.mindrot.jbcrypt.BCrypt;
 		
 		//https://stackoverflow.com/questions/41107/how-to-generate-a-random-alpha-numeric-string
 		public static String randomString(){
-			   StringBuilder sb = new StringBuilder( 8 );
+			   StringBuilder sb = new StringBuilder(8);
 			   for( int i = 0; i < 8; i++ ) 
 			      sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
 			   return sb.toString();
