@@ -267,11 +267,11 @@
      1
       <!--  ${ww.workingdays} -->
       
-      <s:iterator var="wd" value="%{ww.workingdays}">
+      <s:iterator var="" value="%{workingdays}">
 	  ${wd.name} 
  
 	  2
-      <s:iterator value="%wd.workblocks">
+      <s:iterator value="%workblocks">
       3
        
     </s:iterator>

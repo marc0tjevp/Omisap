@@ -17,20 +17,38 @@ import nl.scalda.pasimo.model.timeregistration.WorkingDay;
 public class TimeController extends ActionSupport {
 
 	WorkWeek ww = new WorkWeek(1);
-	
 
 	// private TreeSet<WorkWeek> workweeks = new TreeSet<>();
 
-	private TreeSet<WorkWeek> workweeks;
+	private TreeSet<WorkWeek> workweeks = DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+	private TreeSet<WorkingDay> workingdays = DAOFactory.getTheFactory().getDAOWorkWeek().readAllWorkingDays();
+	private TreeSet<WorkBlock> workblocks = DAOFactory.getTheFactory().getDAOWorkWeek().readAllWorkBlocks();
+
+	public TreeSet<WorkingDay> getWorkingdays() {
+		return workingdays;
+	}
+
+	public void setWorkingdays(TreeSet<WorkingDay> workingdays) {
+		this.workingdays = workingdays;
+	}
+
+	public TreeSet<WorkBlock> getWorkblocks() {
+		return workblocks;
+	}
+
+	public void setWorkblocks(TreeSet<WorkBlock> workblocks) {
+		this.workblocks = workblocks;
+	}
 
 	public TreeSet<WorkWeek> getWorkweeks() {
-		if (workweeks == null || workweeks.isEmpty());
+		if (workweeks == null || workweeks.isEmpty())
+			;
 
 		workweeks = DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
 		System.out.println(workweeks);
 		return workweeks;
 	}
-	
+
 	public void setWorkweeks(TreeSet<WorkWeek> workweeks) {
 		this.workweeks = workweeks;
 	}
@@ -42,15 +60,16 @@ public class TimeController extends ActionSupport {
 		return SUCCESS;
 	}
 
-
 	public String execute() {
-		getWorkweeks();
+		// getWorkweeks();
+		// ww.getWorkingdays().size();
+		// w.getWorkblocks().size();
 		return SUCCESS;
 	}
 
 	public String createWorkBlock(WorkBlock workblock) {
 		workblock.setId(0);
-		workblock.setStart(null); 
+		workblock.setStart(null);
 		workblock.setEnd(null);
 		w.addWorkBlock(workblock);
 		return SUCCESS;
@@ -75,14 +94,5 @@ public class TimeController extends ActionSupport {
 		workblock.getEnd();
 		return SUCCESS;
 	}
-	
-	public String getWorkingDays(){
-		ww.getWorkingdays();
-		return SUCCESS;
-	}
-	public String getWorkblocks(){
-		w.getWorkblocks();
-		return SUCCESS;
-	}
-	
+
 }
