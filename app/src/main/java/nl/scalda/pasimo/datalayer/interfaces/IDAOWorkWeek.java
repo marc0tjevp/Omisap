@@ -12,9 +12,7 @@ public interface IDAOWorkWeek {
 	
 	public TreeSet<WorkWeek> readAll();
 	
-	public TreeSet<WorkingDay> readAllWorkingDays();
-	
-	public TreeSet<WorkBlock> readAllWorkBlocks();
+
 
 }
 

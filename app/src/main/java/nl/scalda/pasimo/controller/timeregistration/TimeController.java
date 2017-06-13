@@ -21,24 +21,8 @@ public class TimeController extends ActionSupport {
 	// private TreeSet<WorkWeek> workweeks = new TreeSet<>();
 
 	private TreeSet<WorkWeek> workweeks = DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
-	private TreeSet<WorkingDay> workingdays = DAOFactory.getTheFactory().getDAOWorkWeek().readAllWorkingDays();
-	private TreeSet<WorkBlock> workblocks = DAOFactory.getTheFactory().getDAOWorkWeek().readAllWorkBlocks();
 
-	public TreeSet<WorkingDay> getWorkingdays() {
-		return workingdays;
-	}
 
-	public void setWorkingdays(TreeSet<WorkingDay> workingdays) {
-		this.workingdays = workingdays;
-	}
-
-	public TreeSet<WorkBlock> getWorkblocks() {
-		return workblocks;
-	}
-
-	public void setWorkblocks(TreeSet<WorkBlock> workblocks) {
-		this.workblocks = workblocks;
-	}
 
 	public TreeSet<WorkWeek> getWorkweeks() {
 		if (workweeks == null || workweeks.isEmpty())
