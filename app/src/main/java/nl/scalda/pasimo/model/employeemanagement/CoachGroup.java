@@ -35,8 +35,9 @@ public class CoachGroup implements Comparable<CoachGroup> {
     /**
 	 * The {@link LessonGroups}'s who are in this CoachGroup
 	 */
-	@Column(columnDefinition = "BLOB")
-	private Set<LessonGroup> lessonGroups = new TreeSet<>() ;
+	@OneToMany(cascade=CascadeType.ALL, targetEntity=LessonGroup.class)
+	@JoinColumn(name="lessonGroupID")
+	private Set<LessonGroup> lessonGroups = new TreeSet<>();
     //private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
     
     @ManyToOne(cascade=CascadeType.ALL, targetEntity=EducationTeam.class)

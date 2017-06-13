@@ -15,9 +15,9 @@ public class StudentService {
 		
 	}
 	public void createAll(Set<Student> student){
-		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+//		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 		DAOFactory.getTheFactory().getDAOStudent().createAll(student);
-		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
+//		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 	}
 	public static StudentService getInstance() {
 		if (instance==null){
