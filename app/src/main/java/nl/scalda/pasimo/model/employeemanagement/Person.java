@@ -13,15 +13,18 @@ import org.hibernate.annotations.PolymorphismType;
 import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 
 @Entity
-@Polymorphism(type=PolymorphismType.EXPLICIT)
-@Table(name="person")
+@Polymorphism(type=PolymorphismType.IMPLICIT)
 @Inheritance(strategy=InheritanceType.JOINED)
-public class Person implements Comparable<Person>, Serializable {
+@DiscriminatorColumn(name = "PERSON_TYPE")
+public abstract class Person implements Comparable<Person>, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="email", length=64, nullable=false)
+	@Column(name="bsn", length=6, nullable=false)
+	private int bsn;
+	
+	@Column(name="email", length=64)
     private String email;
 	
 	@Column(name="cardID", length=45)
@@ -51,8 +54,8 @@ public class Person implements Comparable<Person>, Serializable {
 	 * 
 	 * @param email
 	 */
-	public Person(String email) {
-		this.email = email;
+	public Person(int bsn) {
+		this.setBsn(bsn);
     }
 
 	/**
@@ -67,8 +70,10 @@ public class Person implements Comparable<Person>, Serializable {
 	 * @param monthOfBirth
 	 * @param dayOfBirth
 	 */
-    public Person(String email, String cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
+
+    public Person(int bsn, String email, String cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
 		GregorianCalendar gc = new GregorianCalendar();
+		this.setBsn(bsn);
 		this.setEmail(email);
 		this.setCardID(cardID);
 		this.setFirstName(firstName);
@@ -92,11 +97,19 @@ public class Person implements Comparable<Person>, Serializable {
      */
 
     //getters and setters
+    public int getBsn() {
+  		return bsn;
+  	}
+
+  	public void setBsn(int bsn) {
+  		this.bsn = bsn;
+  	}
+    
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+	public void setEmail(String email) {
         this.email = email;
     }
 
@@ -174,6 +187,16 @@ public class Person implements Comparable<Person>, Serializable {
     @Override
     public int compareTo(Person o) {
         return email.compareTo(o.getEmail());
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+    	return super.equals(obj);
+    }
+    
+    @Override
+    public int hashCode() {
+    	return super.hashCode();
     }
 
 }

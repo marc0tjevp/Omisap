@@ -1,10 +1,12 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import javax.persistence.*;
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 import nl.scalda.pasimo.service.CoachGroupService;
@@ -13,6 +15,7 @@ import nl.scalda.pasimo.service.LessonGroupService;
 
 @Entity
 @Table(name="student")
+@DiscriminatorValue(value="Student")
 public class Student extends Person {
 	public TreeSet<CheckIn> studentCheckIns;
 
@@ -28,20 +31,15 @@ public class Student extends Person {
 	private LessonGroup lessonGroup;
 	@ManyToOne
 	private CoachGroup coachGroup;
-
-	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
-			String cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth) {
-		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
-		this.studentOV = studentOV;
-		this.cohort = cohort;
-		this.cardID = cardID;
-		studentCheckIns = new TreeSet<>();
-		//this.coachGroupID = coachGroupID;
+	
+	public Student(int bsn){
+		super(bsn);
 	}
-
-	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
+	
+	public Student(int bsn, int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
 			String cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName, int lessonGroupID) {
-			super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
+			super(bsn, email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
+
 			this.studentOV = studentOV;
 			this.cohort = cohort;
 			this.cardID = cardID;
@@ -50,36 +48,6 @@ public class Student extends Person {
 			//this is null because coachGroupService readcoachgroup does use hardcoded coachgroups.
 			this.coachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupName);
 		}
-
-	public Student(String email) {
-		super(email);
-	}
-	
-	/**
-	 * full constructor with coachgroup id.
-	 * 
-	 * @param studentOV
-	 * @param cohort
-	 * @param email
-	 * @param firstName
-	 * @param insertion
-	 * @param lastName
-	 * @param cardID
-	 * @param yearOfBirth
-	 * @param noteList
-	 * @param monthOfBirth
-	 * @param dayOfBirth
-	 * @param coachGroupID
-	 */
-	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
-			String cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName) {
-		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
-		this.studentOV = studentOV;
-		this.cohort = cohort;
-		this.cardID = cardID;
-		//this is null because coachGroupService readcoachgroup does use hardcoded coachgroups.
-		this.coachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupName);
-	}
 
 	public void createStudent(){
 		DAOFactory.getTheFactory().getDAOStudent().create(this);

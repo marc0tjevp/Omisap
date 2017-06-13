@@ -4,6 +4,8 @@ import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -56,7 +58,7 @@ public class TestDAOEducationTeam implements IDAOEducationTeam {
     public EducationTeam read(int Id) {
 
         for (EducationTeam educationTeam : this.educationTeams) {
-            if (educationTeam.getAbbreviation().equals(Id))
+            if (educationTeam.getId() == Id)
                 return educationTeam;
         }
 
