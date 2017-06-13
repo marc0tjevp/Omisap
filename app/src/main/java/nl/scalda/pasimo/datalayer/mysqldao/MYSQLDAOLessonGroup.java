@@ -26,7 +26,7 @@ import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 import nl.scalda.pasimo.service.CoachGroupService;
 import nl.scalda.pasimo.service.LessonGroupService;
 
-/**
+/**	
  *
  * @author jeroen
  */
@@ -204,7 +204,7 @@ public class MYSQLDAOLessonGroup implements IDAOLessonGroup {
 				 */
 				CoachGroup coachGroupObject = CoachGroupService.getInstance().readCoachGroup(coachGroupNameResult);
 				LessonGroup lessonGroup = new LessonGroup(lessonGroupName);
-				lessonGroup.setId(lessonGroupId);
+				lessonGroup.setId(lessonGroupId);	
 
 				// Add the lesson group to the coachgroup
 				coachGroupObject.addLessonGroup(lessonGroup, false);
