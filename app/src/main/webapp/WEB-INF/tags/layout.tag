@@ -79,14 +79,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     |               | sidebar-mini                            |
     |---------------------------------------------------------|
     -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-collapse">
 	<div id="main-wrapper" class="wrapper">
 
 		<!-- Main Header -->
 		<header class="main-header">
 
 			<!-- Logo -->
-			<a href="login" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+			<a  class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
 				<span class="logo-mini">AO</span> <!-- logo for regular state and mobile devices -->
 				<span class="logo-lg"><b>Pa</b>simo<img
 					style="height: 50px; filter: brightness(0) invert(1);"
@@ -136,108 +136,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			</nav>
 		</header>
 		<!-- Left side column. contains the logo and sidebar -->
-		<aside class="main-sidebar">
-
-			<!-- sidebar: style can be found in sidebar.less -->
-			<section class="sidebar">
-				<!-- Sidebar Menu -->
-				<ul class="sidebar-menu">
-					<li class="header">ADMIN</li>
-					<!-- Optionally, you can add icons to the links -->
-
-					<li class="treeview"><a href="/Pasimo/lessongroup"><i
-							class="fa fa-user"></i> <span>Les groepen</span> <i
-							class="fa fa-angle-left pull-right"></i></a>
-						<ul class="treeview-menu">
-							<%--<li><a href="<c:url value="student"><c:param name="action" value="all"/></c:url>">Overview</a></li>--%>
-						</ul></li>
-					<%--<li class="treeview">
-                            <a href="#"><i class="fa fa-user"></i> <span>Students</span> <i class="fa fa-angle-left pull-right"></i></a>
-                            <ul class="treeview-menu">
-                                &lt;%&ndash;<li><a href="<c:url value="student"><c:param name="action" value="all"/></c:url>">Overview</a></li>&ndash;%&gt;
-                                </ul>
-                            </li>--%>
-					<li class="treeview"><a href="teacherOverview"><i
-							class="fa fa-user-plus"></i> <span>Teachers</span> <i
-							class="fa fa-angle-left pull-right"></i></a>
-						<ul class="treeview-menu">
-							&lt;%&ndash;
-							<li><a
-								href="<c:url value="teacher"><c:param name="action" value="all"/></c:url>">Overview</a></li>
-							&ndash;%&gt;
-						</ul></li>
-					<li class="treeview"><a href="StudentOverview"><i
-							class="fa fa-user-plus"></i> <span>Students</span> <i
-							class="fa fa-angle-left pull-right"></i></a>
-						<ul class="treeview-menu">
-							&lt;%&ndash;
-							<li><a
-								href="<c:url value="student"><c:param name="action" value="all"/></c:url>">Overview</a></li>
-							&ndash;%&gt;
-						</ul></li>
-
-					<li class="treeview"><a href="coachGroups"><i
-							class="fa fa-user-plus"></i> <span>CoachGroups</span> <i
-							class="fa fa-angle-left pull-right"></i></a>
-						<ul class="treeview-menu">
-							&lt;%&ndash;
-							<li><a
-								href="<c:url value="coachGroups"><c:param name="action" value="all"/></c:url>">Overview</a></li>
-							&ndash;%&gt;
-						</ul></li>
-
-					<li class="treeview"><a href="TeacherPresence"><i
-							class="fa fa-user-plus"></i> <span>Aanwezigheid Docenten</span> <i
-							class="fa fa-angle-left pull-right"></i></a>
-						<ul class="treeview-menu">
-							&lt;%&ndash;
-							<li><a
-								href="<c:url value="presenceregistration"><c:param name="action" value="all"/></c:url>">Overview</a></li>
-							&ndash;%&gt;
-						</ul></li>
-					<%--<li class="treeview">
-                            <li class="treeview">
-                                <a href="teacherOverview"><i class="fa fa-user-plus"></i> <span>Teachers</span> <i class="fa fa-angle-left pull-right"></i></a>
-                                <ul class="treeview-menu">
-                                 &lt;%&ndash;   <li><a href="<c:url value="teacher"><c:param name="action" value="all"/></c:url>">Overview</a></li>
-                                &ndash;%&gt;</ul>
-                            </li>
-                            
-                            <li class="treeview">
-                                <a href="coachGroups"><i class="fa fa-user-plus"></i> <span>CoachGroups</span> <i class="fa fa-angle-left pull-right"></i></a>
-                                <ul class="treeview-menu">
-                                 &lt;%&ndash;   <li><a href="<c:url value="coachgroup"><c:param name="action" value="all"/></c:url>">Overview</a></li>
-                                &ndash;%&gt;</ul>
-                            </li>
-                            
-                            <li class="treeview">
-                                <a href="TeacherPresence"><i class="fa fa-user-plus"></i> <span>Aanwezigheid Docenten</span> <i class="fa fa-angle-left pull-right"></i></a>
-                                <ul class="treeview-menu">
-                                 &lt;%&ndash;   <li><a href="<c:url value="presenceregistration"><c:param name="action" value="all"/></c:url>">Overview</a></li>
-                                &ndash;%&gt;</ul>
-                            </li>
-                            <%--<li class="treeview">
-                                <a href="#"><i class="fa fa-users"></i> <span>Groups</span> <i class="fa fa-angle-left pull-right"></i></a>
-                                <ul class="treeview-menu">
-                                    <li><a href="<c:url value="group?action=all" />">Overview</a></li>
-                            </ul>
-                        </li>--%>
-					<%--<sec:authorize access="hasRole('ADMIN')">--%>
-					<%--<li class="treeview">
-                                <a href="#"><i class="fa fa-lock"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i></a>
-                                <ul class="treeview-menu">
-                                    <li><a href="<c:url value="management?name=student" />">Students</a></li>
-                                    <li><a href="<c:url value="management?name=group" />">Groups</a></li>
-                                    <li><a href="<c:url value="management?name=teacher" />">Teachers</a></li>
-                                </ul>
-                            </li>--%>
-					<%--</sec:authorize>--%>
-				</ul>
-				<!-- /.sidebar-menu -->
-			</section>
-			<!-- /.sidebar -->
-		</aside>
-
+		
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<section class="content-header">

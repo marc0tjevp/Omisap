@@ -173,5 +173,13 @@ public class TestDAOTeacher implements IDAOTeacher {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+	@Override
+	public Teacher readByAbbr(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

@@ -46,7 +46,6 @@ public class Note implements Comparable<Note> {
     public Note(int noteID,int ovNumber, String title, String message, int employeeNumber){
     	this.lastEdit = new Date();
     	this.creationDate = new Date();
-    	this.employeeNumber = employeeNumber;
     	this.ovNumber = ovNumber;
     }
     
