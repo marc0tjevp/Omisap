@@ -16,20 +16,22 @@ import nl.scalda.pasimo.model.timeregistration.WorkingDay;
 
 public class TimeController extends ActionSupport {
 
-	WorkWeek ww = new WorkWeek(1);
+	private WorkWeek ww;
+	private WorkingDay w;
 
 	// private TreeSet<WorkWeek> workweeks = new TreeSet<>();
 
+
+
+	private TreeSet<WorkingDay> workingdays = new TreeSet<>();
 	private TreeSet<WorkWeek> workweeks = DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
 
-
-
 	public TreeSet<WorkWeek> getWorkweeks() {
-		if (workweeks == null || workweeks.isEmpty())
-			;
+		if (workweeks == null || workweeks.isEmpty()) {
 
-		workweeks = DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
-		System.out.println(workweeks);
+			workweeks = DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
+		}
+
 		return workweeks;
 	}
 
@@ -37,17 +39,35 @@ public class TimeController extends ActionSupport {
 		this.workweeks = workweeks;
 	}
 
-	WorkingDay w = new WorkingDay();
-	private Object workblock;
+	public WorkingDay getW() {
+		return w;
+	}
+
+	public void setW(WorkingDay w) {
+		this.w = w;
+	}
+
+	public WorkWeek getWw() {
+		return ww;
+	}
+
+	public void setWw(WorkWeek ww) {
+		this.ww = ww;
+	}
+
+	
 
 	public String SSC() {
 		return SUCCESS;
 	}
 
 	public String execute() {
-		// getWorkweeks();
-		// ww.getWorkingdays().size();
-		// w.getWorkblocks().size();
+		getWorkweeks();
+		ww = workweeks.first();
+		System.out.println(ww);
+		ww.getWorkingdays();
+		System.out.println(w);
+		// w.getWorkblocks();
 		return SUCCESS;
 	}
 
