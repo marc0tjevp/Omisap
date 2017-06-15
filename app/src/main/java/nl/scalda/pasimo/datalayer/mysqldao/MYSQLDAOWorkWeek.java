@@ -24,6 +24,33 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 
 	private SessionFactory factory;
 	private static MYSQLDAOWorkWeek instance = null;
+	private TreeSet<WorkWeek> workweeks = new TreeSet<>();
+	private TreeSet<WorkingDay> workingdays = new TreeSet<>();
+	private TreeSet<WorkBlock> workblocks = new TreeSet<>();
+
+	public TreeSet<WorkWeek> getWorkweeks() {
+		return workweeks;
+	}
+
+	public void setWorkweeks(TreeSet<WorkWeek> workweeks) {
+		this.workweeks = workweeks;
+	}
+
+	public TreeSet<WorkingDay> getWorkingdays() {
+		return workingdays;
+	}
+
+	public void setWorkingdays(TreeSet<WorkingDay> workingdays) {
+		this.workingdays = workingdays;
+	}
+
+	public TreeSet<WorkBlock> getWorkblocks() {
+		return workblocks;
+	}
+
+	public void setWorkblocks(TreeSet<WorkBlock> workblocks) {
+		this.workblocks = workblocks;
+	}
 
 	public MYSQLDAOWorkWeek() {
 		initialiseFactory();
@@ -56,9 +83,6 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 	public TreeSet<WorkWeek> readAll() {
 		Session session = factory.openSession();
 		Transaction tx = null;
-		TreeSet<WorkWeek> workweeks = new TreeSet<>();
-		TreeSet<WorkingDay> workingdays = new TreeSet<>();
-		TreeSet<WorkBlock> workblocks = new TreeSet<>();
 		try {
 			tx = session.beginTransaction();
 			List weekList = session.createNativeQuery(
@@ -71,29 +95,27 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 				Object[] o = (Object[]) iterator.next();
 				WorkWeek workweek = new WorkWeek(Integer.parseInt(String.valueOf(o[0])));
 				workweeks.add(workweek);
-				 for (Iterator it = weekList.iterator(); it.hasNext();) {
-				 Object[] ob = (Object[]) it.next();
-				 WorkingDay workingday = new
-				 WorkingDay(Integer.parseInt(String.valueOf(ob[1])),
-				 String.valueOf(ob[2]));
-				 workingdays.add(workingday);
-				 for (Iterator i = weekList.iterator(); i.hasNext();) {
-				 Object[] obj = (Object[]) i.next();
-				
-				 PasimoTime pt = new PasimoTime();
-				 Time dateString = (Time) obj[5];
-				 pt.setTimeInMillis(dateString.getTime());
-				 PasimoTime pt1 = new PasimoTime();
-				 Time dateString1 = (Time) obj[6];
-				 pt1.setTimeInMillis(dateString1.getTime());
-				 SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-				
-				 WorkBlock workblock = new
-				 WorkBlock(Integer.parseInt(String.valueOf(obj[4])), pt, pt1);
-				 workblocks.add(workblock);
-				 }
-				
-				 }
+				for (Iterator it = weekList.iterator(); it.hasNext();) {
+					Object[] ob = (Object[]) it.next();
+					WorkingDay workingday = new WorkingDay(Integer.parseInt(String.valueOf(ob[1])),
+							String.valueOf(ob[2]));
+					workingdays.add(workingday);
+					for (Iterator i = weekList.iterator(); i.hasNext();) {
+						Object[] obj = (Object[]) i.next();
+
+						PasimoTime pt = new PasimoTime();
+						Time dateString = (Time) obj[5];
+						pt.setTimeInMillis(dateString.getTime());
+						PasimoTime pt1 = new PasimoTime();
+						Time dateString1 = (Time) obj[6];
+						pt1.setTimeInMillis(dateString1.getTime());
+						SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+
+						WorkBlock workblock = new WorkBlock(Integer.parseInt(String.valueOf(obj[4])), pt, pt1);
+						workblocks.add(workblock);
+					}
+
+				}
 
 			}
 			tx.commit();
@@ -102,9 +124,6 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 				tx.rollback();
 			e.printStackTrace();
 		} finally {
-
-		
-		
 
 			session.close();
 		}

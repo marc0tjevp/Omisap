@@ -18,11 +18,10 @@ public class TimeController extends ActionSupport {
 
 	private WorkWeek ww;
 	private WorkingDay w;
+	private WorkBlock wb;
 
-	// private TreeSet<WorkWeek> workweeks = new TreeSet<>();
-
-
-
+	
+	private TreeSet<WorkBlock> workblocks = new TreeSet<>();
 	private TreeSet<WorkingDay> workingdays = new TreeSet<>();
 	private TreeSet<WorkWeek> workweeks = DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
 
@@ -55,7 +54,13 @@ public class TimeController extends ActionSupport {
 		this.ww = ww;
 	}
 
-	
+	public WorkBlock getWb() {
+		return wb;
+	}
+
+	public void setWb(WorkBlock wb) {
+		this.wb = wb;
+	}
 
 	public String SSC() {
 		return SUCCESS;
@@ -67,7 +72,8 @@ public class TimeController extends ActionSupport {
 		System.out.println(ww);
 		ww.getWorkingdays();
 		System.out.println(w);
-		// w.getWorkblocks();
+		 w.getWorkblocks();
+		 System.out.println(wb);
 		return SUCCESS;
 	}
 
