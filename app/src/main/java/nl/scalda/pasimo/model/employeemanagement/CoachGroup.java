@@ -38,7 +38,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 */
 	@OneToMany(cascade=CascadeType.ALL, targetEntity=LessonGroup.class)
 	@JoinColumn(name="lessonGroupID")
-	private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
+	private Set<LessonGroup> lessonGroups = new TreeSet<>();
     
     @ManyToOne(cascade=CascadeType.ALL, targetEntity=EducationTeam.class)
     @JoinColumn(name="educationTeam_id")
@@ -151,7 +151,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 *
 	 * @return The index of this lesson group
 	 */
-	public TreeSet<LessonGroup> getLessonGroups() {
+	public Set<LessonGroup> getLessonGroups() {
 		return lessonGroups;
 	}
 
@@ -161,7 +161,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 * @param {@link
 	 * 			LessonGroups}'s
 	 */
-	public void setLessonGroups(TreeSet<LessonGroup> lessonGroups) {
+	public void setLessonGroups(Set<LessonGroup> lessonGroups) {
 		this.lessonGroups = lessonGroups;
 	}
 	// </editor-fold>

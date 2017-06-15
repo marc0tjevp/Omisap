@@ -16,7 +16,7 @@ import nl.scalda.pasimo.model.employeemanagement.Student;
 public class TestDAOLessonGroup implements IDAOLessonGroup {
 
 	private static TestDAOLessonGroup instance = null;
-	private TreeSet<LessonGroup> lessongroups = new TreeSet<>();
+	private Set<LessonGroup> lessongroups = new TreeSet<>();
 
 	private TestDAOLessonGroup() {
 		LessonGroup l1 = new LessonGroup(3, "ICO43A");
@@ -78,12 +78,12 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 	}
 
 	@Override
-	public TreeSet<LessonGroup> readAll() {
+	public Set<LessonGroup> readAll() {
 		return this.lessongroups;
 	}
 
 	@Override
-	public TreeSet<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup) {
+	public Set<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup) {
 		TreeSet<CoachGroup> coachGroups = DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
 
 		for (CoachGroup loopingCoachGroup : coachGroups) {

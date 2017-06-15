@@ -74,7 +74,7 @@ public void create(Student s) {
 		query1.setParameter("ovNumber", s.getStudentOV());
 		query1.setParameter("cohort", s.getCohort());
 		query1.setParameter("lessonGroupID", s.getLessonGroup());
-		query1.setParameter("bsn", 0);
+		query1.setParameter("bsn", s.getBsn());
 		query1.executeUpdate();
 		tx.commit();
 	} catch(HibernateException e) {
