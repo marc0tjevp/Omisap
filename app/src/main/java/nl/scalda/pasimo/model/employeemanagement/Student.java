@@ -6,51 +6,59 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import javax.persistence.*;
+import java.util.TreeSet;
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.service.CoachGroupService;
 import nl.scalda.pasimo.service.LessonGroupService;
 
 @Entity
-@Table(name="student")
+@Table(name = "student")
+@DiscriminatorValue(value = "Student")
 public class Student extends Person {
 	private static final long serialVersionUID = 1L;
 	private int noteListID;
 
 	private int cardID;
-	@Column(name="cohort")
+	@Column(name = "cohort")
 	private int cohort;
-	@Column(name="ovNumber")
+	@Column(name = "ovNumber")
 	private int studentOV;
 	private TreeSet<Note> noteList = new TreeSet<>();
-    
 	private LessonGroup lessonGroup;
 	private CoachGroup coachGroup;
 
-	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
-			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth) {
-		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
+	public Student(int bsn) {
+		super(bsn);
+	}
+
+	public Student(int bsn, int studentOV, int cohort, String email, String firstName, String insertion,
+			String lastName, int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth) {
+		super(bsn, email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.studentOV = studentOV;
 		this.cohort = cohort;
-		
+
 	}
-	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
-			int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName, int lessonGroupID) {
-			super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
-			this.studentOV = studentOV;
-			this.cohort = cohort;
-			this.cardID = cardID;
-			this.lessonGroup = LessonGroupService.getInstance().read(lessonGroupID);
-			lessonGroup.addStudent(this);
-			//this is null because coachGroupService readcoachgroup does use hardcoded coachgroups.
-			this.coachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupName);
-		}
-	public Student(String email) {
-		super(email);
+
+	public Student(int bsn, int studentOV, int cohort, String email, String firstName, String insertion,
+			String lastName, int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth,
+			String coachGroupName, int lessonGroupID) {
+		super(bsn, email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
+		this.studentOV = studentOV;
+		this.cohort = cohort;
+		this.cardID = cardID;
+		this.lessonGroup = LessonGroupService.getInstance().read(lessonGroupID);
+		lessonGroup.addStudent(this);
+		// this is null because coachGroupService readcoachgroup does use
+		// hardcoded coachgroups.
+		this.coachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupName);
 	}
-	public Student(){
-		
+
+	public Student() {
+
 	}
-	
+
 	/**
 	 * full constructor with coachgroup id.
 	 * 
@@ -67,20 +75,11 @@ public class Student extends Person {
 	 * @param dayOfBirth
 	 * @param coachGroupID
 	 */
-	public Student(int studentOV, int cohort, String email, String firstName, String insertion, String lastName,
-		int cardID, int yearOfBirth, TreeSet<Note> noteList, int monthOfBirth, int dayOfBirth, String coachGroupName) {
-		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
-		this.studentOV = studentOV;
-		this.cohort = cohort;
-		this.cardID = cardID;
-		//this is null because coachGroupService readcoachgroup does use hardcoded coachgroups.
-		this.coachGroup = CoachGroupService.getInstance().readCoachGroup(coachGroupName);
-	}
 
-	public void createStudent(){
+	public void createStudent() {
 		DAOFactory.getTheFactory().getDAOStudent().create(this);
 	}
-	
+
 	public boolean deleteStudent(Student s) {
 		s = null;
 		return true;
@@ -89,12 +88,10 @@ public class Student extends Person {
 	public int getNoteListID() {
 		return noteListID;
 	}
-	
 
 	public void setNoteListID(int noteListID) {
 		this.noteListID = noteListID;
 	}
-
 
 	public int getCardID() {
 		return cardID;
@@ -102,7 +99,7 @@ public class Student extends Person {
 
 	public void setCardID(int cardID) {
 		this.cardID = cardID;
-		//this.noteList = noteList;
+		// this.noteList = noteList;
 	}
 
 	public TreeSet<Note> getNoteList() {
@@ -139,8 +136,9 @@ public class Student extends Person {
 
 	@Override
 	public int compareTo(Person o) {
-	    return getEmail().compareTo(o.getEmail());
+		return getEmail().compareTo(o.getEmail());
 	}
+
 	public String getNameOfLessonGroup() {
 		return lessonGroup.getName();
 	}
@@ -156,10 +154,10 @@ public class Student extends Person {
 	public void setCoachGroup(CoachGroup coachGroup) {
 		this.coachGroup = coachGroup;
 	}
-	
+
 	@Override
 	public String toString() {
 
-		return getStudentOV()+ " "+super.toString();
+		return getStudentOV() + " " + super.toString();
 	}
 }

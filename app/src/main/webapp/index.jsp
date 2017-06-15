@@ -2,9 +2,56 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<t:layout2>
-    <jsp:attribute name="content">
-        <h1>Hello World! hier op je meul</h1>
-        <h1><a href="pag2">Naar pagina 2</a></h1>
+
+
+<html>
+
+<t:layout>
+	<jsp:attribute name="css">
+         <link type="text/css" rel="stylesheet"
+			href="<c:url value="/resources/css/loginView.css"/>" />
     </jsp:attribute>
-</t:layout2>
+
+
+    <jsp:attribute name="content">
+        
+ 
+
+<div class="container1">
+    <div class="row">
+		<div class="col-md-4 col-md-offset-4">
+    		<div class="panel panel-default">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title">Inloggen</h3>
+			 	</div>
+			  	<div class="panel-body">
+			    	<form class="forgotPassword"
+			    		action="forgotPassword" role="form" method="post">	
+						<fieldset>
+			    	  		<div class="form-group">
+			    		    	<input class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="E-mail" name="email" type="text">
+			    			</div>
+			    			<div class="form-group">
+			    				<input class="form-control" placeholder="Password" name="password" type="password" value="">
+			    			</div>
+			    			    
+			    	    		<input class="forgotpw" id="wwforgot" type="submit" value="Wachtwoord vergeten?"> 
+			    	    	
+			    		</fieldset>
+			    	</form>
+			    		<form class="login"
+							action="login" role="form" method="post">
+			    		<fieldset>
+			    		
+			    		<input class="button" id="login" type="submit" value="Login">
+			    		</fieldset>
+			      	</form>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</jsp:attribute>
+</t:layout>
+</html>

@@ -3,11 +3,14 @@ package nl.scalda.pasimo.model.employeemanagement;
 import java.io.Serializable;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
+import nl.scalda.pasimo.datalayer.testdao.TestDAOCoachGroup;
+
+import java.util.Set;
 import java.util.TreeSet;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "education_team")
+@Table(name = "educationTeam")
 public class EducationTeam implements Comparable<EducationTeam>, Serializable {
 
     /**
@@ -17,9 +20,14 @@ public class EducationTeam implements Comparable<EducationTeam>, Serializable {
     @Id
     @Column(name = "educationTeamID", length = 11, nullable = false)
     private int id;
-    private TreeSet<CoachGroup> coachGroups;
-    private TreeSet<Teacher> teachers = new TreeSet<>();
 
+	@OneToMany(cascade=CascadeType.ALL, targetEntity=CoachGroup.class)
+	@JoinColumn(name="id")
+	private Set<CoachGroup> coachGroups = new TreeSet<>();
+	
+	@ManyToMany(cascade=CascadeType.ALL, targetEntity=Teacher.class, fetch=FetchType.EAGER)
+	@JoinColumn(name="bsn")
+    private Set<Teacher> teachers = new TreeSet<>();
     /**
      * Abbreviation of the EducationTeam; e.g. AO
      */
@@ -81,9 +89,7 @@ public class EducationTeam implements Comparable<EducationTeam>, Serializable {
      * @param oldname
      */
     public void updateCoachGroup(CoachGroup cg, String oldname) {
-
         DAOFactory.getTheFactory().getDAOCoachGroup().update(cg, oldname);
-
     }
 
     /**
@@ -115,10 +121,9 @@ public class EducationTeam implements Comparable<EducationTeam>, Serializable {
         if (teachers.remove(t)) {
             DAOFactory.getTheFactory().getDAOEducationTeam().deleteTeacherFromEducationTeam(t, this);
         }
-
     }
 
-    public TreeSet<Teacher> getTeachers() {
+    public Set<Teacher> getTeachers() {
         return teachers;
     }
 
@@ -162,24 +167,20 @@ public class EducationTeam implements Comparable<EducationTeam>, Serializable {
                 + '}';
     }
 
+	public Set<CoachGroup> getCoachGroups() {
+		if(coachGroups.isEmpty()){
+			loadCoachGroups();
+		}
+		return coachGroups;
+	}
 
-    public TreeSet<CoachGroup> getCoachGroups() {
-        if (coachGroups == null) {
-            
-            loadCoachGroups();
-        }
-        return coachGroups;
-    }
-
-    public void setCoachGroups(TreeSet<CoachGroup> coachGroups) {
-        this.coachGroups = coachGroups;
-    }
-
-    public void loadCoachGroups() {
-        this.coachGroups
-                = DAOFactory.getTheFactory().getDAOCoachGroup().readAllBYTeam(this);
-        System.out.println(" test test");
-    }
+	public void setCoachGroups(Set<CoachGroup> coachGroups) {
+		this.coachGroups = coachGroups;
+	}
+	
+	public void loadCoachGroups(){
+		this.coachGroups = DAOFactory.getTheFactory().getDAOCoachGroup().readAllBYTeam(this);
+	}
 
     @Override
     public int hashCode() {
