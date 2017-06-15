@@ -21,7 +21,7 @@
          <div class="form-group row">
            <label class="col-2 col-form-label">lessonGroupID</label>
            <div class="col-10">
-             <s:select class="form-control" style="width: 50%;" name="lessonGroupID" list="lessonGroups" listKey="id" listValue="name"></s:select>
+             <s:select class="form-control" style="width: 50%;" name="lessonGroup" list="lessonGroups"></s:select>
            </div>
          </div>
           <div class="form-group row">

@@ -18,7 +18,8 @@ public class StudentController extends ActionSupport {
 	
 	private static final long serialVersionUID = 1L;
 	private CSVReader c = CSVReader.getInstance();
-	public Set<LessonGroup> lessonGroups = new TreeSet<>();
+	public TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
+	public LessonGroup lessonGroup;
 	public Set<CoachGroup> coachGroups = new TreeSet<>();
 	public File csvFile;
 	public int cohort;
@@ -62,6 +63,14 @@ public class StudentController extends ActionSupport {
 		this.cohort = cohort;
 	}
 
+	public LessonGroup getLessonGroup() {
+		return lessonGroup;
+	}
+
+	public void setLessonGroup(LessonGroup lessonGroup) {
+		this.lessonGroup = lessonGroup;
+	}
+
 	public int getLessonGroupID() {
 		return lessonGroupID;
 	}
@@ -78,14 +87,14 @@ public class StudentController extends ActionSupport {
 		this.coachGroupName = coachGroupName;
 	}
 
-	public Set<LessonGroup> getLessonGroups() {
+	public TreeSet<LessonGroup> getLessonGroups() {
 		if(lessonGroups.isEmpty()){
 			lessonGroups.addAll(DAOFactory.getTheFactory().getDAOLessonGroup().readAll());
 		}
 		return lessonGroups;
 	}
 
-	public void setLessonGroups(Set<LessonGroup> lessonGroups) {
+	public void setLessonGroups(TreeSet<LessonGroup> lessonGroups) {
 		this.lessonGroups = lessonGroups;
 	}
 

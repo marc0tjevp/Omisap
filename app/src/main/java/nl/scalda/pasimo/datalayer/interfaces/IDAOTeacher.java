@@ -25,4 +25,6 @@ public interface IDAOTeacher {
 	
 	public CoachGroup getCurrentCoachGroup(Teacher teacher);
 
+	public Teacher readByBSN(int bsn);
+
 }

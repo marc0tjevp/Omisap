@@ -127,5 +127,11 @@ public class TestDAOTeacher implements IDAOTeacher {
 		}
 		return instance;
 	}
+
+	@Override
+	public Teacher readByBSN(int bsn) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

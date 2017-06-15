@@ -175,6 +175,32 @@ public class MYSQLDAOTeacher implements IDAOTeacher {
 		}
 		return teacher;
 	}
+	@Override
+	public Teacher readByBSN(int bsn) {
+		Session session = factory.openSession();
+		Transaction tx = null;
+		Teacher teacher = null;
+		try{
+			tx = session.beginTransaction();
+			CriteriaBuilder cb = session.getCriteriaBuilder();
+			CriteriaQuery<Teacher> c = cb.createQuery(Teacher.class);
+			Root<Teacher> root = c.from(Teacher.class);
+			c.select(root);
+			List<Predicate> criteria = new ArrayList<Predicate>();
+			Expression<Integer> p = cb.parameter(Integer.class, "bsn");
+			criteria.add(cb.equal(root.get("bsn"), p));
+			c.where(criteria.get(0));
+			teacher = session.createQuery(c).setParameter("bsn", bsn).getSingleResult();
+			tx.commit();
+		}
+		catch (Exception e) {
+		   if (tx!=null) tx.rollback();
+		   e.printStackTrace(); 
+		}finally {
+		   session.close();
+		}
+		return teacher;
+	}
 	
 	/**
 	 * reads all teacher from the database that are in the given education team.
