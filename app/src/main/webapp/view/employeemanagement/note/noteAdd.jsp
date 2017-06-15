@@ -13,8 +13,6 @@
 		<link rel="stylesheet" href="<c:url value="/resources/css/note.css"/>" />
 	</jsp:attribute>
 	<jsp:attribute name="content">
-	
-
 <!-- note imput -->	
 
 <form action="noteAdd" class="" enctype="multipart/form-data"

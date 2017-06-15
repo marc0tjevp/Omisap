@@ -7,7 +7,7 @@ $('#noteSubmit').on('click', function(){
 });
 
 $('#noteEdit').on('click', function(){
-	$('#noteForm').submit();
+	$('#noteFormEdit').submit();
 });
 
 $('#overviewModal').on('show.bs.modal', function (e) {
@@ -15,7 +15,7 @@ $('#overviewModal').on('show.bs.modal', function (e) {
     $(this).find('#noteEditView').attr("href", "noteEditView?id=" + e.relatedTarget.id);
 });
 
-$('#myModal').on('show.bs.modal', function (e) {
-    $(this).find('#noteEdit').attr("href", "noteEdit?id=" + e.relatedTarget.id);
-});
+//$('#myModal').on('show.bs.modal', function (e) {
+//    $(this).find('#noteEdit').attr("href", "noteEdit?id=" + e.relatedTarget.id);
+//});
 

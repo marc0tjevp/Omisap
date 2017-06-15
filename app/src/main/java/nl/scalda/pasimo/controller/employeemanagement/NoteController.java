@@ -16,7 +16,7 @@ public class NoteController extends ActionSupport {
 	private String employeeFirstName;
 	private String madeBy;
 	private int id;
-	private Teacher teacher = new Teacher("test", 1);
+	private Teacher teacher = new Teacher("test", 9);
 	private Student student;
 	private String title;
 	private String message;
@@ -50,7 +50,8 @@ public class NoteController extends ActionSupport {
 	public String noteAdd() {
 		Student s = new Student();
 		s.setStudentOV(124);
-		Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
+//		Teacher teacher = TestDAOTeacher.getInstance().readByAbbr(madeBy);
+		Teacher teacher = new Teacher("test",2 );
 		teacher.createNote(title, message, s, teacher);
 		return SUCCESS;
 	}
@@ -68,21 +69,10 @@ public class NoteController extends ActionSupport {
 	}
 	
 	public String noteEdit(){
-		if(title == null){
-			System.out.println("title is null");
-		}
-		if(message == null){
-			System.out.println("message is null");
-		}
-		
-		System.out.println("notedit");
-		System.out.println("Notelist size: " + teacher.readAllNotes().toString());
-		for(Note n : teacher.readAllNotes()){
-			if(n.getId() == id){
-			
-			teacher.editNote(n);
-			}
-		}
+		note = teacher.readNoteById(id);
+		note.setTitle(title);
+		note.setMessage(message);
+			teacher.editNote(note);
 		return SUCCESS;
 	}
 

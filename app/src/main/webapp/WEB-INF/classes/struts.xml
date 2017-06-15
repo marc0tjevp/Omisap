@@ -179,7 +179,7 @@
         <action name="noteEdit"
             class="nl.scalda.pasimo.controller.employeemanagement.NoteController"
             method="noteEdit" >
-            <result name="success" type="redirectAction">noteOverview
+            <result name="success" type="redirect">noteOverview
             </result>
         </action>
         <action name="noteDelete"

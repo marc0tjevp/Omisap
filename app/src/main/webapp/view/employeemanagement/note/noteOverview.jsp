@@ -45,13 +45,10 @@
 										href="noteDeleteAll">Alles verwijderen</a>
         <button type="button" class="btn btn-default"
 										data-dismiss="modal">Annuleren</button>
-
       </div>
     </div>
-
   </div>
 </div>
-				
 			 	<div class="row">
 					<c:forEach var="n" items="${noteList}">
 						<div class="note col-md-3" data-toggle="modal"
@@ -68,10 +65,8 @@
 							</div>		
 							<div class="row">
 								<div class="col-md-12 noteMessage"> </div>
-							</div>
-								
+							</div>							
 						</div>
-						
 					</c:forEach>				
 				</div>	
 				
