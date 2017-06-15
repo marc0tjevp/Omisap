@@ -4,22 +4,22 @@ import java.io.Serializable;
 import java.util.GregorianCalendar;
 import java.util.TreeSet;
 
-<<<<<<< HEAD
+
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 
-public class Person implements Comparable<Person> {
-=======
+
+
 import javax.persistence.*;
->>>>>>> develop
+
 
 import org.hibernate.annotations.Polymorphism;
 import org.hibernate.annotations.PolymorphismType;
-
 @Entity
 @Polymorphism(type=PolymorphismType.IMPLICIT)
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(name = "PERSON_TYPE")
+
 public abstract class Person implements Comparable<Person>, Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -47,10 +47,12 @@ public abstract class Person implements Comparable<Person>, Serializable {
     private GregorianCalendar dateOfBirth;
     
 
+
+
     /**
      * default constructor.
      */
-	public Person() {}
+	public Person(){}
 	
 	/**
 	 * constructor with only email.
@@ -194,7 +196,7 @@ public abstract class Person implements Comparable<Person>, Serializable {
         return email.compareTo(o.getEmail());
     }
     
-<<<<<<< HEAD
+
 //    public boolean isAvailable(){
 //    	if(DAOFactory.getTheFactory().getDAOCheckIn().readAll().size()){
 //    		
@@ -209,7 +211,7 @@ public abstract class Person implements Comparable<Person>, Serializable {
 //}else{
 //  checkin.setIsCheckIn(true);
 //}
-=======
+
     @Override
     public boolean equals(Object obj) {
     	return super.equals(obj);
@@ -220,5 +222,5 @@ public abstract class Person implements Comparable<Person>, Serializable {
     	return super.hashCode();
     }
 
->>>>>>> develop
+
 }
