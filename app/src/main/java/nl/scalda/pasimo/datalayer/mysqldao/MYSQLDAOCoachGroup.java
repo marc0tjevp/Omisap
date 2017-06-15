@@ -61,10 +61,10 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			String sql = "INSERT INTO coachgroup (name, teacher_employeenumber, educationTeam_educationTeamID)values(:name , :teacher_employeenumber , :educationTeam_educationTeamID );";
+			String sql = "INSERT INTO coachGroup (name, coach_bsn, educationTeam_educationTeamID)values(:name , :coach_bsn , :educationTeam_educationTeamID );";
 			NativeQuery query = session.createNativeQuery(sql);
 			query.setParameter("name", CoachGroup.getName());
-			query.setParameter("teacher_employeenumber", CoachGroup.getCoach().getEmployeeNumber());
+			query.setParameter("coach_bsn", CoachGroup.getCoach().getBsn());
 			query.setParameter("educationTeam_educationTeamID", edu.getId());
 			query.executeUpdate();
 
@@ -93,11 +93,10 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 		try {
 			tx = session.beginTransaction();
 			Object[] obj = (Object[]) session
-					.createNativeQuery( "SELECT * FROM coachgroup WHERE name = :name")
+					.createNativeQuery( "SELECT * FROM coachGroup WHERE name = :name")
 					.setParameter("name", cg.getName()).getSingleResult();
 			   cg.setName(String.valueOf(obj[0]));
-				
-				cg.setCoach(TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(String.valueOf(obj[1]))));
+				cg.setCoach(TeacherService.getInstance().getTeacherByBSN(Integer.parseInt(String.valueOf(obj[1]))));
 				EducationTeam bla =  EducationTeamService.getInstance().read(Integer.parseInt(String.valueOf(obj[2])));
                 bla.getCoachGroups().add(cg);
 			tx.commit();
@@ -123,10 +122,11 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 		try {
 			tx = session.beginTransaction();
 			
-			NativeQuery query2 = session.createNativeQuery("UPDATE coachgroup set name = :name, teacher_employeenumber = :teacher_employeenumber  where name = :oldname ;");
+			NativeQuery query2 = session.createNativeQuery("UPDATE coachGroup set name = :name, coach_bsn = :coach_bsn  where name = :oldname ;");
 			
 			query2.setParameter("name", coachGroup.getName())
-			.setParameter("teacher_employeenumber", coachGroup.getCoach().getEmployeeNumber())
+			//TODO when is changed from teacher employeenumber to bsn
+			.setParameter("coach_bsn", coachGroup.getCoach().getBsn())
 			.setParameter("oldname", Oldname);
 	
 			query2.executeUpdate();
@@ -152,7 +152,7 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			session.createNativeQuery("DELETE * FROM coachgroup where name = :name ;")
+			session.createNativeQuery("DELETE * FROM coachGroup where name = :name ;")
 			.setParameter("name", CoachGroup.getName())
 			.executeUpdate();
 			session.delete(CoachGroup);
@@ -180,11 +180,11 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
         TreeSet<CoachGroup> coachGroups = new TreeSet<>();
         try {
             tx = session.beginTransaction();
-            List coachGroupList = session.createNativeQuery("SELECT * FROM coachgroup ;")
+            List coachGroupList = session.createNativeQuery("SELECT * FROM coachGroup;")
                     .getResultList();
             for (Iterator iterator = coachGroupList.iterator(); iterator.hasNext();) {
                 Object[] obj = (Object[]) iterator.next();
-                CoachGroup cg = new CoachGroup(String.valueOf(obj[0]) , TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(String.valueOf(obj[1]))));
+                CoachGroup cg = new CoachGroup(String.valueOf(obj[0]) , TeacherService.getInstance().getTeacherByBSN(Integer.parseInt(String.valueOf(obj[1]))));
                 EducationTeam bla =  EducationTeamService.getInstance().read(Integer.parseInt(String.valueOf(obj[2])));
                 bla.getCoachGroups().add(cg);
                 coachGroups.add(cg);
@@ -214,7 +214,7 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 		CoachGroup cp = new CoachGroup();
 		try {
 			tx = session.beginTransaction();
-			List CoachGroupList = session.createNativeQuery("SELECT * from coachgroup where educationTeam_educationTeamID = :educationTeam_educationTeamID ;")
+			List CoachGroupList = session.createNativeQuery("SELECT * from coachGroup where educationTeam_educationTeamID = :educationTeam_educationTeamID ;")
 					.setParameter("educationTeam_educationTeamID", t.getId())
 					
 					.getResultList();
@@ -223,9 +223,8 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 			
 			for(Iterator iterator = CoachGroupList.iterator();iterator.hasNext();){
 				 Object[] obj = (Object[]) iterator.next();
-				 
-				 CoachGroup cg = new CoachGroup(String.valueOf(obj[0]) , TeacherService.getInstance().getTeacherByEmployeeID(Integer.parseInt(String.valueOf(obj[1]))));
-				 coach.add(cg);
+			 CoachGroup cg = new CoachGroup(String.valueOf(obj[0]) , TeacherService.getInstance().getTeacherByBSN(Integer.parseInt(String.valueOf(obj[1]))));
+			 coach.add(cg);
 			 }
 			tx.commit();
 			
