@@ -16,7 +16,7 @@ public class LessonGroupService implements ILessonGroupService {
 	private static LessonGroupService instance = null;
 
 	private LessonGroupService() {
-		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
+//		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 	}
 
 	public static LessonGroupService getInstance() {
@@ -49,24 +49,25 @@ public class LessonGroupService implements ILessonGroupService {
 		return null;
 	}
 
-	// TODO Get rid of these DAO's
-	@Override
-	public void update(LessonGroup newLessonGroup) {
-		DAOFactory.getTheFactory().getDAOLessonGroup().update(newLessonGroup);
-	}
-
-	@Override
-	public void delete(LessonGroup lessonGroup) {
-		DAOFactory.getTheFactory().getDAOLessonGroup().delete(lessonGroup);
-	}
-
+//	// TODO Get rid of these DAO's
+//	@Override
+//	public void update(LessonGroup newLessonGroup) {
+//		DAOFactory.getTheFactory().getDAOLessonGroup().update(newLessonGroup);
+//	}
+//
+//	@Override
+//	public void delete(LessonGroup lessonGroup) {
+//		DAOFactory.getTheFactory().getDAOLessonGroup().delete(lessonGroup);
+//	}
 	@Override
 	public TreeSet<CoachGroup> readAll() {
 		TreeSet<CoachGroup> coachGroupsWithLessonGroups = new TreeSet<>();
 
-		for (CoachGroup coachGroup : CoachGroupService.getInstance().readAll()) {
+		TreeSet<CoachGroup> allCoachGroups = CoachGroupService.getInstance().readAll();
+		
+		for (CoachGroup coachGroup : allCoachGroups) {
 			coachGroup.loadLessonGroups();
-			if (coachGroup.getLessonGroups().size() <= 0) {
+			if (coachGroup.getLessonGroups().size() <= 0) { 
 				continue;
 			}
 			coachGroupsWithLessonGroups.add(coachGroup);
@@ -81,5 +82,17 @@ public class LessonGroupService implements ILessonGroupService {
 			return null;
 		}
 		return specificCoachGroup.getLessonGroupByName(lessonGroupName);
+	}
+
+	@Override
+	public void update(LessonGroup newLessonGroup) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(LessonGroup lessonGroup) {
+		// TODO Auto-generated method stub
+		
 	}
 }

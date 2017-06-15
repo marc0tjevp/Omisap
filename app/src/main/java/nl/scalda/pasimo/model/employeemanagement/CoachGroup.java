@@ -5,7 +5,8 @@ import java.util.TreeSet;
 import javax.persistence.*;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
+import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 
 /**
  * @author Collin and ismet
@@ -78,9 +79,14 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 * 
 	 * @param Lessongroup
 	 */
-	public void addLessonGroup(LessonGroup lg) {
+	public void addLessonGroup(LessonGroup lg, boolean shouldAddTODB) {
 		this.lessonGroups.add(lg);
-		DAOFactory.getTheFactory().getDAOLessonGroup().create(lg);
+		
+		if(shouldAddTODB) {
+			DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+			DAOFactory.getTheFactory().getDAOLessonGroup().create(lg, this);
+			DAOFactory.setTheFactory(TestDAOFactory.getInstance());
+		}
 	}
 
 	/**
@@ -89,10 +95,10 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 * @param LessonGroup
 	 */
 	public void deleteLessonGroup(LessonGroup lg) {
-
 		lessonGroups.remove(lg);
-		TestDAOLessonGroup.getInstance().delete(lg);
-
+		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+		DAOFactory.getTheFactory().getDAOLessonGroup().delete(lg);
+		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 	}
 
 	/**
@@ -100,7 +106,9 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 */
 
 	public void loadLessonGroups() {
+		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 		this.lessonGroups = DAOFactory.getTheFactory().getDAOLessonGroup().readAllByCoachGroup(this);
+	    DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 	}
 
 	/**
@@ -162,8 +170,11 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 */
 	public LessonGroup getLessonGroupByName(String lessonGroupName){
 		if(lessonGroups == null){
+			DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 			this.lessonGroups = 
 					DAOFactory.getTheFactory().getDAOLessonGroup().readAllByCoachGroup(this);
+		    DAOFactory.setTheFactory(TestDAOFactory.getInstance());
+
 		}
 		
 		for(LessonGroup lessonGroup : lessonGroups) {
