@@ -20,4 +20,9 @@ public class LoginController extends ActionSupport {
 
 		return SUCCESS;
 	}
+	
+	public String CreateAccount(){
+		
+		return SUCCESS;
+	}
 }

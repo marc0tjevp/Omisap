@@ -121,7 +121,15 @@
 				method="execute">
 				<result name="success" type="redirect">wachtwoordVergeten</result>
 				<result name="success">/view/security/login/ForgotPassword.jsp</result>
-				
+		</action>
+		<action name="CreateAccount" class="nl.scalda.pasimo.controller.security.LoginController" 
+				method="CreateAccount">
+					<result name="success">SuccesfullCreation</result>
+					<result name="Succes">index.jsp</result>
+		</action>
+		<action name="AccountAanmaken" class="nl.scalda.pasimo.controller.security.LoginController" 
+				method="CreateAccount">
+					<result name="success">/view/security/login/CreateExistingAccount.jsp</result>
 		</action>
 		
 		
