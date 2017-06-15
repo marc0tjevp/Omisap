@@ -10,7 +10,6 @@ import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Person;
 import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 
-
 public class TestDAOCheckIn implements IDAOCheckIn{
 
 	private static TestDAOCheckIn instance = null;
@@ -62,7 +61,7 @@ public class TestDAOCheckIn implements IDAOCheckIn{
 			if(c.getFormattedDate().contentEquals(formatSearchDate(searchDate)))
 			{
 				//zo ja voeg de checkin toe aan de Treeset<CheckIn>
-				System.out.println("CheckIn added to selectedCheckIns");
+
 				selectedCheckIns.add(c);
 			}
 			dateCheckins.put(searchDate, selectedCheckIns);
@@ -71,9 +70,9 @@ public class TestDAOCheckIn implements IDAOCheckIn{
 	}
 	
 	public String formatSearchDate(GregorianCalendar date) {
-
+		
 		return String.valueOf(date.get(GregorianCalendar.DAY_OF_MONTH)) + "-"
-				+ String.valueOf(date.get(GregorianCalendar.MONTH)) + "-"
+				+ String.valueOf(date.get(GregorianCalendar.MONTH) +1) + "-"
 				+ String.valueOf(date.get(GregorianCalendar.YEAR));
 	}
 
@@ -85,16 +84,34 @@ public class TestDAOCheckIn implements IDAOCheckIn{
 	public void addTestData(){
 		if(checkIn.isEmpty()){	
 			
-		CheckIn c = new CheckIn(0, "211543", 2017, 06, 8, 8, 30, 43);
-		CheckIn d = new CheckIn(0, "211543", 2017, 06, 8, 12, 06, 11);
-		CheckIn e = new CheckIn(0, "211543", 2017, 06, 8, 12, 35, 43);
-		CheckIn f = new CheckIn(0, "211543", 2017, 06, 8, 14, 15, 11);
+		CheckIn c = new CheckIn(0, "211543", 2017, 06, 15, 8,  30, 43);
+		CheckIn d = new CheckIn(0, "211543", 2017, 06, 15, 12, 06, 11);
+		CheckIn e = new CheckIn(0, "211543", 2017, 06, 15, 12, 35, 43);
+		CheckIn f = new CheckIn(0, "211543", 2017, 06, 15, 14, 15, 11);
 		
-		CheckIn y = new CheckIn(0, "211544", 2017, 06, 8, 8, 29, 43);
-		CheckIn u = new CheckIn(0, "211544", 2017, 06, 8, 12, 05, 11);
-		CheckIn i = new CheckIn(0, "211544", 2017, 06, 8, 12, 37, 43);
-		CheckIn o = new CheckIn(0, "211544", 2017, 06, 8, 14, 13, 11);
+		CheckIn y = new CheckIn(0, "211544", 2017, 06, 15, 8,  29, 43);
+		CheckIn u = new CheckIn(0, "211544", 2017, 06, 15, 12, 05, 11);
+		CheckIn i = new CheckIn(0, "211544", 2017, 06, 15, 12, 37, 43);
+		CheckIn o = new CheckIn(0, "211544", 2017, 06, 15, 14, 13, 11);
 		
+		CheckIn yi = new CheckIn(0, "211544", 2017, 07, 30, 8,  28, 43);
+		CheckIn ui = new CheckIn(0, "211544", 2017, 07, 30, 12, 00, 11);
+		CheckIn ii = new CheckIn(0, "211544", 2017, 07, 30, 12, 40, 43);
+		CheckIn oi = new CheckIn(0, "211544", 2017, 07, 30, 14, 13, 11);
+		
+//		CheckIn yii = new CheckIn(0, "211544", 2017, 07, 30, 8,  18, 43);
+//		CheckIn uii = new CheckIn(0, "211544", 2017, 07, 30, 12, 52, 11);
+//		CheckIn iii = new CheckIn(0, "211544", 2017, 07, 30, 12, 02, 43);
+//		CheckIn oii = new CheckIn(0, "211544", 2017, 07, 30, 14, 30, 11);
+//		
+//		checkIn.add(yii);
+//		checkIn.add(uii);
+//		checkIn.add(iii);
+//		checkIn.add(oii);
+		checkIn.add(yi);
+		checkIn.add(ui);
+		checkIn.add(ii);
+		checkIn.add(oi);
 		checkIn.add(f);
 		checkIn.add(e);
 		checkIn.add(d);

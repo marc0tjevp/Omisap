@@ -1,6 +1,5 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
-
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.TreeMap;

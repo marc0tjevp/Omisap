@@ -10,10 +10,12 @@ public interface IDAOCheckIn {
 
 	public TreeSet<CheckIn> readAll();
 	
+    public CheckIn readByCardID(String id);
+	
     public TreeSet<CheckIn> readAllForEducationTeam(EducationTeam t);
     
-    public CheckIn readByCardID(String id);
-    
     public TreeSet<CheckIn> readAllCheckInsForTodayByPerson(Person p);
+    
+    public TreeSet<CheckIn> getCheckInsByCardId(String cardID);
 
 }

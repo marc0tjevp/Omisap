@@ -2,6 +2,7 @@ package nl.scalda.pasimo.controller.employeemanagement;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.Set;
@@ -18,6 +19,7 @@ import nl.scalda.pasimo.service.StudentService;
 
 import nl.scalda.pasimo.datalayer.CSVFactory.*;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOCheckIn;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOStudent;
 import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
@@ -67,15 +69,16 @@ public class StudentController extends ActionSupport {
 		//TODO add key(searchdate) and value(TreeMap<CheckIn>) to studentCheckInHistory
 		try{
 			TreeSet<CheckIn> check = getCheckInsByDate();
-		
-			studentCheckInHistory.add((CheckIn) getCheckInsByDateForCardId().values());
-			System.out.println(studentCheckInHistory);
+			for(TreeSet<CheckIn> tsc : getCheckInsByDateForCardId().values()){
+				for(CheckIn c : tsc){
+					studentCheckInHistory.add(c);
+				}
+			}
 			}
 		catch(Exception e){
 			e.printStackTrace();
 			return ERROR;
-		}
-		
+		}		
 		return SUCCESS;
 	}
 	
