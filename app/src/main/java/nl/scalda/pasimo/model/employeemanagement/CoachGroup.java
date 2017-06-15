@@ -6,7 +6,8 @@ import java.util.TreeSet;
 import javax.persistence.*;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.testdao.TestDAOLessonGroup;
+import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 
 /**
  * @author Collin and ismet
@@ -37,8 +38,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 */
 	@OneToMany(cascade=CascadeType.ALL, targetEntity=LessonGroup.class)
 	@JoinColumn(name="lessonGroupID")
-	private Set<LessonGroup> lessonGroups = new TreeSet<>();
-    //private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
+	private TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
     
     @ManyToOne(cascade=CascadeType.ALL, targetEntity=EducationTeam.class)
     @JoinColumn(name="educationTeam_id")
@@ -71,7 +71,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 * @param {@link
 	 * 			LessonGroups} The LessonGroups of this Coach group
 	 */
-	public CoachGroup(String name, Teacher coach, Set<LessonGroup> lessonGroups) {
+	public CoachGroup(String name, Teacher coach, TreeSet<LessonGroup> lessonGroups) {
 		this.name = name;
 		this.coach = coach;
 		this.lessonGroups = lessonGroups;
@@ -82,9 +82,14 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 * 
 	 * @param Lessongroup
 	 */
-	public void addLessonGroup(LessonGroup lg) {
+	public void addLessonGroup(LessonGroup lg, boolean shouldAddTODB) {
 		this.lessonGroups.add(lg);
-		DAOFactory.getTheFactory().getDAOLessonGroup().create(lg);
+		
+		if(shouldAddTODB) {
+			DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+			DAOFactory.getTheFactory().getDAOLessonGroup().create(lg, this);
+			DAOFactory.setTheFactory(TestDAOFactory.getInstance());
+		}
 	}
 
 	/**
@@ -93,10 +98,10 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 * @param LessonGroup
 	 */
 	public void deleteLessonGroup(LessonGroup lg) {
-
 		lessonGroups.remove(lg);
-		TestDAOLessonGroup.getInstance().delete(lg);
-
+		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
+		DAOFactory.getTheFactory().getDAOLessonGroup().delete(lg);
+		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 	}
 
 	/**
@@ -104,7 +109,9 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 */
 
 	public void loadLessonGroups() {
+		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 		this.lessonGroups = DAOFactory.getTheFactory().getDAOLessonGroup().readAllByCoachGroup(this);
+	    DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 	}
 
 	/**
@@ -144,7 +151,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 *
 	 * @return The index of this lesson group
 	 */
-	public Set<LessonGroup> getLessonGroups() {
+	public TreeSet<LessonGroup> getLessonGroups() {
 		return lessonGroups;
 	}
 
@@ -154,7 +161,7 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 * @param {@link
 	 * 			LessonGroups}'s
 	 */
-	public void setLessonGroups(Set<LessonGroup> lessonGroups) {
+	public void setLessonGroups(TreeSet<LessonGroup> lessonGroups) {
 		this.lessonGroups = lessonGroups;
 	}
 	// </editor-fold>
@@ -166,8 +173,11 @@ public class CoachGroup implements Comparable<CoachGroup> {
 	 */
 	public LessonGroup getLessonGroupByName(String lessonGroupName){
 		if(lessonGroups == null){
+			DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 			this.lessonGroups = 
 					DAOFactory.getTheFactory().getDAOLessonGroup().readAllByCoachGroup(this);
+		    DAOFactory.setTheFactory(TestDAOFactory.getInstance());
+
 		}
 		
 		for(LessonGroup lessonGroup : lessonGroups) {

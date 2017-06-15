@@ -117,19 +117,12 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 	 * @param String
 	 */
 	@Override
-	public void update(CoachGroup coachGroup, EducationTeam eduId, String Oldname) {
+	public void update(CoachGroup coachGroup, String Oldname) {
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			
-//<<<<<<< HEAD
-//			NativeQuery query2 = session.createNativeQuery("UPDATE coachgroup set name = :name, teacher_employeenumber = :teacher_employeenumber , educationTeam_educationTeamID= :educationTeam_educationTeamID where name = :oldname ;");
-//			
-//			query2.setParameter("name", coachGroup.getName())
-//			.setParameter("teacher_employeenumber", coachGroup.getCoach().getEmployeeNumber())
-//			.setParameter("educationTeam_educationTeamID",  eduId.getId())
-//=======
+
 			NativeQuery query2 = session.createNativeQuery("UPDATE coachGroup set name = :name, coach_bsn = :coach_bsn  where name = :oldname ;");
 			
 			query2.setParameter("name", coachGroup.getName())
@@ -254,6 +247,4 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 		}
 		return instance;
 	}
-
-	
 }

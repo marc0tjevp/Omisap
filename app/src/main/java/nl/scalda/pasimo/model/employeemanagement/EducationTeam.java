@@ -76,7 +76,7 @@ public class EducationTeam implements Comparable<EducationTeam>, Serializable {
 //    	
 //=======
     public void updateCoachGroup(CoachGroup cg, String oldname) {
-        DAOFactory.getTheFactory().getDAOCoachGroup().update(cg,this, oldname);
+        DAOFactory.getTheFactory().getDAOCoachGroup().update(cg,oldname);
     }
     
     

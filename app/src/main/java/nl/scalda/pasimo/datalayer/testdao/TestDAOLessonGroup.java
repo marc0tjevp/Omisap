@@ -37,7 +37,7 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 	}
 
 	@Override
-	public void create(LessonGroup lessonGroup) {
+	public void create(LessonGroup lessonGroup, CoachGroup coachGroup) {
 		this.lessongroups.add(lessonGroup);
 	}
 
@@ -83,14 +83,8 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 	}
 
 	@Override
-	public LessonGroup read(LessonGroup lessonGroup) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Set<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup) {
-		Set<CoachGroup> coachGroups = DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
+	public TreeSet<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup) {
+		TreeSet<CoachGroup> coachGroups = DAOFactory.getTheFactory().getDAOCoachGroup().readAll();
 
 		for (CoachGroup loopingCoachGroup : coachGroups) {
 			if (coachGroup != loopingCoachGroup) {

@@ -22,11 +22,11 @@ public interface IDAOCoachGroup {
 
     public void read(CoachGroup CoachGroup);
     
-    public Set<CoachGroup> readAll();
+    public TreeSet<CoachGroup> readAll();
     
     public Set<CoachGroup> readAllBYTeam(EducationTeam t);
 
-    public void update(CoachGroup coachGroup, EducationTeam edu , String oldname);
+    public void update(CoachGroup coachGroup, String oldname);
     
     public void delete(CoachGroup CoachGroup);
 

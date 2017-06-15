@@ -10,14 +10,13 @@ import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 
 public interface IDAOLessonGroup {
 
-    void create(LessonGroup lessonGroup);
+    void create(LessonGroup lessonGroup, CoachGroup coachGroup);
 
     Set<LessonGroup> readAll();
     
-    Set<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup);
+    TreeSet<LessonGroup> readAllByCoachGroup(CoachGroup coachGroup);
    
-    LessonGroup read(LessonGroup lessonGroup);
-
+    
     void update(LessonGroup newLessonGroup);
 
     void delete(LessonGroup lessonGroup);
