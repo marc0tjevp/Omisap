@@ -1,17 +1,25 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import javax.persistence.*;
+
 import java.util.Date;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
-import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOTeacher;
 import nl.scalda.pasimo.service.NoteService;
 
+@Entity
+@Table(name="teacher")
+@DiscriminatorValue(value="Teacher")
 public class Teacher extends Person {
 
+	private static final long serialVersionUID = 1L;
+
+	@Column(name="employeeNumber", length=6, nullable=false)
+	private int employeeNumber;
+	
+	@Column(name="abbreviation", length=6)
     private String abbreviation;
-    private int employeeNumber;
-    
+	
     /**
      * default constructor.
      */
@@ -35,8 +43,8 @@ public class Teacher extends Person {
      * @param employeeNumber
      * @param email
      */
-    public Teacher(String abbreviation, int employeeNumber, String email) {
-    	super(email);
+    public Teacher(String abbreviation, int employeeNumber, int bsn) {
+    	super(bsn);
         this.abbreviation = abbreviation;
         this.employeeNumber = employeeNumber;
     }
@@ -54,8 +62,8 @@ public class Teacher extends Person {
      * @param monthOfBirth
      * @param dayOfBirth
      */
-    public Teacher(int employeeNumber, String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
-		super(email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
+    public Teacher(int bsn, int employeeNumber, String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
+		super(bsn, email, cardID, firstName, insertion, lastName, yearOfBirth, monthOfBirth, dayOfBirth);
 		this.employeeNumber = employeeNumber;
 		setAbbreviation();
     }
@@ -67,6 +75,7 @@ public class Teacher extends Person {
     	DAOFactory.getTheFactory().getDAOTeacher().create(this);
     }
     
+    //TODO variable n is never used.
     public void createNote(String title, String message, Student s){
     Note n = new Note(title, message, s, this);
     }
@@ -100,8 +109,12 @@ public class Teacher extends Person {
      * @return CoachGroup
      */
     public CoachGroup getCoachGroup(){
-    	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
-    	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentCoachGroup(this);
+    	try{
+    		return DAOFactory.getTheFactory().getDAOTeacher().getCurrentCoachGroup(this);
+    	} catch(Exception e){
+    		return null;
+    	}
+    	
     }
     
     /**
@@ -110,11 +123,13 @@ public class Teacher extends Person {
      * @return EducationTeam
      */
     public EducationTeam getEducationTeam(){
-    	DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
-    	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentEducationTeamOfTeacher(this);
+    	try{
+        	return DAOFactory.getTheFactory().getDAOTeacher().getCurrentEducationTeamOfTeacher(this);
+    	} catch(Exception e){
+    		return null;
+    	}
     }
 	
-
     public String getAbbreviation() {
         return abbreviation;
     }
@@ -134,7 +149,7 @@ public class Teacher extends Person {
     public void setEmployeeNumber(int employeeNumber) {
         this.employeeNumber = employeeNumber;
     }
-
+    
     @Override
     public String toString() {
         return "Teacher [abbreviation=" + abbreviation + ", employeeNumber=" + employeeNumber

@@ -3,6 +3,7 @@ package nl.scalda.pasimo.datalayer.interfaces;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
+import java.util.List;
 import java.util.Set;
 
 public interface IDAOEducationTeam {
@@ -31,7 +32,7 @@ public interface IDAOEducationTeam {
      * @return - The requested EducationTeam if one exist with that
      * abbreviation. Null otherwise.
      */
-    EducationTeam read(String abbreviation);
+    EducationTeam read(int Id);
 
     /**
      * @return - All education teams.

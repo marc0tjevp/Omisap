@@ -1,15 +1,14 @@
 package nl.scalda.pasimo.datalayer.factory;
 
-import nl.scalda.pasimo.datalayer.interfaces.IDAOCheckIn;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOLessonGroup;
 import nl.scalda.pasimo.datalayer.interfaces.IDAONote;
+import nl.scalda.pasimo.datalayer.interfaces.IDAOStudent;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeacher;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOTeam;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkBlock;
 import nl.scalda.pasimo.datalayer.interfaces.IDAOWorkingDay;
-import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCheckIn;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOCoachGroup;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOLessonGroup;
@@ -44,6 +43,7 @@ public class MySQLDAOFactory extends DAOFactory {
         return MYSQLDAOLessonGroup.getInstance();
     }
 
+    //FIXME missing class: MYSQLDAONote
     @Override
     public IDAONote getDAONote() {
       return MYSQLDAONote.getInstance();
@@ -76,16 +76,9 @@ public class MySQLDAOFactory extends DAOFactory {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
-	public IDAOCheckIn getDAOCheckIn() {
+	public IDAOStudent getDAOStudent() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-//	@Override
-//	public IDAOCheckIn getDAOCheckIn() {
-//		return MYSQLDAOCheckIn.getInstance();
-//	}
-
 }

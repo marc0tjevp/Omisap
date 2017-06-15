@@ -13,7 +13,6 @@ Server/*
 .recommenders/*
 Servers/*
 
-
 # IntelliJ
 .idea/
 *.iws

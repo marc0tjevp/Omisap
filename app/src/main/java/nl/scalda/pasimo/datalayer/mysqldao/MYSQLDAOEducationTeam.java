@@ -17,29 +17,83 @@ import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
+	
+	private static SessionFactory factory;
+	private static MYSQLDAOEducationTeam instance = null;
+	
+	/**
+	 * initialises the configuration of hibernate.
+	 * called once from getInstance() method
+	 */
+	public static void initialiseFactory() {
+		try{
+			factory = new Configuration().configure().buildSessionFactory();
+		} catch(Throwable ex) {
+			System.err.println("Failed to create sessionFactory object." + ex);
+			throw new ExceptionInInitializerError(ex);
+		}
+	}
+	
+	public MYSQLDAOEducationTeam(){
+		initialiseFactory();
+	}
 
-    private SessionFactory factory;
-    private static MYSQLDAOEducationTeam instance = null;
+	/**
+	 * @param String abbr
+	 */
+	@Override
+	public boolean exist(String abbr) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
-    /**
-     *
-     */
-    private MYSQLDAOEducationTeam() {
-        initialiseFactory();
-    }
-
-    /**
-     * initialises the configuration of hibernate. called once from
-     * getInstance() method
-     */
-    private void initialiseFactory() {
-        try {
-            factory = new Configuration().configure().buildSessionFactory();
-        } catch (Throwable ex) {
-            System.err.println("Failed to create sessionFactory object." + ex);
-            throw new ExceptionInInitializerError(ex);
-        }
-    }
+	/**
+	 * adds the given teacher to the given education team.
+	 * 
+	 * @param Teacher teacher
+	 * @param EducationTeam educationTeam
+	 */
+	@Override
+	public void addTeacherToEducationTeam(Teacher teacher, EducationTeam educationTeam) {
+		Session session = factory.openSession();
+		Transaction tx = null;
+		try {
+		   tx = session.beginTransaction();
+		   session.createNativeQuery("INSERT INTO educationTeam_teacher (teachers_bsn, EducationTeam_educationTeamID) VALUES (:teacherBsn, :educationTeamID);")
+				   .setParameter("teacherBsn", teacher.getBsn()).setParameter("educationTeamID", educationTeam.getId()).executeUpdate();
+		   tx.commit();
+		}
+		catch (Exception e) {
+		   if (tx!=null) tx.rollback();
+		   e.printStackTrace(); 
+		}finally {
+		   session.close();
+		}
+	}
+	
+	/**
+	 * deletes the given teacher from the given education team.
+	 * 
+	 * @param Teacher teacher
+	 * @param EducationTeam educationTeam
+	 */
+	@Override
+	public void deleteTeacherFromEducationTeam(Teacher teacher, EducationTeam educationTeam) {
+		Session session = factory.openSession();
+		Transaction tx = null;
+		try{
+			tx = session.beginTransaction();
+			session.createNativeQuery("DELETE FROM educationTeam_teacher WHERE teachers_bsn = :teachers_bsn")
+				.setParameter("teachers_bsn", teacher.getBsn()).executeUpdate();
+			tx.commit();
+		}
+		catch (Exception e) {
+		   if (tx!=null) tx.rollback();
+		   e.printStackTrace(); 
+		}finally {
+		   session.close();
+		}
+	}
 
     /**
      * creates a educationTeam in the database.
@@ -134,8 +188,8 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
      * @param String abbreviation
      */
     @Override
-    public EducationTeam read(String abbreviation) {
-        // TODO Auto-generated method stub
+    public EducationTeam read(int Id) {
+      
     	
         return null;
     }
@@ -152,11 +206,11 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
         Set<EducationTeam> teams = new TreeSet<>();
         try {
             tx = session.beginTransaction();
-            List educationTeamList = session.createNativeQuery("SELECT * FROM education_team;")
+            List educationTeamList = session.createNativeQuery("SELECT * FROM educationTeam;")
                     .getResultList();
             for (Iterator iterator = educationTeamList.iterator(); iterator.hasNext();) {
                 Object[] obj = (Object[]) iterator.next();
-                EducationTeam et = new EducationTeam(String.valueOf(obj[2]), String.valueOf(obj[1]), Integer.parseInt(String.valueOf(obj[0])));
+                EducationTeam et = new EducationTeam(String.valueOf(obj[1]), String.valueOf(obj[2]), Integer.parseInt(String.valueOf(obj[0])));
                 teams.add(et);
             }
             tx.commit();
@@ -169,65 +223,6 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
             session.close();
         }
         return teams;
-    }
-
-    /**
-     * @param String abbr
-     */
-    @Override
-    public boolean exist(String abbr) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    /**
-     * adds the given teacher to the given education team.
-     *
-     * @param Teacher teacher
-     * @param EducationTeam educationTeam
-     */
-    @Override
-    public void addTeacherToEducationTeam(Teacher teacher, EducationTeam educationTeam) {
-        Session session = factory.openSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            session.createNativeQuery("INSERT INTO education_team_teacher (teacher_employeeNumber, education_team_id) VALUES (:teacheremployeeNumber, :educationTeamID);")
-                    .setParameter("teacheremployeeNumber", teacher.getEmployeeNumber()).setParameter("educationTeamID", educationTeam.getId()).executeUpdate();
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-    }
-
-    /**
-     * deletes the given teacher from the given education team.
-     *
-     * @param Teacher teacher
-     * @param EducationTeam educationTeam
-     */
-    @Override
-    public void deleteTeacherFromEducationTeam(Teacher teacher, EducationTeam educationTeam) {
-        Session session = factory.openSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            session.createNativeQuery("DELETE FROM education_team_teacher WHERE teacher_employeeNumber = :employeeNumber")
-                    .setParameter("employeeNumber", teacher.getEmployeeNumber()).executeUpdate();
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
     }
 
     /**

@@ -1,18 +1,50 @@
 package nl.scalda.pasimo.service;
 
+import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 
 public class EducationTeamService {
+	
+	private static EducationTeamService instance;
+	private Set<EducationTeam> educationTeams;
+	
+	public EducationTeamService(){
+		educationTeams = DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
+	}
 
-    private static EducationTeamService instance;
-    private Set<EducationTeam> educationTeams;
+    /**
+     * gets the educationteam with the abbreviation that equals given
+     * abbreviation
+     *
+     * @param abbr
+     * @return EducationTeam
+     */
+    public EducationTeam getEducationTeamByAbbreviation(String abbr) {
+        for (EducationTeam et : getEducationTeams()) {
+            if (et.getAbbreviation().equals(abbr)) {
+                return et;
+            }
+        }
+        return null;
+    }
 
-    public EducationTeamService() {
-        educationTeams = DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
+    /**
+     * returns the education team the teacher is currently in.
+     *
+     * @param t
+     * @return EducationTeam
+     */
+    public EducationTeam getOldEducationTeam(Teacher t) {
+        try {
+            return t.getEducationTeam();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public Set<EducationTeam> getEducationTeams() {
@@ -25,6 +57,10 @@ public class EducationTeamService {
         } else {
             throw new Exception("Cannot save educationTeam");
         }
+    }
+
+    public EducationTeam read(int Id) {
+        return DAOFactory.getTheFactory().getDAOEducationTeam().read(Id);
     }
 
     public static EducationTeamService getInstance() {

@@ -1,18 +1,49 @@
 package nl.scalda.pasimo.model.employeemanagement;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 import java.util.TreeSet;
 
+<<<<<<< HEAD
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 
 public class Person implements Comparable<Person> {
+=======
+import javax.persistence.*;
+>>>>>>> develop
 
+import org.hibernate.annotations.Polymorphism;
+import org.hibernate.annotations.PolymorphismType;
+
+@Entity
+@Polymorphism(type=PolymorphismType.IMPLICIT)
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name = "PERSON_TYPE")
+public abstract class Person implements Comparable<Person>, Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@Column(name="bsn", length=6, nullable=false)
+	private int bsn;
+	
+	@Column(name="email", length=64)
     private String email;
+	
+	@Column(name="cardID", length=11)
     private int cardID;
+	
+	@Column(name="firstName", length=255)
     private String firstName;
+	
+	@Column(name="insertion", length=255)
     private String insertion;
+	
+	@Column(name="lastName", length=255)
     private String lastName;
+	
+    @Column(name="dateOfBirth")
     private GregorianCalendar dateOfBirth;
     
 
@@ -26,8 +57,8 @@ public class Person implements Comparable<Person> {
 	 * 
 	 * @param email
 	 */
-	public Person(String email) {
-		this.email = email;
+	public Person(int bsn) {
+		this.setBsn(bsn);
     }
 	public Person(int cardID, String email, String firstName) {
 		this.cardID = cardID;
@@ -54,8 +85,9 @@ public class Person implements Comparable<Person> {
 	 * @param monthOfBirth
 	 * @param dayOfBirth
 	 */
-    public Person(String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
+    public Person(int bsn, String email, int cardID, String firstName, String insertion, String lastName, int yearOfBirth, int monthOfBirth, int dayOfBirth){
 		GregorianCalendar gc = new GregorianCalendar();
+		this.setBsn(bsn);
 		this.setEmail(email);
 		this.setCardID(cardID);
 		this.setFirstName(firstName);
@@ -79,11 +111,19 @@ public class Person implements Comparable<Person> {
      */
 
     //getters and setters
+    public int getBsn() {
+  		return bsn;
+  	}
+
+  	public void setBsn(int bsn) {
+  		this.bsn = bsn;
+  	}
+    
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+	public void setEmail(String email) {
         this.email = email;
     }
 
@@ -154,6 +194,7 @@ public class Person implements Comparable<Person> {
         return email.compareTo(o.getEmail());
     }
     
+<<<<<<< HEAD
 //    public boolean isAvailable(){
 //    	if(DAOFactory.getTheFactory().getDAOCheckIn().readAll().size()){
 //    		
@@ -168,4 +209,16 @@ public class Person implements Comparable<Person> {
 //}else{
 //  checkin.setIsCheckIn(true);
 //}
+=======
+    @Override
+    public boolean equals(Object obj) {
+    	return super.equals(obj);
+    }
+    
+    @Override
+    public int hashCode() {
+    	return super.hashCode();
+    }
+
+>>>>>>> develop
 }

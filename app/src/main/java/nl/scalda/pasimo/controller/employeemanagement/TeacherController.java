@@ -38,8 +38,12 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String loadTeacherInfo() {
-		teacher = getTeacherByEmployeeID(id);
-		setTeamAbbreviation(getOldEducationTeam(teacher).getAbbreviation());
+		try{
+			teacher = getTeacherByEmployeeID(id);
+			setTeamAbbreviation(EducationTeamService.getInstance().getOldEducationTeam(teacher).getAbbreviation());
+		} catch(java.lang.NullPointerException e){
+			return ERROR;
+		}
 		return SUCCESS;
 	}
 
@@ -50,10 +54,21 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String addTeacher() {
-		teacher.setAbbreviation();
+		try{
+			teacher.setAbbreviation();
+		} catch(java.lang.StringIndexOutOfBoundsException e){
+			return INPUT;
+		}
+		if(teacher.getBsn() == 0 || teacher.getEmail() == null || teacher.getEmployeeNumber() == 0 || teacher.getFirstName() == null || teacher.getLastName() == null){
+			return INPUT;
+		}
 		teacher.create();
-		EducationTeam et = getEducationTeamByAbbreviation(teamAbbreviation);
-		et.addTeacher(teacher);
+		try{
+			EducationTeam et = EducationTeamService.getInstance().getEducationTeamByAbbreviation(teamAbbreviation);
+			et.addTeacher(teacher);
+		} catch(java.lang.NullPointerException e){
+			return INPUT;
+		}
 		return SUCCESS;
 	}
 
@@ -64,7 +79,12 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String readTeacher() {
-		getTeachers();
+		try{
+			getTeachers();
+		} catch(java.lang.NullPointerException e){
+			return ERROR;
+		}
+		
 		return SUCCESS;
 	}
 
@@ -78,14 +98,21 @@ public class TeacherController extends ActionSupport {
 		for (Teacher f : getTeachers()) {
 			if (f.getEmployeeNumber() == teacher.getEmployeeNumber()){
 				f.setFirstName(teacher.getFirstName());
-				f.setAbbreviation();
+				try{
+					f.setAbbreviation();
+				} catch(java.lang.StringIndexOutOfBoundsException e){
+					return INPUT;
+				}
 				f.setInsertion(teacher.getInsertion());
 				f.setLastName(teacher.getLastName());
-				f.setEmail(teacher.getEmail());
 				f.setCardID(teacher.getCardID());
-				if (!(getOldEducationTeam(f).getAbbreviation().equals(teamAbbreviation))){
-					getOldEducationTeam(f).deleteTeacher(f);
-					getEducationTeamByAbbreviation(teamAbbreviation).addTeacher(f);
+				try{
+					if (!(EducationTeamService.getInstance().getOldEducationTeam(f).getAbbreviation().equals(teamAbbreviation))){
+						EducationTeamService.getInstance().getOldEducationTeam(f).deleteTeacher(f);
+						EducationTeamService.getInstance().getEducationTeamByAbbreviation(teamAbbreviation).addTeacher(f);
+					}
+				} catch(java.lang.NullPointerException e){
+					return INPUT;
 				}
 				f.update();
 			}
@@ -100,50 +127,13 @@ public class TeacherController extends ActionSupport {
 	 * @return String
 	 */
 	public String removeTeacher() {
-		teacher = getTeacherByEmployeeID(id);
+		try{
+			teacher = getTeacherByEmployeeID(id);
+		} catch(java.lang.NullPointerException e){
+			return ERROR;
+		}
 		teacher.delete();
 		return SUCCESS;
-	}
-
-	/**
-	 * updates the teachers educationteam.
-	 * 
-	 * @param t
-	 * @param newTeam
-	 * @return String
-	 */
-	public String updateTeacherEducationTeam(Teacher t, EducationTeam newTeam) {
-		if(!(getOldEducationTeam(t).equals(newTeam))){
-			getOldEducationTeam(t).deleteTeacher(t);
-			newTeam.addTeacher(t);
-		}
-		return SUCCESS;
-	}
-	
-	/**
-	 * Removes the teacher from the old education team.
-	 * 
-	 * @param t
-	 * @param oldTeam
-	 * @return String
-	 */
-	public String removeTeacherFromEducationTeam(Teacher t, EducationTeam oldTeam){
-		oldTeam.deleteTeacher(t);
-		return SUCCESS;
-	}
-	
-	/**
-	 * returns the education team the teacher is currently in.
-	 * 
-	 * @param t
-	 * @return EducationTeam
-	 */
-	public EducationTeam getOldEducationTeam(Teacher t){
-		try {
-			return t.getEducationTeam();
-		} catch(Exception e) {
-			return null;
-		}
 	}
 	
 	/**
@@ -167,7 +157,9 @@ public class TeacherController extends ActionSupport {
 	 */
 	public TreeSet<Teacher> getTeachers() {
 		try {
-			teachers.addAll(TeacherService.getInstance().readAll());
+			if(teachers.isEmpty()){
+				teachers.addAll(TeacherService.getInstance().readAll());
+			}
 			return teachers;
 		} catch (Exception e){
 			return null;
@@ -180,23 +172,10 @@ public class TeacherController extends ActionSupport {
 	 * @return TreeSet<EducationTeam>
 	 */
 	public TreeSet<EducationTeam> getEducationTeams() {
-		educationTeams.addAll(EducationTeamService.getInstance().getEducationTeams());
-		return educationTeams;
-	}
-	
-	/**
-	 * gets the educationteam with the abbreviation that equals given abbreviation
-	 * 
-	 * @param abbr
-	 * @return EducationTeam
-	 */
-	public EducationTeam getEducationTeamByAbbreviation(String abbr){
-		for(EducationTeam et : getEducationTeams()){
-			if(et.getAbbreviation().equals(abbr)){
-				return et;
-			}
+		if(educationTeams.isEmpty()){
+			educationTeams.addAll(EducationTeamService.getInstance().getEducationTeams());
 		}
-		return null;
+		return educationTeams;
 	}
 
 	public void setTeachers(TreeSet<Teacher> teachers) {

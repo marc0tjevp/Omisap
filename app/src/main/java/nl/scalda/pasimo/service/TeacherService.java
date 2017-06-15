@@ -1,10 +1,10 @@
 package nl.scalda.pasimo.service;
 
+import java.util.List;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
-import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 
 public class TeacherService {
 
@@ -13,21 +13,16 @@ public class TeacherService {
 	private TeacherService() {
 	}
 
-//	public TreeSet<CheckIn> readAllCheckedIn(){
-//		return DAOFactory.getTheFactory().getDAOCheckIn().readAll();
-//	}
-	
-	public TreeSet<Teacher> readAll(){
-		return null;
+	public List<Teacher> readAll(){
+		return DAOFactory.getTheFactory().getDAOTeacher().readAll();
 	}
-//	public TreeSet<Teacher> readAll(){
-//		return DAOFactory.getTheFactory().getDAOTeacher().readAll();
-//	}
 	
-//	public Teacher getTeacherByEmployeeID(int id) {
-//		return DAOFactory.getTheFactory().getDAOTeacher().readByEmployeeNumber(id);
-//	}
 	public Teacher getTeacherByEmployeeID(int id) {
+		return DAOFactory.getTheFactory().getDAOTeacher().readByEmployeeNumber(id);
+	}
+	
+	public Teacher getTeacherByBSN(int bsn) {
+		//TODO must work trough dao
 		return null;
 	}
 	
