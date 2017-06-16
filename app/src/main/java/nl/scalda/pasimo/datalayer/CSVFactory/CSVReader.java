@@ -16,6 +16,7 @@ import java.util.TreeSet;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
 import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.testdao.TestDAOStudent;
+import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.Student;
 
 /**
@@ -45,7 +46,7 @@ public class CSVReader {
     /**
      * @param file
      * @param coachGroupName
-     * @param lessonGroupID
+     * @param lessonGroup
      * @param cohort
      * @return
      */

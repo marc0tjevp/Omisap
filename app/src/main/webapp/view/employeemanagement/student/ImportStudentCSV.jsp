@@ -9,19 +9,17 @@
     <div class="container">
       <h1>Studenten toevoegen met een CSV</h1>
       <br>
-      <form action="AddStudentWithCSV" class=""
-				enctype="multipart/form-data" method="post"
-				id="AddStudentWithCSVForm">
-<div class="form-group row">
+      <form action="AddStudentWithCSV" class="" enctype="multipart/form-data" method="post" id="AddStudentWithCSVForm">
+		 <div class="form-group row">
            <label class="col-2 col-form-label">coachGroup</label>
            <div class="col-10">
-             <s:select class="form-control" style="width: 50%;" name="coachGroupName" list="coachGroups" listKey="name" listValue="name"></s:select>
+             <s:select class="form-control" style="width: 50%;" name="coachGroupName" list="coachGroups" listKey="name" listValue="name" id="coachGroupName"></s:select>
            </div>
          </div>
          <div class="form-group row">
-           <label class="col-2 col-form-label">lessonGroupID</label>
+           <label class="col-2 col-form-label">lessonGroup</label>
            <div class="col-10">
-             <s:select class="form-control" style="width: 50%;" name="lessonGroup" list="lessonGroups"></s:select>
+             <s:select class="form-control" style="width: 50%;" name="lessonGroupID" list="lessonGroups" id="lessonGroupID" listKey="id" listValue="name"></s:select>
            </div>
          </div>
           <div class="form-group row">

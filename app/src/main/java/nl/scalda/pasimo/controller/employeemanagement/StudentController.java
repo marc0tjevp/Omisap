@@ -20,10 +20,10 @@ public class StudentController extends ActionSupport {
 	private CSVReader c = CSVReader.getInstance();
 	public TreeSet<LessonGroup> lessonGroups = new TreeSet<>();
 	public LessonGroup lessonGroup;
+	public int lessonGroupID;
 	public Set<CoachGroup> coachGroups = new TreeSet<>();
 	public File csvFile;
 	public int cohort;
-	public int lessonGroupID;
 	public String coachGroupName;
 	
 	public String execute(){
@@ -70,7 +70,7 @@ public class StudentController extends ActionSupport {
 	public void setLessonGroup(LessonGroup lessonGroup) {
 		this.lessonGroup = lessonGroup;
 	}
-
+	
 	public int getLessonGroupID() {
 		return lessonGroupID;
 	}
