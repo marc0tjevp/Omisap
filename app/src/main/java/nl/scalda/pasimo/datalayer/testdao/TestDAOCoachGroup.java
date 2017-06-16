@@ -142,7 +142,7 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
     private TestDAOCoachGroup() {
 
         CoachGroup c1 = new CoachGroup("asdasd");
-        EducationTeam edu = new EducationTeam("ICOb", "ICO41A", 1);
+        EducationTeam edu = new EducationTeam("AI", "ICO41A", 1);
         
         
 

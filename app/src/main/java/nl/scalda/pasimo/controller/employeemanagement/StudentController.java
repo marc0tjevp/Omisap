@@ -30,7 +30,7 @@ public class StudentController extends ActionSupport {
 		return SUCCESS;
 	}
 
-	public String AddStudentWithCSV(){
+	public String AddStudentWithCSV(){ // this function will extract all students that are placed in a csv file.
 		try {
 			StudentService.getInstance().createAll(c.readFile(csvFile,coachGroupName,lessonGroupID,cohort));
 			return SUCCESS;

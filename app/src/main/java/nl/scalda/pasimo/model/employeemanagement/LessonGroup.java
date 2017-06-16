@@ -139,7 +139,7 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	
 	@Override
 	public String toString() {
-		return "LessonGroup: name= " + name + ", students= " + students;
+		return name;
 	}
 
 	/**
