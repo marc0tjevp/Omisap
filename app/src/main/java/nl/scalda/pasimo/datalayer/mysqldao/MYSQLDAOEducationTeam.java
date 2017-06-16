@@ -106,7 +106,7 @@ public class MYSQLDAOEducationTeam implements IDAOEducationTeam {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String sql = "INSERT INTO EducationTeam (educationTeamID, name, abbreviation) VALUES (:educationTeamID, :name, :abbreviation );";
+            String sql = "INSERT INTO educationTeam (educationTeamID, name, abbreviation) VALUES (:educationTeamID, :name, :abbreviation );";
             NativeQuery query = session.createNativeQuery(sql);
             query.setParameter("educationTeamID", thiseducationTeam.getId());
             query.setParameter("name", thiseducationTeam.getName());

@@ -18,7 +18,6 @@ import nl.scalda.pasimo.model.employeemanagement.Teacher;
  * @author jeroe
  */
 public class TestDAOCoachGroup implements IDAOCoachGroup {
-
     private static TestDAOCoachGroup instance = null;
     private TreeSet<CoachGroup> coachGroups = new TreeSet<>();
 
@@ -28,8 +27,11 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
 
         CoachGroup c1 = new CoachGroup("asdasd");
         EducationTeam edu = new EducationTeam("ICOb", "ICO41A", 1);
+        
+        
 
         coachGroups.add(c1);
+       
 
         eduCoachGroups.put(edu, coachGroups);
     }
@@ -116,3 +118,4 @@ public class TestDAOCoachGroup implements IDAOCoachGroup {
     }
 
 }
+

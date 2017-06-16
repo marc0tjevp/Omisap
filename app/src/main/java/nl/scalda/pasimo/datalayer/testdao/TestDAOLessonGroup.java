@@ -36,7 +36,7 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 	}
 
 	@Override
-	public void create(LessonGroup lessonGroup) {
+	public void create(LessonGroup lessonGroup, CoachGroup coachGroup) {
 		this.lessongroups.add(lessonGroup);
 	}
 
@@ -79,12 +79,6 @@ public class TestDAOLessonGroup implements IDAOLessonGroup {
 	@Override
 	public TreeSet<LessonGroup> readAll() {
 		return this.lessongroups;
-	}
-
-	@Override
-	public LessonGroup read(LessonGroup lessonGroup) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

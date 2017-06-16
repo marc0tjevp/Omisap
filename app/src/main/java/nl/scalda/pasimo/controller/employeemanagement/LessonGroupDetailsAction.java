@@ -55,9 +55,6 @@ public class LessonGroupDetailsAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-
-
-
 	/**
 	 * 
 	 * @return

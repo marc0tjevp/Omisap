@@ -3,16 +3,18 @@ package nl.scalda.pasimo.model.employeemanagement;
 import java.util.TreeSet;
 import javax.persistence.*;
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 
 @Entity
-@Table(name="lessonGroup")
+@Table(name="lessongroup")
 public class LessonGroup implements Comparable<LessonGroup> {
 
 	/**
 	 * 
 	 */
 	@Id
-	@Column(name="lessonGroupID", length=11, nullable=false)
+	@Column(name="lessongroupId", length=11, nullable=false)
 	private int id;
 	
 	/**
@@ -20,9 +22,10 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	 * <p>
 	 * e.g. ICO41A, ICO42B
 	 */
-	@Column(name="name", length=64)
+	@Column(name="lessonGroupName", length=64)
 	private String name;
-
+	
+	
 	/**
 	 * The {@link Student}'s who are in this lesson group
 	 */
@@ -126,7 +129,10 @@ public class LessonGroup implements Comparable<LessonGroup> {
 	 * Updates the lesson group in the DAO
 	 */
 	public void updateLessonGroup() {
+		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 		DAOFactory.getTheFactory().getDAOLessonGroup().update(this);
+		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
+
 	}
 	
 	@Override
