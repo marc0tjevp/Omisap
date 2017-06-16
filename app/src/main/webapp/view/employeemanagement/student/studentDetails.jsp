@@ -24,20 +24,24 @@
          
 		<h2>Inklok tijden:</h2>
 		
-		<table>
+		<table class="table">
 		<thead>
-		<th>Datum</th>
-		<th style="color:blue;">Check In</th>
-		<th style="color:blue;">Check Out</th>
-		<th style="color:red;">Check In</th>
-		<th style="color:red;">Check Out</th>
+			<th>Datum</th>
+			<th style="color:blue;">Check In</th>
+			<th style="color:blue;">Check Out</th>
+			<th style="color:red;">Check In</th>
+			<th style="color:red;">Check Out</th>
 		</thead>
+		<tr>		
+		
+		<td><s:property value="studentCheckInHistory.first().getFormattedDate()"/></td>
+		
         <s:iterator value="studentCheckInHistory" var="checkIn">
-        <tr>
-        				<td><s:property value="getFormattedDate()" /></td>
-						<td><s:property value="getFormattedTime()" /></td>
-		</tr>
+        		
+				<td><s:property value="getFormattedTime()" /></td>	
+						
         </s:iterator>
+        </tr>
         </table>
         	
     </jsp:attribute>

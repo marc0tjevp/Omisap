@@ -23,8 +23,9 @@ public class StudentService {
 		return TestDAOCheckIn.getInstance().getCheckInsByCardId(cardId);
 	}
 	
-	public TreeSet<CheckIn> getCheckInsOfToday(Person p){
-		return DAOFactory.getTheFactory().getDAOCheckIn().readAllCheckInsForTodayByPerson(p);
+	public Set<CheckIn> getCheckInsOfToday(Person p){
+		//TODO verander TestDAOFactory terug naar "DAOFactory"
+		return TestDAOCheckIn.getInstance().readAllCheckInsForTodayByPerson(p);
 		
 	}
 	

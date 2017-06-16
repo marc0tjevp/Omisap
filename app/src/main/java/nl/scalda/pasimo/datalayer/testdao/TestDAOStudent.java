@@ -25,8 +25,8 @@ public class TestDAOStudent implements IDAOStudent {
 	public void addStudentTestData(){
 		
 		TreeSet<Note>note = new TreeSet<>();
-		Student s = new Student(1, 215443, 2016, "student@email.com", "Erin", "", "Boshart", "211543", 1998, note, 05, 12, "coachgroupname",  0);
-		Student z = new Student(12, 215444, 2016, "student0@email.com", "Rien", "", "Hannewijk", "211544", 1998, note, 05, 12, "coachgroupname", 0);
+		Student s = new Student(126666, 215443, 2016, "student@email.com", "Erin", "", "Boshart", "211543", 1998, note, 05, 12, "kappa", 213);
+		Student z = new Student(413222, 215444, 2016, "student0@email.com", "Rien", "", "Hannewijk", "211544", 1998, note, 05, 12, "kappa", 213);
 		create(s);	
 		create(z);
 	}

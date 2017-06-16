@@ -42,6 +42,7 @@ public abstract class Person implements Comparable<Person>, Serializable {
     @Column(name="dateOfBirth")
     private GregorianCalendar dateOfBirth;
     
+    @Transient
     private Set<CheckIn> checkInsOfToday; 
 
 	/**

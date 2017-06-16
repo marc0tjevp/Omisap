@@ -2,12 +2,16 @@ package nl.scalda.pasimo.datalayer.testdao;
 
 import java.util.Collections;
 import java.util.GregorianCalendar;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
 import nl.scalda.pasimo.datalayer.interfaces.IDAOCheckIn;
+import nl.scalda.pasimo.model.employeemanagement.CoachGroup;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
+import nl.scalda.pasimo.model.employeemanagement.LessonGroup;
 import nl.scalda.pasimo.model.employeemanagement.Person;
+import nl.scalda.pasimo.model.employeemanagement.Teacher;
 import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 
 public class TestDAOCheckIn implements IDAOCheckIn{
@@ -84,15 +88,22 @@ public class TestDAOCheckIn implements IDAOCheckIn{
 	public void addTestData(){
 		if(checkIn.isEmpty()){	
 			
-		CheckIn c = new CheckIn(0, "211543", 2017, 06, 15, 8,  30, 43);
-		CheckIn d = new CheckIn(0, "211543", 2017, 06, 15, 12, 06, 11);
-		CheckIn e = new CheckIn(0, "211543", 2017, 06, 15, 12, 35, 43);
-		CheckIn f = new CheckIn(0, "211543", 2017, 06, 15, 14, 15, 11);
+		Teacher yo = new Teacher(213456, 213456, "fhjrgjrew", "123456", "kek", "", "qwre", 2017, 11, 23);	
+		CoachGroup co = new CoachGroup("kappa", yo);
+		LessonGroup xo = new LessonGroup(213, "kappa123");	
+		co.addLessonGroup(xo, false);
+		EducationTeam ed = new EducationTeam("kek", "Praise kek", 69);
+		ed.addCoachGroup(co);
+			
+		CheckIn c = new CheckIn(0, "211543", 2017, 06, 16, 8,  30, 43);
+		CheckIn d = new CheckIn(0, "211543", 2017, 06, 16, 12, 06, 11);
+		CheckIn e = new CheckIn(0, "211543", 2017, 06, 16, 12, 35, 43);
+		CheckIn f = new CheckIn(0, "211543", 2017, 06, 16, 14, 15, 11);
 		
-		CheckIn y = new CheckIn(0, "211544", 2017, 06, 15, 8,  29, 43);
-		CheckIn u = new CheckIn(0, "211544", 2017, 06, 15, 12, 05, 11);
-		CheckIn i = new CheckIn(0, "211544", 2017, 06, 15, 12, 37, 43);
-		CheckIn o = new CheckIn(0, "211544", 2017, 06, 15, 14, 13, 11);
+		CheckIn y = new CheckIn(0, "211544", 2017, 06, 16, 8,  29, 43);
+		CheckIn u = new CheckIn(0, "211544", 2017, 06, 16, 12, 05, 11);
+		CheckIn i = new CheckIn(0, "211544", 2017, 06, 16, 12, 37, 43);
+		CheckIn o = new CheckIn(0, "211544", 2017, 06, 16, 14, 13, 11);
 		
 		CheckIn yi = new CheckIn(0, "211544", 2017, 07, 30, 8,  28, 43);
 		CheckIn ui = new CheckIn(0, "211544", 2017, 07, 30, 12, 00, 11);
@@ -108,6 +119,11 @@ public class TestDAOCheckIn implements IDAOCheckIn{
 //		checkIn.add(uii);
 //		checkIn.add(iii);
 //		checkIn.add(oii);
+		TestDAOTeacher.getInstance().create(yo);
+		TestDAOCoachGroup.getInstance().create(co, new EducationTeam());
+		TestDAOLessonGroup.getInstance().create(xo, co);
+		TestDAOEducationTeam.getInstance().create(ed);
+		
 		checkIn.add(yi);
 		checkIn.add(ui);
 		checkIn.add(ii);
@@ -148,16 +164,16 @@ public class TestDAOCheckIn implements IDAOCheckIn{
 	}
 
 	@Override
-	public TreeSet<CheckIn> readAllCheckInsForTodayByPerson(Person p) {
-		TreeSet<CheckIn> checkInsToday = new TreeSet<>( Collections.reverseOrder() );
+	public Set<CheckIn> readAllCheckInsForTodayByPerson(Person p) {
+		Set<CheckIn> checkInsToday = new TreeSet<>( Collections.reverseOrder() );
 		GregorianCalendar date = new GregorianCalendar();
 		for(CheckIn c : checkIn){
 			if(p.getCardID().equals(c.getCardID())){
 				//check if checkIn date == today
-			if(c.getDate().get(GregorianCalendar.DAY_OF_YEAR) + c.getDate().get(GregorianCalendar.YEAR) == (date.get(GregorianCalendar.DAY_OF_YEAR) + date.get(GregorianCalendar.YEAR))){
-				checkInsToday.add(c);
+				if(c.getDate().get(GregorianCalendar.DAY_OF_YEAR) + c.getDate().get(GregorianCalendar.YEAR) == (date.get(GregorianCalendar.DAY_OF_YEAR) + date.get(GregorianCalendar.YEAR))){
+					checkInsToday.add(c);
+				}
 			}
-		}
 		}
 		return checkInsToday;
 	}

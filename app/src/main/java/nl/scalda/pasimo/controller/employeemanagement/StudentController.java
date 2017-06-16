@@ -54,8 +54,8 @@ public class StudentController extends ActionSupport {
 	
 	public String getDailyCheckInsForStudents(){
 		//Haal per student voor hun cardID alle checkIns op en voeg deze toe aan de ArrayList checkins van de student zelf. 	
-		StudentService.getInstance().addStudentTestData();
 		CheckInService.getInstance().addCheckInTestData();
+		StudentService.getInstance().addStudentTestData();
 		allStudents = StudentService.getInstance().getAllStudents();
 	
 		for(Student s : allStudents){		

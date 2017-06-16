@@ -23,8 +23,7 @@ public class TestDAOEducationTeam implements IDAOEducationTeam {
         this.educationTeams.add(new EducationTeam("MV", "Mediavormgeving"));
         
         EducationTeam firstEducationTeam = ((TreeSet<EducationTeam>) this.educationTeams).first();
-        firstEducationTeam.addCoachGroup(new CoachGroup("B1"));
-        firstEducationTeam.addCoachGroup(new CoachGroup("B2"));
+        firstEducationTeam.addCoachGroup(TestDAOCoachGroup.getInstance().readAll().last());
     }
 
     @Override

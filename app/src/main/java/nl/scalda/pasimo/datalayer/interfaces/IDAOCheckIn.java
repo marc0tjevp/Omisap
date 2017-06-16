@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.datalayer.interfaces;
 
 
+import java.util.Set;
 import java.util.TreeSet;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Person;
@@ -14,7 +15,7 @@ public interface IDAOCheckIn {
 	
     public TreeSet<CheckIn> readAllForEducationTeam(EducationTeam t);
     
-    public TreeSet<CheckIn> readAllCheckInsForTodayByPerson(Person p);
+    public Set<CheckIn> readAllCheckInsForTodayByPerson(Person p);
     
     public TreeSet<CheckIn> getCheckInsByCardId(String cardID);
 

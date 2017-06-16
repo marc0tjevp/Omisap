@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Set;
 
 import nl.scalda.pasimo.datalayer.factory.DAOFactory;
+import nl.scalda.pasimo.datalayer.factory.MySQLDAOFactory;
+import nl.scalda.pasimo.datalayer.factory.TestDAOFactory;
 import nl.scalda.pasimo.datalayer.mysqldao.MYSQLDAOEducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.EducationTeam;
 import nl.scalda.pasimo.model.employeemanagement.Teacher;
@@ -14,7 +16,9 @@ public class EducationTeamService {
 	private Set<EducationTeam> educationTeams;
 	
 	public EducationTeamService(){
+		DAOFactory.setTheFactory(TestDAOFactory.getInstance());
 		educationTeams = DAOFactory.getTheFactory().getDAOEducationTeam().readAll();
+		DAOFactory.setTheFactory(MySQLDAOFactory.getInstance());
 	}
 
     /**
