@@ -197,15 +197,16 @@ public abstract class Person implements Comparable<Person>, Serializable {
     }
     
 
-//    public boolean isAvailable(){
-//    	if(DAOFactory.getTheFactory().getDAOCheckIn().readAll().size()){
-//    		
-//    	}else{
-//    		
-//    	}
-//		return false;
-//    }
-
+    public boolean isAvailable(){
+    	if(DAOFactory.getTheFactory().getTestDAOCheckIn().readAll().size()){
+    		
+    	}else{
+    	CheckIn checkin;
+		checkin.setIsCheckIn(true);
+    	}
+		return false;
+    }
+    
 //  if((checkInWithCardID.size()%2) != 1){
 //  checkin.setIsCheckIn(false);
 //}else{

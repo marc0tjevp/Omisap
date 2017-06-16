@@ -8,6 +8,7 @@ import nl.scalda.pasimo.model.employeemanagement.Person;
 import nl.scalda.pasimo.model.presenceregistration.CheckIn;
 
 public interface IDAOCheckIn {
+	
 
 	public TreeSet<CheckIn> readAll();
 	public CheckIn read(int id);

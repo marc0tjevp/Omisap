@@ -1,6 +1,7 @@
 package nl.scalda.pasimo.model.presenceregistration;
 
 import java.util.GregorianCalendar;
+import java.util.List;
 
 
 public class CheckIn implements Comparable<CheckIn> {
@@ -49,6 +50,8 @@ public class CheckIn implements Comparable<CheckIn> {
 	public int compareTo(CheckIn o) {
 		return this.date.compareTo(o.getDate());
 	}
+	
+	List check = new TreeSet();
 
 	
 }
