@@ -67,15 +67,23 @@ public class TimeController extends ActionSupport {
 	}
 
 	public String execute() {
-		getWorkweeks();
-		ww = workweeks.first();
-		System.out.println(ww);
-		ww.getWorkingdays();
-		System.out.println(w);
-		 w.getWorkblocks();
-		 System.out.println(wb);
-		return SUCCESS;
-	}
+        getWorkweeks();
+        ww = workweeks.first();
+        System.out.println(ww);
+        for(WorkingDay w : ww.getWorkingdays()){
+           System.out.println("HIER");
+            System.out.println(w);
+        for(WorkBlock wb : w.getWorkblocks()){
+             
+             System.out.println(wb);
+        } 
+    }
+        ww.getWorkingdays();
+        System.out.println(w);
+         w.getWorkblocks();
+         System.out.println(wb);
+        return SUCCESS;
+    }
 
 	public String createWorkBlock(WorkBlock workblock) {
 		workblock.setId(0);

@@ -25,31 +25,14 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 	private SessionFactory factory;
 	private static MYSQLDAOWorkWeek instance = null;
 	private TreeSet<WorkWeek> workweeks = new TreeSet<>();
-	private TreeSet<WorkingDay> workingdays = new TreeSet<>();
-	private TreeSet<WorkBlock> workblocks = new TreeSet<>();
-
+WorkingDay w = new WorkingDay();
+WorkBlock wb = new WorkBlock();
 	public TreeSet<WorkWeek> getWorkweeks() {
 		return workweeks;
 	}
 
 	public void setWorkweeks(TreeSet<WorkWeek> workweeks) {
 		this.workweeks = workweeks;
-	}
-
-	public TreeSet<WorkingDay> getWorkingdays() {
-		return workingdays;
-	}
-
-	public void setWorkingdays(TreeSet<WorkingDay> workingdays) {
-		this.workingdays = workingdays;
-	}
-
-	public TreeSet<WorkBlock> getWorkblocks() {
-		return workblocks;
-	}
-
-	public void setWorkblocks(TreeSet<WorkBlock> workblocks) {
-		this.workblocks = workblocks;
 	}
 
 	public MYSQLDAOWorkWeek() {
@@ -99,7 +82,7 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 					Object[] ob = (Object[]) it.next();
 					WorkingDay workingday = new WorkingDay(Integer.parseInt(String.valueOf(ob[1])),
 							String.valueOf(ob[2]));
-					workingdays.add(workingday);
+					workweek.getWorkingdays().add(workingday);
 					for (Iterator i = weekList.iterator(); i.hasNext();) {
 						Object[] obj = (Object[]) i.next();
 
@@ -112,7 +95,7 @@ public class MYSQLDAOWorkWeek implements IDAOWorkWeek {
 						SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 
 						WorkBlock workblock = new WorkBlock(Integer.parseInt(String.valueOf(obj[4])), pt, pt1);
-						workblocks.add(workblock);
+						  workingday.getWorkblocks().add(workblock);
 					}
 
 				}
