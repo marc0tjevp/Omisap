@@ -1,3 +1,4 @@
+
 package nl.scalda.pasimo.main;
 
 import java.util.TreeSet;
@@ -23,4 +24,3 @@ DAOFactory.getTheFactory().getDAOWorkWeek().readAll();
 }
 
 
-

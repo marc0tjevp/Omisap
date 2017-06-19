@@ -246,6 +246,4 @@ public class MYSQLDAOCoachGroup implements IDAOCoachGroup {
 		}
 		return instance;
 	}
-
-	
 }
