@@ -78,10 +78,7 @@ public class TimeController extends ActionSupport {
              System.out.println(wb);
         } 
     }
-        ww.getWorkingdays();
-        System.out.println(w);
-         w.getWorkblocks();
-         System.out.println(wb);
+
         return SUCCESS;
     }
 
