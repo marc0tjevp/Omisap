@@ -93,7 +93,7 @@ WorkBlock wb = new WorkBlock();
 						Time dateString1 = (Time) obj[6];
 						pt1.setTimeInMillis(dateString1.getTime());
 						SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-
+						System .out.println("Pils");
 						WorkBlock workblock = new WorkBlock(Integer.parseInt(String.valueOf(obj[4])), pt, pt1);
 						  workingday.getWorkblocks().add(workblock);
 					}
